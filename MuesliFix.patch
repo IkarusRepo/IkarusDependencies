@@ -1,0 +1,134 @@
+diff -ruN a/CMakeLists.txt b/CMakeLists.txt
+--- a/CMakeLists.txt  2021-05-25 08:29:47.766456100 +0200
++++ b/CMakeLists.txt  2021-05-25 08:52:05.664276600 +0200
+@@ -29,33 +29,33 @@
+ include_directories ( "." )
+
+ file(GLOB SRC_FILES
+-    "*.cpp"
+-    "Damage/*.cpp"
+-    "Failure/*.cpp"
+-    "Fcoupled/*.cpp"
+-    "Finitestrain/*.cpp"
+-    "Fluid/*.cpp"
+-    "Interface/*.cpp"
+-    "Math/*.cpp"
+-    "Scoupled/*.cpp"
+-    "Smallstrain/*.cpp"
+-    "Thermal/*.cpp"
+-    "Utils/*.cpp"
++    "muesli/*.cpp"
++    "muesli/Damage/*.cpp"
++    "muesli/Failure/*.cpp"
++    "muesli/Fcoupled/*.cpp"
++    "muesli/Finitestrain/*.cpp"
++    "muesli/Fluid/*.cpp"
++    "muesli/Interface/*.cpp"
++    "muesli/Math/*.cpp"
++    "muesli/Scoupled/*.cpp"
++    "muesli/Smallstrain/*.cpp"
++    "muesli/Thermal/*.cpp"
++    "muesli/Utils/*.cpp"
+ )
+
+ file(GLOB HEADER_FILES
+-    "*.h"
+-    "Damage/*.h"
+-    "Failure/*.h"
+-    "Fcoupled/*.h"
+-    "Finitestrain/*.h"
+-    "Fluid/*.h"
+-    "Interface/*.h"
+-    "Math/*.h"
+-    "Scoupled/*.h"
+-    "Smallstrain/*.h"
+-    "Thermal/*.h"
+-    "Utils/*.h"
++    "muesli/*.h"
++    "muesli/Damage/*.h"
++    "muesli/Failure/*.h"
++    "muesli/Fcoupled/*.h"
++    "muesli/Finitestrain/*.h"
++    "muesli/Fluid/*.h"
++    "muesli/Interface/*.h"
++    "muesli/Math/*.h"
++    "muesli/Scoupled/*.h"
++    "muesli/Smallstrain/*.h"
++    "muesli/Thermal/*.h"
++    "muesli/Utils/*.h"
+ )
+
+ add_library( muesli ${SRC_FILES} ${HEADER_FILES} )
+@@ -71,8 +71,38 @@
+       message("Do not install not Release versions")
+     endif()
+ else()
+-    message("Install on Windows not supported yet. (TODO)")
++        install(TARGETS muesli EXPORT muesli-targets
++            LIBRARY DESTINATION lib
++            ARCHIVE DESTINATION lib
++            )
++
++        install(FILES ${HEADER_FILES}
++            DESTINATION include/muesli)
++        install(EXPORT muesli-targets
++                FILE MuesliTargets.cmake
++                DESTINATION lib/cmake/Muesli)
++
++        include(CMakePackageConfigHelpers)
++# generate the config file that is includes the exports
++configure_package_config_file(${CMAKE_CURRENT_SOURCE_DIR}/Config.cmake.in
++  "${CMAKE_CURRENT_BINARY_DIR}/MuesliConfig.cmake"
++  INSTALL_DESTINATION "lib/cmake/example"
++  NO_SET_AND_CHECK_MACRO
++  NO_CHECK_REQUIRED_COMPONENTS_MACRO
++  )
++# generate the version file for the config file
++write_basic_package_version_file(
++  "${CMAKE_CURRENT_BINARY_DIR}/MuesliConfigVersion.cmake"
++  VERSION "${muesli_VERSION_MAJOR}.${muesli_VERSION_MINOR}"
++  COMPATIBILITY AnyNewerVersion
++)
++
++# install the configuration file
++install(FILES
++  ${CMAKE_CURRENT_BINARY_DIR}/MuesliConfig.cmake
++  DESTINATION lib/cmake/Muesli
++  )
+ endif()
+
+-add_executable( test_muesli Test/test.cpp )
+-target_link_libraries ( test_muesli muesli )
++# add_executable( test_muesli Test/test.cpp )
++# target_link_libraries ( test_muesli muesli )
+diff -ruN a/muesli/Fcoupled/fthermomechmass.cpp b/muesli/Fcoupled/fthermomechmass.cpp
+--- a/muesli/Fcoupled/fthermomechmass.cpp 2021-05-25 08:29:49.030639300 +0200
++++ b/muesli/Fcoupled/fthermomechmass.cpp 2021-05-25 08:53:18.673950500 +0200
+
+@@ -1023,6 +1023,7 @@
+     theFSMP->updateCurrentState(theTime, F);
+
+     c_c = theAnandMaterial.fconcentration(J_c, temp_c, mu_c);
++    using std::isnan;
+     if (isnan(c_c))
+         c_c = theAnandMaterial.fconcentration(J_c, temp_c, mu_c);
+ }
+diff -ruN a/muesli/Utils/utils.cpp b/muesli/Utils/utils.cpp
+--- a/muesli/Utils/utils.cpp  2021-05-25 08:29:48.612549400 +0200
++++ b/muesli/Utils/utils.cpp  2021-05-25 10:01:03.793766800 +0200
+@@ -25,6 +25,7 @@
+ ****************************************************************************/
+
+ #include "utils.h"
++#include <time.h>
+
+
+ namespace muesli
+diff -ruN a/Config.cmake.in b/Config.cmake.in
+--- a/Config.cmake.in  1970-01-01 01:00:00.000000000 +0100
++++ b/Config.cmake.in  2021-05-25 10:34:38.580380100 +0200
+@@ -0,0 +1,3 @@
++@PACKAGE_INIT@
++
++include ( "${CMAKE_CURRENT_LIST_DIR}/MuesliTargets.cmake" )
+\ No newline at end of file
