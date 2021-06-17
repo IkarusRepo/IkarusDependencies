@@ -45,15 +45,15 @@ include(CPM.cmake)
 #   GIT_TAG v1.1.0
 # )
 
-ExternalProject_Add(matplotplusplus
-        GIT_REPOSITORY https://github.com/alandefreitas/matplotplusplus.git
-        GIT_TAG master
-        GIT_PROGRESS TRUE
-        INSTALL_DIR    ${installDir}
-        CMAKE_ARGS     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR> -DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF
-        # DEPENDS lapack
-        # BUILD_COMMAND  ${CMAKE_COMMAND} --build . --config ${CMAKE_BUILD_TYPE}  --target matplot
-        )
+# ExternalProject_Add(matplotplusplus
+#        GIT_REPOSITORY https://github.com/alandefreitas/matplotplusplus.git
+#        GIT_TAG master
+#        GIT_PROGRESS TRUE
+#        INSTALL_DIR    ${installDir}
+#       CMAKE_ARGS     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR> -DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF
+#       # DEPENDS lapack
+#       # BUILD_COMMAND  ${CMAKE_COMMAND} --build . --config ${CMAKE_BUILD_TYPE}  --target matplot
+#       )
 
 
 
