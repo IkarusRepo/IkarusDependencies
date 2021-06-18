@@ -1,0 +1,15 @@
+prefix=C:/Users/Alex/Documents/Ikarus_Dependencies/cmake-build-release/../Dependencies_release
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+CXX=D:/winlibs_gcc11/mingw64/bin/g++.exe 
+CC=D:/winlibs_gcc11/mingw64/bin/gcc.exe
+DEPENDENCIES=
+
+Name: dune-geometry
+Version: 2.7.1
+Description: DUNE (Distributed and Unified Numerics Environment) geometry module
+URL: http://dune-project.org/
+Requires: ${DEPENDENCIES}
+Libs: -L${libdir} -ldunegeometry
+Cflags: -I${includedir}
