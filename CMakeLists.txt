@@ -148,6 +148,17 @@ ExternalProject_Add(muesli
         DEPENDS eigen
         PATCH_COMMAND patch -p1 -N -i ${PROJECT_SOURCE_DIR}/MuesliFix.patch
         )
+        
+        
+ExternalProject_Add(autodiff
+        GIT_REPOSITORY https://github.com/autodiff/autodiff.git
+        GIT_SHALLOW TRUE
+        GIT_PROGRESS TRUE
+        INSTALL_DIR    ${installDir}
+        CMAKE_ARGS     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR> ${CL_ARGS} -DAUTODIFF_BUILD_PYTHON=0 -DAUTODIFF_BUILD_EXAMPLES=0 -DAUTODIFF_BUILD_DOCS=0 -DAUTODIFF_BUILD_TESTS=0
+        DEPENDS eigen
+        BUILD_COMMAND ""
+        )
 
 ExternalProject_Add(pybind11
         GIT_REPOSITORY https://github.com/pybind/pybind11.git
