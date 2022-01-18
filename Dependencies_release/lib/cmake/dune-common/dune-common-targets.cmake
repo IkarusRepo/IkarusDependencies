@@ -4,7 +4,7 @@ if("${CMAKE_MAJOR_VERSION}.${CMAKE_MINOR_VERSION}" LESS 2.5)
    message(FATAL_ERROR "CMake >= 2.6.0 required")
 endif()
 cmake_policy(PUSH)
-cmake_policy(VERSION 2.6...3.17)
+cmake_policy(VERSION 2.6...3.18)
 #----------------------------------------------------------------
 # Generated CMake target import file.
 #----------------------------------------------------------------
@@ -55,7 +55,7 @@ add_library(dunecommon STATIC IMPORTED)
 
 set_target_properties(dunecommon PROPERTIES
   INTERFACE_COMPILE_DEFINITIONS "ENABLE_TBB=1;_TBB_CPP0X"
-  INTERFACE_LINK_LIBRARIES "${_IMPORT_PREFIX}/lib/liblapack.a;${_IMPORT_PREFIX}/lib/libblas.a"
+  INTERFACE_LINK_LIBRARIES "C:/Users/Alex/Documents/Ikarus_Dependencies/Dependencies_release/lib/liblapack.a;C:/Users/Alex/Documents/Ikarus_Dependencies/Dependencies_release/lib/libblas.a"
 )
 
 if(CMAKE_VERSION VERSION_LESS 2.8.12)

@@ -20,6 +20,7 @@ Adds the following functions::
 #]======================================================]
 
 # CMake 3.10 has an include_guard command, but we can't use that yet
+# include_guard(global) (pre-CMake 3.10)
 if(TARGET pybind11::lto)
   return()
 endif()
@@ -302,23 +303,36 @@ function(_pybind11_return_if_cxx_and_linker_flags_work result cxxflags linkerfla
 endfunction()
 
 function(_pybind11_generate_lto target prefer_thin_lto)
+  if(MINGW)
+    message(STATUS "${target} disabled (problems with undefined symbols for MinGW for now)")
+    return()
+  endif()
+
   if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
     set(cxx_append "")
     set(linker_append "")
     if(CMAKE_CXX_COMPILER_ID MATCHES "Clang" AND NOT APPLE)
       # Clang Gold plugin does not support -Os; append -O3 to MinSizeRel builds to override it
       set(linker_append ";$<$<CONFIG:MinSizeRel>:-O3>")
-    elseif(CMAKE_CXX_COMPILER_ID MATCHES "GNU")
+    elseif(CMAKE_CXX_COMPILER_ID MATCHES "GNU" AND NOT MINGW)
       set(cxx_append ";-fno-fat-lto-objects")
     endif()
 
-    if(CMAKE_CXX_COMPILER_ID MATCHES "Clang" AND prefer_thin_lto)
+    if(CMAKE_SYSTEM_PROCESSOR MATCHES "ppc64le" OR CMAKE_SYSTEM_PROCESSOR MATCHES "mips64")
+      set(NO_FLTO_ARCH TRUE)
+    else()
+      set(NO_FLTO_ARCH FALSE)
+    endif()
+
+    if(CMAKE_CXX_COMPILER_ID MATCHES "Clang"
+       AND prefer_thin_lto
+       AND NOT NO_FLTO_ARCH)
       _pybind11_return_if_cxx_and_linker_flags_work(
         HAS_FLTO_THIN "-flto=thin${cxx_append}" "-flto=thin${linker_append}"
         PYBIND11_LTO_CXX_FLAGS PYBIND11_LTO_LINKER_FLAGS)
     endif()
 
-    if(NOT HAS_FLTO_THIN)
+    if(NOT HAS_FLTO_THIN AND NOT NO_FLTO_ARCH)
       _pybind11_return_if_cxx_and_linker_flags_work(
         HAS_FLTO "-flto${cxx_append}" "-flto${linker_append}" PYBIND11_LTO_CXX_FLAGS
         PYBIND11_LTO_LINKER_FLAGS)

@@ -13,7 +13,7 @@ This module sets the following variables in your project:
 ``pybind11_VERSION``
   pybind11 version in format Major.Minor.Release
 ``pybind11_VERSION_TYPE``
-  pybind11 version type (dev, release)
+  pybind11 version type (``dev*`` or empty for a release)
 ``pybind11_INCLUDE_DIRS``
   Directories where pybind11 and python headers are located.
 ``pybind11_INCLUDE_DIR``
@@ -147,7 +147,7 @@ Add a module and setup all helpers. You can select the type of the library; the
 default is ``MODULE``. There are several options:
 
 ``OPT_SIZE``
-  Optimize for size, even if the ``CMAKE_BUILD_TYPE`` is not ``RelSize``.
+  Optimize for size, even if the ``CMAKE_BUILD_TYPE`` is not ``MinSizeRel``.
 ``THIN_LTO``
   Use thin TLO instead of regular if there's a choice (pybind11's selection
   is disabled if ``CMAKE_INTERPROCEDURAL_OPTIMIZATIONS`` is set).
@@ -225,11 +225,12 @@ endmacro()
 ####################################################################################
 
 # Location of pybind11/pybind11.h
+# This will be relative unless explicitly set as absolute
 set(pybind11_INCLUDE_DIR "${PACKAGE_PREFIX_DIR}/include")
 
 set(pybind11_LIBRARY "")
 set(pybind11_DEFINITIONS USING_pybind11)
-set(pybind11_VERSION_TYPE "dev1")
+set(pybind11_VERSION_TYPE "")
 
 check_required_components(pybind11)
 
@@ -251,6 +252,6 @@ include("${CMAKE_CURRENT_LIST_DIR}/pybind11Common.cmake")
 if(NOT pybind11_FIND_QUIETLY)
   message(
     STATUS
-      "Found pybind11: ${pybind11_INCLUDE_DIR} (found version \"${pybind11_VERSION}\" ${pybind11_VERSION_TYPE})"
+      "Found pybind11: ${pybind11_INCLUDE_DIR} (found version \"${pybind11_VERSION}${pybind11_VERSION_TYPE}\")"
   )
 endif()
