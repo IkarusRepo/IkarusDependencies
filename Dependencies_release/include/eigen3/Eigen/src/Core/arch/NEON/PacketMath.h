@@ -24,10 +24,6 @@ namespace internal {
 #define EIGEN_HAS_SINGLE_INSTRUCTION_MADD
 #endif
 
-#ifndef EIGEN_HAS_SINGLE_INSTRUCTION_CJMADD
-#define EIGEN_HAS_SINGLE_INSTRUCTION_CJMADD
-#endif
-
 #ifndef EIGEN_ARCH_DEFAULT_NUMBER_OF_REGISTERS
 #if EIGEN_ARCH_ARM64
 #define EIGEN_ARCH_DEFAULT_NUMBER_OF_REGISTERS 32
@@ -36,7 +32,7 @@ namespace internal {
 #endif
 #endif
 
-#if EIGEN_COMP_MSVC
+#if EIGEN_COMP_MSVC_STRICT
 
 // In MSVC's arm_neon.h header file, all NEON vector types
 // are aliases to the same underlying type __n128.
@@ -82,7 +78,7 @@ typedef uint32x4_t                           Packet4ui;
 typedef int64x2_t                            Packet2l;
 typedef uint64x2_t                           Packet2ul;
 
-#endif // EIGEN_COMP_MSVC
+#endif // EIGEN_COMP_MSVC_STRICT
 
 EIGEN_STRONG_INLINE Packet4f shuffle1(const Packet4f& m, int mask){
   const float* a = reinterpret_cast<const float*>(&m);
@@ -159,7 +155,7 @@ EIGEN_STRONG_INLINE Packet4f vec4f_unpackhi(const Packet4f& a, const Packet4f& b
   #define EIGEN_ARM_PREFETCH(ADDR) __builtin_prefetch(ADDR);
 #elif defined __pld
   #define EIGEN_ARM_PREFETCH(ADDR) __pld(ADDR)
-#elif EIGEN_ARCH_ARM32
+#elif EIGEN_ARCH_ARM
   #define EIGEN_ARM_PREFETCH(ADDR) __asm__ __volatile__ ("pld [%[addr]]\n" :: [addr] "r" (ADDR) : );
 #else
   // by default no explicit prefetching
@@ -866,12 +862,12 @@ template<> EIGEN_STRONG_INLINE Packet2ul psub<Packet2ul>(const Packet2ul& a, con
 
 template<> EIGEN_STRONG_INLINE Packet2f pxor<Packet2f>(const Packet2f& a, const Packet2f& b);
 template<> EIGEN_STRONG_INLINE Packet2f paddsub<Packet2f>(const Packet2f& a, const Packet2f & b) {
-  Packet2f mask = {-0.0f, 0.0f};
+  Packet2f mask = {numext::bit_cast<float>(0x80000000u), 0.0f};
   return padd(a, pxor(mask, b));
 }
 template<> EIGEN_STRONG_INLINE Packet4f pxor<Packet4f>(const Packet4f& a, const Packet4f& b);
 template<> EIGEN_STRONG_INLINE Packet4f paddsub<Packet4f>(const Packet4f& a, const Packet4f& b) {
-  Packet4f mask = {-0.0f, 0.0f, -0.0f, 0.0f};
+  Packet4f mask = {numext::bit_cast<float>(0x80000000u), 0.0f, numext::bit_cast<float>(0x80000000u), 0.0f};
   return padd(a, pxor(mask, b));
 }
 
@@ -3751,7 +3747,7 @@ template<> EIGEN_STRONG_INLINE Packet2d psub<Packet2d>(const Packet2d& a, const 
 
 template<> EIGEN_STRONG_INLINE Packet2d pxor<Packet2d>(const Packet2d& , const Packet2d& );
 template<> EIGEN_STRONG_INLINE Packet2d paddsub<Packet2d>(const Packet2d& a, const Packet2d& b){
-  const Packet2d mask = {-0.0,0.0};
+  const Packet2d mask = {numext::bit_cast<double>(0x8000000000000000ull),0.0};
   return padd(a, pxor(mask, b));
 }
 
@@ -3921,8 +3917,6 @@ template<> EIGEN_STRONG_INLINE Packet2d prsqrt(const Packet2d& a) {
 }
 
 template<> EIGEN_STRONG_INLINE Packet2d psqrt(const Packet2d& _x){ return vsqrtq_f64(_x); }
-
-#endif // EIGEN_ARCH_ARM64
 
 // Do we have an fp16 types and supporting Neon intrinsics?
 #if EIGEN_HAS_ARM64_FP16_VECTOR_ARITHMETIC
@@ -4583,6 +4577,8 @@ EIGEN_DEVICE_FUNC EIGEN_STRONG_INLINE void ptranspose(PacketBlock<Packet8hf, 8>&
   kernel.packet[7] = T_3[3].val[1];
 }
 #endif // end EIGEN_HAS_ARM64_FP16_VECTOR_ARITHMETIC
+
+#endif // EIGEN_ARCH_ARM64
 
 } // end namespace internal
 

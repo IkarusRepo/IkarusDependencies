@@ -97,7 +97,9 @@ template<> EIGEN_STRONG_INLINE Packet8cf ploadu<Packet8cf>(const std::complex<fl
 
 template<> EIGEN_STRONG_INLINE Packet8cf pset1<Packet8cf>(const std::complex<float>& from)
 {
-  return Packet8cf(_mm512_castpd_ps(pload1<Packet8d>((const double*)(const void*)&from)));
+  const float re = std::real(from);
+  const float im = std::imag(from);
+  return Packet8cf(_mm512_set_ps(im, re, im, re, im, re, im, re, im, re, im, re, im, re, im, re));
 }
 
 template<> EIGEN_STRONG_INLINE Packet8cf ploaddup<Packet8cf>(const std::complex<float>* from)
@@ -152,39 +154,6 @@ EIGEN_STRONG_INLINE Packet4cf predux_half_dowto4<Packet8cf>(const Packet8cf& a) 
   __m256 res = _mm256_add_ps(lane0, lane1);
   return Packet4cf(res);
 }
-
-template<> struct conj_helper<Packet8cf, Packet8cf, false,true>
-{
-  EIGEN_STRONG_INLINE Packet8cf pmadd(const Packet8cf& x, const Packet8cf& y, const Packet8cf& c) const
-  { return padd(pmul(x,y),c); }
-
-  EIGEN_STRONG_INLINE Packet8cf pmul(const Packet8cf& a, const Packet8cf& b) const
-  {
-    return internal::pmul(a, pconj(b));
-  }
-};
-
-template<> struct conj_helper<Packet8cf, Packet8cf, true,false>
-{
-  EIGEN_STRONG_INLINE Packet8cf pmadd(const Packet8cf& x, const Packet8cf& y, const Packet8cf& c) const
-  { return padd(pmul(x,y),c); }
-
-  EIGEN_STRONG_INLINE Packet8cf pmul(const Packet8cf& a, const Packet8cf& b) const
-  {
-    return internal::pmul(pconj(a), b);
-  }
-};
-
-template<> struct conj_helper<Packet8cf, Packet8cf, true,true>
-{
-  EIGEN_STRONG_INLINE Packet8cf pmadd(const Packet8cf& x, const Packet8cf& y, const Packet8cf& c) const
-  { return padd(pmul(x,y),c); }
-
-  EIGEN_STRONG_INLINE Packet8cf pmul(const Packet8cf& a, const Packet8cf& b) const
-  {
-    return pconj(internal::pmul(a, b));
-  }
-};
 
 EIGEN_MAKE_CONJ_HELPER_CPLX_REAL(Packet8cf,Packet16f)
 

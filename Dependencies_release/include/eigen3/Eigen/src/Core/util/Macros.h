@@ -16,8 +16,8 @@
 //------------------------------------------------------------------------------------------
 
 #define EIGEN_WORLD_VERSION 3
-#define EIGEN_MAJOR_VERSION 3
-#define EIGEN_MINOR_VERSION 91
+#define EIGEN_MAJOR_VERSION 4
+#define EIGEN_MINOR_VERSION 0
 
 #define EIGEN_VERSION_AT_LEAST(x,y,z) (EIGEN_WORLD_VERSION>x || (EIGEN_WORLD_VERSION>=x && \
                                       (EIGEN_MAJOR_VERSION>y || (EIGEN_MAJOR_VERSION>=y && \
@@ -1131,7 +1131,16 @@ namespace Eigen {
       #define EIGEN_OPTIMIZATION_BARRIER(X)  __asm__  ("" : "+r,v,wa" (X));
     #elif EIGEN_ARCH_ARM_OR_ARM64
       // General, NEON.
-      #define EIGEN_OPTIMIZATION_BARRIER(X)  __asm__  ("" : "+g,w" (X));
+      // Clang doesn't like "r",
+      //    error: non-trivial scalar-to-vector conversion, possible invalid
+      //           constraint for vector type
+      // GCC < 5 doesn't like "g",
+      //    error: 'asm' operand requires impossible reload
+      #if EIGEN_COMP_GNUC_STRICT && EIGEN_GNUC_AT_MOST(5, 0)
+        #define EIGEN_OPTIMIZATION_BARRIER(X)  __asm__  ("" : "+r,w" (X));
+      #else
+        #define EIGEN_OPTIMIZATION_BARRIER(X)  __asm__  ("" : "+g,w" (X));
+      #endif
     #elif EIGEN_ARCH_i386_OR_x86_64
       // General, SSE.
       #define EIGEN_OPTIMIZATION_BARRIER(X)  __asm__  ("" : "+g,x" (X));
@@ -1185,8 +1194,12 @@ namespace Eigen {
   #define EIGEN_USING_STD(FUNC) using std::FUNC;
 #endif
 
-#if EIGEN_COMP_MSVC_STRICT && (EIGEN_COMP_MSVC < 1900 || EIGEN_COMP_NVCC)
-  // for older MSVC versions, as well as 1900 && CUDA 8, using the base operator is sufficient (cf Bugs 1000, 1324)
+#if EIGEN_COMP_MSVC_STRICT && (EIGEN_COMP_MSVC < 1900 || (EIGEN_COMP_MSVC == 1900 && EIGEN_COMP_NVCC))
+  // For older MSVC versions, as well as 1900 && CUDA 8, using the base operator is necessary,
+  //   otherwise we get duplicate definition errors
+  // For later MSVC versions, we require explicit operator= definition, otherwise we get
+  //   use of implicitly deleted operator errors.
+  // (cf Bugs 920, 1000, 1324, 2291)
   #define EIGEN_INHERIT_ASSIGNMENT_EQUAL_OPERATOR(Derived) \
     using Base::operator =;
 #elif EIGEN_COMP_CLANG // workaround clang bug (see http://forum.kde.org/viewtopic.php?f=74&t=102653)
@@ -1212,7 +1225,7 @@ namespace Eigen {
  * This is necessary, because the implicit definition is deprecated if the copy-assignment is overridden.
  */
 #if EIGEN_HAS_CXX11
-#define EIGEN_DEFAULT_COPY_CONSTRUCTOR(CLASS) CLASS(const CLASS&) = default;
+#define EIGEN_DEFAULT_COPY_CONSTRUCTOR(CLASS) EIGEN_DEVICE_FUNC CLASS(const CLASS&) = default;
 #else
 #define EIGEN_DEFAULT_COPY_CONSTRUCTOR(CLASS)
 #endif
@@ -1237,12 +1250,12 @@ namespace Eigen {
  */
 #if EIGEN_HAS_CXX11
 #define EIGEN_DEFAULT_EMPTY_CONSTRUCTOR_AND_DESTRUCTOR(Derived)  \
-    Derived() = default; \
-    ~Derived() = default;
+    EIGEN_DEVICE_FUNC Derived() = default; \
+    EIGEN_DEVICE_FUNC ~Derived() = default;
 #else
 #define EIGEN_DEFAULT_EMPTY_CONSTRUCTOR_AND_DESTRUCTOR(Derived)  \
-    Derived() {}; \
-    /* ~Derived() {}; */
+    EIGEN_DEVICE_FUNC Derived() {}; \
+    /* EIGEN_DEVICE_FUNC ~Derived() {}; */
 #endif
 
 

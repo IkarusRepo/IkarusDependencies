@@ -4,7 +4,7 @@ if("${CMAKE_MAJOR_VERSION}.${CMAKE_MINOR_VERSION}" LESS 2.5)
    message(FATAL_ERROR "CMake >= 2.6.0 required")
 endif()
 cmake_policy(PUSH)
-cmake_policy(VERSION 2.6...3.17)
+cmake_policy(VERSION 2.6...3.18)
 #----------------------------------------------------------------
 # Generated CMake target import file.
 #----------------------------------------------------------------
@@ -53,6 +53,10 @@ endif()
 # Create imported target Matplot++::nodesoup
 add_library(Matplot++::nodesoup STATIC IMPORTED)
 
+set_target_properties(Matplot++::nodesoup PROPERTIES
+  INTERFACE_COMPILE_FEATURES "cxx_std_17"
+)
+
 # Create imported target Matplot++::cimg
 add_library(Matplot++::cimg INTERFACE IMPORTED)
 
@@ -68,7 +72,7 @@ set_target_properties(Matplot++::matplot PROPERTIES
   INTERFACE_COMPILE_DEFINITIONS "NOMINMAX;MATPLOT_BUILD_HIGH_RESOLUTION_WORLD_MAP"
   INTERFACE_COMPILE_FEATURES "cxx_std_17"
   INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include"
-  INTERFACE_LINK_LIBRARIES "\$<LINK_ONLY:Matplot++::cimg>;\$<LINK_ONLY:Matplot++::nodesoup>;\$<LINK_ONLY:std::filesystem>"
+  INTERFACE_LINK_LIBRARIES "\$<LINK_ONLY:Matplot++::cimg>;\$<LINK_ONLY:Matplot++::nodesoup>"
 )
 
 if(CMAKE_VERSION VERSION_LESS 3.0.0)
