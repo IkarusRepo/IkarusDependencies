@@ -28,7 +28,7 @@ endif()
 
 set(CMAKE_SKIP_INSTALL_ALL_DEPENDENCY true)
 include(ExternalProject)
-message("${CL_ARGS}")
+
 ExternalProject_Add(lapack
         GIT_REPOSITORY https://github.com/Reference-LAPACK/lapack.git
         GIT_TAG v3.9.1
@@ -38,12 +38,6 @@ ExternalProject_Add(lapack
         CMAKE_ARGS     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR> ${CL_ARGS}
         )
 include(CPM.cmake)
-
-# CPMAddPackage(
-#   NAME matplotplusplus
-#   GITHUB_REPOSITORY alandefreitas/matplotplusplus
-#   GIT_TAG v1.1.0
-# )
 
 ExternalProject_Add(matplotplusplus
        GIT_REPOSITORY https://github.com/alandefreitas/matplotplusplus.git
@@ -94,14 +88,14 @@ ExternalProject_Add(suitesparse
         INSTALL_DIR    ${installDir}
         CMAKE_ARGS     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR> ${CL_ARGS} -DGKLIB_PATH=<SOURCE_DIR>/SuiteSparse/metis-5.1.0/GKlib
         DEPENDS lapack
-        PATCH_COMMAND patch -p1 -N -i ${PROJECT_SOURCE_DIR}/bugfixCompileMetisWithMinGW.patch
+        # PATCH_COMMAND patch -p1 -N -i ${PROJECT_SOURCE_DIR}/bugfixCompileMetisWithMinGW.patch
         )
 
 ExternalProject_Add(dune-common
         GIT_REPOSITORY https://github.com/dune-project/dune-common.git
         GIT_SHALLOW TRUE
         GIT_PROGRESS TRUE
-        GIT_TAG releases/2.7
+        GIT_TAG releases/2.8
         INSTALL_DIR    ${installDir}
         DEPENDS suitesparse lapack
         CMAKE_ARGS     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR> ${CL_ARGS}
@@ -110,7 +104,7 @@ ExternalProject_Add(dune-common
 
 ExternalProject_Add(dune-geometry
         GIT_REPOSITORY https://github.com/dune-project/dune-geometry.git
-        GIT_TAG releases/2.7
+        GIT_TAG releases/2.8
         GIT_SHALLOW TRUE
         GIT_PROGRESS TRUE
         INSTALL_DIR    ${installDir}
@@ -120,7 +114,7 @@ ExternalProject_Add(dune-geometry
         )
 ExternalProject_Add(dune-grid
         GIT_REPOSITORY https://gitlab.dune-project.org/core/dune-grid.git
-        GIT_TAG releases/2.7
+        GIT_TAG releases/2.8
         GIT_SHALLOW TRUE
         GIT_PROGRESS TRUE
         INSTALL_DIR    ${installDir}
@@ -129,6 +123,96 @@ ExternalProject_Add(dune-grid
         BUILD_COMMAND  ${CMAKE_COMMAND} --build . --config ${CMAKE_BUILD_TYPE} --target dunegrid
         )
 
+ExternalProject_Add(dune-localfunctions
+        GIT_REPOSITORY https://gitlab.dune-project.org/core/dune-localfunctions.git
+        GIT_TAG releases/2.8
+        GIT_SHALLOW TRUE
+        GIT_PROGRESS TRUE
+        INSTALL_DIR    ${installDir}
+        DEPENDS dune-geometry dune-common
+        CMAKE_ARGS     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR> ${CL_ARGS}
+        # BUILD_COMMAND  ${CMAKE_COMMAND} --build . --config ${CMAKE_BUILD_TYPE} --target dunelocalfunctions
+        )
+
+ExternalProject_Add(dune-istl
+        GIT_REPOSITORY https://gitlab.dune-project.org/core/dune-istl.git
+        GIT_TAG releases/2.8
+        GIT_SHALLOW TRUE
+        GIT_PROGRESS TRUE
+        INSTALL_DIR    ${installDir}
+        DEPENDS dune-common
+        CMAKE_ARGS     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR> ${CL_ARGS}
+        # BUILD_COMMAND  ${CMAKE_COMMAND} --build . --config ${CMAKE_BUILD_TYPE} --target duneistl
+        )
+
+ExternalProject_Add(dune-typetree
+        GIT_REPOSITORY https://gitlab.dune-project.org/staging/dune-typetree.git
+        GIT_TAG releases/2.8
+        GIT_SHALLOW TRUE
+        GIT_PROGRESS TRUE
+        INSTALL_DIR    ${installDir}
+        DEPENDS dune-common
+        CMAKE_ARGS     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR> ${CL_ARGS}
+        # BUILD_COMMAND  ${CMAKE_COMMAND} --build . --config ${CMAKE_BUILD_TYPE} --target dunetypetree
+        )
+
+
+ExternalProject_Add(dune-functions
+        GIT_REPOSITORY https://gitlab.dune-project.org/staging/dune-functions.git
+        GIT_TAG releases/2.8
+        GIT_SHALLOW TRUE
+        GIT_PROGRESS TRUE
+        INSTALL_DIR    ${installDir}
+        DEPENDS dune-localfunctions dune-grid dune-istl dune-typetree dune-common
+        CMAKE_ARGS     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR> ${CL_ARGS}
+        # BUILD_COMMAND  ${CMAKE_COMMAND} --build . --config ${CMAKE_BUILD_TYPE} --target dunefunctions
+        )
+
+ExternalProject_Add(dune-iga
+        GIT_REPOSITORY https://github.com/rath3t/dune-iga.git
+        GIT_TAG releases/2.8
+        GIT_SHALLOW TRUE
+        GIT_PROGRESS TRUE
+        INSTALL_DIR    ${installDir}
+        DEPENDS dune-common dune-geometry dune-functions dune-typetree
+        CMAKE_ARGS     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR> ${CL_ARGS}
+        # BUILD_COMMAND  ${CMAKE_COMMAND} --build . --config ${CMAKE_BUILD_TYPE} --target duneiga
+        )
+
+ExternalProject_Add(dune-grid-glue
+        GIT_REPOSITORY https://gitlab.dune-project.org/extensions/dune-grid-glue.git
+        GIT_TAG releases/2.8
+        GIT_SHALLOW TRUE
+        GIT_PROGRESS TRUE
+        INSTALL_DIR    ${installDir}
+        DEPENDS dune-common dune-geometry  dune-grid
+        #PATCH_COMMAND patch -p1 -N -i ${PROJECT_SOURCE_DIR}/dune-grid-glue_MPI_fix.patch
+        CMAKE_ARGS     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR> ${CL_ARGS}
+        BUILD_COMMAND  ${CMAKE_COMMAND} --build . --config ${CMAKE_BUILD_TYPE} --target dunegridglue
+        )
+
+ExternalProject_Add(dune-alugrid
+        GIT_REPOSITORY https://gitlab.dune-project.org/extensions/dune-alugrid.git
+        GIT_TAG releases/2.8
+        GIT_SHALLOW TRUE
+        GIT_PROGRESS TRUE
+        INSTALL_DIR    ${installDir}
+        DEPENDS dune-common dune-geometry dune-grid
+       # PATCH_COMMAND patch -p1 -N -i ${PROJECT_SOURCE_DIR}/bugfigMinGWAluGrid.patch
+        CMAKE_ARGS     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR> ${CL_ARGS}
+        BUILD_COMMAND  ${CMAKE_COMMAND} --build . --config ${CMAKE_BUILD_TYPE} --target dunealugrid
+        )
+
+ExternalProject_Add(dune-gmsh4
+        GIT_REPOSITORY https://gitlab.mn.tu-dresden.de/iwr/dune-gmsh4.git
+        GIT_TAG master
+        GIT_SHALLOW TRUE
+        GIT_PROGRESS TRUE
+        INSTALL_DIR    ${installDir}
+        DEPENDS dune-grid dune-common dune-alugrid
+        CMAKE_ARGS     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR> ${CL_ARGS}
+        BUILD_COMMAND  ${CMAKE_COMMAND} --build . --config ${CMAKE_BUILD_TYPE} --target dunegmsh4
+        )
 
 ExternalProject_Add(eigen
         GIT_REPOSITORY https://gitlab.com/libeigen/eigen.git
