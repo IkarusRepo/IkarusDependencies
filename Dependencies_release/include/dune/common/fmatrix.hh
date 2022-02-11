@@ -264,8 +264,8 @@ namespace Dune
     }
 
     // make this thing a matrix
-    constexpr size_type mat_rows() const { return ROWS; }
-    constexpr size_type mat_cols() const { return COLS; }
+    static constexpr size_type mat_rows() { return ROWS; }
+    static constexpr size_type mat_cols() { return COLS; }
 
     row_reference mat_access ( size_type i )
     {
@@ -321,7 +321,7 @@ namespace Dune
     //===== constructors
     /** \brief Default constructor
      */
-    FieldMatrix() = default;
+    constexpr FieldMatrix() = default;
 
     /** \brief Constructor initializing the matrix from a list of vector
      */
@@ -460,19 +460,17 @@ namespace Dune
     }
 
     // make this thing a matrix
-    constexpr size_type mat_rows() const { return 1; }
-    constexpr size_type mat_cols() const { return 1; }
+    static constexpr size_type mat_rows() { return 1; }
+    static constexpr size_type mat_cols() { return 1; }
 
-    row_reference mat_access ( size_type i )
+    row_reference mat_access ([[maybe_unused]] size_type i)
     {
-      DUNE_UNUSED_PARAMETER(i);
       DUNE_ASSERT_BOUNDS(i == 0);
       return _data;
     }
 
-    const_row_reference mat_access ( size_type i ) const
+    const_row_reference mat_access ([[maybe_unused]] size_type i) const
     {
-      DUNE_UNUSED_PARAMETER(i);
       DUNE_ASSERT_BOUNDS(i == 0);
       return _data;
     }

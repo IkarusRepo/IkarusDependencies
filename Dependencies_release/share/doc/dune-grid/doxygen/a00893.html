@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: vertexorderfactory.hh File Reference</title>
+<title>dune-grid: tensorgridfactory.hh File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -70,34 +70,43 @@ $(function() {
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">vertexorderfactory.hh File Reference</div>  </div>
+<div class="title">tensorgridfactory.hh File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;algorithm&gt;</code><br />
-<code>#include &lt;cstddef&gt;</code><br />
-<code>#include &lt;functional&gt;</code><br />
+
+<p>This file provides a factory class for tensorproduct grids. This is a collection of methods to generate monotonous sequences as needed for a tensorproduct grid. Apart from easy ones for locally equidistant grids, there are also more involved methods like splitting a range according to a geometric series.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &lt;array&gt;</code><br />
+<code>#include &lt;memory&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
-<code>#include &lt;dune/geometry/referenceelements.hh&gt;</code><br />
-<code>#include &lt;dune/geometry/generalvertexorder.hh&gt;</code><br />
+<code>#include &lt;dune/common/fvector.hh&gt;</code><br />
+<code>#include &lt;<a class="el" href="a06711_source.html">dune/grid/common/gridfactory.hh</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="a00899_source.html">dune/grid/yaspgrid.hh</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="a00875_source.html">dune/grid/utility/multiindex.hh</a>&gt;</code><br />
 </div>
 <p><a href="a00893_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04134.html">Dune::VertexOrderByIdFactory&lt; IdSet, Index &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory for GeneralVertexOrder objects using an <a class="el" href="a02694.html" title="Id Set Interface.">IdSet</a>.  <a href="a04134.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04118.html">Dune::TensorGridFactory&lt; Grid &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A factory class for conveniently creating tensorproduct grids.  <a href="a04118.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04138.html">Dune::VertexOrderByIdFactory&lt; IdSet, Index &gt;::VertexOrder&lt; dim &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">type of vertex order object may depend on the dimension of the element  <a href="a04138.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04114.html">Dune::TensorGridFactoryCreator&lt; Grid &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04122.html">Dune::TensorGridFactoryCreator&lt; YaspGrid&lt; dim, TensorProductCoordinates&lt; ctype, dim &gt; &gt; &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:a00936"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00936.html">Dune</a></td></tr>
-<tr class="memdesc:a00936"><td class="mdescLeft">&#160;</td><td class="mdescRight">Include standard header files. <br /></td></tr>
+<tr class="memitem:a00940"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00940.html">Dune</a></td></tr>
+<tr class="memdesc:a00940"><td class="mdescLeft">&#160;</td><td class="mdescRight">Include standard header files. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This file provides a factory class for tensorproduct grids. This is a collection of methods to generate monotonous sequences as needed for a tensorproduct grid. Apart from easy ones for locally equidistant grids, there are also more involved methods like splitting a range according to a geometric series. </p>
+<p>The grid generation process is implemented for unstructured grids and for YaspGrid.</p>
+<dl class="section author"><dt>Author</dt><dd>Dominic Kempf </dd></dl>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1

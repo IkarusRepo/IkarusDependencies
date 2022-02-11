@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: Dune::PersistentContainerMap&lt; G, IdSet, Map &gt;::IteratorWrapper&lt; value, iterator &gt; Class Template Reference</title>
+<title>dune-grid: Dune::PersistentContainerVector&lt; G, IndexSet, Vector &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,66 +62,265 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00936.html">Dune</a></li><li class="navelem"><a class="el" href="a04102.html">PersistentContainerMap</a></li><li class="navelem"><a class="el" href="a04106.html">IteratorWrapper</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00940.html">Dune</a></li><li class="navelem"><a class="el" href="a04106.html">PersistentContainerVector</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="a04103.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::PersistentContainerMap&lt; G, IdSet, Map &gt;::IteratorWrapper&lt; value, iterator &gt; Class Template Reference</div>  </div>
+<div class="title">Dune::PersistentContainerVector&lt; G, IndexSet, Vector &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="a00878_source.html">dune/grid/utility/persistentcontainermap.hh</a>&gt;</code></p>
+<p>vector-based implementation of the <a class="el" href="a04086.html" title="A class for storing data during an adaptation cycle.">PersistentContainer</a>  
+ <a href="a04106.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="a00887_source.html">dune/grid/utility/persistentcontainervector.hh</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for Dune::PersistentContainerMap&lt; G, IdSet, Map &gt;::IteratorWrapper&lt; value, iterator &gt;:</div>
+Inheritance diagram for Dune::PersistentContainerVector&lt; G, IndexSet, Vector &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="a04105.png" border="0" usemap="#a_dune_1_1_persistent_container_map_3_01_g_00_01_id_set_00_01_map_01_4_1_1_iterator_wrapper_3_01value_00_01iterator_01_4_inherit__map" alt="Inheritance graph"/></div>
-<map name="a_dune_1_1_persistent_container_map_3_01_g_00_01_id_set_00_01_map_01_4_1_1_iterator_wrapper_3_01value_00_01iterator_01_4_inherit__map" id="a_dune_1_1_persistent_container_map_3_01_g_00_01_id_set_00_01_map_01_4_1_1_iterator_wrapper_3_01value_00_01iterator_01_4_inherit__map">
-<area shape="rect" title=" " alt="" coords="5,80,205,136"/>
-<area shape="rect" title=" " alt="" coords="74,5,137,32"/>
+<div class="center"><img src="a04105.png" border="0" usemap="#a_dune_1_1_persistent_container_vector_3_01_g_00_01_index_set_00_01_vector_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="a_dune_1_1_persistent_container_vector_3_01_g_00_01_index_set_00_01_vector_01_4_inherit__map" id="a_dune_1_1_persistent_container_vector_3_01_g_00_01_index_set_00_01_vector_01_4_inherit__map">
+<area shape="rect" title="vector&#45;based implementation of the PersistentContainer" alt="" coords="5,86,204,127"/>
+<area shape="rect" href="a04106.html" title=" " alt="" coords="475,8,697,93"/>
+<area shape="rect" href="a04106.html" title=" " alt="" coords="457,117,715,203"/>
+<area shape="rect" href="a02354.html" title=" " alt="" coords="764,30,995,71"/>
+<area shape="rect" href="a04310.html" title="Specialization of the PersistentContainer for YaspGrid." alt="" coords="765,139,994,181"/>
 </map>
 </div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a2d3c3f900bd1621cbd5b9e9b696016d0"><td class="memItemLeft" align="right" valign="top">typedef G&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04106.html#a2d3c3f900bd1621cbd5b9e9b696016d0">Grid</a></td></tr>
+<tr class="separator:a2d3c3f900bd1621cbd5b9e9b696016d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15354e12c04f170d270ee6b53f3cfd59"><td class="memItemLeft" align="right" valign="top">typedef Vector::value_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04106.html#a15354e12c04f170d270ee6b53f3cfd59">Value</a></td></tr>
+<tr class="separator:a15354e12c04f170d270ee6b53f3cfd59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14713ac39fdffada26feef81a796ea37"><td class="memItemLeft" align="right" valign="top">typedef Vector::size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04106.html#a14713ac39fdffada26feef81a796ea37">Size</a></td></tr>
+<tr class="separator:a14713ac39fdffada26feef81a796ea37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7cad909e5fa73af7945f32eb968c1a3e"><td class="memItemLeft" align="right" valign="top">typedef Vector::const_iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04106.html#a7cad909e5fa73af7945f32eb968c1a3e">ConstIterator</a></td></tr>
+<tr class="separator:a7cad909e5fa73af7945f32eb968c1a3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a523bed49e279ac3513ee6ddc54a2d85d"><td class="memItemLeft" align="right" valign="top">typedef Vector::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04106.html#a523bed49e279ac3513ee6ddc54a2d85d">Iterator</a></td></tr>
+<tr class="separator:a523bed49e279ac3513ee6ddc54a2d85d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1deac98135f655365c00d9d806073140"><td class="memItemLeft" align="right" valign="top">typedef Vector::allocator_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04106.html#a1deac98135f655365c00d9d806073140">Allocator</a></td></tr>
+<tr class="separator:a1deac98135f655365c00d9d806073140"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a47f48f9584efdbe0b5d2682e2d6abb5e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04106.html#a47f48f9584efdbe0b5d2682e2d6abb5e">IteratorWrapper</a> (const iterator &amp;it)</td></tr>
-<tr class="separator:a47f48f9584efdbe0b5d2682e2d6abb5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af379949206cbc85ec2a2d4db0c8825ba"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04106.html#af379949206cbc85ec2a2d4db0c8825ba">operator ConstWrapper</a> () const</td></tr>
-<tr class="separator:af379949206cbc85ec2a2d4db0c8825ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a05af20ba2967050e0555fb8c641909"><td class="memItemLeft" align="right" valign="top">value &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04106.html#a4a05af20ba2967050e0555fb8c641909">operator*</a> ()</td></tr>
-<tr class="separator:a4a05af20ba2967050e0555fb8c641909"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a66d1368ec1048449f7f8b3f803c3d77f"><td class="memItemLeft" align="right" valign="top">value *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04106.html#a66d1368ec1048449f7f8b3f803c3d77f">operator-&gt;</a> ()</td></tr>
-<tr class="separator:a66d1368ec1048449f7f8b3f803c3d77f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7fd7202e6b62d7a0ce001c38a89539ee"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04106.html#a7fd7202e6b62d7a0ce001c38a89539ee">operator==</a> (const <a class="el" href="a04106.html">IteratorWrapper</a> &amp;other) const</td></tr>
-<tr class="separator:a7fd7202e6b62d7a0ce001c38a89539ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9743c4d3e47da23461adaf02dcce22d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04106.html#aa9743c4d3e47da23461adaf02dcce22d">operator!=</a> (const <a class="el" href="a04106.html">IteratorWrapper</a> &amp;other) const</td></tr>
-<tr class="separator:aa9743c4d3e47da23461adaf02dcce22d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6033051a17f8b584c209afd53c6045d4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a04106.html">IteratorWrapper</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04106.html#a6033051a17f8b584c209afd53c6045d4">operator++</a> ()</td></tr>
-<tr class="separator:a6033051a17f8b584c209afd53c6045d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00c3c27ebca96585f8a8e12417592eb0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04106.html#a00c3c27ebca96585f8a8e12417592eb0">PersistentContainerVector</a> (const <a class="el" href="a02702.html">IndexSet</a> &amp;<a class="el" href="a04106.html#a8666edae866540ef98708e31d65f46fb">indexSet</a>, int codim, const <a class="el" href="a04106.html#a15354e12c04f170d270ee6b53f3cfd59">Value</a> &amp;value, const <a class="el" href="a04106.html#a1deac98135f655365c00d9d806073140">Allocator</a> &amp;allocator=<a class="el" href="a04106.html#a1deac98135f655365c00d9d806073140">Allocator</a>())</td></tr>
+<tr class="separator:a00c3c27ebca96585f8a8e12417592eb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fa074b8b0ba22c09780104437372dcb"><td class="memTemplParams" colspan="2">template&lt;class Entity &gt; </td></tr>
+<tr class="memitem:a4fa074b8b0ba22c09780104437372dcb"><td class="memTemplItemLeft" align="right" valign="top">const <a class="el" href="a04106.html#a15354e12c04f170d270ee6b53f3cfd59">Value</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a04106.html#a4fa074b8b0ba22c09780104437372dcb">operator[]</a> (const <a class="el" href="a02642.html">Entity</a> &amp;entity) const</td></tr>
+<tr class="separator:a4fa074b8b0ba22c09780104437372dcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf61fb93f8e8562782903072fde137c5"><td class="memTemplParams" colspan="2">template&lt;class Entity &gt; </td></tr>
+<tr class="memitem:adf61fb93f8e8562782903072fde137c5"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="a04106.html#a15354e12c04f170d270ee6b53f3cfd59">Value</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a04106.html#adf61fb93f8e8562782903072fde137c5">operator[]</a> (const <a class="el" href="a02642.html">Entity</a> &amp;entity)</td></tr>
+<tr class="separator:adf61fb93f8e8562782903072fde137c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24314e0d8a69035e39d7a2bc70d962bb"><td class="memTemplParams" colspan="2">template&lt;class Entity &gt; </td></tr>
+<tr class="memitem:a24314e0d8a69035e39d7a2bc70d962bb"><td class="memTemplItemLeft" align="right" valign="top">const <a class="el" href="a04106.html#a15354e12c04f170d270ee6b53f3cfd59">Value</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a04106.html#a24314e0d8a69035e39d7a2bc70d962bb">operator()</a> (const <a class="el" href="a02642.html">Entity</a> &amp;entity, int subEntity) const</td></tr>
+<tr class="separator:a24314e0d8a69035e39d7a2bc70d962bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcfb646755e1bf8b2aea50b94b845315"><td class="memTemplParams" colspan="2">template&lt;class Entity &gt; </td></tr>
+<tr class="memitem:adcfb646755e1bf8b2aea50b94b845315"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="a04106.html#a15354e12c04f170d270ee6b53f3cfd59">Value</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a04106.html#adcfb646755e1bf8b2aea50b94b845315">operator()</a> (const <a class="el" href="a02642.html">Entity</a> &amp;entity, int subEntity)</td></tr>
+<tr class="separator:adcfb646755e1bf8b2aea50b94b845315"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab94dfeda7087ea620a08c18cc97ccb8e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a04106.html#a14713ac39fdffada26feef81a796ea37">Size</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04106.html#ab94dfeda7087ea620a08c18cc97ccb8e">size</a> () const</td></tr>
+<tr class="separator:ab94dfeda7087ea620a08c18cc97ccb8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb2f01a49e86ce07699b714eb710eb51"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04106.html#acb2f01a49e86ce07699b714eb710eb51">resize</a> (const <a class="el" href="a04106.html#a15354e12c04f170d270ee6b53f3cfd59">Value</a> &amp;value=<a class="el" href="a04106.html#a15354e12c04f170d270ee6b53f3cfd59">Value</a>())</td></tr>
+<tr class="separator:acb2f01a49e86ce07699b714eb710eb51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a741863a38be8019c15ebed41e156cd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04106.html#a7a741863a38be8019c15ebed41e156cd">shrinkToFit</a> ()</td></tr>
+<tr class="separator:a7a741863a38be8019c15ebed41e156cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26802e4f08ffca05ec6f88b15387347b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04106.html#a26802e4f08ffca05ec6f88b15387347b">fill</a> (const <a class="el" href="a04106.html#a15354e12c04f170d270ee6b53f3cfd59">Value</a> &amp;value)</td></tr>
+<tr class="separator:a26802e4f08ffca05ec6f88b15387347b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abff4d3d9a5191c777ef1fa5845ff5c4d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04106.html#abff4d3d9a5191c777ef1fa5845ff5c4d">swap</a> (<a class="el" href="a04106.html">This</a> &amp;other)</td></tr>
+<tr class="separator:abff4d3d9a5191c777ef1fa5845ff5c4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5dfaf4fd76d3b91dda018bc83f422ee0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a04106.html#a7cad909e5fa73af7945f32eb968c1a3e">ConstIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04106.html#a5dfaf4fd76d3b91dda018bc83f422ee0">begin</a> () const</td></tr>
+<tr class="separator:a5dfaf4fd76d3b91dda018bc83f422ee0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02b42e068a1dad5d1349257b2643e11b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a04106.html#a523bed49e279ac3513ee6ddc54a2d85d">Iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04106.html#a02b42e068a1dad5d1349257b2643e11b">begin</a> ()</td></tr>
+<tr class="separator:a02b42e068a1dad5d1349257b2643e11b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e1db57e1292428a4addace99a6ccab1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a04106.html#a7cad909e5fa73af7945f32eb968c1a3e">ConstIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04106.html#a6e1db57e1292428a4addace99a6ccab1">end</a> () const</td></tr>
+<tr class="separator:a6e1db57e1292428a4addace99a6ccab1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8af5308467d52c9ad4faa00f8de1042b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a04106.html#a523bed49e279ac3513ee6ddc54a2d85d">Iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04106.html#a8af5308467d52c9ad4faa00f8de1042b">end</a> ()</td></tr>
+<tr class="separator:a8af5308467d52c9ad4faa00f8de1042b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8835f2051c1fe849ca0c5e1821404d9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04106.html#aa8835f2051c1fe849ca0c5e1821404d9">codimension</a> () const</td></tr>
+<tr class="separator:aa8835f2051c1fe849ca0c5e1821404d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a8666edae866540ef98708e31d65f46fb"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a02702.html">IndexSet</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04106.html#a8666edae866540ef98708e31d65f46fb">indexSet</a> () const</td></tr>
+<tr class="separator:a8666edae866540ef98708e31d65f46fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a739f5da4d6eefbdab0a7b152cac2e2e3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04106.html#a739f5da4d6eefbdab0a7b152cac2e2e3">codim_</a></td></tr>
+<tr class="separator:a739f5da4d6eefbdab0a7b152cac2e2e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bb66a14e0a32b73fe6905b70d09a120"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a02702.html">IndexSet</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04106.html#a3bb66a14e0a32b73fe6905b70d09a120">indexSet_</a></td></tr>
+<tr class="separator:a3bb66a14e0a32b73fe6905b70d09a120"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83f87b8281d28ccf5290f10756324c5a"><td class="memItemLeft" align="right" valign="top">Vector&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04106.html#a83f87b8281d28ccf5290f10756324c5a">data_</a></td></tr>
+<tr class="separator:a83f87b8281d28ccf5290f10756324c5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a47f48f9584efdbe0b5d2682e2d6abb5e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a47f48f9584efdbe0b5d2682e2d6abb5e">&#9670;&nbsp;</a></span>IteratorWrapper()</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;class G, class IndexSet, class Vector&gt;<br />
+class Dune::PersistentContainerVector&lt; G, IndexSet, Vector &gt;</h3>
+
+<p>vector-based implementation of the <a class="el" href="a04086.html" title="A class for storing data during an adaptation cycle.">PersistentContainer</a> </p>
+<p>Some grid implementations, like <a class="el" href="a04134.html" title="[ provides Dune::Grid ]">YaspGrid</a>, can provide consecutive, zero-based, persistent indices for the entire grid hierarchy. This implementation of a <a class="el" href="a04086.html" title="A class for storing data during an adaptation cycle.">PersistentContainer</a> uses such an index set and a std::vector-like container to store user data in an efficient and persistent manner.</p>
+<dl class="section note"><dt>Note</dt><dd>The persistent index set is actually allowed to be non-consecutive, i.e., some indices might not be assigned to an entity. As the result of the size method on the index set is used to allocate storage for the vector, it must be larger than the largest used index.</dd>
+<dd>
+It is sufficient if the index set provides indices to the codimension the persistent container is created for. Neither the method types() nor the method contains() need to be implemented.</dd>
+<dd>
+The persistent container is currently restricted to index sets containing a single geometry type.</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="a00903.html#_todo000032">Todo:</a></b></dt><dd>Actually, we use a mapper rather than an index set. This would automatically resolve two problems:<ul>
+<li>support multiple geometry types,</li>
+<li>the requirement to store a reference to the index set .</li>
+</ul>
+</dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">G</td><td>type of grid </td></tr>
+    <tr><td class="paramname"><a class="el" href="a02702.html" title="Index Set Interface base class.">IndexSet</a></td><td>type of persistent index set </td></tr>
+    <tr><td class="paramname">Vector</td><td>type of vector to store the data in </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a1deac98135f655365c00d9d806073140"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1deac98135f655365c00d9d806073140">&#9670;&nbsp;</a></span>Allocator</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class G , class IdSet , class Map &gt; </div>
+template&lt;class G , class IndexSet , class Vector &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Vector::allocator_type <a class="el" href="a04106.html">Dune::PersistentContainerVector</a>&lt; G, <a class="el" href="a02702.html">IndexSet</a>, Vector &gt;::<a class="el" href="a04106.html#a1deac98135f655365c00d9d806073140">Allocator</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7cad909e5fa73af7945f32eb968c1a3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7cad909e5fa73af7945f32eb968c1a3e">&#9670;&nbsp;</a></span>ConstIterator</h2>
+
+<div class="memitem">
+<div class="memproto">
 <div class="memtemplate">
-template&lt;class value , class iterator &gt; </div>
+template&lt;class G , class IndexSet , class Vector &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Vector::const_iterator <a class="el" href="a04106.html">Dune::PersistentContainerVector</a>&lt; G, <a class="el" href="a02702.html">IndexSet</a>, Vector &gt;::<a class="el" href="a04106.html#a7cad909e5fa73af7945f32eb968c1a3e">ConstIterator</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2d3c3f900bd1621cbd5b9e9b696016d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d3c3f900bd1621cbd5b9e9b696016d0">&#9670;&nbsp;</a></span>Grid</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class G , class IndexSet , class Vector &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef G <a class="el" href="a04106.html">Dune::PersistentContainerVector</a>&lt; G, <a class="el" href="a02702.html">IndexSet</a>, Vector &gt;::<a class="el" href="a04106.html#a2d3c3f900bd1621cbd5b9e9b696016d0">Grid</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a523bed49e279ac3513ee6ddc54a2d85d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a523bed49e279ac3513ee6ddc54a2d85d">&#9670;&nbsp;</a></span>Iterator</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class G , class IndexSet , class Vector &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Vector::iterator <a class="el" href="a04106.html">Dune::PersistentContainerVector</a>&lt; G, <a class="el" href="a02702.html">IndexSet</a>, Vector &gt;::<a class="el" href="a04106.html#a523bed49e279ac3513ee6ddc54a2d85d">Iterator</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a14713ac39fdffada26feef81a796ea37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14713ac39fdffada26feef81a796ea37">&#9670;&nbsp;</a></span>Size</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class G , class IndexSet , class Vector &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Vector::size_type <a class="el" href="a04106.html">Dune::PersistentContainerVector</a>&lt; G, <a class="el" href="a02702.html">IndexSet</a>, Vector &gt;::<a class="el" href="a04106.html#a14713ac39fdffada26feef81a796ea37">Size</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a15354e12c04f170d270ee6b53f3cfd59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15354e12c04f170d270ee6b53f3cfd59">&#9670;&nbsp;</a></span>Value</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class G , class IndexSet , class Vector &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Vector::value_type <a class="el" href="a04106.html">Dune::PersistentContainerVector</a>&lt; G, <a class="el" href="a02702.html">IndexSet</a>, Vector &gt;::<a class="el" href="a04106.html#a15354e12c04f170d270ee6b53f3cfd59">Value</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a00c3c27ebca96585f8a8e12417592eb0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00c3c27ebca96585f8a8e12417592eb0">&#9670;&nbsp;</a></span>PersistentContainerVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class G , class IndexSet , class Vector &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a04102.html">Dune::PersistentContainerMap</a>&lt; G, <a class="el" href="a02694.html">IdSet</a>, Map &gt;::<a class="el" href="a04106.html">IteratorWrapper</a>&lt; value, iterator &gt;::<a class="el" href="a04106.html">IteratorWrapper</a> </td>
+          <td class="memname"><a class="el" href="a04106.html">Dune::PersistentContainerVector</a>&lt; G, <a class="el" href="a02702.html">IndexSet</a>, Vector &gt;::<a class="el" href="a04106.html">PersistentContainerVector</a> </td>
           <td>(</td>
-          <td class="paramtype">const iterator &amp;&#160;</td>
-          <td class="paramname"><em>it</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="a02702.html">IndexSet</a> &amp;&#160;</td>
+          <td class="paramname"><em>indexSet</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>codim</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a04106.html#a15354e12c04f170d270ee6b53f3cfd59">Value</a> &amp;&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a04106.html#a1deac98135f655365c00d9d806073140">Allocator</a> &amp;&#160;</td>
+          <td class="paramname"><em>allocator</em> = <code><a class="el" href="a04106.html#a1deac98135f655365c00d9d806073140">Allocator</a>()</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -134,21 +333,46 @@ template&lt;class value , class iterator &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="af379949206cbc85ec2a2d4db0c8825ba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af379949206cbc85ec2a2d4db0c8825ba">&#9670;&nbsp;</a></span>operator ConstWrapper()</h2>
+<a id="a02b42e068a1dad5d1349257b2643e11b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02b42e068a1dad5d1349257b2643e11b">&#9670;&nbsp;</a></span>begin() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class G , class IdSet , class Map &gt; </div>
-<div class="memtemplate">
-template&lt;class value , class iterator &gt; </div>
+template&lt;class G , class IndexSet , class Vector &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a04102.html">Dune::PersistentContainerMap</a>&lt; G, <a class="el" href="a02694.html">IdSet</a>, Map &gt;::<a class="el" href="a04106.html">IteratorWrapper</a>&lt; value, iterator &gt;::operator <a class="el" href="a04106.html">ConstWrapper</a> </td>
+          <td class="memname"><a class="el" href="a04106.html#a523bed49e279ac3513ee6ddc54a2d85d">Iterator</a> <a class="el" href="a04106.html">Dune::PersistentContainerVector</a>&lt; G, <a class="el" href="a02702.html">IndexSet</a>, Vector &gt;::begin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5dfaf4fd76d3b91dda018bc83f422ee0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5dfaf4fd76d3b91dda018bc83f422ee0">&#9670;&nbsp;</a></span>begin() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class G , class IndexSet , class Vector &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a04106.html#a7cad909e5fa73af7945f32eb968c1a3e">ConstIterator</a> <a class="el" href="a04106.html">Dune::PersistentContainerVector</a>&lt; G, <a class="el" href="a02702.html">IndexSet</a>, Vector &gt;::begin </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -163,53 +387,380 @@ template&lt;class value , class iterator &gt; </div>
 
 </div>
 </div>
-<a id="aa9743c4d3e47da23461adaf02dcce22d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa9743c4d3e47da23461adaf02dcce22d">&#9670;&nbsp;</a></span>operator!=()</h2>
+<a id="aa8835f2051c1fe849ca0c5e1821404d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8835f2051c1fe849ca0c5e1821404d9">&#9670;&nbsp;</a></span>codimension()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class G , class IdSet , class Map &gt; </div>
-<div class="memtemplate">
-template&lt;class value , class iterator &gt; </div>
+template&lt;class G , class IndexSet , class Vector &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="a04102.html">Dune::PersistentContainerMap</a>&lt; G, <a class="el" href="a02694.html">IdSet</a>, Map &gt;::<a class="el" href="a04106.html">IteratorWrapper</a>&lt; value, iterator &gt;::operator!= </td>
+          <td class="memname">int <a class="el" href="a04106.html">Dune::PersistentContainerVector</a>&lt; G, <a class="el" href="a02702.html">IndexSet</a>, Vector &gt;::codimension </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a04106.html">IteratorWrapper</a>&lt; value, iterator &gt; &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8af5308467d52c9ad4faa00f8de1042b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8af5308467d52c9ad4faa00f8de1042b">&#9670;&nbsp;</a></span>end() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class G , class IndexSet , class Vector &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a04106.html#a523bed49e279ac3513ee6ddc54a2d85d">Iterator</a> <a class="el" href="a04106.html">Dune::PersistentContainerVector</a>&lt; G, <a class="el" href="a02702.html">IndexSet</a>, Vector &gt;::end </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6e1db57e1292428a4addace99a6ccab1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e1db57e1292428a4addace99a6ccab1">&#9670;&nbsp;</a></span>end() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class G , class IndexSet , class Vector &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a04106.html#a7cad909e5fa73af7945f32eb968c1a3e">ConstIterator</a> <a class="el" href="a04106.html">Dune::PersistentContainerVector</a>&lt; G, <a class="el" href="a02702.html">IndexSet</a>, Vector &gt;::end </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a26802e4f08ffca05ec6f88b15387347b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26802e4f08ffca05ec6f88b15387347b">&#9670;&nbsp;</a></span>fill()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class G , class IndexSet , class Vector &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="a04106.html">Dune::PersistentContainerVector</a>&lt; G, <a class="el" href="a02702.html">IndexSet</a>, Vector &gt;::fill </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a04106.html#a15354e12c04f170d270ee6b53f3cfd59">Value</a> &amp;&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8666edae866540ef98708e31d65f46fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8666edae866540ef98708e31d65f46fb">&#9670;&nbsp;</a></span>indexSet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class G , class IndexSet , class Vector &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a02702.html">IndexSet</a>&amp; <a class="el" href="a04106.html">Dune::PersistentContainerVector</a>&lt; G, <a class="el" href="a02702.html">IndexSet</a>, Vector &gt;::indexSet </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adcfb646755e1bf8b2aea50b94b845315"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adcfb646755e1bf8b2aea50b94b845315">&#9670;&nbsp;</a></span>operator()() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class G , class IndexSet , class Vector &gt; </div>
+<div class="memtemplate">
+template&lt;class Entity &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a04106.html#a15354e12c04f170d270ee6b53f3cfd59">Value</a>&amp; <a class="el" href="a04106.html">Dune::PersistentContainerVector</a>&lt; G, <a class="el" href="a02702.html">IndexSet</a>, Vector &gt;::operator() </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a02642.html">Entity</a> &amp;&#160;</td>
+          <td class="paramname"><em>entity</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>subEntity</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a24314e0d8a69035e39d7a2bc70d962bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24314e0d8a69035e39d7a2bc70d962bb">&#9670;&nbsp;</a></span>operator()() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class G , class IndexSet , class Vector &gt; </div>
+<div class="memtemplate">
+template&lt;class Entity &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a04106.html#a15354e12c04f170d270ee6b53f3cfd59">Value</a>&amp; <a class="el" href="a04106.html">Dune::PersistentContainerVector</a>&lt; G, <a class="el" href="a02702.html">IndexSet</a>, Vector &gt;::operator() </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a02642.html">Entity</a> &amp;&#160;</td>
+          <td class="paramname"><em>entity</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>subEntity</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adf61fb93f8e8562782903072fde137c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf61fb93f8e8562782903072fde137c5">&#9670;&nbsp;</a></span>operator[]() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class G , class IndexSet , class Vector &gt; </div>
+<div class="memtemplate">
+template&lt;class Entity &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a04106.html#a15354e12c04f170d270ee6b53f3cfd59">Value</a>&amp; <a class="el" href="a04106.html">Dune::PersistentContainerVector</a>&lt; G, <a class="el" href="a02702.html">IndexSet</a>, Vector &gt;::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a02642.html">Entity</a> &amp;&#160;</td>
+          <td class="paramname"><em>entity</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4fa074b8b0ba22c09780104437372dcb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fa074b8b0ba22c09780104437372dcb">&#9670;&nbsp;</a></span>operator[]() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class G , class IndexSet , class Vector &gt; </div>
+<div class="memtemplate">
+template&lt;class Entity &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a04106.html#a15354e12c04f170d270ee6b53f3cfd59">Value</a>&amp; <a class="el" href="a04106.html">Dune::PersistentContainerVector</a>&lt; G, <a class="el" href="a02702.html">IndexSet</a>, Vector &gt;::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a02642.html">Entity</a> &amp;&#160;</td>
+          <td class="paramname"><em>entity</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acb2f01a49e86ce07699b714eb710eb51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb2f01a49e86ce07699b714eb710eb51">&#9670;&nbsp;</a></span>resize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class G , class IndexSet , class Vector &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="a04106.html">Dune::PersistentContainerVector</a>&lt; G, <a class="el" href="a02702.html">IndexSet</a>, Vector &gt;::resize </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a04106.html#a15354e12c04f170d270ee6b53f3cfd59">Value</a> &amp;&#160;</td>
+          <td class="paramname"><em>value</em> = <code><a class="el" href="a04106.html#a15354e12c04f170d270ee6b53f3cfd59">Value</a>()</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7a741863a38be8019c15ebed41e156cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a741863a38be8019c15ebed41e156cd">&#9670;&nbsp;</a></span>shrinkToFit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class G , class IndexSet , class Vector &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="a04106.html">Dune::PersistentContainerVector</a>&lt; G, <a class="el" href="a02702.html">IndexSet</a>, Vector &gt;::shrinkToFit </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab94dfeda7087ea620a08c18cc97ccb8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab94dfeda7087ea620a08c18cc97ccb8e">&#9670;&nbsp;</a></span>size()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class G , class IndexSet , class Vector &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a04106.html#a14713ac39fdffada26feef81a796ea37">Size</a> <a class="el" href="a04106.html">Dune::PersistentContainerVector</a>&lt; G, <a class="el" href="a02702.html">IndexSet</a>, Vector &gt;::size </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abff4d3d9a5191c777ef1fa5845ff5c4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abff4d3d9a5191c777ef1fa5845ff5c4d">&#9670;&nbsp;</a></span>swap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class G , class IndexSet , class Vector &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="a04106.html">Dune::PersistentContainerVector</a>&lt; G, <a class="el" href="a02702.html">IndexSet</a>, Vector &gt;::swap </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a04106.html">This</a> &amp;&#160;</td>
           <td class="paramname"><em>other</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a4a05af20ba2967050e0555fb8c641909"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4a05af20ba2967050e0555fb8c641909">&#9670;&nbsp;</a></span>operator*()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class G , class IdSet , class Map &gt; </div>
-<div class="memtemplate">
-template&lt;class value , class iterator &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">value&amp; <a class="el" href="a04102.html">Dune::PersistentContainerMap</a>&lt; G, <a class="el" href="a02694.html">IdSet</a>, Map &gt;::<a class="el" href="a04106.html">IteratorWrapper</a>&lt; value, iterator &gt;::operator* </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -222,88 +773,73 @@ template&lt;class value , class iterator &gt; </div>
 
 </div>
 </div>
-<a id="a6033051a17f8b584c209afd53c6045d4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6033051a17f8b584c209afd53c6045d4">&#9670;&nbsp;</a></span>operator++()</h2>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a739f5da4d6eefbdab0a7b152cac2e2e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a739f5da4d6eefbdab0a7b152cac2e2e3">&#9670;&nbsp;</a></span>codim_</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class G , class IdSet , class Map &gt; </div>
-<div class="memtemplate">
-template&lt;class value , class iterator &gt; </div>
+template&lt;class G , class IndexSet , class Vector &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a04106.html">IteratorWrapper</a>&amp; <a class="el" href="a04102.html">Dune::PersistentContainerMap</a>&lt; G, <a class="el" href="a02694.html">IdSet</a>, Map &gt;::<a class="el" href="a04106.html">IteratorWrapper</a>&lt; value, iterator &gt;::operator++ </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">int <a class="el" href="a04106.html">Dune::PersistentContainerVector</a>&lt; G, <a class="el" href="a02702.html">IndexSet</a>, Vector &gt;::codim_</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a66d1368ec1048449f7f8b3f803c3d77f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a66d1368ec1048449f7f8b3f803c3d77f">&#9670;&nbsp;</a></span>operator-&gt;()</h2>
+<a id="a83f87b8281d28ccf5290f10756324c5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83f87b8281d28ccf5290f10756324c5a">&#9670;&nbsp;</a></span>data_</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class G , class IdSet , class Map &gt; </div>
-<div class="memtemplate">
-template&lt;class value , class iterator &gt; </div>
+template&lt;class G , class IndexSet , class Vector &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">value* <a class="el" href="a04102.html">Dune::PersistentContainerMap</a>&lt; G, <a class="el" href="a02694.html">IdSet</a>, Map &gt;::<a class="el" href="a04106.html">IteratorWrapper</a>&lt; value, iterator &gt;::operator-&gt; </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">Vector <a class="el" href="a04106.html">Dune::PersistentContainerVector</a>&lt; G, <a class="el" href="a02702.html">IndexSet</a>, Vector &gt;::data_</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a7fd7202e6b62d7a0ce001c38a89539ee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7fd7202e6b62d7a0ce001c38a89539ee">&#9670;&nbsp;</a></span>operator==()</h2>
+<a id="a3bb66a14e0a32b73fe6905b70d09a120"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bb66a14e0a32b73fe6905b70d09a120">&#9670;&nbsp;</a></span>indexSet_</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class G , class IdSet , class Map &gt; </div>
-<div class="memtemplate">
-template&lt;class value , class iterator &gt; </div>
+template&lt;class G , class IndexSet , class Vector &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="a04102.html">Dune::PersistentContainerMap</a>&lt; G, <a class="el" href="a02694.html">IdSet</a>, Map &gt;::<a class="el" href="a04106.html">IteratorWrapper</a>&lt; value, iterator &gt;::operator== </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a04106.html">IteratorWrapper</a>&lt; value, iterator &gt; &amp;&#160;</td>
-          <td class="paramname"><em>other</em></td><td>)</td>
-          <td> const</td>
+          <td class="memname">const <a class="el" href="a02702.html">IndexSet</a>* <a class="el" href="a04106.html">Dune::PersistentContainerVector</a>&lt; G, <a class="el" href="a02702.html">IndexSet</a>, Vector &gt;::indexSet_</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -311,7 +847,7 @@ template&lt;class value , class iterator &gt; </div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="a00878_source.html">persistentcontainermap.hh</a></li>
+<li><a class="el" href="a00887_source.html">persistentcontainervector.hh</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

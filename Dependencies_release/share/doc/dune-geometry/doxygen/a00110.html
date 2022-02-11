@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-geometry: quadraturerules.hh File Reference</title>
+<title>dune-geometry: multilineargeometry.hh File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-geometry
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -68,193 +68,50 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#define-members">Macros</a> &#124;
-<a href="#enum-members">Enumerations</a>  </div>
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">quadraturerules.hh File Reference</div>  </div>
+<div class="title">multilineargeometry.hh File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;algorithm&gt;</code><br />
-<code>#include &lt;iostream&gt;</code><br />
+<div class="textblock"><code>#include &lt;cassert&gt;</code><br />
+<code>#include &lt;functional&gt;</code><br />
+<code>#include &lt;iterator&gt;</code><br />
 <code>#include &lt;limits&gt;</code><br />
-<code>#include &lt;mutex&gt;</code><br />
-<code>#include &lt;utility&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;dune/common/fmatrix.hh&gt;</code><br />
 <code>#include &lt;dune/common/fvector.hh&gt;</code><br />
-<code>#include &lt;dune/common/exceptions.hh&gt;</code><br />
-<code>#include &lt;dune/common/stdstreams.hh&gt;</code><br />
-<code>#include &lt;dune/common/stdthread.hh&gt;</code><br />
-<code>#include &lt;dune/common/visibility.hh&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00149_source.html">dune/geometry/type.hh</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00152_source.html">dune/geometry/typeindex.hh</a>&gt;</code><br />
-<code>#include &quot;quadraturerules/pointquadrature.hh&quot;</code><br />
-<code>#include &quot;quadraturerules/gauss_imp.hh&quot;</code><br />
-<code>#include &quot;quadraturerules/jacobi_1_0_imp.hh&quot;</code><br />
-<code>#include &quot;quadraturerules/jacobi_2_0_imp.hh&quot;</code><br />
-<code>#include &quot;quadraturerules/gausslobatto_imp.hh&quot;</code><br />
-<code>#include &quot;quadraturerules/tensorproductquadrature.hh&quot;</code><br />
-<code>#include &quot;quadraturerules/simplexquadrature.hh&quot;</code><br />
+<code>#include &lt;dune/common/typetraits.hh&gt;</code><br />
+<code>#include &lt;<a class="el" href="a00095_source.html">dune/geometry/affinegeometry.hh</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="a00125_source.html">dune/geometry/referenceelements.hh</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="a00152_source.html">dune/geometry/type.hh</a>&gt;</code><br />
 </div>
 <p><a href="a00110_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01069.html">Dune::QuadratureOrderOutOfRange</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exception thrown if a desired <a class="el" href="a01077.html" title="Abstract base class for quadrature rules.">QuadratureRule</a> is not available, because the requested order is to high.  <a href="a01069.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01100.html">Dune::MultiLinearGeometryTraits&lt; ct &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">default traits class for <a class="el" href="a01112.html" title="generic geometry implementation based on corner coordinates">MultiLinearGeometry</a>  <a href="a01100.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01073.html">Dune::QuadraturePoint&lt; ct, dim &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Single evaluation point in a quadrature rule.  <a href="a01073.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01104.html">Dune::MultiLinearGeometryTraits&lt; ct &gt;::CornerStorage&lt; mydim, cdim &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">template specifying the storage for the corners  <a href="a01104.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01077.html">Dune::QuadratureRule&lt; ct, dim &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abstract base class for quadrature rules.  <a href="a01077.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01108.html">Dune::MultiLinearGeometryTraits&lt; ct &gt;::hasSingleGeometryType&lt; dim &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">will there be only one geometry type for a dimension?  <a href="a01108.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01085.html">Dune::QuadratureRules&lt; ctype, dim &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A container for all quadrature rules of dimension <code>dim</code>  <a href="a01085.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01112.html">Dune::MultiLinearGeometry&lt; ct, mydim, cdim, Traits &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">generic geometry implementation based on corner coordinates  <a href="a01112.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01093.html">Dune::GaussQuadratureInitHelper&lt; ct, true &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01116.html">Dune::MultiLinearGeometry&lt; ct, mydim, cdim, Traits &gt;::JacobianInverseTransposed</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01097.html">Dune::GaussQuadratureInitHelper&lt; ct, false &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01101.html">Dune::GaussQuadratureRule1D&lt; ct &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gauss quadrature rule in 1D.  <a href="a01101.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01109.html">Dune::Jacobi1QuadratureInitHelper&lt; ct, true &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01113.html">Dune::Jacobi1QuadratureInitHelper&lt; ct, false &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01117.html">Dune::Jacobi1QuadratureRule1D&lt; ct &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Jacobi-Gauss quadrature for alpha=1, beta=0.  <a href="a01117.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01125.html">Dune::Jacobi2QuadratureInitHelper&lt; ct, true &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01129.html">Dune::Jacobi2QuadratureInitHelper&lt; ct, false &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01133.html">Dune::Jacobi2QuadratureRule1D&lt; ct &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Jacobi-Gauss quadrature for alpha=2, beta=0.  <a href="a01133.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01141.html">Dune::GaussLobattoQuadratureInitHelper&lt; ct, true &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01145.html">Dune::GaussLobattoQuadratureInitHelper&lt; ct, false &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01149.html">Dune::GaussLobattoQuadratureRule1D&lt; ct &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Jacobi-Gauss quadrature for alpha=2, beta=0.  <a href="a01149.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01157.html">Dune::PrismQuadraturePoints&lt; 3 &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01161.html">Dune::PrismQuadraturePointsSingleton&lt; dim &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Singleton holding the Prism Quadrature points.  <a href="a01161.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01165.html">Dune::PrismQuadraturePointsSingleton&lt; 3 &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Singleton holding the Prism Quadrature points.  <a href="a01165.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01173.html">Dune::PrismQuadratureRule&lt; ct, 3 &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Quadrature rules for prisms.  <a href="a01173.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01081.html">Dune::QuadratureRuleFactory&lt; ctype, dim &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory class for creation of quadrature rules, depending on <a class="el" href="a01409.html" title="Unique label for each type of entities that can occur in DUNE grids.">GeometryType</a>, order and <a class="el" href="a00180.html" title="Defines an enum for currently available quadrature rules.">QuadratureType</a>.  <a href="a01081.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01177.html">Dune::QuadratureRuleFactory&lt; ctype, 0 &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01181.html">Dune::QuadratureRuleFactory&lt; ctype, 1 &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01185.html">Dune::QuadratureRuleFactory&lt; ctype, 2 &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01189.html">Dune::QuadratureRuleFactory&lt; ctype, 3 &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01120.html">Dune::CachedMultiLinearGeometry&lt; ct, mydim, cdim, Traits &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implement a <a class="el" href="a01112.html" title="generic geometry implementation based on corner coordinates">MultiLinearGeometry</a> with additional caching.  <a href="a01120.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:a00177"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00177.html">Dune</a></td></tr>
+<tr class="memitem:a00179"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00179.html">Dune</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00180"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00180.html">Dune::QuadratureType</a></td></tr>
-<tr class="memdesc:a00180"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines an <code>enum</code> for currently available quadrature rules. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a0aeda817d7161b7c1afd8dd15ff12f17"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00110.html#a0aeda817d7161b7c1afd8dd15ff12f17">DUNE_INCLUDING_IMPLEMENTATION</a></td></tr>
-<tr class="separator:a0aeda817d7161b7c1afd8dd15ff12f17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0aeda817d7161b7c1afd8dd15ff12f17"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00110.html#a0aeda817d7161b7c1afd8dd15ff12f17">DUNE_INCLUDING_IMPLEMENTATION</a></td></tr>
-<tr class="separator:a0aeda817d7161b7c1afd8dd15ff12f17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0aeda817d7161b7c1afd8dd15ff12f17"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00110.html#a0aeda817d7161b7c1afd8dd15ff12f17">DUNE_INCLUDING_IMPLEMENTATION</a></td></tr>
-<tr class="separator:a0aeda817d7161b7c1afd8dd15ff12f17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0aeda817d7161b7c1afd8dd15ff12f17"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00110.html#a0aeda817d7161b7c1afd8dd15ff12f17">DUNE_INCLUDING_IMPLEMENTATION</a></td></tr>
-<tr class="separator:a0aeda817d7161b7c1afd8dd15ff12f17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr class="memitem:a7d0a250c55cc0a769535f8fb07731ac4"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00180.html#a7d0a250c55cc0a769535f8fb07731ac4">Dune::QuadratureType::Enum</a> { <br />
-&#160;&#160;<a class="el" href="a00180.html#a7d0a250c55cc0a769535f8fb07731ac4af3d804d5fae603020acce944c499edb4">Dune::QuadratureType::GaussLegendre</a> = 0
-, <a class="el" href="a00180.html#a7d0a250c55cc0a769535f8fb07731ac4a8ced03c4078f69e878ee4b0732ec0684">Dune::QuadratureType::GaussJacobi_1_0</a> = 1
-, <a class="el" href="a00180.html#a7d0a250c55cc0a769535f8fb07731ac4a1a200ffa5fc9534695d7c97643361521">Dune::QuadratureType::GaussJacobi_2_0</a> = 2
-, <a class="el" href="a00180.html#a7d0a250c55cc0a769535f8fb07731ac4a060454d83d08ebaa248db90cf3dff757">Dune::QuadratureType::GaussJacobi_n_0</a> = 3
-, <br />
-&#160;&#160;<a class="el" href="a00180.html#a7d0a250c55cc0a769535f8fb07731ac4a8e45d48c47bc465fc7127f37d5410e7e">Dune::QuadratureType::GaussLobatto</a> = 4
-, <a class="el" href="a00180.html#a7d0a250c55cc0a769535f8fb07731ac4a8deef24dca36adbc1426045c4567fbac">Dune::QuadratureType::size</a>
-<br />
- }</td></tr>
-<tr class="separator:a7d0a250c55cc0a769535f8fb07731ac4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Interface for quadrature points and rules </p>
-</div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a0aeda817d7161b7c1afd8dd15ff12f17"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0aeda817d7161b7c1afd8dd15ff12f17">&#9670;&nbsp;</a></span>DUNE_INCLUDING_IMPLEMENTATION <span class="overload">[1/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define DUNE_INCLUDING_IMPLEMENTATION</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a0aeda817d7161b7c1afd8dd15ff12f17"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0aeda817d7161b7c1afd8dd15ff12f17">&#9670;&nbsp;</a></span>DUNE_INCLUDING_IMPLEMENTATION <span class="overload">[2/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define DUNE_INCLUDING_IMPLEMENTATION</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a0aeda817d7161b7c1afd8dd15ff12f17"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0aeda817d7161b7c1afd8dd15ff12f17">&#9670;&nbsp;</a></span>DUNE_INCLUDING_IMPLEMENTATION <span class="overload">[3/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define DUNE_INCLUDING_IMPLEMENTATION</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a0aeda817d7161b7c1afd8dd15ff12f17"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0aeda817d7161b7c1afd8dd15ff12f17">&#9670;&nbsp;</a></span>DUNE_INCLUDING_IMPLEMENTATION <span class="overload">[4/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define DUNE_INCLUDING_IMPLEMENTATION</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

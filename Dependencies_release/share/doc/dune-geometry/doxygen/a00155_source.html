@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-geometry: typefromvertexcount.hh Source File</title>
+<title>dune-geometry: typeindex.hh Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-geometry
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,74 +62,141 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_512d9b5021fe57a3c6a2cce7e527b8fc.html">dune-geometry</a></li><li class="navelem"><a class="el" href="dir_3c9821bb20f800bda9d786759e63a3ce.html">dune</a></li><li class="navelem"><a class="el" href="dir_a97eb41766436cc33ed13691ea788661.html">geometry</a></li><li class="navelem"><a class="el" href="dir_4a15060eac32b6c386ba2593ce21d6aa.html">utility</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_512d9b5021fe57a3c6a2cce7e527b8fc.html">dune-geometry</a></li><li class="navelem"><a class="el" href="dir_3c9821bb20f800bda9d786759e63a3ce.html">dune</a></li><li class="navelem"><a class="el" href="dir_a97eb41766436cc33ed13691ea788661.html">geometry</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">typefromvertexcount.hh</div>  </div>
+<div class="title">typeindex.hh</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="a00155.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*-</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// vi: set et ts=4 sw=2 sts=2:</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifndef DUNE_GEOMETRY_TYPE_FROM_VERTEX_COUNT_HH</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define DUNE_GEOMETRY_TYPE_FROM_VERTEX_COUNT_HH</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifndef DUNE_GEOMETRY_TYPEINDEX_HH</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define DUNE_GEOMETRY_TYPEINDEX_HH</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00149.html">dune/geometry/type.hh</a>&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00177.html">Dune</a> {</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  <span class="keyword">inline</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="a00177.html#a46da773c6f7d01077322c1064037e52f">   15</a></span>&#160;  <a class="code" href="a01409.html">GeometryType</a> <a class="code" href="a00177.html#a46da773c6f7d01077322c1064037e52f">geometryTypeFromVertexCount</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> dim, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> vertices)</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  {</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordflow">switch</span> (dim)</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    {</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;      <span class="keywordflow">case</span> 0 :</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="a00167.html#gaf2743d5db7eefabc2985433c8f914c15">GeometryTypes::vertex</a>;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;      <span class="keywordflow">case</span> 1 :</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="a00167.html#ga3ee4078a6c034ce7e50a4ff883f89d4e">GeometryTypes::line</a>;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;      <span class="keywordflow">case</span> 2 :</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordflow">switch</span> (vertices) {</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;          <span class="keywordflow">case</span> 3 :</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="a00167.html#gaafd50fe91cdf2cb1cccb278f8b5b6d81">GeometryTypes::triangle</a>;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;          <span class="keywordflow">case</span> 4 :</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="a00167.html#gac309764b40b9a20343b2f82ed3a67c23">GeometryTypes::quadrilateral</a>;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;          default :</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            DUNE_THROW(NotImplemented, <span class="stringliteral">&quot;2d elements with &quot;</span> &lt;&lt; vertices &lt;&lt; <span class="stringliteral">&quot; corners are not supported!&quot;</span>);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        }</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;      <span class="keywordflow">case</span> 3 :</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordflow">switch</span> (vertices) {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;          <span class="keywordflow">case</span> 4 :</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="a00167.html#gad9b0d80e12095c2d179bed6790ad4613">GeometryTypes::tetrahedron</a>;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;          <span class="keywordflow">case</span> 5 :</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="a00167.html#gad5eac9a7bf89419e02aaedc2ab43d3a0">GeometryTypes::pyramid</a>;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;          <span class="keywordflow">case</span> 6 :</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="a00167.html#ga5ec5d4a104316a5160fe2a9157f30529">GeometryTypes::prism</a>;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;          <span class="keywordflow">case</span> 8 :</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="a00167.html#gac55d64235c37884a8ca160ee4556294e">GeometryTypes::hexahedron</a>;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;          default :</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            DUNE_THROW(NotImplemented, <span class="stringliteral">&quot;3d elements with &quot;</span> &lt;&lt; vertices &lt;&lt; <span class="stringliteral">&quot; corners are not supported!&quot;</span>);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        }</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;      default :</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        DUNE_THROW(NotImplemented, <span class="stringliteral">&quot;geometryTypeFromVertexCount works only up to dim=3&quot;</span>);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    }</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  }</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// DUNE_GEOMETRY_TYPE_FROM_VERTEX_COUNT_HH</span></div>
-<div class="ttc" id="aa00149_html"><div class="ttname"><a href="a00149.html">type.hh</a></div><div class="ttdoc">A unique label for each type of element that can occur in a grid.</div></div>
-<div class="ttc" id="aa00167_html_ga3ee4078a6c034ce7e50a4ff883f89d4e"><div class="ttname"><a href="a00167.html#ga3ee4078a6c034ce7e50a4ff883f89d4e">Dune::GeometryTypes::line</a></div><div class="ttdeci">constexpr GeometryType line</div><div class="ttdoc">GeometryType representing a line.</div><div class="ttdef"><b>Definition:</b> type.hh:803</div></div>
-<div class="ttc" id="aa00167_html_ga5ec5d4a104316a5160fe2a9157f30529"><div class="ttname"><a href="a00167.html#ga5ec5d4a104316a5160fe2a9157f30529">Dune::GeometryTypes::prism</a></div><div class="ttdeci">constexpr GeometryType prism</div><div class="ttdoc">GeometryType representing a 3D prism.</div><div class="ttdef"><b>Definition:</b> type.hh:833</div></div>
-<div class="ttc" id="aa00167_html_gaafd50fe91cdf2cb1cccb278f8b5b6d81"><div class="ttname"><a href="a00167.html#gaafd50fe91cdf2cb1cccb278f8b5b6d81">Dune::GeometryTypes::triangle</a></div><div class="ttdeci">constexpr GeometryType triangle</div><div class="ttdoc">GeometryType representing a triangle.</div><div class="ttdef"><b>Definition:</b> type.hh:809</div></div>
-<div class="ttc" id="aa00167_html_gac309764b40b9a20343b2f82ed3a67c23"><div class="ttname"><a href="a00167.html#gac309764b40b9a20343b2f82ed3a67c23">Dune::GeometryTypes::quadrilateral</a></div><div class="ttdeci">constexpr GeometryType quadrilateral</div><div class="ttdoc">GeometryType representing a quadrilateral (a square).</div><div class="ttdef"><b>Definition:</b> type.hh:815</div></div>
-<div class="ttc" id="aa00167_html_gac55d64235c37884a8ca160ee4556294e"><div class="ttname"><a href="a00167.html#gac55d64235c37884a8ca160ee4556294e">Dune::GeometryTypes::hexahedron</a></div><div class="ttdeci">constexpr GeometryType hexahedron</div><div class="ttdoc">GeometryType representing a hexahedron.</div><div class="ttdef"><b>Definition:</b> type.hh:839</div></div>
-<div class="ttc" id="aa00167_html_gad5eac9a7bf89419e02aaedc2ab43d3a0"><div class="ttname"><a href="a00167.html#gad5eac9a7bf89419e02aaedc2ab43d3a0">Dune::GeometryTypes::pyramid</a></div><div class="ttdeci">constexpr GeometryType pyramid</div><div class="ttdoc">GeometryType representing a 3D pyramid.</div><div class="ttdef"><b>Definition:</b> type.hh:827</div></div>
-<div class="ttc" id="aa00167_html_gad9b0d80e12095c2d179bed6790ad4613"><div class="ttname"><a href="a00167.html#gad9b0d80e12095c2d179bed6790ad4613">Dune::GeometryTypes::tetrahedron</a></div><div class="ttdeci">constexpr GeometryType tetrahedron</div><div class="ttdoc">GeometryType representing a tetrahedron.</div><div class="ttdef"><b>Definition:</b> type.hh:821</div></div>
-<div class="ttc" id="aa00167_html_gaf2743d5db7eefabc2985433c8f914c15"><div class="ttname"><a href="a00167.html#gaf2743d5db7eefabc2985433c8f914c15">Dune::GeometryTypes::vertex</a></div><div class="ttdeci">constexpr GeometryType vertex</div><div class="ttdoc">GeometryType representing a vertex.</div><div class="ttdef"><b>Definition:</b> type.hh:797</div></div>
-<div class="ttc" id="aa00177_html"><div class="ttname"><a href="a00177.html">Dune</a></div><div class="ttdef"><b>Definition:</b> affinegeometry.hh:19</div></div>
-<div class="ttc" id="aa00177_html_a46da773c6f7d01077322c1064037e52f"><div class="ttname"><a href="a00177.html#a46da773c6f7d01077322c1064037e52f">Dune::geometryTypeFromVertexCount</a></div><div class="ttdeci">GeometryType geometryTypeFromVertexCount(unsigned int dim, unsigned int vertices)</div><div class="ttdoc">Utitlity function to construct the correct geometry type given the dimension and the number of vertic...</div><div class="ttdef"><b>Definition:</b> typefromvertexcount.hh:15</div></div>
-<div class="ttc" id="aa01409_html"><div class="ttname"><a href="a01409.html">Dune::GeometryType</a></div><div class="ttdoc">Unique label for each type of entities that can occur in DUNE grids.</div><div class="ttdef"><b>Definition:</b> type.hh:279</div></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;cstddef&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;dune/common/indices.hh&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;dune/common/hybridutilities.hh&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="a00152.html">type.hh</a>&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00179.html">Dune</a></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="a01328.html">   22</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a01328.html">LocalGeometryTypeIndex</a></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">inline</span> <span class="keyword">static</span> constexpr std::size_t regular_size(std::size_t dim)</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;      <span class="comment">// The following expression is derived from the expression for</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;      <span class="comment">// GlobalGeometryTypeIndex::regular_offset().  Subtracting</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;      <span class="comment">// regular_offset(dim+1)-regular_offset(dim) we get:</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;      <span class="comment">//</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;      <span class="comment">//   ((1 &lt;&lt; dim+1) &gt;&gt; 1) - ((1 &lt;&lt; dim) &gt;&gt; 1)</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;      <span class="comment">//</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;      <span class="comment">// We always have</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;      <span class="comment">//</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;      <span class="comment">//   dim &gt;= 0,</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;      <span class="comment">//</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      <span class="comment">// so</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      <span class="comment">//</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;      <span class="comment">//   (1 &lt;&lt; dim+1) &gt;= 2   and   (1 &lt;&lt; dim+2) % 2 == 0.</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;      <span class="comment">//</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;      <span class="comment">// So if we apply a single right-shift to that, we will never lose any</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;      <span class="comment">// set bits, thus</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;      <span class="comment">//</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;      <span class="comment">//   ((1 &lt;&lt; dim+1) &gt;&gt; 1) == (1 &lt;&lt; dim)</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;      <span class="keywordflow">return</span> (1 &lt;&lt; dim) - ((1 &lt;&lt; dim) &gt;&gt; 1);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    }</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="a01328.html#a569502a02c4636127665f10986d7d813">   59</a></span>&#160;    <span class="keyword">inline</span> <span class="keyword">static</span> constexpr std::size_t <a class="code" href="a01328.html#a569502a02c4636127665f10986d7d813">size</a>(std::size_t dim)</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;      <span class="comment">// one for &quot;none&quot;</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;      <span class="keywordflow">return</span> regular_size(dim) + 1;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    }</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="a01328.html#abe448a646f97b252203f30536a8d304f">   71</a></span>&#160;    <span class="keyword">inline</span> <span class="keyword">static</span> constexpr std::size_t <a class="code" href="a01328.html#abe448a646f97b252203f30536a8d304f">index</a>(<span class="keyword">const</span> <a class="code" href="a01316.html">GeometryType</a> &amp;gt)</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    {</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;      <span class="keywordflow">return</span> gt.<a class="code" href="a01316.html#ad3c775a48d36f776a487d1221963edba">isNone</a>() ?  regular_size(gt.<a class="code" href="a01316.html#a483aa5d1f34e386a76743d505fa01143">dim</a>()) : (gt.<a class="code" href="a01316.html#ac3ddb6f3ab2ff87d7a2366308c3143ef">id</a>() &gt;&gt; 1);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    }</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="a01328.html#aa0f493e303702cbfce6a3078483e241b">   77</a></span>&#160;    <span class="keyword">inline</span> <span class="keyword">static</span> constexpr <a class="code" href="a01316.html">GeometryType</a> <a class="code" href="a01328.html#aa0f493e303702cbfce6a3078483e241b">type</a>(std::size_t dim, std::size_t <a class="code" href="a01328.html#abe448a646f97b252203f30536a8d304f">index</a>) {</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;      <span class="keywordflow">return</span> (<a class="code" href="a01328.html#abe448a646f97b252203f30536a8d304f">index</a> == regular_size(dim)) ?</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <a class="code" href="a00169.html#gadcc2d601e9e531ffc1a5d34071b215e5">GeometryTypes::none</a>(dim) :</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="comment">// the cast to unsigned makes sure this is interpreted as the topology</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="comment">// ID constructor</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <a class="code" href="a01316.html">GeometryType</a>(<span class="keyword">static_cast&lt;</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keyword">&gt;</span>(<a class="code" href="a01328.html#abe448a646f97b252203f30536a8d304f">index</a> &lt;&lt; 1), dim);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    }</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  };</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="a01332.html">   87</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a01332.html">GlobalGeometryTypeIndex</a></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  {</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keyword">inline</span> <span class="keyword">static</span> constexpr std::size_t regular_offset(std::size_t dim)</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    {</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;      <span class="comment">// The number of regular geometry types in a given dimension is</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;      <span class="comment">// 2^(dim-1).  For dim==0 this would yield 1/2 geometry types (which is</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;      <span class="comment">// obviously bogus, dim==0 has one regular geometry type, the point).</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;      <span class="comment">// The following expression relies on 1 &gt;&gt; 1 == 0 to treat dim==0</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;      <span class="comment">// specially.</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;      <span class="keywordflow">return</span> (1 &lt;&lt; dim) &gt;&gt; 1;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    }</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="a01332.html#a5bdadff2a016fef44949107e41c25e7c">  111</a></span>&#160;    <span class="keyword">inline</span> <span class="keyword">static</span> constexpr std::size_t <a class="code" href="a01332.html#a5bdadff2a016fef44949107e41c25e7c">offset</a>(std::size_t dim)</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    {</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;      <span class="comment">// dim times &quot;none&quot;</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;      <span class="keywordflow">return</span> regular_offset(dim) + dim;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    }</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
+<div class="line"><a name="l00123"></a><span class="lineno"><a class="line" href="a01332.html#a796183678c15cd2a578a925c5bf47724">  123</a></span>&#160;    <span class="keyword">inline</span> <span class="keyword">static</span> constexpr std::size_t <a class="code" href="a01332.html#a796183678c15cd2a578a925c5bf47724">size</a>(std::size_t maxdim)</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    {</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="a01332.html#a5bdadff2a016fef44949107e41c25e7c">offset</a>(maxdim+1);</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    }</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
+<div class="line"><a name="l00136"></a><span class="lineno"><a class="line" href="a01332.html#a4b56c872618c7a6e44bd17523d31ecaa">  136</a></span>&#160;    <span class="keyword">inline</span> <span class="keyword">static</span> constexpr std::size_t <a class="code" href="a01332.html#a4b56c872618c7a6e44bd17523d31ecaa">index</a>(<span class="keyword">const</span> <a class="code" href="a01316.html">GeometryType</a> &amp;gt)</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    {</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="a01332.html#a5bdadff2a016fef44949107e41c25e7c">offset</a>(gt.<a class="code" href="a01316.html#a483aa5d1f34e386a76743d505fa01143">dim</a>()) + <a class="code" href="a01328.html#abe448a646f97b252203f30536a8d304f">LocalGeometryTypeIndex::index</a>(gt);</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    }</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;  };</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;  <span class="keyword">namespace </span>Impl {</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160; </div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <span class="comment">// Map a dynamic GeometryType to a static integral_constant&lt;GeometryType::Id, ...&gt;</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> dim, <span class="keyword">class</span> F&gt;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="keyword">static</span> <span class="keyword">auto</span> toGeometryTypeIdConstant(<span class="keyword">const</span> GeometryType&amp; gt, F&amp;&amp; f) {</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;      <span class="comment">// Transform LocalGeometryTypeIndex to GeometryType::Id</span></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;      <span class="keyword">auto</span> callWithId = [&amp;](<span class="keyword">auto</span> index) {</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        <span class="keyword">static</span> constexpr <span class="keyword">auto</span> <span class="keywordtype">id</span> = <a class="code" href="a01328.html#aa0f493e303702cbfce6a3078483e241b">LocalGeometryTypeIndex::type</a>(dim, decltype(index)::value).<a class="code" href="a01316.html#a4342859295e354389b20c6ab8d2092a2">toId</a>();</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        <span class="keywordflow">return</span> f(std::integral_constant&lt;GeometryType::Id, id&gt;{});</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;      };</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;      <span class="comment">// switchCases needs a fallback to determine the return type.</span></div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;      <span class="keyword">auto</span> fallBack = [&amp;]() { <span class="keywordflow">return</span> callWithId(Dune::Indices::_0); };</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;      <span class="comment">// Iterate over all _regular_ GeometryType indices for given dimension</span></div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;      <span class="keyword">auto</span> allIndices = std::make_index_sequence&lt;<a class="code" href="a01328.html#a569502a02c4636127665f10986d7d813">LocalGeometryTypeIndex::size</a>(dim)-1&gt;{};</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;      <span class="keywordflow">return</span> Dune::Hybrid::switchCases(allIndices, <a class="code" href="a01328.html#abe448a646f97b252203f30536a8d304f">LocalGeometryTypeIndex::index</a>(gt), callWithId, fallBack);</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    }</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; </div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;  } <span class="comment">// namespace Impl</span></div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;} <span class="comment">// namespace Dune</span></div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; </div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// DUNE_GEOMETRY_TYPEINDEX_HH</span></div>
+<div class="ttc" id="aa00152_html"><div class="ttname"><a href="a00152.html">type.hh</a></div><div class="ttdoc">A unique label for each type of element that can occur in a grid.</div></div>
+<div class="ttc" id="aa00169_html_gadcc2d601e9e531ffc1a5d34071b215e5"><div class="ttname"><a href="a00169.html#gadcc2d601e9e531ffc1a5d34071b215e5">Dune::GeometryTypes::none</a></div><div class="ttdeci">constexpr GeometryType none(unsigned int dim)</div><div class="ttdoc">Returns a GeometryType representing a singular of dimension dim.</div><div class="ttdef"><b>Definition:</b> type.hh:479</div></div>
+<div class="ttc" id="aa00179_html"><div class="ttname"><a href="a00179.html">Dune</a></div><div class="ttdef"><b>Definition:</b> affinegeometry.hh:19</div></div>
+<div class="ttc" id="aa01316_html"><div class="ttname"><a href="a01316.html">Dune::GeometryType</a></div><div class="ttdoc">Unique label for each type of entities that can occur in DUNE grids.</div><div class="ttdef"><b>Definition:</b> type.hh:123</div></div>
+<div class="ttc" id="aa01316_html_a4342859295e354389b20c6ab8d2092a2"><div class="ttname"><a href="a01316.html#a4342859295e354389b20c6ab8d2092a2">Dune::GeometryType::toId</a></div><div class="ttdeci">constexpr Id toId() const</div><div class="ttdoc">Create an Id representation of this GeometryType.</div><div class="ttdef"><b>Definition:</b> type.hh:219</div></div>
+<div class="ttc" id="aa01316_html_a483aa5d1f34e386a76743d505fa01143"><div class="ttname"><a href="a01316.html#a483aa5d1f34e386a76743d505fa01143">Dune::GeometryType::dim</a></div><div class="ttdeci">constexpr unsigned int dim() const</div><div class="ttdoc">Return dimension of the type.</div><div class="ttdef"><b>Definition:</b> type.hh:369</div></div>
+<div class="ttc" id="aa01316_html_ac3ddb6f3ab2ff87d7a2366308c3143ef"><div class="ttname"><a href="a01316.html#ac3ddb6f3ab2ff87d7a2366308c3143ef">Dune::GeometryType::id</a></div><div class="ttdeci">constexpr unsigned int id() const</div><div class="ttdoc">Return the topology id of the type.</div><div class="ttdef"><b>Definition:</b> type.hh:374</div></div>
+<div class="ttc" id="aa01316_html_ad3c775a48d36f776a487d1221963edba"><div class="ttname"><a href="a01316.html#ad3c775a48d36f776a487d1221963edba">Dune::GeometryType::isNone</a></div><div class="ttdeci">constexpr bool isNone() const</div><div class="ttdoc">Return true if entity is a singular of any dimension.</div><div class="ttdef"><b>Definition:</b> type.hh:364</div></div>
+<div class="ttc" id="aa01328_html"><div class="ttname"><a href="a01328.html">Dune::LocalGeometryTypeIndex</a></div><div class="ttdoc">Compute per-dimension indices for geometry types.</div><div class="ttdef"><b>Definition:</b> typeindex.hh:23</div></div>
+<div class="ttc" id="aa01328_html_a569502a02c4636127665f10986d7d813"><div class="ttname"><a href="a01328.html#a569502a02c4636127665f10986d7d813">Dune::LocalGeometryTypeIndex::size</a></div><div class="ttdeci">static constexpr std::size_t size(std::size_t dim)</div><div class="ttdoc">Compute total number of geometry types for the given dimension.</div><div class="ttdef"><b>Definition:</b> typeindex.hh:59</div></div>
+<div class="ttc" id="aa01328_html_aa0f493e303702cbfce6a3078483e241b"><div class="ttname"><a href="a01328.html#aa0f493e303702cbfce6a3078483e241b">Dune::LocalGeometryTypeIndex::type</a></div><div class="ttdeci">static constexpr GeometryType type(std::size_t dim, std::size_t index)</div><div class="ttdoc">compute the geometry type for the given local index and dimension</div><div class="ttdef"><b>Definition:</b> typeindex.hh:77</div></div>
+<div class="ttc" id="aa01328_html_abe448a646f97b252203f30536a8d304f"><div class="ttname"><a href="a01328.html#abe448a646f97b252203f30536a8d304f">Dune::LocalGeometryTypeIndex::index</a></div><div class="ttdeci">static constexpr std::size_t index(const GeometryType &amp;gt)</div><div class="ttdoc">Compute the index for the given geometry type within its dimension.</div><div class="ttdef"><b>Definition:</b> typeindex.hh:71</div></div>
+<div class="ttc" id="aa01332_html"><div class="ttname"><a href="a01332.html">Dune::GlobalGeometryTypeIndex</a></div><div class="ttdoc">Compute indices for geometry types, taking the dimension into account.</div><div class="ttdef"><b>Definition:</b> typeindex.hh:88</div></div>
+<div class="ttc" id="aa01332_html_a4b56c872618c7a6e44bd17523d31ecaa"><div class="ttname"><a href="a01332.html#a4b56c872618c7a6e44bd17523d31ecaa">Dune::GlobalGeometryTypeIndex::index</a></div><div class="ttdeci">static constexpr std::size_t index(const GeometryType &amp;gt)</div><div class="ttdoc">Compute the index for the given geometry type over all dimensions.</div><div class="ttdef"><b>Definition:</b> typeindex.hh:136</div></div>
+<div class="ttc" id="aa01332_html_a5bdadff2a016fef44949107e41c25e7c"><div class="ttname"><a href="a01332.html#a5bdadff2a016fef44949107e41c25e7c">Dune::GlobalGeometryTypeIndex::offset</a></div><div class="ttdeci">static constexpr std::size_t offset(std::size_t dim)</div><div class="ttdoc">Compute the starting index for a given dimension including irregular geometry types.</div><div class="ttdef"><b>Definition:</b> typeindex.hh:111</div></div>
+<div class="ttc" id="aa01332_html_a796183678c15cd2a578a925c5bf47724"><div class="ttname"><a href="a01332.html#a796183678c15cd2a578a925c5bf47724">Dune::GlobalGeometryTypeIndex::size</a></div><div class="ttdeci">static constexpr std::size_t size(std::size_t maxdim)</div><div class="ttdoc">Compute total number of geometry types up to and including the given dimension.</div><div class="ttdef"><b>Definition:</b> typeindex.hh:123</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

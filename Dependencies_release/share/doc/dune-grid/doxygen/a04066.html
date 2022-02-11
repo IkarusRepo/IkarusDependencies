@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: Dune::HierarchicSearch&lt; Grid, IS &gt; Class Template Reference</title>
+<title>dune-grid: Dune::HostGridAccess&lt; GeometryGrid&lt; HG, CoordFunction, Allocator &gt; &gt; Struct Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,160 +62,301 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00936.html">Dune</a></li><li class="navelem"><a class="el" href="a04066.html">HierarchicSearch</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00940.html">Dune</a></li><li class="navelem"><a class="el" href="a04066.html">HostGridAccess&lt; GeometryGrid&lt; HG, CoordFunction, Allocator &gt; &gt;</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="a04063.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::HierarchicSearch&lt; Grid, IS &gt; Class Template Reference</div>  </div>
+<div class="title">Dune::HostGridAccess&lt; GeometryGrid&lt; HG, CoordFunction, Allocator &gt; &gt; Struct Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Search an <a class="el" href="a02690.html" title="Index Set Interface base class.">IndexSet</a> for an <a class="el" href="a02630.html" title="Wrapper class for entities.">Entity</a> containing a given point.  
- <a href="a04066.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="a00863_source.html">dune/grid/utility/hierarchicsearch.hh</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00872_source.html">dune/grid/utility/hostgridaccess.hh</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a9460d6b947eaf92afaf9858195724061"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04066.html#a9460d6b947eaf92afaf9858195724061">HierarchicSearch</a> (const <a class="el" href="a02698.html">Grid</a> &amp;g, const IS &amp;is)</td></tr>
-<tr class="memdesc:a9460d6b947eaf92afaf9858195724061"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a <a class="el" href="a04066.html" title="Search an IndexSet for an Entity containing a given point.">HierarchicSearch</a> object from a <a class="el" href="a02698.html" title="Grid abstract base class.">Grid</a> and an <a class="el" href="a02690.html" title="Index Set Interface base class.">IndexSet</a>.  <a href="a04066.html#a9460d6b947eaf92afaf9858195724061">More...</a><br /></td></tr>
-<tr class="separator:a9460d6b947eaf92afaf9858195724061"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ba4275685ccbed79c224532abce38ae"><td class="memItemLeft" align="right" valign="top">Entity&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04066.html#a4ba4275685ccbed79c224532abce38ae">findEntity</a> (const FieldVector&lt; ct, dimw &gt; &amp;global) const</td></tr>
-<tr class="memdesc:a4ba4275685ccbed79c224532abce38ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Search the <a class="el" href="a02690.html" title="Index Set Interface base class.">IndexSet</a> of this <a class="el" href="a04066.html" title="Search an IndexSet for an Entity containing a given point.">HierarchicSearch</a> for an <a class="el" href="a02630.html" title="Wrapper class for entities.">Entity</a> containing point global.  <a href="a04066.html#a4ba4275685ccbed79c224532abce38ae">More...</a><br /></td></tr>
-<tr class="separator:a4ba4275685ccbed79c224532abce38ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a518a3da13e81ec0cbcfcb8e18b23aca4"><td class="memTemplParams" colspan="2">template&lt;PartitionIteratorType partition&gt; </td></tr>
-<tr class="memitem:a518a3da13e81ec0cbcfcb8e18b23aca4"><td class="memTemplItemLeft" align="right" valign="top">Entity&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a04066.html#a518a3da13e81ec0cbcfcb8e18b23aca4">findEntity</a> (const FieldVector&lt; ct, dimw &gt; &amp;global) const</td></tr>
-<tr class="memdesc:a518a3da13e81ec0cbcfcb8e18b23aca4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Search the <a class="el" href="a02690.html" title="Index Set Interface base class.">IndexSet</a> of this <a class="el" href="a04066.html" title="Search an IndexSet for an Entity containing a given point.">HierarchicSearch</a> for an <a class="el" href="a02630.html" title="Wrapper class for entities.">Entity</a> containing point global.  <a href="a04066.html#a518a3da13e81ec0cbcfcb8e18b23aca4">More...</a><br /></td></tr>
-<tr class="separator:a518a3da13e81ec0cbcfcb8e18b23aca4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04070.html">Codim</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A Traits struct that collects return types of class member methods.  <a href="a04070.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a6c4baf7debf8a45d8ac2310236ef489d"><td class="memItemLeft" align="right" valign="top">typedef Grid::Traits::LeafIntersection&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04066.html#a6c4baf7debf8a45d8ac2310236ef489d">LeafIntersection</a></td></tr>
+<tr class="memdesc:a6c4baf7debf8a45d8ac2310236ef489d"><td class="mdescLeft">&#160;</td><td class="mdescRight">type of the <a class="el" href="a03062.html" title="grid wrapper replacing the geometries">GeometryGrid</a> leaf intersection  <a href="a04066.html#a6c4baf7debf8a45d8ac2310236ef489d">More...</a><br /></td></tr>
+<tr class="separator:a6c4baf7debf8a45d8ac2310236ef489d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3bbce8654288cbd31d01b12e91bba6d"><td class="memItemLeft" align="right" valign="top">typedef Grid::Traits::LevelIntersection&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04066.html#af3bbce8654288cbd31d01b12e91bba6d">LevelIntersection</a></td></tr>
+<tr class="memdesc:af3bbce8654288cbd31d01b12e91bba6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">type of the <a class="el" href="a03062.html" title="grid wrapper replacing the geometries">GeometryGrid</a> level intersection  <a href="a04066.html#af3bbce8654288cbd31d01b12e91bba6d">More...</a><br /></td></tr>
+<tr class="separator:af3bbce8654288cbd31d01b12e91bba6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab909b102e8358f8b2a17b340df786675"><td class="memItemLeft" align="right" valign="top">typedef HostGrid::Traits::LeafIntersection&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04066.html#ab909b102e8358f8b2a17b340df786675">HostLeafIntersection</a></td></tr>
+<tr class="memdesc:ab909b102e8358f8b2a17b340df786675"><td class="mdescLeft">&#160;</td><td class="mdescRight">type of the host leaf intersection  <a href="a04066.html#ab909b102e8358f8b2a17b340df786675">More...</a><br /></td></tr>
+<tr class="separator:ab909b102e8358f8b2a17b340df786675"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a183e124e2fb08479651d5186983fe00a"><td class="memItemLeft" align="right" valign="top">typedef HostGrid::Traits::LevelIntersection&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04066.html#a183e124e2fb08479651d5186983fe00a">HostLevelIntersection</a></td></tr>
+<tr class="memdesc:a183e124e2fb08479651d5186983fe00a"><td class="mdescLeft">&#160;</td><td class="mdescRight">type of the host level intersection  <a href="a04066.html#a183e124e2fb08479651d5186983fe00a">More...</a><br /></td></tr>
+<tr class="separator:a183e124e2fb08479651d5186983fe00a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Exported Types</div></td></tr>
+<tr class="memitem:a44a41a0792353ed6c4188a5ccd99050d"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a03062.html">GeometryGrid</a>&lt; HG, CoordFunction, Allocator &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04066.html#a44a41a0792353ed6c4188a5ccd99050d">Grid</a></td></tr>
+<tr class="separator:a44a41a0792353ed6c4188a5ccd99050d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17e2f10c468a7f61eec53251fdd5b115"><td class="memItemLeft" align="right" valign="top">typedef Grid::HostGrid&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04066.html#a17e2f10c468a7f61eec53251fdd5b115">HostGrid</a></td></tr>
+<tr class="memdesc:a17e2f10c468a7f61eec53251fdd5b115"><td class="mdescLeft">&#160;</td><td class="mdescRight">type of HostGrid  <a href="a04066.html#a17e2f10c468a7f61eec53251fdd5b115">More...</a><br /></td></tr>
+<tr class="separator:a17e2f10c468a7f61eec53251fdd5b115"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a9f737412657c8d4bee851c37c99b1004"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a04066.html#a17e2f10c468a7f61eec53251fdd5b115">HostGrid</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04066.html#a9f737412657c8d4bee851c37c99b1004">hostGrid</a> (const <a class="el" href="a04066.html#a44a41a0792353ed6c4188a5ccd99050d">Grid</a> &amp;grid)</td></tr>
+<tr class="memdesc:a9f737412657c8d4bee851c37c99b1004"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get underlying HostGrid.  <a href="a04066.html#a9f737412657c8d4bee851c37c99b1004">More...</a><br /></td></tr>
+<tr class="separator:a9f737412657c8d4bee851c37c99b1004"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01fe775c4805bf5b936c5f1f55d6c7a7"><td class="memTemplParams" colspan="2">template&lt;class Entity &gt; </td></tr>
+<tr class="memitem:a01fe775c4805bf5b936c5f1f55d6c7a7"><td class="memTemplItemLeft" align="right" valign="top">static const Codim&lt; <a class="el" href="a02642.html#aaa6c6e1d981fce9dbe550666f7a97800a0ce22137a3853646973cf5cd16c87868">Entity::codimension</a> &gt;::HostEntity &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a04066.html#a01fe775c4805bf5b936c5f1f55d6c7a7">hostEntity</a> (const <a class="el" href="a02642.html">Entity</a> &amp;entity)</td></tr>
+<tr class="separator:a01fe775c4805bf5b936c5f1f55d6c7a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1117b560c816a11c590a03ee5dc87802"><td class="memTemplParams" colspan="2">template&lt;int codim&gt; </td></tr>
+<tr class="memitem:a1117b560c816a11c590a03ee5dc87802"><td class="memTemplItemLeft" align="right" valign="top">static const Codim&lt; codim &gt;::HostEntity &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a04066.html#a1117b560c816a11c590a03ee5dc87802">hostEntity</a> (const typename Codim&lt; codim &gt;::<a class="el" href="a02642.html">Entity</a> &amp;entity)</td></tr>
+<tr class="separator:a1117b560c816a11c590a03ee5dc87802"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16d20e3ab5137fd293ef425d3708c168"><td class="memTemplParams" colspan="2">template&lt;class HostIntersection &gt; </td></tr>
+<tr class="memitem:a16d20e3ab5137fd293ef425d3708c168"><td class="memTemplItemLeft" align="right" valign="top">static const HostIntersection &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a04066.html#a16d20e3ab5137fd293ef425d3708c168">hostIntersection</a> (const <a class="el" href="a01842.html">Intersection</a>&lt; const <a class="el" href="a04066.html#a44a41a0792353ed6c4188a5ccd99050d">Grid</a>, <a class="el" href="a03206.html">GeoGrid::Intersection</a>&lt; const <a class="el" href="a04066.html#a44a41a0792353ed6c4188a5ccd99050d">Grid</a>, HostIntersection &gt; &gt; &amp;intersection)</td></tr>
+<tr class="separator:a16d20e3ab5137fd293ef425d3708c168"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;class Grid, class IS&gt;<br />
-class Dune::HierarchicSearch&lt; Grid, IS &gt;</h3>
-
-<p>Search an <a class="el" href="a02690.html" title="Index Set Interface base class.">IndexSet</a> for an <a class="el" href="a02630.html" title="Wrapper class for entities.">Entity</a> containing a given point. </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a9460d6b947eaf92afaf9858195724061"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9460d6b947eaf92afaf9858195724061">&#9670;&nbsp;</a></span>HierarchicSearch()</h2>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a44a41a0792353ed6c4188a5ccd99050d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44a41a0792353ed6c4188a5ccd99050d">&#9670;&nbsp;</a></span>Grid</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Grid , class IS &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
+template&lt;class HG , class CoordFunction , class Allocator &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a04066.html">Dune::HierarchicSearch</a>&lt; <a class="el" href="a02698.html">Grid</a>, IS &gt;::<a class="el" href="a04066.html">HierarchicSearch</a> </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a02698.html">Grid</a> &amp;&#160;</td>
-          <td class="paramname"><em>g</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const IS &amp;&#160;</td>
-          <td class="paramname"><em>is</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname">typedef <a class="el" href="a03062.html">GeometryGrid</a>&lt; HG, CoordFunction, Allocator &gt; <a class="el" href="a03258.html">Dune::HostGridAccess</a>&lt; <a class="el" href="a03062.html">GeometryGrid</a>&lt; HG, CoordFunction, Allocator &gt; &gt;::<a class="el" href="a04066.html#a44a41a0792353ed6c4188a5ccd99050d">Grid</a></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Construct a <a class="el" href="a04066.html" title="Search an IndexSet for an Entity containing a given point.">HierarchicSearch</a> object from a <a class="el" href="a02698.html" title="Grid abstract base class.">Grid</a> and an <a class="el" href="a02690.html" title="Index Set Interface base class.">IndexSet</a>. </p>
+</div>
+</div>
+<a id="a17e2f10c468a7f61eec53251fdd5b115"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17e2f10c468a7f61eec53251fdd5b115">&#9670;&nbsp;</a></span>HostGrid</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class HG , class CoordFunction , class Allocator &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Grid::HostGrid <a class="el" href="a03258.html">Dune::HostGridAccess</a>&lt; <a class="el" href="a03062.html">GeometryGrid</a>&lt; HG, CoordFunction, Allocator &gt; &gt;::<a class="el" href="a04066.html#a17e2f10c468a7f61eec53251fdd5b115">HostGrid</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>type of HostGrid </p>
+
+</div>
+</div>
+<a id="ab909b102e8358f8b2a17b340df786675"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab909b102e8358f8b2a17b340df786675">&#9670;&nbsp;</a></span>HostLeafIntersection</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class HG , class CoordFunction , class Allocator &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef HostGrid::Traits::LeafIntersection <a class="el" href="a03258.html">Dune::HostGridAccess</a>&lt; <a class="el" href="a03062.html">GeometryGrid</a>&lt; HG, CoordFunction, Allocator &gt; &gt;::<a class="el" href="a04066.html#ab909b102e8358f8b2a17b340df786675">HostLeafIntersection</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>type of the host leaf intersection </p>
+
+</div>
+</div>
+<a id="a183e124e2fb08479651d5186983fe00a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a183e124e2fb08479651d5186983fe00a">&#9670;&nbsp;</a></span>HostLevelIntersection</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class HG , class CoordFunction , class Allocator &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef HostGrid::Traits::LevelIntersection <a class="el" href="a03258.html">Dune::HostGridAccess</a>&lt; <a class="el" href="a03062.html">GeometryGrid</a>&lt; HG, CoordFunction, Allocator &gt; &gt;::<a class="el" href="a04066.html#a183e124e2fb08479651d5186983fe00a">HostLevelIntersection</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>type of the host level intersection </p>
+
+</div>
+</div>
+<a id="a6c4baf7debf8a45d8ac2310236ef489d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c4baf7debf8a45d8ac2310236ef489d">&#9670;&nbsp;</a></span>LeafIntersection</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class HG , class CoordFunction , class Allocator &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Grid::Traits::LeafIntersection <a class="el" href="a03258.html">Dune::HostGridAccess</a>&lt; <a class="el" href="a03062.html">GeometryGrid</a>&lt; HG, CoordFunction, Allocator &gt; &gt;::<a class="el" href="a04066.html#a6c4baf7debf8a45d8ac2310236ef489d">LeafIntersection</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>type of the <a class="el" href="a03062.html" title="grid wrapper replacing the geometries">GeometryGrid</a> leaf intersection </p>
+
+</div>
+</div>
+<a id="af3bbce8654288cbd31d01b12e91bba6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3bbce8654288cbd31d01b12e91bba6d">&#9670;&nbsp;</a></span>LevelIntersection</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class HG , class CoordFunction , class Allocator &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Grid::Traits::LevelIntersection <a class="el" href="a03258.html">Dune::HostGridAccess</a>&lt; <a class="el" href="a03062.html">GeometryGrid</a>&lt; HG, CoordFunction, Allocator &gt; &gt;::<a class="el" href="a04066.html#af3bbce8654288cbd31d01b12e91bba6d">LevelIntersection</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>type of the <a class="el" href="a03062.html" title="grid wrapper replacing the geometries">GeometryGrid</a> level intersection </p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a4ba4275685ccbed79c224532abce38ae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4ba4275685ccbed79c224532abce38ae">&#9670;&nbsp;</a></span>findEntity() <span class="overload">[1/2]</span></h2>
+<a id="a01fe775c4805bf5b936c5f1f55d6c7a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01fe775c4805bf5b936c5f1f55d6c7a7">&#9670;&nbsp;</a></span>hostEntity() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Grid , class IS &gt; </div>
+template&lt;class HG , class CoordFunction , class Allocator &gt; </div>
+<div class="memtemplate">
+template&lt;class Entity &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Entity <a class="el" href="a04066.html">Dune::HierarchicSearch</a>&lt; <a class="el" href="a02698.html">Grid</a>, IS &gt;::findEntity </td>
+          <td class="memname">static const Codim&lt; <a class="el" href="a02642.html#aaa6c6e1d981fce9dbe550666f7a97800a0ce22137a3853646973cf5cd16c87868">Entity::codimension</a> &gt;::HostEntity&amp; <a class="el" href="a03258.html">Dune::HostGridAccess</a>&lt; <a class="el" href="a03062.html">GeometryGrid</a>&lt; HG, CoordFunction, Allocator &gt; &gt;::hostEntity </td>
           <td>(</td>
-          <td class="paramtype">const FieldVector&lt; ct, dimw &gt; &amp;&#160;</td>
-          <td class="paramname"><em>global</em></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype">const <a class="el" href="a02642.html">Entity</a> &amp;&#160;</td>
+          <td class="paramname"><em>entity</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Search the <a class="el" href="a02690.html" title="Index Set Interface base class.">IndexSet</a> of this <a class="el" href="a04066.html" title="Search an IndexSet for an Entity containing a given point.">HierarchicSearch</a> for an <a class="el" href="a02630.html" title="Wrapper class for entities.">Entity</a> containing point global. </p>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname"><a class="el" href="a02662.html" title="Base class for exceptions in Dune grid modules.">GridError</a></td><td>No element of the coarse grid contains the given coordinate. </td></tr>
-  </table>
-  </dd>
-</dl>
-
 </div>
 </div>
-<a id="a518a3da13e81ec0cbcfcb8e18b23aca4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a518a3da13e81ec0cbcfcb8e18b23aca4">&#9670;&nbsp;</a></span>findEntity() <span class="overload">[2/2]</span></h2>
+<a id="a1117b560c816a11c590a03ee5dc87802"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1117b560c816a11c590a03ee5dc87802">&#9670;&nbsp;</a></span>hostEntity() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Grid , class IS &gt; </div>
+template&lt;class HG , class CoordFunction , class Allocator &gt; </div>
 <div class="memtemplate">
-template&lt;PartitionIteratorType partition&gt; </div>
+template&lt;int codim&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Entity <a class="el" href="a04066.html">Dune::HierarchicSearch</a>&lt; <a class="el" href="a02698.html">Grid</a>, IS &gt;::findEntity </td>
+          <td class="memname">static const Codim&lt; codim &gt;::HostEntity&amp; <a class="el" href="a03258.html">Dune::HostGridAccess</a>&lt; <a class="el" href="a03062.html">GeometryGrid</a>&lt; HG, CoordFunction, Allocator &gt; &gt;::hostEntity </td>
           <td>(</td>
-          <td class="paramtype">const FieldVector&lt; ct, dimw &gt; &amp;&#160;</td>
-          <td class="paramname"><em>global</em></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype">const typename Codim&lt; codim &gt;::<a class="el" href="a02642.html">Entity</a> &amp;&#160;</td>
+          <td class="paramname"><em>entity</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Search the <a class="el" href="a02690.html" title="Index Set Interface base class.">IndexSet</a> of this <a class="el" href="a04066.html" title="Search an IndexSet for an Entity containing a given point.">HierarchicSearch</a> for an <a class="el" href="a02630.html" title="Wrapper class for entities.">Entity</a> containing point global. </p>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname"><a class="el" href="a02662.html" title="Base class for exceptions in Dune grid modules.">GridError</a></td><td>No element of the coarse grid contains the given coordinate. </td></tr>
+</div>
+</div>
+<a id="a9f737412657c8d4bee851c37c99b1004"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f737412657c8d4bee851c37c99b1004">&#9670;&nbsp;</a></span>hostGrid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class HG , class CoordFunction , class Allocator &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static const <a class="el" href="a04066.html#a17e2f10c468a7f61eec53251fdd5b115">HostGrid</a>&amp; <a class="el" href="a03258.html">Dune::HostGridAccess</a>&lt; <a class="el" href="a03062.html">GeometryGrid</a>&lt; HG, CoordFunction, Allocator &gt; &gt;::hostGrid </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a04066.html#a44a41a0792353ed6c4188a5ccd99050d">Grid</a> &amp;&#160;</td>
+          <td class="paramname"><em>grid</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get underlying HostGrid. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">grid</td><td><a class="el" href="a03062.html" title="grid wrapper replacing the geometries">GeometryGrid</a> </td></tr>
   </table>
   </dd>
 </dl>
-<p>type of LevelIterator</p>
+<dl class="section return"><dt>Returns</dt><dd>HostGrid </dd></dl>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="a00863_source.html">hierarchicsearch.hh</a></li>
+<a id="a16d20e3ab5137fd293ef425d3708c168"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16d20e3ab5137fd293ef425d3708c168">&#9670;&nbsp;</a></span>hostIntersection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class HG , class CoordFunction , class Allocator &gt; </div>
+<div class="memtemplate">
+template&lt;class HostIntersection &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static const HostIntersection&amp; <a class="el" href="a03258.html">Dune::HostGridAccess</a>&lt; <a class="el" href="a03062.html">GeometryGrid</a>&lt; HG, CoordFunction, Allocator &gt; &gt;::hostIntersection </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a01842.html">Intersection</a>&lt; const <a class="el" href="a04066.html#a44a41a0792353ed6c4188a5ccd99050d">Grid</a>, <a class="el" href="a03206.html">GeoGrid::Intersection</a>&lt; const <a class="el" href="a04066.html#a44a41a0792353ed6c4188a5ccd99050d">Grid</a>, HostIntersection &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>intersection</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li><a class="el" href="a00872_source.html">hostgridaccess.hh</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

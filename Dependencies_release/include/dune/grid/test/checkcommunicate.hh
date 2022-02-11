@@ -85,13 +85,13 @@ public:
   {}
 
   //! returns true if data for this codim should be communicated
-  bool contains (int dim, int codim) const
+  bool contains ([[maybe_unused]] int dim, int codim) const
   {
     return (codim==cdim_);
   }
 
   //! returns true if size per entity of given dim and codim is a constant
-  bool fixedSize (int dim, int codim) const
+  bool fixedSize ([[maybe_unused]] int dim, [[maybe_unused]] int codim) const
   {
     // this problem is a fixed size problem,
     // but to simulate also non-fixed size problems
@@ -139,11 +139,12 @@ public:
   template<class MessageBuffer, class EntityType>
   void scatter (MessageBuffer& buff, const EntityType& e, size_t n)
   {
+    using std::sqrt;
     using Geometry = typename EntityType::Geometry;
     using ctype = typename Geometry::ctype;
 
     // define a tolerance for floating-point checks
-    const ctype tolerance = std::sqrt(std::numeric_limits< ctype >::epsilon());
+    const ctype tolerance = sqrt(std::numeric_limits< ctype >::epsilon());
 
     // as this problem is a fixed size problem we can check the sizes
     assert( n == size(e) );
@@ -241,7 +242,7 @@ class CheckCommunication
   }
 
   // compute the data on the upwind entities
-  void project ( int dataSize, ArrayType &data, ArrayType &weight, int rank )
+  void project ( int dataSize, ArrayType &data, ArrayType &weight, int /* rank */ )
   {
     // set initial data
     for(int i=0 ; i<dataSize; ++i)
@@ -344,7 +345,7 @@ class CheckCommunication
   // difference in the function values.
   // if testweight is true an error is printed for each
   // flag not equal to 1
-  ctype test ( int dataSize, ArrayType &data, ArrayType &weight, bool testweight )
+  ctype test ( int /* dataSize */, ArrayType &data, ArrayType &weight, bool testweight )
   {
     const int rank = gridView_.comm().rank();
     const int size = gridView_.comm().size();
@@ -436,8 +437,9 @@ class CheckCommunication
   // The main ''algorithm''
   bool checkCommunication ()
   {
+    using std::sqrt;
     // define a tolerance for floating-point checks
-    const ctype tolerance = std::sqrt(std::numeric_limits< ctype >::epsilon());
+    const ctype tolerance = sqrt(std::numeric_limits< ctype >::epsilon());
 
     upwind_[ 0 ] = -0.1113;
     int myrank = gridView_.comm().rank();
@@ -464,10 +466,13 @@ class CheckCommunication
     // call communication of grid
     try
     {
-      gridView_.communicate(dh,Dune::InteriorBorder_All_Interface,Dune::ForwardCommunication);
+      // call forward and backward communication
+      auto obj1 = gridView_.communicate( dh, Dune::InteriorBorder_All_Interface, Dune::ForwardCommunication );
+      if( ! obj1.ready() )
+        obj1.wait();
+
       // make sure backward communication does the same, this should change nothing
-      gridView_.communicate(dh,Dune::InteriorBorder_All_Interface,Dune::BackwardCommunication);
-      //gridView_.communicate(dh,All_All_Interface,ForwardCommunication);
+      auto obj2 = gridView_.communicate( dh, Dune::InteriorBorder_All_Interface, Dune::BackwardCommunication );
     }
     catch( const Dune::NotImplemented &exception )
     {
@@ -517,7 +522,7 @@ template< class GridView, class OutputStream >
 class CheckCommunication< GridView, -1, OutputStream >
 {
 public:
-  CheckCommunication ( const GridView &gridView, OutputStream &sout, int level )
+  CheckCommunication ( const GridView &, OutputStream &, int)
   {}
 };
 

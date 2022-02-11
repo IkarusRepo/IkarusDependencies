@@ -62,33 +62,38 @@
 #    Call this function from a downstream module, if that module relies on the
 #    the presence of the configure time virtualenv described in :ref:`DunePythonVirtualenv`.
 #
+include_guard(GLOBAL)
+
+# unless the user has defined the variable, unversioned names (like python3) are found
+# first, to match what users most probably use later on to call the executable
+if(NOT DEFINED Python3_FIND_UNVERSIONED_NAMES)
+  set(Python3_FIND_UNVERSIONED_NAMES "FIRST")
+endif()
+
+# include code from CMake 3.20 to back-port using unversioned Python first
+if(${CMAKE_VERSION} VERSION_LESS "3.20")
+  list(INSERT CMAKE_MODULE_PATH 0 "${CMAKE_CURRENT_LIST_DIR}/FindPython3")
+endif()
 
 # Include all the other parts of the python extension to avoid that users need
 # to explicitly include parts of our build system.
 include(DunePythonFindPackage)
 include(DunePythonInstallPackage)
-include(DunePythonRequireVersion)
 include(DunePythonTestCommand)
 
-# Update the list of valid python versions, the shipped CMake modules tend to outdate...
-# Mention all those not present in CMake 2.8.12
-set(Python_ADDITIONAL_VERSIONS 3.8 3.7 3.6 3.5 3.4)
+# Find the Python Interpreter and libraries
+find_package(Python3 COMPONENTS Interpreter Development)
 
-# Find the Python Interpreter
-find_package(PythonInterp 3)
-
-# Find the Python libraries
-find_package(PythonLibs)
 
 # Determine whether the given interpreter is running inside a virtualenv
-if(PYTHONINTERP_FOUND)
+if(Python3_Interpreter_FOUND)
   include(DuneExecuteProcess)
   include(DunePathHelper)
   dune_module_path(MODULE dune-common
                    RESULT scriptdir
                    SCRIPT_DIR)
 
-  dune_execute_process(COMMAND "${PYTHON_EXECUTABLE}" "${scriptdir}/envdetect.py"
+  dune_execute_process(COMMAND "${Python3_EXECUTABLE}" "${scriptdir}/envdetect.py"
                        RESULT_VARIABLE DUNE_PYTHON_SYSTEM_IS_VIRTUALENV
                        )
 endif()
@@ -137,7 +142,7 @@ install(CODE "set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH})
 function(dune_python_require_virtualenv_setup)
   if(NOT DUNE_PYTHON_VIRTUALENV_SETUP)
     message(FATAL_ERROR "\n
-    ${CMAKE_PROJECT_NAME} relies on a configure-time virtual environment being
+    ${PROJECT_NAME} relies on a configure-time virtual environment being
     set up by the Dune python build system. You have to set the CMake variable
     DUNE_PYTHON_VIRTUALENV_SETUP to allow that.\n
     ")
@@ -148,3 +153,6 @@ endfunction()
 if(DUNE_PYTHON_VIRTUALENV_SETUP)
   include(DunePythonVirtualenv)
 endif()
+
+# marcos used for the Python bindings
+include(DunePythonMacros)

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: Dune::DefaultLeafGridViewTraits&lt; GridImp &gt; Struct Template Reference</title>
+<title>dune-grid: Dune::DefaultLevelGridViewTraits&lt; GridImp &gt;::Codim&lt; cd &gt; Struct Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,7 +62,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00936.html">Dune</a></li><li class="navelem"><a class="el" href="a02614.html">DefaultLeafGridViewTraits</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00940.html">Dune</a></li><li class="navelem"><a class="el" href="a02610.html">DefaultLevelGridViewTraits</a></li><li class="navelem"><a class="el" href="a02614.html">Codim</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -71,169 +71,104 @@ $(function() {
 <a href="#pub-types">Public Types</a> &#124;
 <a href="a02611.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::DefaultLeafGridViewTraits&lt; GridImp &gt; Struct Template Reference</div>  </div>
+<div class="title">Dune::DefaultLevelGridViewTraits&lt; GridImp &gt;::Codim&lt; cd &gt; Struct Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="a00230_source.html">dune/grid/common/defaultgridview.hh</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00239_source.html">dune/grid/common/defaultgridview.hh</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02618.html">Codim</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02618.html">Partition</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define types needed to iterate over entities of a given partition type.  <a href="a02618.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a185af651099b3428c18b1f87ed45f8f4"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="a02614.html#a185af651099b3428c18b1f87ed45f8f4a5f36404b733ee4a0a1a7b2af1bd20f46">conforming</a> = Capabilities :: isLeafwiseConforming&lt; Grid &gt; :: v
- }</td></tr>
-<tr class="separator:a185af651099b3428c18b1f87ed45f8f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a596bfd78bd9503d631c127bc51b20cad"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a02594.html">DefaultLeafGridView</a>&lt; GridImp &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02614.html#a596bfd78bd9503d631c127bc51b20cad">GridViewImp</a></td></tr>
-<tr class="separator:a596bfd78bd9503d631c127bc51b20cad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05b67e0170ecb2be12197518714463b2"><td class="memItemLeft" align="right" valign="top">typedef std::remove_const&lt; GridImp &gt;::type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02614.html#a05b67e0170ecb2be12197518714463b2">Grid</a></td></tr>
-<tr class="memdesc:a05b67e0170ecb2be12197518714463b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">type of the grid  <a href="a02614.html#a05b67e0170ecb2be12197518714463b2">More...</a><br /></td></tr>
-<tr class="separator:a05b67e0170ecb2be12197518714463b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9582818aa4edd7956e192506b75851e1"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a02614.html#a05b67e0170ecb2be12197518714463b2">Grid</a> ::Traits ::LeafIndexSet&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02614.html#a9582818aa4edd7956e192506b75851e1">IndexSet</a></td></tr>
-<tr class="memdesc:a9582818aa4edd7956e192506b75851e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">type of the index set  <a href="a02614.html#a9582818aa4edd7956e192506b75851e1">More...</a><br /></td></tr>
-<tr class="separator:a9582818aa4edd7956e192506b75851e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad25aec2ab1fc3296797394b525156b1b"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a02614.html#a05b67e0170ecb2be12197518714463b2">Grid</a> ::Traits ::LeafIntersection&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02614.html#ad25aec2ab1fc3296797394b525156b1b">Intersection</a></td></tr>
-<tr class="memdesc:ad25aec2ab1fc3296797394b525156b1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">type of the intersection  <a href="a02614.html#ad25aec2ab1fc3296797394b525156b1b">More...</a><br /></td></tr>
-<tr class="separator:ad25aec2ab1fc3296797394b525156b1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0bd99b3ea3bbef91bc4562c0a8b8078"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a02614.html#a05b67e0170ecb2be12197518714463b2">Grid</a> ::Traits ::LeafIntersectionIterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02614.html#ad0bd99b3ea3bbef91bc4562c0a8b8078">IntersectionIterator</a></td></tr>
-<tr class="memdesc:ad0bd99b3ea3bbef91bc4562c0a8b8078"><td class="mdescLeft">&#160;</td><td class="mdescRight">type of the intersection iterator  <a href="a02614.html#ad0bd99b3ea3bbef91bc4562c0a8b8078">More...</a><br /></td></tr>
-<tr class="separator:ad0bd99b3ea3bbef91bc4562c0a8b8078"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e637ce93fdc0a3c1ee216579673836f"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a02614.html#a05b67e0170ecb2be12197518714463b2">Grid</a> ::Traits ::<a class="el" href="a02614.html#a6e637ce93fdc0a3c1ee216579673836f">CollectiveCommunication</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02614.html#a6e637ce93fdc0a3c1ee216579673836f">CollectiveCommunication</a></td></tr>
-<tr class="memdesc:a6e637ce93fdc0a3c1ee216579673836f"><td class="mdescLeft">&#160;</td><td class="mdescRight">type of the collective communication  <a href="a02614.html#a6e637ce93fdc0a3c1ee216579673836f">More...</a><br /></td></tr>
-<tr class="separator:a6e637ce93fdc0a3c1ee216579673836f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82fbca89ea949cd33c334cdfeab3e809"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a02610.html#aac8283d499323700eb622d7c9b1000dd">Grid</a> ::Traits ::template <a class="el" href="a02614.html">Codim</a>&lt; cd &gt;::template <a class="el" href="a02618.html">Partition</a>&lt; <a class="el" href="a00908.html#ggaa5b9e8102d7f70f3f4178182629d98b6a3026c69cd558fe3687c11f45966905e9">All_Partition</a> &gt;::LevelIterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02614.html#a82fbca89ea949cd33c334cdfeab3e809">Iterator</a></td></tr>
+<tr class="separator:a82fbca89ea949cd33c334cdfeab3e809"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4879847f69a36512419a1fdb27b811f"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a02610.html#aac8283d499323700eb622d7c9b1000dd">Grid</a> ::Traits ::template <a class="el" href="a02614.html">Codim</a>&lt; cd &gt;::<a class="el" href="a02614.html#ac4879847f69a36512419a1fdb27b811f">Entity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02614.html#ac4879847f69a36512419a1fdb27b811f">Entity</a></td></tr>
+<tr class="separator:ac4879847f69a36512419a1fdb27b811f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b1af8997b64501380992a008fc54ae5"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a02610.html#aac8283d499323700eb622d7c9b1000dd">Grid</a> ::template <a class="el" href="a02614.html">Codim</a>&lt; cd &gt;::<a class="el" href="a02614.html#a3b1af8997b64501380992a008fc54ae5">Geometry</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02614.html#a3b1af8997b64501380992a008fc54ae5">Geometry</a></td></tr>
+<tr class="separator:a3b1af8997b64501380992a008fc54ae5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ea0e8601313b97058496fb0de70b95c"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a02610.html#aac8283d499323700eb622d7c9b1000dd">Grid</a> ::template <a class="el" href="a02614.html">Codim</a>&lt; cd &gt;::<a class="el" href="a02614.html#a1ea0e8601313b97058496fb0de70b95c">LocalGeometry</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02614.html#a1ea0e8601313b97058496fb0de70b95c">LocalGeometry</a></td></tr>
+<tr class="separator:a1ea0e8601313b97058496fb0de70b95c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a6e637ce93fdc0a3c1ee216579673836f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6e637ce93fdc0a3c1ee216579673836f">&#9670;&nbsp;</a></span>CollectiveCommunication</h2>
+<a id="ac4879847f69a36512419a1fdb27b811f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4879847f69a36512419a1fdb27b811f">&#9670;&nbsp;</a></span>Entity</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class GridImp &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef <a class="el" href="a02614.html#a05b67e0170ecb2be12197518714463b2">Grid</a> :: Traits :: <a class="el" href="a02614.html#a6e637ce93fdc0a3c1ee216579673836f">CollectiveCommunication</a> <a class="el" href="a02614.html">Dune::DefaultLeafGridViewTraits</a>&lt; GridImp &gt;::<a class="el" href="a02614.html#a6e637ce93fdc0a3c1ee216579673836f">CollectiveCommunication</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>type of the collective communication </p>
-
-</div>
-</div>
-<a id="a05b67e0170ecb2be12197518714463b2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a05b67e0170ecb2be12197518714463b2">&#9670;&nbsp;</a></span>Grid</h2>
-
-<div class="memitem">
-<div class="memproto">
 <div class="memtemplate">
-template&lt;class GridImp &gt; </div>
+template&lt;int cd&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef std::remove_const&lt;GridImp&gt;::type <a class="el" href="a02614.html">Dune::DefaultLeafGridViewTraits</a>&lt; GridImp &gt;::<a class="el" href="a02614.html#a05b67e0170ecb2be12197518714463b2">Grid</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>type of the grid </p>
-
-</div>
-</div>
-<a id="a596bfd78bd9503d631c127bc51b20cad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a596bfd78bd9503d631c127bc51b20cad">&#9670;&nbsp;</a></span>GridViewImp</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class GridImp &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef <a class="el" href="a02594.html">DefaultLeafGridView</a>&lt; GridImp &gt; <a class="el" href="a02614.html">Dune::DefaultLeafGridViewTraits</a>&lt; GridImp &gt;::<a class="el" href="a02614.html#a596bfd78bd9503d631c127bc51b20cad">GridViewImp</a></td>
+          <td class="memname">typedef <a class="el" href="a02610.html#aac8283d499323700eb622d7c9b1000dd">Grid</a> :: Traits :: template <a class="el" href="a02614.html">Codim</a>&lt; cd &gt;:: <a class="el" href="a02614.html#ac4879847f69a36512419a1fdb27b811f">Entity</a> <a class="el" href="a02610.html">Dune::DefaultLevelGridViewTraits</a>&lt; GridImp &gt;::<a class="el" href="a02614.html">Codim</a>&lt; cd &gt;::<a class="el" href="a02614.html#ac4879847f69a36512419a1fdb27b811f">Entity</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a9582818aa4edd7956e192506b75851e1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9582818aa4edd7956e192506b75851e1">&#9670;&nbsp;</a></span>IndexSet</h2>
+<a id="a3b1af8997b64501380992a008fc54ae5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b1af8997b64501380992a008fc54ae5">&#9670;&nbsp;</a></span>Geometry</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class GridImp &gt; </div>
+<div class="memtemplate">
+template&lt;int cd&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="a02614.html#a05b67e0170ecb2be12197518714463b2">Grid</a> :: Traits :: LeafIndexSet <a class="el" href="a02614.html">Dune::DefaultLeafGridViewTraits</a>&lt; GridImp &gt;::<a class="el" href="a02614.html#a9582818aa4edd7956e192506b75851e1">IndexSet</a></td>
+          <td class="memname">typedef <a class="el" href="a02610.html#aac8283d499323700eb622d7c9b1000dd">Grid</a> :: template <a class="el" href="a02614.html">Codim</a>&lt; cd &gt;:: <a class="el" href="a02614.html#a3b1af8997b64501380992a008fc54ae5">Geometry</a> <a class="el" href="a02610.html">Dune::DefaultLevelGridViewTraits</a>&lt; GridImp &gt;::<a class="el" href="a02614.html">Codim</a>&lt; cd &gt;::<a class="el" href="a02614.html#a3b1af8997b64501380992a008fc54ae5">Geometry</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>type of the index set </p>
-
 </div>
 </div>
-<a id="ad25aec2ab1fc3296797394b525156b1b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad25aec2ab1fc3296797394b525156b1b">&#9670;&nbsp;</a></span>Intersection</h2>
+<a id="a82fbca89ea949cd33c334cdfeab3e809"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82fbca89ea949cd33c334cdfeab3e809">&#9670;&nbsp;</a></span>Iterator</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class GridImp &gt; </div>
+<div class="memtemplate">
+template&lt;int cd&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="a02614.html#a05b67e0170ecb2be12197518714463b2">Grid</a> :: Traits :: LeafIntersection <a class="el" href="a02614.html">Dune::DefaultLeafGridViewTraits</a>&lt; GridImp &gt;::<a class="el" href="a02614.html#ad25aec2ab1fc3296797394b525156b1b">Intersection</a></td>
+          <td class="memname">typedef <a class="el" href="a02610.html#aac8283d499323700eb622d7c9b1000dd">Grid</a> :: Traits :: template <a class="el" href="a02614.html">Codim</a>&lt; cd &gt;:: template <a class="el" href="a02618.html">Partition</a>&lt; <a class="el" href="a00908.html#ggaa5b9e8102d7f70f3f4178182629d98b6a3026c69cd558fe3687c11f45966905e9">All_Partition</a> &gt;:: LevelIterator <a class="el" href="a02610.html">Dune::DefaultLevelGridViewTraits</a>&lt; GridImp &gt;::<a class="el" href="a02614.html">Codim</a>&lt; cd &gt;::<a class="el" href="a02614.html#a82fbca89ea949cd33c334cdfeab3e809">Iterator</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>type of the intersection </p>
-
 </div>
 </div>
-<a id="ad0bd99b3ea3bbef91bc4562c0a8b8078"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad0bd99b3ea3bbef91bc4562c0a8b8078">&#9670;&nbsp;</a></span>IntersectionIterator</h2>
+<a id="a1ea0e8601313b97058496fb0de70b95c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ea0e8601313b97058496fb0de70b95c">&#9670;&nbsp;</a></span>LocalGeometry</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class GridImp &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef <a class="el" href="a02614.html#a05b67e0170ecb2be12197518714463b2">Grid</a> :: Traits :: LeafIntersectionIterator <a class="el" href="a02614.html">Dune::DefaultLeafGridViewTraits</a>&lt; GridImp &gt;::<a class="el" href="a02614.html#ad0bd99b3ea3bbef91bc4562c0a8b8078">IntersectionIterator</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>type of the intersection iterator </p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Enumeration Documentation</h2>
-<a id="a185af651099b3428c18b1f87ed45f8f4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a185af651099b3428c18b1f87ed45f8f4">&#9670;&nbsp;</a></span>anonymous enum</h2>
-
-<div class="memitem">
-<div class="memproto">
 <div class="memtemplate">
-template&lt;class GridImp &gt; </div>
+template&lt;int cd&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">anonymous enum</td>
+          <td class="memname">typedef <a class="el" href="a02610.html#aac8283d499323700eb622d7c9b1000dd">Grid</a> :: template <a class="el" href="a02614.html">Codim</a>&lt; cd &gt;:: <a class="el" href="a02614.html#a1ea0e8601313b97058496fb0de70b95c">LocalGeometry</a> <a class="el" href="a02610.html">Dune::DefaultLevelGridViewTraits</a>&lt; GridImp &gt;::<a class="el" href="a02614.html">Codim</a>&lt; cd &gt;::<a class="el" href="a02614.html#a1ea0e8601313b97058496fb0de70b95c">LocalGeometry</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a185af651099b3428c18b1f87ed45f8f4a5f36404b733ee4a0a1a7b2af1bd20f46"></a>conforming&#160;</td><td class="fielddoc"></td></tr>
-</table>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="a00230_source.html">defaultgridview.hh</a></li>
+<li><a class="el" href="a00239_source.html">defaultgridview.hh</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

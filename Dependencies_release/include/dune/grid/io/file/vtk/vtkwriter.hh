@@ -11,11 +11,12 @@
 #include <sstream>
 #include <iomanip>
 #include <memory>
-
+#include <type_traits>
 #include <vector>
 #include <list>
 #include <map>
 
+#include <dune/common/visibility.hh>
 #include <dune/common/typetraits.hh>
 #include <dune/common/exceptions.hh>
 #include <dune/common/indent.hh>
@@ -56,7 +57,8 @@ namespace Dune
     {};
 
     template< class F, class E >
-    struct IsBindable< F, E, void_t< decltype( std::declval< F & >().bind( std::declval< const E & >() ) ), decltype( std::declval< F & >().unbind() ) > >
+    struct IsBindable< F, E, std::void_t< decltype( std::declval< F & >().bind( std::declval< const E & >() ) ),
+                                          decltype( std::declval< F & >().unbind() ) > >
       : std::true_type
     {};
 
@@ -67,7 +69,7 @@ namespace Dune
     {};
 
     template< class F >
-    struct HasLocalFunction< F, void_t< decltype( localFunction( std::declval< F& >() ) ) > >
+    struct HasLocalFunction< F, std::void_t< decltype( localFunction( std::declval< F& >() ) ) > >
       : std::true_type
     {};
 
@@ -177,8 +179,9 @@ namespace Dune
       };
 
       //! Type erasure implementation for functions conforming to the dune-functions LocalFunction interface
+      // DUNE_PRIVATE since _f has less visibility
       template<typename F>
-      struct FunctionWrapper
+      struct DUNE_PRIVATE FunctionWrapper
         : public FunctionWrapperBase
       {
         using Function = typename std::decay<F>::type;
@@ -251,15 +254,14 @@ namespace Dune
         {
           auto globalPos = element_->geometry().global(pos);
           auto r = _f(globalPos);
-          Hybrid::ifElse(IsIndexable<decltype(r)>(),
-            [&](auto id) {
-              for (std::size_t i = 0; i < count; ++i)
-                w.write(id(r)[i]);
-            },
-            [&](auto id) {
-              assert(count == 1);
-              w.write(id(r));
-            });
+          if constexpr (IsIndexable<decltype(r)>()) {
+            for (std::size_t i = 0; i < count; ++i)
+                w.write(r[i]);
+          }
+          else {
+            assert(count == 1);
+            w.write(r);
+          }
         }
       private:
         Function _f;
@@ -328,7 +330,7 @@ namespace Dune
         : _f(std::make_unique<VTKFunctionWrapper>(vtkFunctionPtr))
         , _fieldInfo(
           vtkFunctionPtr->name(),
-          vtkFunctionPtr->ncomps() > 1 ? VTK::FieldInfo::Type::vector : VTK::FieldInfo::Type::scalar,
+          (vtkFunctionPtr->ncomps() == 2 || vtkFunctionPtr->ncomps() == 3)  ? VTK::FieldInfo::Type::vector : VTK::FieldInfo::Type::scalar,
           vtkFunctionPtr->ncomps(),
           vtkFunctionPtr->precision()
           )
@@ -790,7 +792,8 @@ namespace Dune
      *  For serial runs (commSize=1) it chooses other names without the
      *  "s####-p####-" prefix for the .vtu/.vtp files and omits writing of the
      *  .pvtu/pvtp file however.  For parallel runs (commSize > 1) it is the
-     *  same as a call to pwrite() with path="" and extendpath="".
+     *  same as a call to pwrite() with name and path constructed from
+     *  a given filename possibly containing a path, and extendpath="".
      *
      *  \param[in]  name  basic name to write (may not contain a path)
      *  \param[in]  type  type of output (e.g,, ASCII) (optional)
@@ -834,7 +837,7 @@ namespace Dune
     }
 
   protected:
-    //! return name of a parallel piece file
+    //! return name of a parallel piece file (or header name)
     /**
      * \param name     Base name of the VTK output.  This should be without
      *                 any directory parts and without a filename extension.
@@ -843,7 +846,8 @@ namespace Dune
      *                 directory part.  If non-empty, may or may not have a
      *                 trailing '/'.  If a trailing slash is missing, one is
      *                 appended implicitly.
-     * \param commRank Rank of the process to generate a piece name for.
+     * \param commRank Rank of the process to generate a piece name for. if (-1)
+     * then the header is created.
      * \param commSize Number of processes writing a parallel vtk output.
      */
     std::string getParallelPieceName(const std::string& name,
@@ -851,18 +855,52 @@ namespace Dune
                                      int commRank, int commSize) const
     {
       std::ostringstream s;
-      if(path.size() > 0) {
+      // write path first
+      if(path.size() > 0)
+      {
         s << path;
         if(path[path.size()-1] != '/')
           s << '/';
       }
-      s << 's' << std::setw(4) << std::setfill('0') << commSize << '-';
-      s << 'p' << std::setw(4) << std::setfill('0') << commRank << '-';
-      s << name;
-      if(GridView::dimension > 1)
-        s << ".vtu";
+
+      std::string fileprefix;
+      // check if a path was already added to name
+      // and if yes find filename without path
+      auto pos = name.rfind('/');
+      if( pos != std::string::npos )
+      {
+        // extract filename without path
+        fileprefix = name.substr( pos+1 );
+        // extract the path and added it before
+        // the magic below is added
+        std::string newpath = name.substr(0, pos);
+        s << newpath;
+        if(newpath[name.size()-1] != '/')
+          s << '/';
+      }
       else
-        s << ".vtp";
+      {
+        // if no path was found just copy the name
+        fileprefix = name;
+      }
+
+      s << 's' << std::setw(4) << std::setfill('0') << commSize << '-';
+      const bool writeHeader = commRank < 0;
+      if( ! writeHeader )
+      {
+        s << 'p' << std::setw(4) << std::setfill('0') << commRank << '-';
+      }
+
+      s << fileprefix << ".";
+      // write p for header files
+      if( writeHeader )
+        s << "p";
+      s << "vt";
+
+      if(GridView::dimension > 1)
+        s << "u";
+      else
+        s << "p";
       return s.str();
     }
 
@@ -881,19 +919,7 @@ namespace Dune
                                       const std::string& path,
                                       int commSize) const
     {
-      std::ostringstream s;
-      if(path.size() > 0) {
-        s << path;
-        if(path[path.size()-1] != '/')
-          s << '/';
-      }
-      s << 's' << std::setw(4) << std::setfill('0') << commSize << '-';
-      s << name;
-      if(GridView::dimension > 1)
-        s << ".pvtu";
-      else
-        s << ".pvtp";
-      return s.str();
+      return getParallelPieceName( name, path, -1, commSize );
     }
 
     //! return name of a serial piece file
@@ -924,7 +950,8 @@ namespace Dune
      *  For serial runs (commSize=1) it chooses other names without the
      *  "s####-p####-" prefix for the .vtu/.vtp files and omits writing of the
      *  .pvtu/pvtp file however.  For parallel runs (commSize > 1) it is the
-     *  same as a call to pwrite() with path="" and extendpath="".
+     *  same as a call to pwrite() with name and path constructed from
+     *  a given filename possibly containing a path, and extendpath="".
      *
      *  \param name     Base name of the output files.  This should not
      *                  contain any directory part and no filename extensions.
@@ -941,7 +968,25 @@ namespace Dune
       // in the parallel case, just use pwrite, it has all the necessary
       // stuff, so we don't need to reimplement it here.
       if(commSize > 1)
-        return pwrite(name, "", "", type, commRank, commSize);
+      {
+        std::string filename = name;
+        std::string path = std::string("");
+
+        // check if a path was already added to name
+        // and if yes find filename without path
+        auto pos = name.rfind('/');
+        if( pos != std::string::npos )
+        {
+          // extract filename without path
+          filename = name.substr( pos+1 );
+
+          // extract the path and added it before
+          // the magic below is added
+          path = name.substr(0, pos);
+        }
+
+        return pwrite(filename, path, "", type, commRank, commSize);
+      }
 
       // make data mode visible to private functions
       outputtype = type;
@@ -1185,29 +1230,29 @@ namespace Dune
     }
 
     //! count the vertices, cells and corners
-    virtual void countEntities(int &nvertices, int &ncells, int &ncorners)
+    virtual void countEntities(int &nvertices_, int &ncells_, int &ncorners_)
     {
-      nvertices = 0;
-      ncells = 0;
-      ncorners = 0;
+      nvertices_ = 0;
+      ncells_ = 0;
+      ncorners_ = 0;
       for (CellIterator it=cellBegin(); it!=cellEnd(); ++it)
       {
-        ncells++;
+        ncells_++;
         // because of the use of vertexmapper->map(), this iteration must be
         // in the order of Dune's numbering.
         const int subEntities = it->subEntities(n);
         for (int i=0; i<subEntities; ++i)
         {
-          ncorners++;
+          ncorners_++;
           if (datamode == VTK::conforming)
           {
             int alpha = vertexmapper->subIndex(*it,i,n);
             if (number[alpha]<0)
-              number[alpha] = nvertices++;
+              number[alpha] = nvertices_++;
           }
           else
           {
-            nvertices++;
+            nvertices_++;
           }
         }
       }

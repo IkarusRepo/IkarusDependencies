@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: Dune::YaspGeometry&lt; mydim, cdim, GridImp &gt; Class Template Reference</title>
+<title>dune-grid: Dune::YaspEntitySeed&lt; codim, GridImp &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,96 +62,100 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00936.html">Dune</a></li><li class="navelem"><a class="el" href="a04146.html">YaspGeometry</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00940.html">Dune</a></li><li class="navelem"><a class="el" href="a04146.html">YaspEntitySeed</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="a04143.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::YaspGeometry&lt; mydim, cdim, GridImp &gt; Class Template Reference</div>  </div>
+<div class="title">Dune::YaspEntitySeed&lt; codim, GridImp &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>The general version that handles all codimensions but 0 and dim.  
+<p>Describes the minimal information necessary to create a fully functional <a class="el" href="a04142.html">YaspEntity</a>.  
  <a href="a04146.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00182_source.html">dune/grid/yaspgrid/yaspgridgeometry.hh</a>&gt;</code></p>
-<div class="dynheader">
-Inheritance diagram for Dune::YaspGeometry&lt; mydim, cdim, GridImp &gt;:</div>
-<div class="dyncontent">
-<div class="center"><img src="a04145.png" border="0" usemap="#a_dune_1_1_yasp_geometry_3_01mydim_00_01cdim_00_01_grid_imp_01_4_inherit__map" alt="Inheritance graph"/></div>
-<map name="a_dune_1_1_yasp_geometry_3_01mydim_00_01cdim_00_01_grid_imp_01_4_inherit__map" id="a_dune_1_1_yasp_geometry_3_01mydim_00_01cdim_00_01_grid_imp_01_4_inherit__map">
-<area shape="rect" title="The general version that handles all codimensions but 0 and dim." alt="" coords="7,109,182,151"/>
-<area shape="rect" title=" " alt="" coords="5,5,184,61"/>
-</map>
-</div>
+<p><code>#include &lt;<a class="el" href="a00188_source.html">dune/grid/yaspgrid/yaspgridentityseed.hh</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a53e1e4f7c3a892f71d14b6fc49cc028e"><td class="memItemLeft" align="right" valign="top">typedef GridImp::ctype&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04146.html#a53e1e4f7c3a892f71d14b6fc49cc028e">ctype</a></td></tr>
-<tr class="memdesc:a53e1e4f7c3a892f71d14b6fc49cc028e"><td class="mdescLeft">&#160;</td><td class="mdescRight">define type used for coordinates in grid module  <a href="a04146.html#a53e1e4f7c3a892f71d14b6fc49cc028e">More...</a><br /></td></tr>
-<tr class="separator:a53e1e4f7c3a892f71d14b6fc49cc028e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0aa69fbecbb9253990fdf9e0eb89315"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="a04146.html#af0aa69fbecbb9253990fdf9e0eb89315a8eae8b27a251bbb9d89b6eed551aa03a">codimension</a> = codim
+ }</td></tr>
+<tr class="memdesc:af0aa69fbecbb9253990fdf9e0eb89315"><td class="mdescLeft">&#160;</td><td class="mdescRight">codimension of entity pointer  <a href="a04146.html#af0aa69fbecbb9253990fdf9e0eb89315">More...</a><br /></td></tr>
+<tr class="separator:af0aa69fbecbb9253990fdf9e0eb89315"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a9efe8a3009bcde11bc52a3f059571d4f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04146.html#a9efe8a3009bcde11bc52a3f059571d4f">YaspGeometry</a> ()</td></tr>
-<tr class="memdesc:a9efe8a3009bcde11bc52a3f059571d4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">default constructor  <a href="a04146.html#a9efe8a3009bcde11bc52a3f059571d4f">More...</a><br /></td></tr>
-<tr class="separator:a9efe8a3009bcde11bc52a3f059571d4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b05fcd4911ea30adc1d61664802f3bf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04146.html#a0b05fcd4911ea30adc1d61664802f3bf">YaspGeometry</a> (const FieldVector&lt; <a class="el" href="a04146.html#a53e1e4f7c3a892f71d14b6fc49cc028e">ctype</a>, cdim &gt; &amp;ll, const FieldVector&lt; <a class="el" href="a04146.html#a53e1e4f7c3a892f71d14b6fc49cc028e">ctype</a>, cdim &gt; &amp;ur, const std::bitset&lt; cdim &gt; &amp;shift)</td></tr>
-<tr class="memdesc:a0b05fcd4911ea30adc1d61664802f3bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor from midpoint and extension and a bitset defining which unit vectors span the entity  <a href="a04146.html#a0b05fcd4911ea30adc1d61664802f3bf">More...</a><br /></td></tr>
-<tr class="separator:a0b05fcd4911ea30adc1d61664802f3bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9eff73ec8defb769b06ee996c1e9b17"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04146.html#af9eff73ec8defb769b06ee996c1e9b17">YaspGeometry</a> (const <a class="el" href="a04146.html">YaspGeometry</a> &amp;other)</td></tr>
-<tr class="memdesc:af9eff73ec8defb769b06ee996c1e9b17"><td class="mdescLeft">&#160;</td><td class="mdescRight">copy constructor  <a href="a04146.html#af9eff73ec8defb769b06ee996c1e9b17">More...</a><br /></td></tr>
-<tr class="separator:af9eff73ec8defb769b06ee996c1e9b17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a773cb8b14826633ee022c14167298fe6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04146.html#a773cb8b14826633ee022c14167298fe6">YaspEntitySeed</a> ()</td></tr>
+<tr class="memdesc:a773cb8b14826633ee022c14167298fe6"><td class="mdescLeft">&#160;</td><td class="mdescRight">default construct an invalid entity seed  <a href="a04146.html#a773cb8b14826633ee022c14167298fe6">More...</a><br /></td></tr>
+<tr class="separator:a773cb8b14826633ee022c14167298fe6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a906fed882264711b4386e725dd8848a9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04146.html#a906fed882264711b4386e725dd8848a9">YaspEntitySeed</a> (int <a class="el" href="a04146.html#a5139fe422d0b73d10885aa49427eaefb">level</a>, std::array&lt; int, dim &gt; <a class="el" href="a04146.html#a35c34bade303f75ad8eb3c1a6878e254">coord</a>, int o=0)</td></tr>
+<tr class="memdesc:a906fed882264711b4386e725dd8848a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor  <a href="a04146.html#a906fed882264711b4386e725dd8848a9">More...</a><br /></td></tr>
+<tr class="separator:a906fed882264711b4386e725dd8848a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af828a8ec9444ff8bf6c7e01b0890cc29"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04146.html#af828a8ec9444ff8bf6c7e01b0890cc29">isValid</a> () const</td></tr>
+<tr class="memdesc:af828a8ec9444ff8bf6c7e01b0890cc29"><td class="mdescLeft">&#160;</td><td class="mdescRight">check whether the <a class="el" href="a02670.html" title="Store a reference to an entity with a minimal memory footprint.">EntitySeed</a> refers to a valid <a class="el" href="a02642.html" title="Wrapper class for entities.">Entity</a>  <a href="a04146.html#af828a8ec9444ff8bf6c7e01b0890cc29">More...</a><br /></td></tr>
+<tr class="separator:af828a8ec9444ff8bf6c7e01b0890cc29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5139fe422d0b73d10885aa49427eaefb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04146.html#a5139fe422d0b73d10885aa49427eaefb">level</a> () const</td></tr>
+<tr class="separator:a5139fe422d0b73d10885aa49427eaefb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35c34bade303f75ad8eb3c1a6878e254"><td class="memItemLeft" align="right" valign="top">const std::array&lt; int, dim &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04146.html#a35c34bade303f75ad8eb3c1a6878e254">coord</a> () const</td></tr>
+<tr class="separator:a35c34bade303f75ad8eb3c1a6878e254"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad659dd001feb331bf7f962008e72be63"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04146.html#ad659dd001feb331bf7f962008e72be63">offset</a> () const</td></tr>
+<tr class="separator:ad659dd001feb331bf7f962008e72be63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a4758b907723b558a4d0d913d4bf273c9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04146.html#a4758b907723b558a4d0d913d4bf273c9">_l</a></td></tr>
+<tr class="separator:a4758b907723b558a4d0d913d4bf273c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3350345ce4ee0fe45c648cd934e96e6c"><td class="memItemLeft" align="right" valign="top">std::array&lt; int, dim &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04146.html#a3350345ce4ee0fe45c648cd934e96e6c">_c</a></td></tr>
+<tr class="separator:a3350345ce4ee0fe45c648cd934e96e6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a8efd203e9c589837ac0ed91b464006"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04146.html#a0a8efd203e9c589837ac0ed91b464006">_o</a></td></tr>
+<tr class="separator:a0a8efd203e9c589837ac0ed91b464006"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;int mydim, int cdim, class GridImp&gt;<br />
-class Dune::YaspGeometry&lt; mydim, cdim, GridImp &gt;</h3>
+<div class="textblock"><h3>template&lt;int codim, class GridImp&gt;<br />
+class Dune::YaspEntitySeed&lt; codim, GridImp &gt;</h3>
 
-<p>The general version that handles all codimensions but 0 and dim. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">mydim</td><td>the codimension </td></tr>
-    <tr><td class="paramname">cdim</td><td>the coordinate dimension (NOT codim) </td></tr>
-  </table>
-  </dd>
-</dl>
-</div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a53e1e4f7c3a892f71d14b6fc49cc028e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a53e1e4f7c3a892f71d14b6fc49cc028e">&#9670;&nbsp;</a></span>ctype</h2>
+<p>Describes the minimal information necessary to create a fully functional <a class="el" href="a04142.html">YaspEntity</a>. </p>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="af0aa69fbecbb9253990fdf9e0eb89315"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0aa69fbecbb9253990fdf9e0eb89315">&#9670;&nbsp;</a></span>anonymous enum</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int mydim, int cdim, class GridImp &gt; </div>
+template&lt;int codim, class GridImp &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef GridImp::ctype <a class="el" href="a04146.html">Dune::YaspGeometry</a>&lt; mydim, cdim, GridImp &gt;::<a class="el" href="a04146.html#a53e1e4f7c3a892f71d14b6fc49cc028e">ctype</a></td>
+          <td class="memname">anonymous enum</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>define type used for coordinates in grid module </p>
+<p>codimension of entity pointer </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="af0aa69fbecbb9253990fdf9e0eb89315a8eae8b27a251bbb9d89b6eed551aa03a"></a>codimension&#160;</td><td class="fielddoc"></td></tr>
+</table>
 
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a9efe8a3009bcde11bc52a3f059571d4f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9efe8a3009bcde11bc52a3f059571d4f">&#9670;&nbsp;</a></span>YaspGeometry() <span class="overload">[1/3]</span></h2>
+<a id="a773cb8b14826633ee022c14167298fe6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a773cb8b14826633ee022c14167298fe6">&#9670;&nbsp;</a></span>YaspEntitySeed() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int mydim, int cdim, class GridImp &gt; </div>
+template&lt;int codim, class GridImp &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a04146.html">Dune::YaspGeometry</a>&lt; mydim, cdim, GridImp &gt;::<a class="el" href="a04146.html">YaspGeometry</a> </td>
+          <td class="memname"><a class="el" href="a04146.html">Dune::YaspEntitySeed</a>&lt; codim, GridImp &gt;::<a class="el" href="a04146.html">YaspEntitySeed</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -164,38 +168,38 @@ template&lt;int mydim, int cdim, class GridImp &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>default constructor </p>
+<p>default construct an invalid entity seed </p>
 
 </div>
 </div>
-<a id="a0b05fcd4911ea30adc1d61664802f3bf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0b05fcd4911ea30adc1d61664802f3bf">&#9670;&nbsp;</a></span>YaspGeometry() <span class="overload">[2/3]</span></h2>
+<a id="a906fed882264711b4386e725dd8848a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a906fed882264711b4386e725dd8848a9">&#9670;&nbsp;</a></span>YaspEntitySeed() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int mydim, int cdim, class GridImp &gt; </div>
+template&lt;int codim, class GridImp &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a04146.html">Dune::YaspGeometry</a>&lt; mydim, cdim, GridImp &gt;::<a class="el" href="a04146.html">YaspGeometry</a> </td>
+          <td class="memname"><a class="el" href="a04146.html">Dune::YaspEntitySeed</a>&lt; codim, GridImp &gt;::<a class="el" href="a04146.html">YaspEntitySeed</a> </td>
           <td>(</td>
-          <td class="paramtype">const FieldVector&lt; <a class="el" href="a04146.html#a53e1e4f7c3a892f71d14b6fc49cc028e">ctype</a>, cdim &gt; &amp;&#160;</td>
-          <td class="paramname"><em>ll</em>, </td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>level</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const FieldVector&lt; <a class="el" href="a04146.html#a53e1e4f7c3a892f71d14b6fc49cc028e">ctype</a>, cdim &gt; &amp;&#160;</td>
-          <td class="paramname"><em>ur</em>, </td>
+          <td class="paramtype">std::array&lt; int, dim &gt;&#160;</td>
+          <td class="paramname"><em>coord</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::bitset&lt; cdim &gt; &amp;&#160;</td>
-          <td class="paramname"><em>shift</em>&#160;</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>o</em> = <code>0</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -210,27 +214,27 @@ template&lt;int mydim, int cdim, class GridImp &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>constructor from midpoint and extension and a bitset defining which unit vectors span the entity </p>
+<p>constructor </p>
 
 </div>
 </div>
-<a id="af9eff73ec8defb769b06ee996c1e9b17"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af9eff73ec8defb769b06ee996c1e9b17">&#9670;&nbsp;</a></span>YaspGeometry() <span class="overload">[3/3]</span></h2>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a35c34bade303f75ad8eb3c1a6878e254"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35c34bade303f75ad8eb3c1a6878e254">&#9670;&nbsp;</a></span>coord()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int mydim, int cdim, class GridImp &gt; </div>
+template&lt;int codim, class GridImp &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a04146.html">Dune::YaspGeometry</a>&lt; mydim, cdim, GridImp &gt;::<a class="el" href="a04146.html">YaspGeometry</a> </td>
+          <td class="memname">const std::array&lt;int, dim&gt;&amp; <a class="el" href="a04146.html">Dune::YaspEntitySeed</a>&lt; codim, GridImp &gt;::coord </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a04146.html">YaspGeometry</a>&lt; mydim, cdim, GridImp &gt; &amp;&#160;</td>
-          <td class="paramname"><em>other</em></td><td>)</td>
-          <td></td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -240,13 +244,167 @@ template&lt;int mydim, int cdim, class GridImp &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>copy constructor </p>
+</div>
+</div>
+<a id="af828a8ec9444ff8bf6c7e01b0890cc29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af828a8ec9444ff8bf6c7e01b0890cc29">&#9670;&nbsp;</a></span>isValid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int codim, class GridImp &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="a04146.html">Dune::YaspEntitySeed</a>&lt; codim, GridImp &gt;::isValid </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>check whether the <a class="el" href="a02670.html" title="Store a reference to an entity with a minimal memory footprint.">EntitySeed</a> refers to a valid <a class="el" href="a02642.html" title="Wrapper class for entities.">Entity</a> </p>
+
+</div>
+</div>
+<a id="a5139fe422d0b73d10885aa49427eaefb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5139fe422d0b73d10885aa49427eaefb">&#9670;&nbsp;</a></span>level()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int codim, class GridImp &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="a04146.html">Dune::YaspEntitySeed</a>&lt; codim, GridImp &gt;::level </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad659dd001feb331bf7f962008e72be63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad659dd001feb331bf7f962008e72be63">&#9670;&nbsp;</a></span>offset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int codim, class GridImp &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="a04146.html">Dune::YaspEntitySeed</a>&lt; codim, GridImp &gt;::offset </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a3350345ce4ee0fe45c648cd934e96e6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3350345ce4ee0fe45c648cd934e96e6c">&#9670;&nbsp;</a></span>_c</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int codim, class GridImp &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::array&lt;int, dim&gt; <a class="el" href="a04146.html">Dune::YaspEntitySeed</a>&lt; codim, GridImp &gt;::_c</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4758b907723b558a4d0d913d4bf273c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4758b907723b558a4d0d913d4bf273c9">&#9670;&nbsp;</a></span>_l</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int codim, class GridImp &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="a04146.html">Dune::YaspEntitySeed</a>&lt; codim, GridImp &gt;::_l</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0a8efd203e9c589837ac0ed91b464006"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a8efd203e9c589837ac0ed91b464006">&#9670;&nbsp;</a></span>_o</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int codim, class GridImp &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="a04146.html">Dune::YaspEntitySeed</a>&lt; codim, GridImp &gt;::_o</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="a00896_source.html">yaspgrid.hh</a></li>
-<li><a class="el" href="a00182_source.html">yaspgridgeometry.hh</a></li>
+<li><a class="el" href="a00899_source.html">yaspgrid.hh</a></li>
+<li><a class="el" href="a00188_source.html">yaspgridentityseed.hh</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: Dune::VTKWriter&lt; GridView &gt;::VTKLocalFunction::FunctionWrapperBase Struct Reference</title>
+<title>dune-grid: Dune::VTKWriter&lt; GridView &gt;::VTKLocalFunction::GlobalFunctionWrapper&lt; F &gt; Struct Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,67 +62,161 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00936.html">Dune</a></li><li class="navelem"><a class="el" href="a03898.html">VTKWriter</a></li><li class="navelem"><a class="el" href="a03902.html">VTKLocalFunction</a></li><li class="navelem"><a class="el" href="a03906.html">FunctionWrapperBase</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00940.html">Dune</a></li><li class="navelem"><a class="el" href="a03890.html">VTKWriter</a></li><li class="navelem"><a class="el" href="a03894.html">VTKLocalFunction</a></li><li class="navelem"><a class="el" href="a03906.html">GlobalFunctionWrapper</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="a03903.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::VTKWriter&lt; GridView &gt;::VTKLocalFunction::FunctionWrapperBase Struct Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
+<div class="title">Dune::VTKWriter&lt; GridView &gt;::VTKLocalFunction::GlobalFunctionWrapper&lt; F &gt; Struct Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Base class for polymorphic container of underlying data set.  
+<p>Type erasure implementation for C++ functions, i.e., functions that can be evaluated in global coordinates.  
  <a href="a03906.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00833_source.html">dune/grid/io/file/vtk/vtkwriter.hh</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00839_source.html">dune/grid/io/file/vtk/vtkwriter.hh</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for Dune::VTKWriter&lt; GridView &gt;::VTKLocalFunction::FunctionWrapperBase:</div>
+Inheritance diagram for Dune::VTKWriter&lt; GridView &gt;::VTKLocalFunction::GlobalFunctionWrapper&lt; F &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="a03905.png" border="0" usemap="#a_dune_1_1_v_t_k_writer_3_01_grid_view_01_4_1_1_v_t_k_local_function_1_1_function_wrapper_base_inherit__map" alt="Inheritance graph"/></div>
-<map name="a_dune_1_1_v_t_k_writer_3_01_grid_view_01_4_1_1_v_t_k_local_function_1_1_function_wrapper_base_inherit__map" id="a_dune_1_1_v_t_k_writer_3_01_grid_view_01_4_1_1_v_t_k_local_function_1_1_function_wrapper_base_inherit__map">
-<area shape="rect" title="Base class for polymorphic container of underlying data set." alt="" coords="5,85,212,141"/>
-<area shape="rect" href="a03910.html" title="Type erasure implementation for functions conforming to the dune&#45;functions LocalFunction interface." alt="" coords="278,5,485,61"/>
-<area shape="rect" href="a03914.html" title="Type erasure implementation for C++ functions, i.e., functions that can be evaluated in global coordi..." alt="" coords="260,85,503,141"/>
-<area shape="rect" href="a03918.html" title="Type erasure implementation for legacy VTKFunctions." alt="" coords="266,165,497,221"/>
+<div class="center"><img src="a03905.png" border="0" usemap="#a_dune_1_1_v_t_k_writer_3_01_grid_view_01_4_1_1_v_t_k_local_function_1_1_global_function_wrapper_3_01_f_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="a_dune_1_1_v_t_k_writer_3_01_grid_view_01_4_1_1_v_t_k_local_function_1_1_global_function_wrapper_3_01_f_01_4_inherit__map" id="a_dune_1_1_v_t_k_writer_3_01_grid_view_01_4_1_1_v_t_k_local_function_1_1_global_function_wrapper_3_01_f_01_4_inherit__map">
+<area shape="rect" title="Type erasure implementation for C++ functions, i.e., functions that can be evaluated in global coordi..." alt="" coords="5,109,248,165"/>
+<area shape="rect" href="a03898.html" title="Base class for polymorphic container of underlying data set." alt="" coords="23,5,230,61"/>
 </map>
 </div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a87df297c3347c7a35db810247772c959"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03906.html#a87df297c3347c7a35db810247772c959">Function</a> = typename std::decay&lt; F &gt;::type</td></tr>
+<tr class="separator:a87df297c3347c7a35db810247772c959"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:abc0ecd194a4124110917abea1ccdc942"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03906.html#abc0ecd194a4124110917abea1ccdc942">bind</a> (const Entity &amp;e)=0</td></tr>
-<tr class="memdesc:abc0ecd194a4124110917abea1ccdc942"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bind data set to grid entity - must be called before evaluating (i.e. calling <a class="el" href="a03906.html#a6738e48a99bcbbc7cb52517a473530c8" title="Evaluate data set at local position pos inside the current entity and write result to w.">write()</a>)  <a href="a03906.html#abc0ecd194a4124110917abea1ccdc942">More...</a><br /></td></tr>
-<tr class="separator:abc0ecd194a4124110917abea1ccdc942"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2a0254b322c01dd8da1d8bdb27c405b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03906.html#aa2a0254b322c01dd8da1d8bdb27c405b">unbind</a> ()=0</td></tr>
-<tr class="memdesc:aa2a0254b322c01dd8da1d8bdb27c405b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unbind data set from current grid entity - mostly here for performance and symmetry reasons.  <a href="a03906.html#aa2a0254b322c01dd8da1d8bdb27c405b">More...</a><br /></td></tr>
-<tr class="separator:aa2a0254b322c01dd8da1d8bdb27c405b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6738e48a99bcbbc7cb52517a473530c8"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03906.html#a6738e48a99bcbbc7cb52517a473530c8">write</a> (const Coordinate &amp;pos, <a class="el" href="a03902.html#a8f848c19dae048dbb39cdf5a15d54c52">Writer</a> &amp;w, std::size_t count) const =0</td></tr>
-<tr class="memdesc:a6738e48a99bcbbc7cb52517a473530c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate data set at local position pos inside the current entity and write result to w.  <a href="a03906.html#a6738e48a99bcbbc7cb52517a473530c8">More...</a><br /></td></tr>
-<tr class="separator:a6738e48a99bcbbc7cb52517a473530c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a87ff5009075af77c20e2a0adb8e7f637"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03906.html#a87ff5009075af77c20e2a0adb8e7f637">~FunctionWrapperBase</a> ()</td></tr>
-<tr class="separator:a87ff5009075af77c20e2a0adb8e7f637"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00773384ca04578f4b08aba976d634ee"><td class="memTemplParams" colspan="2">template&lt;typename F_ &gt; </td></tr>
+<tr class="memitem:a00773384ca04578f4b08aba976d634ee"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a03906.html#a00773384ca04578f4b08aba976d634ee">GlobalFunctionWrapper</a> (F_ &amp;&amp;f)</td></tr>
+<tr class="separator:a00773384ca04578f4b08aba976d634ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff84077a9908ecb36aa8eba02b948854"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03906.html#aff84077a9908ecb36aa8eba02b948854">bind</a> (const Entity &amp;e)</td></tr>
+<tr class="memdesc:aff84077a9908ecb36aa8eba02b948854"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bind data set to grid entity - must be called before evaluating (i.e. calling <a class="el" href="a03906.html#af77f3a7ed6161df0c9294ee96f9cb1f4" title="Evaluate data set at local position pos inside the current entity and write result to w.">write()</a>)  <a href="a03906.html#aff84077a9908ecb36aa8eba02b948854">More...</a><br /></td></tr>
+<tr class="separator:aff84077a9908ecb36aa8eba02b948854"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ca6f844155cd450e98a652621c391bd"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03906.html#a2ca6f844155cd450e98a652621c391bd">unbind</a> ()</td></tr>
+<tr class="memdesc:a2ca6f844155cd450e98a652621c391bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unbind data set from current grid entity - mostly here for performance and symmetry reasons.  <a href="a03906.html#a2ca6f844155cd450e98a652621c391bd">More...</a><br /></td></tr>
+<tr class="separator:a2ca6f844155cd450e98a652621c391bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af77f3a7ed6161df0c9294ee96f9cb1f4"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03906.html#af77f3a7ed6161df0c9294ee96f9cb1f4">write</a> (const Coordinate &amp;pos, <a class="el" href="a03894.html#a8f848c19dae048dbb39cdf5a15d54c52">Writer</a> &amp;w, std::size_t count) const</td></tr>
+<tr class="memdesc:af77f3a7ed6161df0c9294ee96f9cb1f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate data set at local position pos inside the current entity and write result to w.  <a href="a03906.html#af77f3a7ed6161df0c9294ee96f9cb1f4">More...</a><br /></td></tr>
+<tr class="separator:af77f3a7ed6161df0c9294ee96f9cb1f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;class GridView&gt;<br />
-struct Dune::VTKWriter&lt; GridView &gt;::VTKLocalFunction::FunctionWrapperBase</h3>
+template&lt;typename F&gt;<br />
+struct Dune::VTKWriter&lt; GridView &gt;::VTKLocalFunction::GlobalFunctionWrapper&lt; F &gt;</h3>
 
-<p>Base class for polymorphic container of underlying data set. </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a87ff5009075af77c20e2a0adb8e7f637"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a87ff5009075af77c20e2a0adb8e7f637">&#9670;&nbsp;</a></span>~FunctionWrapperBase()</h2>
+<p>Type erasure implementation for C++ functions, i.e., functions that can be evaluated in global coordinates. </p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a87df297c3347c7a35db810247772c959"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87df297c3347c7a35db810247772c959">&#9670;&nbsp;</a></span>Function</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class GridView &gt; </div>
+<div class="memtemplate">
+template&lt;typename F &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="a03890.html">Dune::VTKWriter</a>&lt; <a class="el" href="a02758.html">GridView</a> &gt;::<a class="el" href="a03906.html">VTKLocalFunction::GlobalFunctionWrapper</a>&lt; F &gt;::<a class="el" href="a03906.html#a87df297c3347c7a35db810247772c959">Function</a> =  typename std::decay&lt;F&gt;::type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a00773384ca04578f4b08aba976d634ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00773384ca04578f4b08aba976d634ee">&#9670;&nbsp;</a></span>GlobalFunctionWrapper()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class GridView &gt; </div>
+<div class="memtemplate">
+template&lt;typename F &gt; </div>
+<div class="memtemplate">
+template&lt;typename F_ &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="a03898.html">Dune::VTKWriter</a>&lt; <a class="el" href="a02754.html">GridView</a> &gt;::VTKLocalFunction::FunctionWrapperBase::~FunctionWrapperBase </td>
+          <td class="memname"><a class="el" href="a03890.html">Dune::VTKWriter</a>&lt; <a class="el" href="a02758.html">GridView</a> &gt;::<a class="el" href="a03906.html">VTKLocalFunction::GlobalFunctionWrapper</a>&lt; F &gt;::<a class="el" href="a03906.html">GlobalFunctionWrapper</a> </td>
+          <td>(</td>
+          <td class="paramtype">F_ &amp;&amp;&#160;</td>
+          <td class="paramname"><em>f</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="aff84077a9908ecb36aa8eba02b948854"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff84077a9908ecb36aa8eba02b948854">&#9670;&nbsp;</a></span>bind()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class GridView &gt; </div>
+<div class="memtemplate">
+template&lt;typename F &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void <a class="el" href="a03890.html">Dune::VTKWriter</a>&lt; <a class="el" href="a02758.html">GridView</a> &gt;::<a class="el" href="a03906.html">VTKLocalFunction::GlobalFunctionWrapper</a>&lt; F &gt;::bind </td>
+          <td>(</td>
+          <td class="paramtype">const Entity &amp;&#160;</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Bind data set to grid entity - must be called before evaluating (i.e. calling <a class="el" href="a03906.html#af77f3a7ed6161df0c9294ee96f9cb1f4" title="Evaluate data set at local position pos inside the current entity and write result to w.">write()</a>) </p>
+
+<p>Implements <a class="el" href="a03898.html#abc0ecd194a4124110917abea1ccdc942">Dune::VTKWriter&lt; GridView &gt;::VTKLocalFunction::FunctionWrapperBase</a>.</p>
+
+</div>
+</div>
+<a id="a2ca6f844155cd450e98a652621c391bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ca6f844155cd450e98a652621c391bd">&#9670;&nbsp;</a></span>unbind()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class GridView &gt; </div>
+<div class="memtemplate">
+template&lt;typename F &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void <a class="el" href="a03890.html">Dune::VTKWriter</a>&lt; <a class="el" href="a02758.html">GridView</a> &gt;::<a class="el" href="a03906.html">VTKLocalFunction::GlobalFunctionWrapper</a>&lt; F &gt;::unbind </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -135,85 +229,27 @@ template&lt;class GridView &gt; </div>
 </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="abc0ecd194a4124110917abea1ccdc942"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc0ecd194a4124110917abea1ccdc942">&#9670;&nbsp;</a></span>bind()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class GridView &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void <a class="el" href="a03898.html">Dune::VTKWriter</a>&lt; <a class="el" href="a02754.html">GridView</a> &gt;::VTKLocalFunction::FunctionWrapperBase::bind </td>
-          <td>(</td>
-          <td class="paramtype">const Entity &amp;&#160;</td>
-          <td class="paramname"><em>e</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Bind data set to grid entity - must be called before evaluating (i.e. calling <a class="el" href="a03906.html#a6738e48a99bcbbc7cb52517a473530c8" title="Evaluate data set at local position pos inside the current entity and write result to w.">write()</a>) </p>
-
-<p>Implemented in <a class="el" href="a03918.html#a994c898988cc289572b066efa8c15a94">Dune::VTKWriter&lt; GridView &gt;::VTKLocalFunction::VTKFunctionWrapper</a>, <a class="el" href="a03914.html#aff84077a9908ecb36aa8eba02b948854">Dune::VTKWriter&lt; GridView &gt;::VTKLocalFunction::GlobalFunctionWrapper&lt; F &gt;</a>, and <a class="el" href="a03910.html#aec1e76c9888960854d43740275a4fbfc">Dune::VTKWriter&lt; GridView &gt;::VTKLocalFunction::FunctionWrapper&lt; F &gt;</a>.</p>
-
-</div>
-</div>
-<a id="aa2a0254b322c01dd8da1d8bdb27c405b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa2a0254b322c01dd8da1d8bdb27c405b">&#9670;&nbsp;</a></span>unbind()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class GridView &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void <a class="el" href="a03898.html">Dune::VTKWriter</a>&lt; <a class="el" href="a02754.html">GridView</a> &gt;::VTKLocalFunction::FunctionWrapperBase::unbind </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
 <p>Unbind data set from current grid entity - mostly here for performance and symmetry reasons. </p>
 
-<p>Implemented in <a class="el" href="a03918.html#a1b7d95714648008449decf90da6556fd">Dune::VTKWriter&lt; GridView &gt;::VTKLocalFunction::VTKFunctionWrapper</a>, <a class="el" href="a03914.html#a2ca6f844155cd450e98a652621c391bd">Dune::VTKWriter&lt; GridView &gt;::VTKLocalFunction::GlobalFunctionWrapper&lt; F &gt;</a>, and <a class="el" href="a03910.html#a914dfa25068e54be835b4803ad6e205d">Dune::VTKWriter&lt; GridView &gt;::VTKLocalFunction::FunctionWrapper&lt; F &gt;</a>.</p>
+<p>Implements <a class="el" href="a03898.html#aa2a0254b322c01dd8da1d8bdb27c405b">Dune::VTKWriter&lt; GridView &gt;::VTKLocalFunction::FunctionWrapperBase</a>.</p>
 
 </div>
 </div>
-<a id="a6738e48a99bcbbc7cb52517a473530c8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6738e48a99bcbbc7cb52517a473530c8">&#9670;&nbsp;</a></span>write()</h2>
+<a id="af77f3a7ed6161df0c9294ee96f9cb1f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af77f3a7ed6161df0c9294ee96f9cb1f4">&#9670;&nbsp;</a></span>write()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class GridView &gt; </div>
+<div class="memtemplate">
+template&lt;typename F &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void <a class="el" href="a03898.html">Dune::VTKWriter</a>&lt; <a class="el" href="a02754.html">GridView</a> &gt;::VTKLocalFunction::FunctionWrapperBase::write </td>
+          <td class="memname">virtual void <a class="el" href="a03890.html">Dune::VTKWriter</a>&lt; <a class="el" href="a02758.html">GridView</a> &gt;::<a class="el" href="a03906.html">VTKLocalFunction::GlobalFunctionWrapper</a>&lt; F &gt;::write </td>
           <td>(</td>
           <td class="paramtype">const Coordinate &amp;&#160;</td>
           <td class="paramname"><em>pos</em>, </td>
@@ -221,7 +257,7 @@ template&lt;class GridView &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a03902.html#a8f848c19dae048dbb39cdf5a15d54c52">Writer</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="a03894.html#a8f848c19dae048dbb39cdf5a15d54c52">Writer</a> &amp;&#160;</td>
           <td class="paramname"><em>w</em>, </td>
         </tr>
         <tr>
@@ -238,20 +274,20 @@ template&lt;class GridView &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Evaluate data set at local position pos inside the current entity and write result to w. </p>
-<p>The function must write count scalar values as determined by the <a class="el" href="a03738.html" title="Descriptor struct for VTK fields.">VTK::FieldInfo</a>. </p>
+<p>The function must write count scalar values as determined by the <a class="el" href="a03734.html" title="Descriptor struct for VTK fields.">VTK::FieldInfo</a>. </p>
 
-<p>Implemented in <a class="el" href="a03918.html#a59ccf5487ed5bc1ae4d7422e08a4d90a">Dune::VTKWriter&lt; GridView &gt;::VTKLocalFunction::VTKFunctionWrapper</a>, <a class="el" href="a03914.html#af77f3a7ed6161df0c9294ee96f9cb1f4">Dune::VTKWriter&lt; GridView &gt;::VTKLocalFunction::GlobalFunctionWrapper&lt; F &gt;</a>, and <a class="el" href="a03910.html#a8453939f16f3fd8471a98f24894690e1">Dune::VTKWriter&lt; GridView &gt;::VTKLocalFunction::FunctionWrapper&lt; F &gt;</a>.</p>
+<p>Implements <a class="el" href="a03898.html#a6738e48a99bcbbc7cb52517a473530c8">Dune::VTKWriter&lt; GridView &gt;::VTKLocalFunction::FunctionWrapperBase</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="a00833_source.html">vtkwriter.hh</a></li>
+<li><a class="el" href="a00839_source.html">vtkwriter.hh</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: dofvector.hh Source File</title>
+<title>dune-grid: dofadmin.hh Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -67,24 +67,24 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">dofvector.hh</div>  </div>
+<div class="title">dofadmin.hh</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="a00500.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*-</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// vi: set et ts=4 sw=2 sts=2:</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifndef DUNE_ALBERTA_DOFVECTOR_HH</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define DUNE_ALBERTA_DOFVECTOR_HH</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifndef DUNE_ALBERTA_DOFADMIN_HH</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define DUNE_ALBERTA_DOFADMIN_HH</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;cstdlib&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;limits&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00557.html">dune/grid/albertagrid/misc.hh</a>&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00506.html">dune/grid/albertagrid/elementinfo.hh</a>&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00563.html">dune/grid/albertagrid/refinement.hh</a>&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;utility&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;dune/common/hybridutilities.hh&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00560.html">dune/grid/albertagrid/misc.hh</a>&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00509.html">dune/grid/albertagrid/elementinfo.hh</a>&gt;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#if HAVE_ALBERTA</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00936.html">Dune</a></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00940.html">Dune</a></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  <span class="keyword">namespace </span>Alberta</div>
@@ -98,397 +98,306 @@ $(function() {
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="comment">// DofVectorProvider</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="comment">// -----------------</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="comment">// DofAccess</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="comment">// ---------</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">class</span> Dof &gt;</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="a01870.html">   33</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="a01870.html">DofVectorProvider</a>;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">template</span>&lt;&gt;</div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="a01874.html">   36</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="a01870.html">DofVectorProvider</a>&lt; int &gt;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    {</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="a01874.html#a5ca6dfca3a174012c2b31c841e1e83d4">   38</a></span>&#160;      <span class="keyword">typedef</span> <a class="code" href="a00479.html#a4cbe74d935d2e31c4b35398e93623f70">ALBERTA</a> DOF_INT_VEC <a class="code" href="a01874.html#a5ca6dfca3a174012c2b31c841e1e83d4">DofVector</a>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">template</span>&lt; <span class="keywordtype">int</span> dim, <span class="keywordtype">int</span> codim &gt;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="a01858.html">   33</a></span>&#160;    <span class="keyword">class </span><a class="code" href="a01858.html">DofAccess</a></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;      <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> codimtype = <a class="code" href="a02242.html">CodimType&lt; dim, codim &gt;::value</a>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="a01858.html#a64a6a8adb53aff6c1475629c96638b76">   38</a></span>&#160;      <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="a01858.html#a64a6a8adb53aff6c1475629c96638b76">numSubEntities</a> = <a class="code" href="a02214.html">NumSubEntities&lt; dim, codim &gt;::value</a>;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="a01874.html#a7631ed16880e0e6d1f5bc16495ffdebc">   40</a></span>&#160;      <span class="keyword">static</span> <a class="code" href="a01874.html#a5ca6dfca3a174012c2b31c841e1e83d4">DofVector</a> *<a class="code" href="a01874.html#a7631ed16880e0e6d1f5bc16495ffdebc">get</a> ( <span class="keyword">const</span> <a class="code" href="a00937.html#ab91172fc7cfde36bfa7dc9be768e71c2">DofSpace</a> *dofSpace, <span class="keyword">const</span> std::string &amp;name )</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;      {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="a00479.html#a4cbe74d935d2e31c4b35398e93623f70">ALBERTA</a> get_dof_int_vec( name.c_str(), dofSpace );</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      }</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="a01858.html#a2367fe847ca32e4eec9ced25382b1ce0">   40</a></span>&#160;      <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="a01858.html#a2367fe847ca32e4eec9ced25382b1ce0">dimension</a> = dim;</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="a01858.html#a4516f7b7b3a3210d23a7447674eb579c">   41</a></span>&#160;      <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="a01858.html#a4516f7b7b3a3210d23a7447674eb579c">codimension</a> = codim;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="a01858.html#aff12d5a3e33f12f875046ca21f87ddff">   43</a></span>&#160;      <span class="keyword">typedef</span> <a class="code" href="a01902.html">Alberta::ElementInfo&lt; dimension &gt;</a> <a class="code" href="a01858.html#aff12d5a3e33f12f875046ca21f87ddff">ElementInfo</a>;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="a01874.html#aa31ac13fb2ef7d5116b8dfa650c6941b">   45</a></span>&#160;      <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="a01874.html#aa31ac13fb2ef7d5116b8dfa650c6941b">free</a> ( <a class="code" href="a01874.html#a5ca6dfca3a174012c2b31c841e1e83d4">DofVector</a> *dofVector )</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;      {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <a class="code" href="a00479.html#a4cbe74d935d2e31c4b35398e93623f70">ALBERTA</a> free_dof_int_vec( dofVector );</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;      }</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="a01874.html#ae591101cb99765ae196fe4283dd592bd">   50</a></span>&#160;      <span class="keyword">static</span> <a class="code" href="a01874.html#a5ca6dfca3a174012c2b31c841e1e83d4">DofVector</a> *<a class="code" href="a01874.html#ae591101cb99765ae196fe4283dd592bd">read</a> ( <span class="keyword">const</span> std::string &amp;filename, <a class="code" href="a00937.html#a177e94fd8d51ddcd47f3fa3f7add13b1">Mesh</a> *mesh, <a class="code" href="a00937.html#ab91172fc7cfde36bfa7dc9be768e71c2">DofSpace</a> *dofSpace )</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;      {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="a00479.html#a4cbe74d935d2e31c4b35398e93623f70">ALBERTA</a> read_dof_int_vec_xdr( filename.c_str(), mesh, dofSpace );</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;      }</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="a01874.html#a6cd61ae645d891490b6c15bc4b4f52b6">   55</a></span>&#160;      <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="a01874.html#a6cd61ae645d891490b6c15bc4b4f52b6">write</a> ( <span class="keyword">const</span> <a class="code" href="a01874.html#a5ca6dfca3a174012c2b31c841e1e83d4">DofVector</a> *dofVector, <span class="keyword">const</span> std::string &amp;filename )</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      {</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordtype">int</span> success = <a class="code" href="a00479.html#a4cbe74d935d2e31c4b35398e93623f70">ALBERTA</a> write_dof_int_vec_xdr( dofVector, filename.c_str() );</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">return</span> (success == 0);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;      }</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    };</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keyword">template</span>&lt;&gt;</div>
-<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="a01878.html">   63</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="a01870.html">DofVectorProvider</a>&lt; signed char &gt;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    {</div>
-<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="a01878.html#abf4701f04e94e2ff37a85efe1da9baae">   65</a></span>&#160;      <span class="keyword">typedef</span> <a class="code" href="a00479.html#a4cbe74d935d2e31c4b35398e93623f70">ALBERTA</a> DOF_SCHAR_VEC <a class="code" href="a01878.html#abf4701f04e94e2ff37a85efe1da9baae">DofVector</a>;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="a01878.html#ae813f46b3c4daa3d8ca236fbfb8f1398">   67</a></span>&#160;      <span class="keyword">static</span> <a class="code" href="a01878.html#abf4701f04e94e2ff37a85efe1da9baae">DofVector</a> *<a class="code" href="a01878.html#ae813f46b3c4daa3d8ca236fbfb8f1398">get</a> ( <span class="keyword">const</span> <a class="code" href="a00937.html#ab91172fc7cfde36bfa7dc9be768e71c2">DofSpace</a> *dofSpace, <span class="keyword">const</span> std::string &amp;name )</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;      {</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="a00479.html#a4cbe74d935d2e31c4b35398e93623f70">ALBERTA</a> get_dof_schar_vec( name.c_str(), dofSpace );</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;      }</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="a01878.html#a7ba7c5a5e8d811c634708ad82224ee9e">   72</a></span>&#160;      <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="a01878.html#a7ba7c5a5e8d811c634708ad82224ee9e">free</a> ( <a class="code" href="a01878.html#abf4701f04e94e2ff37a85efe1da9baae">DofVector</a> *dofVector )</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;      {</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <a class="code" href="a00479.html#a4cbe74d935d2e31c4b35398e93623f70">ALBERTA</a> free_dof_schar_vec( dofVector );</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;      }</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="a01878.html#a32f7d972dd801a027b70b2eb7f55bc60">   77</a></span>&#160;      <span class="keyword">static</span> <a class="code" href="a01878.html#abf4701f04e94e2ff37a85efe1da9baae">DofVector</a> *<a class="code" href="a01878.html#a32f7d972dd801a027b70b2eb7f55bc60">read</a> ( <span class="keyword">const</span> std::string &amp;filename, <a class="code" href="a00937.html#a177e94fd8d51ddcd47f3fa3f7add13b1">Mesh</a> *mesh, <a class="code" href="a00937.html#ab91172fc7cfde36bfa7dc9be768e71c2">DofSpace</a> *dofSpace )</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;      {</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="a00479.html#a4cbe74d935d2e31c4b35398e93623f70">ALBERTA</a> read_dof_schar_vec_xdr( filename.c_str(), mesh, dofSpace );</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;      }</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="a01878.html#a418153905051e0cb18cb538a44633488">   82</a></span>&#160;      <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="a01878.html#a418153905051e0cb18cb538a44633488">write</a> ( <span class="keyword">const</span> <a class="code" href="a01878.html#abf4701f04e94e2ff37a85efe1da9baae">DofVector</a> *dofVector, <span class="keyword">const</span> std::string &amp;filename )</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;      {</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordtype">int</span> success = <a class="code" href="a00479.html#a4cbe74d935d2e31c4b35398e93623f70">ALBERTA</a> write_dof_schar_vec_xdr( dofVector, filename.c_str() );</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keywordflow">return</span> (success == 0);</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;      }</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    };</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="a01858.html#a24a4865da9e6b1e06b2aa22b827cbf75">   45</a></span>&#160;      <a class="code" href="a01858.html#a24a4865da9e6b1e06b2aa22b827cbf75">DofAccess</a> ()</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        : node_( -1 )</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;      {}</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="a01858.html#a78832be06e30f098839018ada7169eac">   49</a></span>&#160;      <span class="keyword">explicit</span> <a class="code" href="a01858.html#a78832be06e30f098839018ada7169eac">DofAccess</a> ( <span class="keyword">const</span> <a class="code" href="a00941.html#ab91172fc7cfde36bfa7dc9be768e71c2">DofSpace</a> *dofSpace )</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;      {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        assert( dofSpace );</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        node_ = dofSpace-&gt;admin-&gt;mesh-&gt;node[ codimtype ];</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        index_ = dofSpace-&gt;admin-&gt;n0_dof[ codimtype ];</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      }</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="a01858.html#ab974b8564f9b2ab58db6dd8f1dd94862">   56</a></span>&#160;      <span class="keywordtype">int</span> <a class="code" href="a01858.html#ab974b8564f9b2ab58db6dd8f1dd94862">operator() </a>( <span class="keyword">const</span> <a class="code" href="a00941.html#a738666cf4bcd352ecee6a5dc484bb92c">Element</a> *element, <span class="keywordtype">int</span> subEntity, <span class="keywordtype">int</span> i )<span class="keyword"> const</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        assert( element );</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        assert( node_ != -1 );</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        assert( subEntity &lt; <a class="code" href="a01858.html#a64a6a8adb53aff6c1475629c96638b76">numSubEntities</a> );</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordflow">return</span> element-&gt;dof[ node_ + subEntity ][ index_ + i ];</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;      }</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="a01858.html#ab3b3155eedec059066abcf810e3f2f21">   64</a></span>&#160;      <span class="keywordtype">int</span> <a class="code" href="a01858.html#ab974b8564f9b2ab58db6dd8f1dd94862">operator() </a>( <span class="keyword">const</span> <a class="code" href="a00941.html#a738666cf4bcd352ecee6a5dc484bb92c">Element</a> *element, <span class="keywordtype">int</span> subEntity )<span class="keyword"> const</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordflow">return</span> (*<span class="keyword">this</span>)( element, subEntity, 0 );</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;      }</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="a01858.html#af9bf778ce6465860f5beeb65a5770126">   69</a></span>&#160;      <span class="keywordtype">int</span> <a class="code" href="a01858.html#ab974b8564f9b2ab58db6dd8f1dd94862">operator() </a>( <span class="keyword">const</span> <a class="code" href="a01902.html">ElementInfo</a> &amp;elementInfo, <span class="keywordtype">int</span> subEntity, <span class="keywordtype">int</span> i )<span class="keyword"> const</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordflow">return</span> (*<span class="keyword">this</span>)( elementInfo.<a class="code" href="a01902.html#ada0ef6466c62d95e8e3f30aed2da8fad">el</a>(), subEntity, i );</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;      }</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="a01858.html#a5aa91d34ecc9c3397f856fab7faea019">   74</a></span>&#160;      <span class="keywordtype">int</span> <a class="code" href="a01858.html#ab974b8564f9b2ab58db6dd8f1dd94862">operator() </a>( <span class="keyword">const</span> <a class="code" href="a01902.html">ElementInfo</a> &amp;elementInfo, <span class="keywordtype">int</span> subEntity )<span class="keyword"> const</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordflow">return</span> (*<span class="keyword">this</span>)( elementInfo.<a class="code" href="a01902.html#ada0ef6466c62d95e8e3f30aed2da8fad">el</a>(), subEntity );</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;      }</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;      <span class="keywordtype">int</span> node_;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;      <span class="keywordtype">int</span> index_;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    };</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="comment">// HierarchyDofNumbering</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="comment">// ---------------------</span></div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keyword">template</span>&lt;&gt;</div>
-<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="a01882.html">   90</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="a01870.html">DofVectorProvider</a>&lt; unsigned char &gt;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keyword">template</span>&lt; <span class="keywordtype">int</span> dim &gt;</div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="a01862.html">   90</a></span>&#160;    <span class="keyword">class </span><a class="code" href="a01862.html">HierarchyDofNumbering</a></div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    {</div>
-<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="a01882.html#a49f0e788aeab439a96c21100075f1308">   92</a></span>&#160;      <span class="keyword">typedef</span> <a class="code" href="a00479.html#a4cbe74d935d2e31c4b35398e93623f70">ALBERTA</a> DOF_UCHAR_VEC <a class="code" href="a01882.html#a49f0e788aeab439a96c21100075f1308">DofVector</a>;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;      <span class="keyword">typedef</span> <a class="code" href="a01862.html">HierarchyDofNumbering&lt; dim &gt;</a> <a class="code" href="a01862.html">This</a>;</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
-<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="a01882.html#a168e386fc10d86e97e762b030ebae551">   94</a></span>&#160;      <span class="keyword">static</span> <a class="code" href="a01882.html#a49f0e788aeab439a96c21100075f1308">DofVector</a> *<a class="code" href="a01882.html#a168e386fc10d86e97e762b030ebae551">get</a> ( <span class="keyword">const</span> <a class="code" href="a00937.html#ab91172fc7cfde36bfa7dc9be768e71c2">DofSpace</a> *dofSpace, <span class="keyword">const</span> std::string &amp;name )</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;      {</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="a00479.html#a4cbe74d935d2e31c4b35398e93623f70">ALBERTA</a> get_dof_uchar_vec( name.c_str(), dofSpace );</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;      }</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
-<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="a01882.html#a2642f5b27521161123a47e81f9408fe9">   99</a></span>&#160;      <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="a01882.html#a2642f5b27521161123a47e81f9408fe9">free</a> ( <a class="code" href="a01882.html#a49f0e788aeab439a96c21100075f1308">DofVector</a> *dofVector )</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;      {</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <a class="code" href="a00479.html#a4cbe74d935d2e31c4b35398e93623f70">ALBERTA</a> free_dof_uchar_vec( dofVector );</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;      }</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="a01882.html#a478783e43d5c33cf2ad9e5ce9baa13c3">  104</a></span>&#160;      <span class="keyword">static</span> <a class="code" href="a01882.html#a49f0e788aeab439a96c21100075f1308">DofVector</a> *<a class="code" href="a01882.html#a478783e43d5c33cf2ad9e5ce9baa13c3">read</a> ( <span class="keyword">const</span> std::string &amp;filename, <a class="code" href="a00937.html#a177e94fd8d51ddcd47f3fa3f7add13b1">Mesh</a> *mesh, <a class="code" href="a00937.html#ab91172fc7cfde36bfa7dc9be768e71c2">DofSpace</a> *dofSpace )</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;      {</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="a00479.html#a4cbe74d935d2e31c4b35398e93623f70">ALBERTA</a> read_dof_uchar_vec_xdr( filename.c_str(), mesh, dofSpace );</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;      }</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="a01862.html#a98f0d24143e595d305a36617541ad5b2">   95</a></span>&#160;      <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="a01862.html#a98f0d24143e595d305a36617541ad5b2">dimension</a> = dim;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="a01862.html#a424d3d1c9a8a1e6ecc03088ffd6b0926">   97</a></span>&#160;      <span class="keyword">typedef</span> <a class="code" href="a01854.html">Alberta::MeshPointer&lt; dimension &gt;</a> <a class="code" href="a01862.html#a424d3d1c9a8a1e6ecc03088ffd6b0926">MeshPointer</a>;</div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="a01862.html#a860f98b7d6bb1d1b3c7dc84a153f95c9">   98</a></span>&#160;      <span class="keyword">typedef</span> <a class="code" href="a01902.html">Alberta::ElementInfo&lt; dimension &gt;</a> <a class="code" href="a01862.html#a860f98b7d6bb1d1b3c7dc84a153f95c9">ElementInfo</a>;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;      <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> nNodeTypes = N_NODE_TYPES;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;      <span class="keyword">template</span>&lt; <span class="keywordtype">int</span> codim &gt;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;      <span class="keyword">struct </span>CreateDofSpace;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;      <span class="keyword">template</span>&lt; <span class="keywordtype">int</span> codim &gt;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;      <span class="keyword">struct </span>CacheDofSpace;</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
-<div class="line"><a name="l00109"></a><span class="lineno"><a class="line" href="a01882.html#abd7830e742b444698e2bf5dc972df834">  109</a></span>&#160;      <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="a01882.html#abd7830e742b444698e2bf5dc972df834">write</a> ( <span class="keyword">const</span> <a class="code" href="a01882.html#a49f0e788aeab439a96c21100075f1308">DofVector</a> *dofVector, <span class="keyword">const</span> std::string &amp;filename )</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;      {</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="keywordtype">int</span> success = <a class="code" href="a00479.html#a4cbe74d935d2e31c4b35398e93623f70">ALBERTA</a> write_dof_uchar_vec_xdr( dofVector, filename.c_str() );</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keywordflow">return</span> (success == 0);</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;      }</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    };</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keyword">template</span>&lt;&gt;</div>
-<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="a01886.html">  117</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="a01870.html">DofVectorProvider</a>&lt; <a class="code" href="a00937.html#a86b942cdffce80f98973c987ea6246da">Real</a> &gt;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    {</div>
-<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="a01886.html#ac76d627257673c1839315a1732c6c021">  119</a></span>&#160;      <span class="keyword">typedef</span> <a class="code" href="a00479.html#a4cbe74d935d2e31c4b35398e93623f70">ALBERTA</a> DOF_REAL_VEC <a class="code" href="a01886.html#ac76d627257673c1839315a1732c6c021">DofVector</a>;</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
-<div class="line"><a name="l00121"></a><span class="lineno"><a class="line" href="a01886.html#ac1d009a5198702a3674b6feaccbff0a1">  121</a></span>&#160;      <span class="keyword">static</span> <a class="code" href="a01886.html#ac76d627257673c1839315a1732c6c021">DofVector</a> *<a class="code" href="a01886.html#ac1d009a5198702a3674b6feaccbff0a1">get</a> ( <span class="keyword">const</span> <a class="code" href="a00937.html#ab91172fc7cfde36bfa7dc9be768e71c2">DofSpace</a> *dofSpace, <span class="keyword">const</span> std::string &amp;name )</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;      {</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="a00479.html#a4cbe74d935d2e31c4b35398e93623f70">ALBERTA</a> get_dof_real_vec( name.c_str(), dofSpace );</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;      }</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
-<div class="line"><a name="l00126"></a><span class="lineno"><a class="line" href="a01886.html#a9d52e71f3fa23e7cd73430d03c62de1d">  126</a></span>&#160;      <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="a01886.html#a9d52e71f3fa23e7cd73430d03c62de1d">free</a> ( <a class="code" href="a01886.html#ac76d627257673c1839315a1732c6c021">DofVector</a> *dofVector )</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;      {</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        <a class="code" href="a00479.html#a4cbe74d935d2e31c4b35398e93623f70">ALBERTA</a> free_dof_real_vec( dofVector );</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;      }</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
-<div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="a01886.html#aecfda3904cf7c8a3e979e4114290234b">  131</a></span>&#160;      <span class="keyword">static</span> <a class="code" href="a01886.html#ac76d627257673c1839315a1732c6c021">DofVector</a> *<a class="code" href="a01886.html#aecfda3904cf7c8a3e979e4114290234b">read</a> ( <span class="keyword">const</span> std::string &amp;filename, <a class="code" href="a00937.html#a177e94fd8d51ddcd47f3fa3f7add13b1">Mesh</a> *mesh, <a class="code" href="a00937.html#ab91172fc7cfde36bfa7dc9be768e71c2">DofSpace</a> *dofSpace )</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;      {</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="a00479.html#a4cbe74d935d2e31c4b35398e93623f70">ALBERTA</a> read_dof_real_vec_xdr( filename.c_str(), mesh, dofSpace );</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;      }</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
-<div class="line"><a name="l00136"></a><span class="lineno"><a class="line" href="a01886.html#aadb8f0db79e5ff51bab5e36f7f29afb7">  136</a></span>&#160;      <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="a01886.html#aadb8f0db79e5ff51bab5e36f7f29afb7">write</a> ( <span class="keyword">const</span> <a class="code" href="a01886.html#ac76d627257673c1839315a1732c6c021">DofVector</a> *dofVector, <span class="keyword">const</span> std::string &amp;filename )</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;      {</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        <span class="keywordtype">int</span> success = <a class="code" href="a00479.html#a4cbe74d935d2e31c4b35398e93623f70">ALBERTA</a> write_dof_real_vec_xdr( dofVector, filename.c_str() );</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        <span class="keywordflow">return</span> (success == 0);</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;      }</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    };</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;      <span class="keyword">typedef</span> std::pair&lt; int, int &gt; Cache;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="a01862.html#a04c1bcd5fee88aa52f44560ec035a80d">  112</a></span>&#160;      <a class="code" href="a01862.html#a04c1bcd5fee88aa52f44560ec035a80d">HierarchyDofNumbering</a> ()</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;      {}</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;      <a class="code" href="a01862.html#a04c1bcd5fee88aa52f44560ec035a80d">HierarchyDofNumbering</a> ( <span class="keyword">const</span> This &amp; );</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;      This &amp;operator= ( <span class="keyword">const</span> This &amp; );</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00120"></a><span class="lineno"><a class="line" href="a01862.html#a32fa1caf0809f7d57970072f4e40ee52">  120</a></span>&#160;      <a class="code" href="a01862.html#a32fa1caf0809f7d57970072f4e40ee52">~HierarchyDofNumbering</a> ()</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;      {</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <a class="code" href="a01862.html#aa88c08c3d19fdf077f1cd68b5cc558f1">release</a>();</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;      }</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
+<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="a01862.html#a1103aaa532ae6ecdc2149ce27e018cb4">  125</a></span>&#160;      <span class="keywordtype">int</span> <a class="code" href="a01862.html#a1103aaa532ae6ecdc2149ce27e018cb4">operator() </a>( <span class="keyword">const</span> <a class="code" href="a00941.html#a738666cf4bcd352ecee6a5dc484bb92c">Element</a> *element, <span class="keywordtype">int</span> codim, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> subEntity )<span class="keyword"> const</span></div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        assert( !(*<span class="keyword">this</span>) == <span class="keyword">false</span> );</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        assert( (codim &gt;= 0) &amp;&amp; (codim &lt;= <a class="code" href="a01862.html#a98f0d24143e595d305a36617541ad5b2">dimension</a>) );</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        <span class="keyword">const</span> Cache &amp;cache = cache_[ codim ];</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        <span class="keywordflow">return</span> element-&gt;dof[ cache.first + subEntity ][ cache.second ];</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;      }</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
+<div class="line"><a name="l00133"></a><span class="lineno"><a class="line" href="a01862.html#a48d659d36ea5275b82b9fea494666f20">  133</a></span>&#160;      <span class="keywordtype">int</span> <a class="code" href="a01862.html#a1103aaa532ae6ecdc2149ce27e018cb4">operator() </a>( <span class="keyword">const</span> <a class="code" href="a01902.html">ElementInfo</a> &amp;element, <span class="keywordtype">int</span> codim, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> subEntity )<span class="keyword"> const</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        <span class="keywordflow">return</span> (*<span class="keyword">this</span>)( element.<a class="code" href="a01902.html#ada0ef6466c62d95e8e3f30aed2da8fad">el</a>(), codim, subEntity );</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;      }</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
+<div class="line"><a name="l00138"></a><span class="lineno"><a class="line" href="a01862.html#ac45094fa6e826065d5aad626cc71491c">  138</a></span>&#160;      <span class="keyword">explicit</span> <span class="keyword">operator</span> bool ()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        <span class="keywordflow">return</span> (<span class="keywordtype">bool</span>)mesh_;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;      }</div>
 <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="keyword">template</span>&lt;&gt;</div>
-<div class="line"><a name="l00144"></a><span class="lineno"><a class="line" href="a01890.html">  144</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="a01870.html">DofVectorProvider</a>&lt; <a class="code" href="a00937.html#af1650cccce3ce5a4c8ab8eb240d3c58a">GlobalVector</a> &gt;</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    {</div>
-<div class="line"><a name="l00146"></a><span class="lineno"><a class="line" href="a01890.html#a59d24e0b48afbff219eca28159ed1d10">  146</a></span>&#160;      <span class="keyword">typedef</span> <a class="code" href="a00479.html#a4cbe74d935d2e31c4b35398e93623f70">ALBERTA</a> DOF_REAL_D_VEC <a class="code" href="a01890.html#a59d24e0b48afbff219eca28159ed1d10">DofVector</a>;</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
-<div class="line"><a name="l00148"></a><span class="lineno"><a class="line" href="a01890.html#a25a510d31f56c76abe6094028c842519">  148</a></span>&#160;      <span class="keyword">static</span> <a class="code" href="a01890.html#a59d24e0b48afbff219eca28159ed1d10">DofVector</a> *<a class="code" href="a01890.html#a25a510d31f56c76abe6094028c842519">get</a> ( <span class="keyword">const</span> <a class="code" href="a00937.html#ab91172fc7cfde36bfa7dc9be768e71c2">DofSpace</a> *dofSpace, <span class="keyword">const</span> std::string &amp;name )</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;      {</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="a00479.html#a4cbe74d935d2e31c4b35398e93623f70">ALBERTA</a> get_dof_real_d_vec( name.c_str(), dofSpace );</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;      }</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
-<div class="line"><a name="l00153"></a><span class="lineno"><a class="line" href="a01890.html#a8998165e3597e1e0f6056744d6c4c38e">  153</a></span>&#160;      <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="a01890.html#a8998165e3597e1e0f6056744d6c4c38e">free</a> ( <a class="code" href="a01890.html#a59d24e0b48afbff219eca28159ed1d10">DofVector</a> *dofVector )</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;      {</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        <a class="code" href="a00479.html#a4cbe74d935d2e31c4b35398e93623f70">ALBERTA</a> free_dof_real_d_vec( dofVector );</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;      }</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; </div>
-<div class="line"><a name="l00158"></a><span class="lineno"><a class="line" href="a01890.html#a476546a289488c087615f5525541e208">  158</a></span>&#160;      <span class="keyword">static</span> <a class="code" href="a01890.html#a59d24e0b48afbff219eca28159ed1d10">DofVector</a> *<a class="code" href="a01890.html#a476546a289488c087615f5525541e208">read</a> ( <span class="keyword">const</span> std::string &amp;filename, <a class="code" href="a00937.html#a177e94fd8d51ddcd47f3fa3f7add13b1">Mesh</a> *mesh, <a class="code" href="a00937.html#ab91172fc7cfde36bfa7dc9be768e71c2">DofSpace</a> *dofSpace )</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;      {</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="a00479.html#a4cbe74d935d2e31c4b35398e93623f70">ALBERTA</a> read_dof_real_d_vec_xdr( filename.c_str(), mesh, dofSpace );</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;      }</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
-<div class="line"><a name="l00163"></a><span class="lineno"><a class="line" href="a01890.html#ac1c090c502ddf98b7f4a528c66571308">  163</a></span>&#160;      <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="a01890.html#ac1c090c502ddf98b7f4a528c66571308">write</a> ( <span class="keyword">const</span> <a class="code" href="a01890.html#a59d24e0b48afbff219eca28159ed1d10">DofVector</a> *dofVector, <span class="keyword">const</span> std::string &amp;filename )</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;      {</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        <span class="keywordtype">int</span> success = <a class="code" href="a00479.html#a4cbe74d935d2e31c4b35398e93623f70">ALBERTA</a> write_dof_real_d_vec_xdr( dofVector, filename.c_str() );</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        <span class="keywordflow">return</span> (success == 0);</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;      }</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    };</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; </div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160; </div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <span class="comment">// DofVectorPointer</span></div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="comment">// ----------------</span></div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160; </div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">class</span> Dof &gt;</div>
-<div class="line"><a name="l00176"></a><span class="lineno"><a class="line" href="a01894.html">  176</a></span>&#160;    <span class="keyword">class </span><a class="code" href="a01894.html">DofVectorPointer</a></div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    {</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;      <span class="keyword">typedef</span> <a class="code" href="a01894.html">DofVectorPointer&lt; Dof &gt;</a> <a class="code" href="a01894.html">This</a>;</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160; </div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;      <span class="keyword">typedef</span> <a class="code" href="a01870.html">Alberta::DofVectorProvider&lt; Dof &gt;</a> <a class="code" href="a01870.html">DofVectorProvider</a>;</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160; </div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00183"></a><span class="lineno"><a class="line" href="a01894.html#a05bd2e0b9fab5341f90f0231c196cf4d">  183</a></span>&#160;      <span class="keyword">typedef</span> <span class="keyword">typename</span> DofVectorProvider::DofVector <a class="code" href="a01894.html#a05bd2e0b9fab5341f90f0231c196cf4d">DofVector</a>;</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; </div>
-<div class="line"><a name="l00185"></a><span class="lineno"><a class="line" href="a01894.html#ac57315767de5ad2995abb96ebe7a22d1">  185</a></span>&#160;      <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="a01894.html#ac57315767de5ad2995abb96ebe7a22d1">supportsAdaptationData</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00143"></a><span class="lineno"><a class="line" href="a01862.html#a2f5f3cdb8b7e84d02e46e988e6c2a04c">  143</a></span>&#160;      <span class="keyword">const</span> <a class="code" href="a00941.html#ab91172fc7cfde36bfa7dc9be768e71c2">DofSpace</a> *<a class="code" href="a01862.html#a2f5f3cdb8b7e84d02e46e988e6c2a04c">dofSpace</a> ( <span class="keywordtype">int</span> codim )<span class="keyword"> const</span></div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        assert( *<span class="keyword">this</span> );</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        assert( (codim &gt;= 0) &amp;&amp; (codim &lt;= <a class="code" href="a01862.html#a98f0d24143e595d305a36617541ad5b2">dimension</a>) );</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        <span class="keywordflow">return</span> dofSpace_[ codim ];</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;      }</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
+<div class="line"><a name="l00150"></a><span class="lineno"><a class="line" href="a01862.html#a553d69c351931d6c6cce7e451ed01452">  150</a></span>&#160;      <span class="keyword">const</span> <a class="code" href="a00941.html#ab91172fc7cfde36bfa7dc9be768e71c2">DofSpace</a> *<a class="code" href="a01862.html#a553d69c351931d6c6cce7e451ed01452">emptyDofSpace</a> ()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        assert( *<span class="keyword">this</span> );</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        <span class="keywordflow">return</span> emptySpace_;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;      }</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
+<div class="line"><a name="l00156"></a><span class="lineno"><a class="line" href="a01862.html#a6cfe4139cf427e85c6a8c484d95940fb">  156</a></span>&#160;      <span class="keyword">const</span> <a class="code" href="a01854.html">MeshPointer</a> &amp;<a class="code" href="a01862.html#a6cfe4139cf427e85c6a8c484d95940fb">mesh</a> ()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        <span class="keywordflow">return</span> mesh_;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;      }</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
+<div class="line"><a name="l00161"></a><span class="lineno"><a class="line" href="a01862.html#a4ee8007bc0a5e1124d945b22d163ebc1">  161</a></span>&#160;      <span class="keywordtype">int</span> <a class="code" href="a01862.html#a4ee8007bc0a5e1124d945b22d163ebc1">size</a> ( <span class="keywordtype">int</span> codim )<span class="keyword"> const</span></div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="a01862.html#a2f5f3cdb8b7e84d02e46e988e6c2a04c">dofSpace</a>( codim )-&gt;admin-&gt;size;</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;      }</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; </div>
+<div class="line"><a name="l00166"></a><span class="lineno"><a class="line" href="a01862.html#a19fc3a572c26984ace1664a681af3a31">  166</a></span>&#160;      <span class="keywordtype">void</span> <a class="code" href="a01862.html#a19fc3a572c26984ace1664a681af3a31">create</a> ( <span class="keyword">const</span> <a class="code" href="a01854.html">MeshPointer</a> &amp;<a class="code" href="a01862.html#a6cfe4139cf427e85c6a8c484d95940fb">mesh</a> );</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160; </div>
+<div class="line"><a name="l00168"></a><span class="lineno"><a class="line" href="a01862.html#aa88c08c3d19fdf077f1cd68b5cc558f1">  168</a></span>&#160;      <span class="keywordtype">void</span> <a class="code" href="a01862.html#aa88c08c3d19fdf077f1cd68b5cc558f1">release</a> ()</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;      {</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        <span class="keywordflow">if</span>( *<span class="keyword">this</span> )</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        {</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;          <span class="keywordflow">for</span>( <span class="keywordtype">int</span> codim = 0; codim &lt;= <a class="code" href="a01862.html#a98f0d24143e595d305a36617541ad5b2">dimension</a>; ++codim )</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;            freeDofSpace( dofSpace_[ codim ] );</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;          freeDofSpace( emptySpace_ );</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;          mesh_ = <a class="code" href="a01862.html#a424d3d1c9a8a1e6ecc03088ffd6b0926">MeshPointer</a>();</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        }</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;      }</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160; </div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;      <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="a00941.html#ab91172fc7cfde36bfa7dc9be768e71c2">DofSpace</a> *createEmptyDofSpace ( <span class="keyword">const</span> <a class="code" href="a01854.html">MeshPointer</a> &amp;<a class="code" href="a01862.html#a6cfe4139cf427e85c6a8c484d95940fb">mesh</a> );</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;      <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="a00941.html#ab91172fc7cfde36bfa7dc9be768e71c2">DofSpace</a> *createDofSpace ( <span class="keyword">const</span> <a class="code" href="a01854.html">MeshPointer</a> &amp;<a class="code" href="a01862.html#a6cfe4139cf427e85c6a8c484d95940fb">mesh</a>,</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;                                              <span class="keyword">const</span> std::string &amp;name,</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;                                              <span class="keyword">const</span> <span class="keywordtype">int</span> (&amp;ndof)[ nNodeTypes ],</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;                                              <span class="keyword">const</span> <span class="keywordtype">bool</span> periodic = <span class="keyword">false</span> );</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;      <span class="keyword">static</span> <span class="keywordtype">void</span> freeDofSpace ( <span class="keyword">const</span> <a class="code" href="a00941.html#ab91172fc7cfde36bfa7dc9be768e71c2">DofSpace</a> *<a class="code" href="a01862.html#a2f5f3cdb8b7e84d02e46e988e6c2a04c">dofSpace</a> );</div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; </div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;      <a class="code" href="a01894.html#a05bd2e0b9fab5341f90f0231c196cf4d">DofVector</a> *dofVector_;</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160; </div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00191"></a><span class="lineno"><a class="line" href="a01894.html#a74edc3a9720bf5d0dee215aa5085e789">  191</a></span>&#160;      <a class="code" href="a01894.html#a74edc3a9720bf5d0dee215aa5085e789">DofVectorPointer</a> ()</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        : dofVector_( NULL )</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;      {}</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;      <a class="code" href="a01854.html">MeshPointer</a> mesh_;</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;      <span class="keyword">const</span> <a class="code" href="a00941.html#ab91172fc7cfde36bfa7dc9be768e71c2">DofSpace</a> *emptySpace_;</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;      <span class="keyword">const</span> <a class="code" href="a00941.html#ab91172fc7cfde36bfa7dc9be768e71c2">DofSpace</a> *dofSpace_[ <a class="code" href="a01862.html#a98f0d24143e595d305a36617541ad5b2">dimension</a>+1 ];</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;      Cache cache_[ <a class="code" href="a01862.html#a98f0d24143e595d305a36617541ad5b2">dimension</a>+1 ];</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    };</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160; </div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160; </div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160; </div>
-<div class="line"><a name="l00195"></a><span class="lineno"><a class="line" href="a01894.html#af8b19ab9cc3bea4f3786dcd05d905b96">  195</a></span>&#160;      <span class="keyword">explicit</span> <a class="code" href="a01894.html#af8b19ab9cc3bea4f3786dcd05d905b96">DofVectorPointer</a> ( <span class="keyword">const</span> <a class="code" href="a00937.html#ab91172fc7cfde36bfa7dc9be768e71c2">DofSpace</a> *<a class="code" href="a01894.html#ae7630253a5a9bd740c8dbdf40130b27b">dofSpace</a>,</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;                                  <span class="keyword">const</span> std::string &amp;<a class="code" href="a01894.html#ae23d9a6fc307c2ad043825bed1fa89fa">name</a> = <span class="stringliteral">&quot;&quot;</span> )</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        : dofVector_ ( <a class="code" href="a01870.html">DofVectorProvider</a>::get( <a class="code" href="a01894.html#ae7630253a5a9bd740c8dbdf40130b27b">dofSpace</a>, <a class="code" href="a01894.html#ae23d9a6fc307c2ad043825bed1fa89fa">name</a> ) )</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;      {}</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160; </div>
-<div class="line"><a name="l00200"></a><span class="lineno"><a class="line" href="a01894.html#ab737a0c0f5786eead66adfb7e8c032a4">  200</a></span>&#160;      <span class="keyword">explicit</span> <a class="code" href="a01894.html#ab737a0c0f5786eead66adfb7e8c032a4">DofVectorPointer</a> ( <a class="code" href="a01894.html#a05bd2e0b9fab5341f90f0231c196cf4d">DofVector</a> *dofVector )</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        : dofVector_( dofVector )</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;      {}</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="keyword">template</span>&lt; <span class="keywordtype">int</span> dim &gt;</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00197"></a><span class="lineno"><a class="line" href="a01862.html#a19fc3a572c26984ace1664a681af3a31">  197</a></span>&#160;    <a class="code" href="a01862.html#a19fc3a572c26984ace1664a681af3a31">HierarchyDofNumbering&lt; dim &gt;::create</a> ( <span class="keyword">const</span> <a class="code" href="a01854.html">MeshPointer</a> &amp;mesh )</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    {</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;      release();</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160; </div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;      <span class="keywordflow">if</span>( !mesh )</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160; </div>
-<div class="line"><a name="l00204"></a><span class="lineno"><a class="line" href="a01894.html#a356cb147edc95891b8b6679d51895096">  204</a></span>&#160;      <span class="keyword">explicit</span> <span class="keyword">operator</span> bool ()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;<span class="keyword">      </span>{</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;        <span class="keywordflow">return</span> (<span class="keywordtype">bool</span>)dofVector_;</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;      }</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;      mesh_ = mesh;</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160; </div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;      Hybrid::forEach( std::make_index_sequence&lt; dimension+1 &gt;{}, [ &amp; ]( <span class="keyword">auto</span> i ){ CreateDofSpace&lt; i &gt;::apply( mesh_, dofSpace_ ); } );</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;      Hybrid::forEach( std::make_index_sequence&lt; dimension+1 &gt;{}, [ &amp; ]( <span class="keyword">auto</span> i ){ CacheDofSpace&lt; i &gt;::apply( dofSpace_, cache_ ); } );</div>
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160; </div>
-<div class="line"><a name="l00209"></a><span class="lineno"><a class="line" href="a01894.html#a61fa1edf91710ba7990fd825aa1820bf">  209</a></span>&#160;      <span class="keyword">operator</span> <a class="code" href="a01894.html#a05bd2e0b9fab5341f90f0231c196cf4d">DofVector</a> * () <span class="keyword">const</span></div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;      {</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        <span class="keywordflow">return</span> dofVector_;</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;      }</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;      emptySpace_ = createEmptyDofSpace( mesh_ );</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;      <span class="keywordflow">for</span>( <span class="keywordtype">int</span> i = 0; i &lt; nNodeTypes; ++i )</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        assert( emptySpace_-&gt;admin-&gt;n_dof[ i ] == 0 );</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    }</div>
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160; </div>
-<div class="line"><a name="l00214"></a><span class="lineno"><a class="line" href="a01894.html#a985ec58bd8256ac15f60eecbf5564610">  214</a></span>&#160;      <span class="keyword">operator</span> Dof * () <span class="keyword">const</span></div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;      {</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;        Dof *ptr = NULL;</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;        GET_DOF_VEC( ptr, dofVector_ );</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;        <span class="keywordflow">return</span> ptr;</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;      }</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160; </div>
-<div class="line"><a name="l00221"></a><span class="lineno"><a class="line" href="a01894.html#ae7630253a5a9bd740c8dbdf40130b27b">  221</a></span>&#160;      <span class="keyword">const</span> <a class="code" href="a00937.html#ab91172fc7cfde36bfa7dc9be768e71c2">DofSpace</a> *<a class="code" href="a01894.html#ae7630253a5a9bd740c8dbdf40130b27b">dofSpace</a> ()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;<span class="keyword">      </span>{</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;        <span class="keywordflow">return</span> dofVector_-&gt;fe_space;</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;      }</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160; </div>
-<div class="line"><a name="l00226"></a><span class="lineno"><a class="line" href="a01894.html#ae23d9a6fc307c2ad043825bed1fa89fa">  226</a></span>&#160;      std::string <a class="code" href="a01894.html#ae23d9a6fc307c2ad043825bed1fa89fa">name</a> ()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;<span class="keyword">      </span>{</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;        <span class="keywordflow">if</span>( dofVector_ )</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;          <span class="keywordflow">return</span> dofVector_-&gt;name;</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;          <span class="keywordflow">return</span> std::string();</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;      }</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160; </div>
-<div class="line"><a name="l00234"></a><span class="lineno"><a class="line" href="a01894.html#a2dbf772bab3c9300e01499eb1479c16f">  234</a></span>&#160;      <span class="keywordtype">void</span> <a class="code" href="a01894.html#a2dbf772bab3c9300e01499eb1479c16f">create</a> ( <span class="keyword">const</span> <a class="code" href="a00937.html#ab91172fc7cfde36bfa7dc9be768e71c2">DofSpace</a> *<a class="code" href="a01894.html#ae7630253a5a9bd740c8dbdf40130b27b">dofSpace</a>, <span class="keyword">const</span> std::string &amp;<a class="code" href="a01894.html#ae23d9a6fc307c2ad043825bed1fa89fa">name</a> = <span class="stringliteral">&quot;&quot;</span> )</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;      {</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;        <a class="code" href="a01894.html#a3af801d63e84f7376a37a3279383adaa">release</a>();</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;        dofVector_ = DofVectorProvider::get( <a class="code" href="a01894.html#ae7630253a5a9bd740c8dbdf40130b27b">dofSpace</a>, <a class="code" href="a01894.html#ae23d9a6fc307c2ad043825bed1fa89fa">name</a> );</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;      }</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160; </div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160; </div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    <span class="keyword">template</span>&lt; <span class="keywordtype">int</span> dim &gt;</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="a00941.html#ab91172fc7cfde36bfa7dc9be768e71c2">DofSpace</a> *</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <a class="code" href="a01862.html">HierarchyDofNumbering&lt; dim &gt;::createEmptyDofSpace</a> ( <span class="keyword">const</span> <a class="code" href="a01854.html">MeshPointer</a> &amp;mesh )</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    {</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;      <span class="keywordtype">int</span> ndof[ nNodeTypes ];</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;      <span class="keywordflow">for</span>( <span class="keywordtype">int</span> i = 0; i &lt; nNodeTypes; ++i )</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        ndof[ i ] = 0;</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;      std::string name = <span class="stringliteral">&quot;Empty&quot;</span>;</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;      <span class="keywordflow">return</span> createDofSpace( mesh, name, ndof );</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    }</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160; </div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160; </div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <span class="keyword">template</span>&lt; <span class="keywordtype">int</span> dim &gt;</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="a00941.html#ab91172fc7cfde36bfa7dc9be768e71c2">DofSpace</a> *</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    HierarchyDofNumbering&lt; dim &gt;::createDofSpace ( <span class="keyword">const</span> MeshPointer &amp;mesh,</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;                                                   <span class="keyword">const</span> std::string &amp;name,</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;                                                   <span class="keyword">const</span> <span class="keywordtype">int</span> (&amp;ndof)[ nNodeTypes ],</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;                                                   <span class="keyword">const</span> <span class="keywordtype">bool</span> periodic )</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    {</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;      <span class="keyword">const</span> <a class="code" href="a00482.html#a4cbe74d935d2e31c4b35398e93623f70">ALBERTA</a> FLAGS flags</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;        = ADM_PRESERVE_COARSE_DOFS | (periodic ? ADM_PERIODIC : 0);</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="a00482.html#a4cbe74d935d2e31c4b35398e93623f70">ALBERTA</a> get_dof_space ( mesh, name.c_str(), ndof, flags );</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    }</div>
 <div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160; </div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;      <span class="keyword">template</span>&lt; <span class="keywordtype">int</span> dim &gt;</div>
-<div class="line"><a name="l00241"></a><span class="lineno"><a class="line" href="a01894.html#a251e0d5534b846ca769522f4bc59612c">  241</a></span>&#160;      <span class="keywordtype">void</span> <a class="code" href="a01894.html#a251e0d5534b846ca769522f4bc59612c">read</a> ( <span class="keyword">const</span> std::string &amp;filename, <span class="keyword">const</span> <a class="code" href="a01850.html">MeshPointer&lt; dim &gt;</a> &amp;meshPointer )</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;      {</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;        <a class="code" href="a01894.html#a3af801d63e84f7376a37a3279383adaa">release</a>();</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;        dofVector_ = DofVectorProvider::read( filename, meshPointer, NULL );</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;      }</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160; </div>
-<div class="line"><a name="l00247"></a><span class="lineno"><a class="line" href="a01894.html#aa881427c226c88693731f5cd83ad78a1">  247</a></span>&#160;      <span class="keywordtype">bool</span> <a class="code" href="a01894.html#aa881427c226c88693731f5cd83ad78a1">write</a> ( <span class="keyword">const</span> std::string &amp;filename )<span class="keyword"> const</span></div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;<span class="keyword">      </span>{</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;        <span class="keywordflow">return</span> DofVectorProvider::write( dofVector_, filename );</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;      }</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160; </div>
-<div class="line"><a name="l00252"></a><span class="lineno"><a class="line" href="a01894.html#a3af801d63e84f7376a37a3279383adaa">  252</a></span>&#160;      <span class="keywordtype">void</span> <a class="code" href="a01894.html#a3af801d63e84f7376a37a3279383adaa">release</a> ()</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;      {</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;        <span class="keywordflow">if</span>( dofVector_ )</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;        {</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;          DofVectorProvider::free( dofVector_ );</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;          dofVector_ = NULL;</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;        }</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;      }</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160; </div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;      <span class="keyword">template</span>&lt; <span class="keyword">class</span> Functor &gt;</div>
-<div class="line"><a name="l00262"></a><span class="lineno"><a class="line" href="a01894.html#af666659a72551be487cbf400265115f4">  262</a></span>&#160;      <span class="keywordtype">void</span> <a class="code" href="a01894.html#af666659a72551be487cbf400265115f4">forEach</a> ( Functor &amp;functor )<span class="keyword"> const</span></div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;<span class="keyword">      </span>{</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        Dof *array = (Dof *)(*<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;        FOR_ALL_DOFS( <a class="code" href="a01894.html#ae7630253a5a9bd740c8dbdf40130b27b">dofSpace</a>()-&gt;admin, functor( array[ dof ] ) );</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;      }</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160; </div>
-<div class="line"><a name="l00268"></a><span class="lineno"><a class="line" href="a01894.html#a1aaff1d41d94d25616bc57db8a7589f0">  268</a></span>&#160;      <span class="keywordtype">void</span> <a class="code" href="a01894.html#a1aaff1d41d94d25616bc57db8a7589f0">initialize</a> ( <span class="keyword">const</span> Dof &amp;value )</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;      {</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;        Dof *array = (Dof *)(*<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;        FOR_ALL_DOFS( <a class="code" href="a01894.html#ae7630253a5a9bd740c8dbdf40130b27b">dofSpace</a>()-&gt;admin, array[ dof ] = value );</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;      }</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160; </div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    <span class="keyword">template</span>&lt; <span class="keywordtype">int</span> dim &gt;</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    HierarchyDofNumbering&lt; dim &gt;::freeDofSpace ( <span class="keyword">const</span> <a class="code" href="a00941.html#ab91172fc7cfde36bfa7dc9be768e71c2">DofSpace</a> *dofSpace )</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    {</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;      <a class="code" href="a00482.html#a4cbe74d935d2e31c4b35398e93623f70">ALBERTA</a> free_fe_space( dofSpace );</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    }</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160; </div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160; </div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160; </div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <span class="comment">// HierarchyDofNumbering::CreateDofSpace</span></div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    <span class="comment">// -------------------------------------</span></div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160; </div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    <span class="keyword">template</span>&lt; <span class="keywordtype">int</span> dim &gt;</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    <span class="keyword">template</span>&lt; <span class="keywordtype">int</span> codim &gt;</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    <span class="keyword">struct </span>HierarchyDofNumbering&lt; dim &gt;::CreateDofSpace</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    {</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;      <span class="keyword">static</span> <span class="keywordtype">void</span> apply ( <span class="keyword">const</span> <a class="code" href="a01862.html#a424d3d1c9a8a1e6ecc03088ffd6b0926">MeshPointer</a> &amp;<a class="code" href="a01862.html#a6cfe4139cf427e85c6a8c484d95940fb">mesh</a>, <span class="keyword">const</span> <a class="code" href="a00941.html#ab91172fc7cfde36bfa7dc9be768e71c2">DofSpace</a> *(&amp;<a class="code" href="a01862.html#a2f5f3cdb8b7e84d02e46e988e6c2a04c">dofSpace</a>)[ dim+1 ] )</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;      {</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;        <span class="keywordtype">int</span> ndof[ nNodeTypes ];</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;        <span class="keywordflow">for</span>( <span class="keywordtype">int</span> i = 0; i &lt; nNodeTypes; ++i )</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;          ndof[ i ] = 0;</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;        ndof[ CodimType&lt; dim, codim &gt;::value ] = 1;</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160; </div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        std::string name = <span class="stringliteral">&quot;Codimension &quot;</span>;</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;        name += (char)(codim + <span class="charliteral">&#39;0&#39;</span>);</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160; </div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;        <a class="code" href="a01862.html#a2f5f3cdb8b7e84d02e46e988e6c2a04c">dofSpace</a>[ codim ] = createDofSpace( <a class="code" href="a01862.html#a6cfe4139cf427e85c6a8c484d95940fb">mesh</a>, name, ndof );</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;        assert( <a class="code" href="a01862.html#a2f5f3cdb8b7e84d02e46e988e6c2a04c">dofSpace</a>[ codim ] );</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;      }</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    };</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160; </div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160; </div>
 <div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160; </div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;      <span class="keyword">template</span>&lt; <span class="keyword">class</span> AdaptationData &gt;</div>
-<div class="line"><a name="l00275"></a><span class="lineno"><a class="line" href="a01894.html#a95d25f798e2a81eca7e29d5142134b2f">  275</a></span>&#160;      AdaptationData *<a class="code" href="a01894.html#a95d25f798e2a81eca7e29d5142134b2f">getAdaptationData</a> ()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;<span class="keyword">      </span>{</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;        assert( dofVector_ );</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;        assert( dofVector_-&gt;user_data );</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span> AdaptationData * <span class="keyword">&gt;</span>( dofVector_-&gt;user_data );</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;      }</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160; </div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;      <span class="keyword">template</span>&lt; <span class="keyword">class</span> AdaptationData &gt;</div>
-<div class="line"><a name="l00283"></a><span class="lineno"><a class="line" href="a01894.html#aa727305fcaf82dcc9cd112729d436e7c">  283</a></span>&#160;      <span class="keywordtype">void</span> <a class="code" href="a01894.html#aa727305fcaf82dcc9cd112729d436e7c">setAdaptationData</a> ( AdaptationData *adaptationData )</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;      {</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;        assert( dofVector_ );</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        dofVector_-&gt;user_data = adaptationData;</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    <span class="comment">// HierarchyDofNumbering::CacheDofSpace</span></div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    <span class="comment">// ------------------------------------</span></div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160; </div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    <span class="keyword">template</span>&lt; <span class="keywordtype">int</span> dim &gt;</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    <span class="keyword">template</span>&lt; <span class="keywordtype">int</span> codim &gt;</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    <span class="keyword">struct </span>HierarchyDofNumbering&lt; dim &gt;::CacheDofSpace</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    {</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;      <span class="keyword">static</span> <span class="keywordtype">void</span> apply ( <span class="keyword">const</span> <a class="code" href="a00941.html#ab91172fc7cfde36bfa7dc9be768e71c2">DofSpace</a> *(&amp;<a class="code" href="a01862.html#a2f5f3cdb8b7e84d02e46e988e6c2a04c">dofSpace</a>)[ dim+1 ], Cache (&amp;cache)[ dim+1 ] )</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;      {</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;        assert( <a class="code" href="a01862.html#a2f5f3cdb8b7e84d02e46e988e6c2a04c">dofSpace</a>[ codim ] );</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">int</span> codimtype = CodimType&lt; dim, codim &gt;::value;</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;        cache[ codim ].first = <a class="code" href="a01862.html#a2f5f3cdb8b7e84d02e46e988e6c2a04c">dofSpace</a>[ codim ]-&gt;mesh-&gt;node[ codimtype ];</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        cache[ codim ].second = <a class="code" href="a01862.html#a2f5f3cdb8b7e84d02e46e988e6c2a04c">dofSpace</a>[ codim ]-&gt;admin-&gt;n0_dof[ codimtype ];</div>
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;      }</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160; </div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;      <span class="keyword">template</span>&lt; <span class="keyword">class</span> Interpolation &gt;</div>
-<div class="line"><a name="l00290"></a><span class="lineno"><a class="line" href="a01894.html#a15f7ec1d0adbec2658d4da35e866bdad">  290</a></span>&#160;      <span class="keywordtype">void</span> <a class="code" href="a01894.html#a15f7ec1d0adbec2658d4da35e866bdad">setupInterpolation</a> ()</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;      {</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        assert( dofVector_ );</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        dofVector_-&gt;refine_interpol = &amp;refineInterpolate&lt; Interpolation &gt;;</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;      }</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    };</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160; </div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;  } <span class="comment">// namespace Alberta</span></div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160; </div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;} <span class="comment">// namespace Dune</span></div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160; </div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// #if HAVE_ALBERTA</span></div>
 <div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160; </div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;      <span class="keyword">template</span>&lt; <span class="keyword">class</span> Restriction &gt;</div>
-<div class="line"><a name="l00297"></a><span class="lineno"><a class="line" href="a01894.html#a737cee783d924ca7fb8e4e3b5d5a49e2">  297</a></span>&#160;      <span class="keywordtype">void</span> <a class="code" href="a01894.html#a737cee783d924ca7fb8e4e3b5d5a49e2">setupRestriction</a> ()</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;      {</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;        assert( dofVector_ );</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;        dofVector_-&gt;coarse_restrict = &amp;coarsenRestrict&lt; Restriction &gt;;</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;      }</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160; </div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;      <span class="keyword">template</span>&lt; <span class="keyword">class</span> Interpolation &gt;</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;      <span class="keyword">static</span> <span class="keywordtype">void</span> refineInterpolate ( <a class="code" href="a01894.html#a05bd2e0b9fab5341f90f0231c196cf4d">DofVector</a> *dofVector, RC_LIST_EL *list, <span class="keywordtype">int</span> n )</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;      {</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;        <span class="keyword">const</span> This dofVectorPointer( dofVector );</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;        <span class="keyword">typename</span> Interpolation::Patch patch( list, n );</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;        Interpolation::interpolateVector( dofVectorPointer, patch );</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;      }</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160; </div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;      <span class="keyword">template</span>&lt; <span class="keyword">class</span> Restriction &gt;</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;      <span class="keyword">static</span> <span class="keywordtype">void</span> coarsenRestrict ( <a class="code" href="a01894.html#a05bd2e0b9fab5341f90f0231c196cf4d">DofVector</a> *dofVector, RC_LIST_EL *list, <span class="keywordtype">int</span> n )</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;      {</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;        <span class="keyword">const</span> This dofVectorPointer( dofVector );</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;        <span class="keyword">typename</span> Restriction::Patch patch( list, n );</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;        Restriction::restrictVector( dofVectorPointer, patch );</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;      }</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    };</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160; </div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160; </div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160; </div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    <span class="comment">// Auxiliary Functions</span></div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    <span class="comment">// --------------------</span></div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160; </div>
-<div class="line"><a name="l00326"></a><span class="lineno"><a class="line" href="a00937.html#a32f1dea9b87299c0e24ab46760391400">  326</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="a00937.html#a32f1dea9b87299c0e24ab46760391400">abs</a> ( <span class="keyword">const</span> <a class="code" href="a01894.html">DofVectorPointer&lt; int &gt;</a> &amp;dofVector )</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    {</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;      assert( !dofVector == <span class="keyword">false</span> );</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;      <span class="keywordtype">int</span> *array = (<span class="keywordtype">int</span> *)dofVector;</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;      FOR_ALL_DOFS( dofVector.<a class="code" href="a01894.html#ae7630253a5a9bd740c8dbdf40130b27b">dofSpace</a>()-&gt;admin,</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;                    array[ dof ] = <a class="code" href="a00937.html#a32f1dea9b87299c0e24ab46760391400">std::abs</a>( array[ dof ] ) );</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    }</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160; </div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160; </div>
-<div class="line"><a name="l00335"></a><span class="lineno"><a class="line" href="a00937.html#ad67366c3c67a2ca2e728b4276e37324e">  335</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">int</span> <a class="code" href="a00937.html#ad67366c3c67a2ca2e728b4276e37324e">max</a> ( <span class="keyword">const</span> <a class="code" href="a01894.html">DofVectorPointer&lt; int &gt;</a> &amp;dofVector )</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    {</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;      assert( !dofVector == <span class="keyword">false</span> );</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;      <span class="keywordtype">int</span> *array = (<span class="keywordtype">int</span> *)dofVector;</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;      <span class="keywordtype">int</span> result = <a class="code" href="a00937.html#aca064a9bc66806f78ea771e804e5582d">std::numeric_limits&lt; int &gt;::min</a>();</div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;      FOR_ALL_DOFS( dofVector.<a class="code" href="a01894.html#ae7630253a5a9bd740c8dbdf40130b27b">dofSpace</a>()-&gt;admin,</div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;                    result = <a class="code" href="a00937.html#ad67366c3c67a2ca2e728b4276e37324e">std::max</a>( result, array[ dof ] ) );</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;      <span class="keywordflow">return</span> result;</div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    }</div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160; </div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160; </div>
-<div class="line"><a name="l00346"></a><span class="lineno"><a class="line" href="a00937.html#aca064a9bc66806f78ea771e804e5582d">  346</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">int</span> <a class="code" href="a00937.html#aca064a9bc66806f78ea771e804e5582d">min</a> ( <span class="keyword">const</span> <a class="code" href="a01894.html">DofVectorPointer&lt; int &gt;</a> &amp;dofVector )</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    {</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;      assert( !dofVector == <span class="keyword">false</span> );</div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;      <span class="keywordtype">int</span> *array = (<span class="keywordtype">int</span> *)dofVector;</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;      <span class="keywordtype">int</span> result = <a class="code" href="a00937.html#ad67366c3c67a2ca2e728b4276e37324e">std::numeric_limits&lt; int &gt;::max</a>();</div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;      FOR_ALL_DOFS( dofVector.<a class="code" href="a01894.html#ae7630253a5a9bd740c8dbdf40130b27b">dofSpace</a>()-&gt;admin,</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;                    result = <a class="code" href="a00937.html#aca064a9bc66806f78ea771e804e5582d">std::min</a>( result, array[ dof ] ) );</div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;      <span class="keywordflow">return</span> result;</div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;    }</div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160; </div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;  } <span class="comment">// namespace Alberta</span></div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160; </div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;} <span class="comment">// namespace Dune</span></div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160; </div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// #if HAVE_ALBERTA</span></div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160; </div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// #ifndef DUNE_ALBERTA_DOFVECTOR_HH</span></div>
-<div class="ttc" id="aa00479_html_a4cbe74d935d2e31c4b35398e93623f70"><div class="ttname"><a href="a00479.html#a4cbe74d935d2e31c4b35398e93623f70">ALBERTA</a></div><div class="ttdeci">#define ALBERTA</div><div class="ttdef"><b>Definition:</b> albertaheader.hh:27</div></div>
-<div class="ttc" id="aa00506_html"><div class="ttname"><a href="a00506.html">elementinfo.hh</a></div><div class="ttdoc">provides a wrapper for ALBERTA's el_info structure</div></div>
-<div class="ttc" id="aa00557_html"><div class="ttname"><a href="a00557.html">misc.hh</a></div></div>
-<div class="ttc" id="aa00563_html"><div class="ttname"><a href="a00563.html">refinement.hh</a></div><div class="ttdoc">provides a wrapper for ALBERTA's refinement patches and the corners for geometryInFather</div></div>
-<div class="ttc" id="aa00936_html"><div class="ttname"><a href="a00936.html">Dune</a></div><div class="ttdoc">Include standard header files.</div><div class="ttdef"><b>Definition:</b> agrid.hh:59</div></div>
-<div class="ttc" id="aa00937_html_a177e94fd8d51ddcd47f3fa3f7add13b1"><div class="ttname"><a href="a00937.html#a177e94fd8d51ddcd47f3fa3f7add13b1">Dune::Alberta::Mesh</a></div><div class="ttdeci">ALBERTA MESH Mesh</div><div class="ttdef"><b>Definition:</b> misc.hh:51</div></div>
-<div class="ttc" id="aa00937_html_a32f1dea9b87299c0e24ab46760391400"><div class="ttname"><a href="a00937.html#a32f1dea9b87299c0e24ab46760391400">Dune::Alberta::abs</a></div><div class="ttdeci">void abs(const DofVectorPointer&lt; int &gt; &amp;dofVector)</div><div class="ttdef"><b>Definition:</b> dofvector.hh:326</div></div>
-<div class="ttc" id="aa00937_html_a86b942cdffce80f98973c987ea6246da"><div class="ttname"><a href="a00937.html#a86b942cdffce80f98973c987ea6246da">Dune::Alberta::Real</a></div><div class="ttdeci">ALBERTA REAL Real</div><div class="ttdef"><b>Definition:</b> misc.hh:46</div></div>
-<div class="ttc" id="aa00937_html_ab91172fc7cfde36bfa7dc9be768e71c2"><div class="ttname"><a href="a00937.html#ab91172fc7cfde36bfa7dc9be768e71c2">Dune::Alberta::DofSpace</a></div><div class="ttdeci">ALBERTA FE_SPACE DofSpace</div><div class="ttdef"><b>Definition:</b> misc.hh:63</div></div>
-<div class="ttc" id="aa00937_html_aca064a9bc66806f78ea771e804e5582d"><div class="ttname"><a href="a00937.html#aca064a9bc66806f78ea771e804e5582d">Dune::Alberta::min</a></div><div class="ttdeci">int min(const DofVectorPointer&lt; int &gt; &amp;dofVector)</div><div class="ttdef"><b>Definition:</b> dofvector.hh:346</div></div>
-<div class="ttc" id="aa00937_html_ad67366c3c67a2ca2e728b4276e37324e"><div class="ttname"><a href="a00937.html#ad67366c3c67a2ca2e728b4276e37324e">Dune::Alberta::max</a></div><div class="ttdeci">int max(const DofVectorPointer&lt; int &gt; &amp;dofVector)</div><div class="ttdef"><b>Definition:</b> dofvector.hh:335</div></div>
-<div class="ttc" id="aa00937_html_af1650cccce3ce5a4c8ab8eb240d3c58a"><div class="ttname"><a href="a00937.html#af1650cccce3ce5a4c8ab8eb240d3c58a">Dune::Alberta::GlobalVector</a></div><div class="ttdeci">ALBERTA REAL_D GlobalVector</div><div class="ttdef"><b>Definition:</b> misc.hh:48</div></div>
-<div class="ttc" id="aa01850_html"><div class="ttname"><a href="a01850.html">Dune::Alberta::MeshPointer</a></div><div class="ttdef"><b>Definition:</b> meshpointer.hh:38</div></div>
-<div class="ttc" id="aa01870_html"><div class="ttname"><a href="a01870.html">Dune::Alberta::DofVectorProvider</a></div><div class="ttdef"><b>Definition:</b> dofvector.hh:33</div></div>
-<div class="ttc" id="aa01874_html_a5ca6dfca3a174012c2b31c841e1e83d4"><div class="ttname"><a href="a01874.html#a5ca6dfca3a174012c2b31c841e1e83d4">Dune::Alberta::DofVectorProvider&lt; int &gt;::DofVector</a></div><div class="ttdeci">ALBERTA DOF_INT_VEC DofVector</div><div class="ttdef"><b>Definition:</b> dofvector.hh:38</div></div>
-<div class="ttc" id="aa01874_html_a6cd61ae645d891490b6c15bc4b4f52b6"><div class="ttname"><a href="a01874.html#a6cd61ae645d891490b6c15bc4b4f52b6">Dune::Alberta::DofVectorProvider&lt; int &gt;::write</a></div><div class="ttdeci">static bool write(const DofVector *dofVector, const std::string &amp;filename)</div><div class="ttdef"><b>Definition:</b> dofvector.hh:55</div></div>
-<div class="ttc" id="aa01874_html_a7631ed16880e0e6d1f5bc16495ffdebc"><div class="ttname"><a href="a01874.html#a7631ed16880e0e6d1f5bc16495ffdebc">Dune::Alberta::DofVectorProvider&lt; int &gt;::get</a></div><div class="ttdeci">static DofVector * get(const DofSpace *dofSpace, const std::string &amp;name)</div><div class="ttdef"><b>Definition:</b> dofvector.hh:40</div></div>
-<div class="ttc" id="aa01874_html_aa31ac13fb2ef7d5116b8dfa650c6941b"><div class="ttname"><a href="a01874.html#aa31ac13fb2ef7d5116b8dfa650c6941b">Dune::Alberta::DofVectorProvider&lt; int &gt;::free</a></div><div class="ttdeci">static void free(DofVector *dofVector)</div><div class="ttdef"><b>Definition:</b> dofvector.hh:45</div></div>
-<div class="ttc" id="aa01874_html_ae591101cb99765ae196fe4283dd592bd"><div class="ttname"><a href="a01874.html#ae591101cb99765ae196fe4283dd592bd">Dune::Alberta::DofVectorProvider&lt; int &gt;::read</a></div><div class="ttdeci">static DofVector * read(const std::string &amp;filename, Mesh *mesh, DofSpace *dofSpace)</div><div class="ttdef"><b>Definition:</b> dofvector.hh:50</div></div>
-<div class="ttc" id="aa01878_html_a32f7d972dd801a027b70b2eb7f55bc60"><div class="ttname"><a href="a01878.html#a32f7d972dd801a027b70b2eb7f55bc60">Dune::Alberta::DofVectorProvider&lt; signed char &gt;::read</a></div><div class="ttdeci">static DofVector * read(const std::string &amp;filename, Mesh *mesh, DofSpace *dofSpace)</div><div class="ttdef"><b>Definition:</b> dofvector.hh:77</div></div>
-<div class="ttc" id="aa01878_html_a418153905051e0cb18cb538a44633488"><div class="ttname"><a href="a01878.html#a418153905051e0cb18cb538a44633488">Dune::Alberta::DofVectorProvider&lt; signed char &gt;::write</a></div><div class="ttdeci">static bool write(const DofVector *dofVector, const std::string &amp;filename)</div><div class="ttdef"><b>Definition:</b> dofvector.hh:82</div></div>
-<div class="ttc" id="aa01878_html_a7ba7c5a5e8d811c634708ad82224ee9e"><div class="ttname"><a href="a01878.html#a7ba7c5a5e8d811c634708ad82224ee9e">Dune::Alberta::DofVectorProvider&lt; signed char &gt;::free</a></div><div class="ttdeci">static void free(DofVector *dofVector)</div><div class="ttdef"><b>Definition:</b> dofvector.hh:72</div></div>
-<div class="ttc" id="aa01878_html_abf4701f04e94e2ff37a85efe1da9baae"><div class="ttname"><a href="a01878.html#abf4701f04e94e2ff37a85efe1da9baae">Dune::Alberta::DofVectorProvider&lt; signed char &gt;::DofVector</a></div><div class="ttdeci">ALBERTA DOF_SCHAR_VEC DofVector</div><div class="ttdef"><b>Definition:</b> dofvector.hh:65</div></div>
-<div class="ttc" id="aa01878_html_ae813f46b3c4daa3d8ca236fbfb8f1398"><div class="ttname"><a href="a01878.html#ae813f46b3c4daa3d8ca236fbfb8f1398">Dune::Alberta::DofVectorProvider&lt; signed char &gt;::get</a></div><div class="ttdeci">static DofVector * get(const DofSpace *dofSpace, const std::string &amp;name)</div><div class="ttdef"><b>Definition:</b> dofvector.hh:67</div></div>
-<div class="ttc" id="aa01882_html_a168e386fc10d86e97e762b030ebae551"><div class="ttname"><a href="a01882.html#a168e386fc10d86e97e762b030ebae551">Dune::Alberta::DofVectorProvider&lt; unsigned char &gt;::get</a></div><div class="ttdeci">static DofVector * get(const DofSpace *dofSpace, const std::string &amp;name)</div><div class="ttdef"><b>Definition:</b> dofvector.hh:94</div></div>
-<div class="ttc" id="aa01882_html_a2642f5b27521161123a47e81f9408fe9"><div class="ttname"><a href="a01882.html#a2642f5b27521161123a47e81f9408fe9">Dune::Alberta::DofVectorProvider&lt; unsigned char &gt;::free</a></div><div class="ttdeci">static void free(DofVector *dofVector)</div><div class="ttdef"><b>Definition:</b> dofvector.hh:99</div></div>
-<div class="ttc" id="aa01882_html_a478783e43d5c33cf2ad9e5ce9baa13c3"><div class="ttname"><a href="a01882.html#a478783e43d5c33cf2ad9e5ce9baa13c3">Dune::Alberta::DofVectorProvider&lt; unsigned char &gt;::read</a></div><div class="ttdeci">static DofVector * read(const std::string &amp;filename, Mesh *mesh, DofSpace *dofSpace)</div><div class="ttdef"><b>Definition:</b> dofvector.hh:104</div></div>
-<div class="ttc" id="aa01882_html_a49f0e788aeab439a96c21100075f1308"><div class="ttname"><a href="a01882.html#a49f0e788aeab439a96c21100075f1308">Dune::Alberta::DofVectorProvider&lt; unsigned char &gt;::DofVector</a></div><div class="ttdeci">ALBERTA DOF_UCHAR_VEC DofVector</div><div class="ttdef"><b>Definition:</b> dofvector.hh:92</div></div>
-<div class="ttc" id="aa01882_html_abd7830e742b444698e2bf5dc972df834"><div class="ttname"><a href="a01882.html#abd7830e742b444698e2bf5dc972df834">Dune::Alberta::DofVectorProvider&lt; unsigned char &gt;::write</a></div><div class="ttdeci">static bool write(const DofVector *dofVector, const std::string &amp;filename)</div><div class="ttdef"><b>Definition:</b> dofvector.hh:109</div></div>
-<div class="ttc" id="aa01886_html_a9d52e71f3fa23e7cd73430d03c62de1d"><div class="ttname"><a href="a01886.html#a9d52e71f3fa23e7cd73430d03c62de1d">Dune::Alberta::DofVectorProvider&lt; Real &gt;::free</a></div><div class="ttdeci">static void free(DofVector *dofVector)</div><div class="ttdef"><b>Definition:</b> dofvector.hh:126</div></div>
-<div class="ttc" id="aa01886_html_aadb8f0db79e5ff51bab5e36f7f29afb7"><div class="ttname"><a href="a01886.html#aadb8f0db79e5ff51bab5e36f7f29afb7">Dune::Alberta::DofVectorProvider&lt; Real &gt;::write</a></div><div class="ttdeci">static bool write(const DofVector *dofVector, const std::string &amp;filename)</div><div class="ttdef"><b>Definition:</b> dofvector.hh:136</div></div>
-<div class="ttc" id="aa01886_html_ac1d009a5198702a3674b6feaccbff0a1"><div class="ttname"><a href="a01886.html#ac1d009a5198702a3674b6feaccbff0a1">Dune::Alberta::DofVectorProvider&lt; Real &gt;::get</a></div><div class="ttdeci">static DofVector * get(const DofSpace *dofSpace, const std::string &amp;name)</div><div class="ttdef"><b>Definition:</b> dofvector.hh:121</div></div>
-<div class="ttc" id="aa01886_html_ac76d627257673c1839315a1732c6c021"><div class="ttname"><a href="a01886.html#ac76d627257673c1839315a1732c6c021">Dune::Alberta::DofVectorProvider&lt; Real &gt;::DofVector</a></div><div class="ttdeci">ALBERTA DOF_REAL_VEC DofVector</div><div class="ttdef"><b>Definition:</b> dofvector.hh:119</div></div>
-<div class="ttc" id="aa01886_html_aecfda3904cf7c8a3e979e4114290234b"><div class="ttname"><a href="a01886.html#aecfda3904cf7c8a3e979e4114290234b">Dune::Alberta::DofVectorProvider&lt; Real &gt;::read</a></div><div class="ttdeci">static DofVector * read(const std::string &amp;filename, Mesh *mesh, DofSpace *dofSpace)</div><div class="ttdef"><b>Definition:</b> dofvector.hh:131</div></div>
-<div class="ttc" id="aa01890_html_a25a510d31f56c76abe6094028c842519"><div class="ttname"><a href="a01890.html#a25a510d31f56c76abe6094028c842519">Dune::Alberta::DofVectorProvider&lt; GlobalVector &gt;::get</a></div><div class="ttdeci">static DofVector * get(const DofSpace *dofSpace, const std::string &amp;name)</div><div class="ttdef"><b>Definition:</b> dofvector.hh:148</div></div>
-<div class="ttc" id="aa01890_html_a476546a289488c087615f5525541e208"><div class="ttname"><a href="a01890.html#a476546a289488c087615f5525541e208">Dune::Alberta::DofVectorProvider&lt; GlobalVector &gt;::read</a></div><div class="ttdeci">static DofVector * read(const std::string &amp;filename, Mesh *mesh, DofSpace *dofSpace)</div><div class="ttdef"><b>Definition:</b> dofvector.hh:158</div></div>
-<div class="ttc" id="aa01890_html_a59d24e0b48afbff219eca28159ed1d10"><div class="ttname"><a href="a01890.html#a59d24e0b48afbff219eca28159ed1d10">Dune::Alberta::DofVectorProvider&lt; GlobalVector &gt;::DofVector</a></div><div class="ttdeci">ALBERTA DOF_REAL_D_VEC DofVector</div><div class="ttdef"><b>Definition:</b> dofvector.hh:146</div></div>
-<div class="ttc" id="aa01890_html_a8998165e3597e1e0f6056744d6c4c38e"><div class="ttname"><a href="a01890.html#a8998165e3597e1e0f6056744d6c4c38e">Dune::Alberta::DofVectorProvider&lt; GlobalVector &gt;::free</a></div><div class="ttdeci">static void free(DofVector *dofVector)</div><div class="ttdef"><b>Definition:</b> dofvector.hh:153</div></div>
-<div class="ttc" id="aa01890_html_ac1c090c502ddf98b7f4a528c66571308"><div class="ttname"><a href="a01890.html#ac1c090c502ddf98b7f4a528c66571308">Dune::Alberta::DofVectorProvider&lt; GlobalVector &gt;::write</a></div><div class="ttdeci">static bool write(const DofVector *dofVector, const std::string &amp;filename)</div><div class="ttdef"><b>Definition:</b> dofvector.hh:163</div></div>
-<div class="ttc" id="aa01894_html"><div class="ttname"><a href="a01894.html">Dune::Alberta::DofVectorPointer</a></div><div class="ttdef"><b>Definition:</b> dofvector.hh:177</div></div>
-<div class="ttc" id="aa01894_html_a05bd2e0b9fab5341f90f0231c196cf4d"><div class="ttname"><a href="a01894.html#a05bd2e0b9fab5341f90f0231c196cf4d">Dune::Alberta::DofVectorPointer::DofVector</a></div><div class="ttdeci">DofVectorProvider::DofVector DofVector</div><div class="ttdef"><b>Definition:</b> dofvector.hh:183</div></div>
-<div class="ttc" id="aa01894_html_a15f7ec1d0adbec2658d4da35e866bdad"><div class="ttname"><a href="a01894.html#a15f7ec1d0adbec2658d4da35e866bdad">Dune::Alberta::DofVectorPointer::setupInterpolation</a></div><div class="ttdeci">void setupInterpolation()</div><div class="ttdef"><b>Definition:</b> dofvector.hh:290</div></div>
-<div class="ttc" id="aa01894_html_a1aaff1d41d94d25616bc57db8a7589f0"><div class="ttname"><a href="a01894.html#a1aaff1d41d94d25616bc57db8a7589f0">Dune::Alberta::DofVectorPointer::initialize</a></div><div class="ttdeci">void initialize(const Dof &amp;value)</div><div class="ttdef"><b>Definition:</b> dofvector.hh:268</div></div>
-<div class="ttc" id="aa01894_html_a251e0d5534b846ca769522f4bc59612c"><div class="ttname"><a href="a01894.html#a251e0d5534b846ca769522f4bc59612c">Dune::Alberta::DofVectorPointer::read</a></div><div class="ttdeci">void read(const std::string &amp;filename, const MeshPointer&lt; dim &gt; &amp;meshPointer)</div><div class="ttdef"><b>Definition:</b> dofvector.hh:241</div></div>
-<div class="ttc" id="aa01894_html_a2dbf772bab3c9300e01499eb1479c16f"><div class="ttname"><a href="a01894.html#a2dbf772bab3c9300e01499eb1479c16f">Dune::Alberta::DofVectorPointer::create</a></div><div class="ttdeci">void create(const DofSpace *dofSpace, const std::string &amp;name=&quot;&quot;)</div><div class="ttdef"><b>Definition:</b> dofvector.hh:234</div></div>
-<div class="ttc" id="aa01894_html_a3af801d63e84f7376a37a3279383adaa"><div class="ttname"><a href="a01894.html#a3af801d63e84f7376a37a3279383adaa">Dune::Alberta::DofVectorPointer::release</a></div><div class="ttdeci">void release()</div><div class="ttdef"><b>Definition:</b> dofvector.hh:252</div></div>
-<div class="ttc" id="aa01894_html_a737cee783d924ca7fb8e4e3b5d5a49e2"><div class="ttname"><a href="a01894.html#a737cee783d924ca7fb8e4e3b5d5a49e2">Dune::Alberta::DofVectorPointer::setupRestriction</a></div><div class="ttdeci">void setupRestriction()</div><div class="ttdef"><b>Definition:</b> dofvector.hh:297</div></div>
-<div class="ttc" id="aa01894_html_a74edc3a9720bf5d0dee215aa5085e789"><div class="ttname"><a href="a01894.html#a74edc3a9720bf5d0dee215aa5085e789">Dune::Alberta::DofVectorPointer::DofVectorPointer</a></div><div class="ttdeci">DofVectorPointer()</div><div class="ttdef"><b>Definition:</b> dofvector.hh:191</div></div>
-<div class="ttc" id="aa01894_html_a95d25f798e2a81eca7e29d5142134b2f"><div class="ttname"><a href="a01894.html#a95d25f798e2a81eca7e29d5142134b2f">Dune::Alberta::DofVectorPointer::getAdaptationData</a></div><div class="ttdeci">AdaptationData * getAdaptationData() const</div><div class="ttdef"><b>Definition:</b> dofvector.hh:275</div></div>
-<div class="ttc" id="aa01894_html_aa727305fcaf82dcc9cd112729d436e7c"><div class="ttname"><a href="a01894.html#aa727305fcaf82dcc9cd112729d436e7c">Dune::Alberta::DofVectorPointer::setAdaptationData</a></div><div class="ttdeci">void setAdaptationData(AdaptationData *adaptationData)</div><div class="ttdef"><b>Definition:</b> dofvector.hh:283</div></div>
-<div class="ttc" id="aa01894_html_aa881427c226c88693731f5cd83ad78a1"><div class="ttname"><a href="a01894.html#aa881427c226c88693731f5cd83ad78a1">Dune::Alberta::DofVectorPointer::write</a></div><div class="ttdeci">bool write(const std::string &amp;filename) const</div><div class="ttdef"><b>Definition:</b> dofvector.hh:247</div></div>
-<div class="ttc" id="aa01894_html_ab737a0c0f5786eead66adfb7e8c032a4"><div class="ttname"><a href="a01894.html#ab737a0c0f5786eead66adfb7e8c032a4">Dune::Alberta::DofVectorPointer::DofVectorPointer</a></div><div class="ttdeci">DofVectorPointer(DofVector *dofVector)</div><div class="ttdef"><b>Definition:</b> dofvector.hh:200</div></div>
-<div class="ttc" id="aa01894_html_ac57315767de5ad2995abb96ebe7a22d1"><div class="ttname"><a href="a01894.html#ac57315767de5ad2995abb96ebe7a22d1">Dune::Alberta::DofVectorPointer::supportsAdaptationData</a></div><div class="ttdeci">static const bool supportsAdaptationData</div><div class="ttdef"><b>Definition:</b> dofvector.hh:185</div></div>
-<div class="ttc" id="aa01894_html_ae23d9a6fc307c2ad043825bed1fa89fa"><div class="ttname"><a href="a01894.html#ae23d9a6fc307c2ad043825bed1fa89fa">Dune::Alberta::DofVectorPointer::name</a></div><div class="ttdeci">std::string name() const</div><div class="ttdef"><b>Definition:</b> dofvector.hh:226</div></div>
-<div class="ttc" id="aa01894_html_ae7630253a5a9bd740c8dbdf40130b27b"><div class="ttname"><a href="a01894.html#ae7630253a5a9bd740c8dbdf40130b27b">Dune::Alberta::DofVectorPointer::dofSpace</a></div><div class="ttdeci">const DofSpace * dofSpace() const</div><div class="ttdef"><b>Definition:</b> dofvector.hh:221</div></div>
-<div class="ttc" id="aa01894_html_af666659a72551be487cbf400265115f4"><div class="ttname"><a href="a01894.html#af666659a72551be487cbf400265115f4">Dune::Alberta::DofVectorPointer::forEach</a></div><div class="ttdeci">void forEach(Functor &amp;functor) const</div><div class="ttdef"><b>Definition:</b> dofvector.hh:262</div></div>
-<div class="ttc" id="aa01894_html_af8b19ab9cc3bea4f3786dcd05d905b96"><div class="ttname"><a href="a01894.html#af8b19ab9cc3bea4f3786dcd05d905b96">Dune::Alberta::DofVectorPointer::DofVectorPointer</a></div><div class="ttdeci">DofVectorPointer(const DofSpace *dofSpace, const std::string &amp;name=&quot;&quot;)</div><div class="ttdef"><b>Definition:</b> dofvector.hh:195</div></div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// #ifndef DUNE_ALBERTA_DOFADMIN_HH</span></div>
+<div class="ttc" id="aa00482_html_a4cbe74d935d2e31c4b35398e93623f70"><div class="ttname"><a href="a00482.html#a4cbe74d935d2e31c4b35398e93623f70">ALBERTA</a></div><div class="ttdeci">#define ALBERTA</div><div class="ttdef"><b>Definition:</b> albertaheader.hh:27</div></div>
+<div class="ttc" id="aa00509_html"><div class="ttname"><a href="a00509.html">elementinfo.hh</a></div><div class="ttdoc">provides a wrapper for ALBERTA's el_info structure</div></div>
+<div class="ttc" id="aa00560_html"><div class="ttname"><a href="a00560.html">misc.hh</a></div></div>
+<div class="ttc" id="aa00940_html"><div class="ttname"><a href="a00940.html">Dune</a></div><div class="ttdoc">Include standard header files.</div><div class="ttdef"><b>Definition:</b> agrid.hh:58</div></div>
+<div class="ttc" id="aa00941_html_a738666cf4bcd352ecee6a5dc484bb92c"><div class="ttname"><a href="a00941.html#a738666cf4bcd352ecee6a5dc484bb92c">Dune::Alberta::Element</a></div><div class="ttdeci">ALBERTA EL Element</div><div class="ttdef"><b>Definition:</b> misc.hh:52</div></div>
+<div class="ttc" id="aa00941_html_ab91172fc7cfde36bfa7dc9be768e71c2"><div class="ttname"><a href="a00941.html#ab91172fc7cfde36bfa7dc9be768e71c2">Dune::Alberta::DofSpace</a></div><div class="ttdeci">ALBERTA FE_SPACE DofSpace</div><div class="ttdef"><b>Definition:</b> misc.hh:63</div></div>
+<div class="ttc" id="aa01854_html"><div class="ttname"><a href="a01854.html">Dune::Alberta::MeshPointer&lt; dimension &gt;</a></div></div>
+<div class="ttc" id="aa01858_html"><div class="ttname"><a href="a01858.html">Dune::Alberta::DofAccess</a></div><div class="ttdef"><b>Definition:</b> dofadmin.hh:34</div></div>
+<div class="ttc" id="aa01858_html_a2367fe847ca32e4eec9ced25382b1ce0"><div class="ttname"><a href="a01858.html#a2367fe847ca32e4eec9ced25382b1ce0">Dune::Alberta::DofAccess::dimension</a></div><div class="ttdeci">static const int dimension</div><div class="ttdef"><b>Definition:</b> dofadmin.hh:40</div></div>
+<div class="ttc" id="aa01858_html_a24a4865da9e6b1e06b2aa22b827cbf75"><div class="ttname"><a href="a01858.html#a24a4865da9e6b1e06b2aa22b827cbf75">Dune::Alberta::DofAccess::DofAccess</a></div><div class="ttdeci">DofAccess()</div><div class="ttdef"><b>Definition:</b> dofadmin.hh:45</div></div>
+<div class="ttc" id="aa01858_html_a4516f7b7b3a3210d23a7447674eb579c"><div class="ttname"><a href="a01858.html#a4516f7b7b3a3210d23a7447674eb579c">Dune::Alberta::DofAccess::codimension</a></div><div class="ttdeci">static const int codimension</div><div class="ttdef"><b>Definition:</b> dofadmin.hh:41</div></div>
+<div class="ttc" id="aa01858_html_a64a6a8adb53aff6c1475629c96638b76"><div class="ttname"><a href="a01858.html#a64a6a8adb53aff6c1475629c96638b76">Dune::Alberta::DofAccess::numSubEntities</a></div><div class="ttdeci">static const int numSubEntities</div><div class="ttdef"><b>Definition:</b> dofadmin.hh:38</div></div>
+<div class="ttc" id="aa01858_html_a78832be06e30f098839018ada7169eac"><div class="ttname"><a href="a01858.html#a78832be06e30f098839018ada7169eac">Dune::Alberta::DofAccess::DofAccess</a></div><div class="ttdeci">DofAccess(const DofSpace *dofSpace)</div><div class="ttdef"><b>Definition:</b> dofadmin.hh:49</div></div>
+<div class="ttc" id="aa01858_html_ab974b8564f9b2ab58db6dd8f1dd94862"><div class="ttname"><a href="a01858.html#ab974b8564f9b2ab58db6dd8f1dd94862">Dune::Alberta::DofAccess::operator()</a></div><div class="ttdeci">int operator()(const Element *element, int subEntity, int i) const</div><div class="ttdef"><b>Definition:</b> dofadmin.hh:56</div></div>
+<div class="ttc" id="aa01858_html_aff12d5a3e33f12f875046ca21f87ddff"><div class="ttname"><a href="a01858.html#aff12d5a3e33f12f875046ca21f87ddff">Dune::Alberta::DofAccess::ElementInfo</a></div><div class="ttdeci">Alberta::ElementInfo&lt; dimension &gt; ElementInfo</div><div class="ttdef"><b>Definition:</b> dofadmin.hh:43</div></div>
+<div class="ttc" id="aa01862_html"><div class="ttname"><a href="a01862.html">Dune::Alberta::HierarchyDofNumbering</a></div><div class="ttdef"><b>Definition:</b> dofadmin.hh:91</div></div>
+<div class="ttc" id="aa01862_html_a04c1bcd5fee88aa52f44560ec035a80d"><div class="ttname"><a href="a01862.html#a04c1bcd5fee88aa52f44560ec035a80d">Dune::Alberta::HierarchyDofNumbering::HierarchyDofNumbering</a></div><div class="ttdeci">HierarchyDofNumbering()</div><div class="ttdef"><b>Definition:</b> dofadmin.hh:112</div></div>
+<div class="ttc" id="aa01862_html_a1103aaa532ae6ecdc2149ce27e018cb4"><div class="ttname"><a href="a01862.html#a1103aaa532ae6ecdc2149ce27e018cb4">Dune::Alberta::HierarchyDofNumbering::operator()</a></div><div class="ttdeci">int operator()(const Element *element, int codim, unsigned int subEntity) const</div><div class="ttdef"><b>Definition:</b> dofadmin.hh:125</div></div>
+<div class="ttc" id="aa01862_html_a19fc3a572c26984ace1664a681af3a31"><div class="ttname"><a href="a01862.html#a19fc3a572c26984ace1664a681af3a31">Dune::Alberta::HierarchyDofNumbering::create</a></div><div class="ttdeci">void create(const MeshPointer &amp;mesh)</div><div class="ttdef"><b>Definition:</b> dofadmin.hh:197</div></div>
+<div class="ttc" id="aa01862_html_a2f5f3cdb8b7e84d02e46e988e6c2a04c"><div class="ttname"><a href="a01862.html#a2f5f3cdb8b7e84d02e46e988e6c2a04c">Dune::Alberta::HierarchyDofNumbering::dofSpace</a></div><div class="ttdeci">const DofSpace * dofSpace(int codim) const</div><div class="ttdef"><b>Definition:</b> dofadmin.hh:143</div></div>
+<div class="ttc" id="aa01862_html_a32fa1caf0809f7d57970072f4e40ee52"><div class="ttname"><a href="a01862.html#a32fa1caf0809f7d57970072f4e40ee52">Dune::Alberta::HierarchyDofNumbering::~HierarchyDofNumbering</a></div><div class="ttdeci">~HierarchyDofNumbering()</div><div class="ttdef"><b>Definition:</b> dofadmin.hh:120</div></div>
+<div class="ttc" id="aa01862_html_a424d3d1c9a8a1e6ecc03088ffd6b0926"><div class="ttname"><a href="a01862.html#a424d3d1c9a8a1e6ecc03088ffd6b0926">Dune::Alberta::HierarchyDofNumbering::MeshPointer</a></div><div class="ttdeci">Alberta::MeshPointer&lt; dimension &gt; MeshPointer</div><div class="ttdef"><b>Definition:</b> dofadmin.hh:97</div></div>
+<div class="ttc" id="aa01862_html_a4ee8007bc0a5e1124d945b22d163ebc1"><div class="ttname"><a href="a01862.html#a4ee8007bc0a5e1124d945b22d163ebc1">Dune::Alberta::HierarchyDofNumbering::size</a></div><div class="ttdeci">int size(int codim) const</div><div class="ttdef"><b>Definition:</b> dofadmin.hh:161</div></div>
+<div class="ttc" id="aa01862_html_a553d69c351931d6c6cce7e451ed01452"><div class="ttname"><a href="a01862.html#a553d69c351931d6c6cce7e451ed01452">Dune::Alberta::HierarchyDofNumbering::emptyDofSpace</a></div><div class="ttdeci">const DofSpace * emptyDofSpace() const</div><div class="ttdef"><b>Definition:</b> dofadmin.hh:150</div></div>
+<div class="ttc" id="aa01862_html_a6cfe4139cf427e85c6a8c484d95940fb"><div class="ttname"><a href="a01862.html#a6cfe4139cf427e85c6a8c484d95940fb">Dune::Alberta::HierarchyDofNumbering::mesh</a></div><div class="ttdeci">const MeshPointer &amp; mesh() const</div><div class="ttdef"><b>Definition:</b> dofadmin.hh:156</div></div>
+<div class="ttc" id="aa01862_html_a860f98b7d6bb1d1b3c7dc84a153f95c9"><div class="ttname"><a href="a01862.html#a860f98b7d6bb1d1b3c7dc84a153f95c9">Dune::Alberta::HierarchyDofNumbering::ElementInfo</a></div><div class="ttdeci">Alberta::ElementInfo&lt; dimension &gt; ElementInfo</div><div class="ttdef"><b>Definition:</b> dofadmin.hh:98</div></div>
+<div class="ttc" id="aa01862_html_a98f0d24143e595d305a36617541ad5b2"><div class="ttname"><a href="a01862.html#a98f0d24143e595d305a36617541ad5b2">Dune::Alberta::HierarchyDofNumbering::dimension</a></div><div class="ttdeci">static const int dimension</div><div class="ttdef"><b>Definition:</b> dofadmin.hh:95</div></div>
+<div class="ttc" id="aa01862_html_aa88c08c3d19fdf077f1cd68b5cc558f1"><div class="ttname"><a href="a01862.html#aa88c08c3d19fdf077f1cd68b5cc558f1">Dune::Alberta::HierarchyDofNumbering::release</a></div><div class="ttdeci">void release()</div><div class="ttdef"><b>Definition:</b> dofadmin.hh:168</div></div>
+<div class="ttc" id="aa01902_html"><div class="ttname"><a href="a01902.html">Dune::Alberta::ElementInfo&lt; dimension &gt;</a></div></div>
+<div class="ttc" id="aa01902_html_ada0ef6466c62d95e8e3f30aed2da8fad"><div class="ttname"><a href="a01902.html#ada0ef6466c62d95e8e3f30aed2da8fad">Dune::Alberta::ElementInfo::el</a></div><div class="ttdeci">Element * el() const</div><div class="ttdef"><b>Definition:</b> elementinfo.hh:735</div></div>
+<div class="ttc" id="aa02214_html"><div class="ttname"><a href="a02214.html">Dune::Alberta::NumSubEntities</a></div><div class="ttdef"><b>Definition:</b> misc.hh:146</div></div>
+<div class="ttc" id="aa02242_html"><div class="ttname"><a href="a02242.html">Dune::Alberta::CodimType</a></div><div class="ttdef"><b>Definition:</b> misc.hh:190</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-common: Member List</title>
+<title>dune-common: Dune::PushBackTuple&lt; Tuple, T &gt; Struct Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-common
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,27 +62,33 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00428.html">Dune</a></li><li class="navelem"><a class="el" href="a02968.html">ToUniquePtr</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00428.html">Dune</a></li><li class="navelem"><a class="el" href="a02965.html">PushBackTuple</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">Dune::ToUniquePtr&lt; T &gt; Member List</div>  </div>
+<div class="title">Dune::PushBackTuple&lt; Tuple, T &gt; Struct Template Reference<div class="ingroups"><a class="el" href="a00400.html">Common</a> &raquo; <a class="el" href="a00402.html">Utilities</a> &raquo; <a class="el" href="a00406.html">Tuple Utilities</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="a02968.html">Dune::ToUniquePtr&lt; T &gt;</a>, including all inherited members.</p>
-<table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="a02968.html#a209493afb9685f0c49e8f76c7e648c6b">makeToUnique</a>(Args &amp;&amp;... args)</td><td class="entry"><a class="el" href="a02968.html">Dune::ToUniquePtr&lt; T &gt;</a></td><td class="entry"><span class="mlabel">related</span></td></tr>
-  <tr><td class="entry"><a class="el" href="a02968.html#a8d490d95305d9556102bd70e8dc0cdf8">operator bool</a>() noexcept</td><td class="entry"><a class="el" href="a02968.html">Dune::ToUniquePtr&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a02968.html#af0d65e87b38751ac9c7a31d0266be90d">operator bool</a>() const noexcept</td><td class="entry"><a class="el" href="a02968.html">Dune::ToUniquePtr&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
-  <tr><td class="entry"><a class="el" href="a02968.html#ac8693cf9113178e563aa14ebc613a990">operator pointer</a>() noexcept</td><td class="entry"><a class="el" href="a02968.html">Dune::ToUniquePtr&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a02968.html#ac263e63785f204dace623ea55dc18f43">operator std::shared_ptr&lt; T &gt;</a>() noexcept</td><td class="entry"><a class="el" href="a02968.html">Dune::ToUniquePtr&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="a02968.html#a5571b24c19576ba5baffa675771929a2">operator std::unique_ptr&lt; T &gt;</a>() noexcept</td><td class="entry"><a class="el" href="a02968.html">Dune::ToUniquePtr&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a02968.html#aa5d741cbab8f47f8b857fbb4dc4e753c">pointer</a> typedef</td><td class="entry"><a class="el" href="a02968.html">Dune::ToUniquePtr&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="a02968.html#ab51871f1fcaa19312f0a0fb2382ff546">ToUniquePtr</a>(pointer ptr=pointer()) noexcept</td><td class="entry"><a class="el" href="a02968.html">Dune::ToUniquePtr&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a02968.html#af749b992807d00139e62c226bd2754e3">ToUniquePtr</a>(std::nullptr_t) noexcept</td><td class="entry"><a class="el" href="a02968.html">Dune::ToUniquePtr&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-</table></div><!-- contents -->
+<p>Helper template to append a type to a std::tuple.  
+ <a href="a02965.html#details">More...</a></p>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;class Tuple, class T&gt;<br />
+struct Dune::PushBackTuple&lt; Tuple, T &gt;</h3>
+
+<p>Helper template to append a type to a std::tuple. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Tuple</td><td>The std::tuple type to extend </td></tr>
+    <tr><td class="paramname">T</td><td>The type to be appended to the std::tuple </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><hr/>The documentation for this struct was generated from the following file:<ul>
+<li><a class="el" href="a00374_source.html">tupleutility.hh</a></li>
+</ul>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1

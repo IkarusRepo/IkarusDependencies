@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: Dune::Alberta::HierarchyDofNumbering&lt; dim &gt; Class Template Reference</title>
+<title>dune-grid: Dune::Alberta::DofAccess&lt; dim, codim &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,96 +62,73 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00936.html">Dune</a></li><li class="navelem"><a class="el" href="a00937.html">Alberta</a></li><li class="navelem"><a class="el" href="a01858.html">HierarchyDofNumbering</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00940.html">Dune</a></li><li class="navelem"><a class="el" href="a00941.html">Alberta</a></li><li class="navelem"><a class="el" href="a01858.html">DofAccess</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="a01855.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::Alberta::HierarchyDofNumbering&lt; dim &gt; Class Template Reference</div>  </div>
+<div class="title">Dune::Alberta::DofAccess&lt; dim, codim &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="a00497_source.html">dune/grid/albertagrid/dofadmin.hh</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00500_source.html">dune/grid/albertagrid/dofadmin.hh</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for Dune::Alberta::HierarchyDofNumbering&lt; dim &gt;:</div>
+Inheritance diagram for Dune::Alberta::DofAccess&lt; dim, codim &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="a01857.png" border="0" usemap="#a_dune_1_1_alberta_1_1_hierarchy_dof_numbering_3_01dim_01_4_inherit__map" alt="Inheritance graph"/></div>
-<map name="a_dune_1_1_alberta_1_1_hierarchy_dof_numbering_3_01dim_01_4_inherit__map" id="a_dune_1_1_alberta_1_1_hierarchy_dof_numbering_3_01dim_01_4_inherit__map">
-<area shape="rect" title=" " alt="" coords="17,5,181,47"/>
-<area shape="rect" href="a01858.html" title=" " alt="" coords="5,109,192,151"/>
+<div class="center"><img src="a01857.png" border="0" usemap="#a_dune_1_1_alberta_1_1_dof_access_3_01dim_00_01codim_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="a_dune_1_1_alberta_1_1_dof_access_3_01dim_00_01codim_01_4_inherit__map" id="a_dune_1_1_alberta_1_1_dof_access_3_01dim_00_01codim_01_4_inherit__map">
+<area shape="rect" title=" " alt="" coords="5,71,177,112"/>
+<area shape="rect" href="a01858.html" title=" " alt="" coords="395,5,581,47"/>
+<area shape="rect" href="a01858.html" title=" " alt="" coords="402,71,574,112"/>
+<area shape="rect" href="a01858.html" title=" " alt="" coords="402,136,574,177"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a424d3d1c9a8a1e6ecc03088ffd6b0926"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a01850.html">Alberta::MeshPointer</a>&lt; <a class="el" href="a01858.html#a98f0d24143e595d305a36617541ad5b2">dimension</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01858.html#a424d3d1c9a8a1e6ecc03088ffd6b0926">MeshPointer</a></td></tr>
-<tr class="separator:a424d3d1c9a8a1e6ecc03088ffd6b0926"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a860f98b7d6bb1d1b3c7dc84a153f95c9"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a01898.html">Alberta::ElementInfo</a>&lt; <a class="el" href="a01858.html#a98f0d24143e595d305a36617541ad5b2">dimension</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01858.html#a860f98b7d6bb1d1b3c7dc84a153f95c9">ElementInfo</a></td></tr>
-<tr class="separator:a860f98b7d6bb1d1b3c7dc84a153f95c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff12d5a3e33f12f875046ca21f87ddff"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a01902.html">Alberta::ElementInfo</a>&lt; <a class="el" href="a01858.html#a2367fe847ca32e4eec9ced25382b1ce0">dimension</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01858.html#aff12d5a3e33f12f875046ca21f87ddff">ElementInfo</a></td></tr>
+<tr class="separator:aff12d5a3e33f12f875046ca21f87ddff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a04c1bcd5fee88aa52f44560ec035a80d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01858.html#a04c1bcd5fee88aa52f44560ec035a80d">HierarchyDofNumbering</a> ()</td></tr>
-<tr class="separator:a04c1bcd5fee88aa52f44560ec035a80d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32fa1caf0809f7d57970072f4e40ee52"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01858.html#a32fa1caf0809f7d57970072f4e40ee52">~HierarchyDofNumbering</a> ()</td></tr>
-<tr class="separator:a32fa1caf0809f7d57970072f4e40ee52"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1103aaa532ae6ecdc2149ce27e018cb4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01858.html#a1103aaa532ae6ecdc2149ce27e018cb4">operator()</a> (const <a class="el" href="a00937.html#a738666cf4bcd352ecee6a5dc484bb92c">Element</a> *element, int codim, unsigned int subEntity) const</td></tr>
-<tr class="separator:a1103aaa532ae6ecdc2149ce27e018cb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48d659d36ea5275b82b9fea494666f20"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01858.html#a48d659d36ea5275b82b9fea494666f20">operator()</a> (const <a class="el" href="a01858.html#a860f98b7d6bb1d1b3c7dc84a153f95c9">ElementInfo</a> &amp;element, int codim, unsigned int subEntity) const</td></tr>
-<tr class="separator:a48d659d36ea5275b82b9fea494666f20"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac45094fa6e826065d5aad626cc71491c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01858.html#ac45094fa6e826065d5aad626cc71491c">operator bool</a> () const</td></tr>
-<tr class="separator:ac45094fa6e826065d5aad626cc71491c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f5f3cdb8b7e84d02e46e988e6c2a04c"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00937.html#ab91172fc7cfde36bfa7dc9be768e71c2">DofSpace</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01858.html#a2f5f3cdb8b7e84d02e46e988e6c2a04c">dofSpace</a> (int codim) const</td></tr>
-<tr class="separator:a2f5f3cdb8b7e84d02e46e988e6c2a04c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a553d69c351931d6c6cce7e451ed01452"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00937.html#ab91172fc7cfde36bfa7dc9be768e71c2">DofSpace</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01858.html#a553d69c351931d6c6cce7e451ed01452">emptyDofSpace</a> () const</td></tr>
-<tr class="separator:a553d69c351931d6c6cce7e451ed01452"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6cfe4139cf427e85c6a8c484d95940fb"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a01858.html#a424d3d1c9a8a1e6ecc03088ffd6b0926">MeshPointer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01858.html#a6cfe4139cf427e85c6a8c484d95940fb">mesh</a> () const</td></tr>
-<tr class="separator:a6cfe4139cf427e85c6a8c484d95940fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ee8007bc0a5e1124d945b22d163ebc1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01858.html#a4ee8007bc0a5e1124d945b22d163ebc1">size</a> (int codim) const</td></tr>
-<tr class="separator:a4ee8007bc0a5e1124d945b22d163ebc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19fc3a572c26984ace1664a681af3a31"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01858.html#a19fc3a572c26984ace1664a681af3a31">create</a> (const <a class="el" href="a01858.html#a424d3d1c9a8a1e6ecc03088ffd6b0926">MeshPointer</a> &amp;<a class="el" href="a01858.html#a6cfe4139cf427e85c6a8c484d95940fb">mesh</a>)</td></tr>
-<tr class="separator:a19fc3a572c26984ace1664a681af3a31"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa88c08c3d19fdf077f1cd68b5cc558f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01858.html#aa88c08c3d19fdf077f1cd68b5cc558f1">release</a> ()</td></tr>
-<tr class="separator:aa88c08c3d19fdf077f1cd68b5cc558f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24a4865da9e6b1e06b2aa22b827cbf75"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01858.html#a24a4865da9e6b1e06b2aa22b827cbf75">DofAccess</a> ()</td></tr>
+<tr class="separator:a24a4865da9e6b1e06b2aa22b827cbf75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78832be06e30f098839018ada7169eac"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01858.html#a78832be06e30f098839018ada7169eac">DofAccess</a> (const <a class="el" href="a00941.html#ab91172fc7cfde36bfa7dc9be768e71c2">DofSpace</a> *dofSpace)</td></tr>
+<tr class="separator:a78832be06e30f098839018ada7169eac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab974b8564f9b2ab58db6dd8f1dd94862"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01858.html#ab974b8564f9b2ab58db6dd8f1dd94862">operator()</a> (const <a class="el" href="a00941.html#a738666cf4bcd352ecee6a5dc484bb92c">Element</a> *element, int subEntity, int i) const</td></tr>
+<tr class="separator:ab974b8564f9b2ab58db6dd8f1dd94862"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3b3155eedec059066abcf810e3f2f21"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01858.html#ab3b3155eedec059066abcf810e3f2f21">operator()</a> (const <a class="el" href="a00941.html#a738666cf4bcd352ecee6a5dc484bb92c">Element</a> *element, int subEntity) const</td></tr>
+<tr class="separator:ab3b3155eedec059066abcf810e3f2f21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9bf778ce6465860f5beeb65a5770126"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01858.html#af9bf778ce6465860f5beeb65a5770126">operator()</a> (const <a class="el" href="a01858.html#aff12d5a3e33f12f875046ca21f87ddff">ElementInfo</a> &amp;elementInfo, int subEntity, int i) const</td></tr>
+<tr class="separator:af9bf778ce6465860f5beeb65a5770126"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5aa91d34ecc9c3397f856fab7faea019"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01858.html#a5aa91d34ecc9c3397f856fab7faea019">operator()</a> (const <a class="el" href="a01858.html#aff12d5a3e33f12f875046ca21f87ddff">ElementInfo</a> &amp;elementInfo, int subEntity) const</td></tr>
+<tr class="separator:a5aa91d34ecc9c3397f856fab7faea019"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a98f0d24143e595d305a36617541ad5b2"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01858.html#a98f0d24143e595d305a36617541ad5b2">dimension</a> = dim</td></tr>
-<tr class="separator:a98f0d24143e595d305a36617541ad5b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64a6a8adb53aff6c1475629c96638b76"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01858.html#a64a6a8adb53aff6c1475629c96638b76">numSubEntities</a> = <a class="el" href="a02214.html">NumSubEntities</a>&lt; dim, codim &gt;::value</td></tr>
+<tr class="separator:a64a6a8adb53aff6c1475629c96638b76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2367fe847ca32e4eec9ced25382b1ce0"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01858.html#a2367fe847ca32e4eec9ced25382b1ce0">dimension</a> = dim</td></tr>
+<tr class="separator:a2367fe847ca32e4eec9ced25382b1ce0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4516f7b7b3a3210d23a7447674eb579c"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01858.html#a4516f7b7b3a3210d23a7447674eb579c">codimension</a> = codim</td></tr>
+<tr class="separator:a4516f7b7b3a3210d23a7447674eb579c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a860f98b7d6bb1d1b3c7dc84a153f95c9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a860f98b7d6bb1d1b3c7dc84a153f95c9">&#9670;&nbsp;</a></span>ElementInfo</h2>
+<a id="aff12d5a3e33f12f875046ca21f87ddff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff12d5a3e33f12f875046ca21f87ddff">&#9670;&nbsp;</a></span>ElementInfo</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim&gt; </div>
+template&lt;int dim, int codim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="a01898.html">Alberta::ElementInfo</a>&lt; <a class="el" href="a01858.html#a98f0d24143e595d305a36617541ad5b2">dimension</a> &gt; <a class="el" href="a01858.html">Dune::Alberta::HierarchyDofNumbering</a>&lt; dim &gt;::<a class="el" href="a01858.html#a860f98b7d6bb1d1b3c7dc84a153f95c9">ElementInfo</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a424d3d1c9a8a1e6ecc03088ffd6b0926"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a424d3d1c9a8a1e6ecc03088ffd6b0926">&#9670;&nbsp;</a></span>MeshPointer</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int dim&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef <a class="el" href="a01850.html">Alberta::MeshPointer</a>&lt; <a class="el" href="a01858.html#a98f0d24143e595d305a36617541ad5b2">dimension</a> &gt; <a class="el" href="a01858.html">Dune::Alberta::HierarchyDofNumbering</a>&lt; dim &gt;::<a class="el" href="a01858.html#a424d3d1c9a8a1e6ecc03088ffd6b0926">MeshPointer</a></td>
+          <td class="memname">typedef <a class="el" href="a01902.html">Alberta::ElementInfo</a>&lt; <a class="el" href="a01858.html#a2367fe847ca32e4eec9ced25382b1ce0">dimension</a> &gt; <a class="el" href="a01858.html">Dune::Alberta::DofAccess</a>&lt; dim, codim &gt;::<a class="el" href="a01858.html#aff12d5a3e33f12f875046ca21f87ddff">ElementInfo</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -159,19 +136,19 @@ template&lt;int dim&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a04c1bcd5fee88aa52f44560ec035a80d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a04c1bcd5fee88aa52f44560ec035a80d">&#9670;&nbsp;</a></span>HierarchyDofNumbering()</h2>
+<a id="a24a4865da9e6b1e06b2aa22b827cbf75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24a4865da9e6b1e06b2aa22b827cbf75">&#9670;&nbsp;</a></span>DofAccess() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim&gt; </div>
+template&lt;int dim, int codim&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a01858.html">Dune::Alberta::HierarchyDofNumbering</a>&lt; dim &gt;::<a class="el" href="a01858.html">HierarchyDofNumbering</a> </td>
+          <td class="memname"><a class="el" href="a01858.html">Dune::Alberta::DofAccess</a>&lt; dim, codim &gt;::<a class="el" href="a01858.html">DofAccess</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -186,160 +163,23 @@ template&lt;int dim&gt; </div>
 
 </div>
 </div>
-<a id="a32fa1caf0809f7d57970072f4e40ee52"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a32fa1caf0809f7d57970072f4e40ee52">&#9670;&nbsp;</a></span>~HierarchyDofNumbering()</h2>
+<a id="a78832be06e30f098839018ada7169eac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78832be06e30f098839018ada7169eac">&#9670;&nbsp;</a></span>DofAccess() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim&gt; </div>
+template&lt;int dim, int codim&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a01858.html">Dune::Alberta::HierarchyDofNumbering</a>&lt; dim &gt;::~<a class="el" href="a01858.html">HierarchyDofNumbering</a> </td>
+          <td class="memname"><a class="el" href="a01858.html">Dune::Alberta::DofAccess</a>&lt; dim, codim &gt;::<a class="el" href="a01858.html">DofAccess</a> </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="a00941.html#ab91172fc7cfde36bfa7dc9be768e71c2">DofSpace</a> *&#160;</td>
+          <td class="paramname"><em>dofSpace</em></td><td>)</td>
           <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a19fc3a572c26984ace1664a681af3a31"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a19fc3a572c26984ace1664a681af3a31">&#9670;&nbsp;</a></span>create()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int dim&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a01858.html">Dune::Alberta::HierarchyDofNumbering</a>&lt; dim &gt;::create </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01858.html#a424d3d1c9a8a1e6ecc03088ffd6b0926">MeshPointer</a> &amp;&#160;</td>
-          <td class="paramname"><em>mesh</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a2f5f3cdb8b7e84d02e46e988e6c2a04c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2f5f3cdb8b7e84d02e46e988e6c2a04c">&#9670;&nbsp;</a></span>dofSpace()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int dim&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a00937.html#ab91172fc7cfde36bfa7dc9be768e71c2">DofSpace</a>* <a class="el" href="a01858.html">Dune::Alberta::HierarchyDofNumbering</a>&lt; dim &gt;::dofSpace </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>codim</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a553d69c351931d6c6cce7e451ed01452"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a553d69c351931d6c6cce7e451ed01452">&#9670;&nbsp;</a></span>emptyDofSpace()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int dim&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a00937.html#ab91172fc7cfde36bfa7dc9be768e71c2">DofSpace</a>* <a class="el" href="a01858.html">Dune::Alberta::HierarchyDofNumbering</a>&lt; dim &gt;::emptyDofSpace </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a6cfe4139cf427e85c6a8c484d95940fb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6cfe4139cf427e85c6a8c484d95940fb">&#9670;&nbsp;</a></span>mesh()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int dim&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a01858.html#a424d3d1c9a8a1e6ecc03088ffd6b0926">MeshPointer</a>&amp; <a class="el" href="a01858.html">Dune::Alberta::HierarchyDofNumbering</a>&lt; dim &gt;::mesh </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac45094fa6e826065d5aad626cc71491c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac45094fa6e826065d5aad626cc71491c">&#9670;&nbsp;</a></span>operator bool()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int dim&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a01858.html">Dune::Alberta::HierarchyDofNumbering</a>&lt; dim &gt;::operator bool </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
         </tr>
       </table>
   </td>
@@ -351,33 +191,28 @@ template&lt;int dim&gt; </div>
 
 </div>
 </div>
-<a id="a1103aaa532ae6ecdc2149ce27e018cb4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1103aaa532ae6ecdc2149ce27e018cb4">&#9670;&nbsp;</a></span>operator()() <span class="overload">[1/2]</span></h2>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ab3b3155eedec059066abcf810e3f2f21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3b3155eedec059066abcf810e3f2f21">&#9670;&nbsp;</a></span>operator()() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim&gt; </div>
+template&lt;int dim, int codim&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int <a class="el" href="a01858.html">Dune::Alberta::HierarchyDofNumbering</a>&lt; dim &gt;::operator() </td>
+          <td class="memname">int <a class="el" href="a01858.html">Dune::Alberta::DofAccess</a>&lt; dim, codim &gt;::operator() </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00937.html#a738666cf4bcd352ecee6a5dc484bb92c">Element</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00941.html#a738666cf4bcd352ecee6a5dc484bb92c">Element</a> *&#160;</td>
           <td class="paramname"><em>element</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>codim</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
           <td class="paramname"><em>subEntity</em>&#160;</td>
         </tr>
         <tr>
@@ -395,33 +230,71 @@ template&lt;int dim&gt; </div>
 
 </div>
 </div>
-<a id="a48d659d36ea5275b82b9fea494666f20"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a48d659d36ea5275b82b9fea494666f20">&#9670;&nbsp;</a></span>operator()() <span class="overload">[2/2]</span></h2>
+<a id="ab974b8564f9b2ab58db6dd8f1dd94862"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab974b8564f9b2ab58db6dd8f1dd94862">&#9670;&nbsp;</a></span>operator()() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim&gt; </div>
+template&lt;int dim, int codim&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int <a class="el" href="a01858.html">Dune::Alberta::HierarchyDofNumbering</a>&lt; dim &gt;::operator() </td>
+          <td class="memname">int <a class="el" href="a01858.html">Dune::Alberta::DofAccess</a>&lt; dim, codim &gt;::operator() </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01858.html#a860f98b7d6bb1d1b3c7dc84a153f95c9">ElementInfo</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00941.html#a738666cf4bcd352ecee6a5dc484bb92c">Element</a> *&#160;</td>
           <td class="paramname"><em>element</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>codim</em>, </td>
+          <td class="paramname"><em>subEntity</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5aa91d34ecc9c3397f856fab7faea019"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5aa91d34ecc9c3397f856fab7faea019">&#9670;&nbsp;</a></span>operator()() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, int codim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="a01858.html">Dune::Alberta::DofAccess</a>&lt; dim, codim &gt;::operator() </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a01858.html#aff12d5a3e33f12f875046ca21f87ddff">ElementInfo</a> &amp;&#160;</td>
+          <td class="paramname"><em>elementInfo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>subEntity</em>&#160;</td>
         </tr>
         <tr>
@@ -439,50 +312,39 @@ template&lt;int dim&gt; </div>
 
 </div>
 </div>
-<a id="aa88c08c3d19fdf077f1cd68b5cc558f1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa88c08c3d19fdf077f1cd68b5cc558f1">&#9670;&nbsp;</a></span>release()</h2>
+<a id="af9bf778ce6465860f5beeb65a5770126"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9bf778ce6465860f5beeb65a5770126">&#9670;&nbsp;</a></span>operator()() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim&gt; </div>
+template&lt;int dim, int codim&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="a01858.html">Dune::Alberta::HierarchyDofNumbering</a>&lt; dim &gt;::release </td>
+          <td class="memname">int <a class="el" href="a01858.html">Dune::Alberta::DofAccess</a>&lt; dim, codim &gt;::operator() </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="paramtype">const <a class="el" href="a01858.html#aff12d5a3e33f12f875046ca21f87ddff">ElementInfo</a> &amp;&#160;</td>
+          <td class="paramname"><em>elementInfo</em>, </td>
         </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a4ee8007bc0a5e1124d945b22d163ebc1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4ee8007bc0a5e1124d945b22d163ebc1">&#9670;&nbsp;</a></span>size()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int dim&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
         <tr>
-          <td class="memname">int <a class="el" href="a01858.html">Dune::Alberta::HierarchyDofNumbering</a>&lt; dim &gt;::size </td>
-          <td>(</td>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>codim</em></td><td>)</td>
-          <td> const</td>
+          <td class="paramname"><em>subEntity</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
         </tr>
       </table>
   </td>
@@ -495,19 +357,67 @@ template&lt;int dim&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a98f0d24143e595d305a36617541ad5b2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a98f0d24143e595d305a36617541ad5b2">&#9670;&nbsp;</a></span>dimension</h2>
+<a id="a4516f7b7b3a3210d23a7447674eb579c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4516f7b7b3a3210d23a7447674eb579c">&#9670;&nbsp;</a></span>codimension</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim&gt; </div>
+template&lt;int dim, int codim&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const int <a class="el" href="a01858.html">Dune::Alberta::HierarchyDofNumbering</a>&lt; dim &gt;::dimension = dim</td>
+          <td class="memname">const int <a class="el" href="a01858.html">Dune::Alberta::DofAccess</a>&lt; dim, codim &gt;::codimension = codim</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2367fe847ca32e4eec9ced25382b1ce0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2367fe847ca32e4eec9ced25382b1ce0">&#9670;&nbsp;</a></span>dimension</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, int codim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int <a class="el" href="a01858.html">Dune::Alberta::DofAccess</a>&lt; dim, codim &gt;::dimension = dim</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a64a6a8adb53aff6c1475629c96638b76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64a6a8adb53aff6c1475629c96638b76">&#9670;&nbsp;</a></span>numSubEntities</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, int codim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int <a class="el" href="a01858.html">Dune::Alberta::DofAccess</a>&lt; dim, codim &gt;::numSubEntities = <a class="el" href="a02214.html">NumSubEntities</a>&lt; dim, codim &gt;::value</td>
         </tr>
       </table>
   </td>
@@ -520,7 +430,7 @@ template&lt;int dim&gt; </div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="a00497_source.html">dofadmin.hh</a></li>
+<li><a class="el" href="a00500_source.html">dofadmin.hh</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

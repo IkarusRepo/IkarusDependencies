@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: Dune::IdSet&lt; GridImp, IdSetImp, IdTypeImp &gt; Class Template Reference</title>
+<title>dune-grid: Dune::GlobalGeometryReference&lt; mydim, cdim, GridImp &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,292 +62,16 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00936.html">Dune</a></li><li class="navelem"><a class="el" href="a02694.html">IdSet</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00940.html">Dune</a></li><li class="navelem"><a class="el" href="a02694.html">GlobalGeometryReference</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
-  <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-methods">Protected Member Functions</a> &#124;
-<a href="a02691.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::IdSet&lt; GridImp, IdSetImp, IdTypeImp &gt; Class Template Reference<div class="ingroups"><a class="el" href="a00902.html">dune-grid</a> &raquo; <a class="el" href="a00903.html">The Grid Interface</a> &raquo; <a class="el" href="a00912.html">IndexSet and IdSet</a></div></div>  </div>
+<div class="title">Dune::GlobalGeometryReference&lt; mydim, cdim, GridImp &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Id Set Interface.  
- <a href="a02694.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="a00272_source.html">dune/grid/common/indexidset.hh</a>&gt;</code></p>
-<div class="dynheader">
-Inheritance diagram for Dune::IdSet&lt; GridImp, IdSetImp, IdTypeImp &gt;:</div>
-<div class="dyncontent">
-<div class="center"><img src="a02693.png" border="0" usemap="#a_dune_1_1_id_set_3_01_grid_imp_00_01_id_set_imp_00_01_id_type_imp_01_4_inherit__map" alt="Inheritance graph"/></div>
-<map name="a_dune_1_1_id_set_3_01_grid_imp_00_01_id_set_imp_00_01_id_type_imp_01_4_inherit__map" id="a_dune_1_1_id_set_3_01_grid_imp_00_01_id_set_imp_00_01_id_type_imp_01_4_inherit__map">
-<area shape="rect" title="Id Set Interface." alt="" coords="5,389,161,430"/>
-<area shape="rect" href="a03334.html" title=" " alt="" coords="1125,270,1329,326"/>
-<area shape="rect" href="a03338.html" title=" " alt="" coords="1130,94,1325,150"/>
-<area shape="rect" href="a04178.html" title=" " alt="" coords="1129,450,1326,521"/>
-<area shape="rect" href="a02694.html" title=" " alt="" coords="457,140,667,240"/>
-<area shape="rect" href="a02694.html" title=" " alt="" coords="439,587,685,643"/>
-<area shape="rect" href="a02694.html" title=" " alt="" coords="454,316,670,416"/>
-<area shape="rect" href="a02694.html" title=" " alt="" coords="459,492,665,562"/>
-<area shape="rect" href="a02694.html" title=" " alt="" coords="483,670,641,726"/>
-<area shape="rect" href="a03338.html" title=" " alt="" coords="735,149,901,190"/>
-<area shape="rect" href="a02030.html" title=" " alt="" coords="1138,600,1317,641"/>
-<area shape="rect" href="a02030.html" title="hierarchic index set of AlbertaGrid" alt="" coords="741,562,895,604"/>
-<area shape="rect" href="a03334.html" title=" " alt="" coords="737,325,899,366"/>
-<area shape="rect" href="a04178.html" title="persistent, globally unique Ids" alt="" coords="739,497,897,538"/>
-<area shape="rect" href="a03210.html" title=" " alt="" coords="745,680,891,721"/>
-</map>
-</div>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:a7da8f5ba2179b1896017b5b1016d6011"><td class="memItemLeft" align="right" valign="top">typedef IdTypeImp&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02694.html#a7da8f5ba2179b1896017b5b1016d6011">IdType</a></td></tr>
-<tr class="memdesc:a7da8f5ba2179b1896017b5b1016d6011"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type used to represent an id.  <a href="a02694.html#a7da8f5ba2179b1896017b5b1016d6011">More...</a><br /></td></tr>
-<tr class="separator:a7da8f5ba2179b1896017b5b1016d6011"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:acd8bc36100463a37d02e9cca7232c11a"><td class="memTemplParams" colspan="2">template&lt;class Entity &gt; </td></tr>
-<tr class="memitem:acd8bc36100463a37d02e9cca7232c11a"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="a02694.html#a7da8f5ba2179b1896017b5b1016d6011">IdType</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a02694.html#acd8bc36100463a37d02e9cca7232c11a">id</a> (const <a class="el" href="a02630.html">Entity</a> &amp;e) const</td></tr>
-<tr class="memdesc:acd8bc36100463a37d02e9cca7232c11a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get id of an entity. This method is simpler to use than the one below.  <a href="a02694.html#acd8bc36100463a37d02e9cca7232c11a">More...</a><br /></td></tr>
-<tr class="separator:acd8bc36100463a37d02e9cca7232c11a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae251c27a49eee7adeefe8144114ab8f"><td class="memTemplParams" colspan="2">template&lt;int cc&gt; </td></tr>
-<tr class="memitem:aae251c27a49eee7adeefe8144114ab8f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="a02694.html#a7da8f5ba2179b1896017b5b1016d6011">IdType</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a02694.html#aae251c27a49eee7adeefe8144114ab8f">id</a> (const typename std::remove_const&lt; GridImp &gt;::type::Traits::template Codim&lt; cc &gt;::<a class="el" href="a02630.html">Entity</a> &amp;e) const</td></tr>
-<tr class="memdesc:aae251c27a49eee7adeefe8144114ab8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get id of an entity of codim cc. Unhandy because template parameter must be supplied explicitly.  <a href="a02694.html#aae251c27a49eee7adeefe8144114ab8f">More...</a><br /></td></tr>
-<tr class="separator:aae251c27a49eee7adeefe8144114ab8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9951231dd3b0600f8fcb837cf5455992"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a02694.html#a7da8f5ba2179b1896017b5b1016d6011">IdType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02694.html#a9951231dd3b0600f8fcb837cf5455992">subId</a> (const typename std::remove_const&lt; GridImp &gt;::type::Traits::template Codim&lt; 0 &gt;::<a class="el" href="a02630.html">Entity</a> &amp;e, int i, unsigned int codim) const</td></tr>
-<tr class="memdesc:a9951231dd3b0600f8fcb837cf5455992"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get id of subentity i of co-dimension codim of a co-dimension 0 entity.  <a href="a02694.html#a9951231dd3b0600f8fcb837cf5455992">More...</a><br /></td></tr>
-<tr class="separator:a9951231dd3b0600f8fcb837cf5455992"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:a62c31f8e670fafaffcac2269e5d7459f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02694.html#a62c31f8e670fafaffcac2269e5d7459f">IdSet</a> ()=default</td></tr>
-<tr class="separator:a62c31f8e670fafaffcac2269e5d7459f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;class GridImp, class IdSetImp, class IdTypeImp&gt;<br />
-class Dune::IdSet&lt; GridImp, IdSetImp, IdTypeImp &gt;</h3>
-
-<p>Id Set Interface. </p>
-<p>This class template is used as a base class for all id set implementations. It uses the Barton-Nackman trick to ensure conformity to the interface.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">GridImp</td><td>Type that is a model of <a class="el" href="a02698.html" title="Grid abstract base class.">Dune::Grid</a>. </td></tr>
-    <tr><td class="paramname">IdSetImp</td><td>Type that is a model of <a class="el" href="a02694.html" title="Id Set Interface.">Dune::IdSet</a>. </td></tr>
-    <tr><td class="paramname">IdTypeImp</td><td>Type used for ids</td></tr>
-  </table>
-  </dd>
-</dl>
-<h3>Overview</h3>
-<p>An id set provides a map </p><p class="formulaDsp">
-<img class="formulaDsp" alt="\[ m : E \to \mathbf{I}\]" src="form_37.png"/>
-</p>
-<p> where <img class="formulaInl" alt="$E$" src="form_28.png"/> is a subset of the entities of a grid and <img class="formulaInl" alt="$\mathbf{I}$" src="form_38.png"/> is a finite set of indices. These indices are persistent under grid modifications, i.e. if there exists an entity <img class="formulaInl" alt="$e$" src="form_39.png"/> with index <img class="formulaInl" alt="$i$" src="form_40.png"/> before grid modification and an entity <img class="formulaInl" alt="$e^\prime$" src="form_41.png"/> with index <img class="formulaInl" alt="$i$" src="form_40.png"/> after grid modification it is guaranteed that <img class="formulaInl" alt="$e=e^\prime$" src="form_42.png"/>.</p>
-<p>In the terminology of the <a class="el" href="a00936.html" title="Include standard header files.">Dune</a> grid interface, these indices are called 'ids'. Ids are typically numbers, but may be other things, too. If they are numbers, the ids used in a grid are not necessarily positive, and they are usually not consecutive. However, the ids must be usable as keys for STL associative containers, like a <code>std::map</code> or a <code>std::unordered_map</code>. As ids are persistent, they are used to keep data on a grid that undergoes modifications.</p>
-<h3>Injectivity properties</h3>
-<p>The id map <img class="formulaInl" alt="$m$" src="form_31.png"/> is injective on the entire set of entities of a hierarchical grid. More formally, we have:</p>
-<ul>
-<li>For any <img class="formulaInl" alt="$e,e^\prime\in E$" src="form_43.png"/> we have <img class="formulaInl" alt="$e\neq e^\prime \Rightarrow m(e)\neq m(e^\prime)$" src="form_44.png"/>.</li>
-</ul>
-<p>An exception to this rule holds for entities that are copies of entities on a lower refinement level. An element is a copy of its father element if it is the only son. This concept can be transferred to all higher codimensions because in a nested grid structure the entities of any codimension form a set of trees. However, the roots of these trees are not necessarily on level 0. Thus, we define that an entity is a copy of another entity if it is the only descendant of this entity in the refinement tree. This is illustrated in the following figure where, for example, vertex w is a copy of vertex v.</p>
-<div class="image">
-<img src="idlocalref.png" alt=""/>
-<div class="caption">
-Sharing of ids.</div></div>
- <p>The copy relation is an equivalence relation. We define that <em> all copies of an entity share the same id.</em> In the example of the figure the vertices v and w would have the same id. This definition is useful to transfer data on the leaf grid during grid modification.</p>
-<p><b>Note:</b> In "Bastian et al.: A Generic Grid Interface for Adaptive and Parallel Scientific Computing.
-Part I: Abstract Framework, Computing 82 (2-3), 2008, pp. 103-119" it is claimed that the id map should be injective only for entities of the same codimension. This is in contrast to the actual Dune code: in the code, grid implementations are required to provide ids that are injective even on sets of entities with different codimensions.</p>
-<h3>Properties of the <code>IdTypeImp</code> type</h3>
-<p>The type <code>IdTypeImp</code> used for ids will be specified by the grid implementation. Conceptually, it can be pretty much anything, but we require that it is usable as <code>key</code> for the <code>std::map</code> and <code>std::unordered_map</code> containers of the standard library. In particular, for <code>std::map</code> this means that <code>IdTypeImp</code> implements </p><div class="fragment"><div class="line"><span class="keywordtype">bool</span> operator&lt;  ( <span class="keyword">const</span> IdTypeImp &amp;, <span class="keyword">const</span> IdTypeImp &amp; );</div>
-</div><!-- fragment --><p> and that this operator implements a strict weak ordering. For use with <code>std::unordered_map</code>, we additionally require </p><div class="fragment"><div class="line"><span class="keywordtype">bool</span> operator== ( <span class="keyword">const</span> IdTypeImp &amp;, <span class="keyword">const</span> IdTypeImp &amp; );</div>
-</div><!-- fragment --><p> and that <code>std::hash&lt;IdType&gt;</code> fulfills the requirements of an stl hash object.</p>
-<p>For convenience we further require that </p><div class="fragment"><div class="line"><span class="keywordtype">bool</span> operator!= ( <span class="keyword">const</span> IdTypeImp &amp;, <span class="keyword">const</span> IdTypeImp &amp; );</div>
-</div><!-- fragment --><p> is implemented and returns the negation of <code>operator==</code>.</p>
-<p>The <code>IdTypeImp</code> must be </p><ul>
-<li>
-default-constructible  </li>
-<li>
-copy-constructible  </li>
-<li>
-copy-assignable  </li>
-</ul>
-<p>Finally, for debugging purposes it must be possible to write objects of type <code>IdTypeImp</code> into standard C++ streams. Therefore </p><div class="fragment"><div class="line"><span class="keyword">template</span>&lt; <span class="keyword">class</span> C, <span class="keyword">class</span> T &gt;</div>
-<div class="line">std::basic_ostream&lt; C, T &gt; &amp;<a class="code" href="a00904.html#gacac688b252435fccd21c3199ffaaf076">operator&lt;&lt; </a>( std::basic_ostream&lt; C, T &gt; &amp;, <span class="keyword">const</span> IdTypeImp &amp; );</div>
-<div class="ttc" id="aa00904_html_gacac688b252435fccd21c3199ffaaf076"><div class="ttname"><a href="a00904.html#gacac688b252435fccd21c3199ffaaf076">Dune::operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;out, const PartitionType &amp;type)</div><div class="ttdoc">write a PartitionType to a stream</div><div class="ttdef"><b>Definition:</b> gridenums.hh:70</div></div>
-</div><!-- fragment --><p> has to exist and do something reasonable.</p>
-<h3>Global and local id sets</h3>
-<p>Grids are required to provide two types of id sets. These differ only of the grid is distributed over several processes:</p>
-<ul>
-<li>
-A global id set provides ids that are unique over all processes over which the grid is distributed.  </li>
-<li>
-A local id set provides ids that are unique within one process, but two entities in different processes may have the same id. Obviously, a global id set is also a local id set, but a dedicated local id set implementation may be more efficient.  </li>
-</ul>
-</div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a7da8f5ba2179b1896017b5b1016d6011"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7da8f5ba2179b1896017b5b1016d6011">&#9670;&nbsp;</a></span>IdType</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class GridImp , class IdSetImp , class IdTypeImp &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef IdTypeImp <a class="el" href="a02694.html">Dune::IdSet</a>&lt; GridImp, IdSetImp, IdTypeImp &gt;::<a class="el" href="a02694.html#a7da8f5ba2179b1896017b5b1016d6011">IdType</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Type used to represent an id. </p>
-
-</div>
-</div>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a62c31f8e670fafaffcac2269e5d7459f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a62c31f8e670fafaffcac2269e5d7459f">&#9670;&nbsp;</a></span>IdSet()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class GridImp , class IdSetImp , class IdTypeImp &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a02694.html">Dune::IdSet</a>&lt; GridImp, IdSetImp, IdTypeImp &gt;::<a class="el" href="a02694.html">IdSet</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="acd8bc36100463a37d02e9cca7232c11a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acd8bc36100463a37d02e9cca7232c11a">&#9670;&nbsp;</a></span>id() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class GridImp , class IdSetImp , class IdTypeImp &gt; </div>
-<div class="memtemplate">
-template&lt;class Entity &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a02694.html#a7da8f5ba2179b1896017b5b1016d6011">IdType</a> <a class="el" href="a02694.html">Dune::IdSet</a>&lt; GridImp, IdSetImp, IdTypeImp &gt;::id </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a02630.html">Entity</a> &amp;&#160;</td>
-          <td class="paramname"><em>e</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get id of an entity. This method is simpler to use than the one below. </p>
-
-</div>
-</div>
-<a id="aae251c27a49eee7adeefe8144114ab8f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aae251c27a49eee7adeefe8144114ab8f">&#9670;&nbsp;</a></span>id() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class GridImp , class IdSetImp , class IdTypeImp &gt; </div>
-<div class="memtemplate">
-template&lt;int cc&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a02694.html#a7da8f5ba2179b1896017b5b1016d6011">IdType</a> <a class="el" href="a02694.html">Dune::IdSet</a>&lt; GridImp, IdSetImp, IdTypeImp &gt;::id </td>
-          <td>(</td>
-          <td class="paramtype">const typename std::remove_const&lt; GridImp &gt;::type::Traits::template Codim&lt; cc &gt;::<a class="el" href="a02630.html">Entity</a> &amp;&#160;</td>
-          <td class="paramname"><em>e</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get id of an entity of codim cc. Unhandy because template parameter must be supplied explicitly. </p>
-
-</div>
-</div>
-<a id="a9951231dd3b0600f8fcb837cf5455992"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9951231dd3b0600f8fcb837cf5455992">&#9670;&nbsp;</a></span>subId()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class GridImp , class IdSetImp , class IdTypeImp &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a02694.html#a7da8f5ba2179b1896017b5b1016d6011">IdType</a> <a class="el" href="a02694.html">Dune::IdSet</a>&lt; GridImp, IdSetImp, IdTypeImp &gt;::subId </td>
-          <td>(</td>
-          <td class="paramtype">const typename std::remove_const&lt; GridImp &gt;::type::Traits::template Codim&lt; 0 &gt;::<a class="el" href="a02630.html">Entity</a> &amp;&#160;</td>
-          <td class="paramname"><em>e</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>i</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>codim</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get id of subentity i of co-dimension codim of a co-dimension 0 entity. </p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="a06797_source.html">common/grid.hh</a></li>
-<li><a class="el" href="a00272_source.html">indexidset.hh</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="a06702_source.html">common/grid.hh</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

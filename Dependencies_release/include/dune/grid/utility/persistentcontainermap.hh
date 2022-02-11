@@ -5,9 +5,10 @@
 
 #include <algorithm>
 #include <cassert>
+#include <type_traits>
+#include <utility>
 
 #include <dune/common/hybridutilities.hh>
-#include <dune/common/std/utility.hh>
 #include <dune/common/typetraits.hh>
 #include <dune/grid/common/capabilities.hh>
 
@@ -83,7 +84,7 @@ namespace Dune
 
     void resize ( const Value &value = Value() )
     {
-      Hybrid::forEach( Std::make_index_sequence< Grid::dimension+1 >{},
+      Hybrid::forEach( std::make_index_sequence< Grid::dimension+1 >{},
         [ & ]( auto i ){ if( i == this->codimension() ) this->template resize< i >( value ); } );
     }
 
@@ -201,7 +202,7 @@ namespace Dune
   template< int codim >
   inline void PersistentContainerMap< G, IdSet, Map >::resize ( const Value &value )
   {
-    std::integral_constant< bool, Capabilities::hasEntity< Grid, codim >::v > hasEntity;
+    std::integral_constant< bool, Capabilities::hasEntityIterator< Grid, codim >::v > hasEntityIterator;
     assert( codim == codimension() );
 
     // create empty map and swap it with current map (no need to copy twice)
@@ -211,7 +212,7 @@ namespace Dune
     // copy all data from old map into new one (adding new entries, if necessary)
     const int maxLevel = grid().maxLevel();
     for ( int level = 0; level <= maxLevel; ++level )
-      migrateLevel< codim >( level, value, data, hasEntity );
+      migrateLevel< codim >( level, value, data, hasEntityIterator );
   }
 
 

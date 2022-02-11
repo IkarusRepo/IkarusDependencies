@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: subsamplingvtkwriter.hh File Reference</title>
+<title>dune-grid: skeletonfunction.hh File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -70,36 +70,43 @@ $(function() {
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">subsamplingvtkwriter.hh File Reference</div>  </div>
+<div class="title">skeletonfunction.hh File Reference<div class="ingroups"><a class="el" href="a00905.html">dune-grid</a> &raquo; <a class="el" href="a00928.html">I/O</a> &raquo; <a class="el" href="a00933.html">Visualization ToolKit (VTK)</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Provides subsampled file i/o for the visualization toolkit.  
+<p>Functions for VTK output on the skeleton.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;ostream&gt;</code><br />
-<code>#include &lt;memory&gt;</code><br />
-<code>#include &lt;dune/common/indent.hh&gt;</code><br />
-<code>#include &lt;dune/geometry/type.hh&gt;</code><br />
-<code>#include &lt;dune/geometry/virtualrefinement.hh&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00833_source.html">dune/grid/io/file/vtk/vtkwriter.hh</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00836_source.html">dune/grid/io/file/vtk/vtuwriter.hh</a>&gt;</code><br />
+<div class="textblock"><code>#include &lt;memory&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;dune/common/fvector.hh&gt;</code><br />
+<code>#include &lt;<a class="el" href="a00809_source.html">dune/grid/io/file/vtk/functionwriter.hh</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="a00815_source.html">dune/grid/io/file/vtk/pvtuwriter.hh</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="a00842_source.html">dune/grid/io/file/vtk/vtuwriter.hh</a>&gt;</code><br />
 </div>
 <p><a href="a00818_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03850.html">Dune::SubsamplingVTKWriter&lt; GridView &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writer for the output of subsampled grid functions in the vtk format.  <a href="a03850.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03826.html">Dune::VTK::SkeletonFunctionTraits&lt; GV, RF &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03830.html">Dune::VTK::SkeletonFunctionInterface&lt; GV, RF &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A prototype for VTKFunctions on the skeleton.  <a href="a03830.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03834.html">Dune::VTK::SkeletonFunctionWriter&lt; Func &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">function writer for skeleton functions  <a href="a03834.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:a00936"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00936.html">Dune</a></td></tr>
-<tr class="memdesc:a00936"><td class="mdescLeft">&#160;</td><td class="mdescRight">Include standard header files. <br /></td></tr>
+<tr class="memitem:a00940"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00940.html">Dune</a></td></tr>
+<tr class="memdesc:a00940"><td class="mdescLeft">&#160;</td><td class="mdescRight">Include standard header files. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00951"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00951.html">Dune::VTK</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Provides subsampled file i/o for the visualization toolkit. </p>
+<div class="textblock"><p>Functions for VTK output on the skeleton. </p>
 <dl class="section author"><dt>Author</dt><dd>Jö Fahlke </dd></dl>
 </div></div><!-- contents -->
 <!-- start footer part -->

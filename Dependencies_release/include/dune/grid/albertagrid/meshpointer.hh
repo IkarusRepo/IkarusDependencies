@@ -127,7 +127,7 @@ namespace Dune
 
     private:
       static ALBERTA NODE_PROJECTION *
-      initNodeProjection ( Mesh *mesh, ALBERTA MACRO_EL *macroElement, int n );
+      initNodeProjection ( [[maybe_unused]] Mesh *mesh, ALBERTA MACRO_EL *macroElement, int n );
       template< class ProjectionProvider >
       static ALBERTA NODE_PROJECTION *
       initNodeProjection ( Mesh *mesh, ALBERTA MACRO_EL *macroElement, int n );
@@ -146,8 +146,8 @@ namespace Dune
     {
       typedef Alberta::MeshPointer< dim > MeshPointer;
 
-      static unsigned int boundaryCount;
-      static const void *projectionFactory;
+      static inline unsigned int boundaryCount = 0;
+      static inline const void *projectionFactory = nullptr;
 
       static void
       create ( MeshPointer &ptr, const MacroData< dim > &macroData,
@@ -317,7 +317,7 @@ namespace Dune
       Library< dimWorld >::boundaryCount = 0;
       Library< dimWorld >::projectionFactory = &projectionFactory;
       Library< dimWorld >::create( *this, macroData, &initNodeProjection< ProjectionFactory > );
-      Library< dimWorld >::projectionFactory = 0;
+      Library< dimWorld >::projectionFactory = nullptr;
       return Library< dimWorld >::boundaryCount;
     }
 

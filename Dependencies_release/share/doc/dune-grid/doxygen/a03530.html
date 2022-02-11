@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: Dune::DGFCoordFunctionFactory&lt; HostGrid, CoordFunction, false &gt; Struct Template Reference</title>
+<title>dune-grid: Dune::DGFCoordFunctionFactory&lt; HostGrid, DGFCoordFunction&lt; dimD, dimR &gt;, false &gt; Struct Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,39 +62,62 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00936.html">Dune</a></li><li class="navelem"><a class="el" href="a03530.html">DGFCoordFunctionFactory&lt; HostGrid, CoordFunction, false &gt;</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00940.html">Dune</a></li><li class="navelem"><a class="el" href="a03530.html">DGFCoordFunctionFactory&lt; HostGrid, DGFCoordFunction&lt; dimD, dimR &gt;, false &gt;</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="a03527.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::DGFCoordFunctionFactory&lt; HostGrid, CoordFunction, false &gt; Struct Template Reference</div>  </div>
+<div class="title">Dune::DGFCoordFunctionFactory&lt; HostGrid, DGFCoordFunction&lt; dimD, dimR &gt;, false &gt; Struct Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="a00713_source.html">dune/grid/io/file/dgfparser/dgfgeogrid.hh</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00719_source.html">dune/grid/io/file/dgfparser/dgfgeogrid.hh</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a7ae34642a6478f9a22ffa0919c106356"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a03514.html">DGFCoordFunction</a>&lt; dimD, dimR &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03530.html#a7ae34642a6478f9a22ffa0919c106356">CoordFunction</a></td></tr>
+<tr class="separator:a7ae34642a6478f9a22ffa0919c106356"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a048eaee4ca0cbfb20a8b685a092d8b00"><td class="memItemLeft" align="right" valign="top">static CoordFunction *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03530.html#a048eaee4ca0cbfb20a8b685a092d8b00">create</a> (std::istream &amp;input, const HostGrid &amp;hostGrid)</td></tr>
-<tr class="separator:a048eaee4ca0cbfb20a8b685a092d8b00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a782dffaaebcb0bf73cb4e7fd7bcf6b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a03530.html#a7ae34642a6478f9a22ffa0919c106356">CoordFunction</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03530.html#a9a782dffaaebcb0bf73cb4e7fd7bcf6b">create</a> (std::istream &amp;input, const HostGrid &amp;hostGrid)</td></tr>
+<tr class="separator:a9a782dffaaebcb0bf73cb4e7fd7bcf6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a048eaee4ca0cbfb20a8b685a092d8b00"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a048eaee4ca0cbfb20a8b685a092d8b00">&#9670;&nbsp;</a></span>create()</h2>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a7ae34642a6478f9a22ffa0919c106356"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ae34642a6478f9a22ffa0919c106356">&#9670;&nbsp;</a></span>CoordFunction</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class HostGrid , class CoordFunction &gt; </div>
+template&lt;class HostGrid , int dimD, int dimR&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="a03514.html">DGFCoordFunction</a>&lt; dimD, dimR &gt; <a class="el" href="a03518.html">Dune::DGFCoordFunctionFactory</a>&lt; HostGrid, <a class="el" href="a03514.html">DGFCoordFunction</a>&lt; dimD, dimR &gt;, false &gt;::<a class="el" href="a03530.html#a7ae34642a6478f9a22ffa0919c106356">CoordFunction</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a9a782dffaaebcb0bf73cb4e7fd7bcf6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a782dffaaebcb0bf73cb4e7fd7bcf6b">&#9670;&nbsp;</a></span>create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class HostGrid , int dimD, int dimR&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static CoordFunction* <a class="el" href="a03526.html">Dune::DGFCoordFunctionFactory</a>&lt; HostGrid, CoordFunction, false &gt;::create </td>
+          <td class="memname">static <a class="el" href="a03530.html#a7ae34642a6478f9a22ffa0919c106356">CoordFunction</a>* <a class="el" href="a03518.html">Dune::DGFCoordFunctionFactory</a>&lt; HostGrid, <a class="el" href="a03514.html">DGFCoordFunction</a>&lt; dimD, dimR &gt;, false &gt;::create </td>
           <td>(</td>
           <td class="paramtype">std::istream &amp;&#160;</td>
           <td class="paramname"><em>input</em>, </td>
@@ -121,7 +144,7 @@ template&lt;class HostGrid , class CoordFunction &gt; </div>
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="a00713_source.html">dgfgeogrid.hh</a></li>
+<li><a class="el" href="a00719_source.html">dgfgeogrid.hh</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: Dune::VTK::Corner&lt; Cell &gt; Class Template Reference</title>
+<title>dune-grid: Dune::VTK::CornerIterator&lt; CellIterator &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,93 +62,221 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00936.html">Dune</a></li><li class="navelem"><a class="el" href="a00948.html">VTK</a></li><li class="navelem"><a class="el" href="a03742.html">Corner</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00940.html">Dune</a></li><li class="navelem"><a class="el" href="a00951.html">VTK</a></li><li class="navelem"><a class="el" href="a03742.html">CornerIterator</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="a03739.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::VTK::Corner&lt; Cell &gt; Class Template Reference</div>  </div>
+<div class="title">Dune::VTK::CornerIterator&lt; CellIterator &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>simple class representing a corner of a cell  
+<p>iterate over the corners of some cell range  
  <a href="a03742.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00791_source.html">dune/grid/io/file/vtk/corner.hh</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00800_source.html">dune/grid/io/file/vtk/corneriterator.hh</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for Dune::VTK::Corner&lt; Cell &gt;:</div>
+Inheritance diagram for Dune::VTK::CornerIterator&lt; CellIterator &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="a03741.png" border="0" usemap="#a_dune_1_1_v_t_k_1_1_corner_3_01_cell_01_4_inherit__map" alt="Inheritance graph"/></div>
-<map name="a_dune_1_1_v_t_k_1_1_corner_3_01_cell_01_4_inherit__map" id="a_dune_1_1_v_t_k_1_1_corner_3_01_cell_01_4_inherit__map">
-<area shape="rect" title="simple class representing a corner of a cell" alt="" coords="5,43,144,85"/>
-<area shape="rect" href="a03742.html" title=" " alt="" coords="343,21,515,107"/>
+<div class="center"><img src="a03741.png" border="0" usemap="#a_dune_1_1_v_t_k_1_1_corner_iterator_3_01_cell_iterator_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="a_dune_1_1_v_t_k_1_1_corner_iterator_3_01_cell_iterator_01_4_inherit__map" id="a_dune_1_1_v_t_k_1_1_corner_iterator_3_01_cell_iterator_01_4_inherit__map">
+<area shape="rect" title="iterate over the corners of some cell range" alt="" coords="304,57,475,98"/>
+<area shape="rect" title=" " alt="" coords="5,5,256,149"/>
 </map>
 </div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:aeb7ef01a29e07ee94a8e38aeb3f316a5"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a03742.html">CornerIterator</a>&lt; CellIterator &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03742.html#aeb7ef01a29e07ee94a8e38aeb3f316a5">DerivedType</a></td></tr>
+<tr class="separator:aeb7ef01a29e07ee94a8e38aeb3f316a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2acc629098d8646b12f5710b06a769d6"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a03738.html">VTK::Corner</a>&lt; typename std::remove_const&lt; typename std::iterator_traits&lt; CellIterator &gt;::value_type &gt;::type &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03742.html#a2acc629098d8646b12f5710b06a769d6">Corner</a></td></tr>
+<tr class="separator:a2acc629098d8646b12f5710b06a769d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab70194093a43c97b3c1701b2bb70c9ec"><td class="memItemLeft" align="right" valign="top">typedef const <a class="el" href="a03742.html#a2acc629098d8646b12f5710b06a769d6">Corner</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03742.html#ab70194093a43c97b3c1701b2bb70c9ec">Value</a></td></tr>
+<tr class="separator:ab70194093a43c97b3c1701b2bb70c9ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f57fd11effaf5444c59881e64714ee0"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a03742.html#ab70194093a43c97b3c1701b2bb70c9ec">Value</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03742.html#a0f57fd11effaf5444c59881e64714ee0">Reference</a></td></tr>
+<tr class="separator:a0f57fd11effaf5444c59881e64714ee0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a689792ce0ae97603928c334fd5f943ef"><td class="memItemLeft" align="right" valign="top">typedef std::iterator_traits&lt; CellIterator &gt;::difference_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03742.html#a689792ce0ae97603928c334fd5f943ef">DifferenceType</a></td></tr>
+<tr class="separator:a689792ce0ae97603928c334fd5f943ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af694393c4ebe0a065c7cac3673a5c2fa"><td class="memItemLeft" align="right" valign="top">typedef std::iterator_traits&lt; CellIterator &gt;::value_type::Geometry::ctype&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03742.html#af694393c4ebe0a065c7cac3673a5c2fa">ctype</a></td></tr>
+<tr class="separator:af694393c4ebe0a065c7cac3673a5c2fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3e42c7a40a0a0e667dae585a00f51ab"><td class="memItemLeft" align="right" valign="top">typedef ReferenceElements&lt; <a class="el" href="a03742.html#af694393c4ebe0a065c7cac3673a5c2fa">ctype</a>, <a class="el" href="a03742.html#a75386ee4e7f68aafbd7c38f05c3d26f7">dim</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03742.html#aa3e42c7a40a0a0e667dae585a00f51ab">Refelems</a></td></tr>
+<tr class="separator:aa3e42c7a40a0a0e667dae585a00f51ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a57310bdbab3fec80646c497a7f1c399d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03742.html#a57310bdbab3fec80646c497a7f1c399d">Corner</a> (const Cell &amp;<a class="el" href="a03742.html#a4ed90fdf589620aeec73635f4b338bc5">cell</a>, unsigned <a class="el" href="a03742.html#a96d015ea59b576aee9ce14f26b0af47a">duneIndex</a>)</td></tr>
-<tr class="memdesc:a57310bdbab3fec80646c497a7f1c399d"><td class="mdescLeft">&#160;</td><td class="mdescRight">construct a <a class="el" href="a03742.html" title="simple class representing a corner of a cell">Corner</a>  <a href="a03742.html#a57310bdbab3fec80646c497a7f1c399d">More...</a><br /></td></tr>
-<tr class="separator:a57310bdbab3fec80646c497a7f1c399d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4fad847006a52d99f2e06cb74edad26"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03742.html#af4fad847006a52d99f2e06cb74edad26">Corner</a> ()</td></tr>
-<tr class="memdesc:af4fad847006a52d99f2e06cb74edad26"><td class="mdescLeft">&#160;</td><td class="mdescRight">construct an invalid <a class="el" href="a03742.html" title="simple class representing a corner of a cell">Corner</a>  <a href="a03742.html#af4fad847006a52d99f2e06cb74edad26">More...</a><br /></td></tr>
-<tr class="separator:af4fad847006a52d99f2e06cb74edad26"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ed90fdf589620aeec73635f4b338bc5"><td class="memItemLeft" align="right" valign="top">const Cell &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03742.html#a4ed90fdf589620aeec73635f4b338bc5">cell</a> () const</td></tr>
-<tr class="memdesc:a4ed90fdf589620aeec73635f4b338bc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">get reference to the cell  <a href="a03742.html#a4ed90fdf589620aeec73635f4b338bc5">More...</a><br /></td></tr>
-<tr class="separator:a4ed90fdf589620aeec73635f4b338bc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a872ea76315caaa5f80477e303413d444"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03742.html#a872ea76315caaa5f80477e303413d444">cell</a> (const Cell &amp;cell__)</td></tr>
-<tr class="memdesc:a872ea76315caaa5f80477e303413d444"><td class="mdescLeft">&#160;</td><td class="mdescRight">set a new cell  <a href="a03742.html#a872ea76315caaa5f80477e303413d444">More...</a><br /></td></tr>
-<tr class="separator:a872ea76315caaa5f80477e303413d444"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96d015ea59b576aee9ce14f26b0af47a"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03742.html#a96d015ea59b576aee9ce14f26b0af47a">duneIndex</a> () const</td></tr>
-<tr class="memdesc:a96d015ea59b576aee9ce14f26b0af47a"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the index of the corner within the cell in Dune-numbering  <a href="a03742.html#a96d015ea59b576aee9ce14f26b0af47a">More...</a><br /></td></tr>
-<tr class="separator:a96d015ea59b576aee9ce14f26b0af47a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9079594dafedef4fd349e1e91e75da05"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03742.html#a9079594dafedef4fd349e1e91e75da05">duneIndex</a> (unsigned i)</td></tr>
-<tr class="memdesc:a9079594dafedef4fd349e1e91e75da05"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the index of the corner within the cell in Dune-numbering  <a href="a03742.html#a9079594dafedef4fd349e1e91e75da05">More...</a><br /></td></tr>
-<tr class="separator:a9079594dafedef4fd349e1e91e75da05"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a087fe884580807102d9dbb23953fb776"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03742.html#a087fe884580807102d9dbb23953fb776">vtkIndex</a> () const</td></tr>
-<tr class="memdesc:a087fe884580807102d9dbb23953fb776"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the index of the corner within the cell in VTK-numbering  <a href="a03742.html#a087fe884580807102d9dbb23953fb776">More...</a><br /></td></tr>
-<tr class="separator:a087fe884580807102d9dbb23953fb776"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1fa87320d7486ac837c31073f6208502"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03742.html#a1fa87320d7486ac837c31073f6208502">vtkIndex</a> (unsigned i)</td></tr>
-<tr class="memdesc:a1fa87320d7486ac837c31073f6208502"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the index of the corner within the cell in VTK-numbering  <a href="a03742.html#a1fa87320d7486ac837c31073f6208502">More...</a><br /></td></tr>
-<tr class="separator:a1fa87320d7486ac837c31073f6208502"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44e90e5b695e8be0c3f25a424ab4edc1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a03742.html#a0f57fd11effaf5444c59881e64714ee0">Reference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03742.html#a44e90e5b695e8be0c3f25a424ab4edc1">dereference</a> () const</td></tr>
+<tr class="separator:a44e90e5b695e8be0c3f25a424ab4edc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8829ce43e03185d5fb32f4161cf44b0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03742.html#af8829ce43e03185d5fb32f4161cf44b0">isDereferencable</a> () const</td></tr>
+<tr class="separator:af8829ce43e03185d5fb32f4161cf44b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7768a6e574dc91eb325be8548b82b9f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03742.html#ae7768a6e574dc91eb325be8548b82b9f">equals</a> (const <a class="el" href="a03742.html#aeb7ef01a29e07ee94a8e38aeb3f316a5">DerivedType</a> &amp;other) const</td></tr>
+<tr class="separator:ae7768a6e574dc91eb325be8548b82b9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c1248e20d0db2a9c2c1e5298d09789c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03742.html#a3c1248e20d0db2a9c2c1e5298d09789c">increment</a> ()</td></tr>
+<tr class="separator:a3c1248e20d0db2a9c2c1e5298d09789c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc59e18c2bd8a48ce774e4a6dbeb95d5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03742.html#abc59e18c2bd8a48ce774e4a6dbeb95d5">CornerIterator</a> (const CellIterator &amp;cellit_, const CellIterator &amp;cellend_, unsigned vtkIndex=0)</td></tr>
+<tr class="memdesc:abc59e18c2bd8a48ce774e4a6dbeb95d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">construct a <a class="el" href="a03742.html" title="iterate over the corners of some cell range">CornerIterator</a>  <a href="a03742.html#abc59e18c2bd8a48ce774e4a6dbeb95d5">More...</a><br /></td></tr>
+<tr class="separator:abc59e18c2bd8a48ce774e4a6dbeb95d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae58ab3578c686cac8d6eac3bd277a0b3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03742.html#ae58ab3578c686cac8d6eac3bd277a0b3">CornerIterator</a> (const CellIterator &amp;cellend_)</td></tr>
+<tr class="memdesc:ae58ab3578c686cac8d6eac3bd277a0b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">construct a <a class="el" href="a03742.html" title="iterate over the corners of some cell range">CornerIterator</a>  <a href="a03742.html#ae58ab3578c686cac8d6eac3bd277a0b3">More...</a><br /></td></tr>
+<tr class="separator:ae58ab3578c686cac8d6eac3bd277a0b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a75386ee4e7f68aafbd7c38f05c3d26f7"><td class="memItemLeft" align="right" valign="top">static const unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03742.html#a75386ee4e7f68aafbd7c38f05c3d26f7">dim</a></td></tr>
+<tr class="separator:a75386ee4e7f68aafbd7c38f05c3d26f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;typename Cell&gt;<br />
-class Dune::VTK::Corner&lt; Cell &gt;</h3>
+<div class="textblock"><h3>template&lt;typename CellIterator&gt;<br />
+class Dune::VTK::CornerIterator&lt; CellIterator &gt;</h3>
 
-<p>simple class representing a corner of a cell </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Cell</td><td>Type of element this is a corner for. This can essentially be anything with a type() method, in particular an <a class="el" href="a02630.html" title="Wrapper class for entities.">Entity</a> or an <a class="el" href="a01838.html" title="Intersection of a mesh entity of codimension 0 (&quot;element&quot;) with a &quot;neighboring&quot; element or with the d...">Intersection</a>. </td></tr>
-  </table>
-  </dd>
-</dl>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a57310bdbab3fec80646c497a7f1c399d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a57310bdbab3fec80646c497a7f1c399d">&#9670;&nbsp;</a></span>Corner() <span class="overload">[1/2]</span></h2>
+<p>iterate over the corners of some cell range </p>
+<p>This will visit all the corners of all elements visited by CellIterator. </p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a2acc629098d8646b12f5710b06a769d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2acc629098d8646b12f5710b06a769d6">&#9670;&nbsp;</a></span>Corner</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Cell &gt; </div>
+template&lt;typename CellIterator &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="a03738.html">VTK::Corner</a>&lt;typename std::remove_const&lt;typename std::iterator_traits&lt; CellIterator&gt;::value_type&gt;::type&gt; <a class="el" href="a03742.html">Dune::VTK::CornerIterator</a>&lt; CellIterator &gt;::<a class="el" href="a03742.html#a2acc629098d8646b12f5710b06a769d6">Corner</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af694393c4ebe0a065c7cac3673a5c2fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af694393c4ebe0a065c7cac3673a5c2fa">&#9670;&nbsp;</a></span>ctype</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename CellIterator &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::iterator_traits&lt;CellIterator&gt;::value_type::Geometry::ctype <a class="el" href="a03742.html">Dune::VTK::CornerIterator</a>&lt; CellIterator &gt;::<a class="el" href="a03742.html#af694393c4ebe0a065c7cac3673a5c2fa">ctype</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aeb7ef01a29e07ee94a8e38aeb3f316a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb7ef01a29e07ee94a8e38aeb3f316a5">&#9670;&nbsp;</a></span>DerivedType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename CellIterator &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="a03742.html">CornerIterator</a>&lt;CellIterator&gt; <a class="el" href="a03742.html">Dune::VTK::CornerIterator</a>&lt; CellIterator &gt;::<a class="el" href="a03742.html#aeb7ef01a29e07ee94a8e38aeb3f316a5">DerivedType</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a689792ce0ae97603928c334fd5f943ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a689792ce0ae97603928c334fd5f943ef">&#9670;&nbsp;</a></span>DifferenceType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename CellIterator &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::iterator_traits&lt;CellIterator&gt;::difference_type <a class="el" href="a03742.html">Dune::VTK::CornerIterator</a>&lt; CellIterator &gt;::<a class="el" href="a03742.html#a689792ce0ae97603928c334fd5f943ef">DifferenceType</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa3e42c7a40a0a0e667dae585a00f51ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3e42c7a40a0a0e667dae585a00f51ab">&#9670;&nbsp;</a></span>Refelems</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename CellIterator &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef ReferenceElements&lt;<a class="el" href="a03742.html#af694393c4ebe0a065c7cac3673a5c2fa">ctype</a>, <a class="el" href="a03742.html#a75386ee4e7f68aafbd7c38f05c3d26f7">dim</a>&gt; <a class="el" href="a03742.html">Dune::VTK::CornerIterator</a>&lt; CellIterator &gt;::<a class="el" href="a03742.html#aa3e42c7a40a0a0e667dae585a00f51ab">Refelems</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0f57fd11effaf5444c59881e64714ee0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f57fd11effaf5444c59881e64714ee0">&#9670;&nbsp;</a></span>Reference</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename CellIterator &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="a03742.html#ab70194093a43c97b3c1701b2bb70c9ec">Value</a>&amp; <a class="el" href="a03742.html">Dune::VTK::CornerIterator</a>&lt; CellIterator &gt;::<a class="el" href="a03742.html#a0f57fd11effaf5444c59881e64714ee0">Reference</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab70194093a43c97b3c1701b2bb70c9ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab70194093a43c97b3c1701b2bb70c9ec">&#9670;&nbsp;</a></span>Value</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename CellIterator &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef const <a class="el" href="a03742.html#a2acc629098d8646b12f5710b06a769d6">Corner</a> <a class="el" href="a03742.html">Dune::VTK::CornerIterator</a>&lt; CellIterator &gt;::<a class="el" href="a03742.html#ab70194093a43c97b3c1701b2bb70c9ec">Value</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="abc59e18c2bd8a48ce774e4a6dbeb95d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc59e18c2bd8a48ce774e4a6dbeb95d5">&#9670;&nbsp;</a></span>CornerIterator() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename CellIterator &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a03742.html">Dune::VTK::Corner</a>&lt; Cell &gt;::<a class="el" href="a03742.html">Corner</a> </td>
+          <td class="memname"><a class="el" href="a03742.html">Dune::VTK::CornerIterator</a>&lt; CellIterator &gt;::<a class="el" href="a03742.html">CornerIterator</a> </td>
           <td>(</td>
-          <td class="paramtype">const Cell &amp;&#160;</td>
-          <td class="paramname"><em>cell</em>, </td>
+          <td class="paramtype">const CellIterator &amp;&#160;</td>
+          <td class="paramname"><em>cellit_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const CellIterator &amp;&#160;</td>
+          <td class="paramname"><em>cellend_</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">unsigned&#160;</td>
-          <td class="paramname"><em>duneIndex</em>&#160;</td>
+          <td class="paramname"><em>vtkIndex</em> = <code>0</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -163,32 +291,34 @@ template&lt;typename Cell &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>construct a <a class="el" href="a03742.html" title="simple class representing a corner of a cell">Corner</a> </p>
+<p>construct a <a class="el" href="a03742.html" title="iterate over the corners of some cell range">CornerIterator</a> </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">cell</td><td>Reference to the cell </td></tr>
-    <tr><td class="paramname">duneIndex</td><td>Index of the corner within the element in Dune-numbering </td></tr>
+    <tr><td class="paramname">cellit_</td><td>The begin iterator of the undelying range. </td></tr>
+    <tr><td class="paramname">cellend_</td><td>The end iterator of the underlying range. </td></tr>
+    <tr><td class="paramname">vtkIndex</td><td>VTKIndex of the currently pointed to corner. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="af4fad847006a52d99f2e06cb74edad26"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af4fad847006a52d99f2e06cb74edad26">&#9670;&nbsp;</a></span>Corner() <span class="overload">[2/2]</span></h2>
+<a id="ae58ab3578c686cac8d6eac3bd277a0b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae58ab3578c686cac8d6eac3bd277a0b3">&#9670;&nbsp;</a></span>CornerIterator() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Cell &gt; </div>
+template&lt;typename CellIterator &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a03742.html">Dune::VTK::Corner</a>&lt; Cell &gt;::<a class="el" href="a03742.html">Corner</a> </td>
+          <td class="memname"><a class="el" href="a03742.html">Dune::VTK::CornerIterator</a>&lt; CellIterator &gt;::<a class="el" href="a03742.html">CornerIterator</a> </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const CellIterator &amp;&#160;</td>
+          <td class="paramname"><em>cellend_</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -199,24 +329,25 @@ template&lt;typename Cell &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>construct an invalid <a class="el" href="a03742.html" title="simple class representing a corner of a cell">Corner</a> </p>
+<p>construct a <a class="el" href="a03742.html" title="iterate over the corners of some cell range">CornerIterator</a> </p>
+<p>This constructs a passed-the-end iterator value. </p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a4ed90fdf589620aeec73635f4b338bc5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4ed90fdf589620aeec73635f4b338bc5">&#9670;&nbsp;</a></span>cell() <span class="overload">[1/2]</span></h2>
+<a id="a44e90e5b695e8be0c3f25a424ab4edc1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44e90e5b695e8be0c3f25a424ab4edc1">&#9670;&nbsp;</a></span>dereference()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Cell &gt; </div>
+template&lt;typename CellIterator &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const Cell&amp; <a class="el" href="a03742.html">Dune::VTK::Corner</a>&lt; Cell &gt;::cell </td>
+          <td class="memname"><a class="el" href="a03742.html#a0f57fd11effaf5444c59881e64714ee0">Reference</a> <a class="el" href="a03742.html">Dune::VTK::CornerIterator</a>&lt; CellIterator &gt;::dereference </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -229,26 +360,51 @@ template&lt;typename Cell &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>get reference to the cell </p>
-
 </div>
 </div>
-<a id="a872ea76315caaa5f80477e303413d444"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a872ea76315caaa5f80477e303413d444">&#9670;&nbsp;</a></span>cell() <span class="overload">[2/2]</span></h2>
+<a id="ae7768a6e574dc91eb325be8548b82b9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7768a6e574dc91eb325be8548b82b9f">&#9670;&nbsp;</a></span>equals()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Cell &gt; </div>
+template&lt;typename CellIterator &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="a03742.html">Dune::VTK::Corner</a>&lt; Cell &gt;::cell </td>
+          <td class="memname">bool <a class="el" href="a03742.html">Dune::VTK::CornerIterator</a>&lt; CellIterator &gt;::equals </td>
           <td>(</td>
-          <td class="paramtype">const Cell &amp;&#160;</td>
-          <td class="paramname"><em>cell__</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="a03742.html#aeb7ef01a29e07ee94a8e38aeb3f316a5">DerivedType</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3c1248e20d0db2a9c2c1e5298d09789c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c1248e20d0db2a9c2c1e5298d09789c">&#9670;&nbsp;</a></span>increment()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename CellIterator &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="a03742.html">Dune::VTK::CornerIterator</a>&lt; CellIterator &gt;::increment </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -259,24 +415,21 @@ template&lt;typename Cell &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>set a new cell </p>
-<p>This also resets the index of the element to 0 (Dune-numbering), so if you want to set both element and index, set the cell first. </p>
-
 </div>
 </div>
-<a id="a96d015ea59b576aee9ce14f26b0af47a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a96d015ea59b576aee9ce14f26b0af47a">&#9670;&nbsp;</a></span>duneIndex() <span class="overload">[1/2]</span></h2>
+<a id="af8829ce43e03185d5fb32f4161cf44b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8829ce43e03185d5fb32f4161cf44b0">&#9670;&nbsp;</a></span>isDereferencable()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Cell &gt; </div>
+template&lt;typename CellIterator &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned <a class="el" href="a03742.html">Dune::VTK::Corner</a>&lt; Cell &gt;::duneIndex </td>
+          <td class="memname">bool <a class="el" href="a03742.html">Dune::VTK::CornerIterator</a>&lt; CellIterator &gt;::isDereferencable </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -289,103 +442,37 @@ template&lt;typename Cell &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>get the index of the corner within the cell in Dune-numbering </p>
-
 </div>
 </div>
-<a id="a9079594dafedef4fd349e1e91e75da05"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9079594dafedef4fd349e1e91e75da05">&#9670;&nbsp;</a></span>duneIndex() <span class="overload">[2/2]</span></h2>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a75386ee4e7f68aafbd7c38f05c3d26f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75386ee4e7f68aafbd7c38f05c3d26f7">&#9670;&nbsp;</a></span>dim</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Cell &gt; </div>
+template&lt;typename CellIterator &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="a03742.html">Dune::VTK::Corner</a>&lt; Cell &gt;::duneIndex </td>
-          <td>(</td>
-          <td class="paramtype">unsigned&#160;</td>
-          <td class="paramname"><em>i</em></td><td>)</td>
-          <td></td>
+          <td class="memname">const unsigned <a class="el" href="a03742.html">Dune::VTK::CornerIterator</a>&lt; CellIterator &gt;::dim</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>set the index of the corner within the cell in Dune-numbering </p>
-
-</div>
-</div>
-<a id="a087fe884580807102d9dbb23953fb776"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a087fe884580807102d9dbb23953fb776">&#9670;&nbsp;</a></span>vtkIndex() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Cell &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned <a class="el" href="a03742.html">Dune::VTK::Corner</a>&lt; Cell &gt;::vtkIndex </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>get the index of the corner within the cell in VTK-numbering </p>
-<p>This requires that the cell is valid </p>
-
-</div>
-</div>
-<a id="a1fa87320d7486ac837c31073f6208502"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1fa87320d7486ac837c31073f6208502">&#9670;&nbsp;</a></span>vtkIndex() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Cell &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a03742.html">Dune::VTK::Corner</a>&lt; Cell &gt;::vtkIndex </td>
-          <td>(</td>
-          <td class="paramtype">unsigned&#160;</td>
-          <td class="paramname"><em>i</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>set the index of the corner within the cell in VTK-numbering </p>
-<p>This requires that the cell is valid </p>
-
+<b>Initial value:</b><div class="fragment"><div class="line">= std::iterator_traits&lt;CellIterator&gt;::</div>
+<div class="line">                                  value_type::mydimension</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="a00791_source.html">corner.hh</a></li>
+<li><a class="el" href="a00800_source.html">corneriterator.hh</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

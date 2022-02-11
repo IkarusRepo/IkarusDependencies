@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: Dune::DGFGridFactory&lt; OneDGrid &gt; Struct Reference</title>
+<title>dune-grid: Dune::DGFGridInfo&lt; GridType &gt; Struct Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,460 +62,53 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00936.html">Dune</a></li><li class="navelem"><a class="el" href="a03566.html">DGFGridFactory&lt; OneDGrid &gt;</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00940.html">Dune</a></li><li class="navelem"><a class="el" href="a03566.html">DGFGridInfo</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="a03563.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::DGFGridFactory&lt; OneDGrid &gt; Struct Reference</div>  </div>
+<div class="title">Dune::DGFGridInfo&lt; GridType &gt; Struct Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="a00722_source.html">dune/grid/io/file/dgfparser/dgfoned.hh</a>&gt;</code></p>
+<p>Some simple static information for a given GridType.  
+ <a href="a03566.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="a06672_source.html">dune/grid/io/file/dgfparser/dgfparser.hh</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:a140dfbb16338438531a7793d42c521a8"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a03942.html">OneDGrid</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03566.html#a140dfbb16338438531a7793d42c521a8">Grid</a></td></tr>
-<tr class="memdesc:a140dfbb16338438531a7793d42c521a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">grid type  <a href="a03566.html#a140dfbb16338438531a7793d42c521a8">More...</a><br /></td></tr>
-<tr class="separator:a140dfbb16338438531a7793d42c521a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a533bbb5aa92a828636d513a118168c01"><td class="memItemLeft" align="right" valign="top">typedef MPIHelper::MPICommunicator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03566.html#a533bbb5aa92a828636d513a118168c01">MPICommunicatorType</a></td></tr>
-<tr class="memdesc:a533bbb5aa92a828636d513a118168c01"><td class="mdescLeft">&#160;</td><td class="mdescRight">MPI communicator type.  <a href="a03566.html#a533bbb5aa92a828636d513a118168c01">More...</a><br /></td></tr>
-<tr class="separator:a533bbb5aa92a828636d513a118168c01"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:ae3908705e3fdb6774d9fd619a5d2e906"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03566.html#ae3908705e3fdb6774d9fd619a5d2e906">DGFGridFactory</a> (std::istream &amp;input, <a class="el" href="a03566.html#a533bbb5aa92a828636d513a118168c01">MPICommunicatorType</a> comm=MPIHelper::getCommunicator())</td></tr>
-<tr class="memdesc:ae3908705e3fdb6774d9fd619a5d2e906"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor taking istream  <a href="a03566.html#ae3908705e3fdb6774d9fd619a5d2e906">More...</a><br /></td></tr>
-<tr class="separator:ae3908705e3fdb6774d9fd619a5d2e906"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc65c01368f86d442e2abdd48cb57804"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03566.html#adc65c01368f86d442e2abdd48cb57804">DGFGridFactory</a> (const std::string &amp;filename, <a class="el" href="a03566.html#a533bbb5aa92a828636d513a118168c01">MPICommunicatorType</a> comm=MPIHelper::getCommunicator())</td></tr>
-<tr class="memdesc:adc65c01368f86d442e2abdd48cb57804"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor taking filename  <a href="a03566.html#adc65c01368f86d442e2abdd48cb57804">More...</a><br /></td></tr>
-<tr class="separator:adc65c01368f86d442e2abdd48cb57804"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad663dd0c982d5511c111e80baa8056cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a03566.html#a140dfbb16338438531a7793d42c521a8">Grid</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03566.html#ad663dd0c982d5511c111e80baa8056cf">grid</a> () const</td></tr>
-<tr class="memdesc:ad663dd0c982d5511c111e80baa8056cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">get grid  <a href="a03566.html#ad663dd0c982d5511c111e80baa8056cf">More...</a><br /></td></tr>
-<tr class="separator:ad663dd0c982d5511c111e80baa8056cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af07313a6c396716c56803dcc45d1e8b6"><td class="memTemplParams" colspan="2">template&lt;class GG , class II &gt; </td></tr>
-<tr class="memitem:af07313a6c396716c56803dcc45d1e8b6"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a03566.html#af07313a6c396716c56803dcc45d1e8b6">wasInserted</a> (const <a class="el" href="a01838.html">Dune::Intersection</a>&lt; GG, II &gt; &amp;intersection) const</td></tr>
-<tr class="memdesc:af07313a6c396716c56803dcc45d1e8b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">always returns false  <a href="a03566.html#af07313a6c396716c56803dcc45d1e8b6">More...</a><br /></td></tr>
-<tr class="separator:af07313a6c396716c56803dcc45d1e8b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab3676335a4c127b97ebf8a5576d77bbf"><td class="memTemplParams" colspan="2">template&lt;class GG , class II &gt; </td></tr>
-<tr class="memitem:ab3676335a4c127b97ebf8a5576d77bbf"><td class="memTemplItemLeft" align="right" valign="top">int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a03566.html#ab3676335a4c127b97ebf8a5576d77bbf">boundaryId</a> (const <a class="el" href="a01838.html">Dune::Intersection</a>&lt; GG, II &gt; &amp;intersection) const</td></tr>
-<tr class="separator:ab3676335a4c127b97ebf8a5576d77bbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad859752fc6861566a8b033707782a7d1"><td class="memTemplParams" colspan="2">template&lt;class Entity &gt; </td></tr>
-<tr class="memitem:ad859752fc6861566a8b033707782a7d1"><td class="memTemplItemLeft" align="right" valign="top">int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a03566.html#ad859752fc6861566a8b033707782a7d1">numParameters</a> (const <a class="el" href="a02630.html">Entity</a> &amp;) const</td></tr>
-<tr class="memdesc:ad859752fc6861566a8b033707782a7d1"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a03942.html" title="One-dimensional adaptive grid.">OneDGrid</a> does not support parameters, returns 0.  <a href="a03566.html#ad859752fc6861566a8b033707782a7d1">More...</a><br /></td></tr>
-<tr class="separator:ad859752fc6861566a8b033707782a7d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae8c5690e600e321f2e91cdaddbee81a7"><td class="memTemplParams" colspan="2">template&lt;int codim&gt; </td></tr>
-<tr class="memitem:ae8c5690e600e321f2e91cdaddbee81a7"><td class="memTemplItemLeft" align="right" valign="top">int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a03566.html#ae8c5690e600e321f2e91cdaddbee81a7">numParameters</a> () const</td></tr>
-<tr class="memdesc:ae8c5690e600e321f2e91cdaddbee81a7"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a03942.html" title="One-dimensional adaptive grid.">OneDGrid</a> does not support parameters, returns 0.  <a href="a03566.html#ae8c5690e600e321f2e91cdaddbee81a7">More...</a><br /></td></tr>
-<tr class="separator:ae8c5690e600e321f2e91cdaddbee81a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0d8efa1f3a910dee6910d650326a7065"><td class="memTemplParams" colspan="2">template&lt;class Entity &gt; </td></tr>
-<tr class="memitem:a0d8efa1f3a910dee6910d650326a7065"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; double &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a03566.html#a0d8efa1f3a910dee6910d650326a7065">parameter</a> (const <a class="el" href="a02630.html">Entity</a> &amp;entity)</td></tr>
-<tr class="separator:a0d8efa1f3a910dee6910d650326a7065"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a745b4cbb885c8903e7f16933841db822"><td class="memTemplParams" colspan="2">template&lt;int codim&gt; </td></tr>
-<tr class="memitem:a745b4cbb885c8903e7f16933841db822"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; double &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a03566.html#a745b4cbb885c8903e7f16933841db822">parameter</a> (const typename <a class="el" href="a02702.html">Grid::Codim</a>&lt; codim &gt;::<a class="el" href="a02630.html">Entity</a> &amp;element)</td></tr>
-<tr class="memdesc:a745b4cbb885c8903e7f16933841db822"><td class="mdescLeft">&#160;</td><td class="mdescRight">return empty vector  <a href="a03566.html#a745b4cbb885c8903e7f16933841db822">More...</a><br /></td></tr>
-<tr class="separator:a745b4cbb885c8903e7f16933841db822"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad57422a4ae4c57ba149bf31939c90399"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03566.html#ad57422a4ae4c57ba149bf31939c90399">haveBoundaryParameters</a> () const</td></tr>
-<tr class="memdesc:ad57422a4ae4c57ba149bf31939c90399"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a03942.html" title="One-dimensional adaptive grid.">OneDGrid</a> does not support boundary parameters.  <a href="a03566.html#ad57422a4ae4c57ba149bf31939c90399">More...</a><br /></td></tr>
-<tr class="separator:ad57422a4ae4c57ba149bf31939c90399"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2dfadd1349f660983f48392ff78f739b"><td class="memTemplParams" colspan="2">template&lt;class GG , class II &gt; </td></tr>
-<tr class="memitem:a2dfadd1349f660983f48392ff78f739b"><td class="memTemplItemLeft" align="right" valign="top">const <a class="el" href="a03634.html#afa9bc1f519c309d951d1955cbce7ea7f">DGFBoundaryParameter::type</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a03566.html#a2dfadd1349f660983f48392ff78f739b">boundaryParameter</a> (const <a class="el" href="a01838.html">Dune::Intersection</a>&lt; GG, II &gt; &amp;intersection) const</td></tr>
-<tr class="memdesc:a2dfadd1349f660983f48392ff78f739b"><td class="mdescLeft">&#160;</td><td class="mdescRight">return invalid default value  <a href="a03566.html#a2dfadd1349f660983f48392ff78f739b">More...</a><br /></td></tr>
-<tr class="separator:a2dfadd1349f660983f48392ff78f739b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr class="memitem:ad641dd9810a85b5998d8ddf7bce0115e"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03566.html#ad641dd9810a85b5998d8ddf7bce0115e">dimension</a> = Grid::dimension</td></tr>
-<tr class="memdesc:ad641dd9810a85b5998d8ddf7bce0115e"><td class="mdescLeft">&#160;</td><td class="mdescRight">grid dimension  <a href="a03566.html#ad641dd9810a85b5998d8ddf7bce0115e">More...</a><br /></td></tr>
-<tr class="separator:ad641dd9810a85b5998d8ddf7bce0115e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:adb294d220494f1e9e818838eb10a5b9d"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03566.html#adb294d220494f1e9e818838eb10a5b9d">refineStepsForHalf</a> ()</td></tr>
+<tr class="memdesc:adb294d220494f1e9e818838eb10a5b9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of globalRefine steps needed to refuce h by 0.5  <a href="a03566.html#adb294d220494f1e9e818838eb10a5b9d">More...</a><br /></td></tr>
+<tr class="separator:adb294d220494f1e9e818838eb10a5b9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61eeb96dd06a60e149bcd3dbd21da879"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03566.html#a61eeb96dd06a60e149bcd3dbd21da879">refineWeight</a> ()</td></tr>
+<tr class="separator:a61eeb96dd06a60e149bcd3dbd21da879"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a140dfbb16338438531a7793d42c521a8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a140dfbb16338438531a7793d42c521a8">&#9670;&nbsp;</a></span>Grid</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;class GridType&gt;<br />
+struct Dune::DGFGridInfo&lt; GridType &gt;</h3>
 
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef <a class="el" href="a03942.html">OneDGrid</a> <a class="el" href="a01766.html">Dune::DGFGridFactory</a>&lt; <a class="el" href="a03942.html">OneDGrid</a> &gt;::<a class="el" href="a03566.html#a140dfbb16338438531a7793d42c521a8">Grid</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>grid type </p>
-
-</div>
-</div>
-<a id="a533bbb5aa92a828636d513a118168c01"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a533bbb5aa92a828636d513a118168c01">&#9670;&nbsp;</a></span>MPICommunicatorType</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef MPIHelper::MPICommunicator <a class="el" href="a01766.html">Dune::DGFGridFactory</a>&lt; <a class="el" href="a03942.html">OneDGrid</a> &gt;::<a class="el" href="a03566.html#a533bbb5aa92a828636d513a118168c01">MPICommunicatorType</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>MPI communicator type. </p>
-
-</div>
-</div>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ae3908705e3fdb6774d9fd619a5d2e906"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae3908705e3fdb6774d9fd619a5d2e906">&#9670;&nbsp;</a></span>DGFGridFactory() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a01766.html">Dune::DGFGridFactory</a>&lt; <a class="el" href="a03942.html">OneDGrid</a> &gt;::<a class="el" href="a01766.html">DGFGridFactory</a> </td>
-          <td>(</td>
-          <td class="paramtype">std::istream &amp;&#160;</td>
-          <td class="paramname"><em>input</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a03566.html#a533bbb5aa92a828636d513a118168c01">MPICommunicatorType</a>&#160;</td>
-          <td class="paramname"><em>comm</em> = <code>MPIHelper::getCommunicator()</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>constructor taking istream </p>
-
-</div>
-</div>
-<a id="adc65c01368f86d442e2abdd48cb57804"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adc65c01368f86d442e2abdd48cb57804">&#9670;&nbsp;</a></span>DGFGridFactory() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a01766.html">Dune::DGFGridFactory</a>&lt; <a class="el" href="a03942.html">OneDGrid</a> &gt;::<a class="el" href="a01766.html">DGFGridFactory</a> </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>filename</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a03566.html#a533bbb5aa92a828636d513a118168c01">MPICommunicatorType</a>&#160;</td>
-          <td class="paramname"><em>comm</em> = <code>MPIHelper::getCommunicator()</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>constructor taking filename </p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="ab3676335a4c127b97ebf8a5576d77bbf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab3676335a4c127b97ebf8a5576d77bbf">&#9670;&nbsp;</a></span>boundaryId()</h2>
+<p>Some simple static information for a given GridType. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="adb294d220494f1e9e818838eb10a5b9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb294d220494f1e9e818838eb10a5b9d">&#9670;&nbsp;</a></span>refineStepsForHalf()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class GG , class II &gt; </div>
+template&lt;class GridType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int <a class="el" href="a01766.html">Dune::DGFGridFactory</a>&lt; <a class="el" href="a03942.html">OneDGrid</a> &gt;::boundaryId </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01838.html">Dune::Intersection</a>&lt; GG, II &gt; &amp;&#160;</td>
-          <td class="paramname"><em>intersection</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a2dfadd1349f660983f48392ff78f739b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2dfadd1349f660983f48392ff78f739b">&#9670;&nbsp;</a></span>boundaryParameter()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class GG , class II &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a03634.html#afa9bc1f519c309d951d1955cbce7ea7f">DGFBoundaryParameter::type</a>&amp; <a class="el" href="a01766.html">Dune::DGFGridFactory</a>&lt; <a class="el" href="a03942.html">OneDGrid</a> &gt;::boundaryParameter </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01838.html">Dune::Intersection</a>&lt; GG, II &gt; &amp;&#160;</td>
-          <td class="paramname"><em>intersection</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>return invalid default value </p>
-
-</div>
-</div>
-<a id="ad663dd0c982d5511c111e80baa8056cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad663dd0c982d5511c111e80baa8056cf">&#9670;&nbsp;</a></span>grid()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a03566.html#a140dfbb16338438531a7793d42c521a8">Grid</a>* <a class="el" href="a01766.html">Dune::DGFGridFactory</a>&lt; <a class="el" href="a03942.html">OneDGrid</a> &gt;::grid </td>
+          <td class="memname">static int <a class="el" href="a03566.html">Dune::DGFGridInfo</a>&lt; GridType &gt;::refineStepsForHalf </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>get grid </p>
-
-</div>
-</div>
-<a id="ad57422a4ae4c57ba149bf31939c90399"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad57422a4ae4c57ba149bf31939c90399">&#9670;&nbsp;</a></span>haveBoundaryParameters()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="a01766.html">Dune::DGFGridFactory</a>&lt; <a class="el" href="a03942.html">OneDGrid</a> &gt;::haveBoundaryParameters </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p><a class="el" href="a03942.html" title="One-dimensional adaptive grid.">OneDGrid</a> does not support boundary parameters. </p>
-
-</div>
-</div>
-<a id="ae8c5690e600e321f2e91cdaddbee81a7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae8c5690e600e321f2e91cdaddbee81a7">&#9670;&nbsp;</a></span>numParameters() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int codim&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="a01766.html">Dune::DGFGridFactory</a>&lt; <a class="el" href="a03942.html">OneDGrid</a> &gt;::numParameters </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p><a class="el" href="a03942.html" title="One-dimensional adaptive grid.">OneDGrid</a> does not support parameters, returns 0. </p>
-
-</div>
-</div>
-<a id="ad859752fc6861566a8b033707782a7d1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad859752fc6861566a8b033707782a7d1">&#9670;&nbsp;</a></span>numParameters() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class Entity &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="a01766.html">Dune::DGFGridFactory</a>&lt; <a class="el" href="a03942.html">OneDGrid</a> &gt;::numParameters </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a02630.html">Entity</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p><a class="el" href="a03942.html" title="One-dimensional adaptive grid.">OneDGrid</a> does not support parameters, returns 0. </p>
-
-</div>
-</div>
-<a id="a0d8efa1f3a910dee6910d650326a7065"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0d8efa1f3a910dee6910d650326a7065">&#9670;&nbsp;</a></span>parameter() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class Entity &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt; double &gt;&amp; <a class="el" href="a01766.html">Dune::DGFGridFactory</a>&lt; <a class="el" href="a03942.html">OneDGrid</a> &gt;::parameter </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a02630.html">Entity</a> &amp;&#160;</td>
-          <td class="paramname"><em>entity</em></td><td>)</td>
           <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a745b4cbb885c8903e7f16933841db822"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a745b4cbb885c8903e7f16933841db822">&#9670;&nbsp;</a></span>parameter() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int codim&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt; double &gt;&amp; <a class="el" href="a01766.html">Dune::DGFGridFactory</a>&lt; <a class="el" href="a03942.html">OneDGrid</a> &gt;::parameter </td>
-          <td>(</td>
-          <td class="paramtype">const typename <a class="el" href="a02702.html">Grid::Codim</a>&lt; codim &gt;::<a class="el" href="a02630.html">Entity</a> &amp;&#160;</td>
-          <td class="paramname"><em>element</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>return empty vector </p>
-
-</div>
-</div>
-<a id="af07313a6c396716c56803dcc45d1e8b6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af07313a6c396716c56803dcc45d1e8b6">&#9670;&nbsp;</a></span>wasInserted()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class GG , class II &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="a01766.html">Dune::DGFGridFactory</a>&lt; <a class="el" href="a03942.html">OneDGrid</a> &gt;::wasInserted </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01838.html">Dune::Intersection</a>&lt; GG, II &gt; &amp;&#160;</td>
-          <td class="paramname"><em>intersection</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>always returns false </p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="ad641dd9810a85b5998d8ddf7bce0115e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad641dd9810a85b5998d8ddf7bce0115e">&#9670;&nbsp;</a></span>dimension</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const int <a class="el" href="a01766.html">Dune::DGFGridFactory</a>&lt; <a class="el" href="a03942.html">OneDGrid</a> &gt;::dimension = Grid::dimension</td>
         </tr>
       </table>
   </td>
@@ -525,12 +118,40 @@ template&lt;class GG , class II &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>grid dimension </p>
+<p>number of globalRefine steps needed to refuce h by 0.5 </p>
+
+</div>
+</div>
+<a id="a61eeb96dd06a60e149bcd3dbd21da879"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61eeb96dd06a60e149bcd3dbd21da879">&#9670;&nbsp;</a></span>refineWeight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class GridType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static double <a class="el" href="a03566.html">Dune::DGFGridInfo</a>&lt; GridType &gt;::refineWeight </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>relation between volume of children to volume of father. If this is not a constant the return value is -1 </p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="a00722_source.html">dgfoned.hh</a></li>
+<li><a class="el" href="a06672_source.html">io/file/dgfparser/dgfparser.hh</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

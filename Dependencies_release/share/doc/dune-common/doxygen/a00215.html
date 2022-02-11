@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-common
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -78,20 +78,21 @@ $(function() {
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;cassert&gt;</code><br />
 <code>#include &lt;mpi.h&gt;</code><br />
+<code>#include &lt;mutex&gt;</code><br />
 <code>#include &lt;<a class="el" href="a00179_source.html">dune/common/parallel/communication.hh</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="a00203_source.html">dune/common/parallel/mpicommunication.hh</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00353_source.html">dune/common/stdstreams.hh</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="a00350_source.html">dune/common/stdstreams.hh</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="a00395_source.html">dune/common/visibility.hh</a>&gt;</code><br />
 </div>
 <p><a href="a00215_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02180.html">Dune::FakeMPIHelper</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A fake mpi helper.  <a href="a02180.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02177.html">Dune::FakeMPIHelper</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A fake mpi helper.  <a href="a02177.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02184.html">Dune::MPIHelper</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A real mpi helper.  <a href="a02184.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02181.html">Dune::MPIHelper</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A real mpi helper.  <a href="a02181.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -110,14 +111,14 @@ Namespaces</h2></td></tr>
 </dl>
 <p>Example of who to use these classes:</p>
 <p>A program that is parallel if compiled with MPI and sequential otherwise: </p><div class="fragment"><div class="line"><span class="keywordtype">int</span> <a class="code" href="a00173.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>** argv){</div>
-<div class="line">   <span class="keyword">typedef</span> <a class="code" href="a02184.html">Dune::MPIHelper</a> MPIHelper;</div>
+<div class="line">   <span class="keyword">typedef</span> <a class="code" href="a02181.html">Dune::MPIHelper</a> MPIHelper;</div>
 <div class="line">   MPIHelper::instance(argc, argv);</div>
 <div class="line">   <span class="keyword">typename</span> MPIHelper::MPICommunicator world =</div>
 <div class="line">     MPIHelper::getCommunicator();</div>
 <div class="line">   ...</div>
 <div class="ttc" id="aa00173_html_a3c04138a5bfe5d72780bb7e82a18e627"><div class="ttname"><a href="a00173.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a></div><div class="ttdeci">int main(int argc, char **argv)</div><div class="ttdef"><b>Definition:</b> mpi_collective_benchmark.cc:291</div></div>
-<div class="ttc" id="aa02184_html"><div class="ttname"><a href="a02184.html">Dune::MPIHelper</a></div><div class="ttdoc">A real mpi helper.</div><div class="ttdef"><b>Definition:</b> mpihelper.hh:169</div></div>
-</div><!-- fragment --><p>If one wants to have sequential program even if the code is compiled with mpi then one simply has to exchange the typedef with</p><div class="fragment"><div class="line"><span class="keyword">typedef</span> <a class="code" href="a02184.html">Dune::MPIHelper</a> FakeMPIHelper; </div>
+<div class="ttc" id="aa02181_html"><div class="ttname"><a href="a02181.html">Dune::MPIHelper</a></div><div class="ttdoc">A real mpi helper.</div><div class="ttdef"><b>Definition:</b> mpihelper.hh:175</div></div>
+</div><!-- fragment --><p>If one wants to have sequential program even if the code is compiled with mpi then one simply has to exchange the typedef with</p><div class="fragment"><div class="line"><span class="keyword">typedef</span> <a class="code" href="a02181.html">Dune::MPIHelper</a> FakeMPIHelper; </div>
 </div><!-- fragment --><p>.</p>
 <p>For checking whether we really use MPI or just fake please use MPIHelper::isFake (this is also possible at compile time!) </p>
 </div></div><!-- contents -->

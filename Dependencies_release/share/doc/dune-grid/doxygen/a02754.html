@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: Dune::GridView&lt; ViewTraits &gt; Class Template Reference</title>
+<title>dune-grid: Dune::GridFactory&lt; GridType &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,215 +62,918 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00936.html">Dune</a></li><li class="navelem"><a class="el" href="a02754.html">GridView</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00940.html">Dune</a></li><li class="navelem"><a class="el" href="a02754.html">GridFactory</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-types">Protected Types</a> &#124;
+<a href="#pro-static-attribs">Static Protected Attributes</a> &#124;
 <a href="a02751.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::GridView&lt; ViewTraits &gt; Class Template Reference<div class="ingroups"><a class="el" href="a00902.html">dune-grid</a> &raquo; <a class="el" href="a00903.html">The Grid Interface</a> &raquo; <a class="el" href="a00906.html">GridView</a></div></div>  </div>
+<div class="title">Dune::GridFactory&lt; GridType &gt; Class Template Reference<span class="mlabels"><span class="mlabel">abstract</span></span><div class="ingroups"><a class="el" href="a00905.html">dune-grid</a> &raquo; <a class="el" href="a00928.html">I/O</a> &raquo; <a class="el" href="a00929.html">GridFactory</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="a02698.html" title="Grid abstract base class.">Grid</a> view abstract base class.  
+<p>Provide a generic factory class for unstructured grids.  
  <a href="a02754.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a06824_source.html">dune/grid/common/gridview.hh</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a06711_source.html">dune/grid/common/gridfactory.hh</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for Dune::GridFactory&lt; GridType &gt;:</div>
+<div class="dyncontent">
+<div class="center"><img src="a02753.png" border="0" usemap="#a_dune_1_1_grid_factory_3_01_grid_type_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="a_dune_1_1_grid_factory_3_01_grid_type_01_4_inherit__map" id="a_dune_1_1_grid_factory_3_01_grid_type_01_4_inherit__map">
+<area shape="rect" title="Provide a generic factory class for unstructured grids." alt="" coords="26,96,162,137"/>
+<area shape="rect" href="a02754.html" title=" " alt="" coords="26,200,162,241"/>
+<area shape="rect" href="a02746.html" title="Provide a generic factory class for unstructured grids." alt="" coords="5,5,183,47"/>
+</map>
+</div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02758.html">Codim</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A struct that collects all associated types of one implementation from the Traits class.  <a href="a02758.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:ga470166ab4c35a0b7366204d19c430221"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="a00906.html#gga470166ab4c35a0b7366204d19c430221af1aa25dd4bbb7ed513bd7b08a3e63926">conforming</a> = Traits :: conforming
- }</td></tr>
-<tr class="separator:ga470166ab4c35a0b7366204d19c430221"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5c76b0a0ed3fdcf2bd9ab2bbb2df0847"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="a00906.html#gga5c76b0a0ed3fdcf2bd9ab2bbb2df0847a7170531f3c1c62b7904410099cf37a37">dimension</a> = Grid :: dimension
- }</td></tr>
-<tr class="separator:ga5c76b0a0ed3fdcf2bd9ab2bbb2df0847"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga45c3ae7dec727cca6837cd1c2360029a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="a00906.html#gga45c3ae7dec727cca6837cd1c2360029aa440aff832b6f4ffea3f9f334f016c266">dimensionworld</a> = Grid :: dimensionworld
- }</td></tr>
-<tr class="separator:ga45c3ae7dec727cca6837cd1c2360029a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6f7280bd69cfb603432165d70b3a0fc9"><td class="memItemLeft" align="right" valign="top">typedef ViewTraits ::<a class="el" href="a00906.html#gad5b0cd877cf707823f4266ef1ac25e9e">GridViewImp</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00906.html#ga6f7280bd69cfb603432165d70b3a0fc9">Implementation</a></td></tr>
-<tr class="memdesc:ga6f7280bd69cfb603432165d70b3a0fc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">type of underlying implementation  <a href="a00906.html#ga6f7280bd69cfb603432165d70b3a0fc9">More...</a><br /></td></tr>
-<tr class="separator:ga6f7280bd69cfb603432165d70b3a0fc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad5b0cd877cf707823f4266ef1ac25e9e"><td class="memItemLeft" align="right" valign="top">typedef ViewTraits ::<a class="el" href="a00906.html#gad5b0cd877cf707823f4266ef1ac25e9e">GridViewImp</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00906.html#gad5b0cd877cf707823f4266ef1ac25e9e">GridViewImp</a></td></tr>
-<tr class="separator:gad5b0cd877cf707823f4266ef1ac25e9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga26b2114a4034a33473d01926c6b21b6b"><td class="memItemLeft" align="right" valign="top">typedef ViewTraits&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00906.html#ga26b2114a4034a33473d01926c6b21b6b">Traits</a></td></tr>
-<tr class="memdesc:ga26b2114a4034a33473d01926c6b21b6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Traits class.  <a href="a00906.html#ga26b2114a4034a33473d01926c6b21b6b">More...</a><br /></td></tr>
-<tr class="separator:ga26b2114a4034a33473d01926c6b21b6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad6482279521362048503475e72e8adef"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a00906.html#ga26b2114a4034a33473d01926c6b21b6b">Traits</a> ::<a class="el" href="a00906.html#gad6482279521362048503475e72e8adef">Grid</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00906.html#gad6482279521362048503475e72e8adef">Grid</a></td></tr>
-<tr class="memdesc:gad6482279521362048503475e72e8adef"><td class="mdescLeft">&#160;</td><td class="mdescRight">type of the grid  <a href="a00906.html#gad6482279521362048503475e72e8adef">More...</a><br /></td></tr>
-<tr class="separator:gad6482279521362048503475e72e8adef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5f1345dd3b5cf92a0470c9ce7ea24910"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a00906.html#ga26b2114a4034a33473d01926c6b21b6b">Traits</a> ::<a class="el" href="a00906.html#ga5f1345dd3b5cf92a0470c9ce7ea24910">IndexSet</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00906.html#ga5f1345dd3b5cf92a0470c9ce7ea24910">IndexSet</a></td></tr>
-<tr class="memdesc:ga5f1345dd3b5cf92a0470c9ce7ea24910"><td class="mdescLeft">&#160;</td><td class="mdescRight">type of the index set  <a href="a00906.html#ga5f1345dd3b5cf92a0470c9ce7ea24910">More...</a><br /></td></tr>
-<tr class="separator:ga5f1345dd3b5cf92a0470c9ce7ea24910"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad52e1af6a8085784dd1a047ec003d1d1"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a00906.html#ga26b2114a4034a33473d01926c6b21b6b">Traits</a> ::<a class="el" href="a00906.html#gad52e1af6a8085784dd1a047ec003d1d1">Intersection</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00906.html#gad52e1af6a8085784dd1a047ec003d1d1">Intersection</a></td></tr>
-<tr class="memdesc:gad52e1af6a8085784dd1a047ec003d1d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">type of the intersection  <a href="a00906.html#gad52e1af6a8085784dd1a047ec003d1d1">More...</a><br /></td></tr>
-<tr class="separator:gad52e1af6a8085784dd1a047ec003d1d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga04a58d035da1949e02b84757999e3f9c"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a00906.html#ga26b2114a4034a33473d01926c6b21b6b">Traits</a> ::<a class="el" href="a00906.html#ga04a58d035da1949e02b84757999e3f9c">IntersectionIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00906.html#ga04a58d035da1949e02b84757999e3f9c">IntersectionIterator</a></td></tr>
-<tr class="memdesc:ga04a58d035da1949e02b84757999e3f9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">type of the intersection iterator  <a href="a00906.html#ga04a58d035da1949e02b84757999e3f9c">More...</a><br /></td></tr>
-<tr class="separator:ga04a58d035da1949e02b84757999e3f9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga14c83b500679183b9095a0c0ea551128"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a00906.html#ga26b2114a4034a33473d01926c6b21b6b">Traits</a> ::<a class="el" href="a00906.html#ga14c83b500679183b9095a0c0ea551128">CollectiveCommunication</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00906.html#ga14c83b500679183b9095a0c0ea551128">CollectiveCommunication</a></td></tr>
-<tr class="memdesc:ga14c83b500679183b9095a0c0ea551128"><td class="mdescLeft">&#160;</td><td class="mdescRight">type of the collective communication  <a href="a00906.html#ga14c83b500679183b9095a0c0ea551128">More...</a><br /></td></tr>
-<tr class="separator:ga14c83b500679183b9095a0c0ea551128"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac2778afeec5a6e768c882746f7baecc5"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a02698.html#af10850d580532530ec127817a2a28c38">Grid::ctype</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00906.html#gac2778afeec5a6e768c882746f7baecc5">ctype</a></td></tr>
-<tr class="memdesc:gac2778afeec5a6e768c882746f7baecc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">type used for coordinates in grid  <a href="a00906.html#gac2778afeec5a6e768c882746f7baecc5">More...</a><br /></td></tr>
-<tr class="separator:gac2778afeec5a6e768c882746f7baecc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbf0551a5a9082d1ab1fd3f6bd942d91"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02746.html#abbf0551a5a9082d1ab1fd3f6bd942d91">Communication</a> = Dune::CollectiveCommunication&lt; typename MPIHelper::MPICommunicator &gt;</td></tr>
+<tr class="separator:abbf0551a5a9082d1ab1fd3f6bd942d91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="related"></a>
-Related Functions</h2></td></tr>
-<tr><td class="ititle" colspan="2"><p>(Note that these are not member functions.) </p>
-</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Common entity ranges</div></td></tr>
-<tr><td colspan="2"><div class="groupText"><p><a class="el" href="a02630.html" title="Wrapper class for entities.">Entity</a> ranges for common entity types. If in doubt, use one of these. </p>
-</div></td></tr>
-<tr class="memitem:ga9bbe243bea9b505e0fa4f3ab0005c7f5"><td class="memTemplParams" colspan="2">template&lt;typename GV &gt; </td></tr>
-<tr class="memitem:ga9bbe243bea9b505e0fa4f3ab0005c7f5"><td class="memTemplItemLeft" align="right" valign="top">IteratorRange&lt;... &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00911.html#ga9bbe243bea9b505e0fa4f3ab0005c7f5">elements</a> (const GV &amp;gv)</td></tr>
-<tr class="memdesc:ga9bbe243bea9b505e0fa4f3ab0005c7f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterates over all elements / cells (entities with codimension 0) of a <a class="el" href="a02754.html" title="Grid view abstract base class.">GridView</a>.  <a href="a00911.html#ga9bbe243bea9b505e0fa4f3ab0005c7f5">More...</a><br /></td></tr>
-<tr class="separator:ga9bbe243bea9b505e0fa4f3ab0005c7f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad2988e47e63b21c5d21cf344a3604e82"><td class="memTemplParams" colspan="2">template&lt;typename GV &gt; </td></tr>
-<tr class="memitem:gad2988e47e63b21c5d21cf344a3604e82"><td class="memTemplItemLeft" align="right" valign="top">IteratorRange&lt;... &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00911.html#gad2988e47e63b21c5d21cf344a3604e82">facets</a> (const GV &amp;gv)</td></tr>
-<tr class="memdesc:gad2988e47e63b21c5d21cf344a3604e82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterates over all facets (entities with codimension 1) of a <a class="el" href="a02754.html" title="Grid view abstract base class.">GridView</a>.  <a href="a00911.html#gad2988e47e63b21c5d21cf344a3604e82">More...</a><br /></td></tr>
-<tr class="separator:gad2988e47e63b21c5d21cf344a3604e82"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gadc6db5e0e39171ba2d9d50d55ec70b80"><td class="memTemplParams" colspan="2">template&lt;typename GV &gt; </td></tr>
-<tr class="memitem:gadc6db5e0e39171ba2d9d50d55ec70b80"><td class="memTemplItemLeft" align="right" valign="top">IteratorRange&lt;... &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00911.html#gadc6db5e0e39171ba2d9d50d55ec70b80">edges</a> (const GV &amp;gv)</td></tr>
-<tr class="memdesc:gadc6db5e0e39171ba2d9d50d55ec70b80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterates over all edges (entities with dimension 1) of a <a class="el" href="a02754.html" title="Grid view abstract base class.">GridView</a>.  <a href="a00911.html#gadc6db5e0e39171ba2d9d50d55ec70b80">More...</a><br /></td></tr>
-<tr class="separator:gadc6db5e0e39171ba2d9d50d55ec70b80"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga0b3a52863a2cefddd5af1b80a63f8226"><td class="memTemplParams" colspan="2">template&lt;typename GV &gt; </td></tr>
-<tr class="memitem:ga0b3a52863a2cefddd5af1b80a63f8226"><td class="memTemplItemLeft" align="right" valign="top">IteratorRange&lt;... &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00911.html#ga0b3a52863a2cefddd5af1b80a63f8226">vertices</a> (const GV &amp;gv)</td></tr>
-<tr class="memdesc:ga0b3a52863a2cefddd5af1b80a63f8226"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterates over all vertices (entities with dimension 0) of a <a class="el" href="a02754.html" title="Grid view abstract base class.">GridView</a>.  <a href="a00911.html#ga0b3a52863a2cefddd5af1b80a63f8226">More...</a><br /></td></tr>
-<tr class="separator:ga0b3a52863a2cefddd5af1b80a63f8226"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Entity ranges with (co)dimension template argument</div></td></tr>
-<tr><td colspan="2"><div class="groupText"><p><a class="el" href="a02630.html" title="Wrapper class for entities.">Entity</a> ranges which allow specifying the codimension / dimension as a numeric template parameter. </p>
-</div></td></tr>
-<tr class="memitem:gacc8f311deabddf0c759465f623e87886"><td class="memTemplParams" colspan="2">template&lt;typename GV , int codim&gt; </td></tr>
-<tr class="memitem:gacc8f311deabddf0c759465f623e87886"><td class="memTemplItemLeft" align="right" valign="top">IteratorRange&lt;... &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00911.html#gacc8f311deabddf0c759465f623e87886">entities</a> (const GV &amp;gv, <a class="el" href="a02758.html">Codim</a>&lt; codim &gt; cd)</td></tr>
-<tr class="memdesc:gacc8f311deabddf0c759465f623e87886"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterates over all entities of a <a class="el" href="a02754.html" title="Grid view abstract base class.">GridView</a> with the given codimension.  <a href="a00911.html#gacc8f311deabddf0c759465f623e87886">More...</a><br /></td></tr>
-<tr class="separator:gacc8f311deabddf0c759465f623e87886"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4f194e5ca8f8dc43e3552316925eb885"><td class="memTemplParams" colspan="2">template&lt;typename GV , int dim&gt; </td></tr>
-<tr class="memitem:ga4f194e5ca8f8dc43e3552316925eb885"><td class="memTemplItemLeft" align="right" valign="top">IteratorRange&lt;... &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00911.html#ga4f194e5ca8f8dc43e3552316925eb885">entities</a> (const GV &amp;gv, Dim&lt; dim &gt; d)</td></tr>
-<tr class="memdesc:ga4f194e5ca8f8dc43e3552316925eb885"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterates over all entities of a <a class="el" href="a02754.html" title="Grid view abstract base class.">GridView</a> with the given dimension.  <a href="a00911.html#ga4f194e5ca8f8dc43e3552316925eb885">More...</a><br /></td></tr>
-<tr class="separator:ga4f194e5ca8f8dc43e3552316925eb885"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Common entity ranges for non-standard parallel partitions</div></td></tr>
-<tr><td colspan="2"><div class="groupText"><p>The following <a class="el" href="a02630.html" title="Wrapper class for entities.">Entity</a> ranges make it possible to specify a <a class="el" href="a02866.html" title="A set of PartitionType values.">PartitionSet</a> which is sometimes needed in parallel code. </p>
-</div></td></tr>
-<tr class="memitem:ga163b69ed0f5787171662b67ee84af991"><td class="memTemplParams" colspan="2">template&lt;typename GV , unsigned int partitions&gt; </td></tr>
-<tr class="memitem:ga163b69ed0f5787171662b67ee84af991"><td class="memTemplItemLeft" align="right" valign="top">IteratorRange&lt;... &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00911.html#ga163b69ed0f5787171662b67ee84af991">elements</a> (const GV &amp;gv, <a class="el" href="a02866.html">PartitionSet</a>&lt; partitions &gt; ps)</td></tr>
-<tr class="memdesc:ga163b69ed0f5787171662b67ee84af991"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterates over all elements / cells (entities with codimension 0) of a <a class="el" href="a02754.html" title="Grid view abstract base class.">GridView</a> that belong to the given <a class="el" href="a02866.html" title="A set of PartitionType values.">PartitionSet</a>.  <a href="a00911.html#ga163b69ed0f5787171662b67ee84af991">More...</a><br /></td></tr>
-<tr class="separator:ga163b69ed0f5787171662b67ee84af991"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad05c567186a050cda1b13cd8a8ca9399"><td class="memTemplParams" colspan="2">template&lt;typename GV , unsigned int partitions&gt; </td></tr>
-<tr class="memitem:gad05c567186a050cda1b13cd8a8ca9399"><td class="memTemplItemLeft" align="right" valign="top">IteratorRange&lt;... &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00911.html#gad05c567186a050cda1b13cd8a8ca9399">facets</a> (const GV &amp;gv, <a class="el" href="a02866.html">PartitionSet</a>&lt; partitions &gt; ps)</td></tr>
-<tr class="memdesc:gad05c567186a050cda1b13cd8a8ca9399"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterates over all facets (entities with codimension 1) of a <a class="el" href="a02754.html" title="Grid view abstract base class.">GridView</a> that belong to the given <a class="el" href="a02866.html" title="A set of PartitionType values.">PartitionSet</a>.  <a href="a00911.html#gad05c567186a050cda1b13cd8a8ca9399">More...</a><br /></td></tr>
-<tr class="separator:gad05c567186a050cda1b13cd8a8ca9399"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga238916c208f9e3ead728a253d101fda6"><td class="memTemplParams" colspan="2">template&lt;typename GV , unsigned int partitions&gt; </td></tr>
-<tr class="memitem:ga238916c208f9e3ead728a253d101fda6"><td class="memTemplItemLeft" align="right" valign="top">IteratorRange&lt;... &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00911.html#ga238916c208f9e3ead728a253d101fda6">edges</a> (const GV &amp;gv, <a class="el" href="a02866.html">PartitionSet</a>&lt; partitions &gt; ps)</td></tr>
-<tr class="memdesc:ga238916c208f9e3ead728a253d101fda6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterates over all edges (entities with dimension 1) of a <a class="el" href="a02754.html" title="Grid view abstract base class.">GridView</a> that belong to the given <a class="el" href="a02866.html" title="A set of PartitionType values.">PartitionSet</a>.  <a href="a00911.html#ga238916c208f9e3ead728a253d101fda6">More...</a><br /></td></tr>
-<tr class="separator:ga238916c208f9e3ead728a253d101fda6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9259fd91c0202503a0fd9d3436360bd4"><td class="memTemplParams" colspan="2">template&lt;typename GV , unsigned int partitions&gt; </td></tr>
-<tr class="memitem:ga9259fd91c0202503a0fd9d3436360bd4"><td class="memTemplItemLeft" align="right" valign="top">IteratorRange&lt;... &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00911.html#ga9259fd91c0202503a0fd9d3436360bd4">vertices</a> (const GV &amp;gv, <a class="el" href="a02866.html">PartitionSet</a>&lt; partitions &gt; ps)</td></tr>
-<tr class="memdesc:ga9259fd91c0202503a0fd9d3436360bd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterates over all vertices (entities with dimension 0) of a <a class="el" href="a02754.html" title="Grid view abstract base class.">GridView</a> that belong to the given <a class="el" href="a02866.html" title="A set of PartitionType values.">PartitionSet</a>.  <a href="a00911.html#ga9259fd91c0202503a0fd9d3436360bd4">More...</a><br /></td></tr>
-<tr class="separator:ga9259fd91c0202503a0fd9d3436360bd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Generic entity ranges for non-standard parallel partitions</div></td></tr>
-<tr><td colspan="2"><div class="groupText"><p>These <a class="el" href="a02630.html" title="Wrapper class for entities.">Entity</a> ranges allow for the maximum flexibility; they are parameterized on both the co(cimension) and the parallel <a class="el" href="a02866.html" title="A set of PartitionType values.">PartitionSet</a>. </p>
-</div></td></tr>
-<tr class="memitem:gacb029263c157b9d9e3310007ab6ed2ad"><td class="memTemplParams" colspan="2">template&lt;typename GV , int codim, unsigned int partitions&gt; </td></tr>
-<tr class="memitem:gacb029263c157b9d9e3310007ab6ed2ad"><td class="memTemplItemLeft" align="right" valign="top">IteratorRange&lt;... &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00911.html#gacb029263c157b9d9e3310007ab6ed2ad">entities</a> (const GV &amp;gv gv, <a class="el" href="a02758.html">Codim</a>&lt; codim &gt; cd, <a class="el" href="a02866.html">PartitionSet</a>&lt; partitions &gt; ps)</td></tr>
-<tr class="memdesc:gacb029263c157b9d9e3310007ab6ed2ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterates over all entities of a <a class="el" href="a02754.html" title="Grid view abstract base class.">GridView</a> with the given codimension that belong to the given <a class="el" href="a02866.html" title="A set of PartitionType values.">PartitionSet</a>.  <a href="a00911.html#gacb029263c157b9d9e3310007ab6ed2ad">More...</a><br /></td></tr>
-<tr class="separator:gacb029263c157b9d9e3310007ab6ed2ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3deab7ac40c219b9c381bd9de2f3e06b"><td class="memTemplParams" colspan="2">template&lt;typename GV , int dim, unsigned int partitions&gt; </td></tr>
-<tr class="memitem:ga3deab7ac40c219b9c381bd9de2f3e06b"><td class="memTemplItemLeft" align="right" valign="top">IteratorRange&lt;... &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00911.html#ga3deab7ac40c219b9c381bd9de2f3e06b">entities</a> (const GV &amp;gv, Dim&lt; dim &gt; d, <a class="el" href="a02866.html">PartitionSet</a>&lt; partitions &gt; ps)</td></tr>
-<tr class="memdesc:ga3deab7ac40c219b9c381bd9de2f3e06b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterates over all entities of a <a class="el" href="a02754.html" title="Grid view abstract base class.">GridView</a> with the given dimension that belong to the given <a class="el" href="a02866.html" title="A set of PartitionType values.">PartitionSet</a>.  <a href="a00911.html#ga3deab7ac40c219b9c381bd9de2f3e06b">More...</a><br /></td></tr>
-<tr class="separator:ga3deab7ac40c219b9c381bd9de2f3e06b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a70c4a041e323ee2d7f1106699df242cb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02754.html#a70c4a041e323ee2d7f1106699df242cb">GridFactory</a> ()</td></tr>
+<tr class="memdesc:a70c4a041e323ee2d7f1106699df242cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="a02754.html#a70c4a041e323ee2d7f1106699df242cb">More...</a><br /></td></tr>
+<tr class="separator:a70c4a041e323ee2d7f1106699df242cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a527bb6412a4ec27b0b38599a0bf00654"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02754.html#a527bb6412a4ec27b0b38599a0bf00654">insertVertex</a> ([[maybe_unused]] const FieldVector&lt; <a class="el" href="a02746.html#a7b58d79f583d97de9efca4f8ca110caa">ctype</a>, dimworld &gt; &amp;pos)</td></tr>
+<tr class="memdesc:a527bb6412a4ec27b0b38599a0bf00654"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert a vertex into the coarse grid.  <a href="a02754.html#a527bb6412a4ec27b0b38599a0bf00654">More...</a><br /></td></tr>
+<tr class="separator:a527bb6412a4ec27b0b38599a0bf00654"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae730b072271f09482c11a7c7dd851702"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02754.html#ae730b072271f09482c11a7c7dd851702">insertElement</a> ([[maybe_unused]] const GeometryType &amp;type, [[maybe_unused]] const std::vector&lt; unsigned int &gt; &amp;vertices)</td></tr>
+<tr class="memdesc:ae730b072271f09482c11a7c7dd851702"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert an element into the coarse grid.  <a href="a02754.html#ae730b072271f09482c11a7c7dd851702">More...</a><br /></td></tr>
+<tr class="separator:ae730b072271f09482c11a7c7dd851702"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acab55841e6422f28f444a859b6888dce"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02754.html#acab55841e6422f28f444a859b6888dce">insertBoundarySegment</a> ([[maybe_unused]] const std::vector&lt; unsigned int &gt; &amp;vertices)</td></tr>
+<tr class="memdesc:acab55841e6422f28f444a859b6888dce"><td class="mdescLeft">&#160;</td><td class="mdescRight">insert a boundary segment  <a href="a02754.html#acab55841e6422f28f444a859b6888dce">More...</a><br /></td></tr>
+<tr class="separator:acab55841e6422f28f444a859b6888dce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af62d4a98d13c697f0a6cc4d14485bf6f"><td class="memItemLeft" align="right" valign="top">virtual std::unique_ptr&lt; GridType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02754.html#af62d4a98d13c697f0a6cc4d14485bf6f">createGrid</a> ()</td></tr>
+<tr class="memdesc:af62d4a98d13c697f0a6cc4d14485bf6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finalize grid creation and hand over the grid.  <a href="a02754.html#af62d4a98d13c697f0a6cc4d14485bf6f">More...</a><br /></td></tr>
+<tr class="separator:af62d4a98d13c697f0a6cc4d14485bf6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21637f0ef87b500a57f9e726d8619dcb"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02754.html#a21637f0ef87b500a57f9e726d8619dcb">insertBoundarySegment</a> (const std::vector&lt; unsigned int &gt; &amp;vertices)=0</td></tr>
+<tr class="memdesc:a21637f0ef87b500a57f9e726d8619dcb"><td class="mdescLeft">&#160;</td><td class="mdescRight">insert a boundary segment  <a href="a02754.html#a21637f0ef87b500a57f9e726d8619dcb">More...</a><br /></td></tr>
+<tr class="separator:a21637f0ef87b500a57f9e726d8619dcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefa84c2022a0f349af1c146c4cc2eecf"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02754.html#aefa84c2022a0f349af1c146c4cc2eecf">insertBoundarySegment</a> ([[maybe_unused]] const std::vector&lt; unsigned int &gt; &amp;vertices,[[maybe_unused]] const std::shared_ptr&lt; <a class="el" href="a02490.html">BoundarySegment</a>&lt; <a class="el" href="a02746.html#a6acc0aca4d820b22da541f284d3799ef">dimension</a>, dimworld &gt; &gt; &amp;boundarySegment)</td></tr>
+<tr class="memdesc:aefa84c2022a0f349af1c146c4cc2eecf"><td class="mdescLeft">&#160;</td><td class="mdescRight">insert an arbitrarily shaped boundary segment  <a href="a02754.html#aefa84c2022a0f349af1c146c4cc2eecf">More...</a><br /></td></tr>
+<tr class="separator:aefa84c2022a0f349af1c146c4cc2eecf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f0b38a138c64daab43f42dd43b2acdc"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02746.html#a5f0b38a138c64daab43f42dd43b2acdc">insertVertex</a> (const FieldVector&lt; <a class="el" href="a02746.html#a7b58d79f583d97de9efca4f8ca110caa">ctype</a>, dimworld &gt; &amp;pos)=0</td></tr>
+<tr class="memdesc:a5f0b38a138c64daab43f42dd43b2acdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert a vertex into the coarse grid.  <a href="a02746.html#a5f0b38a138c64daab43f42dd43b2acdc">More...</a><br /></td></tr>
+<tr class="separator:a5f0b38a138c64daab43f42dd43b2acdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a080bcc5d5f613154e22a67380f1f7ff9"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02746.html#a080bcc5d5f613154e22a67380f1f7ff9">insertElement</a> (const GeometryType &amp;type, const std::vector&lt; unsigned int &gt; &amp;vertices)=0</td></tr>
+<tr class="memdesc:a080bcc5d5f613154e22a67380f1f7ff9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert an element into the coarse grid.  <a href="a02746.html#a080bcc5d5f613154e22a67380f1f7ff9">More...</a><br /></td></tr>
+<tr class="separator:a080bcc5d5f613154e22a67380f1f7ff9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aacef766012d57f68fdb19df4f0757151"><td class="memItemLeft" align="right" valign="top">virtual DUNE_NO_DEPRECATED_BEGIN void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02746.html#aacef766012d57f68fdb19df4f0757151">insertElement</a> ([[maybe_unused]] const GeometryType &amp;type, [[maybe_unused]] const std::vector&lt; unsigned int &gt; &amp;vertices, [[maybe_unused]] const std::shared_ptr&lt; VirtualFunction&lt; FieldVector&lt; <a class="el" href="a02746.html#a7b58d79f583d97de9efca4f8ca110caa">ctype</a>, <a class="el" href="a02746.html#a6acc0aca4d820b22da541f284d3799ef">dimension</a> &gt;, FieldVector&lt; <a class="el" href="a02746.html#a7b58d79f583d97de9efca4f8ca110caa">ctype</a>, dimworld &gt; &gt; &gt; &amp;elementParametrization)</td></tr>
+<tr class="memdesc:aacef766012d57f68fdb19df4f0757151"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert a parametrized element into the coarse grid.  <a href="a02746.html#aacef766012d57f68fdb19df4f0757151">More...</a><br /></td></tr>
+<tr class="separator:aacef766012d57f68fdb19df4f0757151"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa831a4071fb0f5c5cec5c1123767cf17"><td class="memItemLeft" align="right" valign="top">virtual DUNE_NO_DEPRECATED_END void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02746.html#aa831a4071fb0f5c5cec5c1123767cf17">insertElement</a> (const GeometryType &amp;type, const std::vector&lt; unsigned int &gt; &amp;vertices, std::function&lt; FieldVector&lt; <a class="el" href="a02746.html#a7b58d79f583d97de9efca4f8ca110caa">ctype</a>, dimworld &gt;(FieldVector&lt; <a class="el" href="a02746.html#a7b58d79f583d97de9efca4f8ca110caa">ctype</a>, <a class="el" href="a02746.html#a6acc0aca4d820b22da541f284d3799ef">dimension</a> &gt;)&gt; elementParametrization)</td></tr>
+<tr class="memdesc:aa831a4071fb0f5c5cec5c1123767cf17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert a parametrized element into the coarse grid.  <a href="a02746.html#aa831a4071fb0f5c5cec5c1123767cf17">More...</a><br /></td></tr>
+<tr class="separator:aa831a4071fb0f5c5cec5c1123767cf17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21637f0ef87b500a57f9e726d8619dcb"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02746.html#a21637f0ef87b500a57f9e726d8619dcb">insertBoundarySegment</a> (const std::vector&lt; unsigned int &gt; &amp;vertices)=0</td></tr>
+<tr class="memdesc:a21637f0ef87b500a57f9e726d8619dcb"><td class="mdescLeft">&#160;</td><td class="mdescRight">insert a boundary segment  <a href="a02746.html#a21637f0ef87b500a57f9e726d8619dcb">More...</a><br /></td></tr>
+<tr class="separator:a21637f0ef87b500a57f9e726d8619dcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98ec0cf8898d878fd2c7839b93cca63b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02746.html#a98ec0cf8898d878fd2c7839b93cca63b">insertBoundarySegment</a> ([[maybe_unused]] const std::vector&lt; unsigned int &gt; &amp;vertices, [[maybe_unused]] const std::shared_ptr&lt; <a class="el" href="a02490.html">BoundarySegment</a>&lt; <a class="el" href="a02746.html#a6acc0aca4d820b22da541f284d3799ef">dimension</a>, dimworld &gt; &gt; &amp;boundarySegment)</td></tr>
+<tr class="memdesc:a98ec0cf8898d878fd2c7839b93cca63b"><td class="mdescLeft">&#160;</td><td class="mdescRight">insert an arbitrarily shaped boundary segment  <a href="a02746.html#a98ec0cf8898d878fd2c7839b93cca63b">More...</a><br /></td></tr>
+<tr class="separator:a98ec0cf8898d878fd2c7839b93cca63b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b7c2a2e27e63965926aa5fdd611be59"><td class="memItemLeft" align="right" valign="top">virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02746.html#a0b7c2a2e27e63965926aa5fdd611be59">insertionIndex</a> ([[maybe_unused]] const typename <a class="el" href="a02750.html">Codim</a>&lt; 0 &gt;::<a class="el" href="a02642.html">Entity</a> &amp;entity) const</td></tr>
+<tr class="memdesc:a0b7c2a2e27e63965926aa5fdd611be59"><td class="mdescLeft">&#160;</td><td class="mdescRight">obtain an element's insertion index  <a href="a02746.html#a0b7c2a2e27e63965926aa5fdd611be59">More...</a><br /></td></tr>
+<tr class="separator:a0b7c2a2e27e63965926aa5fdd611be59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6152c903208f25b1159c1c7b20d2bc5c"><td class="memItemLeft" align="right" valign="top">virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02746.html#a6152c903208f25b1159c1c7b20d2bc5c">insertionIndex</a> ([[maybe_unused]] const typename <a class="el" href="a02750.html">Codim</a>&lt; <a class="el" href="a02746.html#a6acc0aca4d820b22da541f284d3799ef">dimension</a> &gt;::<a class="el" href="a02642.html">Entity</a> &amp;entity) const</td></tr>
+<tr class="memdesc:a6152c903208f25b1159c1c7b20d2bc5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">obtain a vertex' insertion index  <a href="a02746.html#a6152c903208f25b1159c1c7b20d2bc5c">More...</a><br /></td></tr>
+<tr class="separator:a6152c903208f25b1159c1c7b20d2bc5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9bfb090feaf113f48055c45623ee3dbd"><td class="memItemLeft" align="right" valign="top">virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02746.html#a9bfb090feaf113f48055c45623ee3dbd">insertionIndex</a> ([[maybe_unused]] const typename GridType::LeafIntersection &amp;intersection) const</td></tr>
+<tr class="memdesc:a9bfb090feaf113f48055c45623ee3dbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">obtain a boundary's insertion index  <a href="a02746.html#a9bfb090feaf113f48055c45623ee3dbd">More...</a><br /></td></tr>
+<tr class="separator:a9bfb090feaf113f48055c45623ee3dbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d905f89116b44f535d4376dc796c7aa"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02746.html#a2d905f89116b44f535d4376dc796c7aa">wasInserted</a> ([[maybe_unused]] const typename GridType::LeafIntersection &amp;intersection) const</td></tr>
+<tr class="memdesc:a2d905f89116b44f535d4376dc796c7aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">determine whether an intersection was inserted  <a href="a02746.html#a2d905f89116b44f535d4376dc796c7aa">More...</a><br /></td></tr>
+<tr class="separator:a2d905f89116b44f535d4376dc796c7aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97dafaf7c0a9f08342bd81738fc9831d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a02746.html#abbf0551a5a9082d1ab1fd3f6bd942d91">Communication</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02746.html#a97dafaf7c0a9f08342bd81738fc9831d">comm</a> () const</td></tr>
+<tr class="memdesc:a97dafaf7c0a9f08342bd81738fc9831d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the Communication used by the grid factory.  <a href="a02746.html#a97dafaf7c0a9f08342bd81738fc9831d">More...</a><br /></td></tr>
+<tr class="separator:a97dafaf7c0a9f08342bd81738fc9831d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader">Interface for the implementor</h2></td></tr>
-<tr class="memitem:ga3fc41fda2ed6fe1dbd5cd4ebfea1b69b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00906.html#ga6f7280bd69cfb603432165d70b3a0fc9">Implementation</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00906.html#ga3fc41fda2ed6fe1dbd5cd4ebfea1b69b">impl_</a></td></tr>
-<tr class="separator:ga3fc41fda2ed6fe1dbd5cd4ebfea1b69b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaaf68cc574df6dc419a2c903bd5009ecf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00906.html#gaaf68cc574df6dc419a2c903bd5009ecf">GridView</a> (const <a class="el" href="a00906.html#ga6f7280bd69cfb603432165d70b3a0fc9">Implementation</a> &amp;imp)</td></tr>
-<tr class="memdesc:gaaf68cc574df6dc419a2c903bd5009ecf"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor (engine concept)  <a href="a00906.html#gaaf68cc574df6dc419a2c903bd5009ecf">More...</a><br /></td></tr>
-<tr class="separator:gaaf68cc574df6dc419a2c903bd5009ecf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf3b626d766afd77c38be8ec47149f789"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00906.html#gaf3b626d766afd77c38be8ec47149f789">GridView</a> (const <a class="el" href="a02754.html">ThisType</a> &amp;other)</td></tr>
-<tr class="memdesc:gaf3b626d766afd77c38be8ec47149f789"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <a href="a00906.html#gaf3b626d766afd77c38be8ec47149f789">More...</a><br /></td></tr>
-<tr class="separator:gaf3b626d766afd77c38be8ec47149f789"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa4c3d548fb5ca47cdd845e54377a7f27"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a02754.html">ThisType</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00906.html#gaa4c3d548fb5ca47cdd845e54377a7f27">operator=</a> (const <a class="el" href="a02754.html">ThisType</a> &amp;other)</td></tr>
-<tr class="memdesc:gaa4c3d548fb5ca47cdd845e54377a7f27"><td class="mdescLeft">&#160;</td><td class="mdescRight">assignment operator  <a href="a00906.html#gaa4c3d548fb5ca47cdd845e54377a7f27">More...</a><br /></td></tr>
-<tr class="separator:gaa4c3d548fb5ca47cdd845e54377a7f27"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaabc68b134636fde0a5384017d7047e9d"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00906.html#gad6482279521362048503475e72e8adef">Grid</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00906.html#gaabc68b134636fde0a5384017d7047e9d">grid</a> () const</td></tr>
-<tr class="memdesc:gaabc68b134636fde0a5384017d7047e9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">obtain a const reference to the underlying hierarchic grid  <a href="a00906.html#gaabc68b134636fde0a5384017d7047e9d">More...</a><br /></td></tr>
-<tr class="separator:gaabc68b134636fde0a5384017d7047e9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae3f0803a7bc8cc409f98bd87af16b55a"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00906.html#ga5f1345dd3b5cf92a0470c9ce7ea24910">IndexSet</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00906.html#gae3f0803a7bc8cc409f98bd87af16b55a">indexSet</a> () const</td></tr>
-<tr class="memdesc:gae3f0803a7bc8cc409f98bd87af16b55a"><td class="mdescLeft">&#160;</td><td class="mdescRight">obtain the index set  <a href="a00906.html#gae3f0803a7bc8cc409f98bd87af16b55a">More...</a><br /></td></tr>
-<tr class="separator:gae3f0803a7bc8cc409f98bd87af16b55a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5ddcf4f66ca883711fcdbcd23d0ed28c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00906.html#ga5ddcf4f66ca883711fcdbcd23d0ed28c">size</a> (int codim) const</td></tr>
-<tr class="memdesc:ga5ddcf4f66ca883711fcdbcd23d0ed28c"><td class="mdescLeft">&#160;</td><td class="mdescRight">obtain number of entities in a given codimension  <a href="a00906.html#ga5ddcf4f66ca883711fcdbcd23d0ed28c">More...</a><br /></td></tr>
-<tr class="separator:ga5ddcf4f66ca883711fcdbcd23d0ed28c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4793d740d8824a946e81674e098c3d53"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00906.html#ga4793d740d8824a946e81674e098c3d53">size</a> (const GeometryType &amp;type) const</td></tr>
-<tr class="memdesc:ga4793d740d8824a946e81674e098c3d53"><td class="mdescLeft">&#160;</td><td class="mdescRight">obtain number of entities with a given geometry type  <a href="a00906.html#ga4793d740d8824a946e81674e098c3d53">More...</a><br /></td></tr>
-<tr class="separator:ga4793d740d8824a946e81674e098c3d53"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gacc036e7e6c42d7b6e88bfdce4a3b1ac1"><td class="memTemplParams" colspan="2">template&lt;class EntityType &gt; </td></tr>
-<tr class="memitem:gacc036e7e6c42d7b6e88bfdce4a3b1ac1"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00906.html#gacc036e7e6c42d7b6e88bfdce4a3b1ac1">contains</a> (const EntityType &amp;e) const</td></tr>
-<tr class="memdesc:gacc036e7e6c42d7b6e88bfdce4a3b1ac1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return true if the given entity is contained in this grid view.  <a href="a00906.html#gacc036e7e6c42d7b6e88bfdce4a3b1ac1">More...</a><br /></td></tr>
-<tr class="separator:gacc036e7e6c42d7b6e88bfdce4a3b1ac1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga92860a4a6cc8a9853597651813e28928"><td class="memTemplParams" colspan="2">template&lt;int cd&gt; </td></tr>
-<tr class="memitem:ga92860a4a6cc8a9853597651813e28928"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="a02758.html">Codim</a>&lt; cd &gt;::Iterator&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00906.html#ga92860a4a6cc8a9853597651813e28928">begin</a> () const</td></tr>
-<tr class="memdesc:ga92860a4a6cc8a9853597651813e28928"><td class="mdescLeft">&#160;</td><td class="mdescRight">obtain begin iterator for this view  <a href="a00906.html#ga92860a4a6cc8a9853597651813e28928">More...</a><br /></td></tr>
-<tr class="separator:ga92860a4a6cc8a9853597651813e28928"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf937633517b9e222b7651caf8b8dc5e2"><td class="memTemplParams" colspan="2">template&lt;int cd&gt; </td></tr>
-<tr class="memitem:gaf937633517b9e222b7651caf8b8dc5e2"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="a02758.html">Codim</a>&lt; cd &gt;::Iterator&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00906.html#gaf937633517b9e222b7651caf8b8dc5e2">end</a> () const</td></tr>
-<tr class="memdesc:gaf937633517b9e222b7651caf8b8dc5e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">obtain end iterator for this view  <a href="a00906.html#gaf937633517b9e222b7651caf8b8dc5e2">More...</a><br /></td></tr>
-<tr class="separator:gaf937633517b9e222b7651caf8b8dc5e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8c6d10ebfc0d41495af02fdccc3997ef"><td class="memTemplParams" colspan="2">template&lt;int cd, PartitionIteratorType pitype&gt; </td></tr>
-<tr class="memitem:ga8c6d10ebfc0d41495af02fdccc3997ef"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="a02758.html">Codim</a>&lt; cd &gt;::template Partition&lt; pitype &gt;::Iterator&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00906.html#ga8c6d10ebfc0d41495af02fdccc3997ef">begin</a> () const</td></tr>
-<tr class="memdesc:ga8c6d10ebfc0d41495af02fdccc3997ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">obtain begin iterator for this view  <a href="a00906.html#ga8c6d10ebfc0d41495af02fdccc3997ef">More...</a><br /></td></tr>
-<tr class="separator:ga8c6d10ebfc0d41495af02fdccc3997ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga932de218f79e8e9fcfdb4f97451d5159"><td class="memTemplParams" colspan="2">template&lt;int cd, PartitionIteratorType pitype&gt; </td></tr>
-<tr class="memitem:ga932de218f79e8e9fcfdb4f97451d5159"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="a02758.html">Codim</a>&lt; cd &gt;::template Partition&lt; pitype &gt;::Iterator&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00906.html#ga932de218f79e8e9fcfdb4f97451d5159">end</a> () const</td></tr>
-<tr class="memdesc:ga932de218f79e8e9fcfdb4f97451d5159"><td class="mdescLeft">&#160;</td><td class="mdescRight">obtain end iterator for this view  <a href="a00906.html#ga932de218f79e8e9fcfdb4f97451d5159">More...</a><br /></td></tr>
-<tr class="separator:ga932de218f79e8e9fcfdb4f97451d5159"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2ebb9b611e85170ca9b7caed8c92ea48"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00906.html#ga04a58d035da1949e02b84757999e3f9c">IntersectionIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00906.html#ga2ebb9b611e85170ca9b7caed8c92ea48">ibegin</a> (const typename <a class="el" href="a02758.html">Codim</a>&lt; 0 &gt; ::<a class="el" href="a02630.html">Entity</a> &amp;entity) const</td></tr>
-<tr class="memdesc:ga2ebb9b611e85170ca9b7caed8c92ea48"><td class="mdescLeft">&#160;</td><td class="mdescRight">obtain begin intersection iterator with respect to this view  <a href="a00906.html#ga2ebb9b611e85170ca9b7caed8c92ea48">More...</a><br /></td></tr>
-<tr class="separator:ga2ebb9b611e85170ca9b7caed8c92ea48"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab4cdba181dd6bd5d6d0efd4604a2d1b6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00906.html#ga04a58d035da1949e02b84757999e3f9c">IntersectionIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00906.html#gab4cdba181dd6bd5d6d0efd4604a2d1b6">iend</a> (const typename <a class="el" href="a02758.html">Codim</a>&lt; 0 &gt; ::<a class="el" href="a02630.html">Entity</a> &amp;entity) const</td></tr>
-<tr class="memdesc:gab4cdba181dd6bd5d6d0efd4604a2d1b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">obtain end intersection iterator with respect to this view  <a href="a00906.html#gab4cdba181dd6bd5d6d0efd4604a2d1b6">More...</a><br /></td></tr>
-<tr class="separator:gab4cdba181dd6bd5d6d0efd4604a2d1b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaceb2ef5865dc5e6b3931a36b634db1a5"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00906.html#ga14c83b500679183b9095a0c0ea551128">CollectiveCommunication</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00906.html#gaceb2ef5865dc5e6b3931a36b634db1a5">comm</a> () const</td></tr>
-<tr class="memdesc:gaceb2ef5865dc5e6b3931a36b634db1a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">obtain collective communication object  <a href="a00906.html#gaceb2ef5865dc5e6b3931a36b634db1a5">More...</a><br /></td></tr>
-<tr class="separator:gaceb2ef5865dc5e6b3931a36b634db1a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga426f2a232840d3d059e9dc1adfca7eb4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00906.html#ga426f2a232840d3d059e9dc1adfca7eb4">overlapSize</a> (int codim) const</td></tr>
-<tr class="memdesc:ga426f2a232840d3d059e9dc1adfca7eb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return size of the overlap region for a given codim on the grid view. <br  />
-  <a href="a00906.html#ga426f2a232840d3d059e9dc1adfca7eb4">More...</a><br /></td></tr>
-<tr class="separator:ga426f2a232840d3d059e9dc1adfca7eb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gafac7df15b7cfd83142180db8092940b7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00906.html#gafac7df15b7cfd83142180db8092940b7">ghostSize</a> (int codim) const</td></tr>
-<tr class="memdesc:gafac7df15b7cfd83142180db8092940b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return size of the ghost region for a given codim on the grid view. <br  />
-  <a href="a00906.html#gafac7df15b7cfd83142180db8092940b7">More...</a><br /></td></tr>
-<tr class="separator:gafac7df15b7cfd83142180db8092940b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa92e1502b9024f8c7f09b10e3622ff51"><td class="memTemplParams" colspan="2">template&lt;class DataHandleImp , class DataType &gt; </td></tr>
-<tr class="memitem:gaa92e1502b9024f8c7f09b10e3622ff51"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00906.html#gaa92e1502b9024f8c7f09b10e3622ff51">communicate</a> (<a class="el" href="a02574.html">CommDataHandleIF</a>&lt; DataHandleImp, DataType &gt; &amp;data, <a class="el" href="a00904.html#gae799a4296824c1d4ae0d82e71287b722">InterfaceType</a> iftype, <a class="el" href="a00904.html#gacf00ef51e7964e5797de12e1bdf8d755">CommunicationDirection</a> dir) const</td></tr>
-<tr class="memdesc:gaa92e1502b9024f8c7f09b10e3622ff51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Communicate data on this view.  <a href="a00906.html#gaa92e1502b9024f8c7f09b10e3622ff51">More...</a><br /></td></tr>
-<tr class="separator:gaa92e1502b9024f8c7f09b10e3622ff51"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3711aa01cd12780440d7e531ec7da344"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00906.html#ga6f7280bd69cfb603432165d70b3a0fc9">Implementation</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00906.html#ga3711aa01cd12780440d7e531ec7da344">impl</a> ()</td></tr>
-<tr class="memdesc:ga3711aa01cd12780440d7e531ec7da344"><td class="mdescLeft">&#160;</td><td class="mdescRight">access to the underlying implementation  <a href="a00906.html#ga3711aa01cd12780440d7e531ec7da344">More...</a><br /></td></tr>
-<tr class="separator:ga3711aa01cd12780440d7e531ec7da344"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga03ec4aa1955491927ee99629b94f3128"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00906.html#ga6f7280bd69cfb603432165d70b3a0fc9">Implementation</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00906.html#ga03ec4aa1955491927ee99629b94f3128">impl</a> () const</td></tr>
-<tr class="memdesc:ga03ec4aa1955491927ee99629b94f3128"><td class="mdescLeft">&#160;</td><td class="mdescRight">access to the underlying implementation  <a href="a00906.html#ga03ec4aa1955491927ee99629b94f3128">More...</a><br /></td></tr>
-<tr class="separator:ga03ec4aa1955491927ee99629b94f3128"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-types"></a>
+Protected Types</h2></td></tr>
+<tr class="memitem:a14215e19807befd416b199b60f241ee0"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="a02746.html#a14215e19807befd416b199b60f241ee0a08ec53a31ef19204cd9e8572c0ab4715">dimworld</a> = GridType::dimensionworld
+ }</td></tr>
+<tr class="memdesc:a14215e19807befd416b199b60f241ee0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The grid world dimension.  <a href="a02746.html#a14215e19807befd416b199b60f241ee0">More...</a><br /></td></tr>
+<tr class="separator:a14215e19807befd416b199b60f241ee0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-attribs"></a>
+Static Protected Attributes</h2></td></tr>
+<tr class="memitem:a6acc0aca4d820b22da541f284d3799ef"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02746.html#a6acc0aca4d820b22da541f284d3799ef">dimension</a> = GridType::dimension</td></tr>
+<tr class="memdesc:a6acc0aca4d820b22da541f284d3799ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">dimension of the grid  <a href="a02746.html#a6acc0aca4d820b22da541f284d3799ef">More...</a><br /></td></tr>
+<tr class="separator:a6acc0aca4d820b22da541f284d3799ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;class ViewTraits&gt;<br />
-class Dune::GridView&lt; ViewTraits &gt;</h3>
+<div class="textblock"><h3>template&lt;class GridType&gt;<br />
+class Dune::GridFactory&lt; GridType &gt;</h3>
 
-<p><a class="el" href="a02698.html" title="Grid abstract base class.">Grid</a> view abstract base class. </p>
-<p>Interface class for a view on grids. Grids return two types of view, a view of the leaf grid and of a level grid, which both satisfy the same interface. Through the view the user has access to the iterators, the intersections and the index set.</p>
-<p>The interface is implemented using the engine concept. </p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="a06824_source.html">common/gridview.hh</a></li>
-<li><a class="el" href="a00299_source.html">rangegenerators.hh</a></li>
+<p>Provide a generic factory class for unstructured grids. </p>
+<p>This is the unspecialized class, which does nothing. All work is done in the specializations for the different grid types.</p>
+<p>See <a class="el" href="a02746.html" title="Provide a generic factory class for unstructured grids.">GridFactoryInterface</a> for an example how to use this class. </p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="abbf0551a5a9082d1ab1fd3f6bd942d91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbf0551a5a9082d1ab1fd3f6bd942d91">&#9670;&nbsp;</a></span>Communication</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class GridType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="a02746.html">Dune::GridFactoryInterface</a>&lt; GridType &gt;::<a class="el" href="a02746.html#abbf0551a5a9082d1ab1fd3f6bd942d91">Communication</a> =  Dune::CollectiveCommunication&lt;typename MPIHelper::MPICommunicator&gt;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="a14215e19807befd416b199b60f241ee0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14215e19807befd416b199b60f241ee0">&#9670;&nbsp;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class GridType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The grid world dimension. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a14215e19807befd416b199b60f241ee0a08ec53a31ef19204cd9e8572c0ab4715"></a>dimworld&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a70c4a041e323ee2d7f1106699df242cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70c4a041e323ee2d7f1106699df242cb">&#9670;&nbsp;</a></span>GridFactory()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class GridType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a02754.html">Dune::GridFactory</a>&lt; GridType &gt;::<a class="el" href="a02754.html">GridFactory</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Default constructor. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a97dafaf7c0a9f08342bd81738fc9831d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97dafaf7c0a9f08342bd81738fc9831d">&#9670;&nbsp;</a></span>comm()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class GridType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a02746.html#abbf0551a5a9082d1ab1fd3f6bd942d91">Communication</a> <a class="el" href="a02746.html">Dune::GridFactoryInterface</a>&lt; GridType &gt;::comm </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return the Communication used by the grid factory. </p>
+<p>Defaults to the Communication induced by the process-local communicator. </p>
+
+</div>
+</div>
+<a id="af62d4a98d13c697f0a6cc4d14485bf6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af62d4a98d13c697f0a6cc4d14485bf6f">&#9670;&nbsp;</a></span>createGrid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class GridType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::unique_ptr&lt;GridType&gt; <a class="el" href="a02754.html">Dune::GridFactory</a>&lt; GridType &gt;::createGrid </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Finalize grid creation and hand over the grid. </p>
+<p>The receiver takes responsibility of the memory allocated for the grid </p>
+
+<p>Implements <a class="el" href="a02746.html#a07401edad7eec5362418e064c7db9d21">Dune::GridFactoryInterface&lt; GridType &gt;</a>.</p>
+
+</div>
+</div>
+<a id="acab55841e6422f28f444a859b6888dce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acab55841e6422f28f444a859b6888dce">&#9670;&nbsp;</a></span>insertBoundarySegment() <span class="overload">[1/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class GridType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void <a class="el" href="a02754.html">Dune::GridFactory</a>&lt; GridType &gt;::insertBoundarySegment </td>
+          <td>(</td>
+          <td class="paramtype">[[maybe_unused] ] const std::vector&lt; unsigned int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>vertices</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>insert a boundary segment </p>
+<p>This method inserts a boundary segment into the coarse grid. Using this method has two advantages over not using it:</p><ul>
+<li>The boundary segment gets an insertion index.</li>
+<li>The grid factory can verify that this is actually a boundary segment</li>
+</ul>
+<dl class="section note"><dt>Note</dt><dd>You are not forced to insert all boundary segments. The grid factory will find the remaining boundary segments itself.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">vertices</td><td>the indices of the vertices of the segment </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a98ec0cf8898d878fd2c7839b93cca63b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98ec0cf8898d878fd2c7839b93cca63b">&#9670;&nbsp;</a></span>insertBoundarySegment() <span class="overload">[2/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class GridType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void <a class="el" href="a02746.html">Dune::GridFactoryInterface</a>&lt; GridType &gt;::insertBoundarySegment </td>
+          <td>(</td>
+          <td class="paramtype">[[maybe_unused] ] const std::vector&lt; unsigned int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>vertices</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">[[maybe_unused] ] const std::shared_ptr&lt; <a class="el" href="a02490.html">BoundarySegment</a>&lt; <a class="el" href="a02746.html#a6acc0aca4d820b22da541f284d3799ef">dimension</a>, <a class="el" href="a02746.html#a14215e19807befd416b199b60f241ee0a08ec53a31ef19204cd9e8572c0ab4715">dimworld</a> &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>boundarySegment</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>insert an arbitrarily shaped boundary segment </p>
+<p>This method inserts a boundary segment into the coarse grid.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">vertices</td><td>the indices of the vertices of the segment </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">boundarySegment</td><td>user defined implementation of the boundary segment's geometry </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aefa84c2022a0f349af1c146c4cc2eecf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefa84c2022a0f349af1c146c4cc2eecf">&#9670;&nbsp;</a></span>insertBoundarySegment() <span class="overload">[3/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class GridType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void <a class="el" href="a02746.html">Dune::GridFactoryInterface</a>&lt; GridType &gt;::insertBoundarySegment</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>insert an arbitrarily shaped boundary segment </p>
+<p>This method inserts a boundary segment into the coarse grid.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">vertices</td><td>the indices of the vertices of the segment </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">boundarySegment</td><td>user defined implementation of the boundary segment's geometry </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a21637f0ef87b500a57f9e726d8619dcb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21637f0ef87b500a57f9e726d8619dcb">&#9670;&nbsp;</a></span>insertBoundarySegment() <span class="overload">[4/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class GridType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void <a class="el" href="a02746.html">Dune::GridFactoryInterface</a>&lt; GridType &gt;::insertBoundarySegment </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; unsigned int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>vertices</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>insert a boundary segment </p>
+<p>This method inserts a boundary segment into the coarse grid. Using this method has two advantages over not using it:</p><ul>
+<li>The boundary segment gets an insertion index.</li>
+<li>The grid factory can verify that this is actually a boundary segment</li>
+</ul>
+<dl class="section note"><dt>Note</dt><dd>You are not forced to insert all boundary segments. The grid factory will find the remaining boundary segments itself.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">vertices</td><td>the indices of the vertices of the segment </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="a03994.html#adea963c5b567ba39b7b56a1ac196a22b">Dune::GridFactory&lt; UGGrid&lt; dimworld &gt; &gt;</a>, and <a class="el" href="a02014.html#af8a82e77752664f672c1160d5270067c">Dune::GridFactory&lt; AlbertaGrid&lt; dim, dimworld &gt; &gt;</a>.</p>
+
+</div>
+</div>
+<a id="a21637f0ef87b500a57f9e726d8619dcb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21637f0ef87b500a57f9e726d8619dcb">&#9670;&nbsp;</a></span>insertBoundarySegment() <span class="overload">[5/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class GridType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void <a class="el" href="a02746.html">Dune::GridFactoryInterface</a>&lt; GridType &gt;::insertBoundarySegment</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>insert a boundary segment </p>
+<p>This method inserts a boundary segment into the coarse grid. Using this method has two advantages over not using it:</p><ul>
+<li>The boundary segment gets an insertion index.</li>
+<li>The grid factory can verify that this is actually a boundary segment</li>
+</ul>
+<dl class="section note"><dt>Note</dt><dd>You are not forced to insert all boundary segments. The grid factory will find the remaining boundary segments itself.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">vertices</td><td>the indices of the vertices of the segment </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae730b072271f09482c11a7c7dd851702"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae730b072271f09482c11a7c7dd851702">&#9670;&nbsp;</a></span>insertElement() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class GridType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void <a class="el" href="a02754.html">Dune::GridFactory</a>&lt; GridType &gt;::insertElement </td>
+          <td>(</td>
+          <td class="paramtype">[[maybe_unused] ] const GeometryType &amp;&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">[[maybe_unused] ] const std::vector&lt; unsigned int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>vertices</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Insert an element into the coarse grid. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>The GeometryType of the new element </td></tr>
+    <tr><td class="paramname">vertices</td><td>The vertices of the new element, using the DUNE numbering</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Make sure the inserted element is not inverted (this holds even for simplices). There are grids that can't handle inverted tets. </p>
+
+</div>
+</div>
+<a id="aacef766012d57f68fdb19df4f0757151"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aacef766012d57f68fdb19df4f0757151">&#9670;&nbsp;</a></span>insertElement() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class GridType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual DUNE_NO_DEPRECATED_BEGIN void <a class="el" href="a02746.html">Dune::GridFactoryInterface</a>&lt; GridType &gt;::insertElement </td>
+          <td>(</td>
+          <td class="paramtype">[[maybe_unused] ] const GeometryType &amp;&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">[[maybe_unused] ] const std::vector&lt; unsigned int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>vertices</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">[[maybe_unused] ] const std::shared_ptr&lt; VirtualFunction&lt; FieldVector&lt; <a class="el" href="a02746.html#a7b58d79f583d97de9efca4f8ca110caa">ctype</a>, <a class="el" href="a02746.html#a6acc0aca4d820b22da541f284d3799ef">dimension</a> &gt;, FieldVector&lt; <a class="el" href="a02746.html#a7b58d79f583d97de9efca4f8ca110caa">ctype</a>, <a class="el" href="a02746.html#a14215e19807befd416b199b60f241ee0a08ec53a31ef19204cd9e8572c0ab4715">dimworld</a> &gt; &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>elementParametrization</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Insert a parametrized element into the coarse grid. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>The GeometryType of the new element </td></tr>
+    <tr><td class="paramname">vertices</td><td>The vertices of the new element, using the DUNE numbering </td></tr>
+    <tr><td class="paramname">elementParametrization</td><td>A function prescribing the shape of this element</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Make sure the inserted element is not inverted (this holds even for simplices). There are grids that can't handle inverted elements.</p>
+<dl class="deprecated"><dt><b><a class="el" href="a00902.html#_deprecated000002">Deprecated:</a></b></dt><dd>[After <a class="el" href="a00940.html" title="Include standard header files.">Dune</a> 2.7] VirtualFunction is deprecated, use the overload taking a std::function instead </dd></dl>
+
+</div>
+</div>
+<a id="a080bcc5d5f613154e22a67380f1f7ff9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a080bcc5d5f613154e22a67380f1f7ff9">&#9670;&nbsp;</a></span>insertElement() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class GridType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void <a class="el" href="a02746.html">Dune::GridFactoryInterface</a>&lt; GridType &gt;::insertElement </td>
+          <td>(</td>
+          <td class="paramtype">const GeometryType &amp;&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; unsigned int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>vertices</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Insert an element into the coarse grid. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>The GeometryType of the new element </td></tr>
+    <tr><td class="paramname">vertices</td><td>The vertices of the new element, using the DUNE numbering</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Make sure the inserted element is not inverted (this holds even for simplices). There are grids that can't handle inverted elements. </p>
+
+<p>Implemented in <a class="el" href="a03994.html#a7d51ac0851cfa08641bedc1c86719d5d">Dune::GridFactory&lt; UGGrid&lt; dimworld &gt; &gt;</a>, and <a class="el" href="a02014.html#a93693d905b7ed0d7606c89817d907bd8">Dune::GridFactory&lt; AlbertaGrid&lt; dim, dimworld &gt; &gt;</a>.</p>
+
+</div>
+</div>
+<a id="aa831a4071fb0f5c5cec5c1123767cf17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa831a4071fb0f5c5cec5c1123767cf17">&#9670;&nbsp;</a></span>insertElement() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class GridType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual DUNE_NO_DEPRECATED_END void <a class="el" href="a02746.html">Dune::GridFactoryInterface</a>&lt; GridType &gt;::insertElement </td>
+          <td>(</td>
+          <td class="paramtype">const GeometryType &amp;&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; unsigned int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>vertices</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; FieldVector&lt; <a class="el" href="a02746.html#a7b58d79f583d97de9efca4f8ca110caa">ctype</a>, <a class="el" href="a02746.html#a14215e19807befd416b199b60f241ee0a08ec53a31ef19204cd9e8572c0ab4715">dimworld</a> &gt;(FieldVector&lt; <a class="el" href="a02746.html#a7b58d79f583d97de9efca4f8ca110caa">ctype</a>, <a class="el" href="a02746.html#a6acc0aca4d820b22da541f284d3799ef">dimension</a> &gt;)&gt;&#160;</td>
+          <td class="paramname"><em>elementParametrization</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Insert a parametrized element into the coarse grid. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>The GeometryType of the new element </td></tr>
+    <tr><td class="paramname">vertices</td><td>The vertices of the new element, using the DUNE numbering </td></tr>
+    <tr><td class="paramname">elementParametrization</td><td>A function prescribing the shape of this element</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Make sure the inserted element is not inverted (this holds even for simplices). There are grids that can't handle inverted elements. </p>
+
+</div>
+</div>
+<a id="a0b7c2a2e27e63965926aa5fdd611be59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b7c2a2e27e63965926aa5fdd611be59">&#9670;&nbsp;</a></span>insertionIndex() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class GridType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual unsigned int <a class="el" href="a02746.html">Dune::GridFactoryInterface</a>&lt; GridType &gt;::insertionIndex </td>
+          <td>(</td>
+          <td class="paramtype">[[maybe_unused] ] const typename <a class="el" href="a02750.html">Codim</a>&lt; 0 &gt;::<a class="el" href="a02642.html">Entity</a> &amp;&#160;</td>
+          <td class="paramname"><em>entity</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>obtain an element's insertion index </p>
+<p>Data can be associated to the created macro grid using the insertion index of each entity that has been inserted during the grid creation process.</p>
+<p>Between grid construction (createGrid) and the first grid modification, this method allows to obtain this insertion index from the grid factory. This way, data can be stored using the index maps provided by the grid.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">entity</td><td>entity whose insertion index is requested</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>insertion index of the entity </dd></dl>
+
+</div>
+</div>
+<a id="a6152c903208f25b1159c1c7b20d2bc5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6152c903208f25b1159c1c7b20d2bc5c">&#9670;&nbsp;</a></span>insertionIndex() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class GridType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual unsigned int <a class="el" href="a02746.html">Dune::GridFactoryInterface</a>&lt; GridType &gt;::insertionIndex </td>
+          <td>(</td>
+          <td class="paramtype">[[maybe_unused] ] const typename <a class="el" href="a02750.html">Codim</a>&lt; <a class="el" href="a02746.html#a6acc0aca4d820b22da541f284d3799ef">dimension</a> &gt;::<a class="el" href="a02642.html">Entity</a> &amp;&#160;</td>
+          <td class="paramname"><em>entity</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>obtain a vertex' insertion index </p>
+<p>Data can be associated to the created macro grid using the insertion index of each entity that has been inserted during the grid creation process.</p>
+<p>Between grid construction (createGrid) and the first grid modification, this method allows to obtain this insertion index from the grid factory. This way, data can be stored using the index maps provided by the grid.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">entity</td><td>entity whose insertion index is requested</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>insertion index of the entity </dd></dl>
+
+</div>
+</div>
+<a id="a9bfb090feaf113f48055c45623ee3dbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9bfb090feaf113f48055c45623ee3dbd">&#9670;&nbsp;</a></span>insertionIndex() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class GridType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual unsigned int <a class="el" href="a02746.html">Dune::GridFactoryInterface</a>&lt; GridType &gt;::insertionIndex </td>
+          <td>(</td>
+          <td class="paramtype">[[maybe_unused] ] const typename GridType::LeafIntersection &amp;&#160;</td>
+          <td class="paramname"><em>intersection</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>obtain a boundary's insertion index </p>
+<p>Data can be associated to the created macro grid using the insertion index of each entity that has been inserted during the grid creation process.</p>
+<p>Between grid construction (createGrid) and the first grid modification, this method allows to obtain this insertion index from the grid factory. This way, data can be stored using the index maps provided by the grid.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">intersection</td><td>intersection whose insertion index is requested</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>insertion index of the intersection</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>The insertion index can only be obtained for boundary intersections that were actually inserted (see also wasInserted). </dd></dl>
+
+</div>
+</div>
+<a id="a527bb6412a4ec27b0b38599a0bf00654"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a527bb6412a4ec27b0b38599a0bf00654">&#9670;&nbsp;</a></span>insertVertex() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class GridType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void <a class="el" href="a02754.html">Dune::GridFactory</a>&lt; GridType &gt;::insertVertex </td>
+          <td>(</td>
+          <td class="paramtype">[[maybe_unused] ] const FieldVector&lt; <a class="el" href="a02746.html#a7b58d79f583d97de9efca4f8ca110caa">ctype</a>, dimworld &gt; &amp;&#160;</td>
+          <td class="paramname"><em>pos</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Insert a vertex into the coarse grid. </p>
+
+</div>
+</div>
+<a id="a5f0b38a138c64daab43f42dd43b2acdc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f0b38a138c64daab43f42dd43b2acdc">&#9670;&nbsp;</a></span>insertVertex() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class GridType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void <a class="el" href="a02746.html">Dune::GridFactoryInterface</a>&lt; GridType &gt;::insertVertex </td>
+          <td>(</td>
+          <td class="paramtype">const FieldVector&lt; <a class="el" href="a02746.html#a7b58d79f583d97de9efca4f8ca110caa">ctype</a>, <a class="el" href="a02746.html#a14215e19807befd416b199b60f241ee0a08ec53a31ef19204cd9e8572c0ab4715">dimworld</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>pos</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Insert a vertex into the coarse grid. </p>
+
+</div>
+</div>
+<a id="a2d905f89116b44f535d4376dc796c7aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d905f89116b44f535d4376dc796c7aa">&#9670;&nbsp;</a></span>wasInserted()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class GridType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool <a class="el" href="a02746.html">Dune::GridFactoryInterface</a>&lt; GridType &gt;::wasInserted </td>
+          <td>(</td>
+          <td class="paramtype">[[maybe_unused] ] const typename GridType::LeafIntersection &amp;&#160;</td>
+          <td class="paramname"><em>intersection</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>determine whether an intersection was inserted </p>
+<p>This method allows checking whether an intersection was actually inserted into the grid factory.</p>
+<dl class="section note"><dt>Note</dt><dd>Not all boundary segments need to be inserted into the grid factory. </dd>
+<dd>
+This method returns <b>false</b> for all interior intersections</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">intersection</td><td>intersection in question</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b>, if the intersection was inserted </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a6acc0aca4d820b22da541f284d3799ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6acc0aca4d820b22da541f284d3799ef">&#9670;&nbsp;</a></span>dimension</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class GridType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int <a class="el" href="a02746.html">Dune::GridFactoryInterface</a>&lt; GridType &gt;::dimension = GridType::dimension</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>dimension of the grid </p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="a06711_source.html">common/gridfactory.hh</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

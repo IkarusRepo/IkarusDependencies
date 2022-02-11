@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: identitygridleveliterator.hh File Reference</title>
+<title>dune-grid: identitygridintersections.hh File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -70,30 +70,33 @@ $(function() {
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">identitygridleveliterator.hh File Reference</div>  </div>
+<div class="title">identitygridintersections.hh File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>The IdentityGridLevelIterator class.  
+<p>The IdentityGridLeafIntersection and IdentityGridLevelIntersection classes.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;<a class="el" href="a00251_source.html">dune/grid/common/gridenums.hh</a>&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="a00614_source.html">identitygridleafiterator.hh</a>&quot;</code><br />
+<code>#include &lt;<a class="el" href="a00593_source.html">dune/grid/identitygrid/identitygridentity.hh</a>&gt;</code><br />
 </div>
 <p><a href="a00611_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03298.html">Dune::IdentityGridLevelIterator&lt; codim, pitype, GridImp &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterator over all entities of a given codimension and level of a grid.  <a href="a03298.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03334.html">Dune::IdentityGridLeafIntersection&lt; GridImp &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An intersection with a leaf neighbor elementMesh entities of codimension 0 ("elements") allow to visit all neighbors, where a neighbor is an entity of codimension 0 which has a common entity of codimension 1 These neighbors are accessed via a <a class="el" href="a02698.html" title="Mesh entities of codimension 0 (&quot;elements&quot;) allow to visit all intersections with &quot;neighboring&quot; eleme...">IntersectionIterator</a>. This allows the implement non-matching meshes. The number of neighbors may be different from the number of an element!  <a href="a03334.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03338.html">Dune::IdentityGridLevelIntersection&lt; GridImp &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:a00936"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00936.html">Dune</a></td></tr>
-<tr class="memdesc:a00936"><td class="mdescLeft">&#160;</td><td class="mdescRight">Include standard header files. <br /></td></tr>
+<tr class="memitem:a00940"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00940.html">Dune</a></td></tr>
+<tr class="memdesc:a00940"><td class="mdescLeft">&#160;</td><td class="mdescRight">Include standard header files. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The IdentityGridLevelIterator class. </p>
+<div class="textblock"><p>The IdentityGridLeafIntersection and IdentityGridLevelIntersection classes. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

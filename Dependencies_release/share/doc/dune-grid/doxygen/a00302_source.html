@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: scsgmapper.hh Source File</title>
+<title>dune-grid: mcmgmapper.hh Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -67,123 +67,328 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">scsgmapper.hh</div>  </div>
+<div class="title">mcmgmapper.hh</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="a00302.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*-</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// vi: set et ts=4 sw=2 sts=2:</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifndef DUNE_GRID_COMMON_SCSGMAPPER_HH</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define DUNE_GRID_COMMON_SCSGMAPPER_HH</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="a00290.html">mapper.hh</a>&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a06797.html">dune/grid/common/grid.hh</a>&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00936.html">Dune</a></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> GV, <span class="keywordtype">int</span> c&gt;</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="a02870.html">   38</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a02870.html">SingleCodimSingleGeomTypeMapper</a> :</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">public</span> <a class="code" href="a02782.html">Mapper</a>&lt;typename GV::Grid,SingleCodimSingleGeomTypeMapper&lt;GV,c&gt;, typename GV::IndexSet::IndexType &gt;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="a02870.html#a215a4cc8b8b0c8f4723897fbf92f1e2e">   44</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> GV::IndexSet::IndexType <a class="code" href="a02870.html#a215a4cc8b8b0c8f4723897fbf92f1e2e">Index</a>;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="a02870.html#a2e28c04ec4df13ed044684c3c34d4c41">   50</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="a02870.html#a2e28c04ec4df13ed044684c3c34d4c41">size_type</a> = decltype(std::declval&lt;typename GV::IndexSet&gt;().<a class="code" href="a02870.html#a8ed7ee283d0db22d212b97aabcb6d7c5">size</a>(0));</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="a02870.html#a69ddb323c2d0a94eb80641bbc67bb564">   56</a></span>&#160;    <a class="code" href="a02870.html#a69ddb323c2d0a94eb80641bbc67bb564">SingleCodimSingleGeomTypeMapper</a> (<span class="keyword">const</span> GV&amp; gridView)</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;     : is(gridView.indexSet())</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    {</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;      <span class="comment">// check that grid has only a single geometry type</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;      <span class="keywordflow">if</span> (is.types(c).size() != 1)</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        DUNE_THROW(<a class="code" href="a02662.html">GridError</a>, <span class="stringliteral">&quot;mapper treats only a single codim and a single geometry type&quot;</span>);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    }</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#ifndef DUNE_GRID_COMMON_MCMGMAPPER_HH</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#define DUNE_GRID_COMMON_MCMGMAPPER_HH</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;functional&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;dune/common/exceptions.hh&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;dune/common/rangeutilities.hh&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;dune/geometry/dimension.hh&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;dune/geometry/referenceelements.hh&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;dune/geometry/type.hh&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;dune/geometry/typeindex.hh&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="a00299.html">mapper.hh</a>&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00940.html">Dune</a></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="comment">//</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <span class="comment">//  Common Layout templates</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="comment">//</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="a00920.html#gad8aa4cc3c8ae1053f70788625f0b5857">   62</a></span>&#160;  <span class="keyword">using</span> <a class="code" href="a00920.html#gad8aa4cc3c8ae1053f70788625f0b5857">MCMGLayout</a> = std::function&lt;size_t(<a class="code" href="a00951.html#aceb67a16cc6beb52f71ba8a06d6ef44f">GeometryType</a>, <span class="keywordtype">int</span>)&gt;;</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> EntityType&gt;</div>
-<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="a02870.html#a4cb0a235f822bd67b5b7dae837398ae1">   70</a></span>&#160;    <a class="code" href="a02870.html#a215a4cc8b8b0c8f4723897fbf92f1e2e">Index</a> <a class="code" href="a02870.html#a4cb0a235f822bd67b5b7dae837398ae1">index</a> (<span class="keyword">const</span> EntityType&amp; e)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;      static_assert(EntityType::codimension == c, <span class="stringliteral">&quot;Entity of wrong codim passed to SingleCodimSingleGeomTypeMapper&quot;</span>);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;      <span class="keywordflow">return</span> is.index(e);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    }</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="a02870.html#a690eb1d3d6926fec953c4f6a05e03e60">   83</a></span>&#160;    <a class="code" href="a02870.html#a215a4cc8b8b0c8f4723897fbf92f1e2e">Index</a> <a class="code" href="a02870.html#a690eb1d3d6926fec953c4f6a05e03e60">subIndex</a> (<span class="keyword">const</span> <span class="keyword">typename</span> GV::template Codim&lt;0&gt;::Entity&amp; e,</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;               <span class="keywordtype">int</span> i, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> codim)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;      <span class="keywordflow">if</span> (codim != c)</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        DUNE_THROW(<a class="code" href="a02662.html">GridError</a>, <span class="stringliteral">&quot;Id of wrong codim requested from SingleCodimSingleGeomTypeMapper&quot;</span>);</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;      <span class="keywordflow">return</span> is.subIndex(e,i,codim);</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    }</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="a02870.html#a8ed7ee283d0db22d212b97aabcb6d7c5">   99</a></span>&#160;    <a class="code" href="a02870.html#a2e28c04ec4df13ed044684c3c34d4c41">size_type</a> <a class="code" href="a02870.html#a8ed7ee283d0db22d212b97aabcb6d7c5">size</a> ()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;      <span class="keywordflow">return</span> is.size(c);</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    }</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> EntityType&gt;</div>
-<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="a02870.html#a08774ef34409405b0a24b0ec017e344d">  111</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="a02870.html#a08774ef34409405b0a24b0ec017e344d">contains</a> (<span class="keyword">const</span> EntityType&amp; e, <a class="code" href="a02870.html#a215a4cc8b8b0c8f4723897fbf92f1e2e">Index</a>&amp; result)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;      result = <a class="code" href="a02870.html#a4cb0a235f822bd67b5b7dae837398ae1">index</a>(e);</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;      <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    }</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
-<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="a02870.html#a280b387f987575c3cc92633e445cda87">  125</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="a02870.html#a280b387f987575c3cc92633e445cda87">contains</a> (<span class="keyword">const</span> <span class="keyword">typename</span> GV::template Codim&lt;0&gt;::Entity&amp; e, <span class="keywordtype">int</span> i, <span class="keywordtype">int</span> cc, <a class="code" href="a02870.html#a215a4cc8b8b0c8f4723897fbf92f1e2e">Index</a>&amp; result)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;      result = <a class="code" href="a02870.html#a690eb1d3d6926fec953c4f6a05e03e60">subIndex</a>(e,i,cc);</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;      <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    }</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
-<div class="line"><a name="l00133"></a><span class="lineno"><a class="line" href="a02870.html#a94e6db094297b9badca09c16c7c6e053">  133</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a02870.html#a94e6db094297b9badca09c16c7c6e053">update</a> ()</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    {     <span class="comment">// nothing to do here</span></div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    }</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="keyword">const</span> <span class="keyword">typename</span> GV::IndexSet&amp; is;</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;  };</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> G, <span class="keywordtype">int</span> c&gt;</div>
-<div class="line"><a name="l00160"></a><span class="lineno"><a class="line" href="a02874.html">  160</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a02874.html">LeafSingleCodimSingleGeomTypeMapper</a> : <span class="keyword">public</span> <a class="code" href="a02870.html">SingleCodimSingleGeomTypeMapper</a>&lt;typename G::LeafGridView,c&gt; {</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00165"></a><span class="lineno"><a class="line" href="a02874.html#a178488149a3cf9e56c7f48e03848690b">  165</a></span>&#160;    <a class="code" href="a02874.html#a178488149a3cf9e56c7f48e03848690b">LeafSingleCodimSingleGeomTypeMapper</a> (<span class="keyword">const</span> G&amp; grid)</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;      : <a class="code" href="a02870.html">SingleCodimSingleGeomTypeMapper</a>&lt;typename G::LeafGridView,c&gt;(grid.<a class="code" href="a00906.html#ga54897a506a84f9b94f0acc75b176b0cd">leafGridView</a>())</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    {}</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;  };</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> G, <span class="keywordtype">int</span> c&gt;</div>
-<div class="line"><a name="l00182"></a><span class="lineno"><a class="line" href="a02878.html">  182</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a02878.html">LevelSingleCodimSingleGeomTypeMapper</a> : <span class="keyword">public</span> <a class="code" href="a02870.html">SingleCodimSingleGeomTypeMapper</a>&lt;typename G::LevelGridView,c&gt; {</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="comment">/* @brief The constructor</span></div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="comment">       @param grid A reference to a grid.</span></div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="comment">       @param level A valid level of the grid.</span></div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00188"></a><span class="lineno"><a class="line" href="a02878.html#a7d7f308acbfb7dad81cedb2f26de207a">  188</a></span>&#160;    <a class="code" href="a02878.html#a7d7f308acbfb7dad81cedb2f26de207a">LevelSingleCodimSingleGeomTypeMapper</a> (<span class="keyword">const</span> G&amp; grid, <span class="keywordtype">int</span> level)</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;      : <a class="code" href="a02870.html">SingleCodimSingleGeomTypeMapper</a>&lt;typename G::LevelGridView,c&gt;(grid.<a class="code" href="a00906.html#ga905f92edbd804596d2735d3045a3cc30">levelGridView</a>(level))</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    {}</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;  };</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160; </div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;}</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aa00290_html"><div class="ttname"><a href="a00290.html">mapper.hh</a></div><div class="ttdoc">Provides classes with basic mappers which are used to attach data to a grid.</div></div>
-<div class="ttc" id="aa00906_html_ga54897a506a84f9b94f0acc75b176b0cd"><div class="ttname"><a href="a00906.html#ga54897a506a84f9b94f0acc75b176b0cd">Dune::leafGridView</a></div><div class="ttdeci">Grid&lt; dim, dimworld, ct, GridFamily &gt;::LeafGridView leafGridView(const Grid&lt; dim, dimworld, ct, GridFamily &gt; &amp;grid)</div><div class="ttdoc">leaf grid view for the given grid</div><div class="ttdef"><b>Definition:</b> common/grid.hh:809</div></div>
-<div class="ttc" id="aa00906_html_ga905f92edbd804596d2735d3045a3cc30"><div class="ttname"><a href="a00906.html#ga905f92edbd804596d2735d3045a3cc30">Dune::levelGridView</a></div><div class="ttdeci">Grid&lt; dim, dimworld, ct, GridFamily &gt;::LevelGridView levelGridView(const Grid&lt; dim, dimworld, ct, GridFamily &gt; &amp;grid, int level)</div><div class="ttdoc">level grid view for the given grid and level.</div><div class="ttdef"><b>Definition:</b> common/grid.hh:792</div></div>
-<div class="ttc" id="aa00936_html"><div class="ttname"><a href="a00936.html">Dune</a></div><div class="ttdoc">Include standard header files.</div><div class="ttdef"><b>Definition:</b> agrid.hh:59</div></div>
-<div class="ttc" id="aa02662_html"><div class="ttname"><a href="a02662.html">Dune::GridError</a></div><div class="ttdoc">Base class for exceptions in Dune grid modules.</div><div class="ttdef"><b>Definition:</b> exceptions.hh:18</div></div>
-<div class="ttc" id="aa02782_html"><div class="ttname"><a href="a02782.html">Dune::Mapper</a></div><div class="ttdoc">Mapper interface.</div><div class="ttdef"><b>Definition:</b> mapper.hh:107</div></div>
-<div class="ttc" id="aa02870_html"><div class="ttname"><a href="a02870.html">Dune::SingleCodimSingleGeomTypeMapper</a></div><div class="ttdoc">Implementation class for a single codim and single geometry type mapper.</div><div class="ttdef"><b>Definition:</b> scsgmapper.hh:40</div></div>
-<div class="ttc" id="aa02870_html_a08774ef34409405b0a24b0ec017e344d"><div class="ttname"><a href="a02870.html#a08774ef34409405b0a24b0ec017e344d">Dune::SingleCodimSingleGeomTypeMapper::contains</a></div><div class="ttdeci">bool contains(const EntityType &amp;e, Index &amp;result) const</div><div class="ttdoc">Returns true if the entity is contained in the index set.</div><div class="ttdef"><b>Definition:</b> scsgmapper.hh:111</div></div>
-<div class="ttc" id="aa02870_html_a215a4cc8b8b0c8f4723897fbf92f1e2e"><div class="ttname"><a href="a02870.html#a215a4cc8b8b0c8f4723897fbf92f1e2e">Dune::SingleCodimSingleGeomTypeMapper::Index</a></div><div class="ttdeci">GV::IndexSet::IndexType Index</div><div class="ttdoc">Number type used for indices.</div><div class="ttdef"><b>Definition:</b> scsgmapper.hh:44</div></div>
-<div class="ttc" id="aa02870_html_a280b387f987575c3cc92633e445cda87"><div class="ttname"><a href="a02870.html#a280b387f987575c3cc92633e445cda87">Dune::SingleCodimSingleGeomTypeMapper::contains</a></div><div class="ttdeci">bool contains(const typename GV::template Codim&lt; 0 &gt;::Entity &amp;e, int i, int cc, Index &amp;result) const</div><div class="ttdoc">Returns true if the entity is contained in the index set.</div><div class="ttdef"><b>Definition:</b> scsgmapper.hh:125</div></div>
-<div class="ttc" id="aa02870_html_a2e28c04ec4df13ed044684c3c34d4c41"><div class="ttname"><a href="a02870.html#a2e28c04ec4df13ed044684c3c34d4c41">Dune::SingleCodimSingleGeomTypeMapper::size_type</a></div><div class="ttdeci">decltype(std::declval&lt; typename GV::IndexSet &gt;().size(0)) size_type</div><div class="ttdoc">Number type used for the overall size (the return value of the 'size' method)</div><div class="ttdef"><b>Definition:</b> scsgmapper.hh:50</div></div>
-<div class="ttc" id="aa02870_html_a4cb0a235f822bd67b5b7dae837398ae1"><div class="ttname"><a href="a02870.html#a4cb0a235f822bd67b5b7dae837398ae1">Dune::SingleCodimSingleGeomTypeMapper::index</a></div><div class="ttdeci">Index index(const EntityType &amp;e) const</div><div class="ttdoc">Map entity to array index.</div><div class="ttdef"><b>Definition:</b> scsgmapper.hh:70</div></div>
-<div class="ttc" id="aa02870_html_a690eb1d3d6926fec953c4f6a05e03e60"><div class="ttname"><a href="a02870.html#a690eb1d3d6926fec953c4f6a05e03e60">Dune::SingleCodimSingleGeomTypeMapper::subIndex</a></div><div class="ttdeci">Index subIndex(const typename GV::template Codim&lt; 0 &gt;::Entity &amp;e, int i, unsigned int codim) const</div><div class="ttdoc">Map subentity of codim 0 entity to array index.</div><div class="ttdef"><b>Definition:</b> scsgmapper.hh:83</div></div>
-<div class="ttc" id="aa02870_html_a69ddb323c2d0a94eb80641bbc67bb564"><div class="ttname"><a href="a02870.html#a69ddb323c2d0a94eb80641bbc67bb564">Dune::SingleCodimSingleGeomTypeMapper::SingleCodimSingleGeomTypeMapper</a></div><div class="ttdeci">SingleCodimSingleGeomTypeMapper(const GV &amp;gridView)</div><div class="ttdoc">Construct mapper from grid and one of its index sets.</div><div class="ttdef"><b>Definition:</b> scsgmapper.hh:56</div></div>
-<div class="ttc" id="aa02870_html_a8ed7ee283d0db22d212b97aabcb6d7c5"><div class="ttname"><a href="a02870.html#a8ed7ee283d0db22d212b97aabcb6d7c5">Dune::SingleCodimSingleGeomTypeMapper::size</a></div><div class="ttdeci">size_type size() const</div><div class="ttdoc">Return total number of entities in the entity set managed by the mapper.</div><div class="ttdef"><b>Definition:</b> scsgmapper.hh:99</div></div>
-<div class="ttc" id="aa02870_html_a94e6db094297b9badca09c16c7c6e053"><div class="ttname"><a href="a02870.html#a94e6db094297b9badca09c16c7c6e053">Dune::SingleCodimSingleGeomTypeMapper::update</a></div><div class="ttdeci">void update()</div><div class="ttdoc">Recalculates map after mesh adaptation.</div><div class="ttdef"><b>Definition:</b> scsgmapper.hh:133</div></div>
-<div class="ttc" id="aa02874_html"><div class="ttname"><a href="a02874.html">Dune::LeafSingleCodimSingleGeomTypeMapper</a></div><div class="ttdoc">Single codim and single geometry type mapper for leaf entities.</div><div class="ttdef"><b>Definition:</b> scsgmapper.hh:160</div></div>
-<div class="ttc" id="aa02874_html_a178488149a3cf9e56c7f48e03848690b"><div class="ttname"><a href="a02874.html#a178488149a3cf9e56c7f48e03848690b">Dune::LeafSingleCodimSingleGeomTypeMapper::LeafSingleCodimSingleGeomTypeMapper</a></div><div class="ttdeci">LeafSingleCodimSingleGeomTypeMapper(const G &amp;grid)</div><div class="ttdoc">The constructor.</div><div class="ttdef"><b>Definition:</b> scsgmapper.hh:165</div></div>
-<div class="ttc" id="aa02878_html"><div class="ttname"><a href="a02878.html">Dune::LevelSingleCodimSingleGeomTypeMapper</a></div><div class="ttdoc">Single codim and single geometry type mapper for entities of one level.</div><div class="ttdef"><b>Definition:</b> scsgmapper.hh:182</div></div>
-<div class="ttc" id="aa02878_html_a7d7f308acbfb7dad81cedb2f26de207a"><div class="ttname"><a href="a02878.html#a7d7f308acbfb7dad81cedb2f26de207a">Dune::LevelSingleCodimSingleGeomTypeMapper::LevelSingleCodimSingleGeomTypeMapper</a></div><div class="ttdeci">LevelSingleCodimSingleGeomTypeMapper(const G &amp;grid, int level)</div><div class="ttdef"><b>Definition:</b> scsgmapper.hh:188</div></div>
-<div class="ttc" id="aa06797_html"><div class="ttname"><a href="a06797.html">grid.hh</a></div><div class="ttdoc">Different resources needed by all grid implementations.</div></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> codim&gt;</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="a00920.html#ga2e82df0d1c8ad3e2db3a7c765c431b72">   70</a></span>&#160;  <a class="code" href="a00920.html#gad8aa4cc3c8ae1053f70788625f0b5857">MCMGLayout</a> <a class="code" href="a00920.html#ga2e82df0d1c8ad3e2db3a7c765c431b72">mcmgLayout</a>(Codim&lt;codim&gt;)</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  {</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordflow">return</span> [](<a class="code" href="a00951.html#aceb67a16cc6beb52f71ba8a06d6ef44f">GeometryType</a> gt, <span class="keywordtype">int</span> dimgrid) {</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;      <span class="keywordflow">return</span> dimgrid - gt.dim() == codim;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    };</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  }</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> dim&gt;</div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="a00920.html#ga08aae36ce3194378c4aafa398bfdec70">   83</a></span>&#160;  <a class="code" href="a00920.html#gad8aa4cc3c8ae1053f70788625f0b5857">MCMGLayout</a> <a class="code" href="a00920.html#ga2e82df0d1c8ad3e2db3a7c765c431b72">mcmgLayout</a>(Dim&lt;dim&gt;)</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  {</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordflow">return</span> [](<a class="code" href="a00951.html#aceb67a16cc6beb52f71ba8a06d6ef44f">GeometryType</a> gt, int) {</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;      <span class="keywordflow">return</span> gt.dim() == dim;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    };</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  }</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="a00920.html#ga3f08c3fdd04f64bac3140926732b4b30">   95</a></span>&#160;  <span class="keyword">inline</span> <a class="code" href="a00920.html#gad8aa4cc3c8ae1053f70788625f0b5857">MCMGLayout</a> <a class="code" href="a00920.html#ga3f08c3fdd04f64bac3140926732b4b30">mcmgElementLayout</a>()</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  {</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="a00920.html#ga2e82df0d1c8ad3e2db3a7c765c431b72">mcmgLayout</a>(Codim&lt;0&gt;());</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  }</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="a00920.html#gae9caf92c46fedd5287c5e011dcbdd3b5">  105</a></span>&#160;  <span class="keyword">inline</span> <a class="code" href="a00920.html#gad8aa4cc3c8ae1053f70788625f0b5857">MCMGLayout</a> <a class="code" href="a00920.html#gae9caf92c46fedd5287c5e011dcbdd3b5">mcmgVertexLayout</a>()</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  {</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="a00920.html#ga2e82df0d1c8ad3e2db3a7c765c431b72">mcmgLayout</a>(Dim&lt;0&gt;());</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  }</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  <span class="comment">//</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  <span class="comment">//  MultipleCodimMultipleGeomTypeMapper</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  <span class="comment">//</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> GV&gt;</div>
+<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="a02798.html">  125</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a02798.html">MultipleCodimMultipleGeomTypeMapper</a> :</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keyword">public</span> <a class="code" href="a02794.html">Mapper</a>&lt;typename GV::Grid,MultipleCodimMultipleGeomTypeMapper&lt;GV&gt;, typename GV::IndexSet::IndexType &gt;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  {</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
+<div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="a02798.html#ad0f2fcda1251a52413fc5c28e183a924">  131</a></span>&#160;    <span class="keyword">typedef</span> GV <a class="code" href="a02798.html#ad0f2fcda1251a52413fc5c28e183a924">GridView</a>;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
+<div class="line"><a name="l00134"></a><span class="lineno"><a class="line" href="a02798.html#a7ea89039a0b86bb71a60f90a1a8ffee4">  134</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> GV::IndexSet::IndexType <a class="code" href="a02798.html#a7ea89039a0b86bb71a60f90a1a8ffee4">Index</a>;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
+<div class="line"><a name="l00140"></a><span class="lineno"><a class="line" href="a02798.html#a549a0c5ad253fb33c80cc4d813f366a4">  140</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="a02798.html#a549a0c5ad253fb33c80cc4d813f366a4">size_type</a> = decltype(std::declval&lt;typename GV::IndexSet&gt;().<a class="code" href="a02798.html#a228e977d462d176b5453a6db62e68a9e">size</a>(0));</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
+<div class="line"><a name="l00153"></a><span class="lineno"><a class="line" href="a02798.html#a25d1ebb578072c2ba8c36c9888a67a34">  153</a></span>&#160;    <a class="code" href="a02798.html#a25d1ebb578072c2ba8c36c9888a67a34">MultipleCodimMultipleGeomTypeMapper</a>(<span class="keyword">const</span> GV&amp; <a class="code" href="a02798.html#a056916a77c950e57addc5dbca246f913">gridView</a>, <span class="keyword">const</span> <a class="code" href="a00920.html#gad8aa4cc3c8ae1053f70788625f0b5857">MCMGLayout</a>&amp; <a class="code" href="a02798.html#ac5aebc6ce510a418bd447d07e84fa113">layout</a>)</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;      : gridView_(<a class="code" href="a02798.html#a056916a77c950e57addc5dbca246f913">gridView</a>)</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;      , indexSet_(&amp;gridView_.indexSet())</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;      , layout_(<a class="code" href="a02798.html#ac5aebc6ce510a418bd447d07e84fa113">layout</a>)</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    {</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;      <a class="code" href="a02798.html#acb1092fcb511e33960a3c3eec3f71cd6">update</a>(<a class="code" href="a02798.html#a056916a77c950e57addc5dbca246f913">gridView</a>);</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    }</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> EntityType&gt;</div>
+<div class="line"><a name="l00169"></a><span class="lineno"><a class="line" href="a02798.html#a5df55b1e1be633b76d990dc7dbed881c">  169</a></span>&#160;    <a class="code" href="a02798.html#a7ea89039a0b86bb71a60f90a1a8ffee4">Index</a> <a class="code" href="a02798.html#a5df55b1e1be633b76d990dc7dbed881c">index</a> (<span class="keyword">const</span> EntityType&amp; e)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;      <span class="keyword">const</span> <a class="code" href="a00951.html#aceb67a16cc6beb52f71ba8a06d6ef44f">GeometryType</a> gt = e.type();</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;      assert(offset(gt) != invalidOffset);</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;      <span class="keywordflow">return</span> indexSet_-&gt;index(e)*blockSize(gt) + offset(gt);</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    }</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160; </div>
+<div class="line"><a name="l00183"></a><span class="lineno"><a class="line" href="a02798.html#a24a2624d09e1161517420e051b7a73ec">  183</a></span>&#160;    <a class="code" href="a02798.html#a7ea89039a0b86bb71a60f90a1a8ffee4">Index</a> <a class="code" href="a02798.html#a24a2624d09e1161517420e051b7a73ec">subIndex</a> (<span class="keyword">const</span> <span class="keyword">typename</span> GV::template Codim&lt;0&gt;::Entity&amp; e, <span class="keywordtype">int</span> i, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> codim)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;      <span class="keyword">const</span> <a class="code" href="a00951.html#aceb67a16cc6beb52f71ba8a06d6ef44f">GeometryType</a> eType = e.type();</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;      <a class="code" href="a00951.html#aceb67a16cc6beb52f71ba8a06d6ef44f">GeometryType</a> gt = eType.isNone() ?</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        GeometryTypes::none( GV::dimension - codim ) :</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        ReferenceElements&lt;double,GV::dimension&gt;::general(eType).type(i,codim) ;</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;      <span class="comment">//GeometryType gt=ReferenceElements&lt;double,GV::dimension&gt;::general(e.type()).type(i,codim);</span></div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;      assert(offset(gt) != invalidOffset);</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;      <span class="keywordflow">return</span> indexSet_-&gt;subIndex(e, i, codim)*blockSize(gt) + offset(gt);</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    }</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160; </div>
+<div class="line"><a name="l00202"></a><span class="lineno"><a class="line" href="a02798.html#a228e977d462d176b5453a6db62e68a9e">  202</a></span>&#160;    <a class="code" href="a02798.html#a549a0c5ad253fb33c80cc4d813f366a4">size_type</a> <a class="code" href="a02798.html#a228e977d462d176b5453a6db62e68a9e">size</a> ()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;      <span class="keywordflow">return</span> n;</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    }</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; </div>
+<div class="line"><a name="l00208"></a><span class="lineno"><a class="line" href="a02798.html#a9facf2614ae77f1b5fcf2bbff6abe824">  208</a></span>&#160;    <a class="code" href="a02798.html#a549a0c5ad253fb33c80cc4d813f366a4">size_type</a> <a class="code" href="a02798.html#a9facf2614ae77f1b5fcf2bbff6abe824">size</a>(<a class="code" href="a00951.html#aceb67a16cc6beb52f71ba8a06d6ef44f">GeometryType</a> gt)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;      <span class="keywordflow">return</span> blockSize(gt);</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    }</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160; </div>
+<div class="line"><a name="l00214"></a><span class="lineno"><a class="line" href="a02798.html#a75354603bc5fda075a50ed01e55cee9a">  214</a></span>&#160;    <span class="keyword">const</span> std::vector&lt; GeometryType &gt;&amp; <a class="code" href="a02798.html#a75354603bc5fda075a50ed01e55cee9a">types</a> ( <span class="keywordtype">int</span> codim )<span class="keyword"> const</span></div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;      <span class="keywordflow">return</span> myTypes_[ codim ];</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    }</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160; </div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> EntityType&gt;</div>
+<div class="line"><a name="l00229"></a><span class="lineno"><a class="line" href="a02798.html#a804ce60c34eabbea7e5758dcc8f7736b">  229</a></span>&#160;    IntegralRange&lt;Index&gt; <a class="code" href="a02798.html#a804ce60c34eabbea7e5758dcc8f7736b">indices</a> (<span class="keyword">const</span> EntityType&amp; e)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;      <span class="keywordflow">if</span>(!indexSet_-&gt;contains(e) || offset(e.type()) == invalidOffset)</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;        <span class="keywordflow">return</span> {0,0};</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;      <a class="code" href="a02798.html#a7ea89039a0b86bb71a60f90a1a8ffee4">Index</a> start = <a class="code" href="a02798.html#a5df55b1e1be633b76d990dc7dbed881c">index</a>(e);</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;      <span class="keywordflow">return</span> {start, start+blockSize(e.type())};</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    }</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160; </div>
+<div class="line"><a name="l00248"></a><span class="lineno"><a class="line" href="a02798.html#a08247d77c67ce838c3afd3ded6fad8ca">  248</a></span>&#160;    IntegralRange&lt;Index&gt; <a class="code" href="a02798.html#a08247d77c67ce838c3afd3ded6fad8ca">indices</a> (<span class="keyword">const</span> <span class="keyword">typename</span> GV::template Codim&lt;0&gt;::Entity&amp; e, <span class="keywordtype">int</span> i, <span class="keywordtype">int</span> cc)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;      <span class="keyword">const</span> <a class="code" href="a00951.html#aceb67a16cc6beb52f71ba8a06d6ef44f">GeometryType</a> eType = e.type();</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;      <span class="keyword">const</span> <a class="code" href="a00951.html#aceb67a16cc6beb52f71ba8a06d6ef44f">GeometryType</a> gt = eType.isNone() ?</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;        GeometryTypes::none(GV::dimension - cc) :</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;        ReferenceElements&lt;double,GV::dimension&gt;::general(eType).type(i,cc) ;</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;      <span class="keywordflow">if</span> (offset(gt) == invalidOffset)</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;        <span class="keywordflow">return</span> {0,0};</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;      <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;      {</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;        <a class="code" href="a02798.html#a7ea89039a0b86bb71a60f90a1a8ffee4">Index</a> start = <a class="code" href="a02798.html#a24a2624d09e1161517420e051b7a73ec">subIndex</a>(e,i,cc);</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;        <span class="keywordflow">return</span> {start, start+blockSize(gt)};</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;      }</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    }</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160; </div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> EntityType&gt;</div>
+<div class="line"><a name="l00270"></a><span class="lineno"><a class="line" href="a02798.html#a109484c93e4a1940b44d127052757bca">  270</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="a02798.html#a109484c93e4a1940b44d127052757bca">contains</a> (<span class="keyword">const</span> EntityType&amp; e, <a class="code" href="a02798.html#a7ea89039a0b86bb71a60f90a1a8ffee4">Index</a>&amp; result)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;      <span class="keywordflow">if</span>(!indexSet_-&gt;contains(e) || offset(e.type()) == invalidOffset)</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;      {</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;        result = 0;</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;      }</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;      result = <a class="code" href="a02798.html#a5df55b1e1be633b76d990dc7dbed881c">index</a>(e);</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;      <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    }</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160; </div>
+<div class="line"><a name="l00289"></a><span class="lineno"><a class="line" href="a02798.html#a2dcfe88852a42c40ae22d43d8ffec4e3">  289</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="a02798.html#a2dcfe88852a42c40ae22d43d8ffec4e3">contains</a> (<span class="keyword">const</span> <span class="keyword">typename</span> GV::template Codim&lt;0&gt;::Entity&amp; e, <span class="keywordtype">int</span> i, <span class="keywordtype">int</span> cc, <a class="code" href="a02798.html#a7ea89039a0b86bb71a60f90a1a8ffee4">Index</a>&amp; result)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;      <span class="keyword">const</span> <a class="code" href="a00951.html#aceb67a16cc6beb52f71ba8a06d6ef44f">GeometryType</a> eType = e.type();</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;      <span class="keyword">const</span> <a class="code" href="a00951.html#aceb67a16cc6beb52f71ba8a06d6ef44f">GeometryType</a> gt = eType.isNone() ?</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        GeometryTypes::none( GV::dimension - cc ) :</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        ReferenceElements&lt;double,GV::dimension&gt;::general(eType).type(i,cc) ;</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;      <span class="keywordflow">if</span> (offset(gt) == invalidOffset)</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;      result = indexSet_-&gt;subIndex(e, i, cc)*blockSize(gt) + offset(gt);</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;      <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    }</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160; </div>
+<div class="line"><a name="l00306"></a><span class="lineno"><a class="line" href="a02798.html#a7451c8af09caaa1155939145c5d23c11">  306</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a02798.html#a7451c8af09caaa1155939145c5d23c11">update</a> (<span class="keyword">const</span> GV&amp; <a class="code" href="a02798.html#a056916a77c950e57addc5dbca246f913">gridView</a>)</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    {</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;      gridView_ = <a class="code" href="a02798.html#a056916a77c950e57addc5dbca246f913">gridView</a>;</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;      indexSet_ = &amp;gridView_.indexSet();</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;      update_();</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    }</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160; </div>
+<div class="line"><a name="l00318"></a><span class="lineno"><a class="line" href="a02798.html#afebe1cf0724f2c5dcc132f03b576e306">  318</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a02798.html#afebe1cf0724f2c5dcc132f03b576e306">update</a> (GV&amp;&amp; <a class="code" href="a02798.html#a056916a77c950e57addc5dbca246f913">gridView</a>)</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    {</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;      gridView_ = std::move(<a class="code" href="a02798.html#a056916a77c950e57addc5dbca246f913">gridView</a>);</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;      indexSet_ = &amp;gridView_.indexSet();</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;      update_();</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    }</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160; </div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    [[deprecated(<span class="stringliteral">&quot;Use update(gridView) instead! Will be removed after release 2.8.&quot;</span>)]]</div>
+<div class="line"><a name="l00328"></a><span class="lineno"><a class="line" href="a02798.html#acb1092fcb511e33960a3c3eec3f71cd6">  328</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a02798.html#acb1092fcb511e33960a3c3eec3f71cd6">update</a> ()</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    {</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;      update_();</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    }</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160; </div>
+<div class="line"><a name="l00333"></a><span class="lineno"><a class="line" href="a02798.html#ac5aebc6ce510a418bd447d07e84fa113">  333</a></span>&#160;    <span class="keyword">const</span> <a class="code" href="a00920.html#gad8aa4cc3c8ae1053f70788625f0b5857">MCMGLayout</a> &amp;<a class="code" href="a02798.html#ac5aebc6ce510a418bd447d07e84fa113">layout</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> layout_; }</div>
+<div class="line"><a name="l00334"></a><span class="lineno"><a class="line" href="a02798.html#a056916a77c950e57addc5dbca246f913">  334</a></span>&#160;    <span class="keyword">const</span> <a class="code" href="a02798.html#ad0f2fcda1251a52413fc5c28e183a924">GridView</a> &amp;<a class="code" href="a02798.html#a056916a77c950e57addc5dbca246f913">gridView</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> gridView_; }</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160; </div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    <span class="keywordtype">void</span> update_()</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    {</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;      n = 0;</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160; </div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;      std::fill(offsets.begin(),offsets.end(),<a class="code" href="a02798.html#a7ea89039a0b86bb71a60f90a1a8ffee4">Index</a>(0));</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;      std::fill(blocks.begin(),blocks.end(),<a class="code" href="a02798.html#a7ea89039a0b86bb71a60f90a1a8ffee4">Index</a>(0));</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160; </div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> codim = 0; codim &lt;= GV::dimension; ++codim)</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;      {</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;        <span class="comment">// walk over all geometry types in the codimension</span></div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">const</span> <a class="code" href="a00951.html#aceb67a16cc6beb52f71ba8a06d6ef44f">GeometryType</a>&amp; gt : indexSet_-&gt;types(codim)) {</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;          <a class="code" href="a02798.html#a7ea89039a0b86bb71a60f90a1a8ffee4">Index</a> offset;</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;          <span class="keywordtype">size_t</span> block = <a class="code" href="a02798.html#ac5aebc6ce510a418bd447d07e84fa113">layout</a>()(gt, GV::Grid::dimension);</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160; </div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;          <span class="comment">// if the geometry type is contained in the layout, increment offset</span></div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;          <span class="comment">// and store geometry type</span></div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;          <span class="keywordflow">if</span> (block) {</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;            offset = n;</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;            n += indexSet_-&gt;size(gt) * block;</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;            myTypes_[codim].push_back(gt);</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;          }</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;          <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;            offset = invalidOffset;</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;          }</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160; </div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;          offsets[GlobalGeometryTypeIndex::index(gt)] = offset;</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;          blocks[GlobalGeometryTypeIndex::index(gt)] = block;</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;        }</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;      }</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;    }</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160; </div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;    <a class="code" href="a02798.html#a7ea89039a0b86bb71a60f90a1a8ffee4">Index</a> offset(<a class="code" href="a00951.html#aceb67a16cc6beb52f71ba8a06d6ef44f">GeometryType</a> gt)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;<span class="keyword">      </span>{ <span class="keywordflow">return</span> offsets[GlobalGeometryTypeIndex::index(gt)]; }</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;    <a class="code" href="a02798.html#a7ea89039a0b86bb71a60f90a1a8ffee4">Index</a> blockSize(<a class="code" href="a00951.html#aceb67a16cc6beb52f71ba8a06d6ef44f">GeometryType</a> gt)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;<span class="keyword">      </span>{ <span class="keywordflow">return</span> blocks[GlobalGeometryTypeIndex::index(gt)]; }</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160; </div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="a02798.html#a7ea89039a0b86bb71a60f90a1a8ffee4">Index</a> invalidOffset = <a class="code" href="a00941.html#ad67366c3c67a2ca2e728b4276e37324e">std::numeric_limits&lt;Index&gt;::max</a>();</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160; </div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;    <span class="comment">// number of data elements required</span></div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n;</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;    <span class="comment">// GridView is needed to keep the IndexSet valid</span></div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;    GV gridView_;</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;    <span class="keyword">const</span> <span class="keyword">typename</span> GV::IndexSet* indexSet_;</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;    <span class="comment">// provide an array for the offsets</span></div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;    std::array&lt;<a class="code" href="a02798.html#a7ea89039a0b86bb71a60f90a1a8ffee4">Index</a>, GlobalGeometryTypeIndex::size(GV::dimension)&gt; offsets;</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;    std::array&lt;<a class="code" href="a02798.html#a7ea89039a0b86bb71a60f90a1a8ffee4">Index</a>, GlobalGeometryTypeIndex::size(GV::dimension)&gt; blocks;</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;    <span class="keyword">const</span> <a class="code" href="a00920.html#gad8aa4cc3c8ae1053f70788625f0b5857">MCMGLayout</a> layout_;     <span class="comment">// get layout object</span></div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;    std::vector&lt;GeometryType&gt; myTypes_[GV::dimension+1];</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;  };</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160; </div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;  <span class="comment">//</span></div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;  <span class="comment">//  Leaf and level mapper</span></div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;  <span class="comment">//</span></div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160; </div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> G&gt;</div>
+<div class="line"><a name="l00399"></a><span class="lineno"><a class="line" href="a02802.html">  399</a></span>&#160;  <span class="keyword">class </span>[[deprecated(&quot;Use <a class="code" href="a02798.html">MultipleCodimMultipleGeomTypeMapper</a> instead! Will be removed after release 2.8.&quot;)]]</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;  <a class="code" href="a02802.html">LeafMultipleCodimMultipleGeomTypeMapper</a></div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;    : <span class="keyword">public</span> <a class="code" href="a02798.html">MultipleCodimMultipleGeomTypeMapper</a>&lt;typename G::LeafGridView&gt;</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;  {</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;    <span class="keyword">typedef</span> <a class="code" href="a02798.html">MultipleCodimMultipleGeomTypeMapper&lt;typename G::LeafGridView&gt;</a> <a class="code" href="a02798.html">Base</a>;</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160; </div>
+<div class="line"><a name="l00412"></a><span class="lineno"><a class="line" href="a02802.html#ac98a1a81628745acc7624ad9e38a30af">  412</a></span>&#160;    <a class="code" href="a02802.html#ac98a1a81628745acc7624ad9e38a30af">LeafMultipleCodimMultipleGeomTypeMapper</a> (<span class="keyword">const</span> G&amp; grid, <span class="keyword">const</span> <a class="code" href="a00920.html#gad8aa4cc3c8ae1053f70788625f0b5857">MCMGLayout</a>&amp; layout)</div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;      : <a class="code" href="a02798.html">Base</a>(grid.<a class="code" href="a00910.html#ga54897a506a84f9b94f0acc75b176b0cd">leafGridView</a>(), layout)</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;      , gridPtr_(&amp;grid)</div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;    {}</div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160; </div>
+<div class="line"><a name="l00422"></a><span class="lineno"><a class="line" href="a02802.html#a6a2b375acd4f0516e53163e511fd4ad4">  422</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a02802.html#a6a2b375acd4f0516e53163e511fd4ad4">update</a> ()</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;    {</div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;      Base::update(gridPtr_-&gt;leafGridView());</div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;    }</div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160; </div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;    <span class="keyword">const</span> G* gridPtr_;</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;  };</div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160; </div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> G&gt;</div>
+<div class="line"><a name="l00439"></a><span class="lineno"><a class="line" href="a02806.html">  439</a></span>&#160;  <span class="keyword">class </span>[[deprecated(&quot;Use <a class="code" href="a02798.html">MultipleCodimMultipleGeomTypeMapper</a> instead! Will be removed after release 2.8.&quot;)]]</div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;  <a class="code" href="a02806.html">LevelMultipleCodimMultipleGeomTypeMapper</a></div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;    : <span class="keyword">public</span> <a class="code" href="a02798.html">MultipleCodimMultipleGeomTypeMapper</a>&lt;typename G::LevelGridView&gt; {</div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;    <span class="keyword">typedef</span> <a class="code" href="a02798.html">MultipleCodimMultipleGeomTypeMapper&lt;typename G::LevelGridView&gt;</a> <a class="code" href="a02798.html">Base</a>;</div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160; </div>
+<div class="line"><a name="l00452"></a><span class="lineno"><a class="line" href="a02806.html#ad1157692b212f306f426c46fc6a0e96a">  452</a></span>&#160;    <a class="code" href="a02806.html#ad1157692b212f306f426c46fc6a0e96a">LevelMultipleCodimMultipleGeomTypeMapper</a> (<span class="keyword">const</span> G&amp; grid, <span class="keywordtype">int</span> level, <span class="keyword">const</span> <a class="code" href="a00920.html#gad8aa4cc3c8ae1053f70788625f0b5857">MCMGLayout</a>&amp; layout)</div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;      : <a class="code" href="a02798.html">Base</a>(grid.<a class="code" href="a00910.html#ga905f92edbd804596d2735d3045a3cc30">levelGridView</a>(level),layout)</div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;      , gridPtr_(&amp;grid)</div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;      , level_(level)</div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;    {}</div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160; </div>
+<div class="line"><a name="l00463"></a><span class="lineno"><a class="line" href="a02806.html#a76c665666d7c7385baa29844c84a2a85">  463</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a02806.html#a76c665666d7c7385baa29844c84a2a85">update</a> ()</div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;    {</div>
+<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;      Base::update(gridPtr_-&gt;levelGridView(level_));</div>
+<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;    }</div>
+<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160; </div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;    <span class="keyword">const</span> G* gridPtr_;</div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;    <span class="keywordtype">int</span> level_;</div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;  };</div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160; </div>
+<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;}</div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aa00299_html"><div class="ttname"><a href="a00299.html">mapper.hh</a></div><div class="ttdoc">Provides classes with basic mappers which are used to attach data to a grid.</div></div>
+<div class="ttc" id="aa00910_html_ga54897a506a84f9b94f0acc75b176b0cd"><div class="ttname"><a href="a00910.html#ga54897a506a84f9b94f0acc75b176b0cd">Dune::leafGridView</a></div><div class="ttdeci">Grid&lt; dim, dimworld, ct, GridFamily &gt;::LeafGridView leafGridView(const Grid&lt; dim, dimworld, ct, GridFamily &gt; &amp;grid)</div><div class="ttdoc">leaf grid view for the given grid</div><div class="ttdef"><b>Definition:</b> common/grid.hh:808</div></div>
+<div class="ttc" id="aa00910_html_ga905f92edbd804596d2735d3045a3cc30"><div class="ttname"><a href="a00910.html#ga905f92edbd804596d2735d3045a3cc30">Dune::levelGridView</a></div><div class="ttdeci">Grid&lt; dim, dimworld, ct, GridFamily &gt;::LevelGridView levelGridView(const Grid&lt; dim, dimworld, ct, GridFamily &gt; &amp;grid, int level)</div><div class="ttdoc">level grid view for the given grid and level.</div><div class="ttdef"><b>Definition:</b> common/grid.hh:791</div></div>
+<div class="ttc" id="aa00920_html_ga2e82df0d1c8ad3e2db3a7c765c431b72"><div class="ttname"><a href="a00920.html#ga2e82df0d1c8ad3e2db3a7c765c431b72">Dune::mcmgLayout</a></div><div class="ttdeci">MCMGLayout mcmgLayout(Codim&lt; codim &gt;)</div><div class="ttdoc">layout for entities of codimension codim</div><div class="ttdef"><b>Definition:</b> mcmgmapper.hh:70</div></div>
+<div class="ttc" id="aa00920_html_ga3f08c3fdd04f64bac3140926732b4b30"><div class="ttname"><a href="a00920.html#ga3f08c3fdd04f64bac3140926732b4b30">Dune::mcmgElementLayout</a></div><div class="ttdeci">MCMGLayout mcmgElementLayout()</div><div class="ttdoc">layout for elements (codim-0 entities)</div><div class="ttdef"><b>Definition:</b> mcmgmapper.hh:95</div></div>
+<div class="ttc" id="aa00920_html_gad8aa4cc3c8ae1053f70788625f0b5857"><div class="ttname"><a href="a00920.html#gad8aa4cc3c8ae1053f70788625f0b5857">Dune::MCMGLayout</a></div><div class="ttdeci">std::function&lt; size_t(GeometryType, int)&gt; MCMGLayout</div><div class="ttdoc">layout function for MultipleCodimMultipleGeomTypeMapper</div><div class="ttdef"><b>Definition:</b> mcmgmapper.hh:62</div></div>
+<div class="ttc" id="aa00920_html_gae9caf92c46fedd5287c5e011dcbdd3b5"><div class="ttname"><a href="a00920.html#gae9caf92c46fedd5287c5e011dcbdd3b5">Dune::mcmgVertexLayout</a></div><div class="ttdeci">MCMGLayout mcmgVertexLayout()</div><div class="ttdoc">layout for vertices (dim-0 entities)</div><div class="ttdef"><b>Definition:</b> mcmgmapper.hh:105</div></div>
+<div class="ttc" id="aa00940_html"><div class="ttname"><a href="a00940.html">Dune</a></div><div class="ttdoc">Include standard header files.</div><div class="ttdef"><b>Definition:</b> agrid.hh:58</div></div>
+<div class="ttc" id="aa00941_html_ad67366c3c67a2ca2e728b4276e37324e"><div class="ttname"><a href="a00941.html#ad67366c3c67a2ca2e728b4276e37324e">Dune::Alberta::max</a></div><div class="ttdeci">int max(const DofVectorPointer&lt; int &gt; &amp;dofVector)</div><div class="ttdef"><b>Definition:</b> dofvector.hh:335</div></div>
+<div class="ttc" id="aa00951_html_aceb67a16cc6beb52f71ba8a06d6ef44f"><div class="ttname"><a href="a00951.html#aceb67a16cc6beb52f71ba8a06d6ef44f">Dune::VTK::GeometryType</a></div><div class="ttdeci">GeometryType</div><div class="ttdoc">Type representing VTK's entity geometry types.</div><div class="ttdef"><b>Definition:</b> common.hh:130</div></div>
+<div class="ttc" id="aa02794_html"><div class="ttname"><a href="a02794.html">Dune::Mapper</a></div><div class="ttdoc">Mapper interface.</div><div class="ttdef"><b>Definition:</b> mapper.hh:108</div></div>
+<div class="ttc" id="aa02798_html"><div class="ttname"><a href="a02798.html">Dune::MultipleCodimMultipleGeomTypeMapper</a></div><div class="ttdoc">Implementation class for a multiple codim and multiple geometry type mapper.</div><div class="ttdef"><b>Definition:</b> mcmgmapper.hh:127</div></div>
+<div class="ttc" id="aa02798_html_a056916a77c950e57addc5dbca246f913"><div class="ttname"><a href="a02798.html#a056916a77c950e57addc5dbca246f913">Dune::MultipleCodimMultipleGeomTypeMapper::gridView</a></div><div class="ttdeci">const GridView &amp; gridView() const</div><div class="ttdef"><b>Definition:</b> mcmgmapper.hh:334</div></div>
+<div class="ttc" id="aa02798_html_a08247d77c67ce838c3afd3ded6fad8ca"><div class="ttname"><a href="a02798.html#a08247d77c67ce838c3afd3ded6fad8ca">Dune::MultipleCodimMultipleGeomTypeMapper::indices</a></div><div class="ttdeci">IntegralRange&lt; Index &gt; indices(const typename GV::template Codim&lt; 0 &gt;::Entity &amp;e, int i, int cc) const</div><div class="ttdoc">Returns a pair with the starting point in the dof vector and the number of degrees of freedom if the ...</div><div class="ttdef"><b>Definition:</b> mcmgmapper.hh:248</div></div>
+<div class="ttc" id="aa02798_html_a109484c93e4a1940b44d127052757bca"><div class="ttname"><a href="a02798.html#a109484c93e4a1940b44d127052757bca">Dune::MultipleCodimMultipleGeomTypeMapper::contains</a></div><div class="ttdeci">bool contains(const EntityType &amp;e, Index &amp;result) const</div><div class="ttdoc">Returns true if the entity is contained in the index set.</div><div class="ttdef"><b>Definition:</b> mcmgmapper.hh:270</div></div>
+<div class="ttc" id="aa02798_html_a228e977d462d176b5453a6db62e68a9e"><div class="ttname"><a href="a02798.html#a228e977d462d176b5453a6db62e68a9e">Dune::MultipleCodimMultipleGeomTypeMapper::size</a></div><div class="ttdeci">size_type size() const</div><div class="ttdoc">Return total number of entities in the entity set managed by the mapper.</div><div class="ttdef"><b>Definition:</b> mcmgmapper.hh:202</div></div>
+<div class="ttc" id="aa02798_html_a24a2624d09e1161517420e051b7a73ec"><div class="ttname"><a href="a02798.html#a24a2624d09e1161517420e051b7a73ec">Dune::MultipleCodimMultipleGeomTypeMapper::subIndex</a></div><div class="ttdeci">Index subIndex(const typename GV::template Codim&lt; 0 &gt;::Entity &amp;e, int i, unsigned int codim) const</div><div class="ttdoc">Map subentity of codim 0 entity to starting index in array for dof block.</div><div class="ttdef"><b>Definition:</b> mcmgmapper.hh:183</div></div>
+<div class="ttc" id="aa02798_html_a25d1ebb578072c2ba8c36c9888a67a34"><div class="ttname"><a href="a02798.html#a25d1ebb578072c2ba8c36c9888a67a34">Dune::MultipleCodimMultipleGeomTypeMapper::MultipleCodimMultipleGeomTypeMapper</a></div><div class="ttdeci">MultipleCodimMultipleGeomTypeMapper(const GV &amp;gridView, const MCMGLayout &amp;layout)</div><div class="ttdoc">construct mapper from grid and layout description</div><div class="ttdef"><b>Definition:</b> mcmgmapper.hh:153</div></div>
+<div class="ttc" id="aa02798_html_a2dcfe88852a42c40ae22d43d8ffec4e3"><div class="ttname"><a href="a02798.html#a2dcfe88852a42c40ae22d43d8ffec4e3">Dune::MultipleCodimMultipleGeomTypeMapper::contains</a></div><div class="ttdeci">bool contains(const typename GV::template Codim&lt; 0 &gt;::Entity &amp;e, int i, int cc, Index &amp;result) const</div><div class="ttdoc">Returns true if the entity is contained in the index set.</div><div class="ttdef"><b>Definition:</b> mcmgmapper.hh:289</div></div>
+<div class="ttc" id="aa02798_html_a549a0c5ad253fb33c80cc4d813f366a4"><div class="ttname"><a href="a02798.html#a549a0c5ad253fb33c80cc4d813f366a4">Dune::MultipleCodimMultipleGeomTypeMapper::size_type</a></div><div class="ttdeci">decltype(std::declval&lt; typename GV::IndexSet &gt;().size(0)) size_type</div><div class="ttdoc">Number type used for the overall size (the return value of the 'size' method)</div><div class="ttdef"><b>Definition:</b> mcmgmapper.hh:140</div></div>
+<div class="ttc" id="aa02798_html_a5df55b1e1be633b76d990dc7dbed881c"><div class="ttname"><a href="a02798.html#a5df55b1e1be633b76d990dc7dbed881c">Dune::MultipleCodimMultipleGeomTypeMapper::index</a></div><div class="ttdeci">Index index(const EntityType &amp;e) const</div><div class="ttdoc">Map entity to starting index in array for dof block.</div><div class="ttdef"><b>Definition:</b> mcmgmapper.hh:169</div></div>
+<div class="ttc" id="aa02798_html_a7451c8af09caaa1155939145c5d23c11"><div class="ttname"><a href="a02798.html#a7451c8af09caaa1155939145c5d23c11">Dune::MultipleCodimMultipleGeomTypeMapper::update</a></div><div class="ttdeci">void update(const GV &amp;gridView)</div><div class="ttdoc">Recalculates indices after grid adaptation.</div><div class="ttdef"><b>Definition:</b> mcmgmapper.hh:306</div></div>
+<div class="ttc" id="aa02798_html_a75354603bc5fda075a50ed01e55cee9a"><div class="ttname"><a href="a02798.html#a75354603bc5fda075a50ed01e55cee9a">Dune::MultipleCodimMultipleGeomTypeMapper::types</a></div><div class="ttdeci">const std::vector&lt; GeometryType &gt; &amp; types(int codim) const</div><div class="ttdoc">return the geometry types with entries</div><div class="ttdef"><b>Definition:</b> mcmgmapper.hh:214</div></div>
+<div class="ttc" id="aa02798_html_a7ea89039a0b86bb71a60f90a1a8ffee4"><div class="ttname"><a href="a02798.html#a7ea89039a0b86bb71a60f90a1a8ffee4">Dune::MultipleCodimMultipleGeomTypeMapper::Index</a></div><div class="ttdeci">GV::IndexSet::IndexType Index</div><div class="ttdoc">Number type used for indices.</div><div class="ttdef"><b>Definition:</b> mcmgmapper.hh:134</div></div>
+<div class="ttc" id="aa02798_html_a804ce60c34eabbea7e5758dcc8f7736b"><div class="ttname"><a href="a02798.html#a804ce60c34eabbea7e5758dcc8f7736b">Dune::MultipleCodimMultipleGeomTypeMapper::indices</a></div><div class="ttdeci">IntegralRange&lt; Index &gt; indices(const EntityType &amp;e) const</div><div class="ttdoc">Returns a pair with the starting point in the dof vector and the number of degrees of freedom if the ...</div><div class="ttdef"><b>Definition:</b> mcmgmapper.hh:229</div></div>
+<div class="ttc" id="aa02798_html_a9facf2614ae77f1b5fcf2bbff6abe824"><div class="ttname"><a href="a02798.html#a9facf2614ae77f1b5fcf2bbff6abe824">Dune::MultipleCodimMultipleGeomTypeMapper::size</a></div><div class="ttdeci">size_type size(GeometryType gt) const</div><div class="ttdoc">return number of entries for a given geometry type</div><div class="ttdef"><b>Definition:</b> mcmgmapper.hh:208</div></div>
+<div class="ttc" id="aa02798_html_ac5aebc6ce510a418bd447d07e84fa113"><div class="ttname"><a href="a02798.html#ac5aebc6ce510a418bd447d07e84fa113">Dune::MultipleCodimMultipleGeomTypeMapper::layout</a></div><div class="ttdeci">const MCMGLayout &amp; layout() const</div><div class="ttdef"><b>Definition:</b> mcmgmapper.hh:333</div></div>
+<div class="ttc" id="aa02798_html_acb1092fcb511e33960a3c3eec3f71cd6"><div class="ttname"><a href="a02798.html#acb1092fcb511e33960a3c3eec3f71cd6">Dune::MultipleCodimMultipleGeomTypeMapper::update</a></div><div class="ttdeci">void update()</div><div class="ttdoc">Recalculates indices after grid adaptation.</div><div class="ttdef"><b>Definition:</b> mcmgmapper.hh:328</div></div>
+<div class="ttc" id="aa02798_html_ad0f2fcda1251a52413fc5c28e183a924"><div class="ttname"><a href="a02798.html#ad0f2fcda1251a52413fc5c28e183a924">Dune::MultipleCodimMultipleGeomTypeMapper::GridView</a></div><div class="ttdeci">GV GridView</div><div class="ttdoc">Underlying GridView.</div><div class="ttdef"><b>Definition:</b> mcmgmapper.hh:131</div></div>
+<div class="ttc" id="aa02798_html_afebe1cf0724f2c5dcc132f03b576e306"><div class="ttname"><a href="a02798.html#afebe1cf0724f2c5dcc132f03b576e306">Dune::MultipleCodimMultipleGeomTypeMapper::update</a></div><div class="ttdeci">void update(GV &amp;&amp;gridView)</div><div class="ttdoc">Recalculates indices after grid adaptation.</div><div class="ttdef"><b>Definition:</b> mcmgmapper.hh:318</div></div>
+<div class="ttc" id="aa02802_html"><div class="ttname"><a href="a02802.html">Dune::LeafMultipleCodimMultipleGeomTypeMapper</a></div><div class="ttdoc">Multiple codim and multiple geometry type mapper for leaf entities.</div><div class="ttdef"><b>Definition:</b> mcmgmapper.hh:402</div></div>
+<div class="ttc" id="aa02802_html_a6a2b375acd4f0516e53163e511fd4ad4"><div class="ttname"><a href="a02802.html#a6a2b375acd4f0516e53163e511fd4ad4">Dune::LeafMultipleCodimMultipleGeomTypeMapper::update</a></div><div class="ttdeci">void update()</div><div class="ttdoc">Recalculates indices after grid adaptation.</div><div class="ttdef"><b>Definition:</b> mcmgmapper.hh:422</div></div>
+<div class="ttc" id="aa02802_html_ac98a1a81628745acc7624ad9e38a30af"><div class="ttname"><a href="a02802.html#ac98a1a81628745acc7624ad9e38a30af">Dune::LeafMultipleCodimMultipleGeomTypeMapper::LeafMultipleCodimMultipleGeomTypeMapper</a></div><div class="ttdeci">LeafMultipleCodimMultipleGeomTypeMapper(const G &amp;grid, const MCMGLayout &amp;layout)</div><div class="ttdoc">constructor</div><div class="ttdef"><b>Definition:</b> mcmgmapper.hh:412</div></div>
+<div class="ttc" id="aa02806_html"><div class="ttname"><a href="a02806.html">Dune::LevelMultipleCodimMultipleGeomTypeMapper</a></div><div class="ttdoc">Multiple codim and multiple geometry type mapper for entities of one level.</div><div class="ttdef"><b>Definition:</b> mcmgmapper.hh:441</div></div>
+<div class="ttc" id="aa02806_html_a76c665666d7c7385baa29844c84a2a85"><div class="ttname"><a href="a02806.html#a76c665666d7c7385baa29844c84a2a85">Dune::LevelMultipleCodimMultipleGeomTypeMapper::update</a></div><div class="ttdeci">void update()</div><div class="ttdoc">Recalculates indices after grid adaptation.</div><div class="ttdef"><b>Definition:</b> mcmgmapper.hh:463</div></div>
+<div class="ttc" id="aa02806_html_ad1157692b212f306f426c46fc6a0e96a"><div class="ttname"><a href="a02806.html#ad1157692b212f306f426c46fc6a0e96a">Dune::LevelMultipleCodimMultipleGeomTypeMapper::LevelMultipleCodimMultipleGeomTypeMapper</a></div><div class="ttdeci">LevelMultipleCodimMultipleGeomTypeMapper(const G &amp;grid, int level, const MCMGLayout &amp;layout)</div><div class="ttdoc">constructor</div><div class="ttdef"><b>Definition:</b> mcmgmapper.hh:452</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

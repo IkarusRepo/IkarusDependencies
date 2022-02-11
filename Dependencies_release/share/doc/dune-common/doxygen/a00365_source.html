@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-common: stringutility.hh Source File</title>
+<title>dune-common: timer.hh Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-common
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -67,93 +67,133 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">stringutility.hh</div>  </div>
+<div class="title">timer.hh</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="a00365.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*-</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// vi: set et ts=4 sw=2 sts=2:</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifndef DUNE_COMMON_STRINGUTILITY_HH</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define DUNE_COMMON_STRINGUTILITY_HH</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifndef DUNE_TIMER_HH</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define DUNE_TIMER_HH</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;cstddef&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;cstring&gt;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;cassert&gt;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;cstdio&gt;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;new&gt;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00086.html">dune/common/exceptions.hh</a>&gt;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00428.html">Dune</a> {</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> C&gt;</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="a00405.html#gaf31028edab397ce01e0192a2823488f7">   35</a></span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="a00405.html#gaf31028edab397ce01e0192a2823488f7">hasPrefix</a>(<span class="keyword">const</span> C&amp; c, <span class="keyword">const</span> <span class="keywordtype">char</span>* prefix) {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    std::size_t len = std::strlen(prefix);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordflow">return</span> c.size() &gt;= len &amp;&amp;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;           std::equal(prefix, prefix+len, c.begin());</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  }</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> C&gt;</div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="a00405.html#ga560ea1a14403e04148126a2e9396dea2">   51</a></span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="a00405.html#ga560ea1a14403e04148126a2e9396dea2">hasSuffix</a>(<span class="keyword">const</span> C&amp; c, <span class="keyword">const</span> <span class="keywordtype">char</span>* suffix) {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    std::size_t len = std::strlen(suffix);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">if</span>(c.size() &lt; len) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">typename</span> C::const_iterator it = c.begin();</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    std::advance(it, c.size() - len);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">return</span> std::equal(suffix, suffix+len, it);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  }</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class</span>... T&gt;</div>
-<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="a00405.html#gab825672ce0273462cb092bba70f39d0b">   71</a></span>&#160;  <span class="keyword">static</span> std::string <a class="code" href="a00405.html#gab825672ce0273462cb092bba70f39d0b">formatString</a>(<span class="keyword">const</span> std::string&amp; s, <span class="keyword">const</span> T&amp;... args)</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  {</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> bufferSize=1000;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">char</span> buffer[bufferSize];</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="comment">// try to format with static buffer</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">int</span> r = std::snprintf(buffer, bufferSize, s.c_str(), args...);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="comment">// negative return values correspond to errors</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">if</span> (r&lt;0)</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;      <a class="code" href="a00415.html#gad7fce127d6eaabe773adbc409514f21e">DUNE_THROW</a>(<a class="code" href="a01564.html">Dune::Exception</a>,<span class="stringliteral">&quot;Could not convert format string using given arguments.&quot;</span>);</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="comment">// if buffer was large enough return result as string</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordflow">if</span> (r&lt;bufferSize)</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;      <span class="keywordflow">return</span> std::string(buffer);</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="comment">// if buffer was to small allocate a larger buffer using</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="comment">// the predicted size hint (+1 for the terminating 0-byte).</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">int</span> dynamicBufferSize = r+1;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    std::unique_ptr&lt;char[]&gt; dynamicBuffer;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">try</span> {</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;      dynamicBuffer = std::make_unique&lt;char[]&gt;(dynamicBufferSize);</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef TIMER_USE_STD_CLOCK</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">// headers for std::chrono</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;chrono&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">// headers for std::clock</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;ctime&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00428.html">Dune</a> {</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="a02881.html">   40</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a02881.html">Timer</a></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="a02881.html#a55b4e69b9e9ef128b998fb0f59f0fa63">   48</a></span>&#160;    <a class="code" href="a02881.html#a55b4e69b9e9ef128b998fb0f59f0fa63">Timer</a> (<span class="keywordtype">bool</span> startImmediately=<span class="keyword">true</span>) noexcept</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;      isRunning_ = startImmediately;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;      <a class="code" href="a02881.html#a08ea290ecdd2cb4e98b4bc22e65abff4">reset</a>();</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    }</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="a02881.html#a08ea290ecdd2cb4e98b4bc22e65abff4">   55</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a02881.html#a08ea290ecdd2cb4e98b4bc22e65abff4">reset</a>() noexcept</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    {</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      sumElapsed_ = 0.0;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;      storedLastElapsed_ = 0.0;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;      rawReset();</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    }</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="a02881.html#af232d81c85e04ca4ffdd2f8ead677316">   64</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a02881.html#af232d81c85e04ca4ffdd2f8ead677316">start</a>() noexcept</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    {</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;      <span class="keywordflow">if</span> (not (isRunning_))</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;      {</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        rawReset();</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        isRunning_ = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;      }</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    }</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="a02881.html#ad8cce9cefec3e1aadf87c9a9896b1da2">   75</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="a02881.html#ad8cce9cefec3e1aadf87c9a9896b1da2">elapsed</a> () const noexcept</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    {</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;      <span class="comment">// if timer is running add the time elapsed since last start to sum</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;      <span class="keywordflow">if</span> (isRunning_)</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordflow">return</span> sumElapsed_ + <a class="code" href="a02881.html#adcef76c27f53655b662af3e80fdf4486">lastElapsed</a>();</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;      <span class="keywordflow">return</span> sumElapsed_;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    }</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="a02881.html#adcef76c27f53655b662af3e80fdf4486">   86</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="a02881.html#adcef76c27f53655b662af3e80fdf4486">lastElapsed</a> () const noexcept</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    {</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;      <span class="comment">// if timer is running return the current value</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;      <span class="keywordflow">if</span> (isRunning_)</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordflow">return</span> rawElapsed();</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;      <span class="comment">// if timer is not running return stored value from last run</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;      <span class="keywordflow">return</span> storedLastElapsed_;</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    }</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::bad_alloc&amp;) {</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;      <a class="code" href="a00415.html#gad7fce127d6eaabe773adbc409514f21e">DUNE_THROW</a>(<a class="code" href="a01564.html">Dune::Exception</a>,<span class="stringliteral">&quot;Could allocate large enough dynamic buffer in formatString.&quot;</span>);</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    }</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="comment">// convert and check for errors again</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    r = std::snprintf(dynamicBuffer.get(), dynamicBufferSize, s.c_str(), args...);</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordflow">if</span> (r&lt;0)</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;      <a class="code" href="a00415.html#gad7fce127d6eaabe773adbc409514f21e">DUNE_THROW</a>(<a class="code" href="a01564.html">Dune::Exception</a>,<span class="stringliteral">&quot;Could not convert format string using given arguments.&quot;</span>);</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="comment">// the new buffer should always be large enough</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    assert(r&lt;dynamicBufferSize);</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordflow">return</span> std::string(dynamicBuffer.get());</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  }</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;}</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="a02881.html#a30628558c1dd47eab76ab2d408bb6319">   98</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="a02881.html#a30628558c1dd47eab76ab2d408bb6319">stop</a>() noexcept</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    {</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;      <span class="keywordflow">if</span> (isRunning_)</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;      {</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="comment">// update storedLastElapsed_ and  sumElapsed_ and stop timer</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        storedLastElapsed_ = <a class="code" href="a02881.html#adcef76c27f53655b662af3e80fdf4486">lastElapsed</a>();</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        sumElapsed_ += storedLastElapsed_;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        isRunning_ = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;      }</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="a02881.html#ad8cce9cefec3e1aadf87c9a9896b1da2">elapsed</a>();</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    }</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// DUNE_COMMON_STRINGUTILITY_HH</span></div>
-<div class="ttc" id="aa00086_html"><div class="ttname"><a href="a00086.html">exceptions.hh</a></div><div class="ttdoc">A few common exception classes.</div></div>
-<div class="ttc" id="aa00405_html_ga560ea1a14403e04148126a2e9396dea2"><div class="ttname"><a href="a00405.html#ga560ea1a14403e04148126a2e9396dea2">Dune::hasSuffix</a></div><div class="ttdeci">bool hasSuffix(const C &amp;c, const char *suffix)</div><div class="ttdoc">Check whether a character container has a given suffix.</div><div class="ttdef"><b>Definition:</b> stringutility.hh:51</div></div>
-<div class="ttc" id="aa00405_html_gab825672ce0273462cb092bba70f39d0b"><div class="ttname"><a href="a00405.html#gab825672ce0273462cb092bba70f39d0b">Dune::formatString</a></div><div class="ttdeci">static std::string formatString(const std::string &amp;s, const T &amp;... args)</div><div class="ttdoc">Format values according to printf format string.</div><div class="ttdef"><b>Definition:</b> stringutility.hh:71</div></div>
-<div class="ttc" id="aa00405_html_gaf31028edab397ce01e0192a2823488f7"><div class="ttname"><a href="a00405.html#gaf31028edab397ce01e0192a2823488f7">Dune::hasPrefix</a></div><div class="ttdeci">bool hasPrefix(const C &amp;c, const char *prefix)</div><div class="ttdoc">Check whether a character container has a given prefix.</div><div class="ttdef"><b>Definition:</b> stringutility.hh:35</div></div>
-<div class="ttc" id="aa00415_html_gad7fce127d6eaabe773adbc409514f21e"><div class="ttname"><a href="a00415.html#gad7fce127d6eaabe773adbc409514f21e">DUNE_THROW</a></div><div class="ttdeci">#define DUNE_THROW(E, m)</div><div class="ttdef"><b>Definition:</b> exceptions.hh:216</div></div>
-<div class="ttc" id="aa00428_html"><div class="ttname"><a href="a00428.html">Dune</a></div><div class="ttdoc">Dune namespace.</div><div class="ttdef"><b>Definition:</b> alignedallocator.hh:14</div></div>
-<div class="ttc" id="aa01564_html"><div class="ttname"><a href="a01564.html">Dune::Exception</a></div><div class="ttdoc">Base class for Dune-Exceptions.</div><div class="ttdef"><b>Definition:</b> exceptions.hh:94</div></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordtype">bool</span> isRunning_;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordtype">double</span> sumElapsed_;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordtype">double</span> storedLastElapsed_;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="preprocessor">#ifdef TIMER_USE_STD_CLOCK</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordtype">void</span> rawReset() noexcept</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    {</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;      cstart = std::clock();</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    }</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordtype">double</span> rawElapsed () const noexcept</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    {</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;      <span class="keywordflow">return</span> (std::clock()-cstart) / <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(CLOCKS_PER_SEC);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    }</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    std::clock_t cstart;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordtype">void</span> rawReset() noexcept</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    {</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;      cstart = std::chrono::high_resolution_clock::now();</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    }</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="keywordtype">double</span> rawElapsed () const noexcept</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    {</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;      std::chrono::high_resolution_clock::time_point now = std::chrono::high_resolution_clock::now();</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;      std::chrono::duration&lt;double&gt; time_span = std::chrono::duration_cast&lt;std::chrono::duration&lt;double&gt; &gt;(now - cstart);</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;      <span class="keywordflow">return</span> time_span.count();</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    }</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    std::chrono::high_resolution_clock::time_point cstart;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;  }; <span class="comment">// end class Timer</span></div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;} <span class="comment">// end namespace</span></div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aa00428_html"><div class="ttname"><a href="a00428.html">Dune</a></div><div class="ttdoc">Dune namespace.</div><div class="ttdef"><b>Definition:</b> alignedallocator.hh:11</div></div>
+<div class="ttc" id="aa02881_html"><div class="ttname"><a href="a02881.html">Dune::Timer</a></div><div class="ttdoc">A simple stop watch.</div><div class="ttdef"><b>Definition:</b> timer.hh:41</div></div>
+<div class="ttc" id="aa02881_html_a08ea290ecdd2cb4e98b4bc22e65abff4"><div class="ttname"><a href="a02881.html#a08ea290ecdd2cb4e98b4bc22e65abff4">Dune::Timer::reset</a></div><div class="ttdeci">void reset() noexcept</div><div class="ttdoc">Reset timer while keeping the running/stopped state.</div><div class="ttdef"><b>Definition:</b> timer.hh:55</div></div>
+<div class="ttc" id="aa02881_html_a30628558c1dd47eab76ab2d408bb6319"><div class="ttname"><a href="a02881.html#a30628558c1dd47eab76ab2d408bb6319">Dune::Timer::stop</a></div><div class="ttdeci">double stop() noexcept</div><div class="ttdoc">Stop the timer and return elapsed().</div><div class="ttdef"><b>Definition:</b> timer.hh:98</div></div>
+<div class="ttc" id="aa02881_html_a55b4e69b9e9ef128b998fb0f59f0fa63"><div class="ttname"><a href="a02881.html#a55b4e69b9e9ef128b998fb0f59f0fa63">Dune::Timer::Timer</a></div><div class="ttdeci">Timer(bool startImmediately=true) noexcept</div><div class="ttdoc">A new timer, create and reset.</div><div class="ttdef"><b>Definition:</b> timer.hh:48</div></div>
+<div class="ttc" id="aa02881_html_ad8cce9cefec3e1aadf87c9a9896b1da2"><div class="ttname"><a href="a02881.html#ad8cce9cefec3e1aadf87c9a9896b1da2">Dune::Timer::elapsed</a></div><div class="ttdeci">double elapsed() const noexcept</div><div class="ttdoc">Get elapsed user-time from last reset until now/last stop in seconds.</div><div class="ttdef"><b>Definition:</b> timer.hh:75</div></div>
+<div class="ttc" id="aa02881_html_adcef76c27f53655b662af3e80fdf4486"><div class="ttname"><a href="a02881.html#adcef76c27f53655b662af3e80fdf4486">Dune::Timer::lastElapsed</a></div><div class="ttdeci">double lastElapsed() const noexcept</div><div class="ttdoc">Get elapsed user-time from last start until now/last stop in seconds.</div><div class="ttdef"><b>Definition:</b> timer.hh:86</div></div>
+<div class="ttc" id="aa02881_html_af232d81c85e04ca4ffdd2f8ead677316"><div class="ttname"><a href="a02881.html#af232d81c85e04ca4ffdd2f8ead677316">Dune::Timer::start</a></div><div class="ttdeci">void start() noexcept</div><div class="ttdoc">Start the timer and continue measurement if it is not running. Otherwise do nothing.</div><div class="ttdef"><b>Definition:</b> timer.hh:64</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: entityiterator.hh File Reference</title>
+<title>dune-grid: datahandleif.hh File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -70,29 +70,35 @@ $(function() {
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">entityiterator.hh File Reference</div>  </div>
+<div class="title">datahandleif.hh File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;cstddef&gt;</code><br />
-<code>#include &lt;iterator&gt;</code><br />
+
+<p>Describes the parallel communication interface class for MessageBuffers and DataHandles.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &lt;dune/common/bartonnackmanifcheck.hh&gt;</code><br />
 </div>
 <p><a href="a00236_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02650.html">Dune::EntityIterator&lt; codim, Grid, IteratorImp &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">interface class for an iterator over grid entities  <a href="a02650.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02582.html">Dune::MessageBufferIF&lt; MessageBufferImp &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Communication message buffer interface. This class describes the interface for reading and writing data to the communication message buffer. As message buffers might be deeply implemented in various packages the message buffers implementations cannot be derived from this interface class. Therefore we just apply the engine concept to wrap the message buffer call and make sure that the interface is fulfilled.  <a href="a02582.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02654.html">std::iterator_traits&lt; Dune::EntityIterator&lt; codim, Grid, IteratorImp &gt; &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02586.html">Dune::CommDataHandleIF&lt; DataHandleImp, DataTypeImp &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a02586.html" title="CommDataHandleIF describes the features of a data handle for communication in parallel runs using the...">CommDataHandleIF</a> describes the features of a data handle for communication in parallel runs using the Grid::communicate methods. Here the Barton-Nackman trick is used to interprete data handle objects as its interface. Therefore usable data handle classes need to be derived from this class.  <a href="a02586.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:a00936"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00936.html">Dune</a></td></tr>
-<tr class="memdesc:a00936"><td class="mdescLeft">&#160;</td><td class="mdescRight">Include standard header files. <br /></td></tr>
+<tr class="memitem:a00940"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00940.html">Dune</a></td></tr>
+<tr class="memdesc:a00940"><td class="mdescLeft">&#160;</td><td class="mdescRight">Include standard header files. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Describes the parallel communication interface class for MessageBuffers and DataHandles. </p>
+<dl class="section author"><dt>Author</dt><dd>Robert Kloefkorn </dd></dl>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1

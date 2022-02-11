@@ -5,6 +5,7 @@
 #    There has been a couple of issues with this implementation in
 #    the past, so it was deactivated by default.
 #
+include_guard(GLOBAL)
 
 # sets up a global property with the names of all header files
 # in the module and a global target depending on all checks
@@ -17,8 +18,12 @@ macro(setup_headercheck)
 
   #define headercheck target
   dune_module_path(MODULE dune-common RESULT scriptdir SCRIPT_DIR)
-  add_custom_target(headercheck ${CMAKE_COMMAND} -DENABLE_HEADERCHECK=${ENABLE_HEADERCHECK} -P ${scriptdir}/FinalizeHeadercheck.cmake
-                  WORKING_DIRECTORY ${CMAKE_BINARY_DIR})
+  if(NOT TARGET headercheck)
+    add_custom_target(headercheck ${CMAKE_COMMAND}
+      -DENABLE_HEADERCHECK=${ENABLE_HEADERCHECK}
+      -P ${scriptdir}/FinalizeHeadercheck.cmake
+      WORKING_DIRECTORY ${CMAKE_BINARY_DIR})
+  endif()
 endmacro(setup_headercheck)
 
 # these macros are used to exclude headers from make headercheck
@@ -38,6 +43,15 @@ macro(exclude_dir_from_headercheck)
   file(GLOB list RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "*.hh")
   exclude_from_headercheck(${list})
 endmacro(exclude_dir_from_headercheck)
+
+macro(exclude_subdir_from_headercheck DIRNAME)
+  file(GLOB_RECURSE exlist "${CMAKE_CURRENT_SOURCE_DIR}/${DIRNAME}/*.hh")
+  get_property(headerlist GLOBAL PROPERTY headercheck_list)
+  foreach(item ${exlist})
+    list(REMOVE_ITEM headerlist "${item}")
+  endforeach()
+  set_property(GLOBAL PROPERTY headercheck_list ${headerlist})
+endmacro(exclude_subdir_from_headercheck)
 
 macro(exclude_all_but_from_headercheck)
   file(GLOB excllist RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "*.hh")

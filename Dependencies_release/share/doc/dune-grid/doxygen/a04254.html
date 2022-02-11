@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: Dune::YLoadBalance&lt; d &gt; Class Template Reference</title>
+<title>dune-grid: Dune::YLoadBalancePowerD&lt; d &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,7 +62,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00936.html">Dune</a></li><li class="navelem"><a class="el" href="a04254.html">YLoadBalance</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00940.html">Dune</a></li><li class="navelem"><a class="el" href="a04254.html">YLoadBalancePowerD</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -71,46 +71,44 @@ $(function() {
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="a04251.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::YLoadBalance&lt; d &gt; Class Template Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
+<div class="title">Dune::YLoadBalancePowerD&lt; d &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>a base class for the yaspgrid partitioning strategy The name might be irritating. It will probably change to YaspPartitionerBase in a 3.0 release.  
+<p>Implement yaspgrid load balance strategy for P=x^{dim} processors.  
  <a href="a04254.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00158_source.html">dune/grid/yaspgrid/partitioning.hh</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00167_source.html">dune/grid/yaspgrid/partitioning.hh</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for Dune::YLoadBalance&lt; d &gt;:</div>
+Inheritance diagram for Dune::YLoadBalancePowerD&lt; d &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="a04253.png" border="0" usemap="#a_dune_1_1_y_load_balance_3_01d_01_4_inherit__map" alt="Inheritance graph"/></div>
-<map name="a_dune_1_1_y_load_balance_3_01d_01_4_inherit__map" id="a_dune_1_1_y_load_balance_3_01d_01_4_inherit__map">
-<area shape="rect" title="a base class for the yaspgrid partitioning strategy The name might be irritating. It will probably ch..." alt="" coords="5,56,180,83"/>
-<area shape="rect" href="a04258.html" title="Implement the default load balance strategy of yaspgrid." alt="" coords="240,5,455,32"/>
-<area shape="rect" href="a04262.html" title="Implement yaspgrid load balance strategy for P=x^{dim} processors." alt="" coords="237,56,457,83"/>
-<area shape="rect" href="a04266.html" title="Implement partitioner that gets a fixed partitioning from an array If the given partitioning doesn&#39;t ..." alt="" coords="228,107,467,133"/>
+<div class="center"><img src="a04253.png" border="0" usemap="#a_dune_1_1_y_load_balance_power_d_3_01d_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="a_dune_1_1_y_load_balance_power_d_3_01d_01_4_inherit__map" id="a_dune_1_1_y_load_balance_power_d_3_01d_01_4_inherit__map">
+<area shape="rect" title="Implement yaspgrid load balance strategy for P=x^{dim} processors." alt="" coords="5,80,225,107"/>
+<area shape="rect" href="a04246.html" title="a base class for the yaspgrid partitioning strategy The name might be irritating. It will probably ch..." alt="" coords="28,5,203,32"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:aff6c1817d7290b72c628d45f54a9c590"><td class="memItemLeft" align="right" valign="top">typedef std::array&lt; int, d &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04254.html#aff6c1817d7290b72c628d45f54a9c590">iTupel</a></td></tr>
-<tr class="separator:aff6c1817d7290b72c628d45f54a9c590"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a409375fafc152aac14aeb42860ab8527"><td class="memItemLeft" align="right" valign="top">typedef std::array&lt; int, d &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04254.html#a409375fafc152aac14aeb42860ab8527">iTupel</a></td></tr>
+<tr class="separator:a409375fafc152aac14aeb42860ab8527"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae8887f86ebf7a6098ba442180a47156b"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04254.html#ae8887f86ebf7a6098ba442180a47156b">~YLoadBalance</a> ()</td></tr>
-<tr class="separator:ae8887f86ebf7a6098ba442180a47156b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae7995b1c6d66c615f64631453ea2fe7c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04254.html#ae7995b1c6d66c615f64631453ea2fe7c">loadbalance</a> (const <a class="el" href="a04254.html#aff6c1817d7290b72c628d45f54a9c590">iTupel</a> &amp;, int, <a class="el" href="a04254.html#aff6c1817d7290b72c628d45f54a9c590">iTupel</a> &amp;) const =0</td></tr>
-<tr class="separator:ae7995b1c6d66c615f64631453ea2fe7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd74562edd023b8177997da92be19a42"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04254.html#abd74562edd023b8177997da92be19a42">~YLoadBalancePowerD</a> ()</td></tr>
+<tr class="separator:abd74562edd023b8177997da92be19a42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab845061f9040b74b73042885c0212578"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04254.html#ab845061f9040b74b73042885c0212578">loadbalance</a> (const <a class="el" href="a04246.html#aff6c1817d7290b72c628d45f54a9c590">iTupel</a> &amp;size, int P, <a class="el" href="a04246.html#aff6c1817d7290b72c628d45f54a9c590">iTupel</a> &amp;dims) const</td></tr>
+<tr class="separator:ab845061f9040b74b73042885c0212578"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;int d&gt;<br />
-class Dune::YLoadBalance&lt; d &gt;</h3>
+class Dune::YLoadBalancePowerD&lt; d &gt;</h3>
 
-<p>a base class for the yaspgrid partitioning strategy The name might be irritating. It will probably change to YaspPartitionerBase in a 3.0 release. </p>
+<p>Implement yaspgrid load balance strategy for P=x^{dim} processors. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="aff6c1817d7290b72c628d45f54a9c590"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aff6c1817d7290b72c628d45f54a9c590">&#9670;&nbsp;</a></span>iTupel</h2>
+<a id="a409375fafc152aac14aeb42860ab8527"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a409375fafc152aac14aeb42860ab8527">&#9670;&nbsp;</a></span>iTupel</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -118,7 +116,7 @@ class Dune::YLoadBalance&lt; d &gt;</h3>
 template&lt;int d&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef std::array&lt;int, d&gt; <a class="el" href="a04254.html">Dune::YLoadBalance</a>&lt; d &gt;::<a class="el" href="a04254.html#aff6c1817d7290b72c628d45f54a9c590">iTupel</a></td>
+          <td class="memname">typedef std::array&lt;int, d&gt; <a class="el" href="a04254.html">Dune::YLoadBalancePowerD</a>&lt; d &gt;::<a class="el" href="a04246.html#aff6c1817d7290b72c628d45f54a9c590">iTupel</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -126,8 +124,8 @@ template&lt;int d&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ae8887f86ebf7a6098ba442180a47156b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae8887f86ebf7a6098ba442180a47156b">&#9670;&nbsp;</a></span>~YLoadBalance()</h2>
+<a id="abd74562edd023b8177997da92be19a42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd74562edd023b8177997da92be19a42">&#9670;&nbsp;</a></span>~YLoadBalancePowerD()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -138,7 +136,7 @@ template&lt;int d&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="a04254.html">Dune::YLoadBalance</a>&lt; d &gt;::~<a class="el" href="a04254.html">YLoadBalance</a> </td>
+          <td class="memname">virtual <a class="el" href="a04254.html">Dune::YLoadBalancePowerD</a>&lt; d &gt;::~<a class="el" href="a04254.html">YLoadBalancePowerD</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -154,8 +152,8 @@ template&lt;int d&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ae7995b1c6d66c615f64631453ea2fe7c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae7995b1c6d66c615f64631453ea2fe7c">&#9670;&nbsp;</a></span>loadbalance()</h2>
+<a id="ab845061f9040b74b73042885c0212578"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab845061f9040b74b73042885c0212578">&#9670;&nbsp;</a></span>loadbalance()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -166,22 +164,22 @@ template&lt;int d&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void <a class="el" href="a04254.html">Dune::YLoadBalance</a>&lt; d &gt;::loadbalance </td>
+          <td class="memname">virtual void <a class="el" href="a04254.html">Dune::YLoadBalancePowerD</a>&lt; d &gt;::loadbalance </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a04254.html#aff6c1817d7290b72c628d45f54a9c590">iTupel</a> &amp;&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramtype">const <a class="el" href="a04246.html#aff6c1817d7290b72c628d45f54a9c590">iTupel</a> &amp;&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>P</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a04254.html#aff6c1817d7290b72c628d45f54a9c590">iTupel</a> &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
+          <td class="paramtype"><a class="el" href="a04246.html#aff6c1817d7290b72c628d45f54a9c590">iTupel</a> &amp;&#160;</td>
+          <td class="paramname"><em>dims</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -191,17 +189,17 @@ template&lt;int d&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="a04266.html#acd5c1f83a1377b789c0a796626229f46">Dune::YaspFixedSizePartitioner&lt; d &gt;</a>, <a class="el" href="a04262.html#ab845061f9040b74b73042885c0212578">Dune::YLoadBalancePowerD&lt; d &gt;</a>, and <a class="el" href="a04258.html#a6c816fac482ccc2c7e519aa93b56d7b6">Dune::YLoadBalanceDefault&lt; d &gt;</a>.</p>
+<p>Implements <a class="el" href="a04246.html#ae7995b1c6d66c615f64631453ea2fe7c">Dune::YLoadBalance&lt; d &gt;</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="a00158_source.html">partitioning.hh</a></li>
+<li><a class="el" href="a00167_source.html">partitioning.hh</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

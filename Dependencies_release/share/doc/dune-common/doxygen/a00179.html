@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-common
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -69,7 +69,8 @@ $(function() {
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#typedef-members">Typedefs</a>  </div>
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">communication.hh File Reference<div class="ingroups"><a class="el" href="a00400.html">Common</a> &raquo; <a class="el" href="a00418.html">Parallel Communication</a> &#124; <a class="el" href="a00400.html">Common</a> &raquo; <a class="el" href="a00418.html">Parallel Communication</a></div></div>  </div>
 </div><!--header-->
@@ -83,17 +84,16 @@ $(function() {
 <code>#include &lt;vector&gt;</code><br />
 <code>#include &lt;<a class="el" href="a00023_source.html">dune/common/binaryfunctions.hh</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="a00086_source.html">dune/common/exceptions.hh</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00389_source.html">dune/common/unused.hh</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="a00185_source.html">dune/common/parallel/future.hh</a>&gt;</code><br />
 </div>
 <p><a href="a00179_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01960.html">Dune::No_Comm</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01957.html">Dune::No_Comm</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01964.html">Dune::Communication&lt; Communicator &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Collective communication interface and sequential default implementation.  <a href="a01964.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01961.html">Dune::Communication&lt; Communicator &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Collective communication interface and sequential default implementation.  <a href="a01961.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -107,6 +107,15 @@ Typedefs</h2></td></tr>
 <tr class="memitem:a51c6057d41509cc616fb60f483d7d6dd"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
 <tr class="memitem:a51c6057d41509cc616fb60f483d7d6dd"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00428.html#a51c6057d41509cc616fb60f483d7d6dd">Dune::CollectiveCommunication</a> = Communication&lt; T &gt;</td></tr>
 <tr class="separator:a51c6057d41509cc616fb60f483d7d6dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:aee0776cda12fa2fc183e2796bcc23743"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00428.html#aee0776cda12fa2fc183e2796bcc23743">Dune::operator==</a> (const No_Comm &amp;, const No_Comm &amp;)</td></tr>
+<tr class="memdesc:aee0776cda12fa2fc183e2796bcc23743"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comparison operator for MPI compatibility.  <a href="a00428.html#aee0776cda12fa2fc183e2796bcc23743">More...</a><br /></td></tr>
+<tr class="separator:aee0776cda12fa2fc183e2796bcc23743"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02c039e6b551a3771cc8c60e84e9bcdc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00428.html#a02c039e6b551a3771cc8c60e84e9bcdc">Dune::operator!=</a> (const No_Comm &amp;, const No_Comm &amp;)</td></tr>
+<tr class="memdesc:a02c039e6b551a3771cc8c60e84e9bcdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Comparison operator for MPI compatibility.  <a href="a00428.html#a02c039e6b551a3771cc8c60e84e9bcdc">More...</a><br /></td></tr>
+<tr class="separator:a02c039e6b551a3771cc8c60e84e9bcdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implements an utility class that provides collective communication methods for sequential programs. </p>

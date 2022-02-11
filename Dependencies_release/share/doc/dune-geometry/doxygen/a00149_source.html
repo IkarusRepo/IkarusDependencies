@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-geometry: type.hh Source File</title>
+<title>dune-geometry: topologyfactory.hh Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-geometry
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -67,634 +67,166 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">type.hh</div>  </div>
+<div class="title">topologyfactory.hh</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="a00149.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*-</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// vi: set et ts=4 sw=2 sts=2:</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifndef DUNE_GEOMETRY_TYPE_HH</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define DUNE_GEOMETRY_TYPE_HH</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifndef DUNE_GEOMETRY_TOPOLOGYFACTORY_HH</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define DUNE_GEOMETRY_TOPOLOGYFACTORY_HH</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;cassert&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;cassert&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;array&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;type_traits&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;dune/common/deprecated.hh&gt;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;dune/common/exceptions.hh&gt;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;dune/common/keywords.hh&gt;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;dune/common/typetraits.hh&gt;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;dune/common/unused.hh&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00152.html">dune/geometry/type.hh</a>&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00155.html">dune/geometry/typeindex.hh</a>&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00179.html">Dune</a></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00177.html">Dune</a></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="comment">// forward declaration needed for deprecated makeFromVertices</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="keyword">class </span>GeometryType;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  GeometryType <a class="code" href="a00177.html#a46da773c6f7d01077322c1064037e52f">geometryTypeFromVertexCount</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> dim, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> vertices);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="keyword">namespace </span>Impl</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">enum</span> TopologyConstruction { pyramidConstruction = 0, prismConstruction = 1 };</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="comment">// Basic Topology Types</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="comment">// --------------------</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">struct </span>Point</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    {</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;      <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> dimension = 0;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;      <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> numCorners = 1;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span> = 0;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;      <span class="keyword">static</span> std::string name () { <span class="keywordflow">return</span> <span class="stringliteral">&quot;p&quot;</span>; }</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    };</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">class</span> Traits&gt;</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="a01304.html">   39</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a01304.html">TopologyFactory</a></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="comment">// extract types from Traits class</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="a01304.html#a66ec306b5835b847f350fed4d9cac575">   42</a></span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="a01304.html#a66ec306b5835b847f350fed4d9cac575">dimension</a> = Traits::dimension;</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="a01304.html#aa4fd3e0e671225cd8a7851ebed201f2a">   43</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> Traits::Key <a class="code" href="a01304.html#aa4fd3e0e671225cd8a7851ebed201f2a">Key</a>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="a01304.html#af8e95b31a464841f84839db4d7613136">   44</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> Traits::Object <a class="code" href="a01304.html#af8e95b31a464841f84839db4d7613136">Object</a>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="a01304.html#a441ea227eca6e6ce76ecca5679d4c825">   45</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> Traits::Factory <a class="code" href="a01304.html#a441ea227eca6e6ce76ecca5679d4c825">Factory</a>;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">class</span> BaseTopology &gt;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">struct </span>Prism</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;      <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> dimension = BaseTopology::dimension + 1;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> numCorners = 2 * BaseTopology::numCorners;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span> = BaseTopology::id | ((<span class="keywordtype">unsigned</span> int)prismConstruction &lt;&lt; (dimension-1));</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      <span class="keyword">static</span> std::string name () { <span class="keywordflow">return</span> BaseTopology::name() + <span class="stringliteral">&quot;l&quot;</span>; }</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    };</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">class</span> BaseTopology &gt;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">struct </span>Pyramid</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    {</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;      <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> dimension = BaseTopology::dimension + 1;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;      <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> numCorners = BaseTopology::numCorners + 1;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;      <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span> = BaseTopology::id | ((<span class="keywordtype">unsigned</span> int)pyramidConstruction &lt;&lt; (dimension-1));</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="a01304.html#aaeffa287fc973ab88161eba58d425ff9">   48</a></span>&#160;    <span class="keyword">static</span> <a class="code" href="a01304.html#af8e95b31a464841f84839db4d7613136">Object</a> *<a class="code" href="a01304.html#aaeffa287fc973ab88161eba58d425ff9">create</a> ( <span class="keyword">const</span> <a class="code" href="a01316.html">Dune::GeometryType</a> &amp;gt, <span class="keyword">const</span> <a class="code" href="a01304.html#aa4fd3e0e671225cd8a7851ebed201f2a">Key</a> &amp;key )</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;      <span class="keywordflow">return</span> Impl::toGeometryTypeIdConstant&lt;dimension&gt;(gt, [&amp;](<span class="keyword">auto</span> <span class="keywordtype">id</span>) {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">return</span> create&lt;decltype(id)::value&gt;(key);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      });</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    }</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">template</span>&lt; GeometryType::Id geometryId &gt;</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="a01304.html#af4b77542c7c10252715f4effe8e4902f">   56</a></span>&#160;    <span class="keyword">static</span> <a class="code" href="a01304.html#af8e95b31a464841f84839db4d7613136">Object</a> *<a class="code" href="a01304.html#af4b77542c7c10252715f4effe8e4902f">create</a> ( <span class="keyword">const</span> <a class="code" href="a01304.html#aa4fd3e0e671225cd8a7851ebed201f2a">Key</a> &amp;key )</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;      <span class="keywordflow">return</span> Factory::template createObject&lt; geometryId &gt;( key );</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">class</span> Topology &gt;</div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="a01304.html#af4b77542c7c10252715f4effe8e4902f">   63</a></span>&#160;    <span class="keyword">static</span> <a class="code" href="a01304.html#af8e95b31a464841f84839db4d7613136">Object</a> *<a class="code" href="a01304.html#af4b77542c7c10252715f4effe8e4902f">create</a> ( <span class="keyword">const</span> <a class="code" href="a01304.html#aa4fd3e0e671225cd8a7851ebed201f2a">Key</a> &amp;key )</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    {</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;      <span class="keywordflow">return</span> Factory::template createObject&lt; Topology &gt;( key );</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    }</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;      <span class="keyword">static</span> std::string name () { <span class="keywordflow">return</span> BaseTopology::name() + <span class="stringliteral">&quot;o&quot;</span>; }</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    };</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="a01304.html#a997f0bce257dbb952974507385bfc7c8">   69</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="a01304.html#a997f0bce257dbb952974507385bfc7c8">release</a>( <a class="code" href="a01304.html#af8e95b31a464841f84839db4d7613136">Object</a> *<span class="keywordtype">object</span> ) { <span class="keyword">delete</span> object; }</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  };</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="comment">// Properties of Topologies</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="comment">// ------------------------</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">class</span> Topology &gt;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keyword">struct </span>IsSimplex</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;      : <span class="keyword">public</span> std::integral_constant&lt; bool, (Topology::id &gt;&gt; 1) == 0 &gt;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    {};</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">class</span> Topology &gt;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keyword">struct </span>IsCube</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;      : <span class="keyword">public</span> std::integral_constant&lt; bool,  (Topology::id | 1) == (1 &lt;&lt; Topology::dimension) - 1 &gt;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    {};</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="comment">// Dynamic Topology Properties</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="comment">// ---------------------------</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    inline static unsigned int numTopologies ( int dim ) noexcept</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    {</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;      return (1u &lt;&lt; dim);</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    }</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    inline bool static isPyramid ( unsigned int topologyId, int dim, int codim = 0 ) noexcept</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    {</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;      assert( (dim &gt; 0) &amp;&amp; (topologyId &lt; numTopologies( dim )) );</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;      assert( (0 &lt;= codim) &amp;&amp; (codim &lt; dim) );</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;      return (((topologyId &amp; ~1) &amp; (1u &lt;&lt; (dim-codim-1))) == 0);</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    }</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    inline static bool isPrism ( unsigned int topologyId, int dim, int codim = 0 ) noexcept</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    {</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;      assert( (dim &gt; 0) &amp;&amp; (topologyId &lt; numTopologies( dim )) );</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;      assert( (0 &lt;= codim) &amp;&amp; (codim &lt; dim) );</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;      return (( (topologyId | 1) &amp; (1u &lt;&lt; (dim-codim-1))) != 0);</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    }</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    inline static bool isTopology ( TopologyConstruction construction, unsigned int topologyId, int dim, int codim = 0 ) noexcept</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    {</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;      assert( (dim &gt; 0) &amp;&amp; (topologyId &lt; numTopologies( dim )) );</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;      assert( (0 &lt;= codim) &amp;&amp; (codim &lt;= dim) );</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;      return (codim &gt;= (dim-1)) || (((topologyId &gt;&gt; (dim-codim-1)) &amp; 1) == (unsigned int)construction);</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    }</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; </div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    inline static unsigned int baseTopologyId ( unsigned int topologyId, int dim, int codim = 1 ) noexcept</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    {</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;      assert( (dim &gt;= 0) &amp;&amp; (topologyId &lt; numTopologies( dim )) );</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;      assert( (0 &lt;= codim) &amp;&amp; (codim &lt;= dim) );</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;      return topologyId &amp; ((1u &lt;&lt; (dim-codim)) - 1);</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    }</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160; </div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160; </div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="comment">// SimplexTopology</span></div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="comment">// ---------------</span></div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160; </div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    template&lt; unsigned int dim &gt;</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    struct SimplexTopology</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    {</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;      typedef Pyramid&lt; typename SimplexTopology&lt; dim-1 &gt;::type &gt; type;</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    };</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160; </div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    template&lt;&gt;</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    struct SimplexTopology&lt; 0 &gt;</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    {</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;      typedef Point type;</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    };</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160; </div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160; </div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160; </div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <span class="comment">// CubeTopology</span></div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <span class="comment">// ------------</span></div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160; </div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    template&lt; unsigned int dim &gt;</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    struct CubeTopology</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    {</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;      typedef Prism&lt; typename CubeTopology&lt; dim-1 &gt;::type &gt; type;</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    };</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160; </div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    template&lt;&gt;</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    struct CubeTopology&lt; 0 &gt;</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    {</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;      typedef Point type;</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    };</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; </div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160; </div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160; </div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    <span class="comment">// PyramidTopology</span></div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <span class="comment">// ---------------</span></div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160; </div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    template&lt; unsigned int dim &gt;</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    struct PyramidTopology</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    {</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;      typedef Pyramid&lt; typename CubeTopology&lt; dim-1 &gt;::type &gt; type;</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    };</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160; </div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160; </div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160; </div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <span class="comment">// PrismTopology</span></div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <span class="comment">// -------------</span></div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160; </div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    template&lt; unsigned int dim &gt;</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    struct PrismTopology</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    {</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;      typedef Prism&lt; typename SimplexTopology&lt; dim-1 &gt;::type &gt; type;</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    };</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160; </div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160; </div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160; </div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160; </div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    <span class="comment">// IfTopology</span></div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    <span class="comment">// ----------</span></div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160; </div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    template&lt; template&lt; class &gt; class Operation, int dim, class Topology = Point &gt;</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    struct IfTopology</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    {</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;      template&lt; class... Args &gt;</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;      static auto apply ( unsigned int topologyId, Args &amp;&amp;... args )</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;      {</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;        if( topologyId &amp; 1 )</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;          return IfTopology&lt; Operation, dim-1, Prism&lt; Topology &gt; &gt;::apply( topologyId &gt;&gt; 1, std::forward&lt; Args &gt;( args )... );</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;        else</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;          return IfTopology&lt; Operation, dim-1, Pyramid&lt; Topology &gt; &gt;::apply( topologyId &gt;&gt; 1, std::forward&lt; Args &gt;( args )... );</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;      }</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    };</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160; </div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    template&lt; template&lt; class &gt; class Operation, class Topology &gt;</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    struct IfTopology&lt; Operation, 0, Topology &gt;</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    {</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;      template&lt; class... Args &gt;</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;      static auto apply ( unsigned int topologyId, Args &amp;&amp;... args )</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;      {</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;        DUNE_UNUSED_PARAMETER( topologyId );</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;        return Operation&lt; Topology &gt;::apply( std::forward&lt; Args &gt;( args )... );</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;      }</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    };</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160; </div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;  } <span class="comment">// namespace Impl</span></div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160; </div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160; </div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160; </div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;  <span class="comment">// GeometryType</span></div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;  <span class="comment">// -------------</span></div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160; </div>
-<div class="line"><a name="l00278"></a><span class="lineno"><a class="line" href="a01409.html">  278</a></span>&#160;  class GeometryType</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;  {</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;  public:</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160; </div>
-<div class="line"><a name="l00284"></a><span class="lineno"><a class="line" href="a01409.html#a92b65e86fcddab35c3f1467dc4f34c50">  284</a></span>&#160;    enum</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    BasicType {</div>
-<div class="line"><a name="l00286"></a><span class="lineno"><a class="line" href="a01409.html#a92b65e86fcddab35c3f1467dc4f34c50a14748a2cbd2710f909689fc503e107b3">  286</a></span>&#160;      simplex,       </div>
-<div class="line"><a name="l00287"></a><span class="lineno"><a class="line" href="a01409.html#a92b65e86fcddab35c3f1467dc4f34c50a12047f019178e4aabc2f205734fcd410">  287</a></span>&#160;      cube,          </div>
-<div class="line"><a name="l00288"></a><span class="lineno"><a class="line" href="a01409.html#a92b65e86fcddab35c3f1467dc4f34c50a2d0ccd2604924f4d8ec28bb3ef5f9e11">  288</a></span>&#160;      pyramid,       </div>
-<div class="line"><a name="l00289"></a><span class="lineno"><a class="line" href="a01409.html#a92b65e86fcddab35c3f1467dc4f34c50a9e6fd2eea32599987fbb9be57de47cec">  289</a></span>&#160;      prism,         </div>
-<div class="line"><a name="l00290"></a><span class="lineno"><a class="line" href="a01409.html#a92b65e86fcddab35c3f1467dc4f34c50a35db41ff85b61d6434bd6cd4e4a33c70">  290</a></span>&#160;      extended,      </div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;      none           </div>
-<div class="line"><a name="l00292"></a><span class="lineno"><a class="line" href="a01409.html#a92b65e86fcddab35c3f1467dc4f34c50a6b30da5cd911e792cc6d843ed944aa76">  292</a></span>&#160;    };</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160; </div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;  private:</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160; </div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    unsigned char dim_;</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160; </div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    bool none_;</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160; </div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    unsigned int topologyId_;</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160; </div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    <span class="comment">// Internal type used for the Id. The exact nature of this type is kept</span></div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    <span class="comment">// as an implementation detail on purpose. We use a scoped enum here because scoped enums</span></div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    <span class="comment">// can be used as template parameters, but are not implicitly converted to other integral</span></div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    <span class="comment">// types by the compiler. That way, we avoid unfortunate implicit conversion chains, e.g.</span></div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    <span class="comment">// people trying to work with GlobalGeometryTypeIndex, but forgetting to actually call</span></div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    <span class="comment">// GlobalGeometryTypeIndex::index(gt) and just using gt directly.</span></div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    enum class IdType : std::uint64_t</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    {};</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160; </div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;  public:</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160; </div>
-<div class="line"><a name="l00346"></a><span class="lineno"><a class="line" href="a01409.html#af65ff19e6d2915e0fd7db6c5329ae44e">  346</a></span>&#160;    using Id = IdType;</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160; </div>
-<div class="line"><a name="l00355"></a><span class="lineno"><a class="line" href="a01409.html#a76fa3040aad4348d2eec058aa67d3b76">  355</a></span>&#160;    constexpr operator Id() const</div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;    {</div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;      <span class="comment">// recreate the exact storage layout that this class is using, making conversion</span></div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;      <span class="comment">// extremely cheap</span></div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;      std::uint64_t id = dim_ | (std::uint64_t(none_) &lt;&lt; 8) | (std::uint64_t(topologyId_) &lt;&lt; 32);</div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;      return static_cast&lt;Id&gt;(id);</div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;    }</div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160; </div>
-<div class="line"><a name="l00370"></a><span class="lineno"><a class="line" href="a01409.html#a98fed1bc9a98365ffa6f8880b2ed6934">  370</a></span>&#160;    constexpr GeometryType(Id id)</div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;      : dim_(static_cast&lt;std::uint64_t&gt;(id) &amp; 0xFF)</div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;      , none_(static_cast&lt;std::uint64_t&gt;(id) &amp; 0x100)</div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;      , topologyId_(static_cast&lt;std::uint64_t&gt;(id) &gt;&gt; 32)</div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;    {}</div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160; </div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160; </div>
-<div class="line"><a name="l00380"></a><span class="lineno"><a class="line" href="a01409.html#aa6a68dc876e73aa8c97fa42fd0481aa6">  380</a></span>&#160;    constexpr GeometryType ()</div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;      : dim_(0), none_(true), topologyId_(0)</div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;    {}</div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160; </div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;    DUNE_NO_DEPRECATED_BEGIN</div>
-<div class="line"><a name="l00386"></a><span class="lineno"><a class="line" href="a01409.html#a26489f66957789c798ddc3374de03ddd">  386</a></span>&#160;    GeometryType(BasicType basicType, unsigned int dim)</div>
-<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;      DUNE_DEPRECATED_MSG(&quot;The GeometryType constructor taking BasicType is deprecated and will be removed after DUNE 2.6&quot;)</div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;      : dim_(dim), none_((basicType == GeometryType::none) ? true : false), topologyId_(0)</div>
-<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;    {</div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;      if (dim &lt; 2)</div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;        return;</div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;      switch( basicType )</div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;      {</div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;      case GeometryType::simplex :</div>
-<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;        topologyId_ = 0;</div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;        break;</div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;      case GeometryType::cube :</div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;        topologyId_ = ((1 &lt;&lt; dim) - 1);</div>
-<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;        break;</div>
-<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;      case GeometryType::pyramid :</div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;        if (dim == 3)</div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;          topologyId_ = 0b0011;</div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;        else</div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;          DUNE_THROW( RangeError,</div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;                      &quot;Invalid basic geometry type: no pyramids for dimension &quot; &lt;&lt; dim &lt;&lt; &quot;.&quot; );</div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;        break;</div>
-<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;      case GeometryType::prism :</div>
-<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;        if (dim == 3)</div>
-<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;          topologyId_ = 0b0101;</div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;        else</div>
-<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;          DUNE_THROW( RangeError,</div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;                      &quot;Invalid basic geometry type: no prisms for dimension &quot; &lt;&lt; dim &lt;&lt; &quot;.&quot; );</div>
-<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;        break;</div>
-<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;      case GeometryType::none :</div>
-<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;        break;</div>
-<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;      default :</div>
-<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;        DUNE_THROW( RangeError,</div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;                    &quot;Invalid basic geometry type: &quot; &lt;&lt; basicType &lt;&lt; &quot; for dimension &quot; &lt;&lt; dim &lt;&lt; &quot;.&quot; );</div>
-<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;      }</div>
-<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;    }</div>
-<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;    DUNE_NO_DEPRECATED_END</div>
-<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160; </div>
-<div class="line"><a name="l00429"></a><span class="lineno"><a class="line" href="a01409.html#a1a4ca8a5da09734980e338b30b87a685">  429</a></span>&#160;    constexpr GeometryType(unsigned int topologyId, unsigned int dim, bool none)</div>
-<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;      : dim_(dim), none_(none), topologyId_(topologyId)</div>
-<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;    {}</div>
-<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160; </div>
-<div class="line"><a name="l00438"></a><span class="lineno"><a class="line" href="a01409.html#a0a6121458c1b591743c17016e9f74805">  438</a></span>&#160;    constexpr GeometryType(unsigned int topologyId, unsigned int dim)</div>
-<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;      : dim_(dim), none_(false), topologyId_(topologyId)</div>
-<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;    {}</div>
-<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160; </div>
-<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;    template&lt;class TopologyType,</div>
-<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;      class = Dune::void_t&lt;decltype(TopologyType::dimension), decltype(TopologyType::id)&gt;&gt;</div>
-<div class="line"><a name="l00454"></a><span class="lineno"><a class="line" href="a01409.html#a5827e50f4af5e42d632d2be548eef6fa">  454</a></span>&#160;    explicit GeometryType(TopologyType t)</div>
-<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;      : dim_(TopologyType::dimension), none_(false), topologyId_(TopologyType::id)</div>
-<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;    {</div>
-<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;      DUNE_UNUSED_PARAMETER(t);</div>
-<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;    }</div>
-<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160; </div>
-<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;    DUNE_DEPRECATED_MSG(&quot;GeometryType(unsigned dim) is deprecated in DUNE 2.7, please use Dune::GeometryTypes::cube(dim) instead&quot;)</div>
-<div class="line"><a name="l00462"></a><span class="lineno"><a class="line" href="a01409.html#afa731187ea840b811a5cb1f5483e637d">  462</a></span>&#160;    explicit GeometryType(unsigned int dim)</div>
-<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;      : dim_(dim), none_(false), topologyId_(0)</div>
-<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;    {</div>
-<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;      assert(dim &lt; 2);</div>
-<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;    }</div>
-<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160; </div>
-<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;    <span class="comment">// We need this constructor for &quot;int&quot; and &quot;unsigned int&quot;,</span></div>
-<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;    <span class="comment">// because otherwise GeometryType(int) would try to call the</span></div>
-<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;    <span class="comment">// generic GeometryType(TopologyType) constructor</span></div>
-<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;    DUNE_DEPRECATED_MSG(&quot;GeometryType(dim) is deprecated in DUNE 2.7, please use Dune::GeometryTypes::cube(dim) instead&quot;)</div>
-<div class="line"><a name="l00473"></a><span class="lineno"><a class="line" href="a01409.html#a73005b3abc198f10a9b28b044edfe7e2">  473</a></span>&#160;    explicit GeometryType(int dim)</div>
-<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;      : dim_(dim), none_(false), topologyId_(0)</div>
-<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;    {</div>
-<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;      assert(dim &lt; 2);</div>
-<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;    }</div>
-<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160; </div>
-<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160; </div>
-<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;    DUNE_DEPRECATED_MSG(&quot;makeVertex() is deprecated in DUNE 2.6, please use Dune::GeometryTypes::vertex instead&quot;)</div>
-<div class="line"><a name="l00487"></a><span class="lineno"><a class="line" href="a01409.html#ab4776a8b3432c43db30eca3a5a276e74">  487</a></span>&#160;    void makeVertex() {</div>
-<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;      none_  = false;</div>
-<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;      dim_ = 0;</div>
-<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;      topologyId_ = 0;</div>
-<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;    }</div>
-<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160; </div>
-<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;    DUNE_DEPRECATED_MSG(&quot;makeLine() is deprecated in DUNE 2.6, please use Dune::GeometryTypes::line instead&quot;)</div>
-<div class="line"><a name="l00495"></a><span class="lineno"><a class="line" href="a01409.html#a6edefc6f4f14bf51e99ad7ef51673417">  495</a></span>&#160;    void makeLine() {</div>
-<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;      none_  = false;</div>
-<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;      dim_ = 1;</div>
-<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;      topologyId_ = 0;</div>
-<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;    }</div>
-<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160; </div>
-<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;    DUNE_DEPRECATED_MSG(&quot;makeTriangle() is deprecated in DUNE 2.6, please use Dune::GeometryTypes::triangle instead&quot;)</div>
-<div class="line"><a name="l00503"></a><span class="lineno"><a class="line" href="a01409.html#a239447d26cf755b4186fc6cbc16a9b7b">  503</a></span>&#160;    void makeTriangle() {</div>
-<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;      none_  = false;</div>
-<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;      dim_ = 2;</div>
-<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;      topologyId_ = 0;</div>
-<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;    }</div>
-<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160; </div>
-<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;    DUNE_DEPRECATED_MSG(&quot;makeQuadrilateral() is deprecated in DUNE 2.6, please use Dune::GeometryTypes::quadrilateral instead&quot;)</div>
-<div class="line"><a name="l00511"></a><span class="lineno"><a class="line" href="a01409.html#a37a4ee00fcac0c5b249cad5ecbe49f7b">  511</a></span>&#160;    void makeQuadrilateral() {</div>
-<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;      none_  = false;</div>
-<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;      dim_ = 2;</div>
-<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;      topologyId_ = 0b0011;</div>
-<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;    }</div>
-<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160; </div>
-<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;    DUNE_DEPRECATED_MSG(&quot;makeTetrahedron() is deprecated in DUNE 2.6, please use Dune::GeometryTypes::tetrahedron instead&quot;)</div>
-<div class="line"><a name="l00519"></a><span class="lineno"><a class="line" href="a01409.html#a566fb313c488a160c9bbcc96012e9094">  519</a></span>&#160;    void makeTetrahedron() {</div>
-<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;      none_  = false;</div>
-<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;      dim_ = 3;</div>
-<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;      topologyId_ = 0;</div>
-<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;    }</div>
-<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160; </div>
-<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;    DUNE_DEPRECATED_MSG(&quot;makePyramid() is deprecated in DUNE 2.6, please use Dune::GeometryTypes::pyramid instead&quot;)</div>
-<div class="line"><a name="l00527"></a><span class="lineno"><a class="line" href="a01409.html#a8166702026453deb56daac01e9c7802d">  527</a></span>&#160;    void makePyramid() {</div>
-<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;      none_  = false;</div>
-<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;      dim_ = 3;</div>
-<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;      topologyId_ = 0b0011;</div>
-<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;    }</div>
-<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160; </div>
-<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;    DUNE_DEPRECATED_MSG(&quot;makePrism() is deprecated in DUNE 2.6, please use Dune::GeometryTypes::prism instead&quot;)</div>
-<div class="line"><a name="l00535"></a><span class="lineno"><a class="line" href="a01409.html#a94037098848f42285d72ccd213be5eac">  535</a></span>&#160;    void makePrism() {</div>
-<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;      none_  = false;</div>
-<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;      dim_ = 3;</div>
-<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;      topologyId_ = 0b0101;       <span class="comment">// (1 &lt;&lt; (dim_-1)) - 1;</span></div>
-<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;    }</div>
-<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160; </div>
-<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;    DUNE_DEPRECATED_MSG(&quot;makeHexahedron() is deprecated in DUNE 2.6, please use Dune::GeometryTypes::hexahedron instead&quot;)</div>
-<div class="line"><a name="l00543"></a><span class="lineno"><a class="line" href="a01409.html#a8949b28fb565699d52ce6a1e61cea832">  543</a></span>&#160;    void makeHexahedron() {</div>
-<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;      none_  = false;</div>
-<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;      dim_ = 3;</div>
-<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;      topologyId_ = 0b0111;</div>
-<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;    }</div>
-<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160; </div>
-<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;    DUNE_DEPRECATED_MSG(&quot;makeSimplex(dim) is deprecated in DUNE 2.6, please use Dune::GeometryTypes::simplex(dim) instead&quot;)</div>
-<div class="line"><a name="l00551"></a><span class="lineno"><a class="line" href="a01409.html#a5522516915222431f4cfc2de76ddd2e1">  551</a></span>&#160;    void makeSimplex(unsigned int dim) {</div>
-<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;      none_  = false;</div>
-<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;      dim_ = dim;</div>
-<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;      topologyId_ = 0;</div>
-<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;    }</div>
-<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160; </div>
-<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;    DUNE_DEPRECATED_MSG(&quot;makeCube(dim) is deprecated in DUNE 2.6, please use Dune::GeometryTypes::cube(dim) instead&quot;)</div>
-<div class="line"><a name="l00559"></a><span class="lineno"><a class="line" href="a01409.html#ad01e873ba8cac7b805a06d0c05fbfa4c">  559</a></span>&#160;    void makeCube(unsigned int dim) {</div>
-<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;      none_  = false;</div>
-<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;      dim_ = dim;</div>
-<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;      topologyId_ = ((dim&gt;1) ? ((1 &lt;&lt; dim) - 1) : 0);</div>
-<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;    }</div>
-<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160; </div>
-<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;    DUNE_DEPRECATED_MSG(&quot;makeNone(dim) is deprecated in DUNE 2.6, please use Dune::GeometryTypes::none(dim) instead&quot;)</div>
-<div class="line"><a name="l00567"></a><span class="lineno"><a class="line" href="a01409.html#aa5c19c18a6d3f9b67cc55f7028af0d22">  567</a></span>&#160;    void makeNone(unsigned int dim) {</div>
-<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;      none_ = true;</div>
-<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;      dim_ = dim;</div>
-<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;      topologyId_  = 0;</div>
-<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;    }</div>
-<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160; </div>
-<div class="line"><a name="l00577"></a><span class="lineno"><a class="line" href="a01409.html#a91fb1a58314f8e78e98851a2ee0601e3">  577</a></span>&#160;    void makeFromVertices(unsigned int dim, unsigned int vertices) DUNE_DEPRECATED_MSG(&quot;Use the utility function geometryTypeFromVertexCount(...) instead.&quot;)</div>
-<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;    {</div>
-<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;      *this = geometryTypeFromVertexCount(dim, vertices);</div>
-<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;      return;</div>
-<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;    }</div>
-<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160; </div>
-<div class="line"><a name="l00589"></a><span class="lineno"><a class="line" href="a01409.html#a3529c9ae0ad0d9fa97c413bfda66851f">  589</a></span>&#160;    constexpr bool isVertex() const {</div>
-<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;      return dim_==0;</div>
-<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;    }</div>
-<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160; </div>
-<div class="line"><a name="l00594"></a><span class="lineno"><a class="line" href="a01409.html#ab73476cf45a8608877ddba81c514d294">  594</a></span>&#160;    constexpr bool isLine() const {</div>
-<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;      return dim_==1;</div>
-<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;    }</div>
-<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160; </div>
-<div class="line"><a name="l00599"></a><span class="lineno"><a class="line" href="a01409.html#a4bd256c5de347ec02d3b7676564e0921">  599</a></span>&#160;    constexpr bool isTriangle() const {</div>
-<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;      return ! none_ &amp;&amp; dim_==2 &amp;&amp; (topologyId_ | 1) == 0b0001;</div>
-<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;    }</div>
-<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160; </div>
-<div class="line"><a name="l00604"></a><span class="lineno"><a class="line" href="a01409.html#abbfc8813bd601d8118fb18deeb8cd2d9">  604</a></span>&#160;    constexpr bool isQuadrilateral() const {</div>
-<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;      return ! none_ &amp;&amp; dim_==2 &amp;&amp; (topologyId_ | 1) == 0b0011;</div>
-<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;    }</div>
-<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160; </div>
-<div class="line"><a name="l00609"></a><span class="lineno"><a class="line" href="a01409.html#a3395c779d9223ca7d98a9e13d4d61e43">  609</a></span>&#160;    constexpr bool isTetrahedron() const {</div>
-<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;      return ! none_ &amp;&amp; dim_==3 &amp;&amp; (topologyId_ | 1) == 0b0001;</div>
-<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;    }</div>
-<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160; </div>
-<div class="line"><a name="l00614"></a><span class="lineno"><a class="line" href="a01409.html#a250165622002c2e50ec3499b753e4412">  614</a></span>&#160;    constexpr bool isPyramid() const {</div>
-<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;      return ! none_ &amp;&amp; dim_==3 &amp;&amp; (topologyId_ | 1) == 0b0011;</div>
-<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;    }</div>
-<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160; </div>
-<div class="line"><a name="l00619"></a><span class="lineno"><a class="line" href="a01409.html#a348e00bac645649b4694a3b03a87b7d8">  619</a></span>&#160;    constexpr bool isPrism() const {</div>
-<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;      return ! none_ &amp;&amp; dim_==3 &amp;&amp; (topologyId_ | 1) == 0b0101;</div>
-<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;    }</div>
-<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160; </div>
-<div class="line"><a name="l00624"></a><span class="lineno"><a class="line" href="a01409.html#ae34ba85f0606201ef5156219b62196f5">  624</a></span>&#160;    constexpr bool isHexahedron() const {</div>
-<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;      return ! none_ &amp;&amp; dim_==3 &amp;&amp; (topologyId_ | 1) == 0b0111;</div>
-<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;    }</div>
-<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160; </div>
-<div class="line"><a name="l00629"></a><span class="lineno"><a class="line" href="a01409.html#af04ef531b52014e4e382722b54102163">  629</a></span>&#160;    constexpr bool isSimplex() const {</div>
-<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;      return ! none_ &amp;&amp; (topologyId_ | 1) == 1;</div>
-<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;    }</div>
-<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160; </div>
-<div class="line"><a name="l00634"></a><span class="lineno"><a class="line" href="a01409.html#aa27be83cac6455c2e050d066aceccdad">  634</a></span>&#160;    constexpr bool isCube() const {</div>
-<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;      return ! none_ &amp;&amp; ((topologyId_ ^ ((1 &lt;&lt; dim_)-1)) &gt;&gt; 1 == 0);</div>
-<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;    }</div>
-<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160; </div>
-<div class="line"><a name="l00639"></a><span class="lineno"><a class="line" href="a01409.html#ad3c775a48d36f776a487d1221963edba">  639</a></span>&#160;    constexpr bool isNone() const {</div>
-<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;      return none_;</div>
-<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;    }</div>
-<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160; </div>
-<div class="line"><a name="l00644"></a><span class="lineno"><a class="line" href="a01409.html#a483aa5d1f34e386a76743d505fa01143">  644</a></span>&#160;    constexpr unsigned int dim() const {</div>
-<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;      return dim_;</div>
-<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;    }</div>
-<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160; </div>
-<div class="line"><a name="l00649"></a><span class="lineno"><a class="line" href="a01409.html#ac3ddb6f3ab2ff87d7a2366308c3143ef">  649</a></span>&#160;    constexpr unsigned int id() const {</div>
-<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;      return topologyId_;</div>
-<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;    }</div>
-<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160; </div>
-<div class="line"><a name="l00661"></a><span class="lineno"><a class="line" href="a01409.html#a38b36ecdb5b04c3652f1979b0bf4ed5c">  661</a></span>&#160;    constexpr bool operator==(const GeometryType&amp; other) const {</div>
-<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;      return ( ( none_ == other.none_ )</div>
-<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;               &amp;&amp; ( ( none_ == true )</div>
-<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;                    || ( ( dim_ == other.dim_ )</div>
-<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;                         &amp;&amp; ( (topologyId_ &gt;&gt; 1) == (other.topologyId_ &gt;&gt; 1) )</div>
-<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;                         )</div>
-<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;                    )</div>
-<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;               );</div>
-<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;    }</div>
-<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160; </div>
-<div class="line"><a name="l00672"></a><span class="lineno"><a class="line" href="a01409.html#a182670272d26c1d272bbeb12695d4c43">  672</a></span>&#160;    constexpr bool operator!=(const GeometryType&amp; other) const {</div>
-<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;      return ! ((*this)==other);</div>
-<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;    }</div>
-<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160; </div>
-<div class="line"><a name="l00677"></a><span class="lineno"><a class="line" href="a01409.html#a0ad010a872711290661eff8d02cd8e2b">  677</a></span>&#160;    constexpr bool operator &lt; (const GeometryType&amp; other) const {</div>
-<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;      return ( ( none_ &lt; other.none_ )</div>
-<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;               || ( !( other.none_ &lt; none_ )</div>
-<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;                    &amp;&amp; ( ( dim_ &lt; other.dim_ )</div>
-<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;                         || ( (other.dim_ == dim_)</div>
-<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;                              &amp;&amp; ((topologyId_ &gt;&gt; 1) &lt; (other.topologyId_ &gt;&gt; 1) )</div>
-<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;                              )</div>
-<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;                         )</div>
-<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;                    )</div>
-<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;               );</div>
-<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;    }</div>
-<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160; </div>
-<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;  };</div>
-<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160; </div>
-<div class="line"><a name="l00694"></a><span class="lineno"><a class="line" href="a00177.html#a6911f0352555c4623e0c376f0a80f0cb">  694</a></span>&#160;  inline std::ostream&amp; operator&lt;&lt; (std::ostream&amp; s, const GeometryType&amp; a)</div>
-<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;  {</div>
-<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;    if (a.isSimplex())</div>
-<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;    {</div>
-<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;      s &lt;&lt; &quot;(simplex, &quot; &lt;&lt; a.dim() &lt;&lt; &quot;)&quot;;</div>
-<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;      return s;</div>
-<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;    }</div>
-<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;    if (a.isCube())</div>
-<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;    {</div>
-<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;      s &lt;&lt; &quot;(cube, &quot; &lt;&lt; a.dim() &lt;&lt; &quot;)&quot;;</div>
-<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;      return s;</div>
-<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;    }</div>
-<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;    if (a.isPyramid())</div>
-<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;    {</div>
-<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;      s &lt;&lt; &quot;(pyramid, 3)&quot;;</div>
-<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;      return s;</div>
-<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;    }</div>
-<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;    if (a.isPrism())</div>
-<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;    {</div>
-<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;      s &lt;&lt; &quot;(prism, 3)&quot;;</div>
-<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;      return s;</div>
-<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;    }</div>
-<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;    if (a.isNone())</div>
-<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;    {</div>
-<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;      s &lt;&lt; &quot;(none, &quot; &lt;&lt; a.dim() &lt;&lt; &quot;)&quot;;</div>
-<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;      return s;</div>
-<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;    }</div>
-<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;    s &lt;&lt; &quot;(other [&quot; &lt;&lt; a.id() &lt;&lt; &quot;], &quot; &lt;&lt; a.dim() &lt;&lt; &quot;)&quot;;</div>
-<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;    return s;</div>
-<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;  }</div>
-<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160; </div>
-<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;  DUNE_NO_DEPRECATED_BEGIN</div>
-<div class="line"><a name="l00727"></a><span class="lineno"><a class="line" href="a00177.html#a287b75d65301989fc85953126021b6e7">  727</a></span>&#160;  inline std::ostream&amp; operator&lt;&lt; (std::ostream&amp; s, GeometryType::BasicType type)</div>
-<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;  {</div>
-<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;    switch (type) {</div>
-<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;    case GeometryType::simplex :</div>
-<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;      s &lt;&lt; &quot;simplex&quot;;</div>
-<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;      break;</div>
-<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;    case GeometryType::cube :</div>
-<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;      s &lt;&lt; &quot;cube&quot;;</div>
-<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;      break;</div>
-<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;    case GeometryType::pyramid :</div>
-<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;      s &lt;&lt; &quot;pyramid&quot;;</div>
-<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;      break;</div>
-<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;    case GeometryType::prism :</div>
-<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;      s &lt;&lt; &quot;prism&quot;;</div>
-<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;      break;</div>
-<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;    case GeometryType::extended :</div>
-<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;      s &lt;&lt; &quot;other&quot;;</div>
-<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;    case GeometryType::none :</div>
-<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;      s &lt;&lt; &quot;none&quot;;</div>
-<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;      break;</div>
-<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;    default :</div>
-<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;      DUNE_THROW(Exception, &quot;invalid GeometryType::BasicType&quot;);</div>
-<div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;    }</div>
-<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;    return s;</div>
-<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;  }</div>
-<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;  DUNE_NO_DEPRECATED_END</div>
-<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160; </div>
-<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160; </div>
-<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160; </div>
-<div class="line"><a name="l00760"></a><span class="lineno"><a class="line" href="a00189.html">  760</a></span>&#160;  namespace GeometryTypes {</div>
-<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160; </div>
-<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160; </div>
-<div class="line"><a name="l00766"></a><span class="lineno"><a class="line" href="a00167.html#gade67930adba19e6eaf407943f12622d9">  766</a></span>&#160;    inline constexpr GeometryType simplex(unsigned int dim)</div>
-<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;    {</div>
-<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;      return GeometryType(0,dim,false);</div>
-<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;    }</div>
-<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160; </div>
-<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160; </div>
-<div class="line"><a name="l00775"></a><span class="lineno"><a class="line" href="a00167.html#ga4a393958522cde3dce5041f031899bdb">  775</a></span>&#160;    inline constexpr GeometryType cube(unsigned int dim)</div>
-<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;    {</div>
-<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;      return GeometryType(((dim&gt;1) ? ((1 &lt;&lt; dim) - 1) : 0),dim,false);</div>
-<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;    }</div>
-<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160; </div>
-<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160; </div>
-<div class="line"><a name="l00784"></a><span class="lineno"><a class="line" href="a00167.html#gadcc2d601e9e531ffc1a5d34071b215e5">  784</a></span>&#160;    inline constexpr GeometryType none(unsigned int dim)</div>
-<div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160;    {</div>
-<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;      return GeometryType(0,dim,true);</div>
-<div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;    }</div>
-<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160; </div>
-<div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;#ifndef __cpp_inline_variables</div>
-<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;    namespace {</div>
-<div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160;#endif</div>
-<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160; </div>
-<div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160; </div>
-<div class="line"><a name="l00797"></a><span class="lineno"><a class="line" href="a00167.html#gaf2743d5db7eefabc2985433c8f914c15">  797</a></span>&#160;      DUNE_INLINE_VARIABLE constexpr GeometryType vertex = GeometryType(0,0,false);</div>
-<div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160; </div>
-<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160; </div>
-<div class="line"><a name="l00803"></a><span class="lineno"><a class="line" href="a00167.html#ga3ee4078a6c034ce7e50a4ff883f89d4e">  803</a></span>&#160;      DUNE_INLINE_VARIABLE constexpr GeometryType line = GeometryType(0,1,false);</div>
-<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160; </div>
-<div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160; </div>
-<div class="line"><a name="l00809"></a><span class="lineno"><a class="line" href="a00167.html#gaafd50fe91cdf2cb1cccb278f8b5b6d81">  809</a></span>&#160;      DUNE_INLINE_VARIABLE constexpr GeometryType triangle = simplex(2);</div>
-<div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160; </div>
-<div class="line"><a name="l00812"></a><span class="lineno">  812</span>&#160; </div>
-<div class="line"><a name="l00815"></a><span class="lineno"><a class="line" href="a00167.html#gac309764b40b9a20343b2f82ed3a67c23">  815</a></span>&#160;      DUNE_INLINE_VARIABLE constexpr GeometryType quadrilateral = cube(2);</div>
-<div class="line"><a name="l00816"></a><span class="lineno">  816</span>&#160; </div>
-<div class="line"><a name="l00818"></a><span class="lineno">  818</span>&#160; </div>
-<div class="line"><a name="l00821"></a><span class="lineno"><a class="line" href="a00167.html#gad9b0d80e12095c2d179bed6790ad4613">  821</a></span>&#160;      DUNE_INLINE_VARIABLE constexpr GeometryType tetrahedron = simplex(3);</div>
-<div class="line"><a name="l00822"></a><span class="lineno">  822</span>&#160; </div>
-<div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160; </div>
-<div class="line"><a name="l00827"></a><span class="lineno"><a class="line" href="a00167.html#gad5eac9a7bf89419e02aaedc2ab43d3a0">  827</a></span>&#160;      DUNE_INLINE_VARIABLE constexpr GeometryType pyramid = GeometryType(0b0011,3,false);</div>
-<div class="line"><a name="l00828"></a><span class="lineno">  828</span>&#160; </div>
-<div class="line"><a name="l00830"></a><span class="lineno">  830</span>&#160; </div>
-<div class="line"><a name="l00833"></a><span class="lineno"><a class="line" href="a00167.html#ga5ec5d4a104316a5160fe2a9157f30529">  833</a></span>&#160;      DUNE_INLINE_VARIABLE constexpr GeometryType prism = GeometryType(0b0101,3,false);</div>
-<div class="line"><a name="l00834"></a><span class="lineno">  834</span>&#160; </div>
-<div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160; </div>
-<div class="line"><a name="l00839"></a><span class="lineno"><a class="line" href="a00167.html#gac55d64235c37884a8ca160ee4556294e">  839</a></span>&#160;      DUNE_INLINE_VARIABLE constexpr GeometryType hexahedron = cube(3);</div>
-<div class="line"><a name="l00840"></a><span class="lineno">  840</span>&#160; </div>
-<div class="line"><a name="l00841"></a><span class="lineno">  841</span>&#160;#ifndef __cpp_inline_variables</div>
-<div class="line"><a name="l00842"></a><span class="lineno">  842</span>&#160;    }</div>
-<div class="line"><a name="l00843"></a><span class="lineno">  843</span>&#160;#endif</div>
-<div class="line"><a name="l00844"></a><span class="lineno">  844</span>&#160; </div>
-<div class="line"><a name="l00845"></a><span class="lineno">  845</span>&#160;  }</div>
-<div class="line"><a name="l00846"></a><span class="lineno">  846</span>&#160; </div>
-<div class="line"><a name="l00847"></a><span class="lineno">  847</span>&#160; </div>
-<div class="line"><a name="l00848"></a><span class="lineno">  848</span>&#160;} <span class="comment">// namespace Dune</span></div>
-<div class="line"><a name="l00849"></a><span class="lineno">  849</span>&#160; </div>
-<div class="line"><a name="l00850"></a><span class="lineno">  850</span>&#160;<span class="comment">// include utility header needed for deprecated makeFromVertices</span></div>
-<div class="line"><a name="l00851"></a><span class="lineno">  851</span>&#160;#include &quot;utility/typefromvertexcount.hh&quot;</div>
-<div class="line"><a name="l00852"></a><span class="lineno">  852</span>&#160; </div>
-<div class="line"><a name="l00853"></a><span class="lineno">  853</span>&#160;#endif <span class="comment">// DUNE_GEOMETRY_TYPE_HH</span></div>
-<div class="ttc" id="aa00177_html"><div class="ttname"><a href="a00177.html">Dune</a></div><div class="ttdef"><b>Definition:</b> affinegeometry.hh:19</div></div>
-<div class="ttc" id="aa00177_html_a46da773c6f7d01077322c1064037e52f"><div class="ttname"><a href="a00177.html#a46da773c6f7d01077322c1064037e52f">Dune::geometryTypeFromVertexCount</a></div><div class="ttdeci">GeometryType geometryTypeFromVertexCount(unsigned int dim, unsigned int vertices)</div><div class="ttdoc">Utitlity function to construct the correct geometry type given the dimension and the number of vertic...</div><div class="ttdef"><b>Definition:</b> typefromvertexcount.hh:15</div></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">class</span> Factory&gt;</div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="a01308.html">   79</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a01308.html">TopologySingletonFactory</a></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  {</div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="a01308.html#aeb61e596d0a5e5f4f6e917bf33438c6d">   81</a></span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="a01308.html#aeb61e596d0a5e5f4f6e917bf33438c6d">dimension</a> = Factory::dimension;</div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="a01308.html#aafa55fd9a319b566b070649b57b9565f">   82</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> Factory::Key <a class="code" href="a01308.html#aafa55fd9a319b566b070649b57b9565f">Key</a>;</div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="a01308.html#aaeca2707ab5e5c86e2b478493db495d8">   83</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">const</span> <span class="keyword">typename</span> Factory::Object <a class="code" href="a01308.html#aaeca2707ab5e5c86e2b478493db495d8">Object</a>;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="a01308.html#af87982cfe421b5d84277f7b2529df04c">   86</a></span>&#160;    <span class="keyword">static</span> <a class="code" href="a01308.html#aaeca2707ab5e5c86e2b478493db495d8">Object</a> *<a class="code" href="a01308.html#af87982cfe421b5d84277f7b2529df04c">create</a> ( <span class="keyword">const</span> <a class="code" href="a01316.html">Dune::GeometryType</a> &amp;gt, <span class="keyword">const</span> <a class="code" href="a01308.html#aafa55fd9a319b566b070649b57b9565f">Key</a> &amp;key )</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    {</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;      assert( gt.<a class="code" href="a01316.html#ac3ddb6f3ab2ff87d7a2366308c3143ef">id</a>() &lt; numTopologies );</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;      <span class="keywordflow">return</span> instance().getObject( gt, key );</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    }</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keyword">template</span>&lt; GeometryType::Id geometryId &gt;</div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="a01308.html#ad03f221d70a250c913da78991db87cc0">   93</a></span>&#160;    <span class="keyword">static</span> <span class="keyword">auto</span> <a class="code" href="a01308.html#ad03f221d70a250c913da78991db87cc0">create</a> ( <span class="keyword">const</span> <a class="code" href="a01308.html#aafa55fd9a319b566b070649b57b9565f">Key</a> &amp;key )</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;      -&gt; std::enable_if_t&lt; static_cast&lt;GeometryType&gt;(geometryId).dim() == <a class="code" href="a01308.html#aeb61e596d0a5e5f4f6e917bf33438c6d">dimension</a>, <a class="code" href="a01308.html#aaeca2707ab5e5c86e2b478493db495d8">Object</a> * &gt;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    {</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;      <span class="keywordflow">return</span> instance().template getObject&lt; geometryId &gt;( key );</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    }</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">class</span> Topology &gt;</div>
+<div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="a01308.html#a17368598beb2629fe349bd21cac861a1">  101</a></span>&#160;    <span class="keyword">static</span> <span class="keyword">auto</span> <a class="code" href="a01308.html#a17368598beb2629fe349bd21cac861a1">create</a> ( <span class="keyword">const</span> <a class="code" href="a01308.html#aafa55fd9a319b566b070649b57b9565f">Key</a> &amp;key )</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;      -&gt; std::enable_if_t&lt; Topology::dimension == dimension, Object * &gt;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    {</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;      <span class="keywordflow">return</span> instance().template getObject&lt; Topology &gt;( key );</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    }</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="a01308.html#a6b29c04375e6ac312f35b3fd2960c5de">  108</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="a01308.html#a6b29c04375e6ac312f35b3fd2960c5de">release</a> ( <a class="code" href="a01308.html#aaeca2707ab5e5c86e2b478493db495d8">Object</a> *<span class="keywordtype">object</span> )</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    {}</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keyword">struct </span>ObjectDeleter</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    {</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;      <span class="keywordtype">void</span> operator() ( <a class="code" href="a01308.html#aaeca2707ab5e5c86e2b478493db495d8">Object</a> *ptr )<span class="keyword"> const </span>{ Factory::release( ptr ); }</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    };</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keyword">static</span> TopologySingletonFactory &amp;instance ()</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    {</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;      <span class="keyword">static</span> TopologySingletonFactory instance;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;      <span class="keywordflow">return</span> instance;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    }</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> numTopologies = (1 &lt;&lt; <a class="code" href="a01308.html#aeb61e596d0a5e5f4f6e917bf33438c6d">dimension</a>);</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keyword">typedef</span> std::array&lt; std::unique_ptr&lt; Object, ObjectDeleter &gt;, numTopologies &gt; Array;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keyword">typedef</span> std::map&lt; Key, Array &gt; Storage;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    TopologySingletonFactory () = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    std::unique_ptr&lt; Object, ObjectDeleter &gt; &amp;find ( <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> topologyId, <span class="keyword">const</span> <a class="code" href="a01308.html#aafa55fd9a319b566b070649b57b9565f">Key</a> &amp;key )</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    {</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;      <span class="keywordflow">return</span> storage_[ key ][ topologyId ];</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    }</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <a class="code" href="a01308.html#aaeca2707ab5e5c86e2b478493db495d8">Object</a> *getObject ( <span class="keyword">const</span> <a class="code" href="a01316.html">Dune::GeometryType</a> &amp;gt, <span class="keyword">const</span> <a class="code" href="a01308.html#aafa55fd9a319b566b070649b57b9565f">Key</a> &amp;key )</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    {</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;      <span class="keyword">auto</span> &amp;<span class="keywordtype">object</span> = find( gt.<a class="code" href="a01316.html#ac3ddb6f3ab2ff87d7a2366308c3143ef">id</a>(), key );</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;      <span class="keywordflow">if</span>( !<span class="keywordtype">object</span> )</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        <span class="keywordtype">object</span>.reset( Factory::create( gt, key ) );</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;      <span class="keywordflow">return</span> <span class="keywordtype">object</span>.get();</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    }</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="keyword">template</span>&lt; GeometryType::Id geometryId &gt;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <a class="code" href="a01308.html#aaeca2707ab5e5c86e2b478493db495d8">Object</a> *getObject ( <span class="keyword">const</span> <a class="code" href="a01308.html#aafa55fd9a319b566b070649b57b9565f">Key</a> &amp;key )</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    {</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;      <span class="keyword">static</span> constexpr GeometryType geometry = geometryId;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;      <span class="keyword">auto</span> &amp;<span class="keywordtype">object</span> = find( geometry.id(), key );</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;      <span class="keywordflow">if</span>( !<span class="keywordtype">object</span> )</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        <span class="keywordtype">object</span>.reset( Factory::template create&lt; geometry &gt;( key ) );</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;      <span class="keywordflow">return</span> <span class="keywordtype">object</span>.get();</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    }</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160; </div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">class</span> Topology &gt;</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <a class="code" href="a01308.html#aaeca2707ab5e5c86e2b478493db495d8">Object</a> *getObject ( <span class="keyword">const</span> <a class="code" href="a01308.html#aafa55fd9a319b566b070649b57b9565f">Key</a> &amp;key )</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    {</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;      <span class="keyword">auto</span> &amp;<span class="keywordtype">object</span> = find( Topology::id, key );</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;      <span class="keywordflow">if</span>( !<span class="keywordtype">object</span> )</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        <span class="keywordtype">object</span>.reset( Factory::template create&lt; Topology &gt;( key ) );</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;      <span class="keywordflow">return</span> <span class="keywordtype">object</span>.get();</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    }</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    Storage storage_;</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;  };</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;}</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; </div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// #ifndef DUNE_GEOMETRY_TOPOLOGYFACTORY_HH</span></div>
+<div class="ttc" id="aa00152_html"><div class="ttname"><a href="a00152.html">type.hh</a></div><div class="ttdoc">A unique label for each type of element that can occur in a grid.</div></div>
+<div class="ttc" id="aa00155_html"><div class="ttname"><a href="a00155.html">typeindex.hh</a></div><div class="ttdoc">Helper classes to provide indices for geometrytypes for use in a vector.</div></div>
+<div class="ttc" id="aa00179_html"><div class="ttname"><a href="a00179.html">Dune</a></div><div class="ttdef"><b>Definition:</b> affinegeometry.hh:19</div></div>
+<div class="ttc" id="aa01304_html"><div class="ttname"><a href="a01304.html">Dune::TopologyFactory</a></div><div class="ttdoc">Provide a factory over the generic topologies.</div><div class="ttdef"><b>Definition:</b> topologyfactory.hh:40</div></div>
+<div class="ttc" id="aa01304_html_a441ea227eca6e6ce76ecca5679d4c825"><div class="ttname"><a href="a01304.html#a441ea227eca6e6ce76ecca5679d4c825">Dune::TopologyFactory::Factory</a></div><div class="ttdeci">Traits::Factory Factory</div><div class="ttdef"><b>Definition:</b> topologyfactory.hh:45</div></div>
+<div class="ttc" id="aa01304_html_a66ec306b5835b847f350fed4d9cac575"><div class="ttname"><a href="a01304.html#a66ec306b5835b847f350fed4d9cac575">Dune::TopologyFactory::dimension</a></div><div class="ttdeci">static const unsigned int dimension</div><div class="ttdef"><b>Definition:</b> topologyfactory.hh:42</div></div>
+<div class="ttc" id="aa01304_html_a997f0bce257dbb952974507385bfc7c8"><div class="ttname"><a href="a01304.html#a997f0bce257dbb952974507385bfc7c8">Dune::TopologyFactory::release</a></div><div class="ttdeci">static void release(Object *object)</div><div class="ttdoc">release the object returned by the create methods</div><div class="ttdef"><b>Definition:</b> topologyfactory.hh:69</div></div>
+<div class="ttc" id="aa01304_html_aa4fd3e0e671225cd8a7851ebed201f2a"><div class="ttname"><a href="a01304.html#aa4fd3e0e671225cd8a7851ebed201f2a">Dune::TopologyFactory::Key</a></div><div class="ttdeci">Traits::Key Key</div><div class="ttdef"><b>Definition:</b> topologyfactory.hh:43</div></div>
+<div class="ttc" id="aa01304_html_aaeffa287fc973ab88161eba58d425ff9"><div class="ttname"><a href="a01304.html#aaeffa287fc973ab88161eba58d425ff9">Dune::TopologyFactory::create</a></div><div class="ttdeci">static Object * create(const Dune::GeometryType &amp;gt, const Key &amp;key)</div><div class="ttdoc">dynamically create objects</div><div class="ttdef"><b>Definition:</b> topologyfactory.hh:48</div></div>
+<div class="ttc" id="aa01304_html_af4b77542c7c10252715f4effe8e4902f"><div class="ttname"><a href="a01304.html#af4b77542c7c10252715f4effe8e4902f">Dune::TopologyFactory::create</a></div><div class="ttdeci">static Object * create(const Key &amp;key)</div><div class="ttdoc">statically create objects</div><div class="ttdef"><b>Definition:</b> topologyfactory.hh:56</div></div>
+<div class="ttc" id="aa01304_html_af8e95b31a464841f84839db4d7613136"><div class="ttname"><a href="a01304.html#af8e95b31a464841f84839db4d7613136">Dune::TopologyFactory::Object</a></div><div class="ttdeci">Traits::Object Object</div><div class="ttdef"><b>Definition:</b> topologyfactory.hh:44</div></div>
+<div class="ttc" id="aa01308_html"><div class="ttname"><a href="a01308.html">Dune::TopologySingletonFactory</a></div><div class="ttdoc">A wrapper for a TopologyFactory providing singleton storage. Same usage as TopologyFactory but with e...</div><div class="ttdef"><b>Definition:</b> topologyfactory.hh:80</div></div>
+<div class="ttc" id="aa01308_html_a17368598beb2629fe349bd21cac861a1"><div class="ttname"><a href="a01308.html#a17368598beb2629fe349bd21cac861a1">Dune::TopologySingletonFactory::create</a></div><div class="ttdeci">static auto create(const Key &amp;key) -&gt; std::enable_if_t&lt; Topology::dimension==dimension, Object * &gt;</div><div class="ttdoc">statically create objects</div><div class="ttdef"><b>Definition:</b> topologyfactory.hh:101</div></div>
+<div class="ttc" id="aa01308_html_a6b29c04375e6ac312f35b3fd2960c5de"><div class="ttname"><a href="a01308.html#a6b29c04375e6ac312f35b3fd2960c5de">Dune::TopologySingletonFactory::release</a></div><div class="ttdeci">static void release(Object *object)</div><div class="ttdoc">release the object returned by the create methods</div><div class="ttdef"><b>Definition:</b> topologyfactory.hh:108</div></div>
+<div class="ttc" id="aa01308_html_aaeca2707ab5e5c86e2b478493db495d8"><div class="ttname"><a href="a01308.html#aaeca2707ab5e5c86e2b478493db495d8">Dune::TopologySingletonFactory::Object</a></div><div class="ttdeci">const Factory::Object Object</div><div class="ttdef"><b>Definition:</b> topologyfactory.hh:83</div></div>
+<div class="ttc" id="aa01308_html_aafa55fd9a319b566b070649b57b9565f"><div class="ttname"><a href="a01308.html#aafa55fd9a319b566b070649b57b9565f">Dune::TopologySingletonFactory::Key</a></div><div class="ttdeci">Factory::Key Key</div><div class="ttdef"><b>Definition:</b> topologyfactory.hh:82</div></div>
+<div class="ttc" id="aa01308_html_ad03f221d70a250c913da78991db87cc0"><div class="ttname"><a href="a01308.html#ad03f221d70a250c913da78991db87cc0">Dune::TopologySingletonFactory::create</a></div><div class="ttdeci">static auto create(const Key &amp;key) -&gt; std::enable_if_t&lt; static_cast&lt; GeometryType &gt;(geometryId).dim()==dimension, Object * &gt;</div><div class="ttdoc">statically create objects</div><div class="ttdef"><b>Definition:</b> topologyfactory.hh:93</div></div>
+<div class="ttc" id="aa01308_html_aeb61e596d0a5e5f4f6e917bf33438c6d"><div class="ttname"><a href="a01308.html#aeb61e596d0a5e5f4f6e917bf33438c6d">Dune::TopologySingletonFactory::dimension</a></div><div class="ttdeci">static const unsigned int dimension</div><div class="ttdef"><b>Definition:</b> topologyfactory.hh:81</div></div>
+<div class="ttc" id="aa01308_html_af87982cfe421b5d84277f7b2529df04c"><div class="ttname"><a href="a01308.html#af87982cfe421b5d84277f7b2529df04c">Dune::TopologySingletonFactory::create</a></div><div class="ttdeci">static Object * create(const Dune::GeometryType &amp;gt, const Key &amp;key)</div><div class="ttdoc">dynamically create objects</div><div class="ttdef"><b>Definition:</b> topologyfactory.hh:86</div></div>
+<div class="ttc" id="aa01316_html"><div class="ttname"><a href="a01316.html">Dune::GeometryType</a></div><div class="ttdoc">Unique label for each type of entities that can occur in DUNE grids.</div><div class="ttdef"><b>Definition:</b> type.hh:123</div></div>
+<div class="ttc" id="aa01316_html_ac3ddb6f3ab2ff87d7a2366308c3143ef"><div class="ttname"><a href="a01316.html#ac3ddb6f3ab2ff87d7a2366308c3143ef">Dune::GeometryType::id</a></div><div class="ttdeci">constexpr unsigned int id() const</div><div class="ttdoc">Return the topology id of the type.</div><div class="ttdef"><b>Definition:</b> type.hh:374</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

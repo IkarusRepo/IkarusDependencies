@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: Dune::IdentityGridEntitySeed&lt; codim, GridImp &gt; Class Template Reference</title>
+<title>dune-grid: Dune::IdentityGridLevelIndexSet&lt; GridImp &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,115 +62,177 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00936.html">Dune</a></li><li class="navelem"><a class="el" href="a03318.html">IdentityGridEntitySeed</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00940.html">Dune</a></li><li class="navelem"><a class="el" href="a03318.html">IdentityGridLevelIndexSet</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-types">Protected Types</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="a03315.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::IdentityGridEntitySeed&lt; codim, GridImp &gt; Class Template Reference<div class="ingroups"><a class="el" href="a00902.html">dune-grid</a> &raquo; <a class="el" href="a00917.html">Grid Implementations</a> &raquo; <a class="el" href="a00919.html">IdentityGrid</a></div></div>  </div>
+<div class="title">Dune::IdentityGridLevelIndexSet&lt; GridImp &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>The <a class="el" href="a02658.html" title="Store a reference to an entity with a minimal memory footprint.">EntitySeed</a> class provides the minimal information needed to restore an <a class="el" href="a02630.html" title="Wrapper class for entities.">Entity</a> using the grid.  
- <a href="a03318.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="a00590_source.html">dune/grid/identitygrid/identitygridentityseed.hh</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00605_source.html">dune/grid/identitygrid/identitygridindexsets.hh</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for Dune::IdentityGridLevelIndexSet&lt; GridImp &gt;:</div>
+<div class="dyncontent">
+<div class="center"><img src="a03317.png" border="0" usemap="#a_dune_1_1_identity_grid_level_index_set_3_01_grid_imp_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="a_dune_1_1_identity_grid_level_index_set_3_01_grid_imp_01_4_inherit__map" id="a_dune_1_1_identity_grid_level_index_set_3_01_grid_imp_01_4_inherit__map">
+<area shape="rect" title=" " alt="" coords="835,87,1021,129"/>
+<area shape="rect" href="a03318.html" title=" " alt="" coords="1227,80,1421,136"/>
+<area shape="rect" href="a02702.html" title=" " alt="" coords="473,51,785,165"/>
+<area shape="rect" href="a02702.html" title="Index Set Interface base class." alt="" coords="5,80,196,136"/>
+</map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a2ebc3d72b2d89f9d34098e2655986faf"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="a03318.html#a2ebc3d72b2d89f9d34098e2655986fafaa085137fa58424013830daeb71cdeaca">codimension</a> = codim
+<tr class="memitem:af1985395460af2d222400ae2f504715f"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="a03318.html#af1985395460af2d222400ae2f504715fadd3b253af33556720191e2f03c399cfa">dim</a> = GridImp::dimension
  }</td></tr>
-<tr class="separator:a2ebc3d72b2d89f9d34098e2655986faf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:af1985395460af2d222400ae2f504715f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ac043b0f95bf4ee5f84b8ba17e5d5d5"><td class="memItemLeft" align="right" valign="top">typedef std::remove_const&lt; GridImp &gt;::type::HostGridType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03318.html#a2ac043b0f95bf4ee5f84b8ba17e5d5d5">HostGrid</a></td></tr>
+<tr class="separator:a2ac043b0f95bf4ee5f84b8ba17e5d5d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa117f8d0edb47e4eb53343701003a7c3"><td class="memItemLeft" align="right" valign="top">typedef HostGrid::LevelGridView::IndexSet::Types&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03318.html#aa117f8d0edb47e4eb53343701003a7c3">Types</a></td></tr>
+<tr class="separator:aa117f8d0edb47e4eb53343701003a7c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3b85ef4b435257bafc0e838cca15b91"><td class="memItemLeft" align="right" valign="top">typedef std::remove_const&lt; GridImp &gt;::type::HostGridType::LevelGridView::IndexSet::IndexType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02702.html#ab3b85ef4b435257bafc0e838cca15b91">IndexType</a></td></tr>
+<tr class="memdesc:ab3b85ef4b435257bafc0e838cca15b91"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type used for the indices.  <a href="a02702.html#ab3b85ef4b435257bafc0e838cca15b91">More...</a><br /></td></tr>
+<tr class="separator:ab3b85ef4b435257bafc0e838cca15b91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a288bbbc2f8ac728e4e60d0ed6efe1df9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03318.html#a288bbbc2f8ac728e4e60d0ed6efe1df9">IdentityGridEntitySeed</a> ()</td></tr>
-<tr class="memdesc:a288bbbc2f8ac728e4e60d0ed6efe1df9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct an empty (i.e. <a class="el" href="a03318.html#a40b706474681c17075e5278d2bf0a890" title="Check whether it is safe to create an Entity from this Seed.">isValid()</a> == false) seed.  <a href="a03318.html#a288bbbc2f8ac728e4e60d0ed6efe1df9">More...</a><br /></td></tr>
-<tr class="separator:a288bbbc2f8ac728e4e60d0ed6efe1df9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca9cdcfe5567dd34e97def59e408d191"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03318.html#aca9cdcfe5567dd34e97def59e408d191">IdentityGridEntitySeed</a> (const <a class="el" href="a03318.html#a819d9a04873881956ed6f8012a849e88">HostEntity</a> &amp;hostEntity)</td></tr>
-<tr class="memdesc:aca9cdcfe5567dd34e97def59e408d191"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create <a class="el" href="a02658.html" title="Store a reference to an entity with a minimal memory footprint.">EntitySeed</a> from hostgrid <a class="el" href="a02630.html" title="Wrapper class for entities.">Entity</a>.  <a href="a03318.html#aca9cdcfe5567dd34e97def59e408d191">More...</a><br /></td></tr>
-<tr class="separator:aca9cdcfe5567dd34e97def59e408d191"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa18c87387312d9c015958cfe6ec122ea"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a03318.html#aeb4b187b9bdcf52919f78a10b22dde18">HostEntitySeed</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03318.html#aa18c87387312d9c015958cfe6ec122ea">hostEntitySeed</a> () const</td></tr>
-<tr class="memdesc:aa18c87387312d9c015958cfe6ec122ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get stored HostEntitySeed.  <a href="a03318.html#aa18c87387312d9c015958cfe6ec122ea">More...</a><br /></td></tr>
-<tr class="separator:aa18c87387312d9c015958cfe6ec122ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40b706474681c17075e5278d2bf0a890"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03318.html#a40b706474681c17075e5278d2bf0a890">isValid</a> () const</td></tr>
-<tr class="memdesc:a40b706474681c17075e5278d2bf0a890"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether it is safe to create an <a class="el" href="a02630.html" title="Wrapper class for entities.">Entity</a> from this Seed.  <a href="a03318.html#a40b706474681c17075e5278d2bf0a890">More...</a><br /></td></tr>
-<tr class="separator:a40b706474681c17075e5278d2bf0a890"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ec14c0bc52c96c97e9545589b567f53"><td class="memTemplParams" colspan="2">template&lt;int codim&gt; </td></tr>
+<tr class="memitem:a0ec14c0bc52c96c97e9545589b567f53"><td class="memTemplItemLeft" align="right" valign="top">int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a03318.html#a0ec14c0bc52c96c97e9545589b567f53">index</a> (const typename GridImp::Traits::template Codim&lt; codim &gt;::<a class="el" href="a02642.html">Entity</a> &amp;e) const</td></tr>
+<tr class="memdesc:a0ec14c0bc52c96c97e9545589b567f53"><td class="mdescLeft">&#160;</td><td class="mdescRight">get index of an entity  <a href="a03318.html#a0ec14c0bc52c96c97e9545589b567f53">More...</a><br /></td></tr>
+<tr class="separator:a0ec14c0bc52c96c97e9545589b567f53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4c6f85307faf598622536ed186b5c7b"><td class="memTemplParams" colspan="2">template&lt;int cc&gt; </td></tr>
+<tr class="memitem:ac4c6f85307faf598622536ed186b5c7b"><td class="memTemplItemLeft" align="right" valign="top">int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a03318.html#ac4c6f85307faf598622536ed186b5c7b">subIndex</a> (const typename GridImp::Traits::template Codim&lt; cc &gt;::<a class="el" href="a02642.html">Entity</a> &amp;e, int i, int codim) const</td></tr>
+<tr class="memdesc:ac4c6f85307faf598622536ed186b5c7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">get index of subEntity of a codim 0 entity  <a href="a03318.html#ac4c6f85307faf598622536ed186b5c7b">More...</a><br /></td></tr>
+<tr class="separator:ac4c6f85307faf598622536ed186b5c7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab14d4ed819268f6a0651733f3f5efb4"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03318.html#aab14d4ed819268f6a0651733f3f5efb4">size</a> (int codim) const</td></tr>
+<tr class="memdesc:aab14d4ed819268f6a0651733f3f5efb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">get number of entities of given codim, type and on this level  <a href="a03318.html#aab14d4ed819268f6a0651733f3f5efb4">More...</a><br /></td></tr>
+<tr class="separator:aab14d4ed819268f6a0651733f3f5efb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81fe582077dfe96f39378ce8d3019d79"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03318.html#a81fe582077dfe96f39378ce8d3019d79">size</a> (GeometryType type) const</td></tr>
+<tr class="memdesc:a81fe582077dfe96f39378ce8d3019d79"><td class="mdescLeft">&#160;</td><td class="mdescRight">get number of entities of given codim, type and on this level  <a href="a03318.html#a81fe582077dfe96f39378ce8d3019d79">More...</a><br /></td></tr>
+<tr class="separator:a81fe582077dfe96f39378ce8d3019d79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a6490b8057cc3b1a8cab62c86f9ca4b"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; GeometryType &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03318.html#a1a6490b8057cc3b1a8cab62c86f9ca4b">geomTypes</a> (int codim) const</td></tr>
+<tr class="memdesc:a1a6490b8057cc3b1a8cab62c86f9ca4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deliver all geometry types used in this grid.  <a href="a03318.html#a1a6490b8057cc3b1a8cab62c86f9ca4b">More...</a><br /></td></tr>
+<tr class="separator:a1a6490b8057cc3b1a8cab62c86f9ca4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6542d56205c120483da06ec081b2e78b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a03318.html#aa117f8d0edb47e4eb53343701003a7c3">Types</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03318.html#a6542d56205c120483da06ec081b2e78b">types</a> (int codim) const</td></tr>
+<tr class="memdesc:a6542d56205c120483da06ec081b2e78b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deliver all geometry types used in this grid.  <a href="a03318.html#a6542d56205c120483da06ec081b2e78b">More...</a><br /></td></tr>
+<tr class="separator:a6542d56205c120483da06ec081b2e78b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04ac0b582bdfd91fbb19a75f3abadcfd"><td class="memTemplParams" colspan="2">template&lt;class EntityType &gt; </td></tr>
+<tr class="memitem:a04ac0b582bdfd91fbb19a75f3abadcfd"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a03318.html#a04ac0b582bdfd91fbb19a75f3abadcfd">contains</a> (const EntityType &amp;e) const</td></tr>
+<tr class="memdesc:a04ac0b582bdfd91fbb19a75f3abadcfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return true if the given entity is contained in the index set.  <a href="a03318.html#a04ac0b582bdfd91fbb19a75f3abadcfd">More...</a><br /></td></tr>
+<tr class="separator:a04ac0b582bdfd91fbb19a75f3abadcfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afaba7be81d3337803683debaae101166"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03318.html#afaba7be81d3337803683debaae101166">update</a> (const GridImp &amp;grid, int level)</td></tr>
+<tr class="memdesc:afaba7be81d3337803683debaae101166"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set up the index set.  <a href="a03318.html#afaba7be81d3337803683debaae101166">More...</a><br /></td></tr>
+<tr class="separator:afaba7be81d3337803683debaae101166"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Index access from entity</div></td></tr>
+<tr class="memitem:aa1d76fee51dee6af50132a65f5c791b9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a02702.html#ab3b85ef4b435257bafc0e838cca15b91">IndexType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02702.html#aa1d76fee51dee6af50132a65f5c791b9">index</a> (const typename Traits::template Codim&lt; cc &gt;::<a class="el" href="a02642.html">Entity</a> &amp;e) const</td></tr>
+<tr class="memdesc:aa1d76fee51dee6af50132a65f5c791b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Map entity to index. The result of calling this method with an entity that is not in the index set is undefined.  <a href="a02702.html#aa1d76fee51dee6af50132a65f5c791b9">More...</a><br /></td></tr>
+<tr class="separator:aa1d76fee51dee6af50132a65f5c791b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adbd3a9abd10be944d188274584b1d3d8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a02702.html#ab3b85ef4b435257bafc0e838cca15b91">IndexType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02702.html#adbd3a9abd10be944d188274584b1d3d8">index</a> (const <a class="el" href="a02642.html">Entity</a> &amp;e) const</td></tr>
+<tr class="memdesc:adbd3a9abd10be944d188274584b1d3d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Map entity to index. Easier to use than the above because codimension template parameter need not be supplied explicitly. The result of calling this method with an entity that is not in the index set is undefined.  <a href="a02702.html#adbd3a9abd10be944d188274584b1d3d8">More...</a><br /></td></tr>
+<tr class="separator:adbd3a9abd10be944d188274584b1d3d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ea552ac95b90a26d65efed9c8616e72"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a02702.html#ab3b85ef4b435257bafc0e838cca15b91">IndexType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02702.html#a7ea552ac95b90a26d65efed9c8616e72">subIndex</a> (const typename Traits::template Codim&lt; cc &gt;::<a class="el" href="a02642.html">Entity</a> &amp;e, int i, unsigned int codim) const</td></tr>
+<tr class="memdesc:a7ea552ac95b90a26d65efed9c8616e72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Map a subentity to an index.  <a href="a02702.html#a7ea552ac95b90a26d65efed9c8616e72">More...</a><br /></td></tr>
+<tr class="separator:a7ea552ac95b90a26d65efed9c8616e72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f7d3c897da5ae5b9649422ffed42d79"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a02702.html#ab3b85ef4b435257bafc0e838cca15b91">IndexType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02702.html#a3f7d3c897da5ae5b9649422ffed42d79">subIndex</a> (const <a class="el" href="a02642.html">Entity</a> &amp;e, int i, unsigned int codim) const</td></tr>
+<tr class="memdesc:a3f7d3c897da5ae5b9649422ffed42d79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Map a subentity to an index.  <a href="a02702.html#a3f7d3c897da5ae5b9649422ffed42d79">More...</a><br /></td></tr>
+<tr class="separator:a3f7d3c897da5ae5b9649422ffed42d79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Access to entity set</div></td></tr>
+<tr class="memitem:afba1972a0dbbd275e0de4fd4d9674ad0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02702.html#afba1972a0dbbd275e0de4fd4d9674ad0">contains</a> (const <a class="el" href="a02642.html">Entity</a> &amp;e) const</td></tr>
+<tr class="memdesc:afba1972a0dbbd275e0de4fd4d9674ad0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return true if the given entity is contained in <img class="formulaInl" alt="$E$" src="form_31.png"/>.  <a href="a02702.html#afba1972a0dbbd275e0de4fd4d9674ad0">More...</a><br /></td></tr>
+<tr class="separator:afba1972a0dbbd275e0de4fd4d9674ad0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-types"></a>
-Protected Types</h2></td></tr>
-<tr class="memitem:a819d9a04873881956ed6f8012a849e88"><td class="memItemLeft" align="right" valign="top">typedef GridImp::HostGridType::Traits::template Codim&lt; codim &gt;::<a class="el" href="a02630.html">Entity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03318.html#a819d9a04873881956ed6f8012a849e88">HostEntity</a></td></tr>
-<tr class="separator:a819d9a04873881956ed6f8012a849e88"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb4b187b9bdcf52919f78a10b22dde18"><td class="memItemLeft" align="right" valign="top">typedef GridImp::HostGridType::Traits::template Codim&lt; codim &gt;::<a class="el" href="a02658.html">EntitySeed</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03318.html#aeb4b187b9bdcf52919f78a10b22dde18">HostEntitySeed</a></td></tr>
-<tr class="separator:aeb4b187b9bdcf52919f78a10b22dde18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a288a1ea8a0e8a34b3b9cdeec6ab41d34"><td class="memItemLeft" align="right" valign="top">GridImp *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03318.html#a288a1ea8a0e8a34b3b9cdeec6ab41d34">grid_</a></td></tr>
+<tr class="separator:a288a1ea8a0e8a34b3b9cdeec6ab41d34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af824bf66ee5c4ece2615b9fddecc23dc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03318.html#af824bf66ee5c4ece2615b9fddecc23dc">level_</a></td></tr>
+<tr class="separator:af824bf66ee5c4ece2615b9fddecc23dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a53b8ee710f958e0b2d902831dbb708e4"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02702.html#a53b8ee710f958e0b2d902831dbb708e4">dimension</a></td></tr>
+<tr class="memdesc:a53b8ee710f958e0b2d902831dbb708e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">dimension of the grid (maximum allowed codimension)  <a href="a02702.html#a53b8ee710f958e0b2d902831dbb708e4">More...</a><br /></td></tr>
+<tr class="separator:a53b8ee710f958e0b2d902831dbb708e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;int codim, class GridImp&gt;<br />
-class Dune::IdentityGridEntitySeed&lt; codim, GridImp &gt;</h3>
+<div class="textblock"><h3>template&lt;class GridImp&gt;<br />
+class Dune::IdentityGridLevelIndexSet&lt; GridImp &gt;</h3>
 
-<p>The <a class="el" href="a02658.html" title="Store a reference to an entity with a minimal memory footprint.">EntitySeed</a> class provides the minimal information needed to restore an <a class="el" href="a02630.html" title="Wrapper class for entities.">Entity</a> using the grid. </p>
+<dl class="todo"><dt><b><a class="el" href="a00903.html#_todo000020">Todo:</a></b></dt><dd>Take the index types from the host grid </dd></dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a819d9a04873881956ed6f8012a849e88"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a819d9a04873881956ed6f8012a849e88">&#9670;&nbsp;</a></span>HostEntity</h2>
+<a id="a2ac043b0f95bf4ee5f84b8ba17e5d5d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ac043b0f95bf4ee5f84b8ba17e5d5d5">&#9670;&nbsp;</a></span>HostGrid</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int codim, class GridImp &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
+template&lt;class GridImp &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef GridImp::HostGridType::Traits::template Codim&lt;codim&gt;::<a class="el" href="a02630.html">Entity</a> <a class="el" href="a03318.html">Dune::IdentityGridEntitySeed</a>&lt; codim, GridImp &gt;::<a class="el" href="a03318.html#a819d9a04873881956ed6f8012a849e88">HostEntity</a></td>
+          <td class="memname">typedef std::remove_const&lt;GridImp&gt;::type::HostGridType <a class="el" href="a03318.html">Dune::IdentityGridLevelIndexSet</a>&lt; GridImp &gt;::<a class="el" href="a03318.html#a2ac043b0f95bf4ee5f84b8ba17e5d5d5">HostGrid</a></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="aeb4b187b9bdcf52919f78a10b22dde18"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeb4b187b9bdcf52919f78a10b22dde18">&#9670;&nbsp;</a></span>HostEntitySeed</h2>
+<a id="ab3b85ef4b435257bafc0e838cca15b91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3b85ef4b435257bafc0e838cca15b91">&#9670;&nbsp;</a></span>IndexType</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;int codim, class GridImp &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">typedef GridImp::HostGridType::Traits::template Codim&lt;codim&gt;::<a class="el" href="a02658.html">EntitySeed</a> <a class="el" href="a03318.html">Dune::IdentityGridEntitySeed</a>&lt; codim, GridImp &gt;::<a class="el" href="a03318.html#aeb4b187b9bdcf52919f78a10b22dde18">HostEntitySeed</a></td>
+          <td class="memname">typedef std::remove_const&lt; GridImp &gt;::type::HostGridType::LevelGridView::IndexSet::IndexType  <a class="el" href="a02702.html">Dune::IndexSet</a>&lt; GridImp, <a class="el" href="a03318.html">IdentityGridLevelIndexSet</a>&lt; GridImp &gt; , std::remove_const&lt; GridImp &gt;::type::HostGridType::LevelGridView::IndexSet::IndexType , std::remove_const&lt; GridImp &gt;::type::HostGridType::LevelGridView::IndexSet::Types  &gt;::<a class="el" href="a02702.html#ab3b85ef4b435257bafc0e838cca15b91">IndexType</a></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
   </tr>
 </table>
+</div><div class="memdoc">
+
+<p>The type used for the indices. </p>
+
+</div>
+</div>
+<a id="aa117f8d0edb47e4eb53343701003a7c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa117f8d0edb47e4eb53343701003a7c3">&#9670;&nbsp;</a></span>Types</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class GridImp &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef HostGrid::LevelGridView::IndexSet::Types <a class="el" href="a03318.html">Dune::IdentityGridLevelIndexSet</a>&lt; GridImp &gt;::<a class="el" href="a03318.html#aa117f8d0edb47e4eb53343701003a7c3">Types</a></td>
+        </tr>
+      </table>
 </div><div class="memdoc">
 
 </div>
 </div>
 <h2 class="groupheader">Member Enumeration Documentation</h2>
-<a id="a2ebc3d72b2d89f9d34098e2655986faf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2ebc3d72b2d89f9d34098e2655986faf">&#9670;&nbsp;</a></span>anonymous enum</h2>
+<a id="af1985395460af2d222400ae2f504715f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1985395460af2d222400ae2f504715f">&#9670;&nbsp;</a></span>anonymous enum</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int codim, class GridImp &gt; </div>
+template&lt;class GridImp &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">anonymous enum</td>
@@ -178,88 +240,59 @@ template&lt;int codim, class GridImp &gt; </div>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a2ebc3d72b2d89f9d34098e2655986fafaa085137fa58424013830daeb71cdeaca"></a>codimension&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="af1985395460af2d222400ae2f504715fadd3b253af33556720191e2f03c399cfa"></a>dim&#160;</td><td class="fielddoc"></td></tr>
 </table>
-
-</div>
-</div>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a288bbbc2f8ac728e4e60d0ed6efe1df9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a288bbbc2f8ac728e4e60d0ed6efe1df9">&#9670;&nbsp;</a></span>IdentityGridEntitySeed() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int codim, class GridImp &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a03318.html">Dune::IdentityGridEntitySeed</a>&lt; codim, GridImp &gt;::<a class="el" href="a03318.html">IdentityGridEntitySeed</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Construct an empty (i.e. <a class="el" href="a03318.html#a40b706474681c17075e5278d2bf0a890" title="Check whether it is safe to create an Entity from this Seed.">isValid()</a> == false) seed. </p>
-
-</div>
-</div>
-<a id="aca9cdcfe5567dd34e97def59e408d191"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aca9cdcfe5567dd34e97def59e408d191">&#9670;&nbsp;</a></span>IdentityGridEntitySeed() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int codim, class GridImp &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a03318.html">Dune::IdentityGridEntitySeed</a>&lt; codim, GridImp &gt;::<a class="el" href="a03318.html">IdentityGridEntitySeed</a> </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a03318.html#a819d9a04873881956ed6f8012a849e88">HostEntity</a> &amp;&#160;</td>
-          <td class="paramname"><em>hostEntity</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Create <a class="el" href="a02658.html" title="Store a reference to an entity with a minimal memory footprint.">EntitySeed</a> from hostgrid <a class="el" href="a02630.html" title="Wrapper class for entities.">Entity</a>. </p>
-<p>We call hostEntity.seed() directly in the constructor of <a class="el" href="a03318.html" title="The EntitySeed class provides the minimal information needed to restore an Entity using the grid.">IdentityGridEntitySeed</a> to allow for return value optimization. </p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="aa18c87387312d9c015958cfe6ec122ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa18c87387312d9c015958cfe6ec122ea">&#9670;&nbsp;</a></span>hostEntitySeed()</h2>
+<a id="afba1972a0dbbd275e0de4fd4d9674ad0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afba1972a0dbbd275e0de4fd4d9674ad0">&#9670;&nbsp;</a></span>contains() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;int codim, class GridImp &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a03318.html#aeb4b187b9bdcf52919f78a10b22dde18">HostEntitySeed</a>&amp; <a class="el" href="a03318.html">Dune::IdentityGridEntitySeed</a>&lt; codim, GridImp &gt;::hostEntitySeed </td>
+          <td class="memname">bool <a class="el" href="a02702.html">Dune::IndexSet</a>&lt; GridImp, <a class="el" href="a03318.html">IdentityGridLevelIndexSet</a>&lt; GridImp &gt; , std::remove_const&lt; GridImp &gt;::type::HostGridType::LevelGridView::IndexSet::IndexType , std::remove_const&lt; GridImp &gt;::type::HostGridType::LevelGridView::IndexSet::Types  &gt;::contains </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="a02642.html">Entity</a> &amp;&#160;</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return true if the given entity is contained in <img class="formulaInl" alt="$E$" src="form_31.png"/>. </p>
+<dl class="section note"><dt>Note</dt><dd>If the input element e is not an element of the grid, then the result of <a class="el" href="a03318.html#a04ac0b582bdfd91fbb19a75f3abadcfd" title="Return true if the given entity is contained in the index set.">contains()</a> is undefined. </dd></dl>
+
+</div>
+</div>
+<a id="a04ac0b582bdfd91fbb19a75f3abadcfd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04ac0b582bdfd91fbb19a75f3abadcfd">&#9670;&nbsp;</a></span>contains() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class GridImp &gt; </div>
+<div class="memtemplate">
+template&lt;class EntityType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="a03318.html">Dune::IdentityGridLevelIndexSet</a>&lt; GridImp &gt;::contains </td>
+          <td>(</td>
+          <td class="paramtype">const EntityType &amp;&#160;</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -270,25 +303,26 @@ template&lt;int codim, class GridImp &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Get stored HostEntitySeed. </p>
+<p>Return true if the given entity is contained in the index set. </p>
 
 </div>
 </div>
-<a id="a40b706474681c17075e5278d2bf0a890"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a40b706474681c17075e5278d2bf0a890">&#9670;&nbsp;</a></span>isValid()</h2>
+<a id="a1a6490b8057cc3b1a8cab62c86f9ca4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a6490b8057cc3b1a8cab62c86f9ca4b">&#9670;&nbsp;</a></span>geomTypes()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int codim, class GridImp &gt; </div>
+template&lt;class GridImp &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="a03318.html">Dune::IdentityGridEntitySeed</a>&lt; codim, GridImp &gt;::isValid </td>
+          <td class="memname">const std::vector&lt;GeometryType&gt;&amp; <a class="el" href="a03318.html">Dune::IdentityGridLevelIndexSet</a>&lt; GridImp &gt;::geomTypes </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>codim</em></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -299,12 +333,472 @@ template&lt;int codim, class GridImp &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Check whether it is safe to create an <a class="el" href="a02630.html" title="Wrapper class for entities.">Entity</a> from this Seed. </p>
+<p>Deliver all geometry types used in this grid. </p>
+
+</div>
+</div>
+<a id="adbd3a9abd10be944d188274584b1d3d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbd3a9abd10be944d188274584b1d3d8">&#9670;&nbsp;</a></span>index() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a02702.html#ab3b85ef4b435257bafc0e838cca15b91">IndexType</a> <a class="el" href="a02702.html">Dune::IndexSet</a>&lt; GridImp, <a class="el" href="a03318.html">IdentityGridLevelIndexSet</a>&lt; GridImp &gt; , std::remove_const&lt; GridImp &gt;::type::HostGridType::LevelGridView::IndexSet::IndexType , std::remove_const&lt; GridImp &gt;::type::HostGridType::LevelGridView::IndexSet::Types  &gt;::index </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a02642.html">Entity</a> &amp;&#160;</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Map entity to index. Easier to use than the above because codimension template parameter need not be supplied explicitly. The result of calling this method with an entity that is not in the index set is undefined. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">e</td><td>Reference to codim cc entity. Since entity knows its codimension, automatic extraction is possible. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An index in the range 0 ... Max number of entities in set - 1. </dd></dl>
+
+</div>
+</div>
+<a id="a0ec14c0bc52c96c97e9545589b567f53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ec14c0bc52c96c97e9545589b567f53">&#9670;&nbsp;</a></span>index() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class GridImp &gt; </div>
+<div class="memtemplate">
+template&lt;int codim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="a03318.html">Dune::IdentityGridLevelIndexSet</a>&lt; GridImp &gt;::index </td>
+          <td>(</td>
+          <td class="paramtype">const typename GridImp::Traits::template Codim&lt; codim &gt;::<a class="el" href="a02642.html">Entity</a> &amp;&#160;</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>get index of an entity </p>
+
+</div>
+</div>
+<a id="aa1d76fee51dee6af50132a65f5c791b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1d76fee51dee6af50132a65f5c791b9">&#9670;&nbsp;</a></span>index() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a02702.html#ab3b85ef4b435257bafc0e838cca15b91">IndexType</a> <a class="el" href="a02702.html">Dune::IndexSet</a>&lt; GridImp, <a class="el" href="a03318.html">IdentityGridLevelIndexSet</a>&lt; GridImp &gt; , std::remove_const&lt; GridImp &gt;::type::HostGridType::LevelGridView::IndexSet::IndexType , std::remove_const&lt; GridImp &gt;::type::HostGridType::LevelGridView::IndexSet::Types  &gt;::index </td>
+          <td>(</td>
+          <td class="paramtype">const typename Traits::template Codim&lt; cc &gt;::<a class="el" href="a02642.html">Entity</a> &amp;&#160;</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Map entity to index. The result of calling this method with an entity that is not in the index set is undefined. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">e</td><td>Reference to codim cc entity, where cc is the template parameter of the function. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An index in the range 0 ... Max number of entities in set - 1. </dd></dl>
+
+</div>
+</div>
+<a id="a81fe582077dfe96f39378ce8d3019d79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81fe582077dfe96f39378ce8d3019d79">&#9670;&nbsp;</a></span>size() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class GridImp &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t <a class="el" href="a03318.html">Dune::IdentityGridLevelIndexSet</a>&lt; GridImp &gt;::size </td>
+          <td>(</td>
+          <td class="paramtype">GeometryType&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>get number of entities of given codim, type and on this level </p>
+
+</div>
+</div>
+<a id="aab14d4ed819268f6a0651733f3f5efb4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab14d4ed819268f6a0651733f3f5efb4">&#9670;&nbsp;</a></span>size() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class GridImp &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t <a class="el" href="a03318.html">Dune::IdentityGridLevelIndexSet</a>&lt; GridImp &gt;::size </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>codim</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>get number of entities of given codim, type and on this level </p>
+
+</div>
+</div>
+<a id="a3f7d3c897da5ae5b9649422ffed42d79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f7d3c897da5ae5b9649422ffed42d79">&#9670;&nbsp;</a></span>subIndex() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a02702.html#ab3b85ef4b435257bafc0e838cca15b91">IndexType</a> <a class="el" href="a02702.html">Dune::IndexSet</a>&lt; GridImp, <a class="el" href="a03318.html">IdentityGridLevelIndexSet</a>&lt; GridImp &gt; , std::remove_const&lt; GridImp &gt;::type::HostGridType::LevelGridView::IndexSet::IndexType , std::remove_const&lt; GridImp &gt;::type::HostGridType::LevelGridView::IndexSet::Types  &gt;::subIndex </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a02642.html">Entity</a> &amp;&#160;</td>
+          <td class="paramname"><em>e</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>codim</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Map a subentity to an index. </p>
+<p>The result of calling this method with an entity that is not in the index set is undefined.</p>
+<dl class="section note"><dt>Note</dt><dd>This method exists for convenience only. It extracts the codimension from the type of the entity, which can be guessed by the compiler.</dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname"><a class="el" href="a02642.html" title="Wrapper class for entities.">Entity</a></td><td>type of entity (must be GridImp::Codim&lt; cc &gt;::Entity for some cc)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">e</td><td>reference to entity </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">i</td><td>number subentity of e within the codimension </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">codim</td><td>codimension of the subentity we're interested in</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>The parameter <code>codim</code> denotes the codimension with respect to the grid, i.e., it must satisfy cc &lt;= codim &lt;= dimension.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>An index in the range 0 ... Max number of entities in set - 1. </dd></dl>
+
+</div>
+</div>
+<a id="ac4c6f85307faf598622536ed186b5c7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4c6f85307faf598622536ed186b5c7b">&#9670;&nbsp;</a></span>subIndex() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class GridImp &gt; </div>
+<div class="memtemplate">
+template&lt;int cc&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="a03318.html">Dune::IdentityGridLevelIndexSet</a>&lt; GridImp &gt;::subIndex </td>
+          <td>(</td>
+          <td class="paramtype">const typename GridImp::Traits::template Codim&lt; cc &gt;::<a class="el" href="a02642.html">Entity</a> &amp;&#160;</td>
+          <td class="paramname"><em>e</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>codim</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>get index of subEntity of a codim 0 entity </p>
+
+</div>
+</div>
+<a id="a7ea552ac95b90a26d65efed9c8616e72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ea552ac95b90a26d65efed9c8616e72">&#9670;&nbsp;</a></span>subIndex() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a02702.html#ab3b85ef4b435257bafc0e838cca15b91">IndexType</a> <a class="el" href="a02702.html">Dune::IndexSet</a>&lt; GridImp, <a class="el" href="a03318.html">IdentityGridLevelIndexSet</a>&lt; GridImp &gt; , std::remove_const&lt; GridImp &gt;::type::HostGridType::LevelGridView::IndexSet::IndexType , std::remove_const&lt; GridImp &gt;::type::HostGridType::LevelGridView::IndexSet::Types  &gt;::subIndex </td>
+          <td>(</td>
+          <td class="paramtype">const typename Traits::template Codim&lt; cc &gt;::<a class="el" href="a02642.html">Entity</a> &amp;&#160;</td>
+          <td class="paramname"><em>e</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>codim</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Map a subentity to an index. </p>
+<p>The result of calling this method with an entity that is not in the index set is undefined.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">cc</td><td>codimension of the entity</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">e</td><td>reference to codimension cc entity </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">i</td><td>number subentity of e within the codimension </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">codim</td><td>codimension of the subentity we're interested in</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>The parameter <code>codim</code> denotes the codimension with respect to the grid, i.e., it must satisfy cc &lt;= codim &lt;= dimension.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>An index in the range 0 ... Max number of entities in set - 1. </dd></dl>
+
+</div>
+</div>
+<a id="a6542d56205c120483da06ec081b2e78b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6542d56205c120483da06ec081b2e78b">&#9670;&nbsp;</a></span>types()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class GridImp &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a03318.html#aa117f8d0edb47e4eb53343701003a7c3">Types</a> <a class="el" href="a03318.html">Dune::IdentityGridLevelIndexSet</a>&lt; GridImp &gt;::types </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>codim</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Deliver all geometry types used in this grid. </p>
+
+</div>
+</div>
+<a id="afaba7be81d3337803683debaae101166"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afaba7be81d3337803683debaae101166">&#9670;&nbsp;</a></span>update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class GridImp &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="a03318.html">Dune::IdentityGridLevelIndexSet</a>&lt; GridImp &gt;::update </td>
+          <td>(</td>
+          <td class="paramtype">const GridImp &amp;&#160;</td>
+          <td class="paramname"><em>grid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>level</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set up the index set. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a53b8ee710f958e0b2d902831dbb708e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53b8ee710f958e0b2d902831dbb708e4">&#9670;&nbsp;</a></span>dimension</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int <a class="el" href="a02702.html">Dune::IndexSet</a>&lt; GridImp, <a class="el" href="a03318.html">IdentityGridLevelIndexSet</a>&lt; GridImp &gt; , std::remove_const&lt; GridImp &gt;::type::HostGridType::LevelGridView::IndexSet::IndexType , std::remove_const&lt; GridImp &gt;::type::HostGridType::LevelGridView::IndexSet::Types  &gt;::dimension</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>dimension of the grid (maximum allowed codimension) </p>
+
+</div>
+</div>
+<a id="a288a1ea8a0e8a34b3b9cdeec6ab41d34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a288a1ea8a0e8a34b3b9cdeec6ab41d34">&#9670;&nbsp;</a></span>grid_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class GridImp &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">GridImp* <a class="el" href="a03318.html">Dune::IdentityGridLevelIndexSet</a>&lt; GridImp &gt;::grid_</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af824bf66ee5c4ece2615b9fddecc23dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af824bf66ee5c4ece2615b9fddecc23dc">&#9670;&nbsp;</a></span>level_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class GridImp &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="a03318.html">Dune::IdentityGridLevelIndexSet</a>&lt; GridImp &gt;::level_</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="a00590_source.html">identitygridentityseed.hh</a></li>
+<li><a class="el" href="a00605_source.html">identitygridindexsets.hh</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

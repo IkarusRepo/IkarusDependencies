@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: basic.hh Source File</title>
+<title>dune-grid: amirameshwriter.hh Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,144 +62,171 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_282a6d93e11c1f5367984719a29518da.html">dune-grid</a></li><li class="navelem"><a class="el" href="dir_9b356568473fb59d2a92d82c3e3163e0.html">dune</a></li><li class="navelem"><a class="el" href="dir_b835d2b10d4bb6ff2c6d149ed2a0408f.html">grid</a></li><li class="navelem"><a class="el" href="dir_5329f25137ae6799dcc39a81c0bad511.html">io</a></li><li class="navelem"><a class="el" href="dir_f2c5e3825b457d6e386f055f5a57985b.html">file</a></li><li class="navelem"><a class="el" href="dir_46ed6ff7d384419a9c61b06a94143db0.html">dgfparser</a></li><li class="navelem"><a class="el" href="dir_09eeeaece9f921a455789364fc89133c.html">blocks</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_282a6d93e11c1f5367984719a29518da.html">dune-grid</a></li><li class="navelem"><a class="el" href="dir_9b356568473fb59d2a92d82c3e3163e0.html">dune</a></li><li class="navelem"><a class="el" href="dir_b835d2b10d4bb6ff2c6d149ed2a0408f.html">grid</a></li><li class="navelem"><a class="el" href="dir_5329f25137ae6799dcc39a81c0bad511.html">io</a></li><li class="navelem"><a class="el" href="dir_f2c5e3825b457d6e386f055f5a57985b.html">file</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">basic.hh</div>  </div>
+<div class="title">amirameshwriter.hh</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="a00632.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*-</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// vi: set et ts=4 sw=2 sts=2:</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifndef DUNE_DGF_BASICBLOCK_HH</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define DUNE_DGF_BASICBLOCK_HH</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifndef DUNE_AMIRAMESH_WRITER_HH</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define DUNE_AMIRAMESH_WRITER_HH</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;cassert&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;cctype&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;sstream&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;dune/common/stdstreams.hh&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00737.html">dune/grid/io/file/dgfparser/entitykey.hh</a>&gt;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00710.html">dune/grid/io/file/dgfparser/dgfexception.hh</a>&gt;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00936.html">Dune</a></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  <span class="keyword">namespace </span>dgf</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  {</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="a00943.html#abb5725b92483f9a9581a95eba48de26b">   22</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="a00943.html#abb5725b92483f9a9581a95eba48de26b">makeupcase</a>( std :: string &amp;s )</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    {</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0; i&lt;s.size(); i++)</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        s[i]=std::toupper(s[i]);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    }</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#warning Support for AmiraMesh is deprecated and will be removed after Dune 2.8.</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;array&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#if HAVE_AMIRAMESH</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;amiramesh/AmiraMesh.h&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00940.html">Dune</a> {</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class</span> Gr<span class="keywordtype">id</span>View&gt;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="a03346.html">   22</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a03346.html">AmiraMeshWriter</a> {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">enum</span> {dim = <a class="code" href="a00910.html#gga5c76b0a0ed3fdcf2bd9ab2bbb2df0847a7170531f3c1c62b7904410099cf37a37">GridView::dimension</a>};</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="a03366.html">   28</a></span>&#160;    <span class="keyword">class </span><a class="code" href="a03366.html">BasicBlock</a></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;      <span class="keywordtype">int</span> pos;                   <span class="comment">// line number</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;      <span class="keywordtype">bool</span> active;               <span class="comment">// block was found</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;      <span class="keywordtype">bool</span> empty;                <span class="comment">// block was found but was empty</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;      std::string identifier;    <span class="comment">// identifier of this block</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;      <span class="keywordtype">int</span> linecount;             <span class="comment">// total number of lines in the block</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;      std::stringstream block_;  <span class="comment">// the block itself</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;      std::string oneline;       <span class="comment">// the active line in the block</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a03346.html#a6a9dba7e45452b83a733c15f9e3e8c43">addGrid</a>(<span class="keyword">const</span> <a class="code" href="a02758.html">GridView</a>&amp; gridView, <span class="keywordtype">bool</span> splitAll=<span class="keyword">false</span>);</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;      <span class="comment">// get the block (if it exists)</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;      <span class="keywordtype">void</span> getblock ( std::istream &amp;in );</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;      <span class="comment">// count the number of lines in the block</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      <span class="comment">// int countlines ();</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="a03366.html#ad8f07dabc591e8c033787aa3f21c8f3d">   45</a></span>&#160;      std::stringstream <a class="code" href="a03366.html#ad8f07dabc591e8c033787aa3f21c8f3d">line</a>; <span class="comment">// the active line as string buffer</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                              <span class="comment">// for use in the derived classes</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;      <span class="comment">// go back to beginning of block</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="a03366.html#a03e10ffe0ec5e21e5ac302c54f6d57db">   49</a></span>&#160;      <span class="keywordtype">void</span> <a class="code" href="a03366.html#a03e10ffe0ec5e21e5ac302c54f6d57db">reset</a> ()</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;      {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        pos = -1;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        block_.clear();</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        block_.seekg( 0 );</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      }</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      <span class="comment">// get next line and store in string stream</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      <span class="keywordtype">bool</span> <a class="code" href="a03366.html#a1e0d3a75117e72e3e53bf2caebc39dd2">getnextline</a> ();</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;      <span class="comment">// get next entry in line</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;      <span class="keyword">template</span>&lt; <span class="keyword">class</span> ENTRY &gt;</div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="a03366.html#a5225f6a7e05f698a469be85623b1f287">   61</a></span>&#160;      <span class="keywordtype">bool</span> <a class="code" href="a03366.html#a5225f6a7e05f698a469be85623b1f287">getnextentry</a>( ENTRY &amp;entry )</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;      {</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <a class="code" href="a03366.html#ad8f07dabc591e8c033787aa3f21c8f3d">line</a> &gt;&gt; entry;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span> <span class="keywordtype">bool</span> <span class="keyword">&gt;</span>( <a class="code" href="a03366.html#ad8f07dabc591e8c033787aa3f21c8f3d">line</a> );</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;      }</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;      <span class="keywordtype">bool</span> <a class="code" href="a03366.html#af78118720f017c7a158e4cea9dd5a9c9">gettokenparam</a> ( std :: string token, std :: string &amp;entry );</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;      <span class="keywordtype">bool</span> <a class="code" href="a03366.html#a37d2569487847078f8b2f101fa5d48cf">findtoken</a>( std :: string token );</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> Gr<span class="keywordtype">id</span>Type2&gt;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a03346.html#a781d87465dff12975cf1d4da59c90b88">addLevelGrid</a>(<span class="keyword">const</span> GridType2&amp; grid, <span class="keywordtype">int</span> level, <span class="keywordtype">bool</span> splitAll=<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> Gr<span class="keywordtype">id</span>Type2&gt;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a03346.html#a07b645f86bc75e8fa7e14b6e20082db9">addLeafGrid</a>(<span class="keyword">const</span> GridType2&amp; grid, <span class="keywordtype">bool</span> splitAll=<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> DataContainer&gt;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a03346.html#aebd5dfa9d91b8afb8faf5ef76a41270c">addCellData</a>(<span class="keyword">const</span> DataContainer&amp; data, <span class="keyword">const</span> <a class="code" href="a02758.html">GridView</a>&amp; gridView, <span class="keywordtype">bool</span> GridSplitUp=<span class="keyword">false</span>);</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;      <span class="comment">// search for block in file and store in buffer</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;      <a class="code" href="a03366.html#a2fe4d5c33081672cccf6fc054dce1776">BasicBlock</a> ( std::istream &amp;in, <span class="keyword">const</span> <span class="keywordtype">char</span>* <span class="keywordtype">id</span> );</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;      <span class="comment">// some information on this block</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="a03366.html#ac5f6236a2034acfc08d7fa492d1104f0">   75</a></span>&#160;      <span class="keywordtype">bool</span> <a class="code" href="a03366.html#ac5f6236a2034acfc08d7fa492d1104f0">isactive</a> ()</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;      {</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordflow">return</span> active;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;      }</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="a03366.html#aa03fbcfabe3f9891e34fbfd2ad7e9445">   80</a></span>&#160;      <span class="keywordtype">bool</span> <a class="code" href="a03366.html#aa03fbcfabe3f9891e34fbfd2ad7e9445">isempty</a> ()</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;      {</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordflow">return</span> empty;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;      }</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> DataContainer&gt;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a03346.html#a4abddbf0dc028c66df3b56eea592429a">addVertexData</a>(<span class="keyword">const</span> DataContainer&amp; data, <span class="keyword">const</span> <a class="code" href="a02758.html">GridView</a>&amp; gridView, <span class="keywordtype">bool</span> GridSplitUp=<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a03346.html#a19e8169d7419363d2ef51cac4d374341">write</a>(<span class="keyword">const</span> std::string&amp; filename, <span class="keywordtype">bool</span> <a class="code" href="a00951.html#a256815237356e8c99c97e7debb1dabf8a21edb20202b6eaae84d2a13937efda27">ascii</a>=<span class="keyword">false</span>) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="a03366.html#a3c6d8bcf4fab8a69d092241a49825ba7">   85</a></span>&#160;      <span class="keywordtype">int</span> &amp;<a class="code" href="a03366.html#a3c6d8bcf4fab8a69d092241a49825ba7">noflines</a> ()</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;      {</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordflow">return</span> linecount;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;      }</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="a03366.html#ad073ac8f1535c23df5cfbc3dd7228f79">   90</a></span>&#160;      <span class="keywordtype">int</span> <a class="code" href="a03366.html#ad073ac8f1535c23df5cfbc3dd7228f79">linenumber</a> ()</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;      {</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordflow">return</span> pos;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;      }</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
-<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="a03366.html#a408137baed3c3cb28ac225addd265afb">   95</a></span>&#160;      <span class="keyword">const</span> std::string &amp; <a class="code" href="a03366.html#a408137baed3c3cb28ac225addd265afb">id</a> ()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="keyword">      </span>{</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="keywordflow">return</span> identifier;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;      }</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;      <span class="comment">// for error messages</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="a03366.html#a7f0dbf6896ee985e52024f9ec1784d25">  101</a></span>&#160;      <span class="keyword">friend</span> std :: ostream &amp;<a class="code" href="a03366.html#a7f0dbf6896ee985e52024f9ec1784d25">operator&lt;&lt; </a>( std :: ostream &amp;os, <span class="keyword">const</span> <a class="code" href="a03366.html">BasicBlock</a> &amp;b )</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;      {</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keywordflow">return</span> os &lt;&lt; <span class="stringliteral">&quot;block &quot;</span> &lt;&lt; b.identifier &lt;&lt; <span class="stringliteral">&quot; (line &quot;</span> &lt;&lt; b.pos &lt;&lt; <span class="stringliteral">&quot;)&quot;</span>;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;      }</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> DataContainer&gt;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a03346.html#a7dc8c510ed4e3f9845b5119054351fb8">addUniformData</a>(<span class="keyword">const</span> <a class="code" href="a02758.html">GridView</a>&amp; gridView,</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                        <span class="keyword">const</span> std::array&lt;unsigned int, dim&gt;&amp; n,</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                        <span class="keyword">const</span> DataContainer&amp; data);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="a03346.html#a03ebd141cb898eadb2608eed76282412">writeSurfaceGrid</a>(<span class="keyword">const</span> <a class="code" href="a02758.html">GridView</a>&amp; gridView,</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                                 <span class="keyword">const</span> std::string&amp; filename);</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    };</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  <span class="keyword">protected</span>:</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  } <span class="comment">// end namespace dgf</span></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;} <span class="comment">// end namespace Dune</span></div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aa00710_html"><div class="ttname"><a href="a00710.html">dgfexception.hh</a></div></div>
-<div class="ttc" id="aa00737_html"><div class="ttname"><a href="a00737.html">entitykey.hh</a></div></div>
-<div class="ttc" id="aa00936_html"><div class="ttname"><a href="a00936.html">Dune</a></div><div class="ttdoc">Include standard header files.</div><div class="ttdef"><b>Definition:</b> agrid.hh:59</div></div>
-<div class="ttc" id="aa00943_html_abb5725b92483f9a9581a95eba48de26b"><div class="ttname"><a href="a00943.html#abb5725b92483f9a9581a95eba48de26b">Dune::dgf::makeupcase</a></div><div class="ttdeci">void makeupcase(std ::string &amp;s)</div><div class="ttdef"><b>Definition:</b> basic.hh:22</div></div>
-<div class="ttc" id="aa03366_html"><div class="ttname"><a href="a03366.html">Dune::dgf::BasicBlock</a></div><div class="ttdef"><b>Definition:</b> basic.hh:29</div></div>
-<div class="ttc" id="aa03366_html_a03e10ffe0ec5e21e5ac302c54f6d57db"><div class="ttname"><a href="a03366.html#a03e10ffe0ec5e21e5ac302c54f6d57db">Dune::dgf::BasicBlock::reset</a></div><div class="ttdeci">void reset()</div><div class="ttdef"><b>Definition:</b> basic.hh:49</div></div>
-<div class="ttc" id="aa03366_html_a1e0d3a75117e72e3e53bf2caebc39dd2"><div class="ttname"><a href="a03366.html#a1e0d3a75117e72e3e53bf2caebc39dd2">Dune::dgf::BasicBlock::getnextline</a></div><div class="ttdeci">bool getnextline()</div><div class="ttdef"><b>Definition:</b> basic.cc:92</div></div>
-<div class="ttc" id="aa03366_html_a2fe4d5c33081672cccf6fc054dce1776"><div class="ttname"><a href="a03366.html#a2fe4d5c33081672cccf6fc054dce1776">Dune::dgf::BasicBlock::BasicBlock</a></div><div class="ttdeci">BasicBlock(std::istream &amp;in, const char *id)</div><div class="ttdef"><b>Definition:</b> basic.cc:16</div></div>
-<div class="ttc" id="aa03366_html_a37d2569487847078f8b2f101fa5d48cf"><div class="ttname"><a href="a03366.html#a37d2569487847078f8b2f101fa5d48cf">Dune::dgf::BasicBlock::findtoken</a></div><div class="ttdeci">bool findtoken(std ::string token)</div><div class="ttdef"><b>Definition:</b> basic.cc:121</div></div>
-<div class="ttc" id="aa03366_html_a3c6d8bcf4fab8a69d092241a49825ba7"><div class="ttname"><a href="a03366.html#a3c6d8bcf4fab8a69d092241a49825ba7">Dune::dgf::BasicBlock::noflines</a></div><div class="ttdeci">int &amp; noflines()</div><div class="ttdef"><b>Definition:</b> basic.hh:85</div></div>
-<div class="ttc" id="aa03366_html_a408137baed3c3cb28ac225addd265afb"><div class="ttname"><a href="a03366.html#a408137baed3c3cb28ac225addd265afb">Dune::dgf::BasicBlock::id</a></div><div class="ttdeci">const std::string &amp; id() const</div><div class="ttdef"><b>Definition:</b> basic.hh:95</div></div>
-<div class="ttc" id="aa03366_html_a5225f6a7e05f698a469be85623b1f287"><div class="ttname"><a href="a03366.html#a5225f6a7e05f698a469be85623b1f287">Dune::dgf::BasicBlock::getnextentry</a></div><div class="ttdeci">bool getnextentry(ENTRY &amp;entry)</div><div class="ttdef"><b>Definition:</b> basic.hh:61</div></div>
-<div class="ttc" id="aa03366_html_a7f0dbf6896ee985e52024f9ec1784d25"><div class="ttname"><a href="a03366.html#a7f0dbf6896ee985e52024f9ec1784d25">Dune::dgf::BasicBlock::operator&lt;&lt;</a></div><div class="ttdeci">friend std ::ostream &amp; operator&lt;&lt;(std ::ostream &amp;os, const BasicBlock &amp;b)</div><div class="ttdef"><b>Definition:</b> basic.hh:101</div></div>
-<div class="ttc" id="aa03366_html_aa03fbcfabe3f9891e34fbfd2ad7e9445"><div class="ttname"><a href="a03366.html#aa03fbcfabe3f9891e34fbfd2ad7e9445">Dune::dgf::BasicBlock::isempty</a></div><div class="ttdeci">bool isempty()</div><div class="ttdef"><b>Definition:</b> basic.hh:80</div></div>
-<div class="ttc" id="aa03366_html_ac5f6236a2034acfc08d7fa492d1104f0"><div class="ttname"><a href="a03366.html#ac5f6236a2034acfc08d7fa492d1104f0">Dune::dgf::BasicBlock::isactive</a></div><div class="ttdeci">bool isactive()</div><div class="ttdef"><b>Definition:</b> basic.hh:75</div></div>
-<div class="ttc" id="aa03366_html_ad073ac8f1535c23df5cfbc3dd7228f79"><div class="ttname"><a href="a03366.html#ad073ac8f1535c23df5cfbc3dd7228f79">Dune::dgf::BasicBlock::linenumber</a></div><div class="ttdeci">int linenumber()</div><div class="ttdef"><b>Definition:</b> basic.hh:90</div></div>
-<div class="ttc" id="aa03366_html_ad8f07dabc591e8c033787aa3f21c8f3d"><div class="ttname"><a href="a03366.html#ad8f07dabc591e8c033787aa3f21c8f3d">Dune::dgf::BasicBlock::line</a></div><div class="ttdeci">std::stringstream line</div><div class="ttdef"><b>Definition:</b> basic.hh:45</div></div>
-<div class="ttc" id="aa03366_html_af78118720f017c7a158e4cea9dd5a9c9"><div class="ttname"><a href="a03366.html#af78118720f017c7a158e4cea9dd5a9c9">Dune::dgf::BasicBlock::gettokenparam</a></div><div class="ttdeci">bool gettokenparam(std ::string token, std ::string &amp;entry)</div><div class="ttdef"><b>Definition:</b> basic.cc:102</div></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="preprocessor">#if HAVE_AMIRAMESH  </span><span class="comment">// better: use a pointer here and forward-declare AmiraMesh</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    AmiraMesh amiramesh_;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  };</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class</span> Gr<span class="keywordtype">id</span>Type&gt;</div>
+<div class="line"><a name="l00118"></a><span class="lineno"><a class="line" href="a03350.html">  118</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a03350.html">LevelAmiraMeshWriter</a></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    : <span class="keyword">public</span> <a class="code" href="a03346.html">AmiraMeshWriter</a>&lt;typename GridType::LevelGridView&gt;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;  {</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
+<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="a03350.html#afed4c47b6671637d356b30b395de432c">  125</a></span>&#160;    <a class="code" href="a03350.html#afed4c47b6671637d356b30b395de432c">LevelAmiraMeshWriter</a>() {}</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
+<div class="line"><a name="l00128"></a><span class="lineno"><a class="line" href="a03350.html#a5ea76566707bce2efb54e4125f1750c5">  128</a></span>&#160;    <a class="code" href="a03350.html#a5ea76566707bce2efb54e4125f1750c5">LevelAmiraMeshWriter</a>(<span class="keyword">const</span> GridType&amp; grid, <span class="keywordtype">int</span> level) {</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;      this-&gt;<a class="code" href="a03346.html#a6a9dba7e45452b83a733c15f9e3e8c43">addGrid</a>(grid.levelGridView(level));</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    }</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
+<div class="line"><a name="l00138"></a><span class="lineno"><a class="line" href="a03350.html#aacdf62f95e87a51301221c1b1d786cb7">  138</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="a03350.html#aacdf62f95e87a51301221c1b1d786cb7">writeGrid</a>(<span class="keyword">const</span> GridType&amp; grid,</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;                          <span class="keyword">const</span> std::string&amp; filename,</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;                          <span class="keywordtype">int</span> level) {</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;      <a class="code" href="a03350.html">LevelAmiraMeshWriter</a> amiramesh(grid, level);</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;      amiramesh.<a class="code" href="a03346.html#a19e8169d7419363d2ef51cac4d374341">write</a>(filename);</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    }</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> VectorType&gt;</div>
+<div class="line"><a name="l00154"></a><span class="lineno"><a class="line" href="a03350.html#a24782c1238e71fe9e14b08f735c7ef4b">  154</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="a03350.html#a24782c1238e71fe9e14b08f735c7ef4b">writeBlockVector</a>(<span class="keyword">const</span> GridType&amp; grid,</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                                 <span class="keyword">const</span> VectorType&amp; f,</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                                 <span class="keyword">const</span> std::string&amp; filename,</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;                                 <span class="keywordtype">int</span> level,</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;                                 <span class="keywordtype">bool</span> GridSplitUp=<span class="keyword">false</span>) {</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;      <a class="code" href="a03350.html">LevelAmiraMeshWriter</a> amiramesh;</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;      <span class="keywordflow">if</span> (f.size()==grid.size(level,GridType::dimension))</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        amiramesh.<a class="code" href="a03346.html#a4abddbf0dc028c66df3b56eea592429a">addVertexData</a>(f, grid.levelGridView(level),GridSplitUp);</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;      <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        amiramesh.<a class="code" href="a03346.html#aebd5dfa9d91b8afb8faf5ef76a41270c">addCellData</a>(f, grid.levelGridView(level),GridSplitUp);</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;      amiramesh.<a class="code" href="a03346.html#a19e8169d7419363d2ef51cac4d374341">write</a>(filename);</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    }</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; </div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;  };</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160; </div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class</span> Gr<span class="keywordtype">id</span>Type&gt;</div>
+<div class="line"><a name="l00174"></a><span class="lineno"><a class="line" href="a03354.html">  174</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a03354.html">LeafAmiraMeshWriter</a></div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    : <span class="keyword">public</span> <a class="code" href="a03346.html">AmiraMeshWriter</a>&lt;typename GridType::LeafGridView&gt;</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;  {</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160; </div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160; </div>
+<div class="line"><a name="l00181"></a><span class="lineno"><a class="line" href="a03354.html#a3862f469133b3cdd443da76c45fab432">  181</a></span>&#160;    <a class="code" href="a03354.html#a3862f469133b3cdd443da76c45fab432">LeafAmiraMeshWriter</a>() {}</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160; </div>
+<div class="line"><a name="l00184"></a><span class="lineno"><a class="line" href="a03354.html#ac0c0fb957d1f37416ceee3d2ca163807">  184</a></span>&#160;    <a class="code" href="a03354.html#ac0c0fb957d1f37416ceee3d2ca163807">LeafAmiraMeshWriter</a>(<span class="keyword">const</span> GridType&amp; grid) {</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;      this-&gt;<a class="code" href="a03346.html#a07b645f86bc75e8fa7e14b6e20082db9">addLeafGrid</a>(grid);</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    }</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160; </div>
+<div class="line"><a name="l00193"></a><span class="lineno"><a class="line" href="a03354.html#a45e948f8b95ed3f41df9495515695ec4">  193</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="a03354.html#a45e948f8b95ed3f41df9495515695ec4">writeGrid</a>(<span class="keyword">const</span> GridType&amp; grid,</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;                          <span class="keyword">const</span> std::string&amp; filename) {</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;      <a class="code" href="a03354.html">LeafAmiraMeshWriter</a> amiramesh(grid);</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;      amiramesh.<a class="code" href="a03346.html#a19e8169d7419363d2ef51cac4d374341">write</a>(filename);</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    }</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; </div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> VectorType&gt;</div>
+<div class="line"><a name="l00206"></a><span class="lineno"><a class="line" href="a03354.html#a329f0548b4e2cbfe6a8914a5ec9580ad">  206</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="a03354.html#a329f0548b4e2cbfe6a8914a5ec9580ad">writeBlockVector</a>(<span class="keyword">const</span> GridType&amp; grid,</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;                                 <span class="keyword">const</span> VectorType&amp; f,</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;                                 <span class="keyword">const</span> std::string&amp; filename,</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;                                 <span class="keywordtype">bool</span> GridSplitUp = <span class="keyword">false</span>) {</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;      <a class="code" href="a03354.html">LeafAmiraMeshWriter</a> amiramesh;</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;      <span class="keywordflow">if</span> ((<span class="keywordtype">int</span>) f.size() == grid.size(GridType::dimension))</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;        amiramesh.<a class="code" href="a03346.html#a4abddbf0dc028c66df3b56eea592429a">addVertexData</a>(f, grid.leafGridView(),GridSplitUp);</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;      <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;        amiramesh.<a class="code" href="a03346.html#aebd5dfa9d91b8afb8faf5ef76a41270c">addCellData</a>(f, grid.leafGridView(),GridSplitUp);</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160; </div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;      amiramesh.<a class="code" href="a03346.html#a19e8169d7419363d2ef51cac4d374341">write</a>(filename);</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    }</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160; </div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;  };</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160; </div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;}</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160; </div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;<span class="comment">// implementation</span></div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;<span class="preprocessor">#if HAVE_AMIRAMESH</span></div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="a00623.html">amiramesh/amirameshwriter.cc</a>&quot;</span></div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160; </div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aa00623_html"><div class="ttname"><a href="a00623.html">amirameshwriter.cc</a></div></div>
+<div class="ttc" id="aa00910_html_gga5c76b0a0ed3fdcf2bd9ab2bbb2df0847a7170531f3c1c62b7904410099cf37a37"><div class="ttname"><a href="a00910.html#gga5c76b0a0ed3fdcf2bd9ab2bbb2df0847a7170531f3c1c62b7904410099cf37a37">Dune::GridView::dimension</a></div><div class="ttdeci">@ dimension</div><div class="ttdoc">The dimension of the grid.</div><div class="ttdef"><b>Definition:</b> common/gridview.hh:130</div></div>
+<div class="ttc" id="aa00940_html"><div class="ttname"><a href="a00940.html">Dune</a></div><div class="ttdoc">Include standard header files.</div><div class="ttdef"><b>Definition:</b> agrid.hh:58</div></div>
+<div class="ttc" id="aa00951_html_a256815237356e8c99c97e7debb1dabf8a21edb20202b6eaae84d2a13937efda27"><div class="ttname"><a href="a00951.html#a256815237356e8c99c97e7debb1dabf8a21edb20202b6eaae84d2a13937efda27">Dune::VTK::ascii</a></div><div class="ttdeci">@ ascii</div><div class="ttdoc">Output to the file is in ascii.</div><div class="ttdef"><b>Definition:</b> common.hh:43</div></div>
+<div class="ttc" id="aa02758_html"><div class="ttname"><a href="a02758.html">Dune::GridView</a></div><div class="ttdoc">Grid view abstract base class.</div><div class="ttdef"><b>Definition:</b> common/gridview.hh:63</div></div>
+<div class="ttc" id="aa03346_html"><div class="ttname"><a href="a03346.html">Dune::AmiraMeshWriter</a></div><div class="ttdoc">Provides file writing facilities in the AmiraMesh format.</div><div class="ttdef"><b>Definition:</b> amirameshwriter.hh:22</div></div>
+<div class="ttc" id="aa03346_html_a03ebd141cb898eadb2608eed76282412"><div class="ttname"><a href="a03346.html#a03ebd141cb898eadb2608eed76282412">Dune::AmiraMeshWriter::writeSurfaceGrid</a></div><div class="ttdeci">static void writeSurfaceGrid(const GridView &amp;gridView, const std::string &amp;filename)</div><div class="ttdoc">Write a 2d grid in a 3d world.</div><div class="ttdef"><b>Definition:</b> amirameshwriter.cc:633</div></div>
+<div class="ttc" id="aa03346_html_a07b645f86bc75e8fa7e14b6e20082db9"><div class="ttname"><a href="a03346.html#a07b645f86bc75e8fa7e14b6e20082db9">Dune::AmiraMeshWriter::addLeafGrid</a></div><div class="ttdeci">void addLeafGrid(const GridType2 &amp;grid, bool splitAll=false)</div><div class="ttdoc">Add leaf grid.</div><div class="ttdef"><b>Definition:</b> amirameshwriter.cc:319</div></div>
+<div class="ttc" id="aa03346_html_a19e8169d7419363d2ef51cac4d374341"><div class="ttname"><a href="a03346.html#a19e8169d7419363d2ef51cac4d374341">Dune::AmiraMeshWriter::write</a></div><div class="ttdeci">void write(const std::string &amp;filename, bool ascii=false) const</div><div class="ttdoc">Write AmiraMesh object to disk.</div><div class="ttdef"><b>Definition:</b> amirameshwriter.cc:552</div></div>
+<div class="ttc" id="aa03346_html_a4abddbf0dc028c66df3b56eea592429a"><div class="ttname"><a href="a03346.html#a4abddbf0dc028c66df3b56eea592429a">Dune::AmiraMeshWriter::addVertexData</a></div><div class="ttdeci">void addVertexData(const DataContainer &amp;data, const GridView &amp;gridView, bool GridSplitUp=false)</div><div class="ttdoc">Add vertex data.</div><div class="ttdef"><b>Definition:</b> amirameshwriter.cc:450</div></div>
+<div class="ttc" id="aa03346_html_a6a9dba7e45452b83a733c15f9e3e8c43"><div class="ttname"><a href="a03346.html#a6a9dba7e45452b83a733c15f9e3e8c43">Dune::AmiraMeshWriter::addGrid</a></div><div class="ttdeci">void addGrid(const GridView &amp;gridView, bool splitAll=false)</div><div class="ttdoc">Add a grid view to the file.</div><div class="ttdef"><b>Definition:</b> amirameshwriter.cc:12</div></div>
+<div class="ttc" id="aa03346_html_a781d87465dff12975cf1d4da59c90b88"><div class="ttname"><a href="a03346.html#a781d87465dff12975cf1d4da59c90b88">Dune::AmiraMeshWriter::addLevelGrid</a></div><div class="ttdeci">void addLevelGrid(const GridType2 &amp;grid, int level, bool splitAll=false)</div><div class="ttdoc">Add level grid.</div><div class="ttdef"><b>Definition:</b> amirameshwriter.cc:309</div></div>
+<div class="ttc" id="aa03346_html_a7dc8c510ed4e3f9845b5119054351fb8"><div class="ttname"><a href="a03346.html#a7dc8c510ed4e3f9845b5119054351fb8">Dune::AmiraMeshWriter::addUniformData</a></div><div class="ttdeci">void addUniformData(const GridView &amp;gridView, const std::array&lt; unsigned int, dim &gt; &amp;n, const DataContainer &amp;data)</div><div class="ttdoc">Write data on a uniform grid into an AmiraMesh file.</div><div class="ttdef"><b>Definition:</b> amirameshwriter.cc:565</div></div>
+<div class="ttc" id="aa03346_html_aebd5dfa9d91b8afb8faf5ef76a41270c"><div class="ttname"><a href="a03346.html#aebd5dfa9d91b8afb8faf5ef76a41270c">Dune::AmiraMeshWriter::addCellData</a></div><div class="ttdeci">void addCellData(const DataContainer &amp;data, const GridView &amp;gridView, bool GridSplitUp=false)</div><div class="ttdoc">Add cell data.</div><div class="ttdef"><b>Definition:</b> amirameshwriter.cc:327</div></div>
+<div class="ttc" id="aa03350_html"><div class="ttname"><a href="a03350.html">Dune::LevelAmiraMeshWriter</a></div><div class="ttdoc">Provides file writing facilities in the AmiraMesh format for level grids.</div><div class="ttdef"><b>Definition:</b> amirameshwriter.hh:120</div></div>
+<div class="ttc" id="aa03350_html_a24782c1238e71fe9e14b08f735c7ef4b"><div class="ttname"><a href="a03350.html#a24782c1238e71fe9e14b08f735c7ef4b">Dune::LevelAmiraMeshWriter::writeBlockVector</a></div><div class="ttdeci">static void writeBlockVector(const GridType &amp;grid, const VectorType &amp;f, const std::string &amp;filename, int level, bool GridSplitUp=false)</div><div class="ttdoc">Writes an ISTL block vector in AmiraMesh format.</div><div class="ttdef"><b>Definition:</b> amirameshwriter.hh:154</div></div>
+<div class="ttc" id="aa03350_html_a5ea76566707bce2efb54e4125f1750c5"><div class="ttname"><a href="a03350.html#a5ea76566707bce2efb54e4125f1750c5">Dune::LevelAmiraMeshWriter::LevelAmiraMeshWriter</a></div><div class="ttdeci">LevelAmiraMeshWriter(const GridType &amp;grid, int level)</div><div class="ttdoc">Constructor which initializes the AmiraMesh object with a given level grid.</div><div class="ttdef"><b>Definition:</b> amirameshwriter.hh:128</div></div>
+<div class="ttc" id="aa03350_html_aacdf62f95e87a51301221c1b1d786cb7"><div class="ttname"><a href="a03350.html#aacdf62f95e87a51301221c1b1d786cb7">Dune::LevelAmiraMeshWriter::writeGrid</a></div><div class="ttdeci">static void writeGrid(const GridType &amp;grid, const std::string &amp;filename, int level)</div><div class="ttdoc">Write a grid in AmiraMesh format.</div><div class="ttdef"><b>Definition:</b> amirameshwriter.hh:138</div></div>
+<div class="ttc" id="aa03350_html_afed4c47b6671637d356b30b395de432c"><div class="ttname"><a href="a03350.html#afed4c47b6671637d356b30b395de432c">Dune::LevelAmiraMeshWriter::LevelAmiraMeshWriter</a></div><div class="ttdeci">LevelAmiraMeshWriter()</div><div class="ttdoc">Default constructor.</div><div class="ttdef"><b>Definition:</b> amirameshwriter.hh:125</div></div>
+<div class="ttc" id="aa03354_html"><div class="ttname"><a href="a03354.html">Dune::LeafAmiraMeshWriter</a></div><div class="ttdoc">Provides file writing facilities in the AmiraMesh format for leaf grids.</div><div class="ttdef"><b>Definition:</b> amirameshwriter.hh:176</div></div>
+<div class="ttc" id="aa03354_html_a329f0548b4e2cbfe6a8914a5ec9580ad"><div class="ttname"><a href="a03354.html#a329f0548b4e2cbfe6a8914a5ec9580ad">Dune::LeafAmiraMeshWriter::writeBlockVector</a></div><div class="ttdeci">static void writeBlockVector(const GridType &amp;grid, const VectorType &amp;f, const std::string &amp;filename, bool GridSplitUp=false)</div><div class="ttdoc">Writes an ISTL block vector in AmiraMesh format.</div><div class="ttdef"><b>Definition:</b> amirameshwriter.hh:206</div></div>
+<div class="ttc" id="aa03354_html_a3862f469133b3cdd443da76c45fab432"><div class="ttname"><a href="a03354.html#a3862f469133b3cdd443da76c45fab432">Dune::LeafAmiraMeshWriter::LeafAmiraMeshWriter</a></div><div class="ttdeci">LeafAmiraMeshWriter()</div><div class="ttdoc">Default constructor.</div><div class="ttdef"><b>Definition:</b> amirameshwriter.hh:181</div></div>
+<div class="ttc" id="aa03354_html_a45e948f8b95ed3f41df9495515695ec4"><div class="ttname"><a href="a03354.html#a45e948f8b95ed3f41df9495515695ec4">Dune::LeafAmiraMeshWriter::writeGrid</a></div><div class="ttdeci">static void writeGrid(const GridType &amp;grid, const std::string &amp;filename)</div><div class="ttdoc">Write a grid in AmiraMesh format.</div><div class="ttdef"><b>Definition:</b> amirameshwriter.hh:193</div></div>
+<div class="ttc" id="aa03354_html_ac0c0fb957d1f37416ceee3d2ca163807"><div class="ttname"><a href="a03354.html#ac0c0fb957d1f37416ceee3d2ca163807">Dune::LeafAmiraMeshWriter::LeafAmiraMeshWriter</a></div><div class="ttdeci">LeafAmiraMeshWriter(const GridType &amp;grid)</div><div class="ttdoc">Constructor which initializes the AmiraMesh object with a given leaf grid.</div><div class="ttdef"><b>Definition:</b> amirameshwriter.hh:184</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

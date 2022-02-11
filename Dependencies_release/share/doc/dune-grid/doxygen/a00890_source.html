@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: tensorgridfactory.hh Source File</title>
+<title>dune-grid: persistentcontainerwrapper.hh Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -67,360 +67,128 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">tensorgridfactory.hh</div>  </div>
+<div class="title">persistentcontainerwrapper.hh</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="a00890.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef DUNE_GRID_UTILITY_TENSORGRIDFACTORY_HH</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define DUNE_GRID_UTILITY_TENSORGRIDFACTORY_HH</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include&lt;array&gt;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include&lt;memory&gt;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include&lt;vector&gt;</span></div>
+<a href="a00890.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// vi: set et ts=4 sw=2 sts=2:</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifndef DUNE_PERSISTENTCONTAINERWRAPPER_HH</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define DUNE_PERSISTENTCONTAINERWRAPPER_HH</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00872.html">dune/grid/utility/hostgridaccess.hh</a>&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a06777.html">dune/grid/utility/persistentcontainer.hh</a>&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00940.html">Dune</a></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;  <span class="comment">// PersistentContainerWrapper</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  <span class="comment">// --------------------------</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  <span class="keyword">template</span>&lt; <span class="keyword">class</span> G, <span class="keyword">class</span> T &gt;</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="a04110.html">   16</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a04110.html">PersistentContainerWrapper</a></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">typedef</span> <a class="code" href="a04110.html">PersistentContainerWrapper&lt; G, T &gt;</a> <a class="code" href="a04110.html">This</a>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">typedef</span> <a class="code" href="a03258.html">Dune::HostGridAccess&lt; G &gt;</a> <a class="code" href="a03258.html">HostGridAccess</a>;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;dune/common/fvector.hh&gt;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a06806.html">dune/grid/common/gridfactory.hh</a>&gt;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00896.html">dune/grid/yaspgrid.hh</a>&gt;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include&lt;<a class="code" href="a00869.html">dune/grid/utility/multiindex.hh</a>&gt;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00936.html">Dune</a></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="comment">// forward declaration of TensorGridFactoryCreator, which is the real factory</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="comment">// that should be specialized for each grid.</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Gr<span class="keywordtype">id</span>&gt;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keyword">class </span>TensorGridFactoryCreator;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> HostGridAccess::HostGrid HostGrid;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">typedef</span> <a class="code" href="a04086.html">PersistentContainer&lt; HostGrid, T &gt;</a> <a class="code" href="a04086.html">PersistentContainerHostGrid</a>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="a04110.html#a7fab3fd4ed104d5cf17a02e1b2adaa06">   26</a></span>&#160;    <span class="keyword">typedef</span> G <a class="code" href="a04110.html#a7fab3fd4ed104d5cf17a02e1b2adaa06">Grid</a>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="a04110.html#a5a0c03abb9400c1fdc894adb231fc975">   28</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="a04086.html">PersistentContainer&lt; HostGrid, T &gt;::Value</a> <a class="code" href="a04110.html#a5a0c03abb9400c1fdc894adb231fc975">Value</a>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="a04110.html#af340645acc92ea8604ed9a3c451a46ad">   29</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="a04086.html">PersistentContainer&lt; HostGrid, T &gt;::Size</a> <a class="code" href="a04110.html#af340645acc92ea8604ed9a3c451a46ad">Size</a>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="a04110.html#add716623ea3a47a131e07b4237a981c8">   31</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="a04086.html">PersistentContainer&lt; HostGrid, T &gt;::Iterator</a> <a class="code" href="a04110.html#add716623ea3a47a131e07b4237a981c8">Iterator</a>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="a04110.html#a72c357a203983bf8d7d64186fee86c88">   32</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="a04086.html">PersistentContainer&lt; HostGrid, T &gt;::ConstIterator</a> <a class="code" href="a04110.html#a72c357a203983bf8d7d64186fee86c88">ConstIterator</a>;</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Gr<span class="keywordtype">id</span>&gt;</div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="a04126.html">   39</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a04126.html">TensorGridFactory</a></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="a04126.html#acd7f64a2c67553dea9c39e29d94aeca1">   42</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> Grid::Traits::CollectiveCommunication <a class="code" href="a04126.html#acd7f64a2c67553dea9c39e29d94aeca1">Comm</a>;</div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="a04126.html#a2b59b17f93462f93b33eb6d4d15a2c56">   43</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="a02698.html#af10850d580532530ec127817a2a28c38">Grid::ctype</a> <a class="code" href="a04126.html#a2b59b17f93462f93b33eb6d4d15a2c56">ctype</a>;</div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="a04126.html#a352c1fe5a25631f7d9ab488484dc0755">   44</a></span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="a04126.html#a352c1fe5a25631f7d9ab488484dc0755">dim</a> = <a class="code" href="a02698.html#ad60b40e40ac87b01ad0b1f05ab4925b1a3d6a22a414566af9b4a356f760fce944">Grid::dimension</a>;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="a04126.html#a402377a41a9908e65a62ad10657c2fe7">   46</a></span>&#160;    std::unique_ptr&lt;Grid&gt; <a class="code" href="a04126.html#a402377a41a9908e65a62ad10657c2fe7">createGrid</a>(<a class="code" href="a04126.html#acd7f64a2c67553dea9c39e29d94aeca1">Comm</a> comm = <a class="code" href="a04126.html#acd7f64a2c67553dea9c39e29d94aeca1">Comm</a>())</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    {</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;      <a class="code" href="a04122.html">TensorGridFactoryCreator&lt;Grid&gt;</a> creator(*<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;      <span class="keywordflow">return</span> creator.<a class="code" href="a04122.html#ae7f9a341644313278451aa4acad7d9ff">createGrid</a>(comm);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    }</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="a04126.html#a54e52884a1e192de3b684739dfdd2848">   52</a></span>&#160;    std::array&lt;std::vector&lt;ctype&gt; , <a class="code" href="a04126.html#a352c1fe5a25631f7d9ab488484dc0755">dim</a>&gt; <a class="code" href="a04126.html#a54e52884a1e192de3b684739dfdd2848">coords</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      <span class="keywordflow">return</span> _coords;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    }</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="a04126.html#a3cdcd9df36ec97c121c9e5e069cb3ee6">   58</a></span>&#160;    std::vector&lt;ctype&gt;&amp; <a class="code" href="a04126.html#a3cdcd9df36ec97c121c9e5e069cb3ee6">operator[]</a>(std::size_t d)</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    {</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;      <span class="keywordflow">return</span> _coords[d];</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    }</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="a04126.html#ab36c309ba6cd0f51445dfcc76cd40721">   64</a></span>&#160;    <span class="keyword">const</span> std::vector&lt;ctype&gt;&amp; <a class="code" href="a04126.html#ab36c309ba6cd0f51445dfcc76cd40721">operator[]</a>(std::size_t d)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;      <span class="keywordflow">return</span> _coords[d];</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    }</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="a04110.html#ac062054287bad49bed14b61a9f17418a">   34</a></span>&#160;    <a class="code" href="a04110.html#ac062054287bad49bed14b61a9f17418a">PersistentContainerWrapper</a> ( <span class="keyword">const</span> <a class="code" href="a04110.html#a7fab3fd4ed104d5cf17a02e1b2adaa06">Grid</a> &amp;grid, <span class="keywordtype">int</span> codim, <span class="keyword">const</span> <a class="code" href="a04110.html#a5a0c03abb9400c1fdc894adb231fc975">Value</a> &amp;value = <a class="code" href="a04110.html#a5a0c03abb9400c1fdc894adb231fc975">Value</a>() )</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;      : <a class="code" href="a04110.html#af333ade27e7373eacc1a5d4267d03ffe">hostContainer_</a>( <a class="code" href="a03258.html">HostGridAccess</a>::hostGrid( grid ), codim, value )</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    {}</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">class</span> Entity &gt;</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="a04110.html#a9b11b2a38e7469c90436f073089af40a">   39</a></span>&#160;    <span class="keyword">const</span> <a class="code" href="a04110.html#a5a0c03abb9400c1fdc894adb231fc975">Value</a> &amp;<a class="code" href="a04110.html#a9b11b2a38e7469c90436f073089af40a">operator[] </a>( <span class="keyword">const</span> <a class="code" href="a02642.html">Entity</a> &amp;entity )<span class="keyword"> const</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="a04110.html#af333ade27e7373eacc1a5d4267d03ffe">hostContainer_</a>[ HostGridAccess::hostEntity( entity ) ];</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    }</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">class</span> Entity &gt;</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="a04110.html#a8cc298d28370516e2290b9ce0fbd5c98">   45</a></span>&#160;    <a class="code" href="a04110.html#a5a0c03abb9400c1fdc894adb231fc975">Value</a> &amp;<a class="code" href="a04110.html#a9b11b2a38e7469c90436f073089af40a">operator[] </a>( <span class="keyword">const</span> <a class="code" href="a02642.html">Entity</a> &amp;entity )</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="a04110.html#af333ade27e7373eacc1a5d4267d03ffe">hostContainer_</a>[ HostGridAccess::hostEntity( entity ) ];</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    }</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">class</span> Entity &gt;</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="a04110.html#a8a0d28bf443b1ca557dbf75a8a658be0">   51</a></span>&#160;    <span class="keyword">const</span> <a class="code" href="a04110.html#a5a0c03abb9400c1fdc894adb231fc975">Value</a> &amp;<a class="code" href="a04110.html#a8a0d28bf443b1ca557dbf75a8a658be0">operator() </a>( <span class="keyword">const</span> <a class="code" href="a02642.html">Entity</a> &amp;entity, <span class="keywordtype">int</span> subEntity )<span class="keyword"> const</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="a04110.html#af333ade27e7373eacc1a5d4267d03ffe">hostContainer_</a>( HostGridAccess::hostEntity( entity ), subEntity );</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    }</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">class</span> Entity &gt;</div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="a04110.html#a219b34db2468bcd2d7c8b605c13b85a7">   57</a></span>&#160;    <a class="code" href="a04110.html#a5a0c03abb9400c1fdc894adb231fc975">Value</a> &amp;<a class="code" href="a04110.html#a8a0d28bf443b1ca557dbf75a8a658be0">operator() </a>( <span class="keyword">const</span> <a class="code" href="a02642.html">Entity</a> &amp;entity, <span class="keywordtype">int</span> subEntity )</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="a04110.html#af333ade27e7373eacc1a5d4267d03ffe">hostContainer_</a>( HostGridAccess::hostEntity( entity ), subEntity );</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    }</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="a04110.html#a3d6be07042be5c29b8e4353ca0d1bfb4">   62</a></span>&#160;    <a class="code" href="a04110.html#af340645acc92ea8604ed9a3c451a46ad">Size</a> <a class="code" href="a04110.html#a3d6be07042be5c29b8e4353ca0d1bfb4">size</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="a04110.html#af333ade27e7373eacc1a5d4267d03ffe">hostContainer_</a>.<a class="code" href="a04098.html#ae0242509604b29711bad1a2747f05ead">size</a>(); }</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="a04110.html#a8dd41e83011fa64cfce1cb0ef334986a">   64</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a04110.html#a8dd41e83011fa64cfce1cb0ef334986a">resize</a> ( <span class="keyword">const</span> <a class="code" href="a04110.html#a5a0c03abb9400c1fdc894adb231fc975">Value</a> &amp;value = <a class="code" href="a04110.html#a5a0c03abb9400c1fdc894adb231fc975">Value</a>() ) { <a class="code" href="a04110.html#af333ade27e7373eacc1a5d4267d03ffe">hostContainer_</a>.<a class="code" href="a04098.html#a48d6ac1ae8d5abea6288539acb2d9461">resize</a>( value ); }</div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="a04110.html#ad9555dd3d487203d76096d43904195e9">   65</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a04110.html#ad9555dd3d487203d76096d43904195e9">shrinkToFit</a> () { <span class="keywordflow">return</span> <a class="code" href="a04110.html#af333ade27e7373eacc1a5d4267d03ffe">hostContainer_</a>.<a class="code" href="a04098.html#af896d65b2d42450f0f2ddea606ffae66">shrinkToFit</a>(); }</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="a04110.html#a21d0bf7393d81489883784d9ab5cb5b6">   67</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a04110.html#a21d0bf7393d81489883784d9ab5cb5b6">fill</a> ( <span class="keyword">const</span> <a class="code" href="a04110.html#a5a0c03abb9400c1fdc894adb231fc975">Value</a> &amp;value = <a class="code" href="a04110.html#a5a0c03abb9400c1fdc894adb231fc975">Value</a>() ) { <a class="code" href="a04110.html#af333ade27e7373eacc1a5d4267d03ffe">hostContainer_</a>.<a class="code" href="a04098.html#a086b7677af48f8286c7f62b6eb286aa2">fill</a>( value ); }</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="a04126.html#a6fe5730bfc009f6f4e942f7012621145">   77</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a04126.html#a6fe5730bfc009f6f4e942f7012621145">setStart</a> (<span class="keywordtype">int</span> d, <a class="code" href="a04126.html#a2b59b17f93462f93b33eb6d4d15a2c56">ctype</a> value)</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    {</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;      _coords[d].resize(1);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;      _coords[d][0] = value;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    }</div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="a04110.html#aa24339a5e21f0e3cb02b142e55fcbe88">   69</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a04110.html#aa24339a5e21f0e3cb02b142e55fcbe88">swap</a> ( <a class="code" href="a04110.html">This</a> &amp;other ) { <a class="code" href="a04110.html#af333ade27e7373eacc1a5d4267d03ffe">hostContainer_</a>.<a class="code" href="a04098.html#a0738f061eb60675341496d78003c53de">swap</a>( other.<a class="code" href="a04110.html#af333ade27e7373eacc1a5d4267d03ffe">hostContainer_</a> ); }</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="a04110.html#a503cd364c00da82611f3529a764efebc">   71</a></span>&#160;    <a class="code" href="a04110.html#a72c357a203983bf8d7d64186fee86c88">ConstIterator</a> <a class="code" href="a04110.html#a503cd364c00da82611f3529a764efebc">begin</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="a04110.html#af333ade27e7373eacc1a5d4267d03ffe">hostContainer_</a>.<a class="code" href="a04098.html#a53d6067277588335e00fcbd51e0c7527">begin</a>(); }</div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="a04110.html#adbe719704a2747b2a57485cf906b104b">   72</a></span>&#160;    <a class="code" href="a04110.html#add716623ea3a47a131e07b4237a981c8">Iterator</a> <a class="code" href="a04110.html#adbe719704a2747b2a57485cf906b104b">begin</a> () { <span class="keywordflow">return</span> <a class="code" href="a04110.html#af333ade27e7373eacc1a5d4267d03ffe">hostContainer_</a>.<a class="code" href="a04098.html#a53d6067277588335e00fcbd51e0c7527">begin</a>(); }</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="a04110.html#ab25ec7d5300baf2c40bdaac16b6753e3">   74</a></span>&#160;    <a class="code" href="a04110.html#a72c357a203983bf8d7d64186fee86c88">ConstIterator</a> <a class="code" href="a04110.html#ab25ec7d5300baf2c40bdaac16b6753e3">end</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="a04110.html#af333ade27e7373eacc1a5d4267d03ffe">hostContainer_</a>.<a class="code" href="a04098.html#ac65153f0ec87128eee577d1ce2870cad">end</a>(); }</div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="a04110.html#afdafc3c1753d845a8a3ab8da36705c0f">   75</a></span>&#160;    <a class="code" href="a04110.html#add716623ea3a47a131e07b4237a981c8">Iterator</a> <a class="code" href="a04110.html#afdafc3c1753d845a8a3ab8da36705c0f">end</a> () { <span class="keywordflow">return</span> <a class="code" href="a04110.html#af333ade27e7373eacc1a5d4267d03ffe">hostContainer_</a>.<a class="code" href="a04098.html#ac65153f0ec87128eee577d1ce2870cad">end</a>(); }</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="a04110.html#a9d4e8aa75af600f2ede0f42db4710225">   77</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="a04110.html#a9d4e8aa75af600f2ede0f42db4710225">codimension</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="a04110.html#af333ade27e7373eacc1a5d4267d03ffe">hostContainer_</a>.<a class="code" href="a04098.html#a3bdfe5c4c1feda7f2b3255d0f2001577">codimension</a>(); }</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="a04110.html#af333ade27e7373eacc1a5d4267d03ffe">   80</a></span>&#160;    <a class="code" href="a04086.html">PersistentContainer&lt; HostGrid, T &gt;</a> <a class="code" href="a04110.html#af333ade27e7373eacc1a5d4267d03ffe">hostContainer_</a>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  };</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="a04126.html#a55863e33b89dcc050965e1e319606ced">   91</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a04126.html#a55863e33b89dcc050965e1e319606ced">fillIntervals</a> (<span class="keywordtype">int</span> d, <span class="keywordtype">int</span> n, <a class="code" href="a04126.html#a2b59b17f93462f93b33eb6d4d15a2c56">ctype</a> h)</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    {</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;      emptyCheck (d);</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; n; i++)</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        _coords[d].push_back (_coords[d].back () + h);</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    }</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
-<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="a04126.html#a01833fc934834259aab1cc392d540de9">  106</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a04126.html#a01833fc934834259aab1cc392d540de9">fillRange</a> (<span class="keywordtype">int</span> d, <span class="keywordtype">int</span> n, <a class="code" href="a04126.html#a2b59b17f93462f93b33eb6d4d15a2c56">ctype</a> end)</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    {</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;      emptyCheck (d);</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;      <span class="keyword">const</span> <a class="code" href="a04126.html#a2b59b17f93462f93b33eb6d4d15a2c56">ctype</a> h = (end - _coords[d].back ()) / n;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; n - 1; i++)</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        _coords[d].push_back (_coords[d].back () + h);</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;      _coords[d].push_back (end);</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    }</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
-<div class="line"><a name="l00123"></a><span class="lineno"><a class="line" href="a04126.html#a2cc08c4ddc58003ca5aff1ca5bbba960">  123</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a04126.html#a2cc08c4ddc58003ca5aff1ca5bbba960">fillUntil</a> (<span class="keywordtype">int</span> d, <a class="code" href="a04126.html#a2b59b17f93462f93b33eb6d4d15a2c56">ctype</a> h, <a class="code" href="a04126.html#a2b59b17f93462f93b33eb6d4d15a2c56">ctype</a> end)</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    {</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;      emptyCheck (d);</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;      <span class="keywordflow">while</span> (_coords[d].back () &lt; end)</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        _coords[d].push_back (_coords[d].back () + h);</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    }</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
-<div class="line"><a name="l00142"></a><span class="lineno"><a class="line" href="a04126.html#a761c8e62b26fae8ed5b0e336f0822f71">  142</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a04126.html#a761c8e62b26fae8ed5b0e336f0822f71">geometricFillIntervals</a> (<span class="keywordtype">int</span> d, <span class="keywordtype">int</span> n, <a class="code" href="a04126.html#a2b59b17f93462f93b33eb6d4d15a2c56">ctype</a> ratio, <a class="code" href="a04126.html#a2b59b17f93462f93b33eb6d4d15a2c56">ctype</a> h0 =</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        <span class="keyword">static_cast&lt;</span><a class="code" href="a04126.html#a2b59b17f93462f93b33eb6d4d15a2c56">ctype</a><span class="keyword">&gt;</span> (0))</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    {</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;      emptyCheck (d);</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;      <a class="code" href="a04126.html#a2b59b17f93462f93b33eb6d4d15a2c56">ctype</a> h = h0;</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;      <span class="keywordflow">if</span> (h0 == <span class="keyword">static_cast&lt;</span><a class="code" href="a04126.html#a2b59b17f93462f93b33eb6d4d15a2c56">ctype</a><span class="keyword">&gt;</span>(0))</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        h = lastInterval (d) * ratio;</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; n; i++)</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;      {</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        _coords[d].push_back (_coords[d].back () + h);</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        h *= ratio;</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;      }</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    }</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
-<div class="line"><a name="l00168"></a><span class="lineno"><a class="line" href="a04126.html#a3147108d4ea0cac318c8c47688298012">  168</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a04126.html#a3147108d4ea0cac318c8c47688298012">geometricFillUntil</a> (<span class="keywordtype">int</span> d, <a class="code" href="a04126.html#a2b59b17f93462f93b33eb6d4d15a2c56">ctype</a> ratio, <a class="code" href="a04126.html#a2b59b17f93462f93b33eb6d4d15a2c56">ctype</a> end, <a class="code" href="a04126.html#a2b59b17f93462f93b33eb6d4d15a2c56">ctype</a> h0 = <span class="keyword">static_cast&lt;</span><a class="code" href="a04126.html#a2b59b17f93462f93b33eb6d4d15a2c56">ctype</a><span class="keyword">&gt;</span> (0))</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    {</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;      emptyCheck (d);</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;      <a class="code" href="a04126.html#a2b59b17f93462f93b33eb6d4d15a2c56">ctype</a> h = h0;</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;      <span class="keywordflow">if</span> (h0 == <span class="keyword">static_cast&lt;</span><a class="code" href="a04126.html#a2b59b17f93462f93b33eb6d4d15a2c56">ctype</a><span class="keyword">&gt;</span>(0))</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        h = lastInterval (d) * ratio;</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;      <span class="keywordflow">while</span> (_coords[d].back () &lt; end)</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;      {</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        _coords[d].push_back (_coords[d].back () + h);</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        h *= ratio;</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;      }</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    }</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160; </div>
-<div class="line"><a name="l00195"></a><span class="lineno"><a class="line" href="a04126.html#a1a0962536779df9ca7fee075fa79e10a">  195</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a04126.html#a1a0962536779df9ca7fee075fa79e10a">geometricFillRange</a> (<span class="keywordtype">int</span> d, <span class="keywordtype">int</span> n, <a class="code" href="a04126.html#a2b59b17f93462f93b33eb6d4d15a2c56">ctype</a> end, <a class="code" href="a04126.html#a2b59b17f93462f93b33eb6d4d15a2c56">ctype</a> h =</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        <span class="keyword">static_cast&lt;</span><a class="code" href="a04126.html#a2b59b17f93462f93b33eb6d4d15a2c56">ctype</a><span class="keyword">&gt;</span> (0),</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        <span class="keywordtype">bool</span> first = <span class="keyword">true</span>)</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    {</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;      emptyCheck (d);</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;      <span class="keywordflow">if</span> (h &lt; 1e-8)</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        h = lastInterval (d);</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;      <a class="code" href="a04126.html#a2b59b17f93462f93b33eb6d4d15a2c56">ctype</a> ratio = newton (n, _coords[d].back (), end, h);</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;      <span class="keywordflow">if</span> (!first)</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;      {</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        h = h * pow (ratio, n - 1);</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;        ratio = 1 / ratio;</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;      }</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; n - 1; i++)</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;      {</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;        _coords[d].push_back (_coords[d].back () + h);</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        h *= ratio;</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;      }</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;      _coords[d].push_back (end);</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    }</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160; </div>
-<div class="line"><a name="l00217"></a><span class="lineno"><a class="line" href="a04126.html#a42cb850a7442226caf7a7207175c8a88">  217</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a04126.html#a42cb850a7442226caf7a7207175c8a88">print</a>()</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    {</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;<a class="code" href="a04126.html#a352c1fe5a25631f7d9ab488484dc0755">dim</a>; i++)</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;      {</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Container in direction &quot;</span> &lt;&lt; i &lt;&lt; <span class="stringliteral">&quot;:&quot;</span> &lt;&lt; std::endl &lt;&lt; <span class="stringliteral">&quot;Coordinates: &quot;</span>;</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = _coords[i].begin(); it != _coords[i].end(); ++it)</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;          std::cout &lt;&lt; *it &lt;&lt; <span class="stringliteral">&quot;  &quot;</span>;</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;        std::cout &lt;&lt; std::endl &lt;&lt; <span class="stringliteral">&quot;Interval lengths: &quot;</span>;</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160; </div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;        std::vector&lt;ctype&gt; meshsize;</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = _coords[i].begin(); it != _coords[i].end()-1;)</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;        {</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;          meshsize.push_back(-1.*(*it));</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;          ++it;</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;          meshsize.back() += *it;</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;        }</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160; </div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = meshsize.begin(); it != meshsize.end(); ++it)</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;          std::cout &lt;&lt; *it &lt;&lt; <span class="stringliteral">&quot;  &quot;</span>;</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;        std::cout &lt;&lt; std::endl &lt;&lt; <span class="stringliteral">&quot;Ratios between interval lengths: &quot;</span>;</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160; </div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;        std::vector&lt;ctype&gt; ratios;</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = meshsize.begin(); it != meshsize.end() - 1 ;)</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;          ratios.push_back((1./(*it)) * *(++it));</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160; </div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = ratios.begin(); it != ratios.end(); ++it)</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;          std::cout &lt;&lt; *it &lt;&lt; <span class="stringliteral">&quot;  &quot;</span>;</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;        std::cout &lt;&lt; std::endl &lt;&lt; std::endl &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;      }</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    }</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160; </div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    <span class="comment">// check whether the ith component is empty and add a 0.0 entry if so</span></div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <span class="keywordtype">void</span> emptyCheck (<span class="keywordtype">int</span> i)</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    {</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;      <span class="keywordflow">if</span> (_coords[i].empty ())</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;        _coords[i].push_back (<span class="keyword">static_cast&lt;</span><a class="code" href="a04126.html#a2b59b17f93462f93b33eb6d4d15a2c56">ctype</a><span class="keyword">&gt;</span> (0));</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    }</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160; </div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    <span class="comment">// returns the last interval length in direction d</span></div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    <a class="code" href="a04126.html#a2b59b17f93462f93b33eb6d4d15a2c56">ctype</a> lastInterval (<span class="keywordtype">int</span> d)</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    {</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;      <span class="keywordflow">if</span> (_coords[d].size () &lt; 2)</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;        DUNE_THROW(</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;            GridError,</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;            <span class="stringliteral">&quot;Not enough elements in coordinate container to deduce interval length in TensorYaspFactory&quot;</span>);</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;      <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        <span class="keywordflow">return</span> _coords[d].back () - _coords[d][_coords[d].size () - 2];</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    }</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160; </div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    <a class="code" href="a04126.html#a2b59b17f93462f93b33eb6d4d15a2c56">ctype</a> newton (<span class="keywordtype">int</span> n, <a class="code" href="a04126.html#a2b59b17f93462f93b33eb6d4d15a2c56">ctype</a> x_s, <a class="code" href="a04126.html#a2b59b17f93462f93b33eb6d4d15a2c56">ctype</a> x_e, <a class="code" href="a04126.html#a2b59b17f93462f93b33eb6d4d15a2c56">ctype</a> h)</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    {</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;      <a class="code" href="a04126.html#a2b59b17f93462f93b33eb6d4d15a2c56">ctype</a> m = (x_e - x_s) / h;</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;      <a class="code" href="a04126.html#a2b59b17f93462f93b33eb6d4d15a2c56">ctype</a> xold = 0.0;</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;      <a class="code" href="a04126.html#a2b59b17f93462f93b33eb6d4d15a2c56">ctype</a> xnew = x_e - x_s;</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;      <span class="keywordflow">while</span> (<a class="code" href="a00937.html#a32f1dea9b87299c0e24ab46760391400">std::abs</a> (xnew - xold) &gt; 1E-8)</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;      {</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;        xold = xnew;</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;        xnew = xold</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;            - (-pow (xold, n) + m * xold - m + 1)</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;            / (-n * pow (xold, n - 1) + m);</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;      }</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;      <span class="keywordflow">if</span> (<a class="code" href="a00937.html#a32f1dea9b87299c0e24ab46760391400">std::abs</a> (xnew - 1) &lt; 1E-6)</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;      {</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;        xold = x_e - x_s;</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;        xnew = 0.0;</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        <span class="keywordflow">while</span> (<a class="code" href="a00937.html#a32f1dea9b87299c0e24ab46760391400">std::abs</a> (xnew - xold) &gt; 1E-8)</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;        {</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;          xold = xnew;</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;          xnew = xold</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;              - (-pow (xold, n) + m * xold - m + 1)</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;              / (-n * pow (xold, n - 1) + m);</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        }</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;      }</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;      <span class="keywordflow">return</span> xnew;</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    }</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160; </div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    std::array&lt;std::vector&lt;ctype&gt;, <a class="code" href="a04126.html#a352c1fe5a25631f7d9ab488484dc0755">dim</a>&gt; _coords;</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;  };</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160; </div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;  <span class="comment">// class that implements the actual grid creation process. The default is implementing</span></div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;  <span class="comment">// standard creation for unstructured grids. Provide a specialization for other grids.</span></div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Gr<span class="keywordtype">id</span>&gt;</div>
-<div class="line"><a name="l00303"></a><span class="lineno"><a class="line" href="a04122.html">  303</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a04122.html">TensorGridFactoryCreator</a></div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;  {</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00306"></a><span class="lineno"><a class="line" href="a04122.html#ab1d85329dc10d7dcfc13c9578fb14bcd">  306</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> Grid::Traits::CollectiveCommunication <a class="code" href="a04122.html#ab1d85329dc10d7dcfc13c9578fb14bcd">Comm</a>;</div>
-<div class="line"><a name="l00307"></a><span class="lineno"><a class="line" href="a04122.html#a010895b38990e945f6afb238c7e9f3f9">  307</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="a02698.html#af10850d580532530ec127817a2a28c38">Grid::ctype</a> <a class="code" href="a04122.html#a010895b38990e945f6afb238c7e9f3f9">ctype</a>;</div>
-<div class="line"><a name="l00308"></a><span class="lineno"><a class="line" href="a04122.html#abe77990df8b40c2dafa6ad6dfb4ef559">  308</a></span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="a04122.html#abe77990df8b40c2dafa6ad6dfb4ef559">dim</a> = <a class="code" href="a02698.html#ad60b40e40ac87b01ad0b1f05ab4925b1a3d6a22a414566af9b4a356f760fce944">Grid::dimension</a>;</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160; </div>
-<div class="line"><a name="l00310"></a><span class="lineno"><a class="line" href="a04122.html#a4b0fbc80e94d06ce80fc712e5bb8dca1">  310</a></span>&#160;    <a class="code" href="a04122.html#a4b0fbc80e94d06ce80fc712e5bb8dca1">TensorGridFactoryCreator</a>(<span class="keyword">const</span> <a class="code" href="a04126.html">TensorGridFactory&lt;Grid&gt;</a>&amp; factory) : _factory(factory) {}</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160; </div>
-<div class="line"><a name="l00312"></a><span class="lineno"><a class="line" href="a04122.html#ae7f9a341644313278451aa4acad7d9ff">  312</a></span>&#160;    std::unique_ptr&lt;Grid&gt; <a class="code" href="a04122.html#ae7f9a341644313278451aa4acad7d9ff">createGrid</a>(<a class="code" href="a04122.html#ab1d85329dc10d7dcfc13c9578fb14bcd">Comm</a> comm)</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    {</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;      <span class="comment">// The grid factory</span></div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;      <a class="code" href="a02750.html">GridFactory&lt;Grid&gt;</a> fac;</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160; </div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;      <span class="keywordflow">if</span> (comm.rank() == 0)</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;      {</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;        <span class="comment">// determine the size of the grid</span></div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;        std::array&lt;unsigned int, dim&gt; vsizes, esizes;</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;        std::size_t size = 1;</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;        <span class="keywordflow">for</span> (std::size_t i = 0; i&lt;<a class="code" href="a04122.html#abe77990df8b40c2dafa6ad6dfb4ef559">dim</a>; ++i)</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;        {</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;          vsizes[i] = _factory[i].size();</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;          esizes[i] = vsizes[i] - 1;</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;          size *= vsizes[i];</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;        }</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160; </div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;        <span class="comment">// insert all vertices</span></div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;        <a class="code" href="a04086.html">FactoryUtilities::MultiIndex&lt;dim&gt;</a> index(vsizes);</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;        <span class="keywordflow">for</span> (std::size_t i=0; i&lt;size; ++i, ++index)</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;        {</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;          Dune::FieldVector&lt;ctype, dim&gt; position;</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;          <span class="keywordflow">for</span> (std::size_t j = 0; j&lt;<a class="code" href="a04122.html#abe77990df8b40c2dafa6ad6dfb4ef559">dim</a>; ++j)</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;            position[j] = _factory[j][index[j]];</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;          fac.<a class="code" href="a02750.html#a2a94f1974d8c77eafe80417525d82be5">insertVertex</a>(position);</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;        }</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160; </div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;        <span class="comment">// compute the offsets</span></div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;        std::array&lt;std::size_t, dim&gt; offsets;</div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;        offsets[0] = 1;</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;        <span class="keywordflow">for</span> (std::size_t i=1; i&lt;<a class="code" href="a04122.html#abe77990df8b40c2dafa6ad6dfb4ef559">dim</a>; i++)</div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;          offsets[i] = offsets[i-1] * vsizes[i-1];</div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160; </div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;        <span class="comment">// Compute an element template (the cube at (0,...,0).  All</span></div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;        <span class="comment">// other cubes are constructed by moving this template around</span></div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> nCorners = 1&lt;&lt;<a class="code" href="a04122.html#abe77990df8b40c2dafa6ad6dfb4ef559">dim</a>;</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160; </div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;        std::vector&lt;unsigned int&gt; cornersTemplate(nCorners,0);</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160; </div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0; i&lt;nCorners; i++)</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;          <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j=0; j&lt;<a class="code" href="a04122.html#abe77990df8b40c2dafa6ad6dfb4ef559">dim</a>; j++)</div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;            <span class="keywordflow">if</span> ( i &amp; (1&lt;&lt;j) )</div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;              cornersTemplate[i] += offsets[j];</div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160; </div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;        <span class="comment">// Insert elements</span></div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;        <a class="code" href="a04086.html">FactoryUtilities::MultiIndex&lt;dim&gt;</a> eindex(esizes);</div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160; </div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;        <span class="comment">// Compute the total number of elements to be created</span></div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;        <span class="keywordtype">int</span> numElements = eindex.<a class="code" href="a04086.html#ae541c3a596ed280cbbe18405c4525282">cycle</a>();</div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160; </div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;numElements; i++, ++eindex)</div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;        {</div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;          <span class="comment">// &#39;base&#39; is the index of the lower left element corner</span></div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;          <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> base = 0;</div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;          <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j=0; j&lt;<a class="code" href="a04122.html#abe77990df8b40c2dafa6ad6dfb4ef559">dim</a>; j++)</div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;            base += eindex[j] * offsets[j];</div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160; </div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;          <span class="comment">// insert new element</span></div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;          std::vector&lt;unsigned int&gt; corners = cornersTemplate;</div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;          <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> j=0; j&lt;corners.size(); j++)</div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;            corners[j] += base;</div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160; </div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;          fac.<a class="code" href="a02750.html#a1cd73dbfb29e36d1b4fff39bdb0fb199">insertElement</a>(GeometryTypes::cube(<a class="code" href="a04122.html#abe77990df8b40c2dafa6ad6dfb4ef559">dim</a>), corners);</div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;        }</div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;      }</div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160; </div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;      <span class="keywordflow">return</span> std::unique_ptr&lt;Grid&gt;(fac.<a class="code" href="a02750.html#ae25995d428c34463d0c1dc8a444a620a">createGrid</a>());</div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;    }</div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160; </div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;    <span class="keyword">const</span> <a class="code" href="a04126.html">TensorGridFactory&lt;Grid&gt;</a>&amp; _factory;</div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;  };</div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160; </div>
-<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ctype, <span class="keywordtype">int</span> dim&gt;</div>
-<div class="line"><a name="l00386"></a><span class="lineno"><a class="line" href="a04130.html">  386</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a04122.html">TensorGridFactoryCreator</a>&lt;<a class="code" href="a04142.html">YaspGrid</a>&lt;dim, <a class="code" href="a04250.html">TensorProductCoordinates</a>&lt;ctype, dim&gt; &gt; &gt;</div>
-<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;  {</div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00389"></a><span class="lineno"><a class="line" href="a04130.html#ad7202468bf0e74c9b417f5b764e948b6">  389</a></span>&#160;    <span class="keyword">typedef</span> <a class="code" href="a04142.html">YaspGrid&lt;dim, TensorProductCoordinates&lt;ctype, dim&gt;</a> &gt; <a class="code" href="a04130.html#ad7202468bf0e74c9b417f5b764e948b6">Grid</a>;</div>
-<div class="line"><a name="l00390"></a><span class="lineno"><a class="line" href="a04130.html#ab5d18ff54ee2b9683e2cd23a5a801e8d">  390</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="a02698.html#a207a985384df3916550501a433b5cebe">Grid::CollectiveCommunication</a> <a class="code" href="a04130.html#ab5d18ff54ee2b9683e2cd23a5a801e8d">Comm</a>;</div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160; </div>
-<div class="line"><a name="l00392"></a><span class="lineno"><a class="line" href="a04130.html#a8b0d9160e4db31e3bd093839c6b89551">  392</a></span>&#160;    <a class="code" href="a04130.html#a8b0d9160e4db31e3bd093839c6b89551">TensorGridFactoryCreator</a>(<span class="keyword">const</span> <a class="code" href="a04126.html">TensorGridFactory&lt;Grid&gt;</a>&amp; factory) : _factory(factory) {}</div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160; </div>
-<div class="line"><a name="l00394"></a><span class="lineno"><a class="line" href="a04130.html#a330c84cea6650f59d371a26feb675ed7">  394</a></span>&#160;    std::unique_ptr&lt;Grid&gt; <a class="code" href="a04130.html#a330c84cea6650f59d371a26feb675ed7">createGrid</a>(<a class="code" href="a04130.html#ab5d18ff54ee2b9683e2cd23a5a801e8d">Comm</a> comm)</div>
-<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;    {</div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;      <span class="keywordflow">return</span> std::make_unique&lt;Grid&gt;(_factory.coords(), std::bitset&lt;dim&gt;(0ULL), 1, comm);</div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;    }</div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;    <span class="keyword">const</span> <a class="code" href="a04126.html">TensorGridFactory&lt;Grid&gt;</a>&amp; _factory;</div>
-<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;  };</div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;}</div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160; </div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aa00869_html"><div class="ttname"><a href="a00869.html">multiindex.hh</a></div><div class="ttdoc">Implements a multiindex with arbitrary dimension and fixed index ranges This is used by various facto...</div></div>
-<div class="ttc" id="aa00896_html"><div class="ttname"><a href="a00896.html">yaspgrid.hh</a></div></div>
-<div class="ttc" id="aa00936_html"><div class="ttname"><a href="a00936.html">Dune</a></div><div class="ttdoc">Include standard header files.</div><div class="ttdef"><b>Definition:</b> agrid.hh:59</div></div>
-<div class="ttc" id="aa00937_html_a32f1dea9b87299c0e24ab46760391400"><div class="ttname"><a href="a00937.html#a32f1dea9b87299c0e24ab46760391400">Dune::Alberta::abs</a></div><div class="ttdeci">void abs(const DofVectorPointer&lt; int &gt; &amp;dofVector)</div><div class="ttdef"><b>Definition:</b> dofvector.hh:326</div></div>
-<div class="ttc" id="aa02698_html_a207a985384df3916550501a433b5cebe"><div class="ttname"><a href="a02698.html#a207a985384df3916550501a433b5cebe">Dune::Grid&lt; dim, dimworld, Coordinates::ctype, YaspGridFamily&lt; dim, EquidistantCoordinates&lt; double, dim &gt; &gt; &gt;::CollectiveCommunication</a></div><div class="ttdeci">GridFamily::Traits::CollectiveCommunication CollectiveCommunication</div><div class="ttdoc">A type that is a model of Dune::CollectiveCommunication. It provides a portable way for collective co...</div><div class="ttdef"><b>Definition:</b> common/grid.hh:519</div></div>
-<div class="ttc" id="aa02698_html_ad60b40e40ac87b01ad0b1f05ab4925b1a3d6a22a414566af9b4a356f760fce944"><div class="ttname"><a href="a02698.html#ad60b40e40ac87b01ad0b1f05ab4925b1a3d6a22a414566af9b4a356f760fce944">Dune::Grid::dimension</a></div><div class="ttdeci">@ dimension</div><div class="ttdoc">The dimension of the grid.</div><div class="ttdef"><b>Definition:</b> common/grid.hh:387</div></div>
-<div class="ttc" id="aa02698_html_af10850d580532530ec127817a2a28c38"><div class="ttname"><a href="a02698.html#af10850d580532530ec127817a2a28c38">Dune::Grid::ctype</a></div><div class="ttdeci">ct ctype</div><div class="ttdoc">Define type used for coordinates in grid module.</div><div class="ttdef"><b>Definition:</b> common/grid.hh:522</div></div>
-<div class="ttc" id="aa02750_html"><div class="ttname"><a href="a02750.html">Dune::GridFactory&lt; Grid &gt;</a></div></div>
-<div class="ttc" id="aa02750_html_a1cd73dbfb29e36d1b4fff39bdb0fb199"><div class="ttname"><a href="a02750.html#a1cd73dbfb29e36d1b4fff39bdb0fb199">Dune::GridFactory::insertElement</a></div><div class="ttdeci">virtual void insertElement(const GeometryType &amp;type, const std::vector&lt; unsigned int &gt; &amp;vertices)</div><div class="ttdoc">Insert an element into the coarse grid.</div><div class="ttdef"><b>Definition:</b> common/gridfactory.hh:301</div></div>
-<div class="ttc" id="aa02750_html_a2a94f1974d8c77eafe80417525d82be5"><div class="ttname"><a href="a02750.html#a2a94f1974d8c77eafe80417525d82be5">Dune::GridFactory::insertVertex</a></div><div class="ttdeci">virtual void insertVertex(const FieldVector&lt; ctype, dimworld &gt; &amp;pos)</div><div class="ttdoc">Insert a vertex into the coarse grid.</div><div class="ttdef"><b>Definition:</b> common/gridfactory.hh:290</div></div>
-<div class="ttc" id="aa02750_html_ae25995d428c34463d0c1dc8a444a620a"><div class="ttname"><a href="a02750.html#ae25995d428c34463d0c1dc8a444a620a">Dune::GridFactory::createGrid</a></div><div class="ttdeci">virtual ToUniquePtr&lt; GridType &gt; createGrid()</div><div class="ttdoc">Finalize grid creation and hand over the grid.</div><div class="ttdef"><b>Definition:</b> common/gridfactory.hh:327</div></div>
-<div class="ttc" id="aa04086_html"><div class="ttname"><a href="a04086.html">Dune::FactoryUtilities::MultiIndex</a></div><div class="ttdef"><b>Definition:</b> multiindex.hh:17</div></div>
-<div class="ttc" id="aa04086_html_ae541c3a596ed280cbbe18405c4525282"><div class="ttname"><a href="a04086.html#ae541c3a596ed280cbbe18405c4525282">Dune::FactoryUtilities::MultiIndex::cycle</a></div><div class="ttdeci">size_t cycle() const</div><div class="ttdoc">Compute how many times you can call operator++ before getting to (0,...,0) again.</div><div class="ttdef"><b>Definition:</b> multiindex.hh:46</div></div>
-<div class="ttc" id="aa04122_html"><div class="ttname"><a href="a04122.html">Dune::TensorGridFactoryCreator</a></div><div class="ttdef"><b>Definition:</b> tensorgridfactory.hh:304</div></div>
-<div class="ttc" id="aa04122_html_a010895b38990e945f6afb238c7e9f3f9"><div class="ttname"><a href="a04122.html#a010895b38990e945f6afb238c7e9f3f9">Dune::TensorGridFactoryCreator::ctype</a></div><div class="ttdeci">Grid::ctype ctype</div><div class="ttdef"><b>Definition:</b> tensorgridfactory.hh:307</div></div>
-<div class="ttc" id="aa04122_html_a4b0fbc80e94d06ce80fc712e5bb8dca1"><div class="ttname"><a href="a04122.html#a4b0fbc80e94d06ce80fc712e5bb8dca1">Dune::TensorGridFactoryCreator::TensorGridFactoryCreator</a></div><div class="ttdeci">TensorGridFactoryCreator(const TensorGridFactory&lt; Grid &gt; &amp;factory)</div><div class="ttdef"><b>Definition:</b> tensorgridfactory.hh:310</div></div>
-<div class="ttc" id="aa04122_html_ab1d85329dc10d7dcfc13c9578fb14bcd"><div class="ttname"><a href="a04122.html#ab1d85329dc10d7dcfc13c9578fb14bcd">Dune::TensorGridFactoryCreator::Comm</a></div><div class="ttdeci">Grid::Traits::CollectiveCommunication Comm</div><div class="ttdef"><b>Definition:</b> tensorgridfactory.hh:306</div></div>
-<div class="ttc" id="aa04122_html_abe77990df8b40c2dafa6ad6dfb4ef559"><div class="ttname"><a href="a04122.html#abe77990df8b40c2dafa6ad6dfb4ef559">Dune::TensorGridFactoryCreator::dim</a></div><div class="ttdeci">static const int dim</div><div class="ttdef"><b>Definition:</b> tensorgridfactory.hh:308</div></div>
-<div class="ttc" id="aa04122_html_ae7f9a341644313278451aa4acad7d9ff"><div class="ttname"><a href="a04122.html#ae7f9a341644313278451aa4acad7d9ff">Dune::TensorGridFactoryCreator::createGrid</a></div><div class="ttdeci">std::unique_ptr&lt; Grid &gt; createGrid(Comm comm)</div><div class="ttdef"><b>Definition:</b> tensorgridfactory.hh:312</div></div>
-<div class="ttc" id="aa04126_html"><div class="ttname"><a href="a04126.html">Dune::TensorGridFactory</a></div><div class="ttdoc">A factory class for conveniently creating tensorproduct grids.</div><div class="ttdef"><b>Definition:</b> tensorgridfactory.hh:40</div></div>
-<div class="ttc" id="aa04126_html_a01833fc934834259aab1cc392d540de9"><div class="ttname"><a href="a04126.html#a01833fc934834259aab1cc392d540de9">Dune::TensorGridFactory::fillRange</a></div><div class="ttdeci">void fillRange(int d, int n, ctype end)</div><div class="ttdoc">fills the range to end with n intervals in direction d</div><div class="ttdef"><b>Definition:</b> tensorgridfactory.hh:106</div></div>
-<div class="ttc" id="aa04126_html_a1a0962536779df9ca7fee075fa79e10a"><div class="ttname"><a href="a04126.html#a1a0962536779df9ca7fee075fa79e10a">Dune::TensorGridFactory::geometricFillRange</a></div><div class="ttdeci">void geometricFillRange(int d, int n, ctype end, ctype h=static_cast&lt; ctype &gt;(0), bool first=true)</div><div class="ttdoc">fills a coordinate range in direction d with n intervals according to a geometric series</div><div class="ttdef"><b>Definition:</b> tensorgridfactory.hh:195</div></div>
-<div class="ttc" id="aa04126_html_a2b59b17f93462f93b33eb6d4d15a2c56"><div class="ttname"><a href="a04126.html#a2b59b17f93462f93b33eb6d4d15a2c56">Dune::TensorGridFactory::ctype</a></div><div class="ttdeci">Grid::ctype ctype</div><div class="ttdef"><b>Definition:</b> tensorgridfactory.hh:43</div></div>
-<div class="ttc" id="aa04126_html_a2cc08c4ddc58003ca5aff1ca5bbba960"><div class="ttname"><a href="a04126.html#a2cc08c4ddc58003ca5aff1ca5bbba960">Dune::TensorGridFactory::fillUntil</a></div><div class="ttdeci">void fillUntil(int d, ctype h, ctype end)</div><div class="ttdoc">adds intervals in direction d until a given coordinate is reached</div><div class="ttdef"><b>Definition:</b> tensorgridfactory.hh:123</div></div>
-<div class="ttc" id="aa04126_html_a3147108d4ea0cac318c8c47688298012"><div class="ttname"><a href="a04126.html#a3147108d4ea0cac318c8c47688298012">Dune::TensorGridFactory::geometricFillUntil</a></div><div class="ttdeci">void geometricFillUntil(int d, ctype ratio, ctype end, ctype h0=static_cast&lt; ctype &gt;(0))</div><div class="ttdoc">adds intervals in direction d according with a given length ratio until a given coordinate is reached</div><div class="ttdef"><b>Definition:</b> tensorgridfactory.hh:168</div></div>
-<div class="ttc" id="aa04126_html_a352c1fe5a25631f7d9ab488484dc0755"><div class="ttname"><a href="a04126.html#a352c1fe5a25631f7d9ab488484dc0755">Dune::TensorGridFactory::dim</a></div><div class="ttdeci">static const int dim</div><div class="ttdef"><b>Definition:</b> tensorgridfactory.hh:44</div></div>
-<div class="ttc" id="aa04126_html_a3cdcd9df36ec97c121c9e5e069cb3ee6"><div class="ttname"><a href="a04126.html#a3cdcd9df36ec97c121c9e5e069cb3ee6">Dune::TensorGridFactory::operator[]</a></div><div class="ttdeci">std::vector&lt; ctype &gt; &amp; operator[](std::size_t d)</div><div class="ttdoc">allow to manually tune the factory by overloading operator[] to export the coordinate vectors in the ...</div><div class="ttdef"><b>Definition:</b> tensorgridfactory.hh:58</div></div>
-<div class="ttc" id="aa04126_html_a402377a41a9908e65a62ad10657c2fe7"><div class="ttname"><a href="a04126.html#a402377a41a9908e65a62ad10657c2fe7">Dune::TensorGridFactory::createGrid</a></div><div class="ttdeci">std::unique_ptr&lt; Grid &gt; createGrid(Comm comm=Comm())</div><div class="ttdef"><b>Definition:</b> tensorgridfactory.hh:46</div></div>
-<div class="ttc" id="aa04126_html_a42cb850a7442226caf7a7207175c8a88"><div class="ttname"><a href="a04126.html#a42cb850a7442226caf7a7207175c8a88">Dune::TensorGridFactory::print</a></div><div class="ttdeci">void print()</div><div class="ttdoc">print the coordinate information given to the factory so far</div><div class="ttdef"><b>Definition:</b> tensorgridfactory.hh:217</div></div>
-<div class="ttc" id="aa04126_html_a54e52884a1e192de3b684739dfdd2848"><div class="ttname"><a href="a04126.html#a54e52884a1e192de3b684739dfdd2848">Dune::TensorGridFactory::coords</a></div><div class="ttdeci">std::array&lt; std::vector&lt; ctype &gt;, dim &gt; coords() const</div><div class="ttdef"><b>Definition:</b> tensorgridfactory.hh:52</div></div>
-<div class="ttc" id="aa04126_html_a55863e33b89dcc050965e1e319606ced"><div class="ttname"><a href="a04126.html#a55863e33b89dcc050965e1e319606ced">Dune::TensorGridFactory::fillIntervals</a></div><div class="ttdeci">void fillIntervals(int d, int n, ctype h)</div><div class="ttdoc">pushs n intervals of length h in direction d</div><div class="ttdef"><b>Definition:</b> tensorgridfactory.hh:91</div></div>
-<div class="ttc" id="aa04126_html_a6fe5730bfc009f6f4e942f7012621145"><div class="ttname"><a href="a04126.html#a6fe5730bfc009f6f4e942f7012621145">Dune::TensorGridFactory::setStart</a></div><div class="ttdeci">void setStart(int d, ctype value)</div><div class="ttdoc">set a starting value in a given direction d</div><div class="ttdef"><b>Definition:</b> tensorgridfactory.hh:77</div></div>
-<div class="ttc" id="aa04126_html_a761c8e62b26fae8ed5b0e336f0822f71"><div class="ttname"><a href="a04126.html#a761c8e62b26fae8ed5b0e336f0822f71">Dune::TensorGridFactory::geometricFillIntervals</a></div><div class="ttdeci">void geometricFillIntervals(int d, int n, ctype ratio, ctype h0=static_cast&lt; ctype &gt;(0))</div><div class="ttdoc">adds n intervals in direction d with a given length ratio and a given starting interval length.</div><div class="ttdef"><b>Definition:</b> tensorgridfactory.hh:142</div></div>
-<div class="ttc" id="aa04126_html_ab36c309ba6cd0f51445dfcc76cd40721"><div class="ttname"><a href="a04126.html#ab36c309ba6cd0f51445dfcc76cd40721">Dune::TensorGridFactory::operator[]</a></div><div class="ttdeci">const std::vector&lt; ctype &gt; &amp; operator[](std::size_t d) const</div><div class="ttdoc">allow to manually tune the factory by overloading operator[] to export the coordinate vectors in the ...</div><div class="ttdef"><b>Definition:</b> tensorgridfactory.hh:64</div></div>
-<div class="ttc" id="aa04126_html_acd7f64a2c67553dea9c39e29d94aeca1"><div class="ttname"><a href="a04126.html#acd7f64a2c67553dea9c39e29d94aeca1">Dune::TensorGridFactory::Comm</a></div><div class="ttdeci">Grid::Traits::CollectiveCommunication Comm</div><div class="ttdef"><b>Definition:</b> tensorgridfactory.hh:42</div></div>
-<div class="ttc" id="aa04130_html_a330c84cea6650f59d371a26feb675ed7"><div class="ttname"><a href="a04130.html#a330c84cea6650f59d371a26feb675ed7">Dune::TensorGridFactoryCreator&lt; YaspGrid&lt; dim, TensorProductCoordinates&lt; ctype, dim &gt; &gt; &gt;::createGrid</a></div><div class="ttdeci">std::unique_ptr&lt; Grid &gt; createGrid(Comm comm)</div><div class="ttdef"><b>Definition:</b> tensorgridfactory.hh:394</div></div>
-<div class="ttc" id="aa04130_html_a8b0d9160e4db31e3bd093839c6b89551"><div class="ttname"><a href="a04130.html#a8b0d9160e4db31e3bd093839c6b89551">Dune::TensorGridFactoryCreator&lt; YaspGrid&lt; dim, TensorProductCoordinates&lt; ctype, dim &gt; &gt; &gt;::TensorGridFactoryCreator</a></div><div class="ttdeci">TensorGridFactoryCreator(const TensorGridFactory&lt; Grid &gt; &amp;factory)</div><div class="ttdef"><b>Definition:</b> tensorgridfactory.hh:392</div></div>
-<div class="ttc" id="aa04130_html_ab5d18ff54ee2b9683e2cd23a5a801e8d"><div class="ttname"><a href="a04130.html#ab5d18ff54ee2b9683e2cd23a5a801e8d">Dune::TensorGridFactoryCreator&lt; YaspGrid&lt; dim, TensorProductCoordinates&lt; ctype, dim &gt; &gt; &gt;::Comm</a></div><div class="ttdeci">Grid::CollectiveCommunication Comm</div><div class="ttdef"><b>Definition:</b> tensorgridfactory.hh:390</div></div>
-<div class="ttc" id="aa04130_html_ad7202468bf0e74c9b417f5b764e948b6"><div class="ttname"><a href="a04130.html#ad7202468bf0e74c9b417f5b764e948b6">Dune::TensorGridFactoryCreator&lt; YaspGrid&lt; dim, TensorProductCoordinates&lt; ctype, dim &gt; &gt; &gt;::Grid</a></div><div class="ttdeci">YaspGrid&lt; dim, TensorProductCoordinates&lt; ctype, dim &gt; &gt; Grid</div><div class="ttdef"><b>Definition:</b> tensorgridfactory.hh:389</div></div>
-<div class="ttc" id="aa04142_html"><div class="ttname"><a href="a04142.html">Dune::YaspGrid</a></div><div class="ttdoc">[ provides Dune::Grid ]</div><div class="ttdef"><b>Definition:</b> yaspgrid.hh:165</div></div>
-<div class="ttc" id="aa04250_html"><div class="ttname"><a href="a04250.html">Dune::TensorProductCoordinates</a></div><div class="ttdoc">Coordinate container for a tensor product YaspGrid.</div><div class="ttdef"><b>Definition:</b> coordinates.hh:243</div></div>
-<div class="ttc" id="aa06806_html"><div class="ttname"><a href="a06806.html">gridfactory.hh</a></div><div class="ttdoc">Provide a generic factory class for unstructured grids.</div></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;} <span class="comment">// namespace Dune</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// #ifndef DUNE_PERSISTENTCONTAINERWRAPPER_HH</span></div>
+<div class="ttc" id="aa00872_html"><div class="ttname"><a href="a00872.html">hostgridaccess.hh</a></div></div>
+<div class="ttc" id="aa00940_html"><div class="ttname"><a href="a00940.html">Dune</a></div><div class="ttdoc">Include standard header files.</div><div class="ttdef"><b>Definition:</b> agrid.hh:58</div></div>
+<div class="ttc" id="aa02642_html"><div class="ttname"><a href="a02642.html">Dune::Entity</a></div><div class="ttdoc">Wrapper class for entities.</div><div class="ttdef"><b>Definition:</b> common/entity.hh:64</div></div>
+<div class="ttc" id="aa03258_html"><div class="ttname"><a href="a03258.html">Dune::HostGridAccess</a></div><div class="ttdoc">provides access to host grid objects from GeometryGrid</div><div class="ttdef"><b>Definition:</b> hostgridaccess.hh:27</div></div>
+<div class="ttc" id="aa04086_html"><div class="ttname"><a href="a04086.html">Dune::PersistentContainer&lt; HostGrid, T &gt;</a></div></div>
+<div class="ttc" id="aa04098_html_a0738f061eb60675341496d78003c53de"><div class="ttname"><a href="a04098.html#a0738f061eb60675341496d78003c53de">Dune::PersistentContainerMap::swap</a></div><div class="ttdeci">void swap(This &amp;other)</div><div class="ttdef"><b>Definition:</b> persistentcontainermap.hh:95</div></div>
+<div class="ttc" id="aa04098_html_a086b7677af48f8286c7f62b6eb286aa2"><div class="ttname"><a href="a04098.html#a086b7677af48f8286c7f62b6eb286aa2">Dune::PersistentContainerMap::fill</a></div><div class="ttdeci">void fill(const Value &amp;value)</div><div class="ttdef"><b>Definition:</b> persistentcontainermap.hh:93</div></div>
+<div class="ttc" id="aa04098_html_a3bdfe5c4c1feda7f2b3255d0f2001577"><div class="ttname"><a href="a04098.html#a3bdfe5c4c1feda7f2b3255d0f2001577">Dune::PersistentContainerMap::codimension</a></div><div class="ttdeci">int codimension() const</div><div class="ttdef"><b>Definition:</b> persistentcontainermap.hh:109</div></div>
+<div class="ttc" id="aa04098_html_a48d6ac1ae8d5abea6288539acb2d9461"><div class="ttname"><a href="a04098.html#a48d6ac1ae8d5abea6288539acb2d9461">Dune::PersistentContainerMap::resize</a></div><div class="ttdeci">void resize(const Value &amp;value=Value())</div><div class="ttdef"><b>Definition:</b> persistentcontainermap.hh:85</div></div>
+<div class="ttc" id="aa04098_html_a53d6067277588335e00fcbd51e0c7527"><div class="ttname"><a href="a04098.html#a53d6067277588335e00fcbd51e0c7527">Dune::PersistentContainerMap::begin</a></div><div class="ttdeci">ConstIterator begin() const</div><div class="ttdef"><b>Definition:</b> persistentcontainermap.hh:173</div></div>
+<div class="ttc" id="aa04098_html_ac65153f0ec87128eee577d1ce2870cad"><div class="ttname"><a href="a04098.html#ac65153f0ec87128eee577d1ce2870cad">Dune::PersistentContainerMap::end</a></div><div class="ttdeci">ConstIterator end() const</div><div class="ttdef"><b>Definition:</b> persistentcontainermap.hh:188</div></div>
+<div class="ttc" id="aa04098_html_ae0242509604b29711bad1a2747f05ead"><div class="ttname"><a href="a04098.html#ae0242509604b29711bad1a2747f05ead">Dune::PersistentContainerMap::size</a></div><div class="ttdeci">Size size() const</div><div class="ttdef"><b>Definition:</b> persistentcontainermap.hh:83</div></div>
+<div class="ttc" id="aa04098_html_af896d65b2d42450f0f2ddea606ffae66"><div class="ttname"><a href="a04098.html#af896d65b2d42450f0f2ddea606ffae66">Dune::PersistentContainerMap::shrinkToFit</a></div><div class="ttdeci">void shrinkToFit()</div><div class="ttdef"><b>Definition:</b> persistentcontainermap.hh:91</div></div>
+<div class="ttc" id="aa04110_html"><div class="ttname"><a href="a04110.html">Dune::PersistentContainerWrapper</a></div><div class="ttdef"><b>Definition:</b> persistentcontainerwrapper.hh:17</div></div>
+<div class="ttc" id="aa04110_html_a21d0bf7393d81489883784d9ab5cb5b6"><div class="ttname"><a href="a04110.html#a21d0bf7393d81489883784d9ab5cb5b6">Dune::PersistentContainerWrapper::fill</a></div><div class="ttdeci">void fill(const Value &amp;value=Value())</div><div class="ttdef"><b>Definition:</b> persistentcontainerwrapper.hh:67</div></div>
+<div class="ttc" id="aa04110_html_a3d6be07042be5c29b8e4353ca0d1bfb4"><div class="ttname"><a href="a04110.html#a3d6be07042be5c29b8e4353ca0d1bfb4">Dune::PersistentContainerWrapper::size</a></div><div class="ttdeci">Size size() const</div><div class="ttdef"><b>Definition:</b> persistentcontainerwrapper.hh:62</div></div>
+<div class="ttc" id="aa04110_html_a503cd364c00da82611f3529a764efebc"><div class="ttname"><a href="a04110.html#a503cd364c00da82611f3529a764efebc">Dune::PersistentContainerWrapper::begin</a></div><div class="ttdeci">ConstIterator begin() const</div><div class="ttdef"><b>Definition:</b> persistentcontainerwrapper.hh:71</div></div>
+<div class="ttc" id="aa04110_html_a5a0c03abb9400c1fdc894adb231fc975"><div class="ttname"><a href="a04110.html#a5a0c03abb9400c1fdc894adb231fc975">Dune::PersistentContainerWrapper::Value</a></div><div class="ttdeci">PersistentContainer&lt; HostGrid, T &gt;::Value Value</div><div class="ttdef"><b>Definition:</b> persistentcontainerwrapper.hh:28</div></div>
+<div class="ttc" id="aa04110_html_a72c357a203983bf8d7d64186fee86c88"><div class="ttname"><a href="a04110.html#a72c357a203983bf8d7d64186fee86c88">Dune::PersistentContainerWrapper::ConstIterator</a></div><div class="ttdeci">PersistentContainer&lt; HostGrid, T &gt;::ConstIterator ConstIterator</div><div class="ttdef"><b>Definition:</b> persistentcontainerwrapper.hh:32</div></div>
+<div class="ttc" id="aa04110_html_a7fab3fd4ed104d5cf17a02e1b2adaa06"><div class="ttname"><a href="a04110.html#a7fab3fd4ed104d5cf17a02e1b2adaa06">Dune::PersistentContainerWrapper::Grid</a></div><div class="ttdeci">G Grid</div><div class="ttdef"><b>Definition:</b> persistentcontainerwrapper.hh:26</div></div>
+<div class="ttc" id="aa04110_html_a8a0d28bf443b1ca557dbf75a8a658be0"><div class="ttname"><a href="a04110.html#a8a0d28bf443b1ca557dbf75a8a658be0">Dune::PersistentContainerWrapper::operator()</a></div><div class="ttdeci">const Value &amp; operator()(const Entity &amp;entity, int subEntity) const</div><div class="ttdef"><b>Definition:</b> persistentcontainerwrapper.hh:51</div></div>
+<div class="ttc" id="aa04110_html_a8dd41e83011fa64cfce1cb0ef334986a"><div class="ttname"><a href="a04110.html#a8dd41e83011fa64cfce1cb0ef334986a">Dune::PersistentContainerWrapper::resize</a></div><div class="ttdeci">void resize(const Value &amp;value=Value())</div><div class="ttdef"><b>Definition:</b> persistentcontainerwrapper.hh:64</div></div>
+<div class="ttc" id="aa04110_html_a9b11b2a38e7469c90436f073089af40a"><div class="ttname"><a href="a04110.html#a9b11b2a38e7469c90436f073089af40a">Dune::PersistentContainerWrapper::operator[]</a></div><div class="ttdeci">const Value &amp; operator[](const Entity &amp;entity) const</div><div class="ttdef"><b>Definition:</b> persistentcontainerwrapper.hh:39</div></div>
+<div class="ttc" id="aa04110_html_a9d4e8aa75af600f2ede0f42db4710225"><div class="ttname"><a href="a04110.html#a9d4e8aa75af600f2ede0f42db4710225">Dune::PersistentContainerWrapper::codimension</a></div><div class="ttdeci">int codimension() const</div><div class="ttdef"><b>Definition:</b> persistentcontainerwrapper.hh:77</div></div>
+<div class="ttc" id="aa04110_html_aa24339a5e21f0e3cb02b142e55fcbe88"><div class="ttname"><a href="a04110.html#aa24339a5e21f0e3cb02b142e55fcbe88">Dune::PersistentContainerWrapper::swap</a></div><div class="ttdeci">void swap(This &amp;other)</div><div class="ttdef"><b>Definition:</b> persistentcontainerwrapper.hh:69</div></div>
+<div class="ttc" id="aa04110_html_ab25ec7d5300baf2c40bdaac16b6753e3"><div class="ttname"><a href="a04110.html#ab25ec7d5300baf2c40bdaac16b6753e3">Dune::PersistentContainerWrapper::end</a></div><div class="ttdeci">ConstIterator end() const</div><div class="ttdef"><b>Definition:</b> persistentcontainerwrapper.hh:74</div></div>
+<div class="ttc" id="aa04110_html_ac062054287bad49bed14b61a9f17418a"><div class="ttname"><a href="a04110.html#ac062054287bad49bed14b61a9f17418a">Dune::PersistentContainerWrapper::PersistentContainerWrapper</a></div><div class="ttdeci">PersistentContainerWrapper(const Grid &amp;grid, int codim, const Value &amp;value=Value())</div><div class="ttdef"><b>Definition:</b> persistentcontainerwrapper.hh:34</div></div>
+<div class="ttc" id="aa04110_html_ad9555dd3d487203d76096d43904195e9"><div class="ttname"><a href="a04110.html#ad9555dd3d487203d76096d43904195e9">Dune::PersistentContainerWrapper::shrinkToFit</a></div><div class="ttdeci">void shrinkToFit()</div><div class="ttdef"><b>Definition:</b> persistentcontainerwrapper.hh:65</div></div>
+<div class="ttc" id="aa04110_html_adbe719704a2747b2a57485cf906b104b"><div class="ttname"><a href="a04110.html#adbe719704a2747b2a57485cf906b104b">Dune::PersistentContainerWrapper::begin</a></div><div class="ttdeci">Iterator begin()</div><div class="ttdef"><b>Definition:</b> persistentcontainerwrapper.hh:72</div></div>
+<div class="ttc" id="aa04110_html_add716623ea3a47a131e07b4237a981c8"><div class="ttname"><a href="a04110.html#add716623ea3a47a131e07b4237a981c8">Dune::PersistentContainerWrapper::Iterator</a></div><div class="ttdeci">PersistentContainer&lt; HostGrid, T &gt;::Iterator Iterator</div><div class="ttdef"><b>Definition:</b> persistentcontainerwrapper.hh:31</div></div>
+<div class="ttc" id="aa04110_html_af333ade27e7373eacc1a5d4267d03ffe"><div class="ttname"><a href="a04110.html#af333ade27e7373eacc1a5d4267d03ffe">Dune::PersistentContainerWrapper::hostContainer_</a></div><div class="ttdeci">PersistentContainer&lt; HostGrid, T &gt; hostContainer_</div><div class="ttdef"><b>Definition:</b> persistentcontainerwrapper.hh:80</div></div>
+<div class="ttc" id="aa04110_html_af340645acc92ea8604ed9a3c451a46ad"><div class="ttname"><a href="a04110.html#af340645acc92ea8604ed9a3c451a46ad">Dune::PersistentContainerWrapper::Size</a></div><div class="ttdeci">PersistentContainer&lt; HostGrid, T &gt;::Size Size</div><div class="ttdef"><b>Definition:</b> persistentcontainerwrapper.hh:29</div></div>
+<div class="ttc" id="aa04110_html_afdafc3c1753d845a8a3ab8da36705c0f"><div class="ttname"><a href="a04110.html#afdafc3c1753d845a8a3ab8da36705c0f">Dune::PersistentContainerWrapper::end</a></div><div class="ttdeci">Iterator end()</div><div class="ttdef"><b>Definition:</b> persistentcontainerwrapper.hh:75</div></div>
+<div class="ttc" id="aa06777_html"><div class="ttname"><a href="a06777.html">persistentcontainer.hh</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

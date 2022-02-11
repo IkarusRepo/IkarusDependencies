@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: Dune::VTK::PointIterator&lt; CellIterator, IS &gt; Class Template Reference</title>
+<title>dune-grid: Dune::VTK::PVTUWriter Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,201 +62,119 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00936.html">Dune</a></li><li class="navelem"><a class="el" href="a00948.html">VTK</a></li><li class="navelem"><a class="el" href="a03822.html">PointIterator</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00940.html">Dune</a></li><li class="navelem"><a class="el" href="a00951.html">VTK</a></li><li class="navelem"><a class="el" href="a03822.html">PVTUWriter</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="a03819.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::VTK::PointIterator&lt; CellIterator, IS &gt; Class Template Reference</div>  </div>
+<div class="title">Dune::VTK::PVTUWriter Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>iterate over the points of some corner range  
+<p>Dump a .vtu/.vtp files contents to a stream.  
  <a href="a03822.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00806_source.html">dune/grid/io/file/vtk/pointiterator.hh</a>&gt;</code></p>
-<div class="dynheader">
-Inheritance diagram for Dune::VTK::PointIterator&lt; CellIterator, IS &gt;:</div>
-<div class="dyncontent">
-<div class="center"><img src="a03821.png" border="0" usemap="#a_dune_1_1_v_t_k_1_1_point_iterator_3_01_cell_iterator_00_01_i_s_01_4_inherit__map" alt="Inheritance graph"/></div>
-<map name="a_dune_1_1_v_t_k_1_1_point_iterator_3_01_cell_iterator_00_01_i_s_01_4_inherit__map" id="a_dune_1_1_v_t_k_1_1_point_iterator_3_01_cell_iterator_00_01_i_s_01_4_inherit__map">
-<area shape="rect" title="iterate over the points of some corner range" alt="" coords="272,64,435,105"/>
-<area shape="rect" title=" " alt="" coords="5,5,224,164"/>
-</map>
-</div>
+<p><code>#include &lt;<a class="el" href="a00815_source.html">dune/grid/io/file/vtk/pvtuwriter.hh</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:a222adf6537f8d3e6d9476621c56f83ea"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a03742.html">VTK::Corner</a>&lt; typename std::remove_const&lt; typename std::iterator_traits&lt; CellIterator &gt;::value_type &gt;::type &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03822.html#a222adf6537f8d3e6d9476621c56f83ea">Corner</a></td></tr>
-<tr class="separator:a222adf6537f8d3e6d9476621c56f83ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a870e66302241e5c1acbfa21391d0b8cf"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a03822.html">PointIterator</a>&lt; CellIterator, IS &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03822.html#a870e66302241e5c1acbfa21391d0b8cf">DerivedType</a></td></tr>
-<tr class="separator:a870e66302241e5c1acbfa21391d0b8cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ef9659d64bebb80291ee2f934a436e6"><td class="memItemLeft" align="right" valign="top">typedef const <a class="el" href="a03822.html#a222adf6537f8d3e6d9476621c56f83ea">Corner</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03822.html#a8ef9659d64bebb80291ee2f934a436e6">Value</a></td></tr>
-<tr class="separator:a8ef9659d64bebb80291ee2f934a436e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa56cd564c880642f3ed6244d0788134b"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a03822.html#a8ef9659d64bebb80291ee2f934a436e6">Value</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03822.html#aa56cd564c880642f3ed6244d0788134b">Reference</a></td></tr>
-<tr class="separator:aa56cd564c880642f3ed6244d0788134b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a387394a75e2187e9d5da6b20a0b8063a"><td class="memItemLeft" align="right" valign="top">typedef std::iterator_traits&lt; CellIterator &gt;::difference_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03822.html#a387394a75e2187e9d5da6b20a0b8063a">DifferenceType</a></td></tr>
-<tr class="separator:a387394a75e2187e9d5da6b20a0b8063a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a26d4ba5691708690bec9c20653a12d33"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a03822.html#aa56cd564c880642f3ed6244d0788134b">Reference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03822.html#a26d4ba5691708690bec9c20653a12d33">dereference</a> () const</td></tr>
-<tr class="separator:a26d4ba5691708690bec9c20653a12d33"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aadd667e101a99048eaea2f02097337d1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03822.html#aadd667e101a99048eaea2f02097337d1">isDereferencable</a> () const</td></tr>
-<tr class="separator:aadd667e101a99048eaea2f02097337d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a665431802ff74e0838f55da31635ab58"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03822.html#a665431802ff74e0838f55da31635ab58">equals</a> (const <a class="el" href="a03822.html#a870e66302241e5c1acbfa21391d0b8cf">DerivedType</a> &amp;other) const</td></tr>
-<tr class="separator:a665431802ff74e0838f55da31635ab58"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0cb0b0a47717827bf64cd8bdbc37256a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03822.html#a0cb0b0a47717827bf64cd8bdbc37256a">increment</a> ()</td></tr>
-<tr class="separator:a0cb0b0a47717827bf64cd8bdbc37256a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a06b0c844c6cae7c5ae2f063fe075eec6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03822.html#a06b0c844c6cae7c5ae2f063fe075eec6">PointIterator</a> (const CellIterator &amp;cellit, const CellIterator &amp;cellend, const IS &amp;is_)</td></tr>
-<tr class="memdesc:a06b0c844c6cae7c5ae2f063fe075eec6"><td class="mdescLeft">&#160;</td><td class="mdescRight">construct a <a class="el" href="a03746.html" title="iterate over the corners of some cell range">CornerIterator</a>  <a href="a03822.html#a06b0c844c6cae7c5ae2f063fe075eec6">More...</a><br /></td></tr>
-<tr class="separator:a06b0c844c6cae7c5ae2f063fe075eec6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5741c102571eae414fa2b1d5891e2599"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03822.html#a5741c102571eae414fa2b1d5891e2599">PointIterator</a> (const CellIterator &amp;cellend_)</td></tr>
-<tr class="memdesc:a5741c102571eae414fa2b1d5891e2599"><td class="mdescLeft">&#160;</td><td class="mdescRight">construct a <a class="el" href="a03746.html" title="iterate over the corners of some cell range">CornerIterator</a>  <a href="a03822.html#a5741c102571eae414fa2b1d5891e2599">More...</a><br /></td></tr>
-<tr class="separator:a5741c102571eae414fa2b1d5891e2599"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr class="memitem:a48a71990718dc92e728b22435558bd3b"><td class="memItemLeft" align="right" valign="top">static const unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03822.html#a48a71990718dc92e728b22435558bd3b">mydim</a></td></tr>
-<tr class="separator:a48a71990718dc92e728b22435558bd3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7027e4054f07696a2aff3ab888bc6d7b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03822.html#a7027e4054f07696a2aff3ab888bc6d7b">PVTUWriter</a> (std::ostream &amp;stream_, <a class="el" href="a00951.html#a419fffea9dd82b7dda0e7078889da6d4">FileType</a> fileType_)</td></tr>
+<tr class="memdesc:a7027e4054f07696a2aff3ab888bc6d7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">create a <a class="el" href="a03822.html" title="Dump a .vtu/.vtp files contents to a stream.">PVTUWriter</a> object  <a href="a03822.html#a7027e4054f07696a2aff3ab888bc6d7b">More...</a><br /></td></tr>
+<tr class="separator:a7027e4054f07696a2aff3ab888bc6d7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c13ee229553c4adff45cca48d423623"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03822.html#a0c13ee229553c4adff45cca48d423623">~PVTUWriter</a> ()</td></tr>
+<tr class="memdesc:a0c13ee229553c4adff45cca48d423623"><td class="mdescLeft">&#160;</td><td class="mdescRight">write footer  <a href="a03822.html#a0c13ee229553c4adff45cca48d423623">More...</a><br /></td></tr>
+<tr class="separator:a0c13ee229553c4adff45cca48d423623"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a501fc2f31cf0191ee295a2ae9ac6c461"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03822.html#a501fc2f31cf0191ee295a2ae9ac6c461">beginPointData</a> (const std::string &amp;scalars=&quot;&quot;, const std::string &amp;vectors=&quot;&quot;)</td></tr>
+<tr class="memdesc:a501fc2f31cf0191ee295a2ae9ac6c461"><td class="mdescLeft">&#160;</td><td class="mdescRight">start PointData section  <a href="a03822.html#a501fc2f31cf0191ee295a2ae9ac6c461">More...</a><br /></td></tr>
+<tr class="separator:a501fc2f31cf0191ee295a2ae9ac6c461"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96e94f37d4c094da2579e26fea3a1366"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03822.html#a96e94f37d4c094da2579e26fea3a1366">endPointData</a> ()</td></tr>
+<tr class="memdesc:a96e94f37d4c094da2579e26fea3a1366"><td class="mdescLeft">&#160;</td><td class="mdescRight">finish PointData section  <a href="a03822.html#a96e94f37d4c094da2579e26fea3a1366">More...</a><br /></td></tr>
+<tr class="separator:a96e94f37d4c094da2579e26fea3a1366"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f8ab5eff05c013fb706fd041277d264"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03822.html#a4f8ab5eff05c013fb706fd041277d264">beginCellData</a> (const std::string &amp;scalars=&quot;&quot;, const std::string &amp;vectors=&quot;&quot;)</td></tr>
+<tr class="memdesc:a4f8ab5eff05c013fb706fd041277d264"><td class="mdescLeft">&#160;</td><td class="mdescRight">start CellData section  <a href="a03822.html#a4f8ab5eff05c013fb706fd041277d264">More...</a><br /></td></tr>
+<tr class="separator:a4f8ab5eff05c013fb706fd041277d264"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a4b38c703d70d2d2438961729074fa4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03822.html#a2a4b38c703d70d2d2438961729074fa4">endCellData</a> ()</td></tr>
+<tr class="memdesc:a2a4b38c703d70d2d2438961729074fa4"><td class="mdescLeft">&#160;</td><td class="mdescRight">finish CellData section  <a href="a03822.html#a2a4b38c703d70d2d2438961729074fa4">More...</a><br /></td></tr>
+<tr class="separator:a2a4b38c703d70d2d2438961729074fa4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec478c72119a9f55e4d39688b6226b76"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03822.html#aec478c72119a9f55e4d39688b6226b76">beginPoints</a> ()</td></tr>
+<tr class="memdesc:aec478c72119a9f55e4d39688b6226b76"><td class="mdescLeft">&#160;</td><td class="mdescRight">start section for the point coordinates  <a href="a03822.html#aec478c72119a9f55e4d39688b6226b76">More...</a><br /></td></tr>
+<tr class="separator:aec478c72119a9f55e4d39688b6226b76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9934734d0ef582a2f7adc15567e57387"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03822.html#a9934734d0ef582a2f7adc15567e57387">endPoints</a> ()</td></tr>
+<tr class="memdesc:a9934734d0ef582a2f7adc15567e57387"><td class="mdescLeft">&#160;</td><td class="mdescRight">finish section for the point coordinates  <a href="a03822.html#a9934734d0ef582a2f7adc15567e57387">More...</a><br /></td></tr>
+<tr class="separator:a9934734d0ef582a2f7adc15567e57387"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c240f9f4c77aebbf428a497075d2b2a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03822.html#a4c240f9f4c77aebbf428a497075d2b2a">beginMain</a> (unsigned ghostLevel=0)</td></tr>
+<tr class="memdesc:a4c240f9f4c77aebbf428a497075d2b2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">start the main PPolyData/PUnstructuredGrid section  <a href="a03822.html#a4c240f9f4c77aebbf428a497075d2b2a">More...</a><br /></td></tr>
+<tr class="separator:a4c240f9f4c77aebbf428a497075d2b2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a208501a765e54b73e183d529df40700f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03822.html#a208501a765e54b73e183d529df40700f">endMain</a> ()</td></tr>
+<tr class="memdesc:a208501a765e54b73e183d529df40700f"><td class="mdescLeft">&#160;</td><td class="mdescRight">finish the main PolyData/UnstructuredGrid section  <a href="a03822.html#a208501a765e54b73e183d529df40700f">More...</a><br /></td></tr>
+<tr class="separator:a208501a765e54b73e183d529df40700f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3df4501fbc4a7bcd5e8cbfee7d93bcb5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03822.html#a3df4501fbc4a7bcd5e8cbfee7d93bcb5">addArray</a> (const std::string &amp;name, unsigned ncomps, <a class="el" href="a00951.html#a1a23264dcb4d2ffc9b85507ffa2741af">Precision</a> prec)</td></tr>
+<tr class="memdesc:a3df4501fbc4a7bcd5e8cbfee7d93bcb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add an array to the output file.  <a href="a03822.html#a3df4501fbc4a7bcd5e8cbfee7d93bcb5">More...</a><br /></td></tr>
+<tr class="separator:a3df4501fbc4a7bcd5e8cbfee7d93bcb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6bbbc54ea28814e6fdacd63a7fbd6583"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03822.html#a6bbbc54ea28814e6fdacd63a7fbd6583">addPiece</a> (const std::string &amp;filename)</td></tr>
+<tr class="memdesc:a6bbbc54ea28814e6fdacd63a7fbd6583"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a serial piece to the output file.  <a href="a03822.html#a6bbbc54ea28814e6fdacd63a7fbd6583">More...</a><br /></td></tr>
+<tr class="separator:a6bbbc54ea28814e6fdacd63a7fbd6583"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;typename CellIterator, typename IS&gt;<br />
-class Dune::VTK::PointIterator&lt; CellIterator, IS &gt;</h3>
-
-<p>iterate over the points of some corner range </p>
-<p>This iterator essentially filters the output from <a class="el" href="a03746.html" title="iterate over the corners of some cell range">CornerIterator</a> to visit each point only once.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">CellIterator</td><td>Type of the iterators over cells. The usual codim0 EntityIterators should work here. </td></tr>
-    <tr><td class="paramname">IS</td><td>Type of the indexset.</td></tr>
-  </table>
-  </dd>
-</dl>
-<p>The <a class="el" href="a02690.html" title="Index Set Interface base class.">IndexSet</a> must provide methods and member types: </p><ul>
-<li>
-size(unsigned codimension) should return the number of vertices in the indexset. The dimension of the cells will be passed as the codimension parameter value. </li>
-<li>
-subIndex(const Cell&amp; cell, unsigned subIndex, unsigned codimension) should return the index of the point with local <a class="el" href="a00936.html" title="Include standard header files.">Dune</a> index subIndex in cell cell. The codimension parameter will again be the dimension of the cell. </li>
-<li>
-IndexType should be the type of the indices returned by subIndex(). </li>
-</ul>
-<p>The requirements are crafted in such a way that the indexsets provided by the grid should fulfill them as long as the cells are codim=0 Entities. </p>
-</div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a222adf6537f8d3e6d9476621c56f83ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a222adf6537f8d3e6d9476621c56f83ea">&#9670;&nbsp;</a></span>Corner</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename CellIterator , typename IS &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef <a class="el" href="a03742.html">VTK::Corner</a>&lt;typename std::remove_const&lt;typename std::iterator_traits&lt; CellIterator&gt;::value_type&gt;::type&gt; <a class="el" href="a03822.html">Dune::VTK::PointIterator</a>&lt; CellIterator, IS &gt;::<a class="el" href="a03822.html#a222adf6537f8d3e6d9476621c56f83ea">Corner</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a870e66302241e5c1acbfa21391d0b8cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a870e66302241e5c1acbfa21391d0b8cf">&#9670;&nbsp;</a></span>DerivedType</h2>
+<div class="textblock"><p>Dump a .vtu/.vtp files contents to a stream. </p>
+<p>This will help generating a .vtu/.vtp file. Typical use is like this: </p><div class="fragment"><div class="line">{</div>
+<div class="line">  <span class="comment">// create writer, writes begin tag</span></div>
+<div class="line">  <a class="code" href="a03822.html#a7027e4054f07696a2aff3ab888bc6d7b">PVTUWriter</a> writer(std::cout, <a class="code" href="a00951.html#a419fffea9dd82b7dda0e7078889da6d4a109b9e75c1921dd6b8df25eedea009be">polyData</a>);</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// start the main section</span></div>
+<div class="line">  writer.beginMain();</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// dump cell data (optional)</span></div>
+<div class="line">  writer.beginCellData();</div>
+<div class="line">  <span class="keywordflow">for</span>(each cell data field)</div>
+<div class="line">    writer.addArray(field.name, field.ncomps, precision);</div>
+<div class="line">  writer.endCellData();</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// dump point data (optional)</span></div>
+<div class="line">  writer.beginPointData();</div>
+<div class="line">  <span class="keywordflow">for</span>(each point data field)</div>
+<div class="line">    writer.addArray(field.name, field.ncomps, precision);</div>
+<div class="line">  writer.endPointData();</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// dump point coordinates</span></div>
+<div class="line">  writer.beginPoints();</div>
+<div class="line">  writer.addArray(<span class="stringliteral">&quot;Coordinates&quot;</span>, 3, precision);</div>
+<div class="line">  writer.endPoints();</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordflow">for</span>(each serial piece)</div>
+<div class="line">    writer.addPiece(piece.filename);</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// finish main section</span></div>
+<div class="line">  writer.endMain();</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// end scope so the destructor gets called and the closing tag is written</span></div>
+<div class="line">}</div>
+<div class="ttc" id="aa00951_html_a419fffea9dd82b7dda0e7078889da6d4a109b9e75c1921dd6b8df25eedea009be"><div class="ttname"><a href="a00951.html#a419fffea9dd82b7dda0e7078889da6d4a109b9e75c1921dd6b8df25eedea009be">Dune::VTK::polyData</a></div><div class="ttdeci">@ polyData</div><div class="ttdoc">for .vtp files (PolyData)</div><div class="ttdef"><b>Definition:</b> common.hh:252</div></div>
+<div class="ttc" id="aa03822_html_a7027e4054f07696a2aff3ab888bc6d7b"><div class="ttname"><a href="a03822.html#a7027e4054f07696a2aff3ab888bc6d7b">Dune::VTK::PVTUWriter::PVTUWriter</a></div><div class="ttdeci">PVTUWriter(std::ostream &amp;stream_, FileType fileType_)</div><div class="ttdoc">create a PVTUWriter object</div><div class="ttdef"><b>Definition:</b> pvtuwriter.hh:76</div></div>
+</div><!-- fragment --> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a7027e4054f07696a2aff3ab888bc6d7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7027e4054f07696a2aff3ab888bc6d7b">&#9670;&nbsp;</a></span>PVTUWriter()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename CellIterator , typename IS &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef <a class="el" href="a03822.html">PointIterator</a>&lt;CellIterator, IS&gt; <a class="el" href="a03822.html">Dune::VTK::PointIterator</a>&lt; CellIterator, IS &gt;::<a class="el" href="a03822.html#a870e66302241e5c1acbfa21391d0b8cf">DerivedType</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a387394a75e2187e9d5da6b20a0b8063a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a387394a75e2187e9d5da6b20a0b8063a">&#9670;&nbsp;</a></span>DifferenceType</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename CellIterator , typename IS &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef std::iterator_traits&lt;CellIterator&gt;::difference_type <a class="el" href="a03822.html">Dune::VTK::PointIterator</a>&lt; CellIterator, IS &gt;::<a class="el" href="a03822.html#a387394a75e2187e9d5da6b20a0b8063a">DifferenceType</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aa56cd564c880642f3ed6244d0788134b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa56cd564c880642f3ed6244d0788134b">&#9670;&nbsp;</a></span>Reference</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename CellIterator , typename IS &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef <a class="el" href="a03822.html#a8ef9659d64bebb80291ee2f934a436e6">Value</a>&amp; <a class="el" href="a03822.html">Dune::VTK::PointIterator</a>&lt; CellIterator, IS &gt;::<a class="el" href="a03822.html#aa56cd564c880642f3ed6244d0788134b">Reference</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a8ef9659d64bebb80291ee2f934a436e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8ef9659d64bebb80291ee2f934a436e6">&#9670;&nbsp;</a></span>Value</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename CellIterator , typename IS &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef const <a class="el" href="a03822.html#a222adf6537f8d3e6d9476621c56f83ea">Corner</a> <a class="el" href="a03822.html">Dune::VTK::PointIterator</a>&lt; CellIterator, IS &gt;::<a class="el" href="a03822.html#a8ef9659d64bebb80291ee2f934a436e6">Value</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a06b0c844c6cae7c5ae2f063fe075eec6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a06b0c844c6cae7c5ae2f063fe075eec6">&#9670;&nbsp;</a></span>PointIterator() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename CellIterator , typename IS &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a03822.html">Dune::VTK::PointIterator</a>&lt; CellIterator, IS &gt;::<a class="el" href="a03822.html">PointIterator</a> </td>
+          <td class="memname">Dune::VTK::PVTUWriter::PVTUWriter </td>
           <td>(</td>
-          <td class="paramtype">const CellIterator &amp;&#160;</td>
-          <td class="paramname"><em>cellit</em>, </td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>stream_</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const CellIterator &amp;&#160;</td>
-          <td class="paramname"><em>cellend</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const IS &amp;&#160;</td>
-          <td class="paramname"><em>is_</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="a00951.html#a419fffea9dd82b7dda0e7078889da6d4">FileType</a>&#160;</td>
+          <td class="paramname"><em>fileType_</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -271,34 +189,118 @@ template&lt;typename CellIterator , typename IS &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>construct a <a class="el" href="a03746.html" title="iterate over the corners of some cell range">CornerIterator</a> </p>
+<p>create a <a class="el" href="a03822.html" title="Dump a .vtu/.vtp files contents to a stream.">PVTUWriter</a> object </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">cellit</td><td>The begin iterator of the undelying range. </td></tr>
-    <tr><td class="paramname">cellend</td><td>The end iterator of the underlying range. </td></tr>
-    <tr><td class="paramname">is_</td><td>A reference to the indexset to use. </td></tr>
+    <tr><td class="paramname">stream_</td><td>Stream to write to. </td></tr>
+    <tr><td class="paramname">fileType_</td><td>Whether to write PolyData (1D) or UnstructuredGrid (nD) format.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Create object and write header. </p>
+
+</div>
+</div>
+<a id="a0c13ee229553c4adff45cca48d423623"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c13ee229553c4adff45cca48d423623">&#9670;&nbsp;</a></span>~PVTUWriter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Dune::VTK::PVTUWriter::~PVTUWriter </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>write footer </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a3df4501fbc4a7bcd5e8cbfee7d93bcb5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3df4501fbc4a7bcd5e8cbfee7d93bcb5">&#9670;&nbsp;</a></span>addArray()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Dune::VTK::PVTUWriter::addArray </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>ncomps</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00951.html#a1a23264dcb4d2ffc9b85507ffa2741af">Precision</a>&#160;</td>
+          <td class="paramname"><em>prec</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Add an array to the output file. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>The datatype of the array. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>Name of the array. </td></tr>
+    <tr><td class="paramname">ncomps</td><td>Number of components in each vector of the array. </td></tr>
+    <tr><td class="paramname">prec</td><td>The output precision of the data array </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a5741c102571eae414fa2b1d5891e2599"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5741c102571eae414fa2b1d5891e2599">&#9670;&nbsp;</a></span>PointIterator() <span class="overload">[2/2]</span></h2>
+<a id="a6bbbc54ea28814e6fdacd63a7fbd6583"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6bbbc54ea28814e6fdacd63a7fbd6583">&#9670;&nbsp;</a></span>addPiece()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename CellIterator , typename IS &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a03822.html">Dune::VTK::PointIterator</a>&lt; CellIterator, IS &gt;::<a class="el" href="a03822.html">PointIterator</a> </td>
+          <td class="memname">void Dune::VTK::PVTUWriter::addPiece </td>
           <td>(</td>
-          <td class="paramtype">const CellIterator &amp;&#160;</td>
-          <td class="paramname"><em>cellend_</em></td><td>)</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -309,28 +311,35 @@ template&lt;typename CellIterator , typename IS &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>construct a <a class="el" href="a03746.html" title="iterate over the corners of some cell range">CornerIterator</a> </p>
-<p>This constructs a passed-the-end iterator value. </p>
+<p>Add a serial piece to the output file. </p>
 
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a26d4ba5691708690bec9c20653a12d33"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a26d4ba5691708690bec9c20653a12d33">&#9670;&nbsp;</a></span>dereference()</h2>
+<a id="a4f8ab5eff05c013fb706fd041277d264"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f8ab5eff05c013fb706fd041277d264">&#9670;&nbsp;</a></span>beginCellData()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename CellIterator , typename IS &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a03822.html#aa56cd564c880642f3ed6244d0788134b">Reference</a> <a class="el" href="a03822.html">Dune::VTK::PointIterator</a>&lt; CellIterator, IS &gt;::dereference </td>
+          <td class="memname">void Dune::VTK::PVTUWriter::beginCellData </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>scalars</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>vectors</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -340,25 +349,33 @@ template&lt;typename CellIterator , typename IS &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>start CellData section </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scalars</td><td>Name of field to which should be marked as default scalars field. If this is the empty string, don't set any default. </td></tr>
+    <tr><td class="paramname">vectors</td><td>Name of field to which should be marked as default vectors field. If this is the empty string, don't set any default.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>If there are no CellData fields, the call to this function may be skipped, together with the corresponding call to <a class="el" href="a03822.html#a2a4b38c703d70d2d2438961729074fa4" title="finish CellData section">endCellData()</a>. </p>
+
 </div>
 </div>
-<a id="a665431802ff74e0838f55da31635ab58"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a665431802ff74e0838f55da31635ab58">&#9670;&nbsp;</a></span>equals()</h2>
+<a id="a4c240f9f4c77aebbf428a497075d2b2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c240f9f4c77aebbf428a497075d2b2a">&#9670;&nbsp;</a></span>beginMain()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename CellIterator , typename IS &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="a03822.html">Dune::VTK::PointIterator</a>&lt; CellIterator, IS &gt;::equals </td>
+          <td class="memname">void Dune::VTK::PVTUWriter::beginMain </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a03822.html#a870e66302241e5c1acbfa21391d0b8cf">DerivedType</a> &amp;&#160;</td>
-          <td class="paramname"><em>other</em></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>ghostLevel</em> = <code>0</code></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
@@ -368,21 +385,83 @@ template&lt;typename CellIterator , typename IS &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>start the main PPolyData/PUnstructuredGrid section </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ghostLevel</td><td>Set the GhostLevel attribute</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Between the call to this method and to <a class="el" href="a03822.html#a208501a765e54b73e183d529df40700f" title="finish the main PolyData/UnstructuredGrid section">endMain()</a>, there should be calls to add the actual data: </p><ul>
+<li>
+(optional) <a class="el" href="a03822.html#a4f8ab5eff05c013fb706fd041277d264" title="start CellData section">beginCellData()</a>/endCellData(), </li>
+<li>
+(optional) <a class="el" href="a03822.html#a501fc2f31cf0191ee295a2ae9ac6c461" title="start PointData section">beginPointData()</a>/endPointData(), </li>
+<li>
+<a class="el" href="a03822.html#aec478c72119a9f55e4d39688b6226b76" title="start section for the point coordinates">beginPoints()</a>/endPoints(), </li>
+<li>
+one or more calls to <a class="el" href="a03822.html#a6bbbc54ea28814e6fdacd63a7fbd6583" title="Add a serial piece to the output file.">addPiece()</a> </li>
+</ul>
+
 </div>
 </div>
-<a id="a0cb0b0a47717827bf64cd8bdbc37256a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0cb0b0a47717827bf64cd8bdbc37256a">&#9670;&nbsp;</a></span>increment()</h2>
+<a id="a501fc2f31cf0191ee295a2ae9ac6c461"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a501fc2f31cf0191ee295a2ae9ac6c461">&#9670;&nbsp;</a></span>beginPointData()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename CellIterator , typename IS &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="a03822.html">Dune::VTK::PointIterator</a>&lt; CellIterator, IS &gt;::increment </td>
+          <td class="memname">void Dune::VTK::PVTUWriter::beginPointData </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>scalars</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>vectors</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>start PointData section </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scalars</td><td>Name of field to which should be marked as default scalars field. If this is the empty string, don't set any default. </td></tr>
+    <tr><td class="paramname">vectors</td><td>Name of field to which should be marked as default vectors field. If this is the empty string, don't set any default.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>If there are no PointData fields, the call to this function may be skipped, together with the corresponding call to <a class="el" href="a03822.html#a96e94f37d4c094da2579e26fea3a1366" title="finish PointData section">endPointData()</a>. </p>
+
+</div>
+</div>
+<a id="aec478c72119a9f55e4d39688b6226b76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec478c72119a9f55e4d39688b6226b76">&#9670;&nbsp;</a></span>beginPoints()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Dune::VTK::PVTUWriter::beginPoints </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -395,24 +474,25 @@ template&lt;typename CellIterator , typename IS &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>start section for the point coordinates </p>
+<p>Between the call to this method an the following call to the <a class="el" href="a03822.html#a9934734d0ef582a2f7adc15567e57387" title="finish section for the point coordinates">endPoints()</a>, there must be a single field written. The name must be "Coordinates" and it must have 3 components. </p>
+
 </div>
 </div>
-<a id="aadd667e101a99048eaea2f02097337d1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aadd667e101a99048eaea2f02097337d1">&#9670;&nbsp;</a></span>isDereferencable()</h2>
+<a id="a2a4b38c703d70d2d2438961729074fa4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a4b38c703d70d2d2438961729074fa4">&#9670;&nbsp;</a></span>endCellData()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename CellIterator , typename IS &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="a03822.html">Dune::VTK::PointIterator</a>&lt; CellIterator, IS &gt;::isDereferencable </td>
+          <td class="memname">void Dune::VTK::PVTUWriter::endCellData </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
   </td>
@@ -422,37 +502,93 @@ template&lt;typename CellIterator , typename IS &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>finish CellData section </p>
+
 </div>
 </div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a48a71990718dc92e728b22435558bd3b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a48a71990718dc92e728b22435558bd3b">&#9670;&nbsp;</a></span>mydim</h2>
+<a id="a208501a765e54b73e183d529df40700f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a208501a765e54b73e183d529df40700f">&#9670;&nbsp;</a></span>endMain()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename CellIterator , typename IS &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const unsigned <a class="el" href="a03822.html">Dune::VTK::PointIterator</a>&lt; CellIterator, IS &gt;::mydim</td>
+          <td class="memname">void Dune::VTK::PVTUWriter::endMain </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= std::iterator_traits&lt;CellIterator&gt;::</div>
-<div class="line">                                    value_type::mydimension</div>
-</div><!-- fragment -->
+
+<p>finish the main PolyData/UnstructuredGrid section </p>
+
+</div>
+</div>
+<a id="a96e94f37d4c094da2579e26fea3a1366"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96e94f37d4c094da2579e26fea3a1366">&#9670;&nbsp;</a></span>endPointData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Dune::VTK::PVTUWriter::endPointData </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>finish PointData section </p>
+
+</div>
+</div>
+<a id="a9934734d0ef582a2f7adc15567e57387"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9934734d0ef582a2f7adc15567e57387">&#9670;&nbsp;</a></span>endPoints()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Dune::VTK::PVTUWriter::endPoints </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>finish section for the point coordinates </p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="a00806_source.html">pointiterator.hh</a></li>
+<li><a class="el" href="a00815_source.html">pvtuwriter.hh</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

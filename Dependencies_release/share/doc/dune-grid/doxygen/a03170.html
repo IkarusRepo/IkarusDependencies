@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: Dune::GeoGrid::GridFamily&lt; HG, CF, Allocator &gt;::Traits Struct Reference</title>
+<title>dune-grid: Dune::GeoGrid::GridView&lt; HGV, CoordFunction, Allocator &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,340 +62,815 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00936.html">Dune</a></li><li class="navelem"><a class="el" href="a00942.html">GeoGrid</a></li><li class="navelem"><a class="el" href="a03166.html">GridFamily</a></li><li class="navelem"><a class="el" href="a03170.html">Traits</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00940.html">Dune</a></li><li class="navelem"><a class="el" href="a00945.html">GeoGrid</a></li><li class="navelem"><a class="el" href="a03170.html">GridView</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="a03167.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::GeoGrid::GridFamily&lt; HG, CF, Allocator &gt;::Traits Struct Reference</div>  </div>
+<div class="title">Dune::GeoGrid::GridView&lt; HGV, CoordFunction, Allocator &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="a06812_source.html">dune/grid/geometrygrid/gridfamily.hh</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a06732_source.html">dune/grid/geometrygrid/gridview.hh</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03174.html">Codim</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03186.html">Codim</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:ad465ef2a7997dc40056c7856baa201ad"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a03074.html">GeometryGrid</a>&lt; HG, CF, Allocator &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03170.html#ad465ef2a7997dc40056c7856baa201ad">Grid</a></td></tr>
-<tr class="separator:ad465ef2a7997dc40056c7856baa201ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaaf86a3a53af4fe7577ff28c9fef112c"><td class="memItemLeft" align="right" valign="top">typedef HG&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03170.html#aaaf86a3a53af4fe7577ff28c9fef112c">HostGrid</a></td></tr>
-<tr class="separator:aaaf86a3a53af4fe7577ff28c9fef112c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c54fb7102183c61cd8d0df34b70cc01"><td class="memItemLeft" align="right" valign="top">typedef CF&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03170.html#a8c54fb7102183c61cd8d0df34b70cc01">CoordFunction</a></td></tr>
-<tr class="separator:a8c54fb7102183c61cd8d0df34b70cc01"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae4a69dae64d2a53dffabd358a91441cf"><td class="memItemLeft" align="right" valign="top">typedef HostGrid::ctype&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03170.html#ae4a69dae64d2a53dffabd358a91441cf">ctype</a></td></tr>
-<tr class="separator:ae4a69dae64d2a53dffabd358a91441cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1144fcd346413c513ecb166cb1fdbb34"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a01838.html">Dune::Intersection</a>&lt; const <a class="el" href="a03170.html#ad465ef2a7997dc40056c7856baa201ad">Grid</a>, <a class="el" href="a03218.html">GeoGrid::Intersection</a>&lt; const <a class="el" href="a03170.html#ad465ef2a7997dc40056c7856baa201ad">Grid</a>, typename HostGrid::LeafIntersection &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03170.html#a1144fcd346413c513ecb166cb1fdbb34">LeafIntersection</a></td></tr>
-<tr class="separator:a1144fcd346413c513ecb166cb1fdbb34"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c38972a81177d1d5b4065c3b2e269e0"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a01838.html">Dune::Intersection</a>&lt; const <a class="el" href="a03170.html#ad465ef2a7997dc40056c7856baa201ad">Grid</a>, <a class="el" href="a03218.html">GeoGrid::Intersection</a>&lt; const <a class="el" href="a03170.html#ad465ef2a7997dc40056c7856baa201ad">Grid</a>, typename HostGrid::LevelIntersection &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03170.html#a9c38972a81177d1d5b4065c3b2e269e0">LevelIntersection</a></td></tr>
-<tr class="separator:a9c38972a81177d1d5b4065c3b2e269e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ec8e7b404db964a8334749c626bacb4"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a02686.html">Dune::IntersectionIterator</a>&lt; const <a class="el" href="a03170.html#ad465ef2a7997dc40056c7856baa201ad">Grid</a>, <a class="el" href="a03090.html">GeoGrid::IntersectionIterator</a>&lt; const <a class="el" href="a03170.html#ad465ef2a7997dc40056c7856baa201ad">Grid</a>, typename HostGrid::LeafIntersectionIterator &gt;, <a class="el" href="a03218.html">GeoGrid::Intersection</a>&lt; const <a class="el" href="a03170.html#ad465ef2a7997dc40056c7856baa201ad">Grid</a>, typename HostGrid::LeafIntersection &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03170.html#a7ec8e7b404db964a8334749c626bacb4">LeafIntersectionIterator</a></td></tr>
-<tr class="separator:a7ec8e7b404db964a8334749c626bacb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e0d3c7e4ff4716e65010b5564751443"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a02686.html">Dune::IntersectionIterator</a>&lt; const <a class="el" href="a03170.html#ad465ef2a7997dc40056c7856baa201ad">Grid</a>, <a class="el" href="a03090.html">GeoGrid::IntersectionIterator</a>&lt; const <a class="el" href="a03170.html#ad465ef2a7997dc40056c7856baa201ad">Grid</a>, typename HostGrid::LevelIntersectionIterator &gt;, <a class="el" href="a03218.html">GeoGrid::Intersection</a>&lt; const <a class="el" href="a03170.html#ad465ef2a7997dc40056c7856baa201ad">Grid</a>, typename HostGrid::LevelIntersection &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03170.html#a7e0d3c7e4ff4716e65010b5564751443">LevelIntersectionIterator</a></td></tr>
-<tr class="separator:a7e0d3c7e4ff4716e65010b5564751443"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b452f18d5c122b2ca3b8f79a5295684"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a02650.html">Dune::EntityIterator</a>&lt; 0, const <a class="el" href="a03170.html#ad465ef2a7997dc40056c7856baa201ad">Grid</a>, <a class="el" href="a03086.html">GeoGrid::HierarchicIterator</a>&lt; const <a class="el" href="a03170.html#ad465ef2a7997dc40056c7856baa201ad">Grid</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03170.html#a1b452f18d5c122b2ca3b8f79a5295684">HierarchicIterator</a></td></tr>
-<tr class="separator:a1b452f18d5c122b2ca3b8f79a5295684"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ba09349a6c0d0a0684004c9695d2e9b"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a03214.html">GeoGrid::IndexSet</a>&lt; const <a class="el" href="a03170.html#ad465ef2a7997dc40056c7856baa201ad">Grid</a>, typename HostGrid::Traits::LeafIndexSet &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03170.html#a7ba09349a6c0d0a0684004c9695d2e9b">LeafIndexSet</a></td></tr>
-<tr class="separator:a7ba09349a6c0d0a0684004c9695d2e9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0374b04656de8bb6b8ccc80e4c8bdf9d"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a03214.html">GeoGrid::IndexSet</a>&lt; const <a class="el" href="a03170.html#ad465ef2a7997dc40056c7856baa201ad">Grid</a>, typename HostGrid::Traits::LevelIndexSet &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03170.html#a0374b04656de8bb6b8ccc80e4c8bdf9d">LevelIndexSet</a></td></tr>
-<tr class="separator:a0374b04656de8bb6b8ccc80e4c8bdf9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57c9cd60caf7f866cad8c9d30127ae15"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a03210.html">GeoGrid::IdSet</a>&lt; const <a class="el" href="a03170.html#ad465ef2a7997dc40056c7856baa201ad">Grid</a>, typename HostGrid::Traits::GlobalIdSet &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03170.html#a57c9cd60caf7f866cad8c9d30127ae15">GlobalIdSet</a></td></tr>
-<tr class="separator:a57c9cd60caf7f866cad8c9d30127ae15"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf22ca4efca5f9eecf407d1930283515"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a03210.html">GeoGrid::IdSet</a>&lt; const <a class="el" href="a03170.html#ad465ef2a7997dc40056c7856baa201ad">Grid</a>, typename HostGrid::Traits::LocalIdSet &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03170.html#acf22ca4efca5f9eecf407d1930283515">LocalIdSet</a></td></tr>
-<tr class="separator:acf22ca4efca5f9eecf407d1930283515"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04f24a3ec63e5485ee06129436cd2d04"><td class="memItemLeft" align="right" valign="top">typedef HostGrid::Traits::CollectiveCommunication&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03170.html#a04f24a3ec63e5485ee06129436cd2d04">CollectiveCommunication</a></td></tr>
-<tr class="separator:a04f24a3ec63e5485ee06129436cd2d04"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7acc008f0addb2341268e8c6af7e2a4d"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a02754.html">Dune::GridView</a>&lt; <a class="el" href="a03186.html">GeoGrid::GridViewTraits</a>&lt; typename HostGrid::LeafGridView, <a class="el" href="a03170.html#a8c54fb7102183c61cd8d0df34b70cc01">CoordFunction</a>, Allocator &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03170.html#a7acc008f0addb2341268e8c6af7e2a4d">LeafGridView</a></td></tr>
-<tr class="separator:a7acc008f0addb2341268e8c6af7e2a4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a24cb88c2ebabd7363217806ee2465348"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a02754.html">Dune::GridView</a>&lt; <a class="el" href="a03186.html">GeoGrid::GridViewTraits</a>&lt; typename HostGrid::LevelGridView, <a class="el" href="a03170.html#a8c54fb7102183c61cd8d0df34b70cc01">CoordFunction</a>, Allocator &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03170.html#a24cb88c2ebabd7363217806ee2465348">LevelGridView</a></td></tr>
-<tr class="separator:a24cb88c2ebabd7363217806ee2465348"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecd01e25d788dabd6a30a60ad5ce62d2"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a03174.html">GridViewTraits</a>&lt; HGV, CoordFunction, Allocator &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03170.html#aecd01e25d788dabd6a30a60ad5ce62d2">Traits</a></td></tr>
+<tr class="separator:aecd01e25d788dabd6a30a60ad5ce62d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae20e7ebc88369618b30adc1818aec820"><td class="memItemLeft" align="right" valign="top">typedef Traits::HostGridView&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03170.html#ae20e7ebc88369618b30adc1818aec820">HostGridView</a></td></tr>
+<tr class="separator:ae20e7ebc88369618b30adc1818aec820"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00b0013ad6529e6acf67173c5ee0f855"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a03174.html#ade9a280c451e6f3fe138e941c923b3db">Traits::Grid</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03170.html#a00b0013ad6529e6acf67173c5ee0f855">Grid</a></td></tr>
+<tr class="separator:a00b0013ad6529e6acf67173c5ee0f855"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6947797efaa74532d967616061d247cb"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a03174.html#aa1108c9a78cac5b7f127ec24584786db">Traits::IndexSet</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03170.html#a6947797efaa74532d967616061d247cb">IndexSet</a></td></tr>
+<tr class="separator:a6947797efaa74532d967616061d247cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c358d2861c2e7770232444339db3bde"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a03174.html#adbfe11e27b586a2d77bbdeff857d1513">Traits::Intersection</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03170.html#a5c358d2861c2e7770232444339db3bde">Intersection</a></td></tr>
+<tr class="separator:a5c358d2861c2e7770232444339db3bde"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34ca9578fe7b949d58fa36e1301446a1"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a03174.html#af4af958a7c88976fca38f4fd5a5ab8ac">Traits::IntersectionIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03170.html#a34ca9578fe7b949d58fa36e1301446a1">IntersectionIterator</a></td></tr>
+<tr class="separator:a34ca9578fe7b949d58fa36e1301446a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3bcc44e123bd1ef7b2982c7b488f9ba"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a03174.html#ab8f8178e3c8abb9a2a2728826f83f171">Traits::CollectiveCommunication</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03170.html#ad3bcc44e123bd1ef7b2982c7b488f9ba">CollectiveCommunication</a></td></tr>
+<tr class="separator:ad3bcc44e123bd1ef7b2982c7b488f9ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:ab5a80093daa8485b9efb3c89ceb98e70"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03170.html#ab5a80093daa8485b9efb3c89ceb98e70">GridView</a> (const <a class="el" href="a03170.html#a00b0013ad6529e6acf67173c5ee0f855">Grid</a> &amp;<a class="el" href="a03170.html#ad99b868b1bb0b74316e44696de3c0bcb">grid</a>, const <a class="el" href="a03170.html#ae20e7ebc88369618b30adc1818aec820">HostGridView</a> &amp;<a class="el" href="a03170.html#a18c62ea48be20d17a53babb6bd12cf2e">hostGridView</a>)</td></tr>
+<tr class="separator:ab5a80093daa8485b9efb3c89ceb98e70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a774daee78605d69756109a178911908d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03170.html#a774daee78605d69756109a178911908d">GridView</a> (const <a class="el" href="a03170.html">This</a> &amp;other)</td></tr>
+<tr class="separator:a774daee78605d69756109a178911908d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb6885b79952abc042d5902ed9c314ca"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03170.html#adb6885b79952abc042d5902ed9c314ca">GridView</a> (<a class="el" href="a03170.html">This</a> &amp;&amp;other)</td></tr>
+<tr class="separator:adb6885b79952abc042d5902ed9c314ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcfd3376f4874f20c2b3e15877a5d652"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a03170.html">This</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03170.html#adcfd3376f4874f20c2b3e15877a5d652">operator=</a> (const <a class="el" href="a03170.html">This</a> &amp;other)</td></tr>
+<tr class="separator:adcfd3376f4874f20c2b3e15877a5d652"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25594ffce7d8d81d52f6128e3a584baf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a03170.html">This</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03170.html#a25594ffce7d8d81d52f6128e3a584baf">operator=</a> (<a class="el" href="a03170.html">This</a> &amp;&amp;other)</td></tr>
+<tr class="separator:a25594ffce7d8d81d52f6128e3a584baf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad99b868b1bb0b74316e44696de3c0bcb"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a03170.html#a00b0013ad6529e6acf67173c5ee0f855">Grid</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03170.html#ad99b868b1bb0b74316e44696de3c0bcb">grid</a> () const</td></tr>
+<tr class="separator:ad99b868b1bb0b74316e44696de3c0bcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85fa0c2f2facfd367dc6ffdbb6c6c55d"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a03170.html#a6947797efaa74532d967616061d247cb">IndexSet</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03170.html#a85fa0c2f2facfd367dc6ffdbb6c6c55d">indexSet</a> () const</td></tr>
+<tr class="separator:a85fa0c2f2facfd367dc6ffdbb6c6c55d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99882cd461b7391442e1cb6a92afed76"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03170.html#a99882cd461b7391442e1cb6a92afed76">size</a> (int codim) const</td></tr>
+<tr class="separator:a99882cd461b7391442e1cb6a92afed76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad632d917a836f9892e813b91d3105092"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03170.html#ad632d917a836f9892e813b91d3105092">size</a> (const GeometryType &amp;type) const</td></tr>
+<tr class="separator:ad632d917a836f9892e813b91d3105092"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad68a5211ccd607553842c1dd11ebe2ea"><td class="memTemplParams" colspan="2">template&lt;int codim&gt; </td></tr>
+<tr class="memitem:ad68a5211ccd607553842c1dd11ebe2ea"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="a03186.html">Codim</a>&lt; codim &gt;::<a class="el" href="a03210.html">Iterator</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a03170.html#ad68a5211ccd607553842c1dd11ebe2ea">begin</a> () const</td></tr>
+<tr class="separator:ad68a5211ccd607553842c1dd11ebe2ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85a08284a9186b0db41015af0069aa81"><td class="memTemplParams" colspan="2">template&lt;int codim, PartitionIteratorType pit&gt; </td></tr>
+<tr class="memitem:a85a08284a9186b0db41015af0069aa81"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="a03186.html">Codim</a>&lt; codim &gt;::template Partition&lt; pit &gt;::<a class="el" href="a03210.html">Iterator</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a03170.html#a85a08284a9186b0db41015af0069aa81">begin</a> () const</td></tr>
+<tr class="separator:a85a08284a9186b0db41015af0069aa81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56b226b77989a1e777af311d8d196908"><td class="memTemplParams" colspan="2">template&lt;int codim&gt; </td></tr>
+<tr class="memitem:a56b226b77989a1e777af311d8d196908"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="a03186.html">Codim</a>&lt; codim &gt;::<a class="el" href="a03210.html">Iterator</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a03170.html#a56b226b77989a1e777af311d8d196908">end</a> () const</td></tr>
+<tr class="separator:a56b226b77989a1e777af311d8d196908"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fd347d047063c832d5f33d204214f00"><td class="memTemplParams" colspan="2">template&lt;int codim, PartitionIteratorType pit&gt; </td></tr>
+<tr class="memitem:a8fd347d047063c832d5f33d204214f00"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="a03186.html">Codim</a>&lt; codim &gt;::template Partition&lt; pit &gt;::<a class="el" href="a03210.html">Iterator</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a03170.html#a8fd347d047063c832d5f33d204214f00">end</a> () const</td></tr>
+<tr class="separator:a8fd347d047063c832d5f33d204214f00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a14aa6a188e621e5de374718f93bef3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a03170.html#a34ca9578fe7b949d58fa36e1301446a1">IntersectionIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03170.html#a4a14aa6a188e621e5de374718f93bef3">ibegin</a> (const typename <a class="el" href="a03186.html">Codim</a>&lt; 0 &gt;::<a class="el" href="a03070.html">Entity</a> &amp;entity) const</td></tr>
+<tr class="separator:a4a14aa6a188e621e5de374718f93bef3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6b0724ed22045c3fd70d7f47bafe980"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a03170.html#a34ca9578fe7b949d58fa36e1301446a1">IntersectionIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03170.html#ac6b0724ed22045c3fd70d7f47bafe980">iend</a> (const typename <a class="el" href="a03186.html">Codim</a>&lt; 0 &gt;::<a class="el" href="a03070.html">Entity</a> &amp;entity) const</td></tr>
+<tr class="separator:ac6b0724ed22045c3fd70d7f47bafe980"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae906506cc6406c942615fb8e8f232d74"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a03170.html#ad3bcc44e123bd1ef7b2982c7b488f9ba">CollectiveCommunication</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03170.html#ae906506cc6406c942615fb8e8f232d74">comm</a> () const</td></tr>
+<tr class="separator:ae906506cc6406c942615fb8e8f232d74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab718cf399cc692848727900c0ab1d2e6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03170.html#ab718cf399cc692848727900c0ab1d2e6">overlapSize</a> (int codim) const</td></tr>
+<tr class="separator:ab718cf399cc692848727900c0ab1d2e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f9078ec340b31beab2044ed38d501bf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03170.html#a4f9078ec340b31beab2044ed38d501bf">ghostSize</a> (int codim) const</td></tr>
+<tr class="separator:a4f9078ec340b31beab2044ed38d501bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abcdea36f981c91a36b9ca2e3e2bb0d75"><td class="memTemplParams" colspan="2">template&lt;class DataHandle , class Data &gt; </td></tr>
+<tr class="memitem:abcdea36f981c91a36b9ca2e3e2bb0d75"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a03170.html#abcdea36f981c91a36b9ca2e3e2bb0d75">communicate</a> (<a class="el" href="a02586.html">CommDataHandleIF</a>&lt; DataHandle, Data &gt; &amp;dataHandle, <a class="el" href="a00908.html#gae799a4296824c1d4ae0d82e71287b722">InterfaceType</a> interface, <a class="el" href="a00908.html#gacf00ef51e7964e5797de12e1bdf8d755">CommunicationDirection</a> direction) const</td></tr>
+<tr class="separator:abcdea36f981c91a36b9ca2e3e2bb0d75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18c62ea48be20d17a53babb6bd12cf2e"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a03170.html#ae20e7ebc88369618b30adc1818aec820">HostGridView</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03170.html#a18c62ea48be20d17a53babb6bd12cf2e">hostGridView</a> () const</td></tr>
+<tr class="separator:a18c62ea48be20d17a53babb6bd12cf2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a9432444950205980faae999af3c80c4a"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03170.html#a9432444950205980faae999af3c80c4a">dimension</a> = HostGrid::dimension</td></tr>
-<tr class="separator:a9432444950205980faae999af3c80c4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3cc8fc934c581ea5ce2006184d271ec"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03170.html#aa3cc8fc934c581ea5ce2006184d271ec">dimensionworld</a> = CoordFunction::dimRange</td></tr>
-<tr class="separator:aa3cc8fc934c581ea5ce2006184d271ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff52ee62c7033c1069fb90e45a53fcb8"><td class="memItemLeft" align="right" valign="top">static const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03170.html#aff52ee62c7033c1069fb90e45a53fcb8">conforming</a> = Traits::conforming</td></tr>
+<tr class="separator:aff52ee62c7033c1069fb90e45a53fcb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a04f24a3ec63e5485ee06129436cd2d04"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a04f24a3ec63e5485ee06129436cd2d04">&#9670;&nbsp;</a></span>CollectiveCommunication</h2>
+<a id="ad3bcc44e123bd1ef7b2982c7b488f9ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3bcc44e123bd1ef7b2982c7b488f9ba">&#9670;&nbsp;</a></span>CollectiveCommunication</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class HG , class CF , class Allocator &gt; </div>
+template&lt;class HGV , class CoordFunction , class Allocator &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef HostGrid::Traits::CollectiveCommunication <a class="el" href="a03166.html">Dune::GeoGrid::GridFamily</a>&lt; HG, CF, Allocator &gt;::<a class="el" href="a03170.html#a04f24a3ec63e5485ee06129436cd2d04">Traits::CollectiveCommunication</a></td>
+          <td class="memname">typedef <a class="el" href="a03174.html#ab8f8178e3c8abb9a2a2728826f83f171">Traits::CollectiveCommunication</a> <a class="el" href="a03170.html">Dune::GeoGrid::GridView</a>&lt; HGV, CoordFunction, Allocator &gt;::<a class="el" href="a03170.html#ad3bcc44e123bd1ef7b2982c7b488f9ba">CollectiveCommunication</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a8c54fb7102183c61cd8d0df34b70cc01"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8c54fb7102183c61cd8d0df34b70cc01">&#9670;&nbsp;</a></span>CoordFunction</h2>
+<a id="a00b0013ad6529e6acf67173c5ee0f855"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00b0013ad6529e6acf67173c5ee0f855">&#9670;&nbsp;</a></span>Grid</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class HG , class CF , class Allocator &gt; </div>
+template&lt;class HGV , class CoordFunction , class Allocator &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef CF <a class="el" href="a03166.html">Dune::GeoGrid::GridFamily</a>&lt; HG, CF, Allocator &gt;::<a class="el" href="a03170.html#a8c54fb7102183c61cd8d0df34b70cc01">Traits::CoordFunction</a></td>
+          <td class="memname">typedef <a class="el" href="a03174.html#ade9a280c451e6f3fe138e941c923b3db">Traits::Grid</a> <a class="el" href="a03170.html">Dune::GeoGrid::GridView</a>&lt; HGV, CoordFunction, Allocator &gt;::<a class="el" href="a03170.html#a00b0013ad6529e6acf67173c5ee0f855">Grid</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="ae4a69dae64d2a53dffabd358a91441cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae4a69dae64d2a53dffabd358a91441cf">&#9670;&nbsp;</a></span>ctype</h2>
+<a id="ae20e7ebc88369618b30adc1818aec820"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae20e7ebc88369618b30adc1818aec820">&#9670;&nbsp;</a></span>HostGridView</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class HG , class CF , class Allocator &gt; </div>
+template&lt;class HGV , class CoordFunction , class Allocator &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef HostGrid::ctype <a class="el" href="a03166.html">Dune::GeoGrid::GridFamily</a>&lt; HG, CF, Allocator &gt;::<a class="el" href="a03170.html#ae4a69dae64d2a53dffabd358a91441cf">Traits::ctype</a></td>
+          <td class="memname">typedef Traits::HostGridView <a class="el" href="a03170.html">Dune::GeoGrid::GridView</a>&lt; HGV, CoordFunction, Allocator &gt;::<a class="el" href="a03170.html#ae20e7ebc88369618b30adc1818aec820">HostGridView</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a57c9cd60caf7f866cad8c9d30127ae15"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a57c9cd60caf7f866cad8c9d30127ae15">&#9670;&nbsp;</a></span>GlobalIdSet</h2>
+<a id="a6947797efaa74532d967616061d247cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6947797efaa74532d967616061d247cb">&#9670;&nbsp;</a></span>IndexSet</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class HG , class CF , class Allocator &gt; </div>
+template&lt;class HGV , class CoordFunction , class Allocator &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="a03210.html">GeoGrid::IdSet</a>&lt; const <a class="el" href="a03170.html#ad465ef2a7997dc40056c7856baa201ad">Grid</a>, typename HostGrid::Traits::GlobalIdSet &gt; <a class="el" href="a03166.html">Dune::GeoGrid::GridFamily</a>&lt; HG, CF, Allocator &gt;::<a class="el" href="a03170.html#a57c9cd60caf7f866cad8c9d30127ae15">Traits::GlobalIdSet</a></td>
+          <td class="memname">typedef <a class="el" href="a03174.html#aa1108c9a78cac5b7f127ec24584786db">Traits::IndexSet</a> <a class="el" href="a03170.html">Dune::GeoGrid::GridView</a>&lt; HGV, CoordFunction, Allocator &gt;::<a class="el" href="a03170.html#a6947797efaa74532d967616061d247cb">IndexSet</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="ad465ef2a7997dc40056c7856baa201ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad465ef2a7997dc40056c7856baa201ad">&#9670;&nbsp;</a></span>Grid</h2>
+<a id="a5c358d2861c2e7770232444339db3bde"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c358d2861c2e7770232444339db3bde">&#9670;&nbsp;</a></span>Intersection</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class HG , class CF , class Allocator &gt; </div>
+template&lt;class HGV , class CoordFunction , class Allocator &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="a03074.html">GeometryGrid</a>&lt; HG, CF, Allocator &gt; <a class="el" href="a03166.html">Dune::GeoGrid::GridFamily</a>&lt; HG, CF, Allocator &gt;::<a class="el" href="a03170.html#ad465ef2a7997dc40056c7856baa201ad">Traits::Grid</a></td>
+          <td class="memname">typedef <a class="el" href="a03174.html#adbfe11e27b586a2d77bbdeff857d1513">Traits::Intersection</a> <a class="el" href="a03170.html">Dune::GeoGrid::GridView</a>&lt; HGV, CoordFunction, Allocator &gt;::<a class="el" href="a03170.html#a5c358d2861c2e7770232444339db3bde">Intersection</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a1b452f18d5c122b2ca3b8f79a5295684"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1b452f18d5c122b2ca3b8f79a5295684">&#9670;&nbsp;</a></span>HierarchicIterator</h2>
+<a id="a34ca9578fe7b949d58fa36e1301446a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34ca9578fe7b949d58fa36e1301446a1">&#9670;&nbsp;</a></span>IntersectionIterator</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class HG , class CF , class Allocator &gt; </div>
+template&lt;class HGV , class CoordFunction , class Allocator &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="a02650.html">Dune::EntityIterator</a>&lt; 0, const <a class="el" href="a03170.html#ad465ef2a7997dc40056c7856baa201ad">Grid</a>, <a class="el" href="a03086.html">GeoGrid::HierarchicIterator</a>&lt; const <a class="el" href="a03170.html#ad465ef2a7997dc40056c7856baa201ad">Grid</a> &gt; &gt; <a class="el" href="a03166.html">Dune::GeoGrid::GridFamily</a>&lt; HG, CF, Allocator &gt;::<a class="el" href="a03170.html#a1b452f18d5c122b2ca3b8f79a5295684">Traits::HierarchicIterator</a></td>
+          <td class="memname">typedef <a class="el" href="a03174.html#af4af958a7c88976fca38f4fd5a5ab8ac">Traits::IntersectionIterator</a> <a class="el" href="a03170.html">Dune::GeoGrid::GridView</a>&lt; HGV, CoordFunction, Allocator &gt;::<a class="el" href="a03170.html#a34ca9578fe7b949d58fa36e1301446a1">IntersectionIterator</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="aaaf86a3a53af4fe7577ff28c9fef112c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaaf86a3a53af4fe7577ff28c9fef112c">&#9670;&nbsp;</a></span>HostGrid</h2>
+<a id="aecd01e25d788dabd6a30a60ad5ce62d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecd01e25d788dabd6a30a60ad5ce62d2">&#9670;&nbsp;</a></span>Traits</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class HG , class CF , class Allocator &gt; </div>
+template&lt;class HGV , class CoordFunction , class Allocator &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef HG <a class="el" href="a03166.html">Dune::GeoGrid::GridFamily</a>&lt; HG, CF, Allocator &gt;::<a class="el" href="a03170.html#aaaf86a3a53af4fe7577ff28c9fef112c">Traits::HostGrid</a></td>
+          <td class="memname">typedef <a class="el" href="a03174.html">GridViewTraits</a>&lt; HGV, CoordFunction, Allocator &gt; <a class="el" href="a03170.html">Dune::GeoGrid::GridView</a>&lt; HGV, CoordFunction, Allocator &gt;::<a class="el" href="a03170.html#aecd01e25d788dabd6a30a60ad5ce62d2">Traits</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a7acc008f0addb2341268e8c6af7e2a4d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7acc008f0addb2341268e8c6af7e2a4d">&#9670;&nbsp;</a></span>LeafGridView</h2>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ab5a80093daa8485b9efb3c89ceb98e70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5a80093daa8485b9efb3c89ceb98e70">&#9670;&nbsp;</a></span>GridView() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class HG , class CF , class Allocator &gt; </div>
+template&lt;class HGV , class CoordFunction , class Allocator &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="a02754.html">Dune::GridView</a>&lt; <a class="el" href="a03186.html">GeoGrid::GridViewTraits</a>&lt; typename HostGrid::LeafGridView, <a class="el" href="a03170.html#a8c54fb7102183c61cd8d0df34b70cc01">CoordFunction</a>, Allocator &gt; &gt; <a class="el" href="a03166.html">Dune::GeoGrid::GridFamily</a>&lt; HG, CF, Allocator &gt;::<a class="el" href="a03170.html#a7acc008f0addb2341268e8c6af7e2a4d">Traits::LeafGridView</a></td>
+          <td class="memname"><a class="el" href="a03170.html">Dune::GeoGrid::GridView</a>&lt; HGV, CoordFunction, Allocator &gt;::<a class="el" href="a03170.html">GridView</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a03170.html#a00b0013ad6529e6acf67173c5ee0f855">Grid</a> &amp;&#160;</td>
+          <td class="paramname"><em>grid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a03170.html#ae20e7ebc88369618b30adc1818aec820">HostGridView</a>&lt; HGV, CoordFunction, Allocator &gt; &amp;&#160;</td>
+          <td class="paramname"><em>hostGridView</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a7ba09349a6c0d0a0684004c9695d2e9b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7ba09349a6c0d0a0684004c9695d2e9b">&#9670;&nbsp;</a></span>LeafIndexSet</h2>
+<a id="a774daee78605d69756109a178911908d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a774daee78605d69756109a178911908d">&#9670;&nbsp;</a></span>GridView() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class HG , class CF , class Allocator &gt; </div>
+template&lt;class HGV , class CoordFunction , class Allocator &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="a03214.html">GeoGrid::IndexSet</a>&lt; const <a class="el" href="a03170.html#ad465ef2a7997dc40056c7856baa201ad">Grid</a>, typename HostGrid::Traits::LeafIndexSet &gt; <a class="el" href="a03166.html">Dune::GeoGrid::GridFamily</a>&lt; HG, CF, Allocator &gt;::<a class="el" href="a03170.html#a7ba09349a6c0d0a0684004c9695d2e9b">Traits::LeafIndexSet</a></td>
+          <td class="memname"><a class="el" href="a03170.html">Dune::GeoGrid::GridView</a>&lt; HGV, CoordFunction, Allocator &gt;::<a class="el" href="a03170.html">GridView</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a03170.html">This</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a1144fcd346413c513ecb166cb1fdbb34"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1144fcd346413c513ecb166cb1fdbb34">&#9670;&nbsp;</a></span>LeafIntersection</h2>
+<a id="adb6885b79952abc042d5902ed9c314ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb6885b79952abc042d5902ed9c314ca">&#9670;&nbsp;</a></span>GridView() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class HG , class CF , class Allocator &gt; </div>
+template&lt;class HGV , class CoordFunction , class Allocator &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="a01838.html">Dune::Intersection</a>&lt; const <a class="el" href="a03170.html#ad465ef2a7997dc40056c7856baa201ad">Grid</a>, <a class="el" href="a03218.html">GeoGrid::Intersection</a>&lt; const <a class="el" href="a03170.html#ad465ef2a7997dc40056c7856baa201ad">Grid</a>, typename HostGrid::LeafIntersection &gt; &gt; <a class="el" href="a03166.html">Dune::GeoGrid::GridFamily</a>&lt; HG, CF, Allocator &gt;::<a class="el" href="a03170.html#a1144fcd346413c513ecb166cb1fdbb34">Traits::LeafIntersection</a></td>
+          <td class="memname"><a class="el" href="a03170.html">Dune::GeoGrid::GridView</a>&lt; HGV, CoordFunction, Allocator &gt;::<a class="el" href="a03170.html">GridView</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a03170.html">This</a> &amp;&amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a7ec8e7b404db964a8334749c626bacb4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7ec8e7b404db964a8334749c626bacb4">&#9670;&nbsp;</a></span>LeafIntersectionIterator</h2>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ad68a5211ccd607553842c1dd11ebe2ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad68a5211ccd607553842c1dd11ebe2ea">&#9670;&nbsp;</a></span>begin() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class HG , class CF , class Allocator &gt; </div>
+template&lt;class HGV , class CoordFunction , class Allocator &gt; </div>
+<div class="memtemplate">
+template&lt;int codim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="a02686.html">Dune::IntersectionIterator</a>&lt; const <a class="el" href="a03170.html#ad465ef2a7997dc40056c7856baa201ad">Grid</a>, <a class="el" href="a03090.html">GeoGrid::IntersectionIterator</a>&lt; const <a class="el" href="a03170.html#ad465ef2a7997dc40056c7856baa201ad">Grid</a>, typename HostGrid::LeafIntersectionIterator &gt;, <a class="el" href="a03218.html">GeoGrid::Intersection</a>&lt; const <a class="el" href="a03170.html#ad465ef2a7997dc40056c7856baa201ad">Grid</a>, typename HostGrid::LeafIntersection &gt; &gt; <a class="el" href="a03166.html">Dune::GeoGrid::GridFamily</a>&lt; HG, CF, Allocator &gt;::<a class="el" href="a03170.html#a7ec8e7b404db964a8334749c626bacb4">Traits::LeafIntersectionIterator</a></td>
+          <td class="memname"><a class="el" href="a03186.html">Codim</a>&lt; codim &gt;::<a class="el" href="a03210.html">Iterator</a> <a class="el" href="a03170.html">Dune::GeoGrid::GridView</a>&lt; HGV, CoordFunction, Allocator &gt;::begin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a24cb88c2ebabd7363217806ee2465348"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a24cb88c2ebabd7363217806ee2465348">&#9670;&nbsp;</a></span>LevelGridView</h2>
+<a id="a85a08284a9186b0db41015af0069aa81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85a08284a9186b0db41015af0069aa81">&#9670;&nbsp;</a></span>begin() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class HG , class CF , class Allocator &gt; </div>
+template&lt;class HGV , class CoordFunction , class Allocator &gt; </div>
+<div class="memtemplate">
+template&lt;int codim, PartitionIteratorType pit&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="a02754.html">Dune::GridView</a>&lt; <a class="el" href="a03186.html">GeoGrid::GridViewTraits</a>&lt; typename HostGrid::LevelGridView, <a class="el" href="a03170.html#a8c54fb7102183c61cd8d0df34b70cc01">CoordFunction</a>, Allocator &gt; &gt; <a class="el" href="a03166.html">Dune::GeoGrid::GridFamily</a>&lt; HG, CF, Allocator &gt;::<a class="el" href="a03170.html#a24cb88c2ebabd7363217806ee2465348">Traits::LevelGridView</a></td>
+          <td class="memname"><a class="el" href="a03186.html">Codim</a>&lt; codim &gt;::template Partition&lt; pit &gt;::<a class="el" href="a03210.html">Iterator</a> <a class="el" href="a03170.html">Dune::GeoGrid::GridView</a>&lt; HGV, CoordFunction, Allocator &gt;::begin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a0374b04656de8bb6b8ccc80e4c8bdf9d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0374b04656de8bb6b8ccc80e4c8bdf9d">&#9670;&nbsp;</a></span>LevelIndexSet</h2>
+<a id="ae906506cc6406c942615fb8e8f232d74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae906506cc6406c942615fb8e8f232d74">&#9670;&nbsp;</a></span>comm()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class HG , class CF , class Allocator &gt; </div>
+template&lt;class HGV , class CoordFunction , class Allocator &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="a03214.html">GeoGrid::IndexSet</a>&lt; const <a class="el" href="a03170.html#ad465ef2a7997dc40056c7856baa201ad">Grid</a>, typename HostGrid::Traits::LevelIndexSet &gt; <a class="el" href="a03166.html">Dune::GeoGrid::GridFamily</a>&lt; HG, CF, Allocator &gt;::<a class="el" href="a03170.html#a0374b04656de8bb6b8ccc80e4c8bdf9d">Traits::LevelIndexSet</a></td>
+          <td class="memname">const <a class="el" href="a03170.html#ad3bcc44e123bd1ef7b2982c7b488f9ba">CollectiveCommunication</a>&amp; <a class="el" href="a03170.html">Dune::GeoGrid::GridView</a>&lt; HGV, CoordFunction, Allocator &gt;::comm </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a9c38972a81177d1d5b4065c3b2e269e0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9c38972a81177d1d5b4065c3b2e269e0">&#9670;&nbsp;</a></span>LevelIntersection</h2>
+<a id="abcdea36f981c91a36b9ca2e3e2bb0d75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abcdea36f981c91a36b9ca2e3e2bb0d75">&#9670;&nbsp;</a></span>communicate()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class HG , class CF , class Allocator &gt; </div>
+template&lt;class HGV , class CoordFunction , class Allocator &gt; </div>
+<div class="memtemplate">
+template&lt;class DataHandle , class Data &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="a01838.html">Dune::Intersection</a>&lt; const <a class="el" href="a03170.html#ad465ef2a7997dc40056c7856baa201ad">Grid</a>, <a class="el" href="a03218.html">GeoGrid::Intersection</a>&lt; const <a class="el" href="a03170.html#ad465ef2a7997dc40056c7856baa201ad">Grid</a>, typename HostGrid::LevelIntersection &gt; &gt; <a class="el" href="a03166.html">Dune::GeoGrid::GridFamily</a>&lt; HG, CF, Allocator &gt;::<a class="el" href="a03170.html#a9c38972a81177d1d5b4065c3b2e269e0">Traits::LevelIntersection</a></td>
+          <td class="memname">auto <a class="el" href="a03170.html">Dune::GeoGrid::GridView</a>&lt; HGV, CoordFunction, Allocator &gt;::communicate </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a02586.html">CommDataHandleIF</a>&lt; DataHandle, Data &gt; &amp;&#160;</td>
+          <td class="paramname"><em>dataHandle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00908.html#gae799a4296824c1d4ae0d82e71287b722">InterfaceType</a>&#160;</td>
+          <td class="paramname"><em>interface</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00908.html#gacf00ef51e7964e5797de12e1bdf8d755">CommunicationDirection</a>&#160;</td>
+          <td class="paramname"><em>direction</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a7e0d3c7e4ff4716e65010b5564751443"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e0d3c7e4ff4716e65010b5564751443">&#9670;&nbsp;</a></span>LevelIntersectionIterator</h2>
+<a id="a56b226b77989a1e777af311d8d196908"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56b226b77989a1e777af311d8d196908">&#9670;&nbsp;</a></span>end() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class HG , class CF , class Allocator &gt; </div>
+template&lt;class HGV , class CoordFunction , class Allocator &gt; </div>
+<div class="memtemplate">
+template&lt;int codim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="a02686.html">Dune::IntersectionIterator</a>&lt; const <a class="el" href="a03170.html#ad465ef2a7997dc40056c7856baa201ad">Grid</a>, <a class="el" href="a03090.html">GeoGrid::IntersectionIterator</a>&lt; const <a class="el" href="a03170.html#ad465ef2a7997dc40056c7856baa201ad">Grid</a>, typename HostGrid::LevelIntersectionIterator &gt;, <a class="el" href="a03218.html">GeoGrid::Intersection</a>&lt; const <a class="el" href="a03170.html#ad465ef2a7997dc40056c7856baa201ad">Grid</a>, typename HostGrid::LevelIntersection &gt; &gt; <a class="el" href="a03166.html">Dune::GeoGrid::GridFamily</a>&lt; HG, CF, Allocator &gt;::<a class="el" href="a03170.html#a7e0d3c7e4ff4716e65010b5564751443">Traits::LevelIntersectionIterator</a></td>
+          <td class="memname"><a class="el" href="a03186.html">Codim</a>&lt; codim &gt;::<a class="el" href="a03210.html">Iterator</a> <a class="el" href="a03170.html">Dune::GeoGrid::GridView</a>&lt; HGV, CoordFunction, Allocator &gt;::end </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="acf22ca4efca5f9eecf407d1930283515"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acf22ca4efca5f9eecf407d1930283515">&#9670;&nbsp;</a></span>LocalIdSet</h2>
+<a id="a8fd347d047063c832d5f33d204214f00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fd347d047063c832d5f33d204214f00">&#9670;&nbsp;</a></span>end() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class HG , class CF , class Allocator &gt; </div>
+template&lt;class HGV , class CoordFunction , class Allocator &gt; </div>
+<div class="memtemplate">
+template&lt;int codim, PartitionIteratorType pit&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="a03210.html">GeoGrid::IdSet</a>&lt; const <a class="el" href="a03170.html#ad465ef2a7997dc40056c7856baa201ad">Grid</a>, typename HostGrid::Traits::LocalIdSet &gt; <a class="el" href="a03166.html">Dune::GeoGrid::GridFamily</a>&lt; HG, CF, Allocator &gt;::<a class="el" href="a03170.html#acf22ca4efca5f9eecf407d1930283515">Traits::LocalIdSet</a></td>
+          <td class="memname"><a class="el" href="a03186.html">Codim</a>&lt; codim &gt;::template Partition&lt; pit &gt;::<a class="el" href="a03210.html">Iterator</a> <a class="el" href="a03170.html">Dune::GeoGrid::GridView</a>&lt; HGV, CoordFunction, Allocator &gt;::end </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4f9078ec340b31beab2044ed38d501bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f9078ec340b31beab2044ed38d501bf">&#9670;&nbsp;</a></span>ghostSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class HGV , class CoordFunction , class Allocator &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="a03170.html">Dune::GeoGrid::GridView</a>&lt; HGV, CoordFunction, Allocator &gt;::ghostSize </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>codim</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad99b868b1bb0b74316e44696de3c0bcb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad99b868b1bb0b74316e44696de3c0bcb">&#9670;&nbsp;</a></span>grid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class HGV , class CoordFunction , class Allocator &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a03170.html#a00b0013ad6529e6acf67173c5ee0f855">Grid</a>&amp; <a class="el" href="a03170.html">Dune::GeoGrid::GridView</a>&lt; HGV, CoordFunction, Allocator &gt;::grid </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a18c62ea48be20d17a53babb6bd12cf2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18c62ea48be20d17a53babb6bd12cf2e">&#9670;&nbsp;</a></span>hostGridView()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class HGV , class CoordFunction , class Allocator &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a03170.html#ae20e7ebc88369618b30adc1818aec820">HostGridView</a>&amp; <a class="el" href="a03170.html">Dune::GeoGrid::GridView</a>&lt; HGV, CoordFunction, Allocator &gt;::hostGridView </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4a14aa6a188e621e5de374718f93bef3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a14aa6a188e621e5de374718f93bef3">&#9670;&nbsp;</a></span>ibegin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class HGV , class CoordFunction , class Allocator &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a03170.html#a34ca9578fe7b949d58fa36e1301446a1">IntersectionIterator</a> <a class="el" href="a03170.html">Dune::GeoGrid::GridView</a>&lt; HGV, CoordFunction, Allocator &gt;::ibegin </td>
+          <td>(</td>
+          <td class="paramtype">const typename <a class="el" href="a03186.html">Codim</a>&lt; 0 &gt;::<a class="el" href="a03070.html">Entity</a> &amp;&#160;</td>
+          <td class="paramname"><em>entity</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac6b0724ed22045c3fd70d7f47bafe980"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6b0724ed22045c3fd70d7f47bafe980">&#9670;&nbsp;</a></span>iend()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class HGV , class CoordFunction , class Allocator &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a03170.html#a34ca9578fe7b949d58fa36e1301446a1">IntersectionIterator</a> <a class="el" href="a03170.html">Dune::GeoGrid::GridView</a>&lt; HGV, CoordFunction, Allocator &gt;::iend </td>
+          <td>(</td>
+          <td class="paramtype">const typename <a class="el" href="a03186.html">Codim</a>&lt; 0 &gt;::<a class="el" href="a03070.html">Entity</a> &amp;&#160;</td>
+          <td class="paramname"><em>entity</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a85fa0c2f2facfd367dc6ffdbb6c6c55d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85fa0c2f2facfd367dc6ffdbb6c6c55d">&#9670;&nbsp;</a></span>indexSet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class HGV , class CoordFunction , class Allocator &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a03170.html#a6947797efaa74532d967616061d247cb">IndexSet</a>&amp; <a class="el" href="a03170.html">Dune::GeoGrid::GridView</a>&lt; HGV, CoordFunction, Allocator &gt;::indexSet </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adcfd3376f4874f20c2b3e15877a5d652"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adcfd3376f4874f20c2b3e15877a5d652">&#9670;&nbsp;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class HGV , class CoordFunction , class Allocator &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a03170.html">This</a>&amp; <a class="el" href="a03170.html">Dune::GeoGrid::GridView</a>&lt; HGV, CoordFunction, Allocator &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a03170.html">This</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a25594ffce7d8d81d52f6128e3a584baf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25594ffce7d8d81d52f6128e3a584baf">&#9670;&nbsp;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class HGV , class CoordFunction , class Allocator &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a03170.html">This</a>&amp; <a class="el" href="a03170.html">Dune::GeoGrid::GridView</a>&lt; HGV, CoordFunction, Allocator &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a03170.html">This</a> &amp;&amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab718cf399cc692848727900c0ab1d2e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab718cf399cc692848727900c0ab1d2e6">&#9670;&nbsp;</a></span>overlapSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class HGV , class CoordFunction , class Allocator &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="a03170.html">Dune::GeoGrid::GridView</a>&lt; HGV, CoordFunction, Allocator &gt;::overlapSize </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>codim</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad632d917a836f9892e813b91d3105092"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad632d917a836f9892e813b91d3105092">&#9670;&nbsp;</a></span>size() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class HGV , class CoordFunction , class Allocator &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="a03170.html">Dune::GeoGrid::GridView</a>&lt; HGV, CoordFunction, Allocator &gt;::size </td>
+          <td>(</td>
+          <td class="paramtype">const GeometryType &amp;&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a99882cd461b7391442e1cb6a92afed76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99882cd461b7391442e1cb6a92afed76">&#9670;&nbsp;</a></span>size() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class HGV , class CoordFunction , class Allocator &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="a03170.html">Dune::GeoGrid::GridView</a>&lt; HGV, CoordFunction, Allocator &gt;::size </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>codim</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a9432444950205980faae999af3c80c4a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9432444950205980faae999af3c80c4a">&#9670;&nbsp;</a></span>dimension</h2>
+<a id="aff52ee62c7033c1069fb90e45a53fcb8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff52ee62c7033c1069fb90e45a53fcb8">&#9670;&nbsp;</a></span>conforming</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class HG , class CF , class Allocator &gt; </div>
+template&lt;class HGV , class CoordFunction , class Allocator &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const int <a class="el" href="a03166.html">Dune::GeoGrid::GridFamily</a>&lt; HG, CF, Allocator &gt;::Traits::dimension = HostGrid::dimension</td>
+          <td class="memname">const bool <a class="el" href="a03170.html">Dune::GeoGrid::GridView</a>&lt; HGV, CoordFunction, Allocator &gt;::conforming = Traits::conforming</td>
         </tr>
       </table>
   </td>
@@ -407,32 +882,8 @@ template&lt;class HG , class CF , class Allocator &gt; </div>
 
 </div>
 </div>
-<a id="aa3cc8fc934c581ea5ce2006184d271ec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa3cc8fc934c581ea5ce2006184d271ec">&#9670;&nbsp;</a></span>dimensionworld</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class HG , class CF , class Allocator &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const int <a class="el" href="a03166.html">Dune::GeoGrid::GridFamily</a>&lt; HG, CF, Allocator &gt;::Traits::dimensionworld = CoordFunction::dimRange</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="a06812_source.html">geometrygrid/gridfamily.hh</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="a06732_source.html">geometrygrid/gridview.hh</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

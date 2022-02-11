@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-common
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -76,7 +76,8 @@ $(function() {
 
 <p>Eigenvalue computations for the FieldMatrix class.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;iostream&gt;</code><br />
+<div class="textblock"><code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
 <code>#include &lt;cmath&gt;</code><br />
 <code>#include &lt;cassert&gt;</code><br />
 <code>#include &lt;<a class="el" href="a00086_source.html">dune/common/exceptions.hh</a>&gt;</code><br />
@@ -96,26 +97,6 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ae376de3e999c5cc767ccba328cd6bd25"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00440.html#ae376de3e999c5cc767ccba328cd6bd25">Dune::FMatrixHelp::eigenValuesLapackCall</a> (const char *jobz, const char *uplo, const long int *n, double *a, const long int *lda, double *w, double *work, const long int *lwork, long int *info)</td></tr>
-<tr class="separator:ae376de3e999c5cc767ccba328cd6bd25"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57edcbf5ece0bc6b66a7415473a15541"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00440.html#a57edcbf5ece0bc6b66a7415473a15541">Dune::FMatrixHelp::eigenValuesNonsymLapackCall</a> (const char *jobvl, const char *jobvr, const long int *n, double *a, const long int *lda, double *wr, double *wi, double *vl, const long int *ldvl, double *vr, const long int *ldvr, double *work, const long int *lwork, long int *info)</td></tr>
-<tr class="separator:a57edcbf5ece0bc6b66a7415473a15541"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa31f924dabd8261394d89b7e7c7de2ff"><td class="memTemplParams" colspan="2">template&lt;typename K &gt; </td></tr>
-<tr class="memitem:aa31f924dabd8261394d89b7e7c7de2ff"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00440.html#aa31f924dabd8261394d89b7e7c7de2ff">Dune::FMatrixHelp::eigenValues</a> (const FieldMatrix&lt; K, 1, 1 &gt; &amp;matrix, FieldVector&lt; K, 1 &gt; &amp;eigenvalues)</td></tr>
-<tr class="memdesc:aa31f924dabd8261394d89b7e7c7de2ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculates the eigenvalues of a symmetric field matrix  <a href="a00440.html#aa31f924dabd8261394d89b7e7c7de2ff">More...</a><br /></td></tr>
-<tr class="separator:aa31f924dabd8261394d89b7e7c7de2ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab11c40ce77d3ac472f1d8f61a0276624"><td class="memTemplParams" colspan="2">template&lt;typename K &gt; </td></tr>
-<tr class="memitem:ab11c40ce77d3ac472f1d8f61a0276624"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00440.html#ab11c40ce77d3ac472f1d8f61a0276624">Dune::FMatrixHelp::eigenValues</a> (const FieldMatrix&lt; K, 2, 2 &gt; &amp;matrix, FieldVector&lt; K, 2 &gt; &amp;eigenvalues)</td></tr>
-<tr class="memdesc:ab11c40ce77d3ac472f1d8f61a0276624"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculates the eigenvalues of a symmetric field matrix  <a href="a00440.html#ab11c40ce77d3ac472f1d8f61a0276624">More...</a><br /></td></tr>
-<tr class="separator:ab11c40ce77d3ac472f1d8f61a0276624"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1a559563332666d05e11ee7cc5a208f"><td class="memTemplParams" colspan="2">template&lt;typename K &gt; </td></tr>
-<tr class="memitem:ab1a559563332666d05e11ee7cc5a208f"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00440.html#ab1a559563332666d05e11ee7cc5a208f">Dune::FMatrixHelp::eigenValues</a> (const FieldMatrix&lt; K, 3, 3 &gt; &amp;matrix, FieldVector&lt; K, 3 &gt; &amp;eigenvalues)</td></tr>
-<tr class="memdesc:ab1a559563332666d05e11ee7cc5a208f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the eigenvalues of a symmetric 3x3 field matrix.  <a href="a00440.html#ab1a559563332666d05e11ee7cc5a208f">More...</a><br /></td></tr>
-<tr class="separator:ab1a559563332666d05e11ee7cc5a208f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af40f69f7033a7f54342d20339a6e8e44"><td class="memTemplParams" colspan="2">template&lt;int dim, typename K &gt; </td></tr>
-<tr class="memitem:af40f69f7033a7f54342d20339a6e8e44"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00440.html#af40f69f7033a7f54342d20339a6e8e44">Dune::FMatrixHelp::eigenValuesVectorsLapack</a> (const FieldMatrix&lt; K, dim, dim &gt; &amp;matrix, FieldVector&lt; K, dim &gt; &amp;eigenValues, FieldMatrix&lt; K, dim, dim &gt; &amp;eigenVectors, const char &amp;jobz)</td></tr>
-<tr class="memdesc:af40f69f7033a7f54342d20339a6e8e44"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculates the eigenvalues and/or eigenvectors of a symmetric field matrix  <a href="a00440.html#af40f69f7033a7f54342d20339a6e8e44">More...</a><br /></td></tr>
-<tr class="separator:af40f69f7033a7f54342d20339a6e8e44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86eafff72a6c52bec8aa92e191f08887"><td class="memTemplParams" colspan="2">template&lt;int dim, typename K &gt; </td></tr>
 <tr class="memitem:a86eafff72a6c52bec8aa92e191f08887"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00440.html#a86eafff72a6c52bec8aa92e191f08887">Dune::FMatrixHelp::eigenValues</a> (const FieldMatrix&lt; K, dim, dim &gt; &amp;matrix, FieldVector&lt; K, dim &gt; &amp;eigenValues)</td></tr>
 <tr class="memdesc:a86eafff72a6c52bec8aa92e191f08887"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculates the eigenvalues of a symmetric field matrix  <a href="a00440.html#a86eafff72a6c52bec8aa92e191f08887">More...</a><br /></td></tr>
@@ -124,6 +105,14 @@ Functions</h2></td></tr>
 <tr class="memitem:ae35eb55b361af2d69d419f3b6ecf4d2c"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00440.html#ae35eb55b361af2d69d419f3b6ecf4d2c">Dune::FMatrixHelp::eigenValuesVectors</a> (const FieldMatrix&lt; K, dim, dim &gt; &amp;matrix, FieldVector&lt; K, dim &gt; &amp;eigenValues, FieldMatrix&lt; K, dim, dim &gt; &amp;eigenVectors)</td></tr>
 <tr class="memdesc:ae35eb55b361af2d69d419f3b6ecf4d2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculates the eigenvalues and eigenvectors of a symmetric field matrix  <a href="a00440.html#ae35eb55b361af2d69d419f3b6ecf4d2c">More...</a><br /></td></tr>
 <tr class="separator:ae35eb55b361af2d69d419f3b6ecf4d2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96fe2783815b8f97773279ed069cf1d8"><td class="memTemplParams" colspan="2">template&lt;int dim, typename K &gt; </td></tr>
+<tr class="memitem:a96fe2783815b8f97773279ed069cf1d8"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00440.html#a96fe2783815b8f97773279ed069cf1d8">Dune::FMatrixHelp::eigenValuesLapack</a> (const FieldMatrix&lt; K, dim, dim &gt; &amp;matrix, FieldVector&lt; K, dim &gt; &amp;eigenValues)</td></tr>
+<tr class="memdesc:a96fe2783815b8f97773279ed069cf1d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculates the eigenvalues of a symmetric field matrix  <a href="a00440.html#a96fe2783815b8f97773279ed069cf1d8">More...</a><br /></td></tr>
+<tr class="separator:a96fe2783815b8f97773279ed069cf1d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe77be4b948169fdcebb318248023920"><td class="memTemplParams" colspan="2">template&lt;int dim, typename K &gt; </td></tr>
+<tr class="memitem:afe77be4b948169fdcebb318248023920"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00440.html#afe77be4b948169fdcebb318248023920">Dune::FMatrixHelp::eigenValuesVectorsLapack</a> (const FieldMatrix&lt; K, dim, dim &gt; &amp;matrix, FieldVector&lt; K, dim &gt; &amp;eigenValues, FieldMatrix&lt; K, dim, dim &gt; &amp;eigenVectors)</td></tr>
+<tr class="memdesc:afe77be4b948169fdcebb318248023920"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculates the eigenvalues and -vectors of a symmetric field matrix  <a href="a00440.html#afe77be4b948169fdcebb318248023920">More...</a><br /></td></tr>
+<tr class="separator:afe77be4b948169fdcebb318248023920"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a72135a64a9d7252dbcf26664c5810cce"><td class="memTemplParams" colspan="2">template&lt;int dim, typename K , class C &gt; </td></tr>
 <tr class="memitem:a72135a64a9d7252dbcf26664c5810cce"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00440.html#a72135a64a9d7252dbcf26664c5810cce">Dune::FMatrixHelp::eigenValuesNonSym</a> (const FieldMatrix&lt; K, dim, dim &gt; &amp;matrix, FieldVector&lt; C, dim &gt; &amp;eigenValues)</td></tr>
 <tr class="memdesc:a72135a64a9d7252dbcf26664c5810cce"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculates the eigenvalues of a non-symmetric field matrix  <a href="a00440.html#a72135a64a9d7252dbcf26664c5810cce">More...</a><br /></td></tr>

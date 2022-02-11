@@ -19,7 +19,6 @@
 #include <utility>
 
 #include <dune/common/classname.hh>
-#include <dune/common/deprecated.hh>
 #include <dune/common/hybridutilities.hh>
 #include <dune/common/rangeutilities.hh>
 #include <dune/common/simd/io.hh>
@@ -28,7 +27,6 @@
 #include <dune/common/std/type_traits.hh>
 #include <dune/common/typelist.hh>
 #include <dune/common/typetraits.hh>
-#include <dune/common/unused.hh>
 
 namespace Dune {
   namespace Simd {
@@ -40,14 +38,14 @@ namespace Dune {
       template<class Op, class... Args, class SFINAE>
       struct CanCall<Op(Args...), SFINAE> : std::false_type {};
       template<class Op, class... Args>
-      struct CanCall<Op(Args...), void_t<std::result_of_t<Op(Args...)> > >
+      struct CanCall<Op(Args...), std::void_t<std::result_of_t<Op(Args...)> > >
         : std::true_type
       {};
 
       template<class T, class SFINAE = void>
       struct LessThenComparable : std::false_type {};
       template<class T>
-      struct LessThenComparable<T, void_t<decltype(std::declval<T>()
+      struct LessThenComparable<T, std::void_t<decltype(std::declval<T>()
                                                    < std::declval<T>())> > :
         std::true_type
       {};
@@ -145,7 +143,7 @@ namespace Dune {
       template<class...>
       constexpr bool debugTypes(std::true_type) { return true; }
       template<class... Types>
-      DUNE_DEPRECATED
+      [[deprecated]]
       constexpr bool debugTypes(std::false_type) { return false; }
 
     } // namespace Impl
@@ -317,12 +315,12 @@ namespace Dune {
         static_assert(std::is_same<T, std::decay_t<T> >::value, "Scalar types "
                       "must not be references, and must not include "
                       "cv-qualifiers");
-        T DUNE_UNUSED a{};
+        [[maybe_unused]] T a{};
       }
 
       template<class V>
-      DUNE_DEPRECATED_MSG("Warning: please include bool in the Rebinds for "
-                          "simd type V, as Masks are not checked otherwise.")
+      [[deprecated("Warning: please include bool in the Rebinds for "
+                          "simd type V, as Masks are not checked otherwise.")]]
       void warnMissingMaskRebind(std::true_type) {}
       template<class V>
       void warnMissingMaskRebind(std::false_type) {}
@@ -331,7 +329,7 @@ namespace Dune {
                template<class> class RebindAccept, class Recurse>
       void checkRebindOf(Recurse recurse)
       {
-        Hybrid::forEach(Rebinds{}, [=](auto target) {
+        Hybrid::forEach(Rebinds{}, [this,recurse](auto target) {
             using T = typename decltype(target)::type;
 
             // check that the rebound type exists
@@ -348,18 +346,17 @@ namespace Dune {
             static_assert(std::is_same<T, Scalar<W> >::value, "Rebound types "
                           "must have the bound-to scalar type");
 
-            Hybrid::ifElse(RebindPrune<W>{},
-              [this](auto id) {
-                log_ << "Pruning check of Simd type " << className<W>()
-                     << std::endl;
-              },
-              [=](auto id) {
-                using Impl::debugTypes;
-                static_assert(debugTypes<T, V, W>(id(RebindAccept<W>{})),
-                              "Rebind<T, V> is W, but that is not accepted "
-                              "by RebindAccept");
-                recurse(id(MetaType<W>{}));
-              });
+            if constexpr (RebindPrune<W>{}) {
+              log_ << "Pruning check of Simd type " << className<W>()
+                   << std::endl;
+            }
+            else {
+              using Impl::debugTypes;
+              static_assert(debugTypes<T, V, W>(RebindAccept<W>{}),
+                            "Rebind<T, V> is W, but that is not accepted "
+                            "by RebindAccept");
+              recurse(MetaType<W>{});
+            }
           });
 
         static_assert(std::is_same<Rebind<Scalar<V>, V>, V>::value, "A type "
@@ -387,7 +384,7 @@ namespace Dune {
                       "return type of lanes(V{}) should be std::size_t");
 
         // the result of lanes<V>() must be constexpr
-        constexpr auto DUNE_UNUSED size = lanes<V>();
+        [[maybe_unused]] constexpr auto size = lanes<V>();
         // but the result of lanes(vec) does not need to be constexpr
         DUNE_SIMD_CHECK(lanes<V>() == lanes(V{}));
       }
@@ -395,9 +392,9 @@ namespace Dune {
       template<class V>
       void checkDefaultConstruct()
       {
-        { V DUNE_UNUSED vec;      }
-        { V DUNE_UNUSED vec{};    }
-        { V DUNE_UNUSED vec = {}; }
+        { [[maybe_unused]] V vec;      }
+        { [[maybe_unused]] V vec{};    }
+        { [[maybe_unused]] V vec = {}; }
       }
 
       template<class V>
@@ -1404,14 +1401,13 @@ namespace Dune {
       template<class T1, class T2, bool condition, class Checker>
       void checkBinaryRefQual(Checker checker)
       {
-        Hybrid::ifElse(std::integral_constant<bool, condition>{},
-          [=] (auto id) {
-            Hybrid::forEach(id(TypeList<T1&, const T1&, T1&&>{}),
-              [=] (auto t1) {
-                Hybrid::forEach(id(TypeList<T2&, const T2&, T2&&>{}),
-                  [=] (auto t2) { id(checker)(t1, t2); });
-              });
+        if constexpr (condition) {
+          Hybrid::forEach(TypeList<T1&, const T1&, T1&&>{}, [=] (auto t1) {
+            Hybrid::forEach(TypeList<T2&, const T2&, T2&&>{}, [=] (auto t2) {
+              checker(t1, t2);
+            });
           });
+        }
       }
 
       template<class V, class Checker>
@@ -1791,6 +1787,31 @@ namespace Dune {
        * already explicitly instantiated.  This will limit the impact of
        * instantiation points added in the future.
        *
+       * For an example of how to do the instantiations, look at
+       * `standardtest`, there is cmake machinery to support you.
+       *
+       * Background: The compiler can use a lot of memory when compiling a
+       * unit test for many Simd vector types.  E.g. for standardtest.cc,
+       * which tests all the fundamental arithmetic types plus \c
+       * std::complex, g++ 4.9.2 (-g -O0 -Wall on x86_64 GNU/Linux) used
+       * ~6GByte.
+       *
+       * One mitigation was to explicitly instantiate \c checkVector() (a
+       * previous, now obsolete incarnation of this instantiation machinery)
+       * for the types that are tested.  Still after doing that,
+       * standardtest.cc needed ~1.5GByte during compilation, which is more
+       * than the compilation units that actually instantiated \c
+       * checkVector() (which clocked in at maximum at around 800MB, depending
+       * on how many instantiations they contained).
+       *
+       * The second mitigation was to define \c checkVector() outside of the
+       * class.  I have no idea why this helped, but it made compilation use
+       * less than ~100MByte.  (Yes, functions defined inside the class are
+       * implicitly \c inline, but the function is a template so it has inline
+       * semantics even when defined outside of the class.  And I tried \c
+       * __attribute__((__noinline__)), which had no effect on memory
+       * consumption.)
+       *
        * @{
        */
       template<class V> void checkType();
@@ -1824,7 +1845,7 @@ namespace Dune {
        */
       template<class V, class Rebinds,
                template<class> class RebindPrune = IsLoop,
-               template<class> class RebindAccept = Std::to_true_type>
+               template<class> class RebindAccept = Dune::AlwaysTrue>
       void check() {
         // check whether the test for this type already started
         if(seen_.emplace(typeid (V)).second == false)
@@ -1843,52 +1864,6 @@ namespace Dune {
 
         checkType<V>();
       }
-
-      //! run unit tests for simd vector type V
-      /**
-       * This function will also ensure that `checkVector<Rebind<R, V>>()`
-       * (for any `R` in `Rebinds`) is run.  No test will be run twice for a
-       * given type.
-       *
-       * \tparam Rebinds A list of types, usually in the form of a `TypeList`.
-       * \tparam Prune   A type predicate determining whether to run
-       *                 `checkVector()` for types obtained from `Rebinds`.
-       *
-       * \deprecated Rather than calling this function, call `check()` with
-       *              the same template arguments.  Rather than explicitly
-       *              instantiating this function as described below,
-       *              explicitly instantiate `checkType()` and friends.
-       *
-       * \note As an implementor of a unit test, you are encouraged to
-       *       explicitly instantiate this function in separate compilation
-       *       units for the types you are testing.  Look at `standardtest.cc`
-       *       for how to do this.
-       *
-       * Background: The compiler can use a lot of memory when compiling a
-       * unit test for many Simd vector types.  E.g. for standardtest.cc,
-       * which tests all the fundamental arithmetic types plus \c
-       * std::complex, g++ 4.9.2 (-g -O0 -Wall on x86_64 GNU/Linux) used
-       * ~6GByte.
-       *
-       * One mitigation is to explicitly instantiate \c checkVector() for the
-       * types that are tested.  Still after doing that, standardtest.cc
-       * needed ~1.5GByte during compilation, which is more than the
-       * compilation units that actually instantiated \c checkVector() (which
-       * clocked in at maximum at around 800MB, depending on how many
-       * instantiations they contained).
-       *
-       * The second mitigation is to define \c checkVector() outside of the
-       * class.  I have no idea why this helps, but it makes compilation use
-       * less than ~100MByte.  (Yes, functions defined inside the class are
-       * implicitly \c inline, but the function is a template so it has inline
-       * semantics even when defined outside of the class.  And I tried \c
-       * __attribute__((__noinline__)), which had no effect on memory
-       * consumption.)
-       */
-      template<class V, class Rebinds, template<class> class Prune = IsLoop>
-      DUNE_DEPRECATED_MSG("Call check() instead, and explicitly instantiate "
-                          "checkType() and friends instead")
-      void checkVector();
 
       //! whether all tests succeeded
       bool good() const
@@ -1922,9 +1897,10 @@ namespace Dune {
       checkCopyMoveConstruct<V>();
       checkImplCast<V>();
       checkBroadcast<V>();
-      Hybrid::ifElse(isMask,
-        [this](auto id) { id(this)->template checkBroadcastMaskConstruct<V>();   },
-        [this](auto id) { id(this)->template checkBroadcastVectorConstruct<V>(); });
+      if constexpr (isMask)
+        this->template checkBroadcastMaskConstruct<V>();
+      else
+        this->template checkBroadcastVectorConstruct<V>();
       checkBracedAssign<V>();
       checkBracedBroadcastAssign<V>();
 
@@ -1932,8 +1908,8 @@ namespace Dune {
       checkCond<V>();
       checkBoolCond<V>();
 
-      Hybrid::ifElse(isMask,
-        [this](auto id) { id(this)->template checkBoolReductions<V>(); });
+      if constexpr (isMask)
+        this->template checkBoolReductions<V>();
       // checkBoolReductions() is not applicable for non-masks
 
       checkHorizontalMinMax<V>();
@@ -1942,9 +1918,10 @@ namespace Dune {
     }
     template<class V> void UnitTest::checkUnaryOps()
     {
-      auto checkMask = [=](auto id) {
-        auto check = [=](auto op) {
-          id(this)->template checkUnaryOpsV<V>(op);
+      if constexpr (std::is_same_v<Scalar<V>, bool>) {
+        // check mask
+        auto check = [this](auto op) {
+          this->template checkUnaryOpsV<V>(op);
         };
 
         // postfix
@@ -1961,11 +1938,11 @@ namespace Dune {
         // check(OpPrefixMinus{});
         check(OpPrefixLogicNot{});
         // check(OpPrefixBitNot{});
-      };
-
-      auto checkVector = [=](auto id) {
-        auto check = [=](auto op) {
-          id(this)->template checkUnaryOpsV<V>(op);
+      }
+      else {
+        // check vector
+        auto check = [this](auto op) {
+          this->template checkUnaryOpsV<V>(op);
         };
 
         // postfix
@@ -1980,9 +1957,7 @@ namespace Dune {
         check(OpPrefixMinus{});
         check(OpPrefixLogicNot{});
         check(OpPrefixBitNot{});
-      };
-
-      Hybrid::ifElse(std::is_same<Scalar<V>, bool>{}, checkMask, checkVector);
+      }
     }
     template<class V> void UnitTest::checkBinaryOps()
     {
@@ -1994,8 +1969,8 @@ namespace Dune {
     }
     template<class V> void UnitTest::checkBinaryOpsVectorVector()
     {
-      auto checker = [=](auto doSV, auto doVV, auto doVS, auto op) {
-        auto check = [=](auto t1, auto t2) {
+      auto checker = [this](auto doSV, auto doVV, auto doVS, auto op) {
+        auto check = [this,op](auto t1, auto t2) {
           this->checkBinaryOpVV(t1, t2, op);
         };
         this->checkBinaryRefQual<V, V, doVV>(check);
@@ -2004,13 +1979,13 @@ namespace Dune {
     }
     template<class V> void UnitTest::checkBinaryOpsScalarVector()
     {
-      auto checker = [=](auto doSV, auto doVV, auto doVS, auto op) {
-        auto check = [=](auto t1, auto t2) {
+      auto checker = [this](auto doSV, auto doVV, auto doVS, auto op) {
+        auto check = [this,op](auto t1, auto t2) {
           this->checkBinaryOpSV(t1, t2, op);
         };
         this->checkBinaryRefQual<Scalar<V>, V, doSV>(check);
 
-        auto crossCheck = [=](auto t1, auto t2) {
+        auto crossCheck = [this,op](auto t1, auto t2) {
           this->checkBinaryOpVVAgainstSV(t1, t2, op);
         };
         this->checkBinaryRefQual<Scalar<V>, V, doSV && doVV>(crossCheck);
@@ -2019,13 +1994,13 @@ namespace Dune {
     }
     template<class V> void UnitTest::checkBinaryOpsVectorScalar()
     {
-      auto checker = [=](auto doSV, auto doVV, auto doVS, auto op) {
-        auto check = [=](auto t1, auto t2) {
+      auto checker = [this](auto doSV, auto doVV, auto doVS, auto op) {
+        auto check = [this,op](auto t1, auto t2) {
           this->checkBinaryOpVS(t1, t2, op);
         };
         this->checkBinaryRefQual<V, Scalar<V>, doVS>(check);
 
-        auto crossCheck = [=](auto t1, auto t2) {
+        auto crossCheck = [this,op](auto t1, auto t2) {
           this->checkBinaryOpVVAgainstVS(t1, t2, op);
         };
         this->checkBinaryRefQual<V, Scalar<V>, doVV && doVS>(crossCheck);
@@ -2034,8 +2009,8 @@ namespace Dune {
     }
     template<class V> void UnitTest::checkBinaryOpsProxyVector()
     {
-      auto checker = [=](auto doSV, auto doVV, auto doVS, auto op) {
-        auto check = [=](auto t1, auto t2) {
+      auto checker = [this](auto doSV, auto doVV, auto doVS, auto op) {
+        auto check = [this,op](auto t1, auto t2) {
           this->checkBinaryOpPV(t1, t2, op);
         };
         this->checkBinaryRefQual<V, V, doSV>(check);
@@ -2044,36 +2019,13 @@ namespace Dune {
     }
     template<class V> void UnitTest::checkBinaryOpsVectorProxy()
     {
-      auto checker = [=](auto doSV, auto doVV, auto doVS, auto op) {
-        auto check = [=](auto t1, auto t2) {
+      auto checker = [this](auto doSV, auto doVV, auto doVS, auto op) {
+        auto check = [this,op](auto t1, auto t2) {
           this->checkBinaryOpVP(t1, t2, op);
         };
         this->checkBinaryRefQual<V, V, doVS>(check);
       };
       checkBinaryOps<V>(checker);
-    }
-
-    // Needs to be defined outside of the class to bring memory consumption
-    // during compilation down to an acceptable level.
-    template<class V, class Rebinds, template<class> class Prune>
-    void UnitTest::checkVector()
-    {
-      // check whether the test for this type already started
-      if(seen_.emplace(typeid (V)).second == false)
-      {
-        // type already seen, nothing to do
-        return;
-      }
-
-      // do these first so everything that appears after "Checking SIMD type
-      // ..." really pertains to that type
-      auto recurse = [this](auto w) {
-        using W = typename decltype(w)::type;
-        this->template checkVector<W, Rebinds, Prune>();
-      };
-      checkRebindOf<V, Rebinds, Prune, Std::to_true_type>(recurse);
-
-      checkType<V>();
     }
 
   } // namespace Simd

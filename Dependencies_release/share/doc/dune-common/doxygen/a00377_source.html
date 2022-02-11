@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-common
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -80,7 +80,7 @@ $(function() {
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00134.html">dune/common/indices.hh</a>&gt;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00383.html">dune/common/typetraits.hh</a>&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00341.html">dune/common/std/type_traits.hh</a>&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00338.html">dune/common/std/type_traits.hh</a>&gt;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
@@ -90,7 +90,7 @@ $(function() {
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span>... T&gt;</div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="a03080.html">   32</a></span>&#160;<span class="keyword">class </span><a class="code" href="a03080.html">TupleVector</a> : <span class="keyword">public</span> std::tuple&lt;T...&gt;</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="a02997.html">   32</a></span>&#160;<span class="keyword">class </span><a class="code" href="a02997.html">TupleVector</a> : <span class="keyword">public</span> std::tuple&lt;T...&gt;</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keyword">using</span> Base = std::tuple&lt;T...&gt;;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
@@ -105,26 +105,26 @@ $(function() {
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class</span>... TT,</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    std::enable_if_t&lt;hasTupleConstructor&lt;TT...&gt;::value, <span class="keywordtype">int</span>&gt; = 0&gt;</div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="a03080.html#a18fb497d8152c2f3eb144449d70e9bc9">   53</a></span>&#160;  constexpr <a class="code" href="a03080.html#a18fb497d8152c2f3eb144449d70e9bc9">TupleVector</a>(TT&amp;&amp;... tt) :</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="a02997.html#a18fb497d8152c2f3eb144449d70e9bc9">   53</a></span>&#160;  constexpr <a class="code" href="a02997.html#a18fb497d8152c2f3eb144449d70e9bc9">TupleVector</a>(TT&amp;&amp;... tt) :</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    Base(std::forward&lt;TT&gt;(tt)...)</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  {}</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="a03080.html#af79a45a6b4d14f7db794298985da714e">   59</a></span>&#160;  constexpr <a class="code" href="a03080.html#af79a45a6b4d14f7db794298985da714e">TupleVector</a>()</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="a02997.html#af79a45a6b4d14f7db794298985da714e">   59</a></span>&#160;  constexpr <a class="code" href="a02997.html#af79a45a6b4d14f7db794298985da714e">TupleVector</a>()</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  {}</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <span class="keyword">template</span>&lt;std::<span class="keywordtype">size_t</span> i&gt;</div>
-<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="a03080.html#ae61a44c59db745e575ee839989dc13ed">   65</a></span>&#160;  constexpr decltype(<span class="keyword">auto</span>) operator[](const <a class="code" href="a00428.html">Dune</a>::<a class="code" href="a00400.html#gacf764509e6dae37477f5ad09b5ca3467">index_constant</a>&lt;i&gt;&amp;)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="a02997.html#ae61a44c59db745e575ee839989dc13ed">   65</a></span>&#160;  constexpr decltype(<span class="keyword">auto</span>) operator[](const <a class="code" href="a00428.html">Dune</a>::<a class="code" href="a00400.html#gacf764509e6dae37477f5ad09b5ca3467">index_constant</a>&lt;i&gt;&amp;)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword">  </span>{</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordflow">return</span> std::get&lt;i&gt;(*<span class="keyword">this</span>);</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  }</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="keyword">template</span>&lt;std::<span class="keywordtype">size_t</span> i&gt;</div>
-<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="a03080.html#a22b24b2bd8f2fa120c183b3c8becf1c9">   73</a></span>&#160;  decltype(<span class="keyword">auto</span>) operator[](const <a class="code" href="a00428.html">Dune</a>::<a class="code" href="a00400.html#gacf764509e6dae37477f5ad09b5ca3467">index_constant</a>&lt;i&gt;&amp;)</div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="a02997.html#a22b24b2bd8f2fa120c183b3c8becf1c9">   73</a></span>&#160;  decltype(<span class="keyword">auto</span>) operator[](const <a class="code" href="a00428.html">Dune</a>::<a class="code" href="a00400.html#gacf764509e6dae37477f5ad09b5ca3467">index_constant</a>&lt;i&gt;&amp;)</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  {</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordflow">return</span> std::get&lt;i&gt;(*<span class="keyword">this</span>);</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  }</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="a03080.html#a1595dc930c803c3b4e4652b011ebf47b">   79</a></span>&#160;  <span class="keyword">static</span> constexpr std::size_t <a class="code" href="a03080.html#a1595dc930c803c3b4e4652b011ebf47b">size</a>()</div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="a02997.html#a1595dc930c803c3b4e4652b011ebf47b">   79</a></span>&#160;  <span class="keyword">static</span> constexpr std::size_t <a class="code" href="a02997.html#a1595dc930c803c3b4e4652b011ebf47b">size</a>()</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  {</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordflow">return</span> std::tuple_size&lt;Base&gt;::value;</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  }</div>
@@ -137,7 +137,7 @@ $(function() {
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;{</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  <span class="comment">// The std::decay_t&lt;T&gt; is is a slight simplification,</span></div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  <span class="comment">// because std::reference_wrapper needs special care.</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="a03080.html">TupleVector&lt;std::decay_t&lt;T&gt;</a>...&gt;(std::forward&lt;T&gt;(t)...);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="a02997.html">TupleVector&lt;std::decay_t&lt;T&gt;</a>...&gt;(std::forward&lt;T&gt;(t)...);</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;}</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
@@ -146,16 +146,16 @@ $(function() {
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// DUNE_COMMON_TUPLEVECTOR_HH</span></div>
 <div class="ttc" id="aa00134_html"><div class="ttname"><a href="a00134.html">indices.hh</a></div></div>
-<div class="ttc" id="aa00341_html"><div class="ttname"><a href="a00341.html">type_traits.hh</a></div></div>
+<div class="ttc" id="aa00338_html"><div class="ttname"><a href="a00338.html">type_traits.hh</a></div></div>
 <div class="ttc" id="aa00383_html"><div class="ttname"><a href="a00383.html">typetraits.hh</a></div><div class="ttdoc">Traits for type conversions and type information.</div></div>
 <div class="ttc" id="aa00400_html_gacf764509e6dae37477f5ad09b5ca3467"><div class="ttname"><a href="a00400.html#gacf764509e6dae37477f5ad09b5ca3467">Dune::index_constant</a></div><div class="ttdeci">std::integral_constant&lt; std::size_t, i &gt; index_constant</div><div class="ttdoc">An index constant with value i.</div><div class="ttdef"><b>Definition:</b> indices.hh:28</div></div>
-<div class="ttc" id="aa00409_html_gaccaa5104ef0c27be164435f42ef81fd5"><div class="ttname"><a href="a00409.html#gaccaa5104ef0c27be164435f42ef81fd5">Dune::Std::is_detected</a></div><div class="ttdeci">typename detected_or&lt; nonesuch, Op, Args... &gt;::value_t is_detected</div><div class="ttdoc">Detects whether Op&lt;Args...&gt; is valid.</div><div class="ttdef"><b>Definition:</b> type_traits.hh:340</div></div>
-<div class="ttc" id="aa00428_html"><div class="ttname"><a href="a00428.html">Dune</a></div><div class="ttdoc">Dune namespace.</div><div class="ttdef"><b>Definition:</b> alignedallocator.hh:14</div></div>
+<div class="ttc" id="aa00409_html_gaccaa5104ef0c27be164435f42ef81fd5"><div class="ttname"><a href="a00409.html#gaccaa5104ef0c27be164435f42ef81fd5">Dune::Std::is_detected</a></div><div class="ttdeci">typename detected_or&lt; nonesuch, Op, Args... &gt;::value_t is_detected</div><div class="ttdoc">Detects whether Op&lt;Args...&gt; is valid.</div><div class="ttdef"><b>Definition:</b> type_traits.hh:326</div></div>
+<div class="ttc" id="aa00428_html"><div class="ttname"><a href="a00428.html">Dune</a></div><div class="ttdoc">Dune namespace.</div><div class="ttdef"><b>Definition:</b> alignedallocator.hh:11</div></div>
 <div class="ttc" id="aa00428_html_ae982edb333af3a1f24fe324cc593be0d"><div class="ttname"><a href="a00428.html#ae982edb333af3a1f24fe324cc593be0d">Dune::makeTupleVector</a></div><div class="ttdeci">constexpr auto makeTupleVector(T &amp;&amp;... t)</div><div class="ttdef"><b>Definition:</b> tuplevector.hh:88</div></div>
-<div class="ttc" id="aa03080_html"><div class="ttname"><a href="a03080.html">Dune::TupleVector</a></div><div class="ttdoc">A class augmenting std::tuple by element access via operator[].</div><div class="ttdef"><b>Definition:</b> tuplevector.hh:33</div></div>
-<div class="ttc" id="aa03080_html_a1595dc930c803c3b4e4652b011ebf47b"><div class="ttname"><a href="a03080.html#a1595dc930c803c3b4e4652b011ebf47b">Dune::TupleVector::size</a></div><div class="ttdeci">static constexpr std::size_t size()</div><div class="ttdoc">Number of elements of the tuple.</div><div class="ttdef"><b>Definition:</b> tuplevector.hh:79</div></div>
-<div class="ttc" id="aa03080_html_a18fb497d8152c2f3eb144449d70e9bc9"><div class="ttname"><a href="a03080.html#a18fb497d8152c2f3eb144449d70e9bc9">Dune::TupleVector::TupleVector</a></div><div class="ttdeci">constexpr TupleVector(TT &amp;&amp;... tt)</div><div class="ttdoc">Construct from a set of arguments.</div><div class="ttdef"><b>Definition:</b> tuplevector.hh:53</div></div>
-<div class="ttc" id="aa03080_html_af79a45a6b4d14f7db794298985da714e"><div class="ttname"><a href="a03080.html#af79a45a6b4d14f7db794298985da714e">Dune::TupleVector::TupleVector</a></div><div class="ttdeci">constexpr TupleVector()</div><div class="ttdoc">Default constructor.</div><div class="ttdef"><b>Definition:</b> tuplevector.hh:59</div></div>
+<div class="ttc" id="aa02997_html"><div class="ttname"><a href="a02997.html">Dune::TupleVector</a></div><div class="ttdoc">A class augmenting std::tuple by element access via operator[].</div><div class="ttdef"><b>Definition:</b> tuplevector.hh:33</div></div>
+<div class="ttc" id="aa02997_html_a1595dc930c803c3b4e4652b011ebf47b"><div class="ttname"><a href="a02997.html#a1595dc930c803c3b4e4652b011ebf47b">Dune::TupleVector::size</a></div><div class="ttdeci">static constexpr std::size_t size()</div><div class="ttdoc">Number of elements of the tuple.</div><div class="ttdef"><b>Definition:</b> tuplevector.hh:79</div></div>
+<div class="ttc" id="aa02997_html_a18fb497d8152c2f3eb144449d70e9bc9"><div class="ttname"><a href="a02997.html#a18fb497d8152c2f3eb144449d70e9bc9">Dune::TupleVector::TupleVector</a></div><div class="ttdeci">constexpr TupleVector(TT &amp;&amp;... tt)</div><div class="ttdoc">Construct from a set of arguments.</div><div class="ttdef"><b>Definition:</b> tuplevector.hh:53</div></div>
+<div class="ttc" id="aa02997_html_af79a45a6b4d14f7db794298985da714e"><div class="ttname"><a href="a02997.html#af79a45a6b4d14f7db794298985da714e">Dune::TupleVector::TupleVector</a></div><div class="ttdeci">constexpr TupleVector()</div><div class="ttdoc">Default constructor.</div><div class="ttdef"><b>Definition:</b> tuplevector.hh:59</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

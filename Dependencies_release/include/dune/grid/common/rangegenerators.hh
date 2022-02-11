@@ -4,6 +4,7 @@
 #define DUNE_GRID_COMMON_RANGEGENERATORS_HH
 
 #include <dune/common/iteratorrange.hh>
+#include <dune/common/rangeutilities.hh>
 #include <dune/geometry/dimension.hh>
 #include <dune/grid/common/gridenums.hh>
 #include <dune/grid/common/partitionset.hh>
@@ -36,12 +37,6 @@ namespace Dune
    * This code will multiply all entries of `vec` by 2. The loop head always looks like `for (<type> <variable-name> : <container>)`.
    * You can also specify the exact type of the variable, but it is normally much easier to let the compiler
    * do that for you using `auto`.
-   *
-   * \note We are aware that people like Bjarne Stroustrup and Herb
-   *       Sutter advertise the use `auto&&`. Sadly GCC prior to version 6 has a bug (see
-   *       https://gcc.gnu.org/bugzilla/show_bug.cgi?id=63506), which
-   *       prevents the use of `auto&&` in template functions. For this reason
-   *       we currently advice the use of `const auto&`.
    *
    * For those interested in the technical details, the compiler has translated the loop into
    * something resembling this (not quite, but we'll forget about the minor details here):
@@ -81,8 +76,6 @@ namespace Dune
                  << vertex.geometry().center() << std::endl;
      }
      \endcode
-   *
-   * \note As explained above, **always** use `const auto&` for the type of the Entity!
    *
    * There are also functions for iterating over facets() and edges() as well as generic entities() functions,
    * which allow you to specify a numeric codimension or dimension.
@@ -130,6 +123,32 @@ namespace Dune
      }
      \endcode
    *
+   * <h2>Sub-entities</h2>
+   *
+   * The grid interface allows to iterate over sub-entities of a given
+   * codim-0-entity, sub-entities being entities contained in the given entitiy
+   * with a codimension equal (returns the entity itself) or larger than
+   * the given entity.
+   *
+   * As an example, the following code prints the index of all vertices
+   * of an element `e`
+   *
+   * \code
+     for (const auto& vertex : subEntities(e, Codim<Grid::dimension>{}))
+       std::cout << gv.indexSet().index(vertex) << " ";
+     \endcode
+   *
+   * Note that the number of for example codim-1 entities (facets) of an element can be obtained with
+   * \code
+     const auto numFacets = subEntities(e, Codim<1>{}).size();
+     \endcode
+   * which is equivalent to
+   * \code
+     const auto numFacets = referenceElement(e).size(1);
+     \endcode
+   *
+   * Iteration over sub-entities is only possible for codim-0-entities (elements).
+   *
    * <h1>Information for grid implementors</h1>
    *
    * <h2>Custom range implementations</h2>
@@ -168,6 +187,7 @@ namespace Dune
        using Dune::vertices;
        using Dune::descendantElements;
        using Dune::intersections;
+       using Dune::subEntities;
 
        ...
 
@@ -691,7 +711,7 @@ namespace Dune
    *             for loop.
    */
   template<typename GV, int codim, unsigned int partitions>
-  inline IteratorRange<...> entities(const GV& gv gv, Codim<codim> cd, PartitionSet<partitions> ps);
+  inline IteratorRange<...> entities(const GV& gv, Codim<codim> cd, PartitionSet<partitions> ps);
 
 
   //! Iterates over all entities of a GridView with the given dimension that belong to the given PartitionSet.
@@ -733,6 +753,32 @@ namespace Dune
    */
   template<typename GV, int dim, unsigned int partitions>
   inline IteratorRange<...> entities(const GV& gv, Dim<dim> d, PartitionSet<partitions> ps);
+
+
+  //! Iterates over all sub-entities of an entity given the codimension of the sub-entities
+  /**
+   * This functions returns an object representing the range of sub-entities of codimension c contained
+   * in the given entity. The main purpose of this function is to
+   * enable iteration over sub-entities by means of a range-based for loop:
+   *
+     \code
+     // iterate over all interior and border edges in the LeafGridView
+     auto gv = grid.leafGridView();
+     for (const auto& element : elements(gv))
+       for (const auto& vertex : subEntities(element, Codim<Grid::dimension>{}))
+         std::cout << vertex.geometry().center() << "\n";
+     \endcode
+   * \note This functionality is only available for codim-0-entities (elements)
+   * \relates    Entity
+   * \param e    an Entity object that contains the sub-entities.
+   * \param c    a Codim object that is used to specify the codimension of the sub-entities by means
+   *             of its template parameter.
+   * \returns    an unspecified object that is guaranteed to fulfil the interface
+   *             of IteratorRange and that can be iterated over using a range-based
+   *             for loop and that provides a `size()` member function.
+   */
+  template<typename E, int codim>
+  inline IteratorRange<...> subEntities(const E& e, Codim<codim> c);
 
 
   //! \}
@@ -876,6 +922,17 @@ namespace Dune
     -> decltype(entities(gv,Dim<0>()))
   {
     return entities(gv,Dim<0>());
+  }
+
+  template<typename E, int codim>
+  inline auto subEntities(const E& e, Codim<codim> c)
+  {
+      static_assert(E::codimension <= codim,
+          "Can only iterate over sub-entities with equal or larger codimension");
+      return transformedRangeView(
+          range(static_cast<int>(e.subEntities(c))),
+          [&](const int i){ return e.template subEntity<codim>(i); }
+      );
   }
 
 #endif // DOXYGEN

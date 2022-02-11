@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: Dune::BackupRestoreFacility&lt; const Grid &gt; Struct Template Reference</title>
+<title>dune-grid: Dune::AdaptDataHandleInterface&lt; Grid, Impl &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,75 +62,236 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00936.html">Dune</a></li><li class="navelem"><a class="el" href="a02458.html">BackupRestoreFacility&lt; const Grid &gt;</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00940.html">Dune</a></li><li class="navelem"><a class="el" href="a02458.html">AdaptDataHandleInterface</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="a02455.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::BackupRestoreFacility&lt; const Grid &gt; Struct Template Reference</div>  </div>
+<div class="title">Dune::AdaptDataHandleInterface&lt; Grid, Impl &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="a02454.html" title="facility for writing and reading grids">BackupRestoreFacility</a> taking const <a class="el" href="a02698.html" title="Grid abstract base class.">Grid</a> as type and deriving from the version with the const.  
+<p>Interface class for the <a class="el" href="a02710.html" title="Grid abstract base class.">Grid</a>'s adapt method where the parameter is a <a class="el" href="a02458.html" title="Interface class for the Grid&#39;s adapt method where the parameter is a AdaptDataHandleInterface.">AdaptDataHandleInterface</a>.  
  <a href="a02458.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a06731_source.html">dune/grid/common/backuprestore.hh</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00218_source.html">dune/grid/common/adaptcallback.hh</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for Dune::BackupRestoreFacility&lt; const Grid &gt;:</div>
+Inheritance diagram for Dune::AdaptDataHandleInterface&lt; Grid, Impl &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="a02457.png" border="0" usemap="#a_dune_1_1_backup_restore_facility_3_01const_01_grid_01_4_inherit__map" alt="Inheritance graph"/></div>
-<map name="a_dune_1_1_backup_restore_facility_3_01const_01_grid_01_4_inherit__map" id="a_dune_1_1_backup_restore_facility_3_01const_01_grid_01_4_inherit__map">
-<area shape="rect" title="BackupRestoreFacility taking const Grid as type and deriving from the version with the const." alt="" coords="5,95,196,136"/>
-<area shape="rect" href="a02454.html" title="facility for writing and reading grids" alt="" coords="5,5,196,47"/>
+<div class="center"><img src="a02457.png" border="0" usemap="#a_dune_1_1_adapt_data_handle_interface_3_01_grid_00_01_impl_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="a_dune_1_1_adapt_data_handle_interface_3_01_grid_00_01_impl_01_4_inherit__map" id="a_dune_1_1_adapt_data_handle_interface_3_01_grid_00_01_impl_01_4_inherit__map">
+<area shape="rect" title="Interface class for the Grid&#39;s adapt method where the parameter is a AdaptDataHandleInterface." alt="" coords="5,5,216,47"/>
+<area shape="rect" href="a02454.html" title=" " alt="" coords="30,95,191,136"/>
 </map>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:acf0d026f0f2f6cc98e0d605b98421370"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02454.html#acf0d026f0f2f6cc98e0d605b98421370">backup</a> (const <a class="el" href="a02698.html">Grid</a> &amp;grid, const std::string &amp;filename)</td></tr>
-<tr class="memdesc:acf0d026f0f2f6cc98e0d605b98421370"><td class="mdescLeft">&#160;</td><td class="mdescRight">write a hierarchic grid to disk  <a href="a02454.html#acf0d026f0f2f6cc98e0d605b98421370">More...</a><br /></td></tr>
-<tr class="separator:acf0d026f0f2f6cc98e0d605b98421370"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a937c54d389378579761623a48dfe3336"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02454.html#a937c54d389378579761623a48dfe3336">backup</a> (const <a class="el" href="a02698.html">Grid</a> &amp;grid, std::ostream &amp;stream)</td></tr>
-<tr class="memdesc:a937c54d389378579761623a48dfe3336"><td class="mdescLeft">&#160;</td><td class="mdescRight">write a hierarchic grid into a stream  <a href="a02454.html#a937c54d389378579761623a48dfe3336">More...</a><br /></td></tr>
-<tr class="separator:a937c54d389378579761623a48dfe3336"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a06b6a4d150a7e0760dd2c120089f40d4"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a02698.html">Grid</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02454.html#a06b6a4d150a7e0760dd2c120089f40d4">restore</a> (const std::string &amp;filename)</td></tr>
-<tr class="memdesc:a06b6a4d150a7e0760dd2c120089f40d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">read a hierarchic grid from disk  <a href="a02454.html#a06b6a4d150a7e0760dd2c120089f40d4">More...</a><br /></td></tr>
-<tr class="separator:a06b6a4d150a7e0760dd2c120089f40d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59eb745ad475baa4119d6663a491d784"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a02698.html">Grid</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02454.html#a59eb745ad475baa4119d6663a491d784">restore</a> (std::istream &amp;stream)</td></tr>
-<tr class="memdesc:a59eb745ad475baa4119d6663a491d784"><td class="mdescLeft">&#160;</td><td class="mdescRight">read a hierarchic grid from a stream  <a href="a02454.html#a59eb745ad475baa4119d6663a491d784">More...</a><br /></td></tr>
-<tr class="separator:a59eb745ad475baa4119d6663a491d784"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a8b34bb4a6dc82f3c68f2d5ef62ff223a"><td class="memItemLeft" align="right" valign="top">typedef Grid::template Codim&lt; 0 &gt;::<a class="el" href="a02458.html#a8b34bb4a6dc82f3c68f2d5ef62ff223a">Entity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02458.html#a8b34bb4a6dc82f3c68f2d5ef62ff223a">Entity</a></td></tr>
+<tr class="separator:a8b34bb4a6dc82f3c68f2d5ef62ff223a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:af554af2dceed3e39393b4e516cd73a6d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02458.html#af554af2dceed3e39393b4e516cd73a6d">preCoarsening</a> (const <a class="el" href="a02458.html#a8b34bb4a6dc82f3c68f2d5ef62ff223a">Entity</a> &amp;father)</td></tr>
+<tr class="memdesc:af554af2dceed3e39393b4e516cd73a6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">call back for activity to take place on father and all descendants before the descendants are removed  <a href="a02458.html#af554af2dceed3e39393b4e516cd73a6d">More...</a><br /></td></tr>
+<tr class="separator:af554af2dceed3e39393b4e516cd73a6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a6799af75d86dd840a405808cc647bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02458.html#a2a6799af75d86dd840a405808cc647bd">postRefinement</a> (const <a class="el" href="a02458.html#a8b34bb4a6dc82f3c68f2d5ef62ff223a">Entity</a> &amp;father)</td></tr>
+<tr class="memdesc:a2a6799af75d86dd840a405808cc647bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">call back for activity to take place on newly created elements below the father element.  <a href="a02458.html#a2a6799af75d86dd840a405808cc647bd">More...</a><br /></td></tr>
+<tr class="separator:a2a6799af75d86dd840a405808cc647bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad856a63ee25eb8b77b521a703b9b5519"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02458.html#ad856a63ee25eb8b77b521a703b9b5519">restrictLocal</a> (const <a class="el" href="a02458.html#a8b34bb4a6dc82f3c68f2d5ef62ff223a">Entity</a> &amp;father, const <a class="el" href="a02458.html#a8b34bb4a6dc82f3c68f2d5ef62ff223a">Entity</a> &amp;son, bool initialize)</td></tr>
+<tr class="separator:ad856a63ee25eb8b77b521a703b9b5519"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e6c6dc1c3c0cecb451df8d608323a20"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02458.html#a1e6c6dc1c3c0cecb451df8d608323a20">prolongLocal</a> (const <a class="el" href="a02458.html#a8b34bb4a6dc82f3c68f2d5ef62ff223a">Entity</a> &amp;father, const <a class="el" href="a02458.html#a8b34bb4a6dc82f3c68f2d5ef62ff223a">Entity</a> &amp;son, bool initialize)</td></tr>
+<tr class="separator:a1e6c6dc1c3c0cecb451df8d608323a20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:aa96df2052696c3d561e7dcc6f2ef27fa"><td class="memItemLeft" align="right" valign="top">const Impl &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02458.html#aa96df2052696c3d561e7dcc6f2ef27fa">asImp</a> () const</td></tr>
+<tr class="separator:aa96df2052696c3d561e7dcc6f2ef27fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91899046520c822a5261d90a64c180bc"><td class="memItemLeft" align="right" valign="top">Impl &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02458.html#a91899046520c822a5261d90a64c180bc">asImp</a> ()</td></tr>
+<tr class="separator:a91899046520c822a5261d90a64c180bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;class Grid&gt;<br />
-struct Dune::BackupRestoreFacility&lt; const Grid &gt;</h3>
+<div class="textblock"><h3>template&lt;class Grid, class Impl&gt;<br />
+class Dune::AdaptDataHandleInterface&lt; Grid, Impl &gt;</h3>
 
-<p><a class="el" href="a02454.html" title="facility for writing and reading grids">BackupRestoreFacility</a> taking const <a class="el" href="a02698.html" title="Grid abstract base class.">Grid</a> as type and deriving from the version with the const. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="acf0d026f0f2f6cc98e0d605b98421370"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acf0d026f0f2f6cc98e0d605b98421370">&#9670;&nbsp;</a></span>backup() <span class="overload">[1/2]</span></h2>
+<p>Interface class for the <a class="el" href="a02710.html" title="Grid abstract base class.">Grid</a>'s adapt method where the parameter is a <a class="el" href="a02458.html" title="Interface class for the Grid&#39;s adapt method where the parameter is a AdaptDataHandleInterface.">AdaptDataHandleInterface</a>. </p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a8b34bb4a6dc82f3c68f2d5ef62ff223a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b34bb4a6dc82f3c68f2d5ef62ff223a">&#9670;&nbsp;</a></span>Entity</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Grid &gt; </div>
+template&lt;class Grid , class Impl &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Grid::template Codim&lt; 0 &gt;::<a class="el" href="a02458.html#a8b34bb4a6dc82f3c68f2d5ef62ff223a">Entity</a> <a class="el" href="a02458.html">Dune::AdaptDataHandleInterface</a>&lt; <a class="el" href="a02710.html">Grid</a>, Impl &gt;::<a class="el" href="a02458.html#a8b34bb4a6dc82f3c68f2d5ef62ff223a">Entity</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a91899046520c822a5261d90a64c180bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91899046520c822a5261d90a64c180bc">&#9670;&nbsp;</a></span>asImp() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Grid , class Impl &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void <a class="el" href="a02454.html">Dune::BackupRestoreFacility</a>&lt; <a class="el" href="a02698.html">Grid</a> &gt;::backup </td>
+          <td class="memname">Impl&amp; <a class="el" href="a02458.html">Dune::AdaptDataHandleInterface</a>&lt; <a class="el" href="a02710.html">Grid</a>, Impl &gt;::asImp </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a02698.html">Grid</a> &amp;&#160;</td>
-          <td class="paramname"><em>grid</em>, </td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa96df2052696c3d561e7dcc6f2ef27fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa96df2052696c3d561e7dcc6f2ef27fa">&#9670;&nbsp;</a></span>asImp() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Grid , class Impl &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const Impl&amp; <a class="el" href="a02458.html">Dune::AdaptDataHandleInterface</a>&lt; <a class="el" href="a02710.html">Grid</a>, Impl &gt;::asImp </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2a6799af75d86dd840a405808cc647bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a6799af75d86dd840a405808cc647bd">&#9670;&nbsp;</a></span>postRefinement()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Grid , class Impl &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="a02458.html">Dune::AdaptDataHandleInterface</a>&lt; <a class="el" href="a02710.html">Grid</a>, Impl &gt;::postRefinement </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a02458.html#a8b34bb4a6dc82f3c68f2d5ef62ff223a">Entity</a> &amp;&#160;</td>
+          <td class="paramname"><em>father</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>call back for activity to take place on newly created elements below the father element. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">father</td><td>entity where all descendants were newly created </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af554af2dceed3e39393b4e516cd73a6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af554af2dceed3e39393b4e516cd73a6d">&#9670;&nbsp;</a></span>preCoarsening()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Grid , class Impl &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="a02458.html">Dune::AdaptDataHandleInterface</a>&lt; <a class="el" href="a02710.html">Grid</a>, Impl &gt;::preCoarsening </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a02458.html#a8b34bb4a6dc82f3c68f2d5ef62ff223a">Entity</a> &amp;&#160;</td>
+          <td class="paramname"><em>father</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>call back for activity to take place on father and all descendants before the descendants are removed </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">father</td><td>entity where all descendants are going to be removed </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1e6c6dc1c3c0cecb451df8d608323a20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e6c6dc1c3c0cecb451df8d608323a20">&#9670;&nbsp;</a></span>prolongLocal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Grid , class Impl &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="a02458.html">Dune::AdaptDataHandleInterface</a>&lt; <a class="el" href="a02710.html">Grid</a>, Impl &gt;::prolongLocal </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a02458.html#a8b34bb4a6dc82f3c68f2d5ef62ff223a">Entity</a> &amp;&#160;</td>
+          <td class="paramname"><em>father</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>filename</em>&#160;</td>
+          <td class="paramtype">const <a class="el" href="a02458.html#a8b34bb4a6dc82f3c68f2d5ef62ff223a">Entity</a> &amp;&#160;</td>
+          <td class="paramname"><em>son</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>initialize</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -140,45 +301,41 @@ template&lt;class Grid &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>write a hierarchic grid to disk </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">grid</td><td>grid to write </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">filename</td><td>filename of the file to create</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>This method might create multiple files based on the filename plus internal extension. </dd></dl>
-
 </div>
 </div>
-<a id="a937c54d389378579761623a48dfe3336"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a937c54d389378579761623a48dfe3336">&#9670;&nbsp;</a></span>backup() <span class="overload">[2/2]</span></h2>
+<a id="ad856a63ee25eb8b77b521a703b9b5519"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad856a63ee25eb8b77b521a703b9b5519">&#9670;&nbsp;</a></span>restrictLocal()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Grid &gt; </div>
+template&lt;class Grid , class Impl &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void <a class="el" href="a02454.html">Dune::BackupRestoreFacility</a>&lt; <a class="el" href="a02698.html">Grid</a> &gt;::backup </td>
+          <td class="memname">void <a class="el" href="a02458.html">Dune::AdaptDataHandleInterface</a>&lt; <a class="el" href="a02710.html">Grid</a>, Impl &gt;::restrictLocal </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a02698.html">Grid</a> &amp;&#160;</td>
-          <td class="paramname"><em>grid</em>, </td>
+          <td class="paramtype">const <a class="el" href="a02458.html#a8b34bb4a6dc82f3c68f2d5ef62ff223a">Entity</a> &amp;&#160;</td>
+          <td class="paramname"><em>father</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>stream</em>&#160;</td>
+          <td class="paramtype">const <a class="el" href="a02458.html#a8b34bb4a6dc82f3c68f2d5ef62ff223a">Entity</a> &amp;&#160;</td>
+          <td class="paramname"><em>son</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>initialize</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -188,100 +345,15 @@ template&lt;class Grid &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>write a hierarchic grid into a stream </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">grid</td><td>grid to write </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">stream</td><td>std::stream to write the grid to</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>While operating on a std::ostream might be convenient, a grid written in another language than C++ might need to emulate this method by writing through a temporary file. </dd></dl>
-
 </div>
 </div>
-<a id="a06b6a4d150a7e0760dd2c120089f40d4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a06b6a4d150a7e0760dd2c120089f40d4">&#9670;&nbsp;</a></span>restore() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class Grid &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static <a class="el" href="a02698.html">Grid</a>* <a class="el" href="a02454.html">Dune::BackupRestoreFacility</a>&lt; <a class="el" href="a02698.html">Grid</a> &gt;::restore </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>filename</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>read a hierarchic grid from disk </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">filename</td><td>filename of the file to read</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>a pointer to the grid (allocated by new)</dd></dl>
-<dl class="section note"><dt>Note</dt><dd>This method might require multiple files based on the filename plus some extension. </dd></dl>
-
-</div>
-</div>
-<a id="a59eb745ad475baa4119d6663a491d784"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a59eb745ad475baa4119d6663a491d784">&#9670;&nbsp;</a></span>restore() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class Grid &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static <a class="el" href="a02698.html">Grid</a>* <a class="el" href="a02454.html">Dune::BackupRestoreFacility</a>&lt; <a class="el" href="a02698.html">Grid</a> &gt;::restore </td>
-          <td>(</td>
-          <td class="paramtype">std::istream &amp;&#160;</td>
-          <td class="paramname"><em>stream</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>read a hierarchic grid from a stream </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">stream</td><td>std::stream to read the grid from</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>While operating on a std::istream might be convenient, a grid written in another language than C++ might need to emulate this method by writing through a temporary file. </dd></dl>
-
-</div>
-</div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="a06731_source.html">common/backuprestore.hh</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="a00218_source.html">adaptcallback.hh</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

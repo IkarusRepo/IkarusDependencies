@@ -4,10 +4,10 @@
 #define DUNE_ALBERTA_MISC_HH
 
 #include <cassert>
+#include <utility>
 
 #include <dune/common/exceptions.hh>
 #include <dune/common/hybridutilities.hh>
-#include <dune/common/std/utility.hh>
 #include <dune/common/typetraits.hh>
 
 #include <dune/grid/albertagrid/albertaheader.hh>
@@ -373,7 +373,7 @@ namespace Dune
     public:
       NumberingMap ()
       {
-        Hybrid::forEach( Std::make_index_sequence< dim+1 >{}, [ & ]( auto i ){ Initialize< i >::apply( *this ); } );
+        Hybrid::forEach( std::make_index_sequence< dim+1 >{}, [ & ]( auto i ){ Initialize< i >::apply( *this ); } );
       }
 
       ~NumberingMap ()
@@ -533,7 +533,8 @@ namespace Dune
       static const int minTwist = 0;
       static const int maxTwist = 0;
 
-      static int twist ( const Element *element, int subEntity )
+      static int twist ( [[maybe_unused]] const Element *element,
+                         [[maybe_unused]] int subEntity )
       {
         assert( (subEntity >= 0) && (subEntity < numSubEntities) );
         return 0;
@@ -569,7 +570,8 @@ namespace Dune
       static const int minTwist = 0;
       static const int maxTwist = 0;
 
-      static int twist ( const Element *element, int subEntity )
+      static int twist ( [[maybe_unused]] const Element *element,
+                         [[maybe_unused]] int subEntity )
       {
         assert( subEntity == 0 );
         return 0;
@@ -612,7 +614,8 @@ namespace Dune
       static const int minTwist = 0;
       static const int maxTwist = 0;
 
-      static int twist ( const Element *element, int subEntity )
+      static int twist ( [[maybe_unused]] const Element *element,
+                         [[maybe_unused]] int subEntity )
       {
         assert( subEntity == 0 );
         return 0;

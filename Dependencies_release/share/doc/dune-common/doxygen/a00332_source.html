@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-common
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -85,27 +85,27 @@ $(function() {
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#if DUNE_HAVE_CXX_EXPERIMENTAL_MAKE_ARRAY</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  <span class="keyword">using</span> <a class="code" href="a00409.html#ga4bc9a120a411bddf93f2c58977befa63">std::experimental::make_array</a>;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#else </span><span class="comment">// DUNE_HAVE_CXX_EXPERIMENTAL_MAKE_ARRAY</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Args&gt;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  std::array&lt;<span class="keyword">typename</span> std::common_type&lt;Args...&gt;::type, <span class="keyword">sizeof</span>...(Args)&gt;</div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="a00409.html#ga4bc9a120a411bddf93f2c58977befa63">   36</a></span>&#160;  <a class="code" href="a00409.html#ga4bc9a120a411bddf93f2c58977befa63">make_array</a>(<span class="keyword">const</span> Args&amp;... args) {</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    std::array&lt;<span class="keyword">typename</span> std::common_type&lt;Args...&gt;::type, <span class="keyword">sizeof</span>...(Args)&gt;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        result = {{args...}};</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">return</span> result;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  }</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// DUNE_HAVE_CXX_EXPERIMENTAL_MAKE_ARRAY</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  <span class="keyword">using</span> <a class="code" href="a00409.html#ga4bc9a120a411bddf93f2c58977befa63">std::experimental::make_array</a>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#else </span><span class="comment">// DUNE_HAVE_CXX_EXPERIMENTAL_MAKE_ARRAY</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Args&gt;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  std::array&lt;<span class="keyword">typename</span> std::common_type&lt;Args...&gt;::type, <span class="keyword">sizeof</span>...(Args)&gt;</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="a00409.html#ga4bc9a120a411bddf93f2c58977befa63">   38</a></span>&#160;  <a class="code" href="a00409.html#ga4bc9a120a411bddf93f2c58977befa63">make_array</a>(<span class="keyword">const</span> Args&amp;... args) {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    std::array&lt;<span class="keyword">typename</span> std::common_type&lt;Args...&gt;::type, <span class="keyword">sizeof</span>...(Args)&gt;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        result = {{args...}};</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">return</span> result;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  }</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aa00409_html_ga4bc9a120a411bddf93f2c58977befa63"><div class="ttname"><a href="a00409.html#ga4bc9a120a411bddf93f2c58977befa63">Dune::Std::make_array</a></div><div class="ttdeci">std::array&lt; typename std::common_type&lt; Args... &gt;::type, sizeof...(Args)&gt; make_array(const Args &amp;... args)</div><div class="ttdoc">Create and initialize an array.</div><div class="ttdef"><b>Definition:</b> make_array.hh:36</div></div>
-<div class="ttc" id="aa00428_html"><div class="ttname"><a href="a00428.html">Dune</a></div><div class="ttdoc">Dune namespace.</div><div class="ttdef"><b>Definition:</b> alignedallocator.hh:14</div></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// DUNE_HAVE_CXX_EXPERIMENTAL_MAKE_ARRAY</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;}</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;}</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aa00409_html_ga4bc9a120a411bddf93f2c58977befa63"><div class="ttname"><a href="a00409.html#ga4bc9a120a411bddf93f2c58977befa63">Dune::Std::make_array</a></div><div class="ttdeci">std::array&lt; typename std::common_type&lt; Args... &gt;::type, sizeof...(Args)&gt; make_array(const Args &amp;... args)</div><div class="ttdoc">Create and initialize an array.</div><div class="ttdef"><b>Definition:</b> make_array.hh:38</div></div>
+<div class="ttc" id="aa00428_html"><div class="ttname"><a href="a00428.html">Dune</a></div><div class="ttdoc">Dune namespace.</div><div class="ttdef"><b>Definition:</b> alignedallocator.hh:11</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

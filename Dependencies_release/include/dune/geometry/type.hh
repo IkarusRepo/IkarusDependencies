@@ -10,8 +10,8 @@
 #include <cassert>
 
 #include <string>
+#include <type_traits>
 
-#include <dune/common/deprecated.hh>
 #include <dune/common/exceptions.hh>
 #include <dune/common/keywords.hh>
 #include <dune/common/typetraits.hh>
@@ -20,70 +20,10 @@
 namespace Dune
 {
 
-  // forward declaration needed for deprecated makeFromVertices
-  class GeometryType;
-  GeometryType geometryTypeFromVertexCount(unsigned int dim, unsigned int vertices);
-
   namespace Impl
   {
 
     enum TopologyConstruction { pyramidConstruction = 0, prismConstruction = 1 };
-
-
-
-    // Basic Topology Types
-    // --------------------
-
-    struct Point
-    {
-      static const unsigned int dimension = 0;
-      static const unsigned int numCorners = 1;
-
-      static const unsigned int id = 0;
-
-      static std::string name () { return "p"; }
-    };
-
-
-    template< class BaseTopology >
-    struct Prism
-    {
-      static const unsigned int dimension = BaseTopology::dimension + 1;
-      static const unsigned int numCorners = 2 * BaseTopology::numCorners;
-
-      static const unsigned int id = BaseTopology::id | ((unsigned int)prismConstruction << (dimension-1));
-
-      static std::string name () { return BaseTopology::name() + "l"; }
-    };
-
-
-    template< class BaseTopology >
-    struct Pyramid
-    {
-      static const unsigned int dimension = BaseTopology::dimension + 1;
-      static const unsigned int numCorners = BaseTopology::numCorners + 1;
-
-      static const unsigned int id = BaseTopology::id | ((unsigned int)pyramidConstruction << (dimension-1));
-
-      static std::string name () { return BaseTopology::name() + "o"; }
-    };
-
-
-
-    // Properties of Topologies
-    // ------------------------
-
-    template< class Topology >
-    struct IsSimplex
-      : public std::integral_constant< bool, (Topology::id >> 1) == 0 >
-    {};
-
-    template< class Topology >
-    struct IsCube
-      : public std::integral_constant< bool,  (Topology::id | 1) == (1 << Topology::dimension) - 1 >
-    {};
-
-
 
     // Dynamic Topology Properties
     // ---------------------------
@@ -137,25 +77,6 @@ namespace Dune
       return (( (topologyId | 1) & (1u << (dim-codim-1))) != 0);
     }
 
-    /** \brief check whether a specific topology construction was used to create a
-     *         given codimension
-     *
-     *  \param[in]  construction  construction to check for
-     *  \param[in]  topologyId    id of the topology
-     *  \param[in]  dim           dimension of the topology
-     *  \param[in]  codim         codimension for which the information is desired
-     *                            (defaults to 0)
-     *
-     *  \returns true, if construction was used to generate the codimension the
-     *           topology.
-     */
-    inline static bool isTopology ( TopologyConstruction construction, unsigned int topologyId, int dim, int codim = 0 ) noexcept
-    {
-      assert( (dim > 0) && (topologyId < numTopologies( dim )) );
-      assert( (0 <= codim) && (codim <= dim) );
-      return (codim >= (dim-1)) || (((topologyId >> (dim-codim-1)) & 1) == (unsigned int)construction);
-    }
-
     /** \brief obtain the base topology of a given codimension
      *
      *  \param[in]  topologyId    id of the topology
@@ -170,95 +91,18 @@ namespace Dune
       return topologyId & ((1u << (dim-codim)) - 1);
     }
 
-
-
-    // SimplexTopology
-    // ---------------
-
-    template< unsigned int dim >
-    struct SimplexTopology
-    {
-      typedef Pyramid< typename SimplexTopology< dim-1 >::type > type;
-    };
-
-    template<>
-    struct SimplexTopology< 0 >
-    {
-      typedef Point type;
-    };
-
-
-
-    // CubeTopology
-    // ------------
-
-    template< unsigned int dim >
-    struct CubeTopology
-    {
-      typedef Prism< typename CubeTopology< dim-1 >::type > type;
-    };
-
-    template<>
-    struct CubeTopology< 0 >
-    {
-      typedef Point type;
-    };
-
-
-
-    // PyramidTopology
-    // ---------------
-
-    template< unsigned int dim >
-    struct PyramidTopology
-    {
-      typedef Pyramid< typename CubeTopology< dim-1 >::type > type;
-    };
-
-
-
-    // PrismTopology
-    // -------------
-
-    template< unsigned int dim >
-    struct PrismTopology
-    {
-      typedef Prism< typename SimplexTopology< dim-1 >::type > type;
-    };
-
-
-
-
-    // IfTopology
-    // ----------
-
-    template< template< class > class Operation, int dim, class Topology = Point >
-    struct IfTopology
-    {
-      template< class... Args >
-      static auto apply ( unsigned int topologyId, Args &&... args )
-      {
-        if( topologyId & 1 )
-          return IfTopology< Operation, dim-1, Prism< Topology > >::apply( topologyId >> 1, std::forward< Args >( args )... );
-        else
-          return IfTopology< Operation, dim-1, Pyramid< Topology > >::apply( topologyId >> 1, std::forward< Args >( args )... );
-      }
-    };
-
-    template< template< class > class Operation, class Topology >
-    struct IfTopology< Operation, 0, Topology >
-    {
-      template< class... Args >
-      static auto apply ( unsigned int topologyId, Args &&... args )
-      {
-        DUNE_UNUSED_PARAMETER( topologyId );
-        return Operation< Topology >::apply( std::forward< Args >( args )... );
-      }
-    };
-
   } // namespace Impl
 
-
+// the Topology classes are deprecated and will be removed for the 2.8.
+// Temporarily a header 'deprecated_topology.hh' is provided which will be removed after the 2.9 release.
+#if __GNUC__ >= 7
+#  pragma GCC diagnostic push
+#  pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+#endif
+#include <dune/geometry/deprecated_topology.hh>
+#if __GNUC__ >= 7
+#  pragma GCC diagnostic pop
+#endif
 
   // GeometryType
   // -------------
@@ -360,6 +204,23 @@ namespace Dune
       return static_cast<Id>(id);
     }
 
+    /** \brief Create an Id representation of this GeometryType. */
+    /**
+     * The returned Id encapsulates the whole information of this
+     * GeometryType into an enum suitable for being used as template
+     * parameter. The GeometryType can be reconstructed from the Id
+     * using GeometryType{id}.
+     *
+     * This function was mainly introduced to support older GCC versions (<10.2).
+     * There the implicit conversion from GeometryType to Id failed if a pure r-value
+     * template argument based on a static class member was used.
+     * (See dune/geometry/test/test-geometrytype-id.cc)
+     */
+    constexpr Id toId() const
+    {
+      return static_cast<Id>(*this);
+    }
+
     /** \brief Reconstruct a Geometry type from a GeometryType::Id */
     /**
      * This constructor exists mostly to transparently support using a GeometryType as a
@@ -381,53 +242,14 @@ namespace Dune
       : dim_(0), none_(true), topologyId_(0)
     {}
 
-    DUNE_NO_DEPRECATED_BEGIN
-    /** \brief Constructor, using the basic type and the dimension */
-    GeometryType(BasicType basicType, unsigned int dim)
-      DUNE_DEPRECATED_MSG("The GeometryType constructor taking BasicType is deprecated and will be removed after DUNE 2.6")
-      : dim_(dim), none_((basicType == GeometryType::none) ? true : false), topologyId_(0)
-    {
-      if (dim < 2)
-        return;
-      switch( basicType )
-      {
-      case GeometryType::simplex :
-        topologyId_ = 0;
-        break;
-      case GeometryType::cube :
-        topologyId_ = ((1 << dim) - 1);
-        break;
-      case GeometryType::pyramid :
-        if (dim == 3)
-          topologyId_ = 0b0011;
-        else
-          DUNE_THROW( RangeError,
-                      "Invalid basic geometry type: no pyramids for dimension " << dim << "." );
-        break;
-      case GeometryType::prism :
-        if (dim == 3)
-          topologyId_ = 0b0101;
-        else
-          DUNE_THROW( RangeError,
-                      "Invalid basic geometry type: no prisms for dimension " << dim << "." );
-        break;
-      case GeometryType::none :
-        break;
-      default :
-        DUNE_THROW( RangeError,
-                    "Invalid basic geometry type: " << basicType << " for dimension " << dim << "." );
-      }
-    }
-    DUNE_NO_DEPRECATED_END
-
     /** \brief Constructor, using the topologyId (integer), the dimension and a flag for type none.
      * \note With this constructor, you can easily create an invalid GeometryType,
      *       it is mostly here for internal use!
      *       the TypologyType, users are encouraged to use the
      *       GeometryType(TopologyType t) constructor.
      */
-    constexpr GeometryType(unsigned int topologyId, unsigned int dim, bool none)
-      : dim_(dim), none_(none), topologyId_(topologyId)
+    constexpr GeometryType(unsigned int topologyId, unsigned int dim, bool isNone)
+      : dim_(dim), none_(isNone), topologyId_(topologyId)
     {}
 
     /** \brief Constructor, using the topologyId (integer) and the dimension
@@ -450,137 +272,14 @@ namespace Dune
      * \param t             Any object of type TopologyType. The object t itself is ignored.
      */
     template<class TopologyType,
-      class = Dune::void_t<decltype(TopologyType::dimension), decltype(TopologyType::id)>>
+      class = std::void_t<decltype(TopologyType::dimension), decltype(TopologyType::id)>>
     explicit GeometryType(TopologyType t)
       : dim_(TopologyType::dimension), none_(false), topologyId_(TopologyType::id)
     {
       DUNE_UNUSED_PARAMETER(t);
     }
 
-    /** \brief Constructor for vertices and segments */
-    DUNE_DEPRECATED_MSG("GeometryType(unsigned dim) is deprecated in DUNE 2.7, please use Dune::GeometryTypes::cube(dim) instead")
-    explicit GeometryType(unsigned int dim)
-      : dim_(dim), none_(false), topologyId_(0)
-    {
-      assert(dim < 2);
-    }
-
-    /** \brief Constructor for vertices and segments */
-    // We need this constructor for "int" and "unsigned int",
-    // because otherwise GeometryType(int) would try to call the
-    // generic GeometryType(TopologyType) constructor
-    DUNE_DEPRECATED_MSG("GeometryType(dim) is deprecated in DUNE 2.7, please use Dune::GeometryTypes::cube(dim) instead")
-    explicit GeometryType(int dim)
-      : dim_(dim), none_(false), topologyId_(0)
-    {
-      assert(dim < 2);
-    }
-
     /** @} */
-
-
-    /** @name Setup Methods */
-    /*@{*/
-
-    /** \brief Make a vertex */
-    DUNE_DEPRECATED_MSG("makeVertex() is deprecated in DUNE 2.6, please use Dune::GeometryTypes::vertex instead")
-    void makeVertex() {
-      none_  = false;
-      dim_ = 0;
-      topologyId_ = 0;
-    }
-
-    /** \brief Make a line segment */
-    DUNE_DEPRECATED_MSG("makeLine() is deprecated in DUNE 2.6, please use Dune::GeometryTypes::line instead")
-    void makeLine() {
-      none_  = false;
-      dim_ = 1;
-      topologyId_ = 0;
-    }
-
-    /** \brief Make a triangle */
-    DUNE_DEPRECATED_MSG("makeTriangle() is deprecated in DUNE 2.6, please use Dune::GeometryTypes::triangle instead")
-    void makeTriangle() {
-      none_  = false;
-      dim_ = 2;
-      topologyId_ = 0;
-    }
-
-    /** \brief Make a quadrilateral */
-    DUNE_DEPRECATED_MSG("makeQuadrilateral() is deprecated in DUNE 2.6, please use Dune::GeometryTypes::quadrilateral instead")
-    void makeQuadrilateral() {
-      none_  = false;
-      dim_ = 2;
-      topologyId_ = 0b0011;
-    }
-
-    /** \brief Make a tetrahedron */
-    DUNE_DEPRECATED_MSG("makeTetrahedron() is deprecated in DUNE 2.6, please use Dune::GeometryTypes::tetrahedron instead")
-    void makeTetrahedron() {
-      none_  = false;
-      dim_ = 3;
-      topologyId_ = 0;
-    }
-
-    /** \brief Make a pyramid */
-    DUNE_DEPRECATED_MSG("makePyramid() is deprecated in DUNE 2.6, please use Dune::GeometryTypes::pyramid instead")
-    void makePyramid() {
-      none_  = false;
-      dim_ = 3;
-      topologyId_ = 0b0011;
-    }
-
-    /** \brief Make a prism */
-    DUNE_DEPRECATED_MSG("makePrism() is deprecated in DUNE 2.6, please use Dune::GeometryTypes::prism instead")
-    void makePrism() {
-      none_  = false;
-      dim_ = 3;
-      topologyId_ = 0b0101;       // (1 << (dim_-1)) - 1;
-    }
-
-    /** \brief Make a hexahedron */
-    DUNE_DEPRECATED_MSG("makeHexahedron() is deprecated in DUNE 2.6, please use Dune::GeometryTypes::hexahedron instead")
-    void makeHexahedron() {
-      none_  = false;
-      dim_ = 3;
-      topologyId_ = 0b0111;
-    }
-
-    /** \brief Make a simplex of given dimension */
-    DUNE_DEPRECATED_MSG("makeSimplex(dim) is deprecated in DUNE 2.6, please use Dune::GeometryTypes::simplex(dim) instead")
-    void makeSimplex(unsigned int dim) {
-      none_  = false;
-      dim_ = dim;
-      topologyId_ = 0;
-    }
-
-    /** \brief Make a hypercube of given dimension */
-    DUNE_DEPRECATED_MSG("makeCube(dim) is deprecated in DUNE 2.6, please use Dune::GeometryTypes::cube(dim) instead")
-    void makeCube(unsigned int dim) {
-      none_  = false;
-      dim_ = dim;
-      topologyId_ = ((dim>1) ? ((1 << dim) - 1) : 0);
-    }
-
-    /** \brief Make a singular of given dimension */
-    DUNE_DEPRECATED_MSG("makeNone(dim) is deprecated in DUNE 2.6, please use Dune::GeometryTypes::none(dim) instead")
-    void makeNone(unsigned int dim) {
-      none_ = true;
-      dim_ = dim;
-      topologyId_  = 0;
-    }
-
-    /** \brief Construct the correct geometry type given the dimension and the number of vertices
-     *  \note This code only works up to dimension 3.
-     *        In higher dimensions the number of vertices does not uniquely identify the type of polyhedron.
-     */
-    void makeFromVertices(unsigned int dim, unsigned int vertices) DUNE_DEPRECATED_MSG("Use the utility function geometryTypeFromVertexCount(...) instead.")
-    {
-      *this = geometryTypeFromVertexCount(dim, vertices);
-      return;
-    }
-
-    /*@}*/
 
 
     /** @name Query Methods */
@@ -635,6 +334,32 @@ namespace Dune
       return ! none_ && ((topologyId_ ^ ((1 << dim_)-1)) >> 1 == 0);
     }
 
+    /** \brief Return true if entity was constructed with a conical product in the last step */
+    constexpr bool isConical() const {
+      return ! none_ && (((topologyId_ & ~1) & (1u << (dim_-1))) == 0);
+    }
+
+    /** \brief Return true if entity was constructed with a conical product in the chosen step
+     *
+     * \param step    0 <= step <= dim-1
+     */
+    constexpr bool isConical(const int& step) const {
+      return ! none_ && (((topologyId_ & ~1) & (1u << step)) == 0);
+    }
+
+    /** \brief Return true if entity was constructed with a prismatic product in the last step */
+    constexpr bool isPrismatic() const {
+      return ! none_ && (( (topologyId_ | 1) & (1u << (dim_-1))) != 0);
+    }
+
+    /** \brief Return true if entity was constructed with a prismatic product in the chosen step
+     *
+     * \param step    0 <= step <= dim-1
+     */
+    constexpr bool isPrismatic(const int& step) const {
+      return ! none_ && (( (topologyId_ | 1) & (1u << step)) != 0);
+    }
+
     /** \brief Return true if entity is a singular of any dimension */
     constexpr bool isNone() const {
       return none_;
@@ -651,7 +376,6 @@ namespace Dune
     }
 
     /*@}*/
-
 
     /** @name Comparison operators */
 
@@ -722,35 +446,6 @@ namespace Dune
     return s;
   }
 
-  DUNE_NO_DEPRECATED_BEGIN
-  /** \brief Prints a GeometryType::BasicType to an output stream */
-  inline std::ostream& operator<< (std::ostream& s, GeometryType::BasicType type)
-  {
-    switch (type) {
-    case GeometryType::simplex :
-      s << "simplex";
-      break;
-    case GeometryType::cube :
-      s << "cube";
-      break;
-    case GeometryType::pyramid :
-      s << "pyramid";
-      break;
-    case GeometryType::prism :
-      s << "prism";
-      break;
-    case GeometryType::extended :
-      s << "other";
-    case GeometryType::none :
-      s << "none";
-      break;
-    default :
-      DUNE_THROW(Exception, "invalid GeometryType::BasicType");
-    }
-    return s;
-  }
-  DUNE_NO_DEPRECATED_END
-
 
   //! Predefined GeometryTypes for common geometries
   /**
@@ -784,6 +479,18 @@ namespace Dune
     inline constexpr GeometryType none(unsigned int dim)
     {
       return GeometryType(0,dim,true);
+    }
+
+    /** \brief Return GeometryType of a conical construction with gt as base  */
+    inline constexpr GeometryType conicalExtension(const GeometryType& gt)
+    {
+      return GeometryType(gt.id(), gt.dim()+1, gt.isNone());
+    }
+
+    /** \brief Return GeometryType of a prismatic construction with gt as base  */
+    inline constexpr GeometryType prismaticExtension(const GeometryType& gt)
+    {
+      return GeometryType(gt.id() | ((1 << gt.dim())), gt.dim()+1, gt.isNone());
     }
 
 #ifndef __cpp_inline_variables
@@ -844,10 +551,44 @@ namespace Dune
 
   }
 
+  namespace Impl
+  {
 
+    /** \brief Removes the bit for the highest dimension and returns the lower-dimensional GeometryType */
+    inline constexpr GeometryType getBase(const GeometryType& gt) {
+      return GeometryType(gt.id() & ((1 << (gt.dim()-1))-1), gt.dim()-1, gt.isNone());
+    }
+
+
+    // IfGeometryType
+    // ----------
+
+    template< template< GeometryType::Id > class Operation, int dim, GeometryType::Id geometryId = GeometryTypes::vertex >
+    struct IfGeometryType
+    {
+      static constexpr GeometryType geometry = geometryId;
+      template< class... Args >
+      static auto apply ( GeometryType gt, Args &&... args )
+      {
+        GeometryType lowerGeometry(gt.id() >>1 , gt.dim()-1, gt.isNone());
+
+        if( gt.id() & 1 )
+          return IfGeometryType< Operation, dim-1, GeometryTypes::prismaticExtension(geometry).toId() >::apply( lowerGeometry, std::forward< Args >( args )... );
+        else
+          return IfGeometryType< Operation, dim-1, GeometryTypes::conicalExtension(geometry).toId() >::apply( lowerGeometry, std::forward< Args >( args )... );
+      }
+    };
+
+    template< template< GeometryType::Id > class Operation, GeometryType::Id geometryId >
+    struct IfGeometryType< Operation, 0, geometryId>
+    {
+      template< class... Args >
+      static auto apply ([[maybe_unused]] GeometryType gt, Args &&... args )
+      {
+        return Operation< geometryId >::apply( std::forward< Args >( args )... );
+      }
+    };
+  } // namespace Impl
 } // namespace Dune
-
-// include utility header needed for deprecated makeFromVertices
-#include "utility/typefromvertexcount.hh"
 
 #endif // DUNE_GEOMETRY_TYPE_HH

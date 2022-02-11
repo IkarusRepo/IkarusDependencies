@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-common
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -85,8 +85,8 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01852.html">Dune::hash&lt; T &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Functor for hashing objects of type T.  <a href="a01852.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01853.html">Dune::hash&lt; T &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Functor for hashing objects of type T.  <a href="a01853.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -98,7 +98,7 @@ Namespaces</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:a19447db8894b6d86b6b7ef0218694820"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#a19447db8894b6d86b6b7ef0218694820">DUNE_DEFINE_HASH</a>(template_args,  type)</td></tr>
-<tr class="memdesc:a19447db8894b6d86b6b7ef0218694820"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines the required struct specialization to make type hashable via <code><a class="el" href="a01852.html" title="Functor for hashing objects of type T.">Dune::hash</a></code>.  <a href="a00125.html#a19447db8894b6d86b6b7ef0218694820">More...</a><br /></td></tr>
+<tr class="memdesc:a19447db8894b6d86b6b7ef0218694820"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines the required struct specialization to make type hashable via <code><a class="el" href="a01853.html" title="Functor for hashing objects of type T.">Dune::hash</a></code>.  <a href="a00125.html#a19447db8894b6d86b6b7ef0218694820">More...</a><br /></td></tr>
 <tr class="separator:a19447db8894b6d86b6b7ef0218694820"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad88c05071e8aafc3796b6d6238900697"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#ad88c05071e8aafc3796b6d6238900697">DUNE_HASH_TEMPLATE_ARGS</a>(...)</td></tr>
 <tr class="memdesc:ad88c05071e8aafc3796b6d6238900697"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper macro for the template arguments in DUNE_DEFINE_HASH.  <a href="a00125.html#ad88c05071e8aafc3796b6d6238900697">More...</a><br /></td></tr>
@@ -124,7 +124,7 @@ Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Support for calculating hash values of objects. </p>
-<p>This file provides the functor <a class="el" href="a01852.html" title="Functor for hashing objects of type T.">Dune::hash</a> to calculate hash values and some infrastructure to simplify extending <a class="el" href="a01852.html" title="Functor for hashing objects of type T.">Dune::hash</a> for user-defined types, independent of the actual underlying implementation. </p>
+<p>This file provides the functor <a class="el" href="a01853.html" title="Functor for hashing objects of type T.">Dune::hash</a> to calculate hash values and some infrastructure to simplify extending <a class="el" href="a01853.html" title="Functor for hashing objects of type T.">Dune::hash</a> for user-defined types, independent of the actual underlying implementation. </p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a19447db8894b6d86b6b7ef0218694820"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a19447db8894b6d86b6b7ef0218694820">&#9670;&nbsp;</a></span>DUNE_DEFINE_HASH</h2>
@@ -152,7 +152,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Defines the required struct specialization to make type hashable via <code><a class="el" href="a01852.html" title="Functor for hashing objects of type T.">Dune::hash</a></code>. </p>
+<p>Defines the required struct specialization to make type hashable via <code><a class="el" href="a01853.html" title="Functor for hashing objects of type T.">Dune::hash</a></code>. </p>
 <p>In order to calculate the hash, operator() of the generated specialization will return the result of an unqualified call to the global function <code>hash_value(const type&amp;)</code>. As the call is not qualified, the function will be found using argument-dependent lookup, allowing implementors to conveniently place it inside the class body.</p>
 <p>Consider the following type:</p>
 <div class="fragment"><div class="line"><span class="keyword">namespace </span>ns {</div>
@@ -162,7 +162,7 @@ Functions</h2></td></tr>
 <div class="line">    ...</div>
 <div class="line">  };</div>
 <div class="line">}</div>
-</div><!-- fragment --><p>In order to add support for <code><a class="el" href="a01852.html" title="Functor for hashing objects of type T.">Dune::hash</a></code>, you need to extend the definition like this:</p>
+</div><!-- fragment --><p>In order to add support for <code><a class="el" href="a01853.html" title="Functor for hashing objects of type T.">Dune::hash</a></code>, you need to extend the definition like this:</p>
 <div class="fragment"><div class="line"><span class="keyword">namespace </span>ns {</div>
 <div class="line">  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> A, <span class="keywordtype">int</span> i&gt;</div>
 <div class="line">  <span class="keyword">class </span>Foo</div>

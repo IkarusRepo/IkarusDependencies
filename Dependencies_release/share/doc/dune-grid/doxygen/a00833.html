@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: vtkwriter.hh File Reference</title>
+<title>dune-grid: vtksequencewriter.hh File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -70,79 +70,29 @@ $(function() {
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">vtkwriter.hh File Reference</div>  </div>
+<div class="title">vtksequencewriter.hh File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Provides file i/o for the visualization toolkit.  
-<a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;cstring&gt;</code><br />
-<code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;string&gt;</code><br />
-<code>#include &lt;fstream&gt;</code><br />
-<code>#include &lt;sstream&gt;</code><br />
-<code>#include &lt;iomanip&gt;</code><br />
-<code>#include &lt;memory&gt;</code><br />
-<code>#include &lt;vector&gt;</code><br />
-<code>#include &lt;list&gt;</code><br />
-<code>#include &lt;map&gt;</code><br />
-<code>#include &lt;dune/common/typetraits.hh&gt;</code><br />
-<code>#include &lt;dune/common/exceptions.hh&gt;</code><br />
-<code>#include &lt;dune/common/indent.hh&gt;</code><br />
-<code>#include &lt;dune/common/iteratorfacades.hh&gt;</code><br />
-<code>#include &lt;dune/common/path.hh&gt;</code><br />
-<code>#include &lt;dune/geometry/referenceelements.hh&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00293_source.html">dune/grid/common/mcmgmapper.hh</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00251_source.html">dune/grid/common/gridenums.hh</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00788_source.html">dune/grid/io/file/vtk/common.hh</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00797_source.html">dune/grid/io/file/vtk/dataarraywriter.hh</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00800_source.html">dune/grid/io/file/vtk/function.hh</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00809_source.html">dune/grid/io/file/vtk/pvtuwriter.hh</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00815_source.html">dune/grid/io/file/vtk/streams.hh</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00836_source.html">dune/grid/io/file/vtk/vtuwriter.hh</a>&gt;</code><br />
+<div class="textblock"><code>#include &lt;memory&gt;</code><br />
+<code>#include &lt;<a class="el" href="a00836_source.html">dune/grid/io/file/vtk/vtksequencewriterbase.hh</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="a00839_source.html">dune/grid/io/file/vtk/vtkwriter.hh</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="a00824_source.html">dune/grid/io/file/vtk/subsamplingvtkwriter.hh</a>&gt;</code><br />
 </div>
 <p><a href="a00833_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03898.html">Dune::VTKWriter&lt; GridView &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writer for the ouput of grid functions in the vtk format.  <a href="a03898.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03902.html">Dune::VTKWriter&lt; GridView &gt;::VTKLocalFunction</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type erasure wrapper for <a class="el" href="a00948.html">VTK</a> data sets.  <a href="a03902.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03906.html">Dune::VTKWriter&lt; GridView &gt;::VTKLocalFunction::FunctionWrapperBase</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for polymorphic container of underlying data set.  <a href="a03906.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03910.html">Dune::VTKWriter&lt; GridView &gt;::VTKLocalFunction::FunctionWrapper&lt; F &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type erasure implementation for functions conforming to the dune-functions LocalFunction interface.  <a href="a03910.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03914.html">Dune::VTKWriter&lt; GridView &gt;::VTKLocalFunction::GlobalFunctionWrapper&lt; F &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type erasure implementation for C++ functions, i.e., functions that can be evaluated in global coordinates.  <a href="a03914.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03918.html">Dune::VTKWriter&lt; GridView &gt;::VTKLocalFunction::VTKFunctionWrapper</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type erasure implementation for legacy VTKFunctions.  <a href="a03918.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03922.html">Dune::VTKWriter&lt; GridView &gt;::CellIterator</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterator over the grids elements.  <a href="a03922.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03926.html">Dune::VTKWriter&lt; GridView &gt;::VertexIterator</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterate over the grid's vertices.  <a href="a03926.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03930.html">Dune::VTKWriter&lt; GridView &gt;::CornerIterator</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterate over the elements' corners.  <a href="a03930.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03866.html">Dune::VTKSequenceWriter&lt; GridView &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writer for the ouput of grid functions in the vtk format.  <a href="a03866.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:a00936"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00936.html">Dune</a></td></tr>
-<tr class="memdesc:a00936"><td class="mdescLeft">&#160;</td><td class="mdescRight">Include standard header files. <br /></td></tr>
+<tr class="memitem:a00940"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00940.html">Dune</a></td></tr>
+<tr class="memdesc:a00940"><td class="mdescLeft">&#160;</td><td class="mdescRight">Include standard header files. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Provides file i/o for the visualization toolkit. </p>
-<dl class="section author"><dt>Author</dt><dd>Peter Bastian, Christian Engwer </dd></dl>
-</div></div><!-- contents -->
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1

@@ -19,7 +19,6 @@
 #include <dune/common/precision.hh>
 #include <dune/common/simd/simd.hh>
 #include <dune/common/typetraits.hh>
-#include <dune/common/unused.hh>
 #include <dune/common/scalarvectorview.hh>
 
 namespace Dune
@@ -34,27 +33,29 @@ namespace Dune
     typedef const typename FieldTraits< typename DenseMatVecTraits<M>::value_type >::real_type real_type;
   };
 
-  /*
+  /**
      work around a problem of FieldMatrix/FieldVector,
      there is no unique way to obtain the size of a class
+
+     \deprecated VectorSize is deprecated; please call the 'size()' method directly instead.
+                 This will be removed after Dune 2.8.
    */
   template<class K, int N, int M> class FieldMatrix;
   template<class K, int N> class FieldVector;
   namespace {
     template<class V>
-    struct DUNE_DEPRECATED_MSG("VectorSize is deprecated; please call the 'size()' method directly instead") VectorSize
+    struct [[deprecated("VectorSize is deprecated; please call the 'size()' method directly instead")]] VectorSize
     {
       static typename V::size_type size(const V & v) { return v.size(); }
     };
 
     DUNE_NO_DEPRECATED_BEGIN
     template<class K, int N>
-    struct DUNE_DEPRECATED_MSG("VectorSize is deprecated; please call the 'size()' method directly instead") VectorSize< const FieldVector<K,N> >
+    struct [[deprecated("VectorSize is deprecated; please call the 'size()' method directly instead")]] VectorSize< const FieldVector<K,N> >
     {
       typedef FieldVector<K,N> V;
-      static typename V::size_type size(const V & v)
+      static typename V::size_type size([[maybe_unused]] const V & v)
       {
-        DUNE_UNUSED_PARAMETER(v);
         return N;
       }
     };
@@ -165,8 +166,8 @@ namespace Dune
     typedef DenseMatVecTraits<MAT> Traits;
 
     // Curiously recurring template pattern
-    MAT & asImp() { return static_cast<MAT&>(*this); }
-    const MAT & asImp() const { return static_cast<const MAT&>(*this); }
+    constexpr MAT & asImp() { return static_cast<MAT&>(*this); }
+    constexpr const MAT & asImp() const { return static_cast<const MAT&>(*this); }
 
     template <class>
     friend class DenseMatrix;
@@ -325,10 +326,10 @@ namespace Dune
     derived_type operator- () const
     {
       MAT result;
-      typedef typename decltype(result)::size_type size_type;
+      using idx_type = typename decltype(result)::size_type;
 
-      for (size_type i = 0; i < rows(); ++i)
-        for (size_type j = 0; j < cols(); ++j)
+      for (idx_type i = 0; i < rows(); ++i)
+        for (idx_type j = 0; j < cols(); ++j)
           result[i][j] = - asImp()[i][j];
 
       return result;
@@ -400,10 +401,10 @@ namespace Dune
       DUNE_ASSERT_BOUNDS(xx.N() == M());
       DUNE_ASSERT_BOUNDS(yy.N() == N());
 
-      using field_type = typename FieldTraits<Y>::field_type;
+      using y_field_type = typename FieldTraits<Y>::field_type;
       for (size_type i=0; i<rows(); ++i)
       {
-        yy[i] = field_type(0);
+        yy[i] = y_field_type(0);
         for (size_type j=0; j<cols(); j++)
           yy[i] += (*this)[i][j] * xx[j];
       }
@@ -419,10 +420,10 @@ namespace Dune
       DUNE_ASSERT_BOUNDS(xx.N() == N());
       DUNE_ASSERT_BOUNDS(yy.N() == M());
 
-      using field_type = typename FieldTraits<Y>::field_type;
+      using y_field_type = typename FieldTraits<Y>::field_type;
       for(size_type i = 0; i < cols(); ++i)
       {
-        yy[i] = field_type(0);
+        yy[i] = y_field_type(0);
         for(size_type j = 0; j < rows(); ++j)
           yy[i] += (*this)[j][i] * xx[j];
       }
@@ -721,25 +722,25 @@ namespace Dune
     //===== sizes
 
     //! number of rows
-    size_type N () const
+    constexpr size_type N () const
     {
       return rows();
     }
 
     //! number of columns
-    size_type M () const
+    constexpr size_type M () const
     {
       return cols();
     }
 
     //! number of rows
-    size_type rows() const
+    constexpr size_type rows() const
     {
       return asImp().mat_rows();
     }
 
     //! number of columns
-    size_type cols() const
+    constexpr size_type cols() const
     {
       return asImp().mat_cols();
     }
@@ -747,10 +748,8 @@ namespace Dune
     //===== query
 
     //! return true when (i,j) is in pattern
-    bool exists (size_type i, size_type j) const
+    bool exists ([[maybe_unused]] size_type i, [[maybe_unused]] size_type j) const
     {
-      DUNE_UNUSED_PARAMETER(i);
-      DUNE_UNUSED_PARAMETER(j);
       DUNE_ASSERT_BOUNDS(i >= 0 && i < rows());
       DUNE_ASSERT_BOUNDS(j >= 0 && j < cols());
       return true;

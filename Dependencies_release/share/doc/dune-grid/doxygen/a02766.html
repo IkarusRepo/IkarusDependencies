@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: Dune::IndexSet&lt; GridImp, IndexSetImp, IndexTypeImp, TypesImp &gt;::Codim&lt; cc &gt; Struct Template Reference</title>
+<title>dune-grid: Dune::GridView&lt; ViewTraits &gt;::Codim&lt; cd &gt;::Partition&lt; pit &gt; Struct Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,7 +62,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00936.html">Dune</a></li><li class="navelem"><a class="el" href="a02690.html">IndexSet</a></li><li class="navelem"><a class="el" href="a02766.html">Codim</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00940.html">Dune</a></li><li class="navelem"><a class="el" href="a02758.html">GridView</a></li><li class="navelem"><a class="el" href="a02762.html">Codim</a></li><li class="navelem"><a class="el" href="a02766.html">Partition</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -70,47 +70,30 @@ $(function() {
 <a href="#pub-types">Public Types</a> &#124;
 <a href="a02763.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::IndexSet&lt; GridImp, IndexSetImp, IndexTypeImp, TypesImp &gt;::Codim&lt; cc &gt; Struct Template Reference</div>  </div>
+<div class="title">Dune::GridView&lt; ViewTraits &gt;::Codim&lt; cd &gt;::Partition&lt; pit &gt; Struct Template Reference<div class="ingroups"><a class="el" href="a00905.html">dune-grid</a> &raquo; <a class="el" href="a00907.html">The Grid Interface</a> &raquo; <a class="el" href="a00910.html">GridView</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Export the type of the entity used as parameter in the index(...) method.  
+<p>Define types needed to iterate over entities of a given partition type.  
  <a href="a02766.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00272_source.html">dune/grid/common/indexidset.hh</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a06729_source.html">dune/grid/common/gridview.hh</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a8eb68693451ae9b2c9cff126000dd504"><td class="memItemLeft" align="right" valign="top">typedef Traits ::template <a class="el" href="a02766.html">Codim</a>&lt; cc &gt;::<a class="el" href="a02766.html#a8eb68693451ae9b2c9cff126000dd504">Entity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02766.html#a8eb68693451ae9b2c9cff126000dd504">Entity</a></td></tr>
-<tr class="separator:a8eb68693451ae9b2c9cff126000dd504"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6458fcb7553353f4786f006d4a9a6089"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a00910.html#ga26b2114a4034a33473d01926c6b21b6b">Traits</a> ::template <a class="el" href="a02762.html">Codim</a>&lt; cd &gt;::template <a class="el" href="a02766.html">Partition</a>&lt; pit &gt;::<a class="el" href="a00910.html#ga6458fcb7553353f4786f006d4a9a6089">Iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00910.html#ga6458fcb7553353f4786f006d4a9a6089">Iterator</a></td></tr>
+<tr class="memdesc:ga6458fcb7553353f4786f006d4a9a6089"><td class="mdescLeft">&#160;</td><td class="mdescRight">iterator over a given codim and partition type  <a href="a00910.html#ga6458fcb7553353f4786f006d4a9a6089">More...</a><br /></td></tr>
+<tr class="separator:ga6458fcb7553353f4786f006d4a9a6089"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;class GridImp, class IndexSetImp, class IndexTypeImp, class TypesImp&gt;<br />
-template&lt;int cc&gt;<br />
-struct Dune::IndexSet&lt; GridImp, IndexSetImp, IndexTypeImp, TypesImp &gt;::Codim&lt; cc &gt;</h3>
+<div class="textblock"><h3>template&lt;class ViewTraits&gt;<br />
+template&lt;int cd&gt;<br />
+template&lt;PartitionIteratorType pit&gt;<br />
+struct Dune::GridView&lt; ViewTraits &gt;::Codim&lt; cd &gt;::Partition&lt; pit &gt;</h3>
 
-<p>Export the type of the entity used as parameter in the index(...) method. </p>
-</div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a8eb68693451ae9b2c9cff126000dd504"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8eb68693451ae9b2c9cff126000dd504">&#9670;&nbsp;</a></span>Entity</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class GridImp , class IndexSetImp , class IndexTypeImp , class TypesImp &gt; </div>
-<div class="memtemplate">
-template&lt;int cc&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef Traits :: template <a class="el" href="a02766.html">Codim</a>&lt;cc&gt;:: <a class="el" href="a02766.html#a8eb68693451ae9b2c9cff126000dd504">Entity</a> <a class="el" href="a02690.html">Dune::IndexSet</a>&lt; GridImp, IndexSetImp, IndexTypeImp, TypesImp &gt;::<a class="el" href="a02766.html">Codim</a>&lt; cc &gt;::<a class="el" href="a02766.html#a8eb68693451ae9b2c9cff126000dd504">Entity</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="a00272_source.html">indexidset.hh</a></li>
+<p>Define types needed to iterate over entities of a given partition type. </p>
+</div><hr/>The documentation for this struct was generated from the following file:<ul>
+<li><a class="el" href="a06729_source.html">common/gridview.hh</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

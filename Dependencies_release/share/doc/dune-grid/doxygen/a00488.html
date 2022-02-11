@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: coordcache.hh File Reference</title>
+<title>dune-grid: algebra.hh File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -67,34 +67,69 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">coordcache.hh File Reference</div>  </div>
+<div class="title">algebra.hh File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;<a class="el" href="a00554_source.html">dune/grid/albertagrid/meshpointer.hh</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00497_source.html">dune/grid/albertagrid/dofadmin.hh</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00500_source.html">dune/grid/albertagrid/dofvector.hh</a>&gt;</code><br />
+<div class="textblock"><code>#include &lt;dune/common/fvector.hh&gt;</code><br />
+<code>#include &lt;dune/common/fmatrix.hh&gt;</code><br />
 </div>
 <p><a href="a00488_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01822.html">Dune::Alberta::CoordCache&lt; dim &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01826.html">Dune::Alberta::CoordCache&lt; dim &gt;::LocalCaching</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01830.html">Dune::Alberta::CoordCache&lt; dim &gt;::Interpolation</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:a00936"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00936.html">Dune</a></td></tr>
-<tr class="memdesc:a00936"><td class="mdescLeft">&#160;</td><td class="mdescRight">Include standard header files. <br /></td></tr>
+<tr class="memitem:a00940"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00940.html">Dune</a></td></tr>
+<tr class="memdesc:a00940"><td class="mdescLeft">&#160;</td><td class="mdescRight">Include standard header files. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00937"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00937.html">Dune::Alberta</a></td></tr>
+<tr class="memitem:a00941"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00941.html">Dune::Alberta</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ac9ec1689c4568d01644db2bfee5947f6"><td class="memTemplParams" colspan="2">template&lt;class K &gt; </td></tr>
+<tr class="memitem:ac9ec1689c4568d01644db2bfee5947f6"><td class="memTemplItemLeft" align="right" valign="top">static FieldVector&lt; K, 3 &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00941.html#ac9ec1689c4568d01644db2bfee5947f6">Dune::Alberta::vectorProduct</a> (const FieldVector&lt; K, 3 &gt; &amp;u, const FieldVector&lt; K, 3 &gt; &amp;v)</td></tr>
+<tr class="separator:ac9ec1689c4568d01644db2bfee5947f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98df257ae8b8275f40f1d10e6c939542"><td class="memTemplParams" colspan="2">template&lt;class K , int m&gt; </td></tr>
+<tr class="memitem:a98df257ae8b8275f40f1d10e6c939542"><td class="memTemplItemLeft" align="right" valign="top">static K&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00941.html#a98df257ae8b8275f40f1d10e6c939542">Dune::Alberta::determinant</a> ([[maybe_unused]] const FieldMatrix&lt; K, 0, m &gt; &amp;matrix)</td></tr>
+<tr class="separator:a98df257ae8b8275f40f1d10e6c939542"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc60da48ba5f2c2004ed04c7b82c0348"><td class="memTemplParams" colspan="2">template&lt;class K &gt; </td></tr>
+<tr class="memitem:afc60da48ba5f2c2004ed04c7b82c0348"><td class="memTemplItemLeft" align="right" valign="top">static K&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00941.html#afc60da48ba5f2c2004ed04c7b82c0348">Dune::Alberta::determinant</a> (const FieldMatrix&lt; K, 1, 1 &gt; &amp;matrix)</td></tr>
+<tr class="separator:afc60da48ba5f2c2004ed04c7b82c0348"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac94d97a6c966088af621ff3215125ab8"><td class="memTemplParams" colspan="2">template&lt;class K , int m&gt; </td></tr>
+<tr class="memitem:ac94d97a6c966088af621ff3215125ab8"><td class="memTemplItemLeft" align="right" valign="top">static K&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00941.html#ac94d97a6c966088af621ff3215125ab8">Dune::Alberta::determinant</a> (const FieldMatrix&lt; K, 1, m &gt; &amp;matrix)</td></tr>
+<tr class="separator:ac94d97a6c966088af621ff3215125ab8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c69724eeab70701d1104137cef01693"><td class="memTemplParams" colspan="2">template&lt;class K &gt; </td></tr>
+<tr class="memitem:a0c69724eeab70701d1104137cef01693"><td class="memTemplItemLeft" align="right" valign="top">static K&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00941.html#a0c69724eeab70701d1104137cef01693">Dune::Alberta::determinant</a> (const FieldMatrix&lt; K, 2, 2 &gt; &amp;matrix)</td></tr>
+<tr class="separator:a0c69724eeab70701d1104137cef01693"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81beb9f173349a78b42547a5fe103355"><td class="memTemplParams" colspan="2">template&lt;class K &gt; </td></tr>
+<tr class="memitem:a81beb9f173349a78b42547a5fe103355"><td class="memTemplItemLeft" align="right" valign="top">static K&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00941.html#a81beb9f173349a78b42547a5fe103355">Dune::Alberta::determinant</a> (const FieldMatrix&lt; K, 2, 3 &gt; &amp;matrix)</td></tr>
+<tr class="separator:a81beb9f173349a78b42547a5fe103355"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a2b233c25e9dbc55a5671d0b2225d19"><td class="memTemplParams" colspan="2">template&lt;class K , int m&gt; </td></tr>
+<tr class="memitem:a0a2b233c25e9dbc55a5671d0b2225d19"><td class="memTemplItemLeft" align="right" valign="top">static K&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00941.html#a0a2b233c25e9dbc55a5671d0b2225d19">Dune::Alberta::determinant</a> (const FieldMatrix&lt; K, 2, m &gt; &amp;matrix)</td></tr>
+<tr class="separator:a0a2b233c25e9dbc55a5671d0b2225d19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a2ac848ea222d8ddc7860b8c2348460"><td class="memTemplParams" colspan="2">template&lt;class K &gt; </td></tr>
+<tr class="memitem:a8a2ac848ea222d8ddc7860b8c2348460"><td class="memTemplItemLeft" align="right" valign="top">static K&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00941.html#a8a2ac848ea222d8ddc7860b8c2348460">Dune::Alberta::determinant</a> (const FieldMatrix&lt; K, 3, 3 &gt; &amp;matrix)</td></tr>
+<tr class="separator:a8a2ac848ea222d8ddc7860b8c2348460"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a376a2bb46f272e0b676174c4e0432598"><td class="memTemplParams" colspan="2">template&lt;class K , int m&gt; </td></tr>
+<tr class="memitem:a376a2bb46f272e0b676174c4e0432598"><td class="memTemplItemLeft" align="right" valign="top">static K&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00941.html#a376a2bb46f272e0b676174c4e0432598">Dune::Alberta::invert</a> ([[maybe_unused]] const FieldMatrix&lt; K, 0, m &gt; &amp;matrix, [[maybe_unused]] FieldMatrix&lt; K, m, 0 &gt; &amp;inverse)</td></tr>
+<tr class="separator:a376a2bb46f272e0b676174c4e0432598"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74e11a373cb5034654a0014c09aed9a5"><td class="memTemplParams" colspan="2">template&lt;class K &gt; </td></tr>
+<tr class="memitem:a74e11a373cb5034654a0014c09aed9a5"><td class="memTemplItemLeft" align="right" valign="top">static K&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00941.html#a74e11a373cb5034654a0014c09aed9a5">Dune::Alberta::invert</a> (const FieldMatrix&lt; K, 1, 1 &gt; &amp;matrix, FieldMatrix&lt; K, 1, 1 &gt; &amp;inverse)</td></tr>
+<tr class="separator:a74e11a373cb5034654a0014c09aed9a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a365df9ca0786933adddf610931f50ebb"><td class="memTemplParams" colspan="2">template&lt;class K , int m&gt; </td></tr>
+<tr class="memitem:a365df9ca0786933adddf610931f50ebb"><td class="memTemplItemLeft" align="right" valign="top">static K&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00941.html#a365df9ca0786933adddf610931f50ebb">Dune::Alberta::invert</a> (const FieldMatrix&lt; K, 1, m &gt; &amp;matrix, FieldMatrix&lt; K, m, 1 &gt; &amp;inverse)</td></tr>
+<tr class="separator:a365df9ca0786933adddf610931f50ebb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfb3a843fe4f2ab42b4243e5d307cd12"><td class="memTemplParams" colspan="2">template&lt;class K &gt; </td></tr>
+<tr class="memitem:adfb3a843fe4f2ab42b4243e5d307cd12"><td class="memTemplItemLeft" align="right" valign="top">static K&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00941.html#adfb3a843fe4f2ab42b4243e5d307cd12">Dune::Alberta::invert</a> (const FieldMatrix&lt; K, 2, 2 &gt; &amp;matrix, FieldMatrix&lt; K, 2, 2 &gt; &amp;inverse)</td></tr>
+<tr class="separator:adfb3a843fe4f2ab42b4243e5d307cd12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c7c32c5be01d881c2a7e854bb16ce4a"><td class="memTemplParams" colspan="2">template&lt;class K , int m&gt; </td></tr>
+<tr class="memitem:a2c7c32c5be01d881c2a7e854bb16ce4a"><td class="memTemplItemLeft" align="right" valign="top">static K&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00941.html#a2c7c32c5be01d881c2a7e854bb16ce4a">Dune::Alberta::invert</a> (const FieldMatrix&lt; K, 2, m &gt; &amp;matrix, FieldMatrix&lt; K, m, 2 &gt; &amp;inverse)</td></tr>
+<tr class="separator:a2c7c32c5be01d881c2a7e854bb16ce4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80ef0155e5a1707187ac43a86b4e3295"><td class="memTemplParams" colspan="2">template&lt;class K &gt; </td></tr>
+<tr class="memitem:a80ef0155e5a1707187ac43a86b4e3295"><td class="memTemplItemLeft" align="right" valign="top">static K&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00941.html#a80ef0155e5a1707187ac43a86b4e3295">Dune::Alberta::invert</a> (const FieldMatrix&lt; K, 3, 3 &gt; &amp;matrix, FieldMatrix&lt; K, 3, 3 &gt; &amp;inverse)</td></tr>
+<tr class="separator:a80ef0155e5a1707187ac43a86b4e3295"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->

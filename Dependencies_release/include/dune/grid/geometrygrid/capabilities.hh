@@ -5,9 +5,9 @@
 
 #include <cassert>
 #include <type_traits>
+#include <utility>
 
 #include <dune/common/hybridutilities.hh>
-#include <dune/common/std/utility.hh>
 
 #include <dune/grid/common/capabilities.hh>
 #include <dune/grid/geometrygrid/declaration.hh>
@@ -42,7 +42,7 @@ namespace Dune
     template< class HostGrid, class CoordFunction, class Allocator, int codim >
     struct hasEntityIterator< GeometryGrid< HostGrid, CoordFunction, Allocator >, codim >
     {
-      static const bool v = true;
+      static const bool v = hasEntityIterator<HostGrid, codim>::v;
     };
 
 
@@ -118,7 +118,7 @@ namespace Dune
 
       CodimCache ()
       {
-        Hybrid::forEach( Std::make_index_sequence< dimension+1 >{},
+        Hybrid::forEach( std::make_index_sequence< dimension+1 >{},
           [ & ]( auto i ){ hasHostEntity_[ i ] = Capabilities::hasHostEntity< Grid, i >::v; } );
       }
 

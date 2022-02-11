@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: transformation.hh Source File</title>
+<title>dune-grid: refinement.hh Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -67,99 +67,390 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">transformation.hh</div>  </div>
+<div class="title">refinement.hh</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="a00566.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*-</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// vi: set et ts=4 sw=2 sts=2:</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifndef DUNE_ALBERTA_TRANSFORMATION_HH</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define DUNE_ALBERTA_TRANSFORMATION_HH</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifndef DUNE_ALBERTA_REFINEMENT_HH</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define DUNE_ALBERTA_REFINEMENT_HH</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;dune/common/fvector.hh&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00557.html">dune/grid/albertagrid/misc.hh</a>&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#if HAVE_ALBERTA</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00936.html">Dune</a></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="a02422.html">   15</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a02422.html">AlbertaTransformation</a></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  {</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">typedef</span> <a class="code" href="a02206.html">Alberta::GlobalSpace</a> <a class="code" href="a02206.html">GlobalSpace</a>;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;cassert&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00560.html">dune/grid/albertagrid/misc.hh</a>&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00509.html">dune/grid/albertagrid/elementinfo.hh</a>&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#if HAVE_ALBERTA</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="a02422.html#aca8b17e8b013d08e75419ada08824606">   20</a></span>&#160;    <span class="keyword">typedef</span> <a class="code" href="a00937.html#a86b942cdffce80f98973c987ea6246da">Alberta::Real</a> <a class="code" href="a02422.html#aca8b17e8b013d08e75419ada08824606">ctype</a>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00940.html">Dune</a></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="a02422.html#a867cce6e98e548e1b38e3b9169c41ec1">   22</a></span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="a02422.html#a867cce6e98e548e1b38e3b9169c41ec1">dimension</a> = <a class="code" href="a00937.html#acc4a01c16d41d4e3e6e5d058b86376ca">Alberta::dimWorld</a>;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="a02422.html#abfd624d164e7651ffdab5a55df006068">   24</a></span>&#160;    <span class="keyword">typedef</span> FieldVector&lt; ctype, dimension &gt; <a class="code" href="a02422.html#abfd624d164e7651ffdab5a55df006068">WorldVector</a>;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">explicit</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="a02422.html#a3262dd337692ec88e750103a1d5b99a3">   27</a></span>&#160;    <a class="code" href="a02422.html#a3262dd337692ec88e750103a1d5b99a3">AlbertaTransformation</a> ( <span class="keyword">const</span> <a class="code" href="a00937.html#a3a811627cd147103ac01aa962c25a98d">Alberta::AffineTransformation</a> *trafo = NULL )</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;      : matrix_( (trafo != NULL ? trafo-&gt;M : <a class="code" href="a02206.html">GlobalSpace</a>::identityMatrix()) ),</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        shift_( (trafo != NULL ? trafo-&gt;t : <a class="code" href="a02206.html">GlobalSpace</a>::nullVector()) )</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    {}</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <span class="keyword">namespace </span>Alberta</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="comment">// Internal Forward Declarations</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="comment">// -----------------------------</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">template</span>&lt; <span class="keywordtype">int</span> dim, <span class="keywordtype">int</span> codim &gt;</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="a02382.html">   29</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="a02382.html">ForEachInteriorSubChild</a>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="a02422.html#ac4030b083786e7631a508a56146fcebf">   32</a></span>&#160;    <a class="code" href="a02422.html#ac4030b083786e7631a508a56146fcebf">AlbertaTransformation</a> ( <span class="keyword">const</span> <a class="code" href="a02206.html#ab0386402c65090e772676789e2a81d20">GlobalSpace::Matrix</a> &amp;matrix,</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                            <span class="keyword">const</span> <a class="code" href="a02206.html#ab964db613a65e1be687785a3efa16a8d">GlobalSpace::Vector</a> &amp;shift )</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;      : matrix_( matrix ),</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        shift_( shift )</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    {}</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="a02422.html#afacc69783766498bb34ec4eb1ce4e5e2">   38</a></span>&#160;    <a class="code" href="a02422.html#abfd624d164e7651ffdab5a55df006068">WorldVector</a> <a class="code" href="a02422.html#afacc69783766498bb34ec4eb1ce4e5e2">evaluate</a> ( <span class="keyword">const</span> <a class="code" href="a02422.html#abfd624d164e7651ffdab5a55df006068">WorldVector</a> &amp;x )<span class="keyword"> const</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;      <a class="code" href="a02422.html#abfd624d164e7651ffdab5a55df006068">WorldVector</a> y;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;      <span class="keywordflow">for</span>( <span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="a02422.html#a867cce6e98e548e1b38e3b9169c41ec1">dimension</a>; ++i )</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keyword">const</span> <a class="code" href="a02206.html#ab964db613a65e1be687785a3efa16a8d">GlobalSpace::Vector</a> &amp;row = matrix_[ i ];</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        y[ i ] = shift_[ i ];</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">for</span>( <span class="keywordtype">int</span> j = 0; j &lt; <a class="code" href="a02422.html#a867cce6e98e548e1b38e3b9169c41ec1">dimension</a>; ++j )</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;          y[ i ] += row[ j ] * x[ j ];</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;      }</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;      <span class="keywordflow">return</span> y;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    }</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="comment">// Patch</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="comment">// -----</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">template</span>&lt; <span class="keywordtype">int</span> dim &gt;</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="a02386.html">   37</a></span>&#160;    <span class="keyword">class </span><a class="code" href="a02386.html">Patch</a></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;      <span class="keyword">typedef</span> <a class="code" href="a02386.html">Patch&lt; dim &gt;</a> <a class="code" href="a02386.html">This</a>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;      static_assert(((dim &gt;= 1) &amp;&amp; (dim &lt;= 3)),</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                    <span class="stringliteral">&quot;Alberta supports only dimensions 1, 2, 3&quot;</span>);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="a02386.html#a799e4d748b48718e23c9becc29454aca">   45</a></span>&#160;      <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="a02386.html#a799e4d748b48718e23c9becc29454aca">dimension</a> = dim;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="a02386.html#add7dd36645dd06684b3025ab59b7c6a4">   47</a></span>&#160;      <span class="keyword">typedef</span> <a class="code" href="a01902.html">Alberta::ElementInfo&lt; dimension &gt;</a> <a class="code" href="a02386.html#add7dd36645dd06684b3025ab59b7c6a4">ElementInfo</a>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="a02386.html#aed03c36a49fa6fefe4145209613c7946">   49</a></span>&#160;      <span class="keyword">typedef</span> <a class="code" href="a00482.html#a4cbe74d935d2e31c4b35398e93623f70">ALBERTA</a> RC_LIST_EL <a class="code" href="a02386.html#aed03c36a49fa6fefe4145209613c7946">ElementList</a>;</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="a02422.html#aeefe0f44079889ff50a36b41a9d19cb6">   51</a></span>&#160;    <a class="code" href="a02422.html#abfd624d164e7651ffdab5a55df006068">WorldVector</a> <a class="code" href="a02422.html#aeefe0f44079889ff50a36b41a9d19cb6">evaluateInverse</a> ( <span class="keyword">const</span> <a class="code" href="a02422.html#abfd624d164e7651ffdab5a55df006068">WorldVector</a> &amp;y )<span class="keyword"> const</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;      <span class="comment">// Note: ALBERTA requires the matrix to be orthogonal</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      <a class="code" href="a02422.html#abfd624d164e7651ffdab5a55df006068">WorldVector</a> x( <a class="code" href="a02422.html#aca8b17e8b013d08e75419ada08824606">ctype</a>( 0 ) );</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;      <span class="keywordflow">for</span>( <span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="a02422.html#a867cce6e98e548e1b38e3b9169c41ec1">dimension</a>; ++i )</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      {</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keyword">const</span> <a class="code" href="a02206.html#ab964db613a65e1be687785a3efa16a8d">GlobalSpace::Vector</a> &amp;row = matrix_[ i ];</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keyword">const</span> <a class="code" href="a02422.html#aca8b17e8b013d08e75419ada08824606">ctype</a> v = y[ i ] - shift_[ i ];</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordflow">for</span>( <span class="keywordtype">int</span> j = 0; j &lt; <a class="code" href="a02422.html#a867cce6e98e548e1b38e3b9169c41ec1">dimension</a>; ++j )</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;          x[ j ] += row[ j ] * v;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      <a class="code" href="a02386.html#aed03c36a49fa6fefe4145209613c7946">ElementList</a> *list_;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;      <span class="keywordtype">int</span> count_;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="a02386.html#a7e49b83df3842e407bd8cefa9b566832">   56</a></span>&#160;      <a class="code" href="a02386.html#a7e49b83df3842e407bd8cefa9b566832">Patch</a> ( <a class="code" href="a02386.html#aed03c36a49fa6fefe4145209613c7946">ElementList</a> *list, <span class="keywordtype">int</span> <a class="code" href="a02386.html#a42c0948a8df8cc5527f3ae67ade8b2ba">count</a> )</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        : list_( list ),</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;          count_( <a class="code" href="a02386.html#a42c0948a8df8cc5527f3ae67ade8b2ba">count</a> )</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;      {</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        assert( <a class="code" href="a02386.html#a42c0948a8df8cc5527f3ae67ade8b2ba">count</a> &gt; 0 );</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;      }</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;      <span class="keywordflow">return</span> x;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    }</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;      <a class="code" href="a00941.html#a738666cf4bcd352ecee6a5dc484bb92c">Element</a> *<a class="code" href="a02386.html#a673020298ebc1414b50264468c25afac">operator[] </a>( <span class="keywordtype">int</span> i ) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keyword">const</span> <a class="code" href="a02206.html#ab0386402c65090e772676789e2a81d20">GlobalSpace::Matrix</a> &amp;matrix_;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keyword">const</span> <a class="code" href="a02206.html#ab964db613a65e1be687785a3efa16a8d">GlobalSpace::Vector</a> &amp;shift_;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  };</div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="a02386.html#a42c0948a8df8cc5527f3ae67ade8b2ba">   65</a></span>&#160;      <span class="keywordtype">int</span> <a class="code" href="a02386.html#a42c0948a8df8cc5527f3ae67ade8b2ba">count</a> ()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordflow">return</span> count_;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;      }</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// #if HAVE_ALBERTA</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// #ifndef DUNE_ALBERTA_TRANSFORMATION_HH</span></div>
-<div class="ttc" id="aa00557_html"><div class="ttname"><a href="a00557.html">misc.hh</a></div></div>
-<div class="ttc" id="aa00936_html"><div class="ttname"><a href="a00936.html">Dune</a></div><div class="ttdoc">Include standard header files.</div><div class="ttdef"><b>Definition:</b> agrid.hh:59</div></div>
-<div class="ttc" id="aa00937_html_a3a811627cd147103ac01aa962c25a98d"><div class="ttname"><a href="a00937.html#a3a811627cd147103ac01aa962c25a98d">Dune::Alberta::AffineTransformation</a></div><div class="ttdeci">ALBERTA AFF_TRAFO AffineTransformation</div><div class="ttdef"><b>Definition:</b> misc.hh:50</div></div>
-<div class="ttc" id="aa00937_html_a86b942cdffce80f98973c987ea6246da"><div class="ttname"><a href="a00937.html#a86b942cdffce80f98973c987ea6246da">Dune::Alberta::Real</a></div><div class="ttdeci">ALBERTA REAL Real</div><div class="ttdef"><b>Definition:</b> misc.hh:46</div></div>
-<div class="ttc" id="aa00937_html_acc4a01c16d41d4e3e6e5d058b86376ca"><div class="ttname"><a href="a00937.html#acc4a01c16d41d4e3e6e5d058b86376ca">Dune::Alberta::dimWorld</a></div><div class="ttdeci">static const int dimWorld</div><div class="ttdef"><b>Definition:</b> misc.hh:44</div></div>
-<div class="ttc" id="aa02206_html"><div class="ttname"><a href="a02206.html">Dune::Alberta::GlobalSpace</a></div><div class="ttdef"><b>Definition:</b> misc.hh:100</div></div>
-<div class="ttc" id="aa02206_html_ab0386402c65090e772676789e2a81d20"><div class="ttname"><a href="a02206.html#ab0386402c65090e772676789e2a81d20">Dune::Alberta::GlobalSpace::Matrix</a></div><div class="ttdeci">GlobalMatrix Matrix</div><div class="ttdef"><b>Definition:</b> misc.hh:104</div></div>
-<div class="ttc" id="aa02206_html_ab964db613a65e1be687785a3efa16a8d"><div class="ttname"><a href="a02206.html#ab964db613a65e1be687785a3efa16a8d">Dune::Alberta::GlobalSpace::Vector</a></div><div class="ttdeci">GlobalVector Vector</div><div class="ttdef"><b>Definition:</b> misc.hh:105</div></div>
-<div class="ttc" id="aa02422_html"><div class="ttname"><a href="a02422.html">Dune::AlbertaTransformation</a></div><div class="ttdef"><b>Definition:</b> transformation.hh:16</div></div>
-<div class="ttc" id="aa02422_html_a3262dd337692ec88e750103a1d5b99a3"><div class="ttname"><a href="a02422.html#a3262dd337692ec88e750103a1d5b99a3">Dune::AlbertaTransformation::AlbertaTransformation</a></div><div class="ttdeci">AlbertaTransformation(const Alberta::AffineTransformation *trafo=NULL)</div><div class="ttdef"><b>Definition:</b> transformation.hh:27</div></div>
-<div class="ttc" id="aa02422_html_a867cce6e98e548e1b38e3b9169c41ec1"><div class="ttname"><a href="a02422.html#a867cce6e98e548e1b38e3b9169c41ec1">Dune::AlbertaTransformation::dimension</a></div><div class="ttdeci">static const int dimension</div><div class="ttdef"><b>Definition:</b> transformation.hh:22</div></div>
-<div class="ttc" id="aa02422_html_abfd624d164e7651ffdab5a55df006068"><div class="ttname"><a href="a02422.html#abfd624d164e7651ffdab5a55df006068">Dune::AlbertaTransformation::WorldVector</a></div><div class="ttdeci">FieldVector&lt; ctype, dimension &gt; WorldVector</div><div class="ttdef"><b>Definition:</b> transformation.hh:24</div></div>
-<div class="ttc" id="aa02422_html_ac4030b083786e7631a508a56146fcebf"><div class="ttname"><a href="a02422.html#ac4030b083786e7631a508a56146fcebf">Dune::AlbertaTransformation::AlbertaTransformation</a></div><div class="ttdeci">AlbertaTransformation(const GlobalSpace::Matrix &amp;matrix, const GlobalSpace::Vector &amp;shift)</div><div class="ttdef"><b>Definition:</b> transformation.hh:32</div></div>
-<div class="ttc" id="aa02422_html_aca8b17e8b013d08e75419ada08824606"><div class="ttname"><a href="a02422.html#aca8b17e8b013d08e75419ada08824606">Dune::AlbertaTransformation::ctype</a></div><div class="ttdeci">Alberta::Real ctype</div><div class="ttdef"><b>Definition:</b> transformation.hh:20</div></div>
-<div class="ttc" id="aa02422_html_aeefe0f44079889ff50a36b41a9d19cb6"><div class="ttname"><a href="a02422.html#aeefe0f44079889ff50a36b41a9d19cb6">Dune::AlbertaTransformation::evaluateInverse</a></div><div class="ttdeci">WorldVector evaluateInverse(const WorldVector &amp;y) const</div><div class="ttdef"><b>Definition:</b> transformation.hh:51</div></div>
-<div class="ttc" id="aa02422_html_afacc69783766498bb34ec4eb1ce4e5e2"><div class="ttname"><a href="a02422.html#afacc69783766498bb34ec4eb1ce4e5e2">Dune::AlbertaTransformation::evaluate</a></div><div class="ttdeci">WorldVector evaluate(const WorldVector &amp;x) const</div><div class="ttdef"><b>Definition:</b> transformation.hh:38</div></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;      <span class="keyword">template</span>&lt; <span class="keyword">class</span> LevelProv<span class="keywordtype">id</span>er &gt;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;      <a class="code" href="a01902.html">ElementInfo</a> <a class="code" href="a02386.html#a4a85c0c9127874f8b0ca545f7768eaa7">elementInfo</a> ( <span class="keywordtype">int</span> i, <span class="keyword">const</span> LevelProvider &amp;levelProvider ) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;      <span class="keywordtype">int</span> <a class="code" href="a02386.html#a155544748b887de93c19de8afa0bab0c">elementType</a> ( <span class="keywordtype">int</span> i ) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;      <span class="keywordtype">bool</span> <a class="code" href="a02386.html#a7b6386373398f73b71edbdb08abb5b7d">hasNeighbor</a> ( <span class="keywordtype">int</span> i, <span class="keywordtype">int</span> neighbor ) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;      <span class="keywordtype">int</span> <a class="code" href="a02386.html#a05b87135e6ec96cce769c5ad1f86cac7">neighborIndex</a> ( <span class="keywordtype">int</span> i, <span class="keywordtype">int</span> neighbor ) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;      <span class="keyword">template</span>&lt; <span class="keyword">class</span> Functor &gt;</div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="a02386.html#a5a33f03c75d2e4dbd51e6c88d6a0b735">   78</a></span>&#160;      <span class="keywordtype">void</span> <a class="code" href="a02386.html#a5a33f03c75d2e4dbd51e6c88d6a0b735">forEach</a> ( Functor &amp;functor )<span class="keyword"> const</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordflow">for</span>( <span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="a02386.html#a42c0948a8df8cc5527f3ae67ade8b2ba">count</a>(); ++i )</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;          functor( (*<span class="keyword">this</span>)[ i ] );</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;      }</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;      <span class="keyword">template</span>&lt; <span class="keywordtype">int</span> codim, <span class="keyword">class</span> Functor &gt;</div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="a02386.html#a70d741386f63efefbc12b25cb0047e29">   85</a></span>&#160;      <span class="keywordtype">void</span> <a class="code" href="a02386.html#a70d741386f63efefbc12b25cb0047e29">forEachInteriorSubChild</a> ( Functor &amp;functor )<span class="keyword"> const</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <a class="code" href="a02382.html">ForEachInteriorSubChild&lt; dim, codim &gt;::apply</a>( functor, *<span class="keyword">this</span> );</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;      }</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    };</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keyword">template</span>&lt; <span class="keywordtype">int</span> dim &gt;</div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="a02386.html#a673020298ebc1414b50264468c25afac">   93</a></span>&#160;    <span class="keyword">inline</span> <a class="code" href="a00941.html#a738666cf4bcd352ecee6a5dc484bb92c">Element</a> *<a class="code" href="a02386.html#a673020298ebc1414b50264468c25afac">Patch&lt; dim &gt;::operator[] </a>( <span class="keywordtype">int</span> i )<span class="keyword"> const</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;      assert( (i &gt;= 0) &amp;&amp; (i &lt; count()) );</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;      <span class="keywordflow">return</span> list_[ i ].el_info.el;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    }</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keyword">template</span>&lt; <span class="keywordtype">int</span> dim &gt;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">class</span> LevelProv<span class="keywordtype">id</span>er &gt;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keyword">inline</span> <span class="keyword">typename</span> <a class="code" href="a01902.html">Patch&lt; dim &gt;::ElementInfo</a></div>
+<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="a02386.html#a4a85c0c9127874f8b0ca545f7768eaa7">  103</a></span>&#160;    <a class="code" href="a02386.html#a4a85c0c9127874f8b0ca545f7768eaa7">Patch&lt; dim &gt;::elementInfo</a> ( <span class="keywordtype">int</span> i, <span class="keyword">const</span> LevelProvider &amp;levelProvider )<span class="keyword"> const</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;      assert( (i &gt;= 0) &amp;&amp; (i &lt; count()) );</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="a01902.html#a0d93c03725ada80bbccb3827298d3811">ElementInfo::createFake</a>( list_[ i ].el_info );</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    }</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keyword">template</span>&lt;&gt;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">class</span> LevelProv<span class="keywordtype">id</span>er &gt;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keyword">inline</span> <span class="keyword">typename</span> <a class="code" href="a01902.html">Patch&lt; 2 &gt;::ElementInfo</a></div>
+<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="a02386.html#a07862cd4ce1decda7f6018086bfff83a">  112</a></span>&#160;    <a class="code" href="a02386.html#a4a85c0c9127874f8b0ca545f7768eaa7">Patch&lt; 2 &gt;::elementInfo</a> ( <span class="keywordtype">int</span> i, <span class="keyword">const</span> LevelProvider &amp;levelProvider )<span class="keyword"> const</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;      assert( (i &gt;= 0) &amp;&amp; (i &lt; count()) );</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;      <span class="keyword">const</span> <a class="code" href="a01854.html">MeshPointer&lt; 2 &gt;</a> &amp;mesh = levelProvider.mesh();</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;      <span class="keyword">const</span> <a class="code" href="a00941.html#a738666cf4bcd352ecee6a5dc484bb92c">Element</a> *element = (*this)[ i ];</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">int</span> level = levelProvider( element );</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="a01902.html#a0d93c03725ada80bbccb3827298d3811">ElementInfo::createFake</a>( mesh, element, level );</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    }</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keyword">template</span>&lt; <span class="keywordtype">int</span> dim &gt;</div>
+<div class="line"><a name="l00123"></a><span class="lineno"><a class="line" href="a02386.html#a155544748b887de93c19de8afa0bab0c">  123</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">int</span> <a class="code" href="a02386.html#a155544748b887de93c19de8afa0bab0c">Patch&lt; dim &gt;::elementType</a> ( <span class="keywordtype">int</span> i )<span class="keyword"> const</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;      assert( (i &gt;= 0) &amp;&amp; (i &lt; count()) );</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;      <span class="keywordflow">return</span> list_[ i ].el_info.el_type;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    }</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keyword">template</span>&lt; <span class="keywordtype">int</span> dim &gt;</div>
+<div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="a02386.html#a7b6386373398f73b71edbdb08abb5b7d">  131</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="a02386.html#a7b6386373398f73b71edbdb08abb5b7d">Patch&lt; dim &gt;::hasNeighbor</a> ( <span class="keywordtype">int</span> i, <span class="keywordtype">int</span> neighbor )<span class="keyword"> const</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;      <span class="keywordflow">return</span> (list_[ i ].neigh[ neighbor ] != NULL);</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    }</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="keyword">template</span>&lt; <span class="keywordtype">int</span> dim &gt;</div>
+<div class="line"><a name="l00137"></a><span class="lineno"><a class="line" href="a02386.html#a05b87135e6ec96cce769c5ad1f86cac7">  137</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">int</span> <a class="code" href="a02386.html#a05b87135e6ec96cce769c5ad1f86cac7">Patch&lt; dim &gt;::neighborIndex</a> ( <span class="keywordtype">int</span> i, <span class="keywordtype">int</span> neighbor )<span class="keyword"> const</span></div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;      assert( hasNeighbor( i, neighbor ) );</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;      <span class="keywordflow">return</span> (list_[ i ].neigh[ neighbor ]-&gt;no);</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    }</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160; </div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="comment">// ForEachInteriorSubChild</span></div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="comment">// -----------------------</span></div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keyword">template</span>&lt; <span class="keywordtype">int</span> dim &gt;</div>
+<div class="line"><a name="l00149"></a><span class="lineno"><a class="line" href="a02390.html">  149</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="a02382.html">ForEachInteriorSubChild</a>&lt; dim, 0 &gt;</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    {</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;      <span class="keyword">template</span>&lt; <span class="keyword">class</span> Functor &gt;</div>
+<div class="line"><a name="l00152"></a><span class="lineno"><a class="line" href="a02390.html#aa88854dcbab5c239422ebf72c169a670">  152</a></span>&#160;      <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="a02390.html#aa88854dcbab5c239422ebf72c169a670">apply</a> ( Functor &amp;functor, <span class="keyword">const</span> <a class="code" href="a02386.html">Patch&lt; dim &gt;</a> &amp;patch )</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;      {</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        <span class="keywordflow">for</span>( <span class="keywordtype">int</span> i = 0; i &lt; patch.<a class="code" href="a02386.html#a42c0948a8df8cc5527f3ae67ade8b2ba">count</a>(); ++i )</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        {</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;          <a class="code" href="a00941.html#a738666cf4bcd352ecee6a5dc484bb92c">Element</a> *<span class="keyword">const</span> father = patch[ i ];</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;          functor( father-&gt;child[ 0 ], 0 );</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;          functor( father-&gt;child[ 1 ], 0 );</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        }</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;      }</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    };</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="keyword">template</span>&lt; <span class="keywordtype">int</span> dim &gt;</div>
+<div class="line"><a name="l00164"></a><span class="lineno"><a class="line" href="a02394.html">  164</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="a02382.html">ForEachInteriorSubChild</a>&lt; dim, dim &gt;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    {</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;      <span class="keyword">template</span>&lt; <span class="keyword">class</span> Functor &gt;</div>
+<div class="line"><a name="l00167"></a><span class="lineno"><a class="line" href="a02394.html#a9d37a71fc46c82cac9009760f23f7962">  167</a></span>&#160;      <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="a02394.html#a9d37a71fc46c82cac9009760f23f7962">apply</a> ( Functor &amp;functor, <span class="keyword">const</span> <a class="code" href="a02386.html">Patch&lt; dim &gt;</a> &amp;patch )</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;      {</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        functor( patch[ 0 ]-&gt;child[ 0 ], dim );</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;      }</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    };</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160; </div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keyword">template</span>&lt;&gt;</div>
+<div class="line"><a name="l00174"></a><span class="lineno"><a class="line" href="a02398.html">  174</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="a02382.html">ForEachInteriorSubChild</a>&lt; 2, 1 &gt;</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    {</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;      <span class="keyword">template</span>&lt; <span class="keyword">class</span> Functor &gt;</div>
+<div class="line"><a name="l00177"></a><span class="lineno"><a class="line" href="a02398.html#a5207feddbcea5a7d960c67c089244db1">  177</a></span>&#160;      <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="a02398.html#a5207feddbcea5a7d960c67c089244db1">apply</a> ( Functor &amp;functor, <span class="keyword">const</span> <a class="code" href="a02386.html">Patch&lt; 2 &gt;</a> &amp;patch )</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;      {</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        <span class="comment">// see alberta/src/2d/lagrange_2_2d.c for details</span></div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        <a class="code" href="a00941.html#a738666cf4bcd352ecee6a5dc484bb92c">Element</a> *<span class="keyword">const</span> firstFather = patch[ 0 ];</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160; </div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        <a class="code" href="a00941.html#a738666cf4bcd352ecee6a5dc484bb92c">Element</a> *<span class="keyword">const</span> firstChild = firstFather-&gt;child[ 0 ];</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        functor( firstChild, 0 );</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        functor( firstChild, 1 );</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; </div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        functor( firstFather-&gt;child[ 1 ], 1 );</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160; </div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        <span class="keywordflow">if</span>( patch.<a class="code" href="a02386.html#a42c0948a8df8cc5527f3ae67ade8b2ba">count</a>() &gt; 1 )</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        {</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;          <a class="code" href="a00941.html#a738666cf4bcd352ecee6a5dc484bb92c">Element</a> *<span class="keyword">const</span> father = patch[ 1 ];</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;          functor( father-&gt;child[ 0 ], 1 );</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        }</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;      }</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    };</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160; </div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="keyword">template</span>&lt;&gt;</div>
+<div class="line"><a name="l00197"></a><span class="lineno"><a class="line" href="a02402.html">  197</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="a02382.html">ForEachInteriorSubChild</a>&lt; 3, 1 &gt;</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    {</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;      <span class="keyword">template</span>&lt; <span class="keyword">class</span> Functor &gt;</div>
+<div class="line"><a name="l00200"></a><span class="lineno"><a class="line" href="a02402.html#a96b27cde1f868c232fe0007e291e7e99">  200</a></span>&#160;      <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="a02402.html#a96b27cde1f868c232fe0007e291e7e99">apply</a> ( Functor &amp;functor, <span class="keyword">const</span> <a class="code" href="a02386.html">Patch&lt; 3 &gt;</a> &amp;patch )</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;      {</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        <span class="comment">// see alberta/src/3d/lagrange_3_3d.c for details</span></div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        <a class="code" href="a00941.html#a738666cf4bcd352ecee6a5dc484bb92c">Element</a> *<span class="keyword">const</span> firstFather = patch[ 0 ];</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160; </div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        <a class="code" href="a00941.html#a738666cf4bcd352ecee6a5dc484bb92c">Element</a> *<span class="keyword">const</span> firstChild = firstFather-&gt;child[ 0 ];</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;        functor( firstChild, 0 );</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        functor( firstChild, 1 );</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        functor( firstChild, 2 );</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160; </div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;        <a class="code" href="a00941.html#a738666cf4bcd352ecee6a5dc484bb92c">Element</a> *<span class="keyword">const</span> secondChild = firstFather-&gt;child[ 1 ];</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        functor( secondChild, 1 );</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;        functor( secondChild, 2 );</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160; </div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;        <span class="keywordflow">for</span>( <span class="keywordtype">int</span> i = 1; i &lt; patch.<a class="code" href="a02386.html#a42c0948a8df8cc5527f3ae67ade8b2ba">count</a>(); ++i )</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        {</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;          <a class="code" href="a00941.html#a738666cf4bcd352ecee6a5dc484bb92c">Element</a> *<span class="keyword">const</span> father = patch[ i ];</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;          <span class="keyword">const</span> <span class="keywordtype">int</span> type = patch.<a class="code" href="a02386.html#a155544748b887de93c19de8afa0bab0c">elementType</a>( i );</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160; </div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;          <span class="keywordtype">int</span> lr_set = 0;</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;          <span class="keywordflow">if</span>( patch.<a class="code" href="a02386.html#a7b6386373398f73b71edbdb08abb5b7d">hasNeighbor</a>( i, 0 ) &amp;&amp; (patch.<a class="code" href="a02386.html#a05b87135e6ec96cce769c5ad1f86cac7">neighborIndex</a>( i, 0 ) &lt; i) )</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;            lr_set |= 1;</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;          <span class="keywordflow">if</span>( patch.<a class="code" href="a02386.html#a7b6386373398f73b71edbdb08abb5b7d">hasNeighbor</a>( i, 1 ) &amp;&amp; (patch.<a class="code" href="a02386.html#a05b87135e6ec96cce769c5ad1f86cac7">neighborIndex</a>( i, 1 ) &lt; i) )</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;            lr_set |= 2;</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;          assert( lr_set != 0 );</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160; </div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;          functor( father-&gt;child[ 0 ], 0 );</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;          <span class="keywordflow">switch</span>( lr_set )</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;          {</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;          <span class="keywordflow">case</span> 1 :</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;            functor( father-&gt;child[ 0 ], 2 );</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;            functor( father-&gt;child[ 1 ], (type == 0 ? 1 : 2) );</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160; </div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;          <span class="keywordflow">case</span> 2 :</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;            functor( father-&gt;child[ 0 ], 1 );</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;            functor( father-&gt;child[ 1 ], (type == 0 ? 2 : 1) );</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;          }</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;        }</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;      }</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    };</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160; </div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    <span class="keyword">template</span>&lt;&gt;</div>
+<div class="line"><a name="l00244"></a><span class="lineno"><a class="line" href="a02406.html">  244</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="a02382.html">ForEachInteriorSubChild</a>&lt; 3, 2 &gt;</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    {</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;      <span class="keyword">template</span>&lt; <span class="keyword">class</span> Functor &gt;</div>
+<div class="line"><a name="l00247"></a><span class="lineno"><a class="line" href="a02406.html#aa996341f5f20e808cce52bdd1e846a9f">  247</a></span>&#160;      <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="a02406.html#aa996341f5f20e808cce52bdd1e846a9f">apply</a> ( Functor &amp;functor, <span class="keyword">const</span> <a class="code" href="a02386.html">Patch&lt; 3 &gt;</a> &amp;patch )</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;      {</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;        <span class="comment">// see alberta/src/3d/lagrange_2_3d.c for details</span></div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;        <a class="code" href="a00941.html#a738666cf4bcd352ecee6a5dc484bb92c">Element</a> *<span class="keyword">const</span> firstFather = patch[ 0 ];</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160; </div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;        <a class="code" href="a00941.html#a738666cf4bcd352ecee6a5dc484bb92c">Element</a> *<span class="keyword">const</span> firstChild = firstFather-&gt;child[ 0 ];</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;        functor( firstChild, 2 );</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;        functor( firstChild, 4 );</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;        functor( firstChild, 5 );</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160; </div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;        functor( firstFather-&gt;child[ 1 ], 2 );</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160; </div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;        <span class="keywordflow">for</span>( <span class="keywordtype">int</span> i = 1; i &lt; patch.<a class="code" href="a02386.html#a42c0948a8df8cc5527f3ae67ade8b2ba">count</a>(); ++i )</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;        {</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;          <a class="code" href="a00941.html#a738666cf4bcd352ecee6a5dc484bb92c">Element</a> *<span class="keyword">const</span> father = patch[ i ];</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160; </div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;          <span class="keywordtype">int</span> lr_set = 0;</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;          <span class="keywordflow">if</span>( patch.<a class="code" href="a02386.html#a7b6386373398f73b71edbdb08abb5b7d">hasNeighbor</a>( i, 0 ) &amp;&amp; (patch.<a class="code" href="a02386.html#a05b87135e6ec96cce769c5ad1f86cac7">neighborIndex</a>( i, 0 ) &lt; i) )</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;            lr_set = 1;</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;          <span class="keywordflow">if</span>( patch.<a class="code" href="a02386.html#a7b6386373398f73b71edbdb08abb5b7d">hasNeighbor</a>( i, 1 ) &amp;&amp; (patch.<a class="code" href="a02386.html#a05b87135e6ec96cce769c5ad1f86cac7">neighborIndex</a>( i, 1 ) &lt; i) )</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;            lr_set += 2;</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;          assert( lr_set != 0 );</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160; </div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;          <span class="keywordflow">switch</span>( lr_set )</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;          {</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;          <span class="keywordflow">case</span> 1 :</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;            functor( father-&gt;child[ 0 ], 4 );</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160; </div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;          <span class="keywordflow">case</span> 2 :</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;            functor( father-&gt;child[ 0 ], 5 );</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;          }</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;        }</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;      }</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    };</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160; </div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160; </div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160; </div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    <span class="comment">// GeometryInFather</span></div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    <span class="comment">// ----------------</span></div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160; </div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    <span class="keyword">template</span>&lt; <span class="keywordtype">int</span> dim &gt;</div>
+<div class="line"><a name="l00290"></a><span class="lineno"><a class="line" href="a02410.html">  290</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="a02410.html">GeometryInFather</a>;</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160; </div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    <span class="keyword">template</span>&lt;&gt;</div>
+<div class="line"><a name="l00293"></a><span class="lineno"><a class="line" href="a02414.html">  293</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="a02410.html">GeometryInFather</a>&lt; 1 &gt;</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    {</div>
+<div class="line"><a name="l00295"></a><span class="lineno"><a class="line" href="a02414.html#a0ebf62661640890908ac6a907b12a4b4">  295</a></span>&#160;      <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> dim = 1;</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160; </div>
+<div class="line"><a name="l00297"></a><span class="lineno"><a class="line" href="a02414.html#aa40c2ca4ea5b8e26e4cf39a1e739fd68">  297</a></span>&#160;      <span class="keyword">typedef</span> <a class="code" href="a00941.html#a86b942cdffce80f98973c987ea6246da">Real</a> <a class="code" href="a00941.html#a507da1d491ffc23d26a668371592cea7">LocalVector</a>[ dim ];</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160; </div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;      <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="a00941.html#a507da1d491ffc23d26a668371592cea7">LocalVector</a> &amp;</div>
+<div class="line"><a name="l00300"></a><span class="lineno"><a class="line" href="a02414.html#a290dd416adfabb96926a12ea9bb782b8">  300</a></span>&#160;      <a class="code" href="a02414.html#a290dd416adfabb96926a12ea9bb782b8">coordinate</a> ( <span class="keywordtype">int</span> child, <span class="keywordtype">int</span> <span class="comment">/* orientation */</span>, <span class="keywordtype">int</span> i )</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;      {</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="a00941.html#a86b942cdffce80f98973c987ea6246da">Real</a> coords[ 2 ][ dim+1 ][ dim ]</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;          = { { {0.0}, {0.5} }, { {0.5}, {1.0} } };</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;        assert( (i &gt;= 0) &amp;&amp; (i &lt;= dim) );</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;        <span class="keywordflow">return</span> coords[ child ][ i ];</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;      }</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    };</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160; </div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    <span class="keyword">template</span>&lt;&gt;</div>
+<div class="line"><a name="l00310"></a><span class="lineno"><a class="line" href="a02418.html">  310</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="a02410.html">GeometryInFather</a>&lt; 2 &gt;</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    {</div>
+<div class="line"><a name="l00312"></a><span class="lineno"><a class="line" href="a02418.html#a4008fb74a79a225c58884e14af55a9fc">  312</a></span>&#160;      <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> dim = 2;</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160; </div>
+<div class="line"><a name="l00314"></a><span class="lineno"><a class="line" href="a02418.html#af2bfe40a20ef13641ae2b7167cad693b">  314</a></span>&#160;      <span class="keyword">typedef</span> <a class="code" href="a00941.html#a86b942cdffce80f98973c987ea6246da">Real</a> <a class="code" href="a00941.html#a507da1d491ffc23d26a668371592cea7">LocalVector</a>[ dim ];</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160; </div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;      <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="a00941.html#a507da1d491ffc23d26a668371592cea7">LocalVector</a> &amp;</div>
+<div class="line"><a name="l00317"></a><span class="lineno"><a class="line" href="a02418.html#a3bad2728eb811461f7eefb3dd37ee49a">  317</a></span>&#160;      <a class="code" href="a02418.html#a3bad2728eb811461f7eefb3dd37ee49a">coordinate</a> ( <span class="keywordtype">int</span> child, <span class="keywordtype">int</span> <span class="comment">/* orientation */</span>, <span class="keywordtype">int</span> i )</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;      {</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="a00941.html#a86b942cdffce80f98973c987ea6246da">Real</a> coords[ 2 ][ dim+1 ][ dim ]</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;          = { { {0.0, 1.0}, {0.0, 0.0}, {0.5, 0.0} },</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;              { {1.0, 0.0}, {0.0, 1.0}, {0.5, 0.0} } };</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;        assert( (i &gt;= 0) &amp;&amp; (i &lt;= dim) );</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;        <span class="keywordflow">return</span> coords[ child ][ i ];</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;      }</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    };</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160; </div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    <span class="keyword">template</span>&lt;&gt;</div>
+<div class="line"><a name="l00328"></a><span class="lineno"><a class="line" href="a02422.html">  328</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="a02410.html">GeometryInFather</a>&lt; 3 &gt;</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    {</div>
+<div class="line"><a name="l00330"></a><span class="lineno"><a class="line" href="a02422.html#aa2318a66a0ca54e07a50a08b211ef31c">  330</a></span>&#160;      <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> dim = 3;</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160; </div>
+<div class="line"><a name="l00332"></a><span class="lineno"><a class="line" href="a02422.html#a9eb576d22e41952e518f4d8ba751d6e0">  332</a></span>&#160;      <span class="keyword">typedef</span> <a class="code" href="a00941.html#a86b942cdffce80f98973c987ea6246da">Real</a> <a class="code" href="a00941.html#a507da1d491ffc23d26a668371592cea7">LocalVector</a>[ dim ];</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160; </div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;      <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="a00941.html#a507da1d491ffc23d26a668371592cea7">LocalVector</a> &amp;</div>
+<div class="line"><a name="l00335"></a><span class="lineno"><a class="line" href="a02422.html#a38c284895b39982787c7be5141e9f31e">  335</a></span>&#160;      <a class="code" href="a02422.html#a38c284895b39982787c7be5141e9f31e">coordinate</a> ( <span class="keywordtype">int</span> child, <span class="keywordtype">int</span> orientation, <span class="keywordtype">int</span> i )</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;      {</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="a00941.html#a86b942cdffce80f98973c987ea6246da">Real</a> coords[ 2 ][ dim+1 ][ dim ]</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;          = { { {0.0, 0.0, 0.0}, {0.0, 1.0, 0.0}, {0.0, 0.0, 1.0}, {0.5, 0.0, 0.0} },</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;              { {1.0, 0.0, 0.0}, {0.0, 1.0, 0.0}, {0.0, 0.0, 1.0}, {0.5, 0.0, 0.0} } };</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> flip[ 2 ][ 2 ][ dim+1 ]</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;          = { { {0, 1, 2, 3}, {0, 1, 2, 3} }, { {0, 2, 1, 3}, {0, 1, 2, 3} } };</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;        assert( (i &gt;= 0) &amp;&amp; (i &lt;= dim) );</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;        i = flip[ child ][ orientation ][ i ];</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;        <span class="keywordflow">return</span> coords[ child ][ i ];</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;      }</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    };</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160; </div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;  }</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160; </div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;}</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160; </div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// #if HAVE_ALBERTA</span></div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160; </div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aa00482_html_a4cbe74d935d2e31c4b35398e93623f70"><div class="ttname"><a href="a00482.html#a4cbe74d935d2e31c4b35398e93623f70">ALBERTA</a></div><div class="ttdeci">#define ALBERTA</div><div class="ttdef"><b>Definition:</b> albertaheader.hh:27</div></div>
+<div class="ttc" id="aa00509_html"><div class="ttname"><a href="a00509.html">elementinfo.hh</a></div><div class="ttdoc">provides a wrapper for ALBERTA's el_info structure</div></div>
+<div class="ttc" id="aa00560_html"><div class="ttname"><a href="a00560.html">misc.hh</a></div></div>
+<div class="ttc" id="aa00940_html"><div class="ttname"><a href="a00940.html">Dune</a></div><div class="ttdoc">Include standard header files.</div><div class="ttdef"><b>Definition:</b> agrid.hh:58</div></div>
+<div class="ttc" id="aa00941_html_a507da1d491ffc23d26a668371592cea7"><div class="ttname"><a href="a00941.html#a507da1d491ffc23d26a668371592cea7">Dune::Alberta::LocalVector</a></div><div class="ttdeci">ALBERTA REAL_B LocalVector</div><div class="ttdef"><b>Definition:</b> misc.hh:47</div></div>
+<div class="ttc" id="aa00941_html_a738666cf4bcd352ecee6a5dc484bb92c"><div class="ttname"><a href="a00941.html#a738666cf4bcd352ecee6a5dc484bb92c">Dune::Alberta::Element</a></div><div class="ttdeci">ALBERTA EL Element</div><div class="ttdef"><b>Definition:</b> misc.hh:52</div></div>
+<div class="ttc" id="aa00941_html_a86b942cdffce80f98973c987ea6246da"><div class="ttname"><a href="a00941.html#a86b942cdffce80f98973c987ea6246da">Dune::Alberta::Real</a></div><div class="ttdeci">ALBERTA REAL Real</div><div class="ttdef"><b>Definition:</b> misc.hh:46</div></div>
+<div class="ttc" id="aa01854_html"><div class="ttname"><a href="a01854.html">Dune::Alberta::MeshPointer</a></div><div class="ttdef"><b>Definition:</b> meshpointer.hh:38</div></div>
+<div class="ttc" id="aa01902_html"><div class="ttname"><a href="a01902.html">Dune::Alberta::ElementInfo&lt; dimension &gt;</a></div></div>
+<div class="ttc" id="aa01902_html_a0d93c03725ada80bbccb3827298d3811"><div class="ttname"><a href="a01902.html#a0d93c03725ada80bbccb3827298d3811">Dune::Alberta::ElementInfo::createFake</a></div><div class="ttdeci">static ElementInfo createFake(const MeshPointer &amp;mesh, const Element *element, int level, int type=0)</div><div class="ttdef"><b>Definition:</b> elementinfo.hh:750</div></div>
+<div class="ttc" id="aa02382_html"><div class="ttname"><a href="a02382.html">Dune::Alberta::ForEachInteriorSubChild</a></div><div class="ttdef"><b>Definition:</b> refinement.hh:29</div></div>
+<div class="ttc" id="aa02386_html"><div class="ttname"><a href="a02386.html">Dune::Alberta::Patch</a></div><div class="ttdef"><b>Definition:</b> refinement.hh:38</div></div>
+<div class="ttc" id="aa02386_html_a05b87135e6ec96cce769c5ad1f86cac7"><div class="ttname"><a href="a02386.html#a05b87135e6ec96cce769c5ad1f86cac7">Dune::Alberta::Patch::neighborIndex</a></div><div class="ttdeci">int neighborIndex(int i, int neighbor) const</div><div class="ttdef"><b>Definition:</b> refinement.hh:137</div></div>
+<div class="ttc" id="aa02386_html_a155544748b887de93c19de8afa0bab0c"><div class="ttname"><a href="a02386.html#a155544748b887de93c19de8afa0bab0c">Dune::Alberta::Patch::elementType</a></div><div class="ttdeci">int elementType(int i) const</div><div class="ttdef"><b>Definition:</b> refinement.hh:123</div></div>
+<div class="ttc" id="aa02386_html_a42c0948a8df8cc5527f3ae67ade8b2ba"><div class="ttname"><a href="a02386.html#a42c0948a8df8cc5527f3ae67ade8b2ba">Dune::Alberta::Patch::count</a></div><div class="ttdeci">int count() const</div><div class="ttdef"><b>Definition:</b> refinement.hh:65</div></div>
+<div class="ttc" id="aa02386_html_a4a85c0c9127874f8b0ca545f7768eaa7"><div class="ttname"><a href="a02386.html#a4a85c0c9127874f8b0ca545f7768eaa7">Dune::Alberta::Patch::elementInfo</a></div><div class="ttdeci">ElementInfo elementInfo(int i, const LevelProvider &amp;levelProvider) const</div><div class="ttdef"><b>Definition:</b> refinement.hh:103</div></div>
+<div class="ttc" id="aa02386_html_a5a33f03c75d2e4dbd51e6c88d6a0b735"><div class="ttname"><a href="a02386.html#a5a33f03c75d2e4dbd51e6c88d6a0b735">Dune::Alberta::Patch::forEach</a></div><div class="ttdeci">void forEach(Functor &amp;functor) const</div><div class="ttdef"><b>Definition:</b> refinement.hh:78</div></div>
+<div class="ttc" id="aa02386_html_a673020298ebc1414b50264468c25afac"><div class="ttname"><a href="a02386.html#a673020298ebc1414b50264468c25afac">Dune::Alberta::Patch::operator[]</a></div><div class="ttdeci">Element * operator[](int i) const</div><div class="ttdef"><b>Definition:</b> refinement.hh:93</div></div>
+<div class="ttc" id="aa02386_html_a70d741386f63efefbc12b25cb0047e29"><div class="ttname"><a href="a02386.html#a70d741386f63efefbc12b25cb0047e29">Dune::Alberta::Patch::forEachInteriorSubChild</a></div><div class="ttdeci">void forEachInteriorSubChild(Functor &amp;functor) const</div><div class="ttdef"><b>Definition:</b> refinement.hh:85</div></div>
+<div class="ttc" id="aa02386_html_a799e4d748b48718e23c9becc29454aca"><div class="ttname"><a href="a02386.html#a799e4d748b48718e23c9becc29454aca">Dune::Alberta::Patch::dimension</a></div><div class="ttdeci">static const int dimension</div><div class="ttdef"><b>Definition:</b> refinement.hh:45</div></div>
+<div class="ttc" id="aa02386_html_a7b6386373398f73b71edbdb08abb5b7d"><div class="ttname"><a href="a02386.html#a7b6386373398f73b71edbdb08abb5b7d">Dune::Alberta::Patch::hasNeighbor</a></div><div class="ttdeci">bool hasNeighbor(int i, int neighbor) const</div><div class="ttdef"><b>Definition:</b> refinement.hh:131</div></div>
+<div class="ttc" id="aa02386_html_a7e49b83df3842e407bd8cefa9b566832"><div class="ttname"><a href="a02386.html#a7e49b83df3842e407bd8cefa9b566832">Dune::Alberta::Patch::Patch</a></div><div class="ttdeci">Patch(ElementList *list, int count)</div><div class="ttdef"><b>Definition:</b> refinement.hh:56</div></div>
+<div class="ttc" id="aa02386_html_add7dd36645dd06684b3025ab59b7c6a4"><div class="ttname"><a href="a02386.html#add7dd36645dd06684b3025ab59b7c6a4">Dune::Alberta::Patch::ElementInfo</a></div><div class="ttdeci">Alberta::ElementInfo&lt; dimension &gt; ElementInfo</div><div class="ttdef"><b>Definition:</b> refinement.hh:47</div></div>
+<div class="ttc" id="aa02386_html_aed03c36a49fa6fefe4145209613c7946"><div class="ttname"><a href="a02386.html#aed03c36a49fa6fefe4145209613c7946">Dune::Alberta::Patch::ElementList</a></div><div class="ttdeci">ALBERTA RC_LIST_EL ElementList</div><div class="ttdef"><b>Definition:</b> refinement.hh:49</div></div>
+<div class="ttc" id="aa02390_html_aa88854dcbab5c239422ebf72c169a670"><div class="ttname"><a href="a02390.html#aa88854dcbab5c239422ebf72c169a670">Dune::Alberta::ForEachInteriorSubChild&lt; dim, 0 &gt;::apply</a></div><div class="ttdeci">static void apply(Functor &amp;functor, const Patch&lt; dim &gt; &amp;patch)</div><div class="ttdef"><b>Definition:</b> refinement.hh:152</div></div>
+<div class="ttc" id="aa02394_html_a9d37a71fc46c82cac9009760f23f7962"><div class="ttname"><a href="a02394.html#a9d37a71fc46c82cac9009760f23f7962">Dune::Alberta::ForEachInteriorSubChild&lt; dim, dim &gt;::apply</a></div><div class="ttdeci">static void apply(Functor &amp;functor, const Patch&lt; dim &gt; &amp;patch)</div><div class="ttdef"><b>Definition:</b> refinement.hh:167</div></div>
+<div class="ttc" id="aa02398_html_a5207feddbcea5a7d960c67c089244db1"><div class="ttname"><a href="a02398.html#a5207feddbcea5a7d960c67c089244db1">Dune::Alberta::ForEachInteriorSubChild&lt; 2, 1 &gt;::apply</a></div><div class="ttdeci">static void apply(Functor &amp;functor, const Patch&lt; 2 &gt; &amp;patch)</div><div class="ttdef"><b>Definition:</b> refinement.hh:177</div></div>
+<div class="ttc" id="aa02402_html_a96b27cde1f868c232fe0007e291e7e99"><div class="ttname"><a href="a02402.html#a96b27cde1f868c232fe0007e291e7e99">Dune::Alberta::ForEachInteriorSubChild&lt; 3, 1 &gt;::apply</a></div><div class="ttdeci">static void apply(Functor &amp;functor, const Patch&lt; 3 &gt; &amp;patch)</div><div class="ttdef"><b>Definition:</b> refinement.hh:200</div></div>
+<div class="ttc" id="aa02406_html_aa996341f5f20e808cce52bdd1e846a9f"><div class="ttname"><a href="a02406.html#aa996341f5f20e808cce52bdd1e846a9f">Dune::Alberta::ForEachInteriorSubChild&lt; 3, 2 &gt;::apply</a></div><div class="ttdeci">static void apply(Functor &amp;functor, const Patch&lt; 3 &gt; &amp;patch)</div><div class="ttdef"><b>Definition:</b> refinement.hh:247</div></div>
+<div class="ttc" id="aa02410_html"><div class="ttname"><a href="a02410.html">Dune::Alberta::GeometryInFather</a></div><div class="ttdef"><b>Definition:</b> refinement.hh:290</div></div>
+<div class="ttc" id="aa02414_html_a290dd416adfabb96926a12ea9bb782b8"><div class="ttname"><a href="a02414.html#a290dd416adfabb96926a12ea9bb782b8">Dune::Alberta::GeometryInFather&lt; 1 &gt;::coordinate</a></div><div class="ttdeci">static const LocalVector &amp; coordinate(int child, int, int i)</div><div class="ttdef"><b>Definition:</b> refinement.hh:300</div></div>
+<div class="ttc" id="aa02418_html_a3bad2728eb811461f7eefb3dd37ee49a"><div class="ttname"><a href="a02418.html#a3bad2728eb811461f7eefb3dd37ee49a">Dune::Alberta::GeometryInFather&lt; 2 &gt;::coordinate</a></div><div class="ttdeci">static const LocalVector &amp; coordinate(int child, int, int i)</div><div class="ttdef"><b>Definition:</b> refinement.hh:317</div></div>
+<div class="ttc" id="aa02422_html_a38c284895b39982787c7be5141e9f31e"><div class="ttname"><a href="a02422.html#a38c284895b39982787c7be5141e9f31e">Dune::Alberta::GeometryInFather&lt; 3 &gt;::coordinate</a></div><div class="ttdeci">static const LocalVector &amp; coordinate(int child, int orientation, int i)</div><div class="ttdef"><b>Definition:</b> refinement.hh:335</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

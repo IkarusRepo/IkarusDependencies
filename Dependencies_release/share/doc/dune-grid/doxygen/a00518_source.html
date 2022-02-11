@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: geometryreference.hh Source File</title>
+<title>dune-grid: geometrycache.hh Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -67,143 +67,158 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">geometryreference.hh</div>  </div>
+<div class="title">geometrycache.hh</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="a00518.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*-</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// vi: set et ts=4 sw=2 sts=2:</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifndef DUNE_GRID_ALBERTAGRID_GEOMETRYREFERENCE_HH</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define DUNE_GRID_ALBERTAGRID_GEOMETRYREFERENCE_HH</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifndef DUNE_ALBERTA_GEOMETRYCACHE_HH</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define DUNE_ALBERTA_GEOMETRYCACHE_HH</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;dune/common/typetraits.hh&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;dune/geometry/type.hh&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00560.html">dune/grid/albertagrid/misc.hh</a>&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00488.html">dune/grid/albertagrid/algebra.hh</a>&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#if HAVE_ALBERTA</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00940.html">Dune</a></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a06791.html">dune/grid/common/geometry.hh</a>&gt;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00936.html">Dune</a></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  <span class="comment">// GeometryReference</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <span class="comment">// -----------------</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <span class="keyword">template</span>&lt; <span class="keyword">class</span> Implementation &gt;</div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="a02002.html">   23</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a02002.html">GeometryReference</a></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  {</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">typedef</span> <a class="code" href="a02002.html">GeometryReference&lt; Implementation &gt;</a> <a class="code" href="a02002.html">This</a>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  <span class="keyword">namespace </span>Alberta</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  {</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="comment">// GeometryCache</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="comment">// -------------</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">template</span>&lt; <span class="keywordtype">int</span> dim &gt;</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="a01998.html">   21</a></span>&#160;    <span class="keyword">class </span><a class="code" href="a01998.html">GeometryCache</a></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;      <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> flagIntegrationElement = (1 &lt;&lt; 0);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;      <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> flagJacobianTransposed = (1 &lt;&lt; 1);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;      <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> flagJacobianInverseTransposed = (1 &lt;&lt; 2);</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="a02002.html#a0d690ef3c7b93c3406e9d7156bd5de3a">   28</a></span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="a02002.html#a0d690ef3c7b93c3406e9d7156bd5de3a">mydimension</a> = Implementation::mydimension;</div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="a02002.html#a9feb9b9f244485c5b5dc3a2bf50f6023">   29</a></span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="a02002.html#a9feb9b9f244485c5b5dc3a2bf50f6023">coorddimension</a> = Implementation::coorddimension;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="a01998.html#ad0a23a0b6a1a919b8c4603ea115cce76">   28</a></span>&#160;      <span class="keyword">typedef</span> FieldMatrix&lt; Real, dimWorld, dim &gt; <a class="code" href="a01998.html#ad0a23a0b6a1a919b8c4603ea115cce76">JacobianInverseTransposed</a>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="a01998.html#a38ddc32dbe5b4ef4efd53941090f0f60">   29</a></span>&#160;      <span class="keyword">typedef</span> FieldMatrix&lt; Real, dim, dimWorld &gt; <a class="code" href="a01998.html#a38ddc32dbe5b4ef4efd53941090f0f60">JacobianTransposed</a>;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="a02002.html#ae01fb3d14daf82da62d3ba86d71365b7">   31</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> Implementation::ctype <a class="code" href="a02002.html#ae01fb3d14daf82da62d3ba86d71365b7">ctype</a>;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="a02002.html#ac35b0e8118cfd4da6822eec119b63043">   33</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> Implementation::LocalCoordinate <a class="code" href="a02002.html#ac35b0e8118cfd4da6822eec119b63043">LocalCoordinate</a>;</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="a02002.html#a9f9a7cdf0056f6b220ca215583890e45">   34</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> Implementation::GlobalCoordinate <a class="code" href="a02002.html#a9f9a7cdf0056f6b220ca215583890e45">GlobalCoordinate</a>;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="a02002.html#ae2c68316d02fb1d7582528fe77bbfbc4">   36</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> Implementation::JacobianInverseTransposed <a class="code" href="a02002.html#ae2c68316d02fb1d7582528fe77bbfbc4">JacobianInverseTransposed</a>;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="a02002.html#a54020bac15c1997bc20aec2efec94d71">   37</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> Implementation::JacobianTransposed <a class="code" href="a02002.html#a54020bac15c1997bc20aec2efec94d71">JacobianTransposed</a>;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="a02002.html#a5ca87204ee141e91f92665332216c463">   39</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="a02002.html#a5ca87204ee141e91f92665332216c463">GeometryReference</a> ( <span class="keyword">const</span> Implementation &amp;<a class="code" href="a02002.html#add35eed07965bbaf7e0b788741b9901d">impl</a> )</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;      : impl_( &amp;<a class="code" href="a02002.html#add35eed07965bbaf7e0b788741b9901d">impl</a> )</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    {}</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="a02002.html#afa99f8d77c51447fd51fe483309afd11">   43</a></span>&#160;    <a class="code" href="a00948.html#aceb67a16cc6beb52f71ba8a06d6ef44f">GeometryType</a> <a class="code" href="a02002.html#afa99f8d77c51447fd51fe483309afd11">type</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="a02002.html#add35eed07965bbaf7e0b788741b9901d">impl</a>().type(); }</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="a02002.html#aab55ee5855d1cbdc7b233718771477fe">   45</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="a02002.html#aab55ee5855d1cbdc7b233718771477fe">affine</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="a02002.html#add35eed07965bbaf7e0b788741b9901d">impl</a>().affine(); }</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="a02002.html#ac26574883f92698eb2abc92bdfabfa44">   47</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="a02002.html#ac26574883f92698eb2abc92bdfabfa44">corners</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="a02002.html#add35eed07965bbaf7e0b788741b9901d">impl</a>().corners(); }</div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="a02002.html#ab34a190d76ec19ba1171a0e0aaed8fe9">   48</a></span>&#160;    <a class="code" href="a02002.html#a9f9a7cdf0056f6b220ca215583890e45">GlobalCoordinate</a> <a class="code" href="a02002.html#ab34a190d76ec19ba1171a0e0aaed8fe9">corner</a> ( <span class="keywordtype">int</span> i )<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="a02002.html#add35eed07965bbaf7e0b788741b9901d">impl</a>().corner( i ); }</div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="a02002.html#a507219a842aff95718c8d1f1436f6c0f">   49</a></span>&#160;    <a class="code" href="a02002.html#a9f9a7cdf0056f6b220ca215583890e45">GlobalCoordinate</a> <a class="code" href="a02002.html#a507219a842aff95718c8d1f1436f6c0f">center</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="a02002.html#add35eed07965bbaf7e0b788741b9901d">impl</a>().center(); }</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="a02002.html#ad5f02960c7caa8c10ebe3d7a1aab91f4">   51</a></span>&#160;    <a class="code" href="a02002.html#a9f9a7cdf0056f6b220ca215583890e45">GlobalCoordinate</a> <a class="code" href="a02002.html#ad5f02960c7caa8c10ebe3d7a1aab91f4">global</a> ( <span class="keyword">const</span> <a class="code" href="a02002.html#ac35b0e8118cfd4da6822eec119b63043">LocalCoordinate</a> &amp;local )<span class="keyword"> const</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="a02002.html#add35eed07965bbaf7e0b788741b9901d">impl</a>().global( local );</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    }</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="a02002.html#a0aef92a73857edafd006d6fc67f8ec7e">   56</a></span>&#160;    <a class="code" href="a02002.html#ac35b0e8118cfd4da6822eec119b63043">LocalCoordinate</a> local ( <span class="keyword">const</span> <a class="code" href="a02002.html#a9f9a7cdf0056f6b220ca215583890e45">GlobalCoordinate</a> &amp;<a class="code" href="a02002.html#ad5f02960c7caa8c10ebe3d7a1aab91f4">global</a> )<span class="keyword"> const</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="a02002.html#add35eed07965bbaf7e0b788741b9901d">impl</a>().local( <a class="code" href="a02002.html#ad5f02960c7caa8c10ebe3d7a1aab91f4">global</a> );</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="a02002.html#a18b7c05ccb5aed4f39afc618f268695a">   61</a></span>&#160;    <a class="code" href="a02002.html#ae01fb3d14daf82da62d3ba86d71365b7">ctype</a> <a class="code" href="a02002.html#a18b7c05ccb5aed4f39afc618f268695a">integrationElement</a> ( <span class="keyword">const</span> <a class="code" href="a02002.html#ac35b0e8118cfd4da6822eec119b63043">LocalCoordinate</a> &amp;local )<span class="keyword"> const</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="a02002.html#add35eed07965bbaf7e0b788741b9901d">impl</a>().integrationElement( local );</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    }</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="a02002.html#a1ddb620ad5c82a53756cae56fd203c0a">   66</a></span>&#160;    <a class="code" href="a02002.html#ae01fb3d14daf82da62d3ba86d71365b7">ctype</a> <a class="code" href="a02002.html#a1ddb620ad5c82a53756cae56fd203c0a">volume</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="a02002.html#add35eed07965bbaf7e0b788741b9901d">impl</a>().volume(); }</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="a02002.html#abb14e02426cc5f512d1252111b0344ea">   68</a></span>&#160;    <a class="code" href="a02002.html#a54020bac15c1997bc20aec2efec94d71">JacobianTransposed</a> <a class="code" href="a02002.html#abb14e02426cc5f512d1252111b0344ea">jacobianTransposed</a> ( <span class="keyword">const</span> <a class="code" href="a02002.html#ac35b0e8118cfd4da6822eec119b63043">LocalCoordinate</a> &amp;local )<span class="keyword"> const</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="a02002.html#add35eed07965bbaf7e0b788741b9901d">impl</a>().jacobianTransposed( local );</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    }</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="a02002.html#ab87473834c78e7ddbc7e11059f12e845">   73</a></span>&#160;    <a class="code" href="a02002.html#ae2c68316d02fb1d7582528fe77bbfbc4">JacobianInverseTransposed</a> <a class="code" href="a02002.html#ab87473834c78e7ddbc7e11059f12e845">jacobianInverseTransposed</a> ( <span class="keyword">const</span> <a class="code" href="a02002.html#ac35b0e8118cfd4da6822eec119b63043">LocalCoordinate</a> &amp;local )<span class="keyword"> const</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="a02002.html#add35eed07965bbaf7e0b788741b9901d">impl</a>().jacobianInverseTransposed( local );</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    }</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="a02002.html#add35eed07965bbaf7e0b788741b9901d">   78</a></span>&#160;    <span class="keyword">const</span> Implementation &amp;<a class="code" href="a02002.html#add35eed07965bbaf7e0b788741b9901d">impl</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> *impl_; }</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keyword">const</span> Implementation *impl_;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  };</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="a01998.html#a1a3bc6c38f782bd577b9ebcf37c5c475">   31</a></span>&#160;      <a class="code" href="a01998.html#a1a3bc6c38f782bd577b9ebcf37c5c475">GeometryCache</a> ()</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        : flags_( 0 )</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;      {}</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="a01998.html#ae6e5f7fad94a88c4414202f8ea80fa54">   35</a></span>&#160;      <span class="keyword">const</span> <a class="code" href="a00941.html#a86b942cdffce80f98973c987ea6246da">Real</a> &amp;<a class="code" href="a01998.html#ae6e5f7fad94a88c4414202f8ea80fa54">integrationElement</a> ( <span class="keyword">const</span> <a class="code" href="a00482.html#a4cbe74d935d2e31c4b35398e93623f70">ALBERTA</a> EL_INFO &amp;elInfo )</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;      {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordflow">if</span>( (flags_ &amp; flagIntegrationElement) == 0 )</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;          integrationElement_ = <a class="code" href="a00941.html#a32f1dea9b87299c0e24ab46760391400">std::abs</a>( <a class="code" href="a00941.html#a98df257ae8b8275f40f1d10e6c939542">determinant</a>( <a class="code" href="a01998.html#ad24953796252f1b331550e89ecfcd75b">jacobianTransposed</a>( elInfo ) ) );</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;          assert( integrationElement_ &gt; 1e-14 );</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;          flags_ |= flagIntegrationElement;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        }</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">return</span> integrationElement_;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;      }</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="a01998.html#ad24953796252f1b331550e89ecfcd75b">   46</a></span>&#160;      <span class="keyword">const</span> <a class="code" href="a01998.html#a38ddc32dbe5b4ef4efd53941090f0f60">JacobianTransposed</a> &amp;<a class="code" href="a01998.html#ad24953796252f1b331550e89ecfcd75b">jacobianTransposed</a> ( <span class="keyword">const</span> <a class="code" href="a00482.html#a4cbe74d935d2e31c4b35398e93623f70">ALBERTA</a> EL_INFO &amp;elInfo )</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;      {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordflow">if</span>( (flags_ &amp; flagJacobianTransposed) == 0 )</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;          assert( (elInfo.fill_flag &amp; <a class="code" href="a02266.html">FillFlags&lt; dim &gt;::coords</a>) != 0 );</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;          <span class="keyword">const</span> <a class="code" href="a00941.html#af1650cccce3ce5a4c8ab8eb240d3c58a">GlobalVector</a> &amp;x = elInfo.coord[ 0 ];</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;          <span class="keywordflow">for</span>( <span class="keywordtype">int</span> i = 0; i &lt; dim; ++i )</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;          {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <span class="keyword">const</span> <a class="code" href="a00941.html#af1650cccce3ce5a4c8ab8eb240d3c58a">GlobalVector</a> &amp;y = elInfo.coord[ i+1 ];</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <span class="keywordflow">for</span>( <span class="keywordtype">int</span> j = 0; j &lt; <a class="code" href="a00941.html#acc4a01c16d41d4e3e6e5d058b86376ca">dimWorld</a>; ++j )</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;              jacobianTransposed_[ i ][ j ] = y[ j ] - x[ j ];</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;          }</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;          flags_ |= flagJacobianTransposed;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordflow">return</span> jacobianTransposed_;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;      }</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;      <span class="keyword">const</span> <a class="code" href="a01998.html#ad0a23a0b6a1a919b8c4603ea115cce76">JacobianInverseTransposed</a> &amp;</div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="a01998.html#a894010739da0cf1bd08d0a39bcc323fb">   64</a></span>&#160;      <a class="code" href="a01998.html#a894010739da0cf1bd08d0a39bcc323fb">jacobianInverseTransposed</a> ( <span class="keyword">const</span> <a class="code" href="a00482.html#a4cbe74d935d2e31c4b35398e93623f70">ALBERTA</a> EL_INFO &amp;elInfo )</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;      {</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordflow">if</span>( (flags_ &amp; flagJacobianInverseTransposed) == 0 )</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        {</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;          integrationElement_ = <a class="code" href="a00941.html#a32f1dea9b87299c0e24ab46760391400">std::abs</a>( <a class="code" href="a00941.html#a376a2bb46f272e0b676174c4e0432598">invert</a>( <a class="code" href="a01998.html#ad24953796252f1b331550e89ecfcd75b">jacobianTransposed</a>( elInfo ), jacobianInverseTransposed_ ) );</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;          assert( integrationElement_ &gt; 1e-14 );</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;          flags_ |= flagIntegrationElement | flagJacobianInverseTransposed;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        }</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">return</span> jacobianInverseTransposed_;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;      }</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;      <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> flags_;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;      <a class="code" href="a00941.html#a86b942cdffce80f98973c987ea6246da">Real</a> integrationElement_;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;      FieldMatrix&lt; Real, dim, dimWorld &gt; jacobianTransposed_;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;      FieldMatrix&lt; Real, dimWorld, dim &gt; jacobianInverseTransposed_;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    };</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <span class="comment">// LocalGeometryReference</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  <span class="comment">// -----------------------</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  <span class="keyword">template</span>&lt; <span class="keywordtype">int</span> mydim, <span class="keywordtype">int</span> cdim, <span class="keyword">class</span> Gr<span class="keywordtype">id</span> &gt;</div>
-<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="a02006.html">   89</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a02006.html">LocalGeometryReference</a></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    : <span class="keyword">public</span> <a class="code" href="a02002.html">GeometryReference</a>&lt; typename std::remove_const&lt; Grid &gt;::type::Traits::template Codim&lt; std::remove_const&lt; Grid &gt;::type::dimension - mydim &gt;::LocalGeometryImpl &gt;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  {</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> std::remove_const&lt; Grid &gt;::type::Traits::template Codim&lt; std::remove_const&lt; Grid &gt;::type::dimension - mydim &gt;::LocalGeometryImpl Implementation;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="a02006.html#a4173c08dd158217eca841eb0981b9c7f">   95</a></span>&#160;    <a class="code" href="a02006.html#a4173c08dd158217eca841eb0981b9c7f">LocalGeometryReference</a> ( <span class="keyword">const</span> Implementation &amp;<a class="code" href="a02002.html#add35eed07965bbaf7e0b788741b9901d">impl</a> )</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;      : <a class="code" href="a02002.html">GeometryReference</a>&lt; Implementation &gt;( <a class="code" href="a02002.html#add35eed07965bbaf7e0b788741b9901d">impl</a> )</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    {}</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  };</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  <span class="comment">// Definitions of GeometryReference</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  <span class="comment">// --------------------------------</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  <span class="keyword">template</span>&lt; <span class="keyword">class</span> Implementation &gt;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="a02002.html#a0d690ef3c7b93c3406e9d7156bd5de3a">GeometryReference&lt; Implementation &gt;::mydimension</a>;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="comment">// GeometryCacheProxy</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="comment">// ------------------</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keyword">template</span>&lt; <span class="keywordtype">int</span> dim &gt;</div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="a02002.html">   88</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="a02002.html">GeometryCacheProxy</a></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    {</div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="a02002.html#ac3baf2ddc715b683a8b195d5699034e8">   90</a></span>&#160;      <span class="keyword">typedef</span> FieldMatrix&lt; Real, dimWorld, dim &gt; <a class="code" href="a02002.html#ac3baf2ddc715b683a8b195d5699034e8">JacobianInverseTransposed</a>;</div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="a02002.html#a60f660a672ecb0064eb6993209967f41">   91</a></span>&#160;      <span class="keyword">typedef</span> FieldMatrix&lt; Real, dim, dimWorld &gt; <a class="code" href="a02002.html#a60f660a672ecb0064eb6993209967f41">JacobianTransposed</a>;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="a02002.html#ad1b00f2eb1e6d9a4955b34bcc7b6a280">   93</a></span>&#160;      <a class="code" href="a02002.html#ad1b00f2eb1e6d9a4955b34bcc7b6a280">GeometryCacheProxy</a> ( <a class="code" href="a01998.html">GeometryCache&lt; dim &gt;</a> &amp;geometryCache, <span class="keyword">const</span> <a class="code" href="a00482.html#a4cbe74d935d2e31c4b35398e93623f70">ALBERTA</a> EL_INFO &amp;elInfo )</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        : geometryCache_( geometryCache ),</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;          elInfo_( elInfo )</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;      {}</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="a02002.html#a28503ae4ee78acc73a607e4ba025d7e4">   98</a></span>&#160;      <span class="keyword">const</span> <a class="code" href="a00941.html#a86b942cdffce80f98973c987ea6246da">Real</a> &amp;<a class="code" href="a02002.html#a28503ae4ee78acc73a607e4ba025d7e4">integrationElement</a> ()</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;      {</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <span class="keywordflow">return</span> geometryCache_.integrationElement( elInfo_ );</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;      }</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="a02002.html#aecb43f8867293e8c61e0bb9d9bf0cf53">  103</a></span>&#160;      <span class="keyword">const</span> <a class="code" href="a02002.html#a60f660a672ecb0064eb6993209967f41">JacobianTransposed</a> &amp;<a class="code" href="a02002.html#aecb43f8867293e8c61e0bb9d9bf0cf53">jacobianTransposed</a> ()</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;      {</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="keywordflow">return</span> geometryCache_.jacobianTransposed( elInfo_ );</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;      }</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  <span class="keyword">template</span>&lt; <span class="keyword">class</span> Implementation &gt;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="a02002.html#a9feb9b9f244485c5b5dc3a2bf50f6023">GeometryReference&lt; Implementation &gt;::coorddimension</a>;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;} <span class="comment">// namespace Dune</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="a02002.html#a73d54d08fa5cf6f76c4c0ad4c8fa1470">  108</a></span>&#160;      <span class="keyword">const</span> <a class="code" href="a02002.html#ac3baf2ddc715b683a8b195d5699034e8">JacobianInverseTransposed</a> &amp;<a class="code" href="a02002.html#a73d54d08fa5cf6f76c4c0ad4c8fa1470">jacobianInverseTransposed</a> ()</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;      {</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keywordflow">return</span> geometryCache_.jacobianInverseTransposed( elInfo_ );</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;      }</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// #ifndef DUNE_GRID_ALBERTAGRID_GEOMETRYREFERENCE_HH</span></div>
-<div class="ttc" id="aa00936_html"><div class="ttname"><a href="a00936.html">Dune</a></div><div class="ttdoc">Include standard header files.</div><div class="ttdef"><b>Definition:</b> agrid.hh:59</div></div>
-<div class="ttc" id="aa00948_html_aceb67a16cc6beb52f71ba8a06d6ef44f"><div class="ttname"><a href="a00948.html#aceb67a16cc6beb52f71ba8a06d6ef44f">Dune::VTK::GeometryType</a></div><div class="ttdeci">GeometryType</div><div class="ttdoc">Type representing VTK's entity geometry types.</div><div class="ttdef"><b>Definition:</b> common.hh:180</div></div>
-<div class="ttc" id="aa02002_html"><div class="ttname"><a href="a02002.html">Dune::GeometryReference</a></div><div class="ttdef"><b>Definition:</b> geometryreference.hh:24</div></div>
-<div class="ttc" id="aa02002_html_a0d690ef3c7b93c3406e9d7156bd5de3a"><div class="ttname"><a href="a02002.html#a0d690ef3c7b93c3406e9d7156bd5de3a">Dune::GeometryReference::mydimension</a></div><div class="ttdeci">static const int mydimension</div><div class="ttdef"><b>Definition:</b> geometryreference.hh:28</div></div>
-<div class="ttc" id="aa02002_html_a18b7c05ccb5aed4f39afc618f268695a"><div class="ttname"><a href="a02002.html#a18b7c05ccb5aed4f39afc618f268695a">Dune::GeometryReference::integrationElement</a></div><div class="ttdeci">ctype integrationElement(const LocalCoordinate &amp;local) const</div><div class="ttdef"><b>Definition:</b> geometryreference.hh:61</div></div>
-<div class="ttc" id="aa02002_html_a1ddb620ad5c82a53756cae56fd203c0a"><div class="ttname"><a href="a02002.html#a1ddb620ad5c82a53756cae56fd203c0a">Dune::GeometryReference::volume</a></div><div class="ttdeci">ctype volume() const</div><div class="ttdef"><b>Definition:</b> geometryreference.hh:66</div></div>
-<div class="ttc" id="aa02002_html_a507219a842aff95718c8d1f1436f6c0f"><div class="ttname"><a href="a02002.html#a507219a842aff95718c8d1f1436f6c0f">Dune::GeometryReference::center</a></div><div class="ttdeci">GlobalCoordinate center() const</div><div class="ttdef"><b>Definition:</b> geometryreference.hh:49</div></div>
-<div class="ttc" id="aa02002_html_a54020bac15c1997bc20aec2efec94d71"><div class="ttname"><a href="a02002.html#a54020bac15c1997bc20aec2efec94d71">Dune::GeometryReference::JacobianTransposed</a></div><div class="ttdeci">Implementation::JacobianTransposed JacobianTransposed</div><div class="ttdef"><b>Definition:</b> geometryreference.hh:37</div></div>
-<div class="ttc" id="aa02002_html_a5ca87204ee141e91f92665332216c463"><div class="ttname"><a href="a02002.html#a5ca87204ee141e91f92665332216c463">Dune::GeometryReference::GeometryReference</a></div><div class="ttdeci">GeometryReference(const Implementation &amp;impl)</div><div class="ttdef"><b>Definition:</b> geometryreference.hh:39</div></div>
-<div class="ttc" id="aa02002_html_a9f9a7cdf0056f6b220ca215583890e45"><div class="ttname"><a href="a02002.html#a9f9a7cdf0056f6b220ca215583890e45">Dune::GeometryReference::GlobalCoordinate</a></div><div class="ttdeci">Implementation::GlobalCoordinate GlobalCoordinate</div><div class="ttdef"><b>Definition:</b> geometryreference.hh:34</div></div>
-<div class="ttc" id="aa02002_html_a9feb9b9f244485c5b5dc3a2bf50f6023"><div class="ttname"><a href="a02002.html#a9feb9b9f244485c5b5dc3a2bf50f6023">Dune::GeometryReference::coorddimension</a></div><div class="ttdeci">static const int coorddimension</div><div class="ttdef"><b>Definition:</b> geometryreference.hh:29</div></div>
-<div class="ttc" id="aa02002_html_aab55ee5855d1cbdc7b233718771477fe"><div class="ttname"><a href="a02002.html#aab55ee5855d1cbdc7b233718771477fe">Dune::GeometryReference::affine</a></div><div class="ttdeci">bool affine() const</div><div class="ttdef"><b>Definition:</b> geometryreference.hh:45</div></div>
-<div class="ttc" id="aa02002_html_ab34a190d76ec19ba1171a0e0aaed8fe9"><div class="ttname"><a href="a02002.html#ab34a190d76ec19ba1171a0e0aaed8fe9">Dune::GeometryReference::corner</a></div><div class="ttdeci">GlobalCoordinate corner(int i) const</div><div class="ttdef"><b>Definition:</b> geometryreference.hh:48</div></div>
-<div class="ttc" id="aa02002_html_ab87473834c78e7ddbc7e11059f12e845"><div class="ttname"><a href="a02002.html#ab87473834c78e7ddbc7e11059f12e845">Dune::GeometryReference::jacobianInverseTransposed</a></div><div class="ttdeci">JacobianInverseTransposed jacobianInverseTransposed(const LocalCoordinate &amp;local) const</div><div class="ttdef"><b>Definition:</b> geometryreference.hh:73</div></div>
-<div class="ttc" id="aa02002_html_abb14e02426cc5f512d1252111b0344ea"><div class="ttname"><a href="a02002.html#abb14e02426cc5f512d1252111b0344ea">Dune::GeometryReference::jacobianTransposed</a></div><div class="ttdeci">JacobianTransposed jacobianTransposed(const LocalCoordinate &amp;local) const</div><div class="ttdef"><b>Definition:</b> geometryreference.hh:68</div></div>
-<div class="ttc" id="aa02002_html_ac26574883f92698eb2abc92bdfabfa44"><div class="ttname"><a href="a02002.html#ac26574883f92698eb2abc92bdfabfa44">Dune::GeometryReference::corners</a></div><div class="ttdeci">int corners() const</div><div class="ttdef"><b>Definition:</b> geometryreference.hh:47</div></div>
-<div class="ttc" id="aa02002_html_ac35b0e8118cfd4da6822eec119b63043"><div class="ttname"><a href="a02002.html#ac35b0e8118cfd4da6822eec119b63043">Dune::GeometryReference::LocalCoordinate</a></div><div class="ttdeci">Implementation::LocalCoordinate LocalCoordinate</div><div class="ttdef"><b>Definition:</b> geometryreference.hh:33</div></div>
-<div class="ttc" id="aa02002_html_ad5f02960c7caa8c10ebe3d7a1aab91f4"><div class="ttname"><a href="a02002.html#ad5f02960c7caa8c10ebe3d7a1aab91f4">Dune::GeometryReference::global</a></div><div class="ttdeci">GlobalCoordinate global(const LocalCoordinate &amp;local) const</div><div class="ttdef"><b>Definition:</b> geometryreference.hh:51</div></div>
-<div class="ttc" id="aa02002_html_add35eed07965bbaf7e0b788741b9901d"><div class="ttname"><a href="a02002.html#add35eed07965bbaf7e0b788741b9901d">Dune::GeometryReference::impl</a></div><div class="ttdeci">const Implementation &amp; impl() const</div><div class="ttdef"><b>Definition:</b> geometryreference.hh:78</div></div>
-<div class="ttc" id="aa02002_html_ae01fb3d14daf82da62d3ba86d71365b7"><div class="ttname"><a href="a02002.html#ae01fb3d14daf82da62d3ba86d71365b7">Dune::GeometryReference::ctype</a></div><div class="ttdeci">Implementation::ctype ctype</div><div class="ttdef"><b>Definition:</b> geometryreference.hh:31</div></div>
-<div class="ttc" id="aa02002_html_ae2c68316d02fb1d7582528fe77bbfbc4"><div class="ttname"><a href="a02002.html#ae2c68316d02fb1d7582528fe77bbfbc4">Dune::GeometryReference::JacobianInverseTransposed</a></div><div class="ttdeci">Implementation::JacobianInverseTransposed JacobianInverseTransposed</div><div class="ttdef"><b>Definition:</b> geometryreference.hh:36</div></div>
-<div class="ttc" id="aa02002_html_afa99f8d77c51447fd51fe483309afd11"><div class="ttname"><a href="a02002.html#afa99f8d77c51447fd51fe483309afd11">Dune::GeometryReference::type</a></div><div class="ttdeci">GeometryType type() const</div><div class="ttdef"><b>Definition:</b> geometryreference.hh:43</div></div>
-<div class="ttc" id="aa02006_html"><div class="ttname"><a href="a02006.html">Dune::LocalGeometryReference</a></div><div class="ttdef"><b>Definition:</b> geometryreference.hh:91</div></div>
-<div class="ttc" id="aa02006_html_a4173c08dd158217eca841eb0981b9c7f"><div class="ttname"><a href="a02006.html#a4173c08dd158217eca841eb0981b9c7f">Dune::LocalGeometryReference::LocalGeometryReference</a></div><div class="ttdeci">LocalGeometryReference(const Implementation &amp;impl)</div><div class="ttdef"><b>Definition:</b> geometryreference.hh:95</div></div>
-<div class="ttc" id="aa06791_html"><div class="ttname"><a href="a06791.html">geometry.hh</a></div><div class="ttdoc">Wrapper and interface classes for element geometries.</div></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;      <a class="code" href="a01998.html">GeometryCache&lt; dim &gt;</a> &amp;geometryCache_;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;      <span class="keyword">const</span> <a class="code" href="a00482.html#a4cbe74d935d2e31c4b35398e93623f70">ALBERTA</a> EL_INFO &amp;elInfo_;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    };</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  } <span class="comment">// namespace Alberta</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;} <span class="comment">// namespace Dune</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// #if HAVE_ALBERTA</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// #ifndef DUNE_ALBERTA_GEOMETRYCACHE_HH</span></div>
+<div class="ttc" id="aa00482_html_a4cbe74d935d2e31c4b35398e93623f70"><div class="ttname"><a href="a00482.html#a4cbe74d935d2e31c4b35398e93623f70">ALBERTA</a></div><div class="ttdeci">#define ALBERTA</div><div class="ttdef"><b>Definition:</b> albertaheader.hh:27</div></div>
+<div class="ttc" id="aa00488_html"><div class="ttname"><a href="a00488.html">algebra.hh</a></div></div>
+<div class="ttc" id="aa00560_html"><div class="ttname"><a href="a00560.html">misc.hh</a></div></div>
+<div class="ttc" id="aa00940_html"><div class="ttname"><a href="a00940.html">Dune</a></div><div class="ttdoc">Include standard header files.</div><div class="ttdef"><b>Definition:</b> agrid.hh:58</div></div>
+<div class="ttc" id="aa00941_html_a32f1dea9b87299c0e24ab46760391400"><div class="ttname"><a href="a00941.html#a32f1dea9b87299c0e24ab46760391400">Dune::Alberta::abs</a></div><div class="ttdeci">void abs(const DofVectorPointer&lt; int &gt; &amp;dofVector)</div><div class="ttdef"><b>Definition:</b> dofvector.hh:326</div></div>
+<div class="ttc" id="aa00941_html_a376a2bb46f272e0b676174c4e0432598"><div class="ttname"><a href="a00941.html#a376a2bb46f272e0b676174c4e0432598">Dune::Alberta::invert</a></div><div class="ttdeci">static K invert([[maybe_unused]] const FieldMatrix&lt; K, 0, m &gt; &amp;matrix, [[maybe_unused]] FieldMatrix&lt; K, m, 0 &gt; &amp;inverse)</div><div class="ttdef"><b>Definition:</b> algebra.hh:79</div></div>
+<div class="ttc" id="aa00941_html_a86b942cdffce80f98973c987ea6246da"><div class="ttname"><a href="a00941.html#a86b942cdffce80f98973c987ea6246da">Dune::Alberta::Real</a></div><div class="ttdeci">ALBERTA REAL Real</div><div class="ttdef"><b>Definition:</b> misc.hh:46</div></div>
+<div class="ttc" id="aa00941_html_a98df257ae8b8275f40f1d10e6c939542"><div class="ttname"><a href="a00941.html#a98df257ae8b8275f40f1d10e6c939542">Dune::Alberta::determinant</a></div><div class="ttdeci">static K determinant([[maybe_unused]] const FieldMatrix&lt; K, 0, m &gt; &amp;matrix)</div><div class="ttdef"><b>Definition:</b> algebra.hh:28</div></div>
+<div class="ttc" id="aa00941_html_acc4a01c16d41d4e3e6e5d058b86376ca"><div class="ttname"><a href="a00941.html#acc4a01c16d41d4e3e6e5d058b86376ca">Dune::Alberta::dimWorld</a></div><div class="ttdeci">static const int dimWorld</div><div class="ttdef"><b>Definition:</b> misc.hh:44</div></div>
+<div class="ttc" id="aa00941_html_af1650cccce3ce5a4c8ab8eb240d3c58a"><div class="ttname"><a href="a00941.html#af1650cccce3ce5a4c8ab8eb240d3c58a">Dune::Alberta::GlobalVector</a></div><div class="ttdeci">ALBERTA REAL_D GlobalVector</div><div class="ttdef"><b>Definition:</b> misc.hh:48</div></div>
+<div class="ttc" id="aa01998_html"><div class="ttname"><a href="a01998.html">Dune::Alberta::GeometryCache</a></div><div class="ttdef"><b>Definition:</b> geometrycache.hh:22</div></div>
+<div class="ttc" id="aa01998_html_a1a3bc6c38f782bd577b9ebcf37c5c475"><div class="ttname"><a href="a01998.html#a1a3bc6c38f782bd577b9ebcf37c5c475">Dune::Alberta::GeometryCache::GeometryCache</a></div><div class="ttdeci">GeometryCache()</div><div class="ttdef"><b>Definition:</b> geometrycache.hh:31</div></div>
+<div class="ttc" id="aa01998_html_a38ddc32dbe5b4ef4efd53941090f0f60"><div class="ttname"><a href="a01998.html#a38ddc32dbe5b4ef4efd53941090f0f60">Dune::Alberta::GeometryCache::JacobianTransposed</a></div><div class="ttdeci">FieldMatrix&lt; Real, dim, dimWorld &gt; JacobianTransposed</div><div class="ttdef"><b>Definition:</b> geometrycache.hh:29</div></div>
+<div class="ttc" id="aa01998_html_a894010739da0cf1bd08d0a39bcc323fb"><div class="ttname"><a href="a01998.html#a894010739da0cf1bd08d0a39bcc323fb">Dune::Alberta::GeometryCache::jacobianInverseTransposed</a></div><div class="ttdeci">const JacobianInverseTransposed &amp; jacobianInverseTransposed(const ALBERTA EL_INFO &amp;elInfo)</div><div class="ttdef"><b>Definition:</b> geometrycache.hh:64</div></div>
+<div class="ttc" id="aa01998_html_ad0a23a0b6a1a919b8c4603ea115cce76"><div class="ttname"><a href="a01998.html#ad0a23a0b6a1a919b8c4603ea115cce76">Dune::Alberta::GeometryCache::JacobianInverseTransposed</a></div><div class="ttdeci">FieldMatrix&lt; Real, dimWorld, dim &gt; JacobianInverseTransposed</div><div class="ttdef"><b>Definition:</b> geometrycache.hh:28</div></div>
+<div class="ttc" id="aa01998_html_ad24953796252f1b331550e89ecfcd75b"><div class="ttname"><a href="a01998.html#ad24953796252f1b331550e89ecfcd75b">Dune::Alberta::GeometryCache::jacobianTransposed</a></div><div class="ttdeci">const JacobianTransposed &amp; jacobianTransposed(const ALBERTA EL_INFO &amp;elInfo)</div><div class="ttdef"><b>Definition:</b> geometrycache.hh:46</div></div>
+<div class="ttc" id="aa01998_html_ae6e5f7fad94a88c4414202f8ea80fa54"><div class="ttname"><a href="a01998.html#ae6e5f7fad94a88c4414202f8ea80fa54">Dune::Alberta::GeometryCache::integrationElement</a></div><div class="ttdeci">const Real &amp; integrationElement(const ALBERTA EL_INFO &amp;elInfo)</div><div class="ttdef"><b>Definition:</b> geometrycache.hh:35</div></div>
+<div class="ttc" id="aa02002_html"><div class="ttname"><a href="a02002.html">Dune::Alberta::GeometryCacheProxy</a></div><div class="ttdef"><b>Definition:</b> geometrycache.hh:89</div></div>
+<div class="ttc" id="aa02002_html_a28503ae4ee78acc73a607e4ba025d7e4"><div class="ttname"><a href="a02002.html#a28503ae4ee78acc73a607e4ba025d7e4">Dune::Alberta::GeometryCacheProxy::integrationElement</a></div><div class="ttdeci">const Real &amp; integrationElement()</div><div class="ttdef"><b>Definition:</b> geometrycache.hh:98</div></div>
+<div class="ttc" id="aa02002_html_a60f660a672ecb0064eb6993209967f41"><div class="ttname"><a href="a02002.html#a60f660a672ecb0064eb6993209967f41">Dune::Alberta::GeometryCacheProxy::JacobianTransposed</a></div><div class="ttdeci">FieldMatrix&lt; Real, dim, dimWorld &gt; JacobianTransposed</div><div class="ttdef"><b>Definition:</b> geometrycache.hh:91</div></div>
+<div class="ttc" id="aa02002_html_a73d54d08fa5cf6f76c4c0ad4c8fa1470"><div class="ttname"><a href="a02002.html#a73d54d08fa5cf6f76c4c0ad4c8fa1470">Dune::Alberta::GeometryCacheProxy::jacobianInverseTransposed</a></div><div class="ttdeci">const JacobianInverseTransposed &amp; jacobianInverseTransposed()</div><div class="ttdef"><b>Definition:</b> geometrycache.hh:108</div></div>
+<div class="ttc" id="aa02002_html_ac3baf2ddc715b683a8b195d5699034e8"><div class="ttname"><a href="a02002.html#ac3baf2ddc715b683a8b195d5699034e8">Dune::Alberta::GeometryCacheProxy::JacobianInverseTransposed</a></div><div class="ttdeci">FieldMatrix&lt; Real, dimWorld, dim &gt; JacobianInverseTransposed</div><div class="ttdef"><b>Definition:</b> geometrycache.hh:90</div></div>
+<div class="ttc" id="aa02002_html_ad1b00f2eb1e6d9a4955b34bcc7b6a280"><div class="ttname"><a href="a02002.html#ad1b00f2eb1e6d9a4955b34bcc7b6a280">Dune::Alberta::GeometryCacheProxy::GeometryCacheProxy</a></div><div class="ttdeci">GeometryCacheProxy(GeometryCache&lt; dim &gt; &amp;geometryCache, const ALBERTA EL_INFO &amp;elInfo)</div><div class="ttdef"><b>Definition:</b> geometrycache.hh:93</div></div>
+<div class="ttc" id="aa02002_html_aecb43f8867293e8c61e0bb9d9bf0cf53"><div class="ttname"><a href="a02002.html#aecb43f8867293e8c61e0bb9d9bf0cf53">Dune::Alberta::GeometryCacheProxy::jacobianTransposed</a></div><div class="ttdeci">const JacobianTransposed &amp; jacobianTransposed()</div><div class="ttdef"><b>Definition:</b> geometrycache.hh:103</div></div>
+<div class="ttc" id="aa02266_html"><div class="ttname"><a href="a02266.html">Dune::Alberta::FillFlags</a></div><div class="ttdef"><b>Definition:</b> misc.hh:229</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

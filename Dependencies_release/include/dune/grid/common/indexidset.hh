@@ -215,9 +215,10 @@ namespace Dune
     /** @brief Return total number of entities of given geometry type in entity set \f$E\f$.
 
        \param[in] type A valid geometry type.
-       \return         number of entities.
+       \return    number of entities (type is auto determined by the
+                  implementation. std::size_t is the expected return type).
      */
-    IndexType size (GeometryType type) const
+    auto size (GeometryType type) const
     {
       CHECK_INTERFACE_IMPLEMENTATION((asImp().size(type)));
       return asImp().size(type);
@@ -227,9 +228,10 @@ namespace Dune
             is simply a sum over all geometry types.
 
        \param[in] codim A valid codimension
-            \return    number of entities.
+       \return    number of entities (type is auto determined by the
+                  implementation. std::size_t is the expected return type).
      */
-    IndexType size (int codim) const
+    auto size (int codim) const
     {
       CHECK_INTERFACE_IMPLEMENTATION((asImp().size(codim)));
       return asImp().size(codim);
@@ -251,12 +253,13 @@ namespace Dune
     // Must be explicitly defined although this class should get a default constructor.
     IndexSet() = default;
 
-  private:
+  public:
     //! Forbid the copy constructor
     IndexSet(const IndexSet&) = delete;
     //! Forbid the assignment operator
     IndexSet& operator=(const IndexSet&) = delete;
 
+  private:
     //!  Barton-Nackman trick
     IndexSetImp& asImp () {return static_cast<IndexSetImp &> (*this);}
     //!  Barton-Nackman trick
@@ -302,16 +305,22 @@ namespace Dune
             is simply a sum over all geometry types.
 
        \param[in] codim A valid codimension
-                \return    number of entities.
+       \return    number of entities (type is auto determined by the
+                  implementation. std::size_t is the expected return type).
      */
-    IndexType size ( const int codim ) const
+    auto size ( const int codim ) const
     {
-      IndexType s( 0 );
+      using SizeType = std::decay_t<decltype( Base::size( Dune::GeometryType() ) )>;
+
       const std::vector< GeometryType > &geomTs = asImp().geomTypes( codim );
       typedef typename std::vector< GeometryType >::const_iterator Iterator;
+
       const Iterator end = geomTs.end();
-      for( Iterator it = geomTs.begin(); it != end; ++it )
+
+      SizeType s ( 0 );
+      for( Iterator it = geomTs.begin() ; it != end; ++it )
         s += Base::size( *it );
+
       return s;
     }
     //@{
@@ -439,9 +448,21 @@ namespace Dune
   template<class GridImp, class IdSetImp, class IdTypeImp>
   class IdSet
   {
+    /* We use the remove_const to extract the Type from the mutable class,
+       because the const class is not instantiated yet. */
+    using Traits = typename std::remove_const< GridImp >::type::Traits;
   public:
     //! Type used to represent an id.
     typedef IdTypeImp IdType;
+
+    /** \brief Export the type of the entity used as parameter in the id(...) method */
+    template <int cc>
+    struct Codim {
+      using Entity = typename Traits::template Codim<cc>::Entity;
+    };
+
+    /** \brief dimension of the grid (maximum allowed codimension) */
+    static constexpr auto dimension = std::remove_const< GridImp >::type::dimension;
 
     //! Get id of an entity. This method is simpler to use than the one below.
     template<class Entity>
@@ -457,16 +478,14 @@ namespace Dune
        because the const class is not instantiated yet.
      */
     template<int cc>
-    IdType id (const typename std::remove_const<GridImp>::type::
-               Traits::template Codim<cc>::Entity& e) const
+    IdType id (const typename Codim<cc>::Entity& e) const
     {
       return asImp().template id<cc>(e);
     }
 
     /** \brief Get id of subentity i of co-dimension codim of a co-dimension 0 entity.
      */
-    IdType subId (const typename std::remove_const<GridImp>::type::
-                  Traits::template Codim<0>::Entity& e, int i, unsigned int codim) const
+    IdType subId (const typename Codim<0>::Entity& e, int i, unsigned int codim) const
     {
       return asImp().subId(e,i,codim);
     }
@@ -475,12 +494,13 @@ namespace Dune
     // Default constructor (is not provided automatically because copy constructor is private)
     IdSet() = default;
 
-  private:
+  public:
     //! Forbid the copy constructor
     IdSet(const IdSet&) = delete;
     //! Forbid the assignment operator
     IdSet& operator=(const IdSet&) = delete;
 
+  private:
     //!  Barton-Nackman trick
     IdSetImp& asImp () {return static_cast<IdSetImp &> (*this);}
     //!  Barton-Nackman trick

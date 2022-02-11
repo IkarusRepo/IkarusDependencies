@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-geometry: virtualrefinement.hh File Reference</title>
+<title>dune-geometry: virtualrefinement.cc File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-geometry
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -69,46 +69,87 @@ $(function() {
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
+<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">virtualrefinement.hh File Reference</div>  </div>
+<div class="title">virtualrefinement.cc File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
 <p>This file contains the virtual wrapper around refinement.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;vector&gt;</code><br />
+<div class="textblock"><code>#include &lt;cassert&gt;</code><br />
+<code>#include &lt;typeinfo&gt;</code><br />
+<code>#include &lt;dune/common/exceptions.hh&gt;</code><br />
 <code>#include &lt;dune/common/fvector.hh&gt;</code><br />
-<code>#include &quot;<a class="el" href="a00143_source.html">refinement.hh</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00149_source.html">type.hh</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00158.html">virtualrefinement.cc</a>&quot;</code><br />
-</div>
-<p><a href="a00161_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
+<code>#include &lt;dune/common/iteratorfacades.hh&gt;</code><br />
+<code>#include &quot;<a class="el" href="a00152_source.html">type.hh</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00146_source.html">refinement.hh</a>&quot;</code><br />
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01485.html">Dune::VirtualRefinement&lt; dimension, CoordType &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a01485.html" title="VirtualRefinement base class.">VirtualRefinement</a> base class.  <a href="a01485.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01340.html">Dune::VirtualRefinementSubEntityIteratorSpecial&lt; dimension, CoordType, dimension &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01489.html">Dune::VirtualRefinement&lt; dimension, CoordType &gt;::Codim&lt; codimension &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">codim database of <a class="el" href="a01485.html" title="VirtualRefinement base class.">VirtualRefinement</a>  <a href="a01489.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01344.html">Dune::VirtualRefinementSubEntityIteratorSpecial&lt; dimension, CoordType, 0 &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01348.html">Dune::VirtualRefinement&lt; dimension, CoordType &gt;::Codim&lt; codimension &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01356.html">Dune::VirtualRefinementSubEntityIteratorBackSpecial&lt; dimension, CoordType, dimension &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01360.html">Dune::VirtualRefinementSubEntityIteratorBackSpecial&lt; dimension, CoordType, 0 &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01364.html">Dune::VirtualRefinement&lt; dimension, CoordType &gt;::SubEntityIteratorBack&lt; dimension, CoordType &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01368.html">Dune::VirtualRefinementImp&lt; topologyId, CoordType, coerceToId, dimension &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01380.html">Dune::VirtualRefinementImpSubEntityIteratorBackSpecial&lt; topologyId, CoordType, coerceToId, dimension, dimension &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01384.html">Dune::VirtualRefinementImpSubEntityIteratorBackSpecial&lt; topologyId, CoordType, coerceToId, dimension, 0 &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01372.html">Dune::VirtualRefinementImp&lt; topologyId, CoordType, coerceToId, dimension &gt;::SubEntityIteratorBack&lt; codimension &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01388.html">Dune::RefinementBuilder&lt; dimension, CoordType &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01392.html">Dune::RefinementBuilder&lt; 1, CoordType &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01396.html">Dune::RefinementBuilder&lt; 3, CoordType &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:a00177"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00177.html">Dune</a></td></tr>
+<tr class="memitem:a00179"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00179.html">Dune</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ac82d420bff6cce87d06ad71b4f1cb0c8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00161.html#ac82d420bff6cce87d06ad71b4f1cb0c8">DUNE_GEOMETRY_VIRTUALREFINEMENT_CC</a></td></tr>
+<tr class="separator:ac82d420bff6cce87d06ad71b4f1cb0c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a73043181be4688f6cc83f1416cc176c6"><td class="memTemplParams" colspan="2">template&lt;int dimension, class CoordType &gt; </td></tr>
-<tr class="memitem:a73043181be4688f6cc83f1416cc176c6"><td class="memTemplItemLeft" align="right" valign="top">VirtualRefinement&lt; dimension, CoordType &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00177.html#a73043181be4688f6cc83f1416cc176c6">Dune::buildRefinement</a> (GeometryType geometryType, GeometryType coerceTo)</td></tr>
-<tr class="memdesc:a73043181be4688f6cc83f1416cc176c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">return a reference to the <a class="el" href="a01485.html" title="VirtualRefinement base class.">VirtualRefinement</a> according to the parameters  <a href="a00177.html#a73043181be4688f6cc83f1416cc176c6">More...</a><br /></td></tr>
+<tr class="memitem:a73043181be4688f6cc83f1416cc176c6"><td class="memTemplItemLeft" align="right" valign="top">VirtualRefinement&lt; dimension, CoordType &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00179.html#a73043181be4688f6cc83f1416cc176c6">Dune::buildRefinement</a> (GeometryType geometryType, GeometryType coerceTo)</td></tr>
+<tr class="memdesc:a73043181be4688f6cc83f1416cc176c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">return a reference to the <a class="el" href="a01400.html" title="VirtualRefinement base class.">VirtualRefinement</a> according to the parameters  <a href="a00179.html#a73043181be4688f6cc83f1416cc176c6">More...</a><br /></td></tr>
 <tr class="separator:a73043181be4688f6cc83f1416cc176c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This file contains the virtual wrapper around refinement. </p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="ac82d420bff6cce87d06ad71b4f1cb0c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac82d420bff6cce87d06ad71b4f1cb0c8">&#9670;&nbsp;</a></span>DUNE_GEOMETRY_VIRTUALREFINEMENT_CC</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DUNE_GEOMETRY_VIRTUALREFINEMENT_CC</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1

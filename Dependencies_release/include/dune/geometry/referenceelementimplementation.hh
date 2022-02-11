@@ -17,7 +17,6 @@
 #include <dune/common/fvector.hh>
 #include <dune/common/hybridutilities.hh>
 #include <dune/common/typetraits.hh>
-#include <dune/common/unused.hh>
 #include <dune/common/iteratorrange.hh>
 #include <dune/common/power.hh>
 #include <dune/common/math.hh>
@@ -757,8 +756,8 @@ namespace Dune
         for(std::size_t cc=0; cc<= dim; ++cc)
         {
           containsSubentity_[cc].reset();
-          for(std::size_t i=0; i<std::size_t(size(cc)); ++i)
-            containsSubentity_[cc][number(i,cc)] = true;
+          for(std::size_t idx=0; idx<std::size_t(size(cc)); ++idx)
+            containsSubentity_[cc][number(idx,cc)] = true;
         }
       }
 
@@ -789,9 +788,9 @@ namespace Dune
       }
 
       static typename ReferenceElements< ctype, dim >::ReferenceElement
-      subRefElement( const ReferenceElementImplementation< ctype, dim > &refElement, int i, std::integral_constant< int, 0 > )
+      subRefElement(const ReferenceElementImplementation< ctype, dim > &refElement,
+                    [[maybe_unused]] int i, std::integral_constant<int, 0>)
       {
-        DUNE_UNUSED_PARAMETER(i);
         return refElement;
       }
 

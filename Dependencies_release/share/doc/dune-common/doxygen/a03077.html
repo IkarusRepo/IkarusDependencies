@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-common: Member List</title>
+<title>dune-common: Dune::IsCallable&lt; D, R &gt; Struct Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-common
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,23 +62,39 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00428.html">Dune</a></li><li class="navelem"><a class="el" href="a03080.html">TupleVector</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00428.html">Dune</a></li><li class="navelem"><a class="el" href="a03077.html">IsCallable</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">Dune::TupleVector&lt; T &gt; Member List</div>  </div>
+<div class="title">Dune::IsCallable&lt; D, R &gt; Struct Template Reference<div class="ingroups"><a class="el" href="a00400.html">Common</a> &raquo; <a class="el" href="a00402.html">Utilities</a> &raquo; <a class="el" href="a00409.html">C++ utilities and backports</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="a03080.html">Dune::TupleVector&lt; T &gt;</a>, including all inherited members.</p>
-<table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="a03080.html#ae61a44c59db745e575ee839989dc13ed">operator[]</a>(const Dune::index_constant&lt; i &gt; &amp;) const</td><td class="entry"><a class="el" href="a03080.html">Dune::TupleVector&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="a03080.html#a22b24b2bd8f2fa120c183b3c8becf1c9">operator[]</a>(const Dune::index_constant&lt; i &gt; &amp;)</td><td class="entry"><a class="el" href="a03080.html">Dune::TupleVector&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a03080.html#a1595dc930c803c3b4e4652b011ebf47b">size</a>()</td><td class="entry"><a class="el" href="a03080.html">Dune::TupleVector&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
-  <tr><td class="entry"><a class="el" href="a03080.html#a18fb497d8152c2f3eb144449d70e9bc9">TupleVector</a>(TT &amp;&amp;... tt)</td><td class="entry"><a class="el" href="a03080.html">Dune::TupleVector&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a03080.html#af79a45a6b4d14f7db794298985da714e">TupleVector</a>()</td><td class="entry"><a class="el" href="a03080.html">Dune::TupleVector&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-</table></div><!-- contents -->
+<p>Check if a type is callable with ()-operator and given arguments.  
+ <a href="a03077.html#details">More...</a></p>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename D, typename R = void&gt;<br />
+struct Dune::IsCallable&lt; D, R &gt;</h3>
+
+<p>Check if a type is callable with ()-operator and given arguments. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">D</td><td><a class="el" href="a01753.html" title="Base class template for function classes.">Function</a> descriptor </td></tr>
+    <tr><td class="paramname">R</td><td>Return value type</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>If <code>D = F(Args...)</code> this checks if F can be called with an argument list of type <code>Args...</code>, and if the return value can be converted to R. If R is <code>void</code>, any return type is accepted.</p>
+<p>The result is encoded by deriving from either <code>std::true_type</code> or <code>std::false_type</code></p>
+<p>If D is not of the form <code>F(Args...)</code> this class is not defined.</p>
+<dl class="section note"><dt>Note</dt><dd>This differs from <code>std::invocable_r</code> in the way that only <code>FunctionObject</code> types are allowed here while <code>std::invocable_r</code> also accepts pointers to member functions and pointers to data members (i.e. more general <code>Callable</code> types) </dd>
+<dd>
+See <a href="https://en.cppreference.com/w/cpp/named_req/FunctionObject">https://en.cppreference.com/w/cpp/named_req/FunctionObject</a> for the description of the named requirement <code>FunctionObject</code> and <a href="https://en.cppreference.com/w/cpp/named_req/Callable">https://en.cppreference.com/w/cpp/named_req/Callable</a> for <code>Callable</code>. </dd></dl>
+</div><hr/>The documentation for this struct was generated from the following file:<ul>
+<li><a class="el" href="a00383_source.html">typetraits.hh</a></li>
+</ul>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1

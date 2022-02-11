@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-common
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -99,17 +99,17 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01348.html">Dune::AlignedBase&lt; align, Impl &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">CRTP base mixin class to check alignment.  <a href="a01348.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01349.html">Dune::AlignedBase&lt; align, Impl &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">CRTP base mixin class to check alignment.  <a href="a01349.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01352.html">Dune::AlignedNumberImpl::AlignedNumber&lt; T, align &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">aligned wrappers for arithmetic types  <a href="a01352.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01353.html">Dune::AlignedNumberImpl::AlignedNumber&lt; T, align &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">aligned wrappers for arithmetic types  <a href="a01353.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01356.html">Dune::Simd::Overloads::ScalarType&lt; AlignedNumber&lt; T, align &gt; &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01357.html">Dune::Simd::Overloads::ScalarType&lt; AlignedNumber&lt; T, align &gt; &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01360.html">Dune::Simd::Overloads::RebindType&lt; U, AlignedNumber&lt; T, align &gt; &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01361.html">Dune::Simd::Overloads::RebindType&lt; U, AlignedNumber&lt; T, align &gt; &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01364.html">Dune::Simd::Overloads::LaneCount&lt; AlignedNumber&lt; T, align &gt; &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01365.html">Dune::Simd::Overloads::LaneCount&lt; AlignedNumber&lt; T, align &gt; &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -346,8 +346,8 @@ Variables</h2></td></tr>
 <div class="line">      }                                                                 \</div>
 <div class="line">                                                                        \</div>
 <div class="line">      template&lt;<span class="keyword">class </span>U,                                                 \</div>
-<div class="line">               class = void_t&lt;decltype(std::declval&lt;T&amp;&gt;() OP            \</div>
-<div class="line">                                       std::declval&lt;U&gt;())&gt; &gt;            \</div>
+<div class="line">               class = std::void_t&lt;decltype(std::declval&lt;T&amp;&gt;() OP       \</div>
+<div class="line">                                            std::declval&lt;U&gt;())&gt; &gt;       \</div>
 <div class="line">      AlignedNumber &amp;operator OP(const U &amp;u)                            \</div>
 <div class="line">      {                                                                 \</div>
 <div class="line">        value_ OP u;                                                    \</div>
@@ -374,7 +374,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">    <span class="keyword">template</span>&lt;<span class="keyword">class </span>T, std::size_t tAlign, <span class="keyword">class </span>U, std::size_t uAlign,  \</div>
-<div class="line">             class = void_t&lt;decltype(std::declval&lt;T&gt;()                  \</div>
+<div class="line">             class = std::void_t&lt;decltype(std::declval&lt;T&gt;()             \</div>
 <div class="line">                                     OP std::declval&lt;U&gt;())&gt; &gt;           \</div>
 <div class="line">    decltype(<span class="keyword">auto</span>)                                                      \</div>
 <div class="line">      operator OP(<span class="keyword">const</span> AlignedNumber&lt;T, tAlign&gt; &amp;t,                    \</div>
@@ -385,7 +385,7 @@ Variables</h2></td></tr>
 <div class="line">    }                                                                   \</div>
 <div class="line">                                                                        \</div>
 <div class="line">    template&lt;<span class="keyword">class </span>T, <span class="keyword">class </span>U, std::size_t uAlign,                      \</div>
-<div class="line">             class = void_t&lt;decltype(std::declval&lt;T&gt;()                  \</div>
+<div class="line">             class = std::void_t&lt;decltype(std::declval&lt;T&gt;()             \</div>
 <div class="line">                                     OP std::declval&lt;U&gt;())&gt; &gt;           \</div>
 <div class="line">    decltype(<span class="keyword">auto</span>)                                                      \</div>
 <div class="line">      operator OP(<span class="keyword">const</span> T &amp;t, <span class="keyword">const</span> AlignedNumber&lt;U, uAlign&gt; &amp;u)        \</div>
@@ -394,7 +394,7 @@ Variables</h2></td></tr>
 <div class="line">    }                                                                   \</div>
 <div class="line">                                                                        \</div>
 <div class="line">    template&lt;<span class="keyword">class </span>T, std::size_t tAlign, <span class="keyword">class </span>U,                      \</div>
-<div class="line">             class = void_t&lt;decltype(std::declval&lt;T&gt;()                  \</div>
+<div class="line">             class = std::void_t&lt;decltype(std::declval&lt;T&gt;()             \</div>
 <div class="line">                                     OP std::declval&lt;U&gt;())&gt; &gt;           \</div>
 <div class="line">    decltype(<span class="keyword">auto</span>)                                                      \</div>
 <div class="line">      operator OP(<span class="keyword">const</span> AlignedNumber&lt;T, tAlign&gt; &amp;t, <span class="keyword">const</span> U &amp;u)        \</div>

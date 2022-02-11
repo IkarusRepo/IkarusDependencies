@@ -1,9 +1,12 @@
 // -*- tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*-
 // vi: set et ts=4 sw=2 sts=2:
-#ifndef DUNE_GRIDVIEW_HH
-#define DUNE_GRIDVIEW_HH
+#ifndef DUNE_GRID_COMMON_GRIDVIEW_HH
+#define DUNE_GRID_COMMON_GRIDVIEW_HH
+
+#include <typeinfo>
 
 #include <dune/common/iteratorrange.hh>
+#include <dune/common/parallel/future.hh>
 
 #include <dune/geometry/type.hh>
 
@@ -262,11 +265,13 @@ namespace Dune
 
     /** \brief Communicate data on this view */
     template< class DataHandleImp, class DataType >
-    void communicate ( CommDataHandleIF< DataHandleImp, DataType > &data,
+    auto communicate ( CommDataHandleIF< DataHandleImp, DataType > &data,
                        InterfaceType iftype,
                        CommunicationDirection dir ) const
     {
-      impl().communicate(data,iftype,dir);
+      typedef decltype( impl().communicate(data,iftype,dir) ) CommFuture;
+      return communicate( data,iftype, dir,
+            std::integral_constant< bool, std::is_same< CommFuture, void > :: value >() );
     }
 
     /**
@@ -284,9 +289,44 @@ namespace Dune
     const Implementation &impl () const { return impl_; }
 
   protected:
+    /** \brief Communicate data on this view */
+    template< class DataHandleImp, class DataType >
+    auto communicate ( CommDataHandleIF< DataHandleImp, DataType > &data,
+                       InterfaceType iftype,
+                       CommunicationDirection dir, std::integral_constant< bool, false > ) const
+    {
+      return impl().communicate(data,iftype,dir);
+    }
+
+    struct DeprecatedMethodEmptyFuture : public Future<void>
+    {
+      void printMessage() const
+      {
+        std::cerr << "WARNING: GridView::communicate of '" <<
+          typeid( Implementation ).name() << "' still returns void. Please update implementation to new interface returning a future object!" << std::endl;
+      }
+
+      bool ready () {
+        printMessage();
+        return true;
+      }
+      void wait () { printMessage(); }
+      bool valid () const { printMessage(); return true; }
+    };
+
+    /** \brief Communicate data on this view */
+    template< class DataHandleImp, class DataType >
+    auto communicate ( CommDataHandleIF< DataHandleImp, DataType > &data,
+                       InterfaceType iftype,
+                       CommunicationDirection dir, std::integral_constant< bool, true > ) const
+    {
+      impl().communicate(data,iftype,dir);
+      return DeprecatedMethodEmptyFuture();
+    }
+
     Implementation impl_;
   };
 
 } // namespace Dune
 
-#endif // #ifndef DUNE_GRIDVIEW_HH
+#endif // #ifndef DUNE_GRID_COMMON_GRIDVIEW_HH

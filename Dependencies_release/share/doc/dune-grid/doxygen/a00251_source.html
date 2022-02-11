@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: gridenums.hh Source File</title>
+<title>dune-grid: exceptions.hh Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -67,139 +67,31 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">gridenums.hh</div>  </div>
+<div class="title">exceptions.hh</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="a00251.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*-</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// vi: set et ts=4 sw=2 sts=2:</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifndef DUNE_GRIDENUMS_HH</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define DUNE_GRIDENUMS_HH</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifndef DUNE_GRID_COMMON_EXCEPTIONS_HH</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define DUNE_GRID_COMMON_EXCEPTIONS_HH</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;dune/common/exceptions.hh&gt;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;dune/common/exceptions.hh&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00936.html">Dune</a> {</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="a00904.html#gabd89b77709db1d9e56bb17cd0aa44c3d">   28</a></span>&#160;  <span class="keyword">enum</span> <a class="code" href="a00904.html#gabd89b77709db1d9e56bb17cd0aa44c3d">PartitionType</a> {</div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="a00904.html#ggabd89b77709db1d9e56bb17cd0aa44c3da1cdad324759fb0e56c7f035d91f7e4b8">   29</a></span>&#160;    <a class="code" href="a00904.html#ggabd89b77709db1d9e56bb17cd0aa44c3da1cdad324759fb0e56c7f035d91f7e4b8">InteriorEntity</a>=0,     </div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="a00904.html#ggabd89b77709db1d9e56bb17cd0aa44c3da5886f9fc2fac0eb986874fb2e682fb80">   30</a></span>&#160;    <a class="code" href="a00904.html#ggabd89b77709db1d9e56bb17cd0aa44c3da5886f9fc2fac0eb986874fb2e682fb80">BorderEntity</a>=1  ,     </div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="a00904.html#ggabd89b77709db1d9e56bb17cd0aa44c3daec5e1e5ba1c055301aae842f46640850">   31</a></span>&#160;    <a class="code" href="a00904.html#ggabd89b77709db1d9e56bb17cd0aa44c3daec5e1e5ba1c055301aae842f46640850">OverlapEntity</a>=2 ,     </div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="a00904.html#ggabd89b77709db1d9e56bb17cd0aa44c3da0eb7fb9965359955e50690291d9f6d9a">   32</a></span>&#160;    <a class="code" href="a00904.html#ggabd89b77709db1d9e56bb17cd0aa44c3da0eb7fb9965359955e50690291d9f6d9a">FrontEntity</a>=3  ,      </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="a00904.html#ggabd89b77709db1d9e56bb17cd0aa44c3da4db612fa448bc15ef7581235c17e17ea">GhostEntity</a>=4         </div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="a00904.html#ggabd89b77709db1d9e56bb17cd0aa44c3da4db612fa448bc15ef7581235c17e17ea">   34</a></span>&#160;  };</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="a00904.html#ga93b58eeb427bbeafe9bd7d460a1603cc">   44</a></span>&#160;  <span class="keyword">inline</span> std::string <a class="code" href="a00904.html#ga93b58eeb427bbeafe9bd7d460a1603cc">PartitionName</a>(<a class="code" href="a00904.html#gabd89b77709db1d9e56bb17cd0aa44c3d">PartitionType</a> type)</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">switch</span>(type) {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="a00904.html#ggabd89b77709db1d9e56bb17cd0aa44c3da1cdad324759fb0e56c7f035d91f7e4b8">InteriorEntity</a> :</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;      <span class="keywordflow">return</span> <span class="stringliteral">&quot;interior&quot;</span>;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="a00904.html#ggabd89b77709db1d9e56bb17cd0aa44c3da5886f9fc2fac0eb986874fb2e682fb80">BorderEntity</a> :</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;      <span class="keywordflow">return</span> <span class="stringliteral">&quot;border&quot;</span>;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="a00904.html#ggabd89b77709db1d9e56bb17cd0aa44c3daec5e1e5ba1c055301aae842f46640850">OverlapEntity</a> :</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      <span class="keywordflow">return</span> <span class="stringliteral">&quot;overlap&quot;</span>;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="a00904.html#ggabd89b77709db1d9e56bb17cd0aa44c3da0eb7fb9965359955e50690291d9f6d9a">FrontEntity</a> :</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      <span class="keywordflow">return</span> <span class="stringliteral">&quot;front&quot;</span>;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="a00904.html#ggabd89b77709db1d9e56bb17cd0aa44c3da4db612fa448bc15ef7581235c17e17ea">GhostEntity</a> :</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      <span class="keywordflow">return</span> <span class="stringliteral">&quot;ghost&quot;</span>;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    default :</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;      DUNE_THROW(NotImplemented, <span class="stringliteral">&quot;name of unknown partition type requested&quot;</span>);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  }</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="a00904.html#gacac688b252435fccd21c3199ffaaf076">   70</a></span>&#160;  <span class="keyword">inline</span> std::ostream &amp;<a class="code" href="a00904.html#gacac688b252435fccd21c3199ffaaf076">operator&lt;&lt; </a>( std::ostream &amp;out, <span class="keyword">const</span> <a class="code" href="a00904.html#gabd89b77709db1d9e56bb17cd0aa44c3d">PartitionType</a> &amp;type )</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  {</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordflow">return</span> out &lt;&lt; <a class="code" href="a00904.html#ga93b58eeb427bbeafe9bd7d460a1603cc">PartitionName</a>( type );</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  }</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="a00904.html#gae799a4296824c1d4ae0d82e71287b722">   84</a></span>&#160;  <span class="keyword">enum</span> <a class="code" href="a00904.html#gae799a4296824c1d4ae0d82e71287b722">InterfaceType</a> {</div>
-<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="a00904.html#ggae799a4296824c1d4ae0d82e71287b722a8b8e3364d9c34ed2e31f038479012f4f">   85</a></span>&#160;    <a class="code" href="a00904.html#ggae799a4296824c1d4ae0d82e71287b722a8b8e3364d9c34ed2e31f038479012f4f">InteriorBorder_InteriorBorder_Interface</a>=0,     </div>
-<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="a00904.html#ggae799a4296824c1d4ae0d82e71287b722a05cadca133ee23c967950c19bcbe4b85">   86</a></span>&#160;    <a class="code" href="a00904.html#ggae799a4296824c1d4ae0d82e71287b722a05cadca133ee23c967950c19bcbe4b85">InteriorBorder_All_Interface</a>=1,                </div>
-<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="a00904.html#ggae799a4296824c1d4ae0d82e71287b722a63cd8ac44d5a4cbb8cd1a4176e6b2965">   87</a></span>&#160;    <a class="code" href="a00904.html#ggae799a4296824c1d4ae0d82e71287b722a63cd8ac44d5a4cbb8cd1a4176e6b2965">Overlap_OverlapFront_Interface</a>=2,              </div>
-<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="a00904.html#ggae799a4296824c1d4ae0d82e71287b722a41fd52a5f00a85c7df011f9c532ed98f">   88</a></span>&#160;    <a class="code" href="a00904.html#ggae799a4296824c1d4ae0d82e71287b722a41fd52a5f00a85c7df011f9c532ed98f">Overlap_All_Interface</a>=3,                       </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <a class="code" href="a00904.html#ggae799a4296824c1d4ae0d82e71287b722a22b151c5173503a7f39a3bd93ed6300d">All_All_Interface</a>=4                            </div>
-<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="a00904.html#ggae799a4296824c1d4ae0d82e71287b722a22b151c5173503a7f39a3bd93ed6300d">   90</a></span>&#160;  };</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
-<div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="a00904.html#gabe3ea0bc4acb9ad23a40a4761a0f72ad">  101</a></span>&#160;  <span class="keyword">inline</span> std::ostream &amp;<a class="code" href="a00904.html#gacac688b252435fccd21c3199ffaaf076">operator&lt;&lt; </a>( std::ostream &amp;out, <span class="keyword">const</span> <a class="code" href="a00904.html#gae799a4296824c1d4ae0d82e71287b722">InterfaceType</a> &amp;type )</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  {</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordflow">switch</span>( type )</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    {</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="a00904.html#ggae799a4296824c1d4ae0d82e71287b722a8b8e3364d9c34ed2e31f038479012f4f">InteriorBorder_InteriorBorder_Interface</a> :</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;      <span class="keywordflow">return</span> out &lt;&lt; <span class="stringliteral">&quot;interior-border / interior-border interface&quot;</span>;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="a00904.html#ggae799a4296824c1d4ae0d82e71287b722a05cadca133ee23c967950c19bcbe4b85">InteriorBorder_All_Interface</a> :</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;      <span class="keywordflow">return</span> out &lt;&lt; <span class="stringliteral">&quot;interior-border / all interface&quot;</span>;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="a00904.html#ggae799a4296824c1d4ae0d82e71287b722a63cd8ac44d5a4cbb8cd1a4176e6b2965">Overlap_OverlapFront_Interface</a> :</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;      <span class="keywordflow">return</span> out &lt;&lt; <span class="stringliteral">&quot;overlap / overlap-front interface&quot;</span>;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="a00904.html#ggae799a4296824c1d4ae0d82e71287b722a41fd52a5f00a85c7df011f9c532ed98f">Overlap_All_Interface</a> :</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;      <span class="keywordflow">return</span> out &lt;&lt; <span class="stringliteral">&quot;overlap / all interface&quot;</span>;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="a00904.html#ggae799a4296824c1d4ae0d82e71287b722a22b151c5173503a7f39a3bd93ed6300d">All_All_Interface</a> :</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;      <span class="keywordflow">return</span> out &lt;&lt; <span class="stringliteral">&quot;all / all interface&quot;</span>;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    default :</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;      <span class="keywordflow">return</span> out &lt;&lt; <span class="stringliteral">&quot;unknown interface&quot;</span>;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    }</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  }</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
-<div class="line"><a name="l00134"></a><span class="lineno"><a class="line" href="a00904.html#gaa5b9e8102d7f70f3f4178182629d98b6">  134</a></span>&#160;  <span class="keyword">enum</span> <a class="code" href="a00904.html#gaa5b9e8102d7f70f3f4178182629d98b6">PartitionIteratorType</a> {</div>
-<div class="line"><a name="l00135"></a><span class="lineno"><a class="line" href="a00904.html#ggaa5b9e8102d7f70f3f4178182629d98b6a842081c435caefdae9580c93720e35b0">  135</a></span>&#160;    <a class="code" href="a00904.html#ggaa5b9e8102d7f70f3f4178182629d98b6a842081c435caefdae9580c93720e35b0">Interior_Partition</a>=0,           </div>
-<div class="line"><a name="l00136"></a><span class="lineno"><a class="line" href="a00904.html#ggaa5b9e8102d7f70f3f4178182629d98b6a8da384ab42a2918b7cf88220328cff19">  136</a></span>&#160;    <a class="code" href="a00904.html#ggaa5b9e8102d7f70f3f4178182629d98b6a8da384ab42a2918b7cf88220328cff19">InteriorBorder_Partition</a>=1,     </div>
-<div class="line"><a name="l00137"></a><span class="lineno"><a class="line" href="a00904.html#ggaa5b9e8102d7f70f3f4178182629d98b6a906b14970777b3ed8927c95029f6158d">  137</a></span>&#160;    <a class="code" href="a00904.html#ggaa5b9e8102d7f70f3f4178182629d98b6a906b14970777b3ed8927c95029f6158d">Overlap_Partition</a>=2,            </div>
-<div class="line"><a name="l00138"></a><span class="lineno"><a class="line" href="a00904.html#ggaa5b9e8102d7f70f3f4178182629d98b6a5fc7e992b7cd9112ef84af4daa417a84">  138</a></span>&#160;    <a class="code" href="a00904.html#ggaa5b9e8102d7f70f3f4178182629d98b6a5fc7e992b7cd9112ef84af4daa417a84">OverlapFront_Partition</a>=3,       </div>
-<div class="line"><a name="l00139"></a><span class="lineno"><a class="line" href="a00904.html#ggaa5b9e8102d7f70f3f4178182629d98b6a3026c69cd558fe3687c11f45966905e9">  139</a></span>&#160;    <a class="code" href="a00904.html#ggaa5b9e8102d7f70f3f4178182629d98b6a3026c69cd558fe3687c11f45966905e9">All_Partition</a>=4,                </div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <a class="code" href="a00904.html#ggaa5b9e8102d7f70f3f4178182629d98b6a90c5b1d5dc07ddecbf0fc09db7544216">Ghost_Partition</a>=5               </div>
-<div class="line"><a name="l00141"></a><span class="lineno"><a class="line" href="a00904.html#ggaa5b9e8102d7f70f3f4178182629d98b6a90c5b1d5dc07ddecbf0fc09db7544216">  141</a></span>&#160;  };</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160; </div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
-<div class="line"><a name="l00152"></a><span class="lineno"><a class="line" href="a00904.html#ga9641e43de5a57f7c1a2345cfdcef3d33">  152</a></span>&#160;  <span class="keyword">inline</span> std::ostream &amp;<a class="code" href="a00904.html#gacac688b252435fccd21c3199ffaaf076">operator&lt;&lt; </a>( std::ostream &amp;out, <span class="keyword">const</span> <a class="code" href="a00904.html#gaa5b9e8102d7f70f3f4178182629d98b6">PartitionIteratorType</a> &amp;type )</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;  {</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="keyword">static</span> std::string name[ 6 ] = { <span class="stringliteral">&quot;interior partition&quot;</span>, <span class="stringliteral">&quot;interior-border partition&quot;</span>, <span class="stringliteral">&quot;overlap partition&quot;</span>,</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                                     <span class="stringliteral">&quot;overlap-front partition&quot;</span>, <span class="stringliteral">&quot;all partition&quot;</span>, <span class="stringliteral">&quot;ghost partition&quot;</span> };</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="keywordflow">return</span> out &lt;&lt; name[ type ];</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;  }</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; </div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160; </div>
-<div class="line"><a name="l00168"></a><span class="lineno"><a class="line" href="a00904.html#gacf00ef51e7964e5797de12e1bdf8d755">  168</a></span>&#160;  <span class="keyword">enum</span> <a class="code" href="a00904.html#gacf00ef51e7964e5797de12e1bdf8d755">CommunicationDirection</a> {</div>
-<div class="line"><a name="l00169"></a><span class="lineno"><a class="line" href="a00904.html#ggacf00ef51e7964e5797de12e1bdf8d755a16096429617fc1e0db063aa7d0539703">  169</a></span>&#160;    <a class="code" href="a00904.html#ggacf00ef51e7964e5797de12e1bdf8d755a16096429617fc1e0db063aa7d0539703">ForwardCommunication</a>,     </div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    <a class="code" href="a00904.html#ggacf00ef51e7964e5797de12e1bdf8d755a109be42b107eef1f3de8fdcf3df59dd0">BackwardCommunication</a>     </div>
-<div class="line"><a name="l00171"></a><span class="lineno"><a class="line" href="a00904.html#ggacf00ef51e7964e5797de12e1bdf8d755a109be42b107eef1f3de8fdcf3df59dd0">  171</a></span>&#160;  };</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160; </div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;}</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aa00904_html_ga93b58eeb427bbeafe9bd7d460a1603cc"><div class="ttname"><a href="a00904.html#ga93b58eeb427bbeafe9bd7d460a1603cc">Dune::PartitionName</a></div><div class="ttdeci">std::string PartitionName(PartitionType type)</div><div class="ttdoc">Provide names for the partition types.</div><div class="ttdef"><b>Definition:</b> gridenums.hh:44</div></div>
-<div class="ttc" id="aa00904_html_gaa5b9e8102d7f70f3f4178182629d98b6"><div class="ttname"><a href="a00904.html#gaa5b9e8102d7f70f3f4178182629d98b6">Dune::PartitionIteratorType</a></div><div class="ttdeci">PartitionIteratorType</div><div class="ttdoc">Parameter to be used for the parallel level- and leaf iterators.</div><div class="ttdef"><b>Definition:</b> gridenums.hh:134</div></div>
-<div class="ttc" id="aa00904_html_gabd89b77709db1d9e56bb17cd0aa44c3d"><div class="ttname"><a href="a00904.html#gabd89b77709db1d9e56bb17cd0aa44c3d">Dune::PartitionType</a></div><div class="ttdeci">PartitionType</div><div class="ttdoc">Attributes used in the generic overlap model.</div><div class="ttdef"><b>Definition:</b> gridenums.hh:28</div></div>
-<div class="ttc" id="aa00904_html_gacac688b252435fccd21c3199ffaaf076"><div class="ttname"><a href="a00904.html#gacac688b252435fccd21c3199ffaaf076">Dune::operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;out, const PartitionType &amp;type)</div><div class="ttdoc">write a PartitionType to a stream</div><div class="ttdef"><b>Definition:</b> gridenums.hh:70</div></div>
-<div class="ttc" id="aa00904_html_gacf00ef51e7964e5797de12e1bdf8d755"><div class="ttname"><a href="a00904.html#gacf00ef51e7964e5797de12e1bdf8d755">Dune::CommunicationDirection</a></div><div class="ttdeci">CommunicationDirection</div><div class="ttdoc">Define a type for communication direction parameter.</div><div class="ttdef"><b>Definition:</b> gridenums.hh:168</div></div>
-<div class="ttc" id="aa00904_html_gae799a4296824c1d4ae0d82e71287b722"><div class="ttname"><a href="a00904.html#gae799a4296824c1d4ae0d82e71287b722">Dune::InterfaceType</a></div><div class="ttdeci">InterfaceType</div><div class="ttdoc">Parameter to be used for the communication functions.</div><div class="ttdef"><b>Definition:</b> gridenums.hh:84</div></div>
-<div class="ttc" id="aa00904_html_ggaa5b9e8102d7f70f3f4178182629d98b6a3026c69cd558fe3687c11f45966905e9"><div class="ttname"><a href="a00904.html#ggaa5b9e8102d7f70f3f4178182629d98b6a3026c69cd558fe3687c11f45966905e9">Dune::All_Partition</a></div><div class="ttdeci">@ All_Partition</div><div class="ttdoc">all entities</div><div class="ttdef"><b>Definition:</b> gridenums.hh:139</div></div>
-<div class="ttc" id="aa00904_html_ggaa5b9e8102d7f70f3f4178182629d98b6a5fc7e992b7cd9112ef84af4daa417a84"><div class="ttname"><a href="a00904.html#ggaa5b9e8102d7f70f3f4178182629d98b6a5fc7e992b7cd9112ef84af4daa417a84">Dune::OverlapFront_Partition</a></div><div class="ttdeci">@ OverlapFront_Partition</div><div class="ttdoc">interior, border, overlap and front entities</div><div class="ttdef"><b>Definition:</b> gridenums.hh:138</div></div>
-<div class="ttc" id="aa00904_html_ggaa5b9e8102d7f70f3f4178182629d98b6a842081c435caefdae9580c93720e35b0"><div class="ttname"><a href="a00904.html#ggaa5b9e8102d7f70f3f4178182629d98b6a842081c435caefdae9580c93720e35b0">Dune::Interior_Partition</a></div><div class="ttdeci">@ Interior_Partition</div><div class="ttdoc">only interior entities</div><div class="ttdef"><b>Definition:</b> gridenums.hh:135</div></div>
-<div class="ttc" id="aa00904_html_ggaa5b9e8102d7f70f3f4178182629d98b6a8da384ab42a2918b7cf88220328cff19"><div class="ttname"><a href="a00904.html#ggaa5b9e8102d7f70f3f4178182629d98b6a8da384ab42a2918b7cf88220328cff19">Dune::InteriorBorder_Partition</a></div><div class="ttdeci">@ InteriorBorder_Partition</div><div class="ttdoc">interior and border entities</div><div class="ttdef"><b>Definition:</b> gridenums.hh:136</div></div>
-<div class="ttc" id="aa00904_html_ggaa5b9e8102d7f70f3f4178182629d98b6a906b14970777b3ed8927c95029f6158d"><div class="ttname"><a href="a00904.html#ggaa5b9e8102d7f70f3f4178182629d98b6a906b14970777b3ed8927c95029f6158d">Dune::Overlap_Partition</a></div><div class="ttdeci">@ Overlap_Partition</div><div class="ttdoc">interior, border, and overlap entities</div><div class="ttdef"><b>Definition:</b> gridenums.hh:137</div></div>
-<div class="ttc" id="aa00904_html_ggaa5b9e8102d7f70f3f4178182629d98b6a90c5b1d5dc07ddecbf0fc09db7544216"><div class="ttname"><a href="a00904.html#ggaa5b9e8102d7f70f3f4178182629d98b6a90c5b1d5dc07ddecbf0fc09db7544216">Dune::Ghost_Partition</a></div><div class="ttdeci">@ Ghost_Partition</div><div class="ttdoc">only ghost entities</div><div class="ttdef"><b>Definition:</b> gridenums.hh:140</div></div>
-<div class="ttc" id="aa00904_html_ggabd89b77709db1d9e56bb17cd0aa44c3da0eb7fb9965359955e50690291d9f6d9a"><div class="ttname"><a href="a00904.html#ggabd89b77709db1d9e56bb17cd0aa44c3da0eb7fb9965359955e50690291d9f6d9a">Dune::FrontEntity</a></div><div class="ttdeci">@ FrontEntity</div><div class="ttdoc">on boundary between overlap and ghost</div><div class="ttdef"><b>Definition:</b> gridenums.hh:32</div></div>
-<div class="ttc" id="aa00904_html_ggabd89b77709db1d9e56bb17cd0aa44c3da1cdad324759fb0e56c7f035d91f7e4b8"><div class="ttname"><a href="a00904.html#ggabd89b77709db1d9e56bb17cd0aa44c3da1cdad324759fb0e56c7f035d91f7e4b8">Dune::InteriorEntity</a></div><div class="ttdeci">@ InteriorEntity</div><div class="ttdoc">all interior entities</div><div class="ttdef"><b>Definition:</b> gridenums.hh:29</div></div>
-<div class="ttc" id="aa00904_html_ggabd89b77709db1d9e56bb17cd0aa44c3da4db612fa448bc15ef7581235c17e17ea"><div class="ttname"><a href="a00904.html#ggabd89b77709db1d9e56bb17cd0aa44c3da4db612fa448bc15ef7581235c17e17ea">Dune::GhostEntity</a></div><div class="ttdeci">@ GhostEntity</div><div class="ttdoc">ghost entities</div><div class="ttdef"><b>Definition:</b> gridenums.hh:33</div></div>
-<div class="ttc" id="aa00904_html_ggabd89b77709db1d9e56bb17cd0aa44c3da5886f9fc2fac0eb986874fb2e682fb80"><div class="ttname"><a href="a00904.html#ggabd89b77709db1d9e56bb17cd0aa44c3da5886f9fc2fac0eb986874fb2e682fb80">Dune::BorderEntity</a></div><div class="ttdeci">@ BorderEntity</div><div class="ttdoc">on boundary between interior and overlap</div><div class="ttdef"><b>Definition:</b> gridenums.hh:30</div></div>
-<div class="ttc" id="aa00904_html_ggabd89b77709db1d9e56bb17cd0aa44c3daec5e1e5ba1c055301aae842f46640850"><div class="ttname"><a href="a00904.html#ggabd89b77709db1d9e56bb17cd0aa44c3daec5e1e5ba1c055301aae842f46640850">Dune::OverlapEntity</a></div><div class="ttdeci">@ OverlapEntity</div><div class="ttdoc">all entities lying in the overlap zone</div><div class="ttdef"><b>Definition:</b> gridenums.hh:31</div></div>
-<div class="ttc" id="aa00904_html_ggacf00ef51e7964e5797de12e1bdf8d755a109be42b107eef1f3de8fdcf3df59dd0"><div class="ttname"><a href="a00904.html#ggacf00ef51e7964e5797de12e1bdf8d755a109be42b107eef1f3de8fdcf3df59dd0">Dune::BackwardCommunication</a></div><div class="ttdeci">@ BackwardCommunication</div><div class="ttdoc">reverse communication direction</div><div class="ttdef"><b>Definition:</b> gridenums.hh:170</div></div>
-<div class="ttc" id="aa00904_html_ggacf00ef51e7964e5797de12e1bdf8d755a16096429617fc1e0db063aa7d0539703"><div class="ttname"><a href="a00904.html#ggacf00ef51e7964e5797de12e1bdf8d755a16096429617fc1e0db063aa7d0539703">Dune::ForwardCommunication</a></div><div class="ttdeci">@ ForwardCommunication</div><div class="ttdoc">communicate as given in InterfaceType</div><div class="ttdef"><b>Definition:</b> gridenums.hh:169</div></div>
-<div class="ttc" id="aa00904_html_ggae799a4296824c1d4ae0d82e71287b722a05cadca133ee23c967950c19bcbe4b85"><div class="ttname"><a href="a00904.html#ggae799a4296824c1d4ae0d82e71287b722a05cadca133ee23c967950c19bcbe4b85">Dune::InteriorBorder_All_Interface</a></div><div class="ttdeci">@ InteriorBorder_All_Interface</div><div class="ttdoc">send interior and border, receive all entities</div><div class="ttdef"><b>Definition:</b> gridenums.hh:86</div></div>
-<div class="ttc" id="aa00904_html_ggae799a4296824c1d4ae0d82e71287b722a22b151c5173503a7f39a3bd93ed6300d"><div class="ttname"><a href="a00904.html#ggae799a4296824c1d4ae0d82e71287b722a22b151c5173503a7f39a3bd93ed6300d">Dune::All_All_Interface</a></div><div class="ttdeci">@ All_All_Interface</div><div class="ttdoc">send all and receive all entities</div><div class="ttdef"><b>Definition:</b> gridenums.hh:89</div></div>
-<div class="ttc" id="aa00904_html_ggae799a4296824c1d4ae0d82e71287b722a41fd52a5f00a85c7df011f9c532ed98f"><div class="ttname"><a href="a00904.html#ggae799a4296824c1d4ae0d82e71287b722a41fd52a5f00a85c7df011f9c532ed98f">Dune::Overlap_All_Interface</a></div><div class="ttdeci">@ Overlap_All_Interface</div><div class="ttdoc">send overlap, receive all entities</div><div class="ttdef"><b>Definition:</b> gridenums.hh:88</div></div>
-<div class="ttc" id="aa00904_html_ggae799a4296824c1d4ae0d82e71287b722a63cd8ac44d5a4cbb8cd1a4176e6b2965"><div class="ttname"><a href="a00904.html#ggae799a4296824c1d4ae0d82e71287b722a63cd8ac44d5a4cbb8cd1a4176e6b2965">Dune::Overlap_OverlapFront_Interface</a></div><div class="ttdeci">@ Overlap_OverlapFront_Interface</div><div class="ttdoc">send overlap, receive overlap and front entities</div><div class="ttdef"><b>Definition:</b> gridenums.hh:87</div></div>
-<div class="ttc" id="aa00904_html_ggae799a4296824c1d4ae0d82e71287b722a8b8e3364d9c34ed2e31f038479012f4f"><div class="ttname"><a href="a00904.html#ggae799a4296824c1d4ae0d82e71287b722a8b8e3364d9c34ed2e31f038479012f4f">Dune::InteriorBorder_InteriorBorder_Interface</a></div><div class="ttdeci">@ InteriorBorder_InteriorBorder_Interface</div><div class="ttdoc">send/receive interior and border entities</div><div class="ttdef"><b>Definition:</b> gridenums.hh:85</div></div>
-<div class="ttc" id="aa00936_html"><div class="ttname"><a href="a00936.html">Dune</a></div><div class="ttdoc">Include standard header files.</div><div class="ttdef"><b>Definition:</b> agrid.hh:59</div></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00940.html">Dune</a></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  <span class="comment">// GridError</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;  <span class="comment">// ---------</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="a02674.html">   16</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a02674.html">GridError</a></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    : <span class="keyword">public</span> Exception</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  {};</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// #ifndef DUNE_GRID_COMMON_EXCEPTIONS_HH</span></div>
+<div class="ttc" id="aa00940_html"><div class="ttname"><a href="a00940.html">Dune</a></div><div class="ttdoc">Include standard header files.</div><div class="ttdef"><b>Definition:</b> agrid.hh:58</div></div>
+<div class="ttc" id="aa02674_html"><div class="ttname"><a href="a02674.html">Dune::GridError</a></div><div class="ttdoc">Base class for exceptions in Dune grid modules.</div><div class="ttdef"><b>Definition:</b> exceptions.hh:18</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

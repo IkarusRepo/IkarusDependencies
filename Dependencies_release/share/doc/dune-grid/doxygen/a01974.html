@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: Dune::AlbertaGridGeometry&lt; mydim, cdim, GridImp &gt; Class Template Reference</title>
+<title>dune-grid: Dune::AlbertaGridCoordinateReader&lt; codim, GridImp &gt; Struct Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,7 +62,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00936.html">Dune</a></li><li class="navelem"><a class="el" href="a01974.html">AlbertaGridGeometry</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00940.html">Dune</a></li><li class="navelem"><a class="el" href="a01974.html">AlbertaGridCoordinateReader</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -72,199 +72,106 @@ $(function() {
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="a01971.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::AlbertaGridGeometry&lt; mydim, cdim, GridImp &gt; Class Template Reference</div>  </div>
+<div class="title">Dune::AlbertaGridCoordinateReader&lt; codim, GridImp &gt; Struct Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>geometry implementation for <a class="el" href="a01770.html" title="[ provides Dune::Grid ]">AlbertaGrid</a>  
- <a href="a01974.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="a06788_source.html">dune/grid/albertagrid/geometry.hh</a>&gt;</code></p>
-<div class="dynheader">
-Inheritance diagram for Dune::AlbertaGridGeometry&lt; mydim, cdim, GridImp &gt;:</div>
-<div class="dyncontent">
-<div class="center"><img src="a01973.png" border="0" usemap="#a_dune_1_1_alberta_grid_geometry_3_01mydim_00_01cdim_00_01_grid_imp_01_4_inherit__map" alt="Inheritance graph"/></div>
-<map name="a_dune_1_1_alberta_grid_geometry_3_01mydim_00_01cdim_00_01_grid_imp_01_4_inherit__map" id="a_dune_1_1_alberta_grid_geometry_3_01mydim_00_01cdim_00_01_grid_imp_01_4_inherit__map">
-<area shape="rect" title="geometry implementation for AlbertaGrid" alt="" coords="23,5,206,47"/>
-<area shape="rect" href="a01978.html" title=" " alt="" coords="5,95,224,136"/>
-</map>
-</div>
+<p><code>#include &lt;<a class="el" href="a06693_source.html">dune/grid/albertagrid/geometry.hh</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a995254d35f0817ebdd4eec8e063c50d5"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a00937.html#a86b942cdffce80f98973c987ea6246da">Alberta::Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01974.html#a995254d35f0817ebdd4eec8e063c50d5">ctype</a></td></tr>
-<tr class="memdesc:a995254d35f0817ebdd4eec8e063c50d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">type of coordinates  <a href="a01974.html#a995254d35f0817ebdd4eec8e063c50d5">More...</a><br /></td></tr>
-<tr class="separator:a995254d35f0817ebdd4eec8e063c50d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a636f8fc8152aa6f2e8ee953f39d85495"><td class="memItemLeft" align="right" valign="top">typedef FieldVector&lt; <a class="el" href="a01974.html#a995254d35f0817ebdd4eec8e063c50d5">ctype</a>, <a class="el" href="a01974.html#ad5ae1e2124be63e15f671faa5010212d">mydimension</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01974.html#a636f8fc8152aa6f2e8ee953f39d85495">LocalCoordinate</a></td></tr>
-<tr class="separator:a636f8fc8152aa6f2e8ee953f39d85495"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc2c556776be52d8f419e07016b61e83"><td class="memItemLeft" align="right" valign="top">typedef FieldVector&lt; <a class="el" href="a01974.html#a995254d35f0817ebdd4eec8e063c50d5">ctype</a>, <a class="el" href="a01974.html#a512b2c34b502f57be4a39f128c624778">coorddimension</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01974.html#abc2c556776be52d8f419e07016b61e83">GlobalCoordinate</a></td></tr>
-<tr class="separator:abc2c556776be52d8f419e07016b61e83"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac52e063ae8aa99428ac032b28a885303"><td class="memItemLeft" align="right" valign="top">typedef FieldMatrix&lt; <a class="el" href="a01974.html#a995254d35f0817ebdd4eec8e063c50d5">ctype</a>, <a class="el" href="a01974.html#ad5ae1e2124be63e15f671faa5010212d">mydimension</a>, <a class="el" href="a01974.html#a512b2c34b502f57be4a39f128c624778">coorddimension</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01974.html#ac52e063ae8aa99428ac032b28a885303">JacobianTransposed</a></td></tr>
-<tr class="separator:ac52e063ae8aa99428ac032b28a885303"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69327e6c74890e77298c3d4f3f5cb1ec"><td class="memItemLeft" align="right" valign="top">typedef FieldMatrix&lt; <a class="el" href="a01974.html#a995254d35f0817ebdd4eec8e063c50d5">ctype</a>, <a class="el" href="a01974.html#a512b2c34b502f57be4a39f128c624778">coorddimension</a>, <a class="el" href="a01974.html#ad5ae1e2124be63e15f671faa5010212d">mydimension</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01974.html#a69327e6c74890e77298c3d4f3f5cb1ec">JacobianInverseTransposed</a></td></tr>
-<tr class="separator:a69327e6c74890e77298c3d4f3f5cb1ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07d9de6265b5571a2b2ae9fdc81fa478"><td class="memItemLeft" align="right" valign="top">typedef std::remove_const&lt; GridImp &gt;::type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01974.html#a07d9de6265b5571a2b2ae9fdc81fa478">Grid</a></td></tr>
+<tr class="separator:a07d9de6265b5571a2b2ae9fdc81fa478"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a084d137a073a4dd3a133a9da8667d81e"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a00941.html#a86b942cdffce80f98973c987ea6246da">Alberta::Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01974.html#a084d137a073a4dd3a133a9da8667d81e">ctype</a></td></tr>
+<tr class="separator:a084d137a073a4dd3a133a9da8667d81e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd9ca667dfae10bf77f8cc87b6b076c2"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a01902.html">Alberta::ElementInfo</a>&lt; <a class="el" href="a01974.html#a8d0b456db2647c0a8ba167bccd3675a0">dimension</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01974.html#afd9ca667dfae10bf77f8cc87b6b076c2">ElementInfo</a></td></tr>
+<tr class="separator:afd9ca667dfae10bf77f8cc87b6b076c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e863a96b4e21001a04fe940aac35aa1"><td class="memItemLeft" align="right" valign="top">typedef FieldVector&lt; <a class="el" href="a01974.html#a084d137a073a4dd3a133a9da8667d81e">ctype</a>, <a class="el" href="a01974.html#ac18e8a405f4823bee47b6946bbedb6ac">coorddimension</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01974.html#a9e863a96b4e21001a04fe940aac35aa1">Coordinate</a></td></tr>
+<tr class="separator:a9e863a96b4e21001a04fe940aac35aa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af646aff5fbe86db7f4b1785d687db440"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01974.html#af646aff5fbe86db7f4b1785d687db440">AlbertaGridGeometry</a> ()</td></tr>
-<tr class="separator:af646aff5fbe86db7f4b1785d687db440"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a527731505b70168428b51b89f7e887c5"><td class="memTemplParams" colspan="2">template&lt;class CoordReader &gt; </td></tr>
-<tr class="memitem:a527731505b70168428b51b89f7e887c5"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a01974.html#a527731505b70168428b51b89f7e887c5">AlbertaGridGeometry</a> (const CoordReader &amp;coordReader)</td></tr>
-<tr class="separator:a527731505b70168428b51b89f7e887c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c4f632b6966e22d568e75ebdcce903d"><td class="memItemLeft" align="right" valign="top">GeometryType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01974.html#a1c4f632b6966e22d568e75ebdcce903d">type</a> () const</td></tr>
-<tr class="memdesc:a1c4f632b6966e22d568e75ebdcce903d"><td class="mdescLeft">&#160;</td><td class="mdescRight">obtain the type of reference element  <a href="a01974.html#a1c4f632b6966e22d568e75ebdcce903d">More...</a><br /></td></tr>
-<tr class="separator:a1c4f632b6966e22d568e75ebdcce903d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3998f0cf9c1fdb629e64b7970f8cae1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01974.html#ae3998f0cf9c1fdb629e64b7970f8cae1">affine</a> () const</td></tr>
-<tr class="memdesc:ae3998f0cf9c1fdb629e64b7970f8cae1"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns always true since we only have simplices  <a href="a01974.html#ae3998f0cf9c1fdb629e64b7970f8cae1">More...</a><br /></td></tr>
-<tr class="separator:ae3998f0cf9c1fdb629e64b7970f8cae1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a327bcf8572e78a2913c444df8d2f60dc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01974.html#a327bcf8572e78a2913c444df8d2f60dc">corners</a> () const</td></tr>
-<tr class="memdesc:a327bcf8572e78a2913c444df8d2f60dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of corner the geometry  <a href="a01974.html#a327bcf8572e78a2913c444df8d2f60dc">More...</a><br /></td></tr>
-<tr class="separator:a327bcf8572e78a2913c444df8d2f60dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a828b0dc33734aac1a4fc2ae7164df42a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01974.html#abc2c556776be52d8f419e07016b61e83">GlobalCoordinate</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01974.html#a828b0dc33734aac1a4fc2ae7164df42a">corner</a> (const int i) const</td></tr>
-<tr class="memdesc:a828b0dc33734aac1a4fc2ae7164df42a"><td class="mdescLeft">&#160;</td><td class="mdescRight">obtain the i-th corner of this geometry  <a href="a01974.html#a828b0dc33734aac1a4fc2ae7164df42a">More...</a><br /></td></tr>
-<tr class="separator:a828b0dc33734aac1a4fc2ae7164df42a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ef3f722ebeeb704a9b59ad24b2eaf0f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01974.html#abc2c556776be52d8f419e07016b61e83">GlobalCoordinate</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01974.html#a1ef3f722ebeeb704a9b59ad24b2eaf0f">center</a> () const</td></tr>
-<tr class="memdesc:a1ef3f722ebeeb704a9b59ad24b2eaf0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">return center of geometry  <a href="a01974.html#a1ef3f722ebeeb704a9b59ad24b2eaf0f">More...</a><br /></td></tr>
-<tr class="separator:a1ef3f722ebeeb704a9b59ad24b2eaf0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a98c08d31d04433530dc9fa400bed1981"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01974.html#abc2c556776be52d8f419e07016b61e83">GlobalCoordinate</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01974.html#a98c08d31d04433530dc9fa400bed1981">global</a> (const <a class="el" href="a01974.html#a636f8fc8152aa6f2e8ee953f39d85495">LocalCoordinate</a> &amp;local) const</td></tr>
-<tr class="memdesc:a98c08d31d04433530dc9fa400bed1981"><td class="mdescLeft">&#160;</td><td class="mdescRight">map a point from the refence element to the geometry  <a href="a01974.html#a98c08d31d04433530dc9fa400bed1981">More...</a><br /></td></tr>
-<tr class="separator:a98c08d31d04433530dc9fa400bed1981"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52cae7bbbac315b4a66a93bb28f45b78"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01974.html#a52cae7bbbac315b4a66a93bb28f45b78">LocalCoordinate</a> (const <a class="el" href="a01974.html#abc2c556776be52d8f419e07016b61e83">GlobalCoordinate</a> &amp;<a class="el" href="a01974.html#a98c08d31d04433530dc9fa400bed1981">global</a>) const</td></tr>
-<tr class="memdesc:a52cae7bbbac315b4a66a93bb28f45b78"><td class="mdescLeft">&#160;</td><td class="mdescRight">map a point from the geometry to the reference element  <a href="a01974.html#a52cae7bbbac315b4a66a93bb28f45b78">More...</a><br /></td></tr>
-<tr class="separator:a52cae7bbbac315b4a66a93bb28f45b78"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a902c8af13db77741ebf7c75be4d09977"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01974.html#a995254d35f0817ebdd4eec8e063c50d5">ctype</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01974.html#a902c8af13db77741ebf7c75be4d09977">integrationElement</a> () const</td></tr>
-<tr class="memdesc:a902c8af13db77741ebf7c75be4d09977"><td class="mdescLeft">&#160;</td><td class="mdescRight">integration element of the geometry mapping  <a href="a01974.html#a902c8af13db77741ebf7c75be4d09977">More...</a><br /></td></tr>
-<tr class="separator:a902c8af13db77741ebf7c75be4d09977"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a915a5be2c7c08a93b97645bfcc02d131"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01974.html#a995254d35f0817ebdd4eec8e063c50d5">ctype</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01974.html#a915a5be2c7c08a93b97645bfcc02d131">integrationElement</a> (const <a class="el" href="a01974.html#a636f8fc8152aa6f2e8ee953f39d85495">LocalCoordinate</a> &amp;local) const</td></tr>
-<tr class="memdesc:a915a5be2c7c08a93b97645bfcc02d131"><td class="mdescLeft">&#160;</td><td class="mdescRight">integration element of the geometry mapping  <a href="a01974.html#a915a5be2c7c08a93b97645bfcc02d131">More...</a><br /></td></tr>
-<tr class="separator:a915a5be2c7c08a93b97645bfcc02d131"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa29172d3f7f3f807dc459e48697391bf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01974.html#a995254d35f0817ebdd4eec8e063c50d5">ctype</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01974.html#aa29172d3f7f3f807dc459e48697391bf">volume</a> () const</td></tr>
-<tr class="memdesc:aa29172d3f7f3f807dc459e48697391bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">volume of geometry  <a href="a01974.html#aa29172d3f7f3f807dc459e48697391bf">More...</a><br /></td></tr>
-<tr class="separator:aa29172d3f7f3f807dc459e48697391bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28547ff1b3f904a8799766b1d1b4bddd"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a01974.html#ac52e063ae8aa99428ac032b28a885303">JacobianTransposed</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01974.html#a28547ff1b3f904a8799766b1d1b4bddd">jacobianTransposed</a> () const</td></tr>
-<tr class="memdesc:a28547ff1b3f904a8799766b1d1b4bddd"><td class="mdescLeft">&#160;</td><td class="mdescRight">transposed of the geometry mapping's Jacobian  <a href="a01974.html#a28547ff1b3f904a8799766b1d1b4bddd">More...</a><br /></td></tr>
-<tr class="separator:a28547ff1b3f904a8799766b1d1b4bddd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b3a3770f85055a0a8628d5502a7ca82"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a01974.html#ac52e063ae8aa99428ac032b28a885303">JacobianTransposed</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01974.html#a1b3a3770f85055a0a8628d5502a7ca82">jacobianTransposed</a> (const <a class="el" href="a01974.html#a636f8fc8152aa6f2e8ee953f39d85495">LocalCoordinate</a> &amp;local) const</td></tr>
-<tr class="memdesc:a1b3a3770f85055a0a8628d5502a7ca82"><td class="mdescLeft">&#160;</td><td class="mdescRight">transposed of the geometry mapping's Jacobian  <a href="a01974.html#a1b3a3770f85055a0a8628d5502a7ca82">More...</a><br /></td></tr>
-<tr class="separator:a1b3a3770f85055a0a8628d5502a7ca82"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a398d6d59b882e65372c95a5b69ccbf5f"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a01974.html#a69327e6c74890e77298c3d4f3f5cb1ec">JacobianInverseTransposed</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01974.html#a398d6d59b882e65372c95a5b69ccbf5f">jacobianInverseTransposed</a> () const</td></tr>
-<tr class="memdesc:a398d6d59b882e65372c95a5b69ccbf5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">transposed inverse of the geometry mapping's Jacobian  <a href="a01974.html#a398d6d59b882e65372c95a5b69ccbf5f">More...</a><br /></td></tr>
-<tr class="separator:a398d6d59b882e65372c95a5b69ccbf5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a20f8cfedf81ff5f66df68d64409af0aa"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a01974.html#a69327e6c74890e77298c3d4f3f5cb1ec">JacobianInverseTransposed</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01974.html#a20f8cfedf81ff5f66df68d64409af0aa">jacobianInverseTransposed</a> (const <a class="el" href="a01974.html#a636f8fc8152aa6f2e8ee953f39d85495">LocalCoordinate</a> &amp;local) const</td></tr>
-<tr class="memdesc:a20f8cfedf81ff5f66df68d64409af0aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">transposed inverse of the geometry mapping's Jacobian  <a href="a01974.html#a20f8cfedf81ff5f66df68d64409af0aa">More...</a><br /></td></tr>
-<tr class="separator:a20f8cfedf81ff5f66df68d64409af0aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ace2c05cc68c15467b1a754589e1a572d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01974.html#ace2c05cc68c15467b1a754589e1a572d">invalidate</a> ()</td></tr>
-<tr class="memdesc:ace2c05cc68c15467b1a754589e1a572d"><td class="mdescLeft">&#160;</td><td class="mdescRight">invalidate the geometry  <a href="a01974.html#ace2c05cc68c15467b1a754589e1a572d">More...</a><br /></td></tr>
-<tr class="separator:ace2c05cc68c15467b1a754589e1a572d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae657e5abdbc93e5182a145248f967686"><td class="memTemplParams" colspan="2">template&lt;class CoordReader &gt; </td></tr>
-<tr class="memitem:ae657e5abdbc93e5182a145248f967686"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a01974.html#ae657e5abdbc93e5182a145248f967686">build</a> (const CoordReader &amp;coordReader)</td></tr>
-<tr class="memdesc:ae657e5abdbc93e5182a145248f967686"><td class="mdescLeft">&#160;</td><td class="mdescRight">build the geometry from a coordinate reader  <a href="a01974.html#ae657e5abdbc93e5182a145248f967686">More...</a><br /></td></tr>
-<tr class="separator:ae657e5abdbc93e5182a145248f967686"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a87551f4f084090d354bf098c05af64cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01974.html#a87551f4f084090d354bf098c05af64cb">print</a> (std::ostream &amp;out) const</td></tr>
-<tr class="separator:a87551f4f084090d354bf098c05af64cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a885a856b4415d40e5e726fd620b175ee"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01974.html#a885a856b4415d40e5e726fd620b175ee">AlbertaGridCoordinateReader</a> (const GridImp &amp;grid, const <a class="el" href="a01974.html#afd9ca667dfae10bf77f8cc87b6b076c2">ElementInfo</a> &amp;<a class="el" href="a01974.html#a370bd4d180a8f06c6442503b9ffdced2">elementInfo</a>, int subEntity)</td></tr>
+<tr class="separator:a885a856b4415d40e5e726fd620b175ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a370bd4d180a8f06c6442503b9ffdced2"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a01974.html#afd9ca667dfae10bf77f8cc87b6b076c2">ElementInfo</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01974.html#a370bd4d180a8f06c6442503b9ffdced2">elementInfo</a> () const</td></tr>
+<tr class="separator:a370bd4d180a8f06c6442503b9ffdced2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0ed9c8fcba7efe459a5fda11077d077"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01974.html#ab0ed9c8fcba7efe459a5fda11077d077">coordinate</a> (int i, <a class="el" href="a01974.html#a9e863a96b4e21001a04fe940aac35aa1">Coordinate</a> &amp;x) const</td></tr>
+<tr class="separator:ab0ed9c8fcba7efe459a5fda11077d077"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97461791ed0f4271625735eec02c4885"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01974.html#a97461791ed0f4271625735eec02c4885">hasDeterminant</a> () const</td></tr>
+<tr class="separator:a97461791ed0f4271625735eec02c4885"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2484bf29b6a2d6f14359b8d73d01102"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01974.html#a084d137a073a4dd3a133a9da8667d81e">ctype</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01974.html#ad2484bf29b6a2d6f14359b8d73d01102">determinant</a> () const</td></tr>
+<tr class="separator:ad2484bf29b6a2d6f14359b8d73d01102"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:af8bb51c242bbc5e259b1018dc6f7ff5d"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01974.html#af8bb51c242bbc5e259b1018dc6f7ff5d">dimension</a> = Grid :: dimension</td></tr>
-<tr class="separator:af8bb51c242bbc5e259b1018dc6f7ff5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad5ae1e2124be63e15f671faa5010212d"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01974.html#ad5ae1e2124be63e15f671faa5010212d">mydimension</a> = mydim</td></tr>
-<tr class="separator:ad5ae1e2124be63e15f671faa5010212d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba4ccbd39ec6a951cab3fd1d5bd2d991"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01974.html#aba4ccbd39ec6a951cab3fd1d5bd2d991">codimension</a> = <a class="el" href="a01974.html#af8bb51c242bbc5e259b1018dc6f7ff5d">dimension</a> - <a class="el" href="a01974.html#ad5ae1e2124be63e15f671faa5010212d">mydimension</a></td></tr>
-<tr class="separator:aba4ccbd39ec6a951cab3fd1d5bd2d991"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a512b2c34b502f57be4a39f128c624778"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01974.html#a512b2c34b502f57be4a39f128c624778">coorddimension</a> = cdim</td></tr>
-<tr class="separator:a512b2c34b502f57be4a39f128c624778"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d0b456db2647c0a8ba167bccd3675a0"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01974.html#a8d0b456db2647c0a8ba167bccd3675a0">dimension</a> = Grid::dimension</td></tr>
+<tr class="separator:a8d0b456db2647c0a8ba167bccd3675a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6bc872dbdfe94756d1e05b6d819f74c6"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01974.html#a6bc872dbdfe94756d1e05b6d819f74c6">codimension</a> = codim</td></tr>
+<tr class="separator:a6bc872dbdfe94756d1e05b6d819f74c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c23c8437b0643135d62b2ae23e7680b"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01974.html#a8c23c8437b0643135d62b2ae23e7680b">mydimension</a> = <a class="el" href="a01974.html#a8d0b456db2647c0a8ba167bccd3675a0">dimension</a> - <a class="el" href="a01974.html#a6bc872dbdfe94756d1e05b6d819f74c6">codimension</a></td></tr>
+<tr class="separator:a8c23c8437b0643135d62b2ae23e7680b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac18e8a405f4823bee47b6946bbedb6ac"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01974.html#ac18e8a405f4823bee47b6946bbedb6ac">coorddimension</a> = <a class="el" href="a02710.html#ab4f3c3433e4d9b46504c91b3e5c3bfb1a7829985ca62f22ec6c57c5feba1e0604">Grid::dimensionworld</a></td></tr>
+<tr class="separator:ac18e8a405f4823bee47b6946bbedb6ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;int mydim, int cdim, class GridImp&gt;<br />
-class Dune::AlbertaGridGeometry&lt; mydim, cdim, GridImp &gt;</h3>
-
-<p>geometry implementation for <a class="el" href="a01770.html" title="[ provides Dune::Grid ]">AlbertaGrid</a> </p>
-<p>Defines the geometry part of a mesh entity. Works for all dimensions, element types and dim of world. Provides reference element and mapping between local and global coordinates.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">mydim</td><td>dimension of the element (0 &lt;= dim &lt;= 3) </td></tr>
-    <tr><td class="paramname">cdim</td><td>dimension of global coordinates </td></tr>
-    <tr><td class="paramname">GridImp</td><td>grid implementation (always const AlbertaGrid&lt; dim, dimworld &gt;) </td></tr>
-  </table>
-  </dd>
-</dl>
-</div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a995254d35f0817ebdd4eec8e063c50d5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a995254d35f0817ebdd4eec8e063c50d5">&#9670;&nbsp;</a></span>ctype</h2>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a9e863a96b4e21001a04fe940aac35aa1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e863a96b4e21001a04fe940aac35aa1">&#9670;&nbsp;</a></span>Coordinate</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int mydim, int cdim, class GridImp &gt; </div>
+template&lt;int codim, class GridImp &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="a00937.html#a86b942cdffce80f98973c987ea6246da">Alberta::Real</a> <a class="el" href="a01974.html">Dune::AlbertaGridGeometry</a>&lt; mydim, cdim, GridImp &gt;::<a class="el" href="a01974.html#a995254d35f0817ebdd4eec8e063c50d5">ctype</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>type of coordinates </p>
-
-</div>
-</div>
-<a id="abc2c556776be52d8f419e07016b61e83"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc2c556776be52d8f419e07016b61e83">&#9670;&nbsp;</a></span>GlobalCoordinate</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int mydim, int cdim, class GridImp &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef FieldVector&lt; <a class="el" href="a01974.html#a995254d35f0817ebdd4eec8e063c50d5">ctype</a>, <a class="el" href="a01974.html#a512b2c34b502f57be4a39f128c624778">coorddimension</a> &gt; <a class="el" href="a01974.html">Dune::AlbertaGridGeometry</a>&lt; mydim, cdim, GridImp &gt;::<a class="el" href="a01974.html#abc2c556776be52d8f419e07016b61e83">GlobalCoordinate</a></td>
+          <td class="memname">typedef FieldVector&lt; <a class="el" href="a01974.html#a084d137a073a4dd3a133a9da8667d81e">ctype</a>, <a class="el" href="a01974.html#ac18e8a405f4823bee47b6946bbedb6ac">coorddimension</a> &gt; <a class="el" href="a01974.html">Dune::AlbertaGridCoordinateReader</a>&lt; codim, GridImp &gt;::<a class="el" href="a01974.html#a9e863a96b4e21001a04fe940aac35aa1">Coordinate</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a69327e6c74890e77298c3d4f3f5cb1ec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a69327e6c74890e77298c3d4f3f5cb1ec">&#9670;&nbsp;</a></span>JacobianInverseTransposed</h2>
+<a id="a084d137a073a4dd3a133a9da8667d81e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a084d137a073a4dd3a133a9da8667d81e">&#9670;&nbsp;</a></span>ctype</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int mydim, int cdim, class GridImp &gt; </div>
+template&lt;int codim, class GridImp &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef FieldMatrix&lt; <a class="el" href="a01974.html#a995254d35f0817ebdd4eec8e063c50d5">ctype</a>, <a class="el" href="a01974.html#a512b2c34b502f57be4a39f128c624778">coorddimension</a>, <a class="el" href="a01974.html#ad5ae1e2124be63e15f671faa5010212d">mydimension</a> &gt; <a class="el" href="a01974.html">Dune::AlbertaGridGeometry</a>&lt; mydim, cdim, GridImp &gt;::<a class="el" href="a01974.html#a69327e6c74890e77298c3d4f3f5cb1ec">JacobianInverseTransposed</a></td>
+          <td class="memname">typedef <a class="el" href="a00941.html#a86b942cdffce80f98973c987ea6246da">Alberta::Real</a> <a class="el" href="a01974.html">Dune::AlbertaGridCoordinateReader</a>&lt; codim, GridImp &gt;::<a class="el" href="a01974.html#a084d137a073a4dd3a133a9da8667d81e">ctype</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="ac52e063ae8aa99428ac032b28a885303"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac52e063ae8aa99428ac032b28a885303">&#9670;&nbsp;</a></span>JacobianTransposed</h2>
+<a id="afd9ca667dfae10bf77f8cc87b6b076c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd9ca667dfae10bf77f8cc87b6b076c2">&#9670;&nbsp;</a></span>ElementInfo</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int mydim, int cdim, class GridImp &gt; </div>
+template&lt;int codim, class GridImp &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef FieldMatrix&lt; <a class="el" href="a01974.html#a995254d35f0817ebdd4eec8e063c50d5">ctype</a>, <a class="el" href="a01974.html#ad5ae1e2124be63e15f671faa5010212d">mydimension</a>, <a class="el" href="a01974.html#a512b2c34b502f57be4a39f128c624778">coorddimension</a> &gt; <a class="el" href="a01974.html">Dune::AlbertaGridGeometry</a>&lt; mydim, cdim, GridImp &gt;::<a class="el" href="a01974.html#ac52e063ae8aa99428ac032b28a885303">JacobianTransposed</a></td>
+          <td class="memname">typedef <a class="el" href="a01902.html">Alberta::ElementInfo</a>&lt; <a class="el" href="a01974.html#a8d0b456db2647c0a8ba167bccd3675a0">dimension</a> &gt; <a class="el" href="a01974.html">Dune::AlbertaGridCoordinateReader</a>&lt; codim, GridImp &gt;::<a class="el" href="a01974.html#afd9ca667dfae10bf77f8cc87b6b076c2">ElementInfo</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a636f8fc8152aa6f2e8ee953f39d85495"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a636f8fc8152aa6f2e8ee953f39d85495">&#9670;&nbsp;</a></span>LocalCoordinate</h2>
+<a id="a07d9de6265b5571a2b2ae9fdc81fa478"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07d9de6265b5571a2b2ae9fdc81fa478">&#9670;&nbsp;</a></span>Grid</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int mydim, int cdim, class GridImp &gt; </div>
+template&lt;int codim, class GridImp &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef FieldVector&lt; <a class="el" href="a01974.html#a995254d35f0817ebdd4eec8e063c50d5">ctype</a>, <a class="el" href="a01974.html#ad5ae1e2124be63e15f671faa5010212d">mydimension</a> &gt; <a class="el" href="a01974.html">Dune::AlbertaGridGeometry</a>&lt; mydim, cdim, GridImp &gt;::<a class="el" href="a01974.html#a636f8fc8152aa6f2e8ee953f39d85495">LocalCoordinate</a></td>
+          <td class="memname">typedef std::remove_const&lt; GridImp &gt;::type <a class="el" href="a01974.html">Dune::AlbertaGridCoordinateReader</a>&lt; codim, GridImp &gt;::<a class="el" href="a01974.html#a07d9de6265b5571a2b2ae9fdc81fa478">Grid</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -272,52 +179,39 @@ template&lt;int mydim, int cdim, class GridImp &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="af646aff5fbe86db7f4b1785d687db440"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af646aff5fbe86db7f4b1785d687db440">&#9670;&nbsp;</a></span>AlbertaGridGeometry() <span class="overload">[1/2]</span></h2>
+<a id="a885a856b4415d40e5e726fd620b175ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a885a856b4415d40e5e726fd620b175ee">&#9670;&nbsp;</a></span>AlbertaGridCoordinateReader()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int mydim, int cdim, class GridImp &gt; </div>
+template&lt;int codim, class GridImp &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a01974.html">Dune::AlbertaGridGeometry</a>&lt; mydim, cdim, GridImp &gt;::<a class="el" href="a01974.html">AlbertaGridGeometry</a> </td>
+          <td class="memname"><a class="el" href="a01974.html">Dune::AlbertaGridCoordinateReader</a>&lt; codim, GridImp &gt;::<a class="el" href="a01974.html">AlbertaGridCoordinateReader</a> </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="paramtype">const GridImp &amp;&#160;</td>
+          <td class="paramname"><em>grid</em>, </td>
         </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a527731505b70168428b51b89f7e887c5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a527731505b70168428b51b89f7e887c5">&#9670;&nbsp;</a></span>AlbertaGridGeometry() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int mydim, int cdim, class GridImp &gt; </div>
-<div class="memtemplate">
-template&lt;class CoordReader &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a01974.html">Dune::AlbertaGridGeometry</a>&lt; mydim, cdim, GridImp &gt;::<a class="el" href="a01974.html">AlbertaGridGeometry</a> </td>
-          <td>(</td>
-          <td class="paramtype">const CoordReader &amp;&#160;</td>
-          <td class="paramname"><em>coordReader</em></td><td>)</td>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const <a class="el" href="a01974.html#afd9ca667dfae10bf77f8cc87b6b076c2">ElementInfo</a> &amp;&#160;</td>
+          <td class="paramname"><em>elementInfo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>subEntity</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -330,427 +224,33 @@ template&lt;class CoordReader &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ae3998f0cf9c1fdb629e64b7970f8cae1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae3998f0cf9c1fdb629e64b7970f8cae1">&#9670;&nbsp;</a></span>affine()</h2>
+<a id="ab0ed9c8fcba7efe459a5fda11077d077"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0ed9c8fcba7efe459a5fda11077d077">&#9670;&nbsp;</a></span>coordinate()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int mydim, int cdim, class GridImp &gt; </div>
+template&lt;int codim, class GridImp &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="a01974.html">Dune::AlbertaGridGeometry</a>&lt; mydim, cdim, GridImp &gt;::affine </td>
+          <td class="memname">void <a class="el" href="a01974.html">Dune::AlbertaGridCoordinateReader</a>&lt; codim, GridImp &gt;::coordinate </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
         </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>returns always true since we only have simplices </p>
-
-</div>
-</div>
-<a id="ae657e5abdbc93e5182a145248f967686"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae657e5abdbc93e5182a145248f967686">&#9670;&nbsp;</a></span>build()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int mydim, int cdim, class GridImp &gt; </div>
-<div class="memtemplate">
-template&lt;class CoordReader &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="a01974.html">Dune::AlbertaGridGeometry</a>&lt; mydim, cdim, GridImp &gt;::build </td>
-          <td>(</td>
-          <td class="paramtype">const CoordReader &amp;&#160;</td>
-          <td class="paramname"><em>coordReader</em></td><td>)</td>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="a01974.html#a9e863a96b4e21001a04fe940aac35aa1">Coordinate</a> &amp;&#160;</td>
+          <td class="paramname"><em>x</em>&#160;</td>
         </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>build the geometry from a coordinate reader </p>
-
-</div>
-</div>
-<a id="a1ef3f722ebeeb704a9b59ad24b2eaf0f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1ef3f722ebeeb704a9b59ad24b2eaf0f">&#9670;&nbsp;</a></span>center()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int mydim, int cdim, class GridImp &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a01974.html#abc2c556776be52d8f419e07016b61e83">GlobalCoordinate</a> <a class="el" href="a01974.html">Dune::AlbertaGridGeometry</a>&lt; mydim, cdim, GridImp &gt;::center </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>return center of geometry </p>
-
-</div>
-</div>
-<a id="a828b0dc33734aac1a4fc2ae7164df42a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a828b0dc33734aac1a4fc2ae7164df42a">&#9670;&nbsp;</a></span>corner()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int mydim, int cdim, class GridImp &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a01974.html#abc2c556776be52d8f419e07016b61e83">GlobalCoordinate</a> <a class="el" href="a01974.html">Dune::AlbertaGridGeometry</a>&lt; mydim, cdim, GridImp &gt;::corner </td>
-          <td>(</td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>i</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>obtain the i-th corner of this geometry </p>
-
-</div>
-</div>
-<a id="a327bcf8572e78a2913c444df8d2f60dc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a327bcf8572e78a2913c444df8d2f60dc">&#9670;&nbsp;</a></span>corners()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int mydim, int cdim, class GridImp &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="a01974.html">Dune::AlbertaGridGeometry</a>&lt; mydim, cdim, GridImp &gt;::corners </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>number of corner the geometry </p>
-
-</div>
-</div>
-<a id="a98c08d31d04433530dc9fa400bed1981"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a98c08d31d04433530dc9fa400bed1981">&#9670;&nbsp;</a></span>global()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int mydim, int cdim, class GridImp &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a01974.html">AlbertaGridGeometry</a>&lt; mydim, cdim, GridImp &gt;::<a class="el" href="a01974.html#abc2c556776be52d8f419e07016b61e83">GlobalCoordinate</a> <a class="el" href="a01974.html">Dune::AlbertaGridGeometry</a>&lt; mydim, cdim, GridImp &gt;::global </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01974.html#a636f8fc8152aa6f2e8ee953f39d85495">LocalCoordinate</a> &amp;&#160;</td>
-          <td class="paramname"><em>local</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>map a point from the refence element to the geometry </p>
-
-</div>
-</div>
-<a id="a902c8af13db77741ebf7c75be4d09977"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a902c8af13db77741ebf7c75be4d09977">&#9670;&nbsp;</a></span>integrationElement() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int mydim, int cdim, class GridImp &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a01974.html#a995254d35f0817ebdd4eec8e063c50d5">ctype</a> <a class="el" href="a01974.html">Dune::AlbertaGridGeometry</a>&lt; mydim, cdim, GridImp &gt;::integrationElement </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>integration element of the geometry mapping </p>
-<dl class="section note"><dt>Note</dt><dd>This method is not part of the geometry interface. It is used internally only. </dd></dl>
-
-</div>
-</div>
-<a id="a915a5be2c7c08a93b97645bfcc02d131"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a915a5be2c7c08a93b97645bfcc02d131">&#9670;&nbsp;</a></span>integrationElement() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int mydim, int cdim, class GridImp &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a01974.html#a995254d35f0817ebdd4eec8e063c50d5">ctype</a> <a class="el" href="a01974.html">Dune::AlbertaGridGeometry</a>&lt; mydim, cdim, GridImp &gt;::integrationElement </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01974.html#a636f8fc8152aa6f2e8ee953f39d85495">LocalCoordinate</a> &amp;&#160;</td>
-          <td class="paramname"><em>local</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>integration element of the geometry mapping </p>
-
-</div>
-</div>
-<a id="ace2c05cc68c15467b1a754589e1a572d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ace2c05cc68c15467b1a754589e1a572d">&#9670;&nbsp;</a></span>invalidate()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int mydim, int cdim, class GridImp &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a01974.html">Dune::AlbertaGridGeometry</a>&lt; mydim, cdim, GridImp &gt;::invalidate </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
           <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>invalidate the geometry </p>
-
-</div>
-</div>
-<a id="a398d6d59b882e65372c95a5b69ccbf5f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a398d6d59b882e65372c95a5b69ccbf5f">&#9670;&nbsp;</a></span>jacobianInverseTransposed() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int mydim, int cdim, class GridImp &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a01974.html">AlbertaGridGeometry</a>&lt; mydim, cdim, GridImp &gt;::<a class="el" href="a01974.html#a69327e6c74890e77298c3d4f3f5cb1ec">JacobianInverseTransposed</a> &amp; <a class="el" href="a01974.html">Dune::AlbertaGridGeometry</a>&lt; mydim, cdim, GridImp &gt;::jacobianInverseTransposed</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>transposed inverse of the geometry mapping's Jacobian </p>
-<dl class="section note"><dt>Note</dt><dd>This method is not part of the geometry interface. It is used internally only. </dd></dl>
-
-</div>
-</div>
-<a id="a20f8cfedf81ff5f66df68d64409af0aa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a20f8cfedf81ff5f66df68d64409af0aa">&#9670;&nbsp;</a></span>jacobianInverseTransposed() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int mydim, int cdim, class GridImp &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a01974.html#a69327e6c74890e77298c3d4f3f5cb1ec">JacobianInverseTransposed</a>&amp; <a class="el" href="a01974.html">Dune::AlbertaGridGeometry</a>&lt; mydim, cdim, GridImp &gt;::jacobianInverseTransposed </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01974.html#a636f8fc8152aa6f2e8ee953f39d85495">LocalCoordinate</a> &amp;&#160;</td>
-          <td class="paramname"><em>local</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>transposed inverse of the geometry mapping's Jacobian </p>
-
-</div>
-</div>
-<a id="a28547ff1b3f904a8799766b1d1b4bddd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a28547ff1b3f904a8799766b1d1b4bddd">&#9670;&nbsp;</a></span>jacobianTransposed() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int mydim, int cdim, class GridImp &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a01974.html">AlbertaGridGeometry</a>&lt; mydim, cdim, GridImp &gt;::<a class="el" href="a01974.html#ac52e063ae8aa99428ac032b28a885303">JacobianTransposed</a> &amp; <a class="el" href="a01974.html">Dune::AlbertaGridGeometry</a>&lt; mydim, cdim, GridImp &gt;::jacobianTransposed</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>transposed of the geometry mapping's Jacobian </p>
-<dl class="section note"><dt>Note</dt><dd>This method is not part of the geometry interface. It is used internally only. </dd></dl>
-
-</div>
-</div>
-<a id="a1b3a3770f85055a0a8628d5502a7ca82"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1b3a3770f85055a0a8628d5502a7ca82">&#9670;&nbsp;</a></span>jacobianTransposed() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int mydim, int cdim, class GridImp &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a01974.html#ac52e063ae8aa99428ac032b28a885303">JacobianTransposed</a>&amp; <a class="el" href="a01974.html">Dune::AlbertaGridGeometry</a>&lt; mydim, cdim, GridImp &gt;::jacobianTransposed </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01974.html#a636f8fc8152aa6f2e8ee953f39d85495">LocalCoordinate</a> &amp;&#160;</td>
-          <td class="paramname"><em>local</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>transposed of the geometry mapping's Jacobian </p>
-
-</div>
-</div>
-<a id="a52cae7bbbac315b4a66a93bb28f45b78"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a52cae7bbbac315b4a66a93bb28f45b78">&#9670;&nbsp;</a></span>LocalCoordinate()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int mydim, int cdim, class GridImp &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a01974.html">Dune::AlbertaGridGeometry</a>&lt; mydim, cdim, GridImp &gt;::<a class="el" href="a01974.html#a636f8fc8152aa6f2e8ee953f39d85495">LocalCoordinate</a> </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01974.html#abc2c556776be52d8f419e07016b61e83">GlobalCoordinate</a> &amp;&#160;</td>
-          <td class="paramname"><em>global</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>map a point from the geometry to the reference element </p>
-
-</div>
-</div>
-<a id="a87551f4f084090d354bf098c05af64cb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a87551f4f084090d354bf098c05af64cb">&#9670;&nbsp;</a></span>print()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int mydim, int cdim, class GridImp &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a01974.html">Dune::AlbertaGridGeometry</a>&lt; mydim, cdim, GridImp &gt;::print </td>
-          <td>(</td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>out</em></td><td>)</td>
-          <td> const</td>
+          <td>)</td>
+          <td></td><td> const</td>
         </tr>
       </table>
   </td>
@@ -762,19 +262,19 @@ template&lt;int mydim, int cdim, class GridImp &gt; </div>
 
 </div>
 </div>
-<a id="a1c4f632b6966e22d568e75ebdcce903d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1c4f632b6966e22d568e75ebdcce903d">&#9670;&nbsp;</a></span>type()</h2>
+<a id="ad2484bf29b6a2d6f14359b8d73d01102"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2484bf29b6a2d6f14359b8d73d01102">&#9670;&nbsp;</a></span>determinant()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int mydim, int cdim, class GridImp &gt; </div>
+template&lt;int codim, class GridImp &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">GeometryType <a class="el" href="a01974.html">Dune::AlbertaGridGeometry</a>&lt; mydim, cdim, GridImp &gt;::type </td>
+          <td class="memname"><a class="el" href="a01974.html#a084d137a073a4dd3a133a9da8667d81e">ctype</a> <a class="el" href="a01974.html">Dune::AlbertaGridCoordinateReader</a>&lt; codim, GridImp &gt;::determinant </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -787,23 +287,21 @@ template&lt;int mydim, int cdim, class GridImp &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>obtain the type of reference element </p>
-
 </div>
 </div>
-<a id="aa29172d3f7f3f807dc459e48697391bf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa29172d3f7f3f807dc459e48697391bf">&#9670;&nbsp;</a></span>volume()</h2>
+<a id="a370bd4d180a8f06c6442503b9ffdced2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a370bd4d180a8f06c6442503b9ffdced2">&#9670;&nbsp;</a></span>elementInfo()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int mydim, int cdim, class GridImp &gt; </div>
+template&lt;int codim, class GridImp &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a01974.html#a995254d35f0817ebdd4eec8e063c50d5">ctype</a> <a class="el" href="a01974.html">Dune::AlbertaGridGeometry</a>&lt; mydim, cdim, GridImp &gt;::volume </td>
+          <td class="memname">const <a class="el" href="a01974.html#afd9ca667dfae10bf77f8cc87b6b076c2">ElementInfo</a>&amp; <a class="el" href="a01974.html">Dune::AlbertaGridCoordinateReader</a>&lt; codim, GridImp &gt;::elementInfo </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -816,24 +314,49 @@ template&lt;int mydim, int cdim, class GridImp &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>volume of geometry </p>
+</div>
+</div>
+<a id="a97461791ed0f4271625735eec02c4885"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97461791ed0f4271625735eec02c4885">&#9670;&nbsp;</a></span>hasDeterminant()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int codim, class GridImp &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="a01974.html">Dune::AlbertaGridCoordinateReader</a>&lt; codim, GridImp &gt;::hasDeterminant </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="aba4ccbd39ec6a951cab3fd1d5bd2d991"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aba4ccbd39ec6a951cab3fd1d5bd2d991">&#9670;&nbsp;</a></span>codimension</h2>
+<a id="a6bc872dbdfe94756d1e05b6d819f74c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6bc872dbdfe94756d1e05b6d819f74c6">&#9670;&nbsp;</a></span>codimension</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int mydim, int cdim, class GridImp &gt; </div>
+template&lt;int codim, class GridImp &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const int <a class="el" href="a01974.html">Dune::AlbertaGridGeometry</a>&lt; mydim, cdim, GridImp &gt;::codimension = <a class="el" href="a01974.html#af8bb51c242bbc5e259b1018dc6f7ff5d">dimension</a> - <a class="el" href="a01974.html#ad5ae1e2124be63e15f671faa5010212d">mydimension</a></td>
+          <td class="memname">const int <a class="el" href="a01974.html">Dune::AlbertaGridCoordinateReader</a>&lt; codim, GridImp &gt;::codimension = codim</td>
         </tr>
       </table>
   </td>
@@ -845,19 +368,19 @@ template&lt;int mydim, int cdim, class GridImp &gt; </div>
 
 </div>
 </div>
-<a id="a512b2c34b502f57be4a39f128c624778"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a512b2c34b502f57be4a39f128c624778">&#9670;&nbsp;</a></span>coorddimension</h2>
+<a id="ac18e8a405f4823bee47b6946bbedb6ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac18e8a405f4823bee47b6946bbedb6ac">&#9670;&nbsp;</a></span>coorddimension</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int mydim, int cdim, class GridImp &gt; </div>
+template&lt;int codim, class GridImp &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const int <a class="el" href="a01974.html">Dune::AlbertaGridGeometry</a>&lt; mydim, cdim, GridImp &gt;::coorddimension = cdim</td>
+          <td class="memname">const int <a class="el" href="a01974.html">Dune::AlbertaGridCoordinateReader</a>&lt; codim, GridImp &gt;::coorddimension = <a class="el" href="a02710.html#ab4f3c3433e4d9b46504c91b3e5c3bfb1a7829985ca62f22ec6c57c5feba1e0604">Grid::dimensionworld</a></td>
         </tr>
       </table>
   </td>
@@ -869,19 +392,19 @@ template&lt;int mydim, int cdim, class GridImp &gt; </div>
 
 </div>
 </div>
-<a id="af8bb51c242bbc5e259b1018dc6f7ff5d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af8bb51c242bbc5e259b1018dc6f7ff5d">&#9670;&nbsp;</a></span>dimension</h2>
+<a id="a8d0b456db2647c0a8ba167bccd3675a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d0b456db2647c0a8ba167bccd3675a0">&#9670;&nbsp;</a></span>dimension</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int mydim, int cdim, class GridImp &gt; </div>
+template&lt;int codim, class GridImp &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const int <a class="el" href="a01974.html">Dune::AlbertaGridGeometry</a>&lt; mydim, cdim, GridImp &gt;::dimension = Grid :: dimension</td>
+          <td class="memname">const int <a class="el" href="a01974.html">Dune::AlbertaGridCoordinateReader</a>&lt; codim, GridImp &gt;::dimension = Grid::dimension</td>
         </tr>
       </table>
   </td>
@@ -893,19 +416,19 @@ template&lt;int mydim, int cdim, class GridImp &gt; </div>
 
 </div>
 </div>
-<a id="ad5ae1e2124be63e15f671faa5010212d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad5ae1e2124be63e15f671faa5010212d">&#9670;&nbsp;</a></span>mydimension</h2>
+<a id="a8c23c8437b0643135d62b2ae23e7680b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c23c8437b0643135d62b2ae23e7680b">&#9670;&nbsp;</a></span>mydimension</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int mydim, int cdim, class GridImp &gt; </div>
+template&lt;int codim, class GridImp &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const int <a class="el" href="a01974.html">Dune::AlbertaGridGeometry</a>&lt; mydim, cdim, GridImp &gt;::mydimension = mydim</td>
+          <td class="memname">const int <a class="el" href="a01974.html">Dune::AlbertaGridCoordinateReader</a>&lt; codim, GridImp &gt;::mydimension = <a class="el" href="a01974.html#a8d0b456db2647c0a8ba167bccd3675a0">dimension</a> - <a class="el" href="a01974.html#a6bc872dbdfe94756d1e05b6d819f74c6">codimension</a></td>
         </tr>
       </table>
   </td>
@@ -917,9 +440,8 @@ template&lt;int mydim, int cdim, class GridImp &gt; </div>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="a06788_source.html">albertagrid/geometry.hh</a></li>
-<li><a class="el" href="a00512.html">geometry.cc</a></li>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li><a class="el" href="a06693_source.html">albertagrid/geometry.hh</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

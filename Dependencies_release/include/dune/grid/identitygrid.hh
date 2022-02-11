@@ -10,7 +10,6 @@
 #include <string>
 #include <map>
 
-#include <dune/common/deprecated.hh>
 #include <dune/common/parallel/communication.hh>
 #include <dune/grid/common/capabilities.hh>
 #include <dune/grid/common/grid.hh>
@@ -469,6 +468,15 @@ namespace Dune
     struct hasEntityIterator<IdentityGrid<HostGrid>, codim>
     {
       static const bool v = hasEntityIterator<HostGrid, codim>::v;
+    };
+
+    /** \brief IdentityGrid can communicate when the host grid can communicate
+     *  \ingroup IdentityGrid
+     */
+    template<class HostGrid, int codim>
+    struct canCommunicate<IdentityGrid<HostGrid>, codim>
+    {
+      static const bool v = canCommunicate<HostGrid, codim>::v;
     };
 
     /** \brief has conforming level grids when host grid has

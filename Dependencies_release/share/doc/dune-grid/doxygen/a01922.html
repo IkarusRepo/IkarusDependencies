@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: Dune::AlbertaGridHierarchicIterator&lt; GridImp &gt; Class Template Reference</title>
+<title>dune-grid: Dune::AlbertaGridTreeIterator&lt; codim, GridImp, leafIterator &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,150 +62,210 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00936.html">Dune</a></li><li class="navelem"><a class="el" href="a01922.html">AlbertaGridHierarchicIterator</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00940.html">Dune</a></li><li class="navelem"><a class="el" href="a01922.html">AlbertaGridTreeIterator</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="a01919.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::AlbertaGridHierarchicIterator&lt; GridImp &gt; Class Template Reference</div>  </div>
+<div class="title">Dune::AlbertaGridTreeIterator&lt; codim, GridImp, leafIterator &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="a00521_source.html">dune/grid/albertagrid/hierarchiciterator.hh</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00575_source.html">dune/grid/albertagrid/treeiterator.hh</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for Dune::AlbertaGridTreeIterator&lt; codim, GridImp, leafIterator &gt;:</div>
+<div class="dyncontent">
+<div class="center"><img src="a01921.png" border="0" usemap="#a_dune_1_1_alberta_grid_tree_iterator_3_01codim_00_01_grid_imp_00_01leaf_iterator_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="a_dune_1_1_alberta_grid_tree_iterator_3_01codim_00_01_grid_imp_00_01leaf_iterator_01_4_inherit__map" id="a_dune_1_1_alberta_grid_tree_iterator_3_01codim_00_01_grid_imp_00_01leaf_iterator_01_4_inherit__map">
+<area shape="rect" title=" " alt="" coords="5,116,208,157"/>
+<area shape="rect" href="a01922.html" title=" " alt="" coords="408,79,599,120"/>
+<area shape="rect" href="a01922.html" title=" " alt="" coords="408,152,599,193"/>
+<area shape="rect" href="a02046.html" title=" " alt="" coords="648,5,843,47"/>
+<area shape="rect" href="a02178.html" title=" " alt="" coords="648,71,843,127"/>
+<area shape="rect" href="a02042.html" title=" " alt="" coords="651,152,840,193"/>
+<area shape="rect" href="a02154.html" title=" " alt="" coords="651,218,840,274"/>
+</map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a0d8fb96d0c5a78f0b476006b22a35997"><td class="memItemLeft" align="right" valign="top">typedef GridImp::template Codim&lt; 0 &gt;::<a class="el" href="a01922.html#a0d8fb96d0c5a78f0b476006b22a35997">Entity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01922.html#a0d8fb96d0c5a78f0b476006b22a35997">Entity</a></td></tr>
-<tr class="separator:a0d8fb96d0c5a78f0b476006b22a35997"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e1aecb66c11949dfc0770e40bc40f93"><td class="memItemLeft" align="right" valign="top">typedef GridImp::ctype&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01922.html#a9e1aecb66c11949dfc0770e40bc40f93">ctype</a></td></tr>
-<tr class="separator:a9e1aecb66c11949dfc0770e40bc40f93"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af6413b1a0cfea5859ff37a79810c3a37"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a02738.html">MakeableInterfaceObject</a>&lt; <a class="el" href="a01922.html#a0d8fb96d0c5a78f0b476006b22a35997">Entity</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01922.html#af6413b1a0cfea5859ff37a79810c3a37">EntityObject</a></td></tr>
-<tr class="separator:af6413b1a0cfea5859ff37a79810c3a37"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc4a157705eebb0fa979153add0504e6"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a02738.html#a3fd260b01fde3e52a8500d3fa981813f">EntityObject::ImplementationType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01922.html#abc4a157705eebb0fa979153add0504e6">EntityImp</a></td></tr>
-<tr class="separator:abc4a157705eebb0fa979153add0504e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a435289c34bc0ca385bdac9cadd252502"><td class="memItemLeft" align="right" valign="top">typedef EntityImp::ElementInfo&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01922.html#a435289c34bc0ca385bdac9cadd252502">ElementInfo</a></td></tr>
-<tr class="separator:a435289c34bc0ca385bdac9cadd252502"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d28f75877ed9cf91be51fa1ffe3ae98"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a01854.html">Alberta::MeshPointer</a>&lt; <a class="el" href="a01922.html#aca098f1b736adfc935c9b0c459e55f15">dimension</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01922.html#a1d28f75877ed9cf91be51fa1ffe3ae98">MeshPointer</a></td></tr>
+<tr class="separator:a1d28f75877ed9cf91be51fa1ffe3ae98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66615462ce7c654102f49460f4791462"><td class="memItemLeft" align="right" valign="top">typedef MeshPointer::MacroIterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01922.html#a66615462ce7c654102f49460f4791462">MacroIterator</a></td></tr>
+<tr class="separator:a66615462ce7c654102f49460f4791462"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9954e2f7ffb4199d9da0d15d03f75aa0"><td class="memItemLeft" align="right" valign="top">typedef GridImp::template Codim&lt; codim &gt;::<a class="el" href="a01922.html#a9954e2f7ffb4199d9da0d15d03f75aa0">Entity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01922.html#a9954e2f7ffb4199d9da0d15d03f75aa0">Entity</a></td></tr>
+<tr class="separator:a9954e2f7ffb4199d9da0d15d03f75aa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b43d61429cf1a5929a76fc584018e4f"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a02742.html">MakeableInterfaceObject</a>&lt; <a class="el" href="a01922.html#a9954e2f7ffb4199d9da0d15d03f75aa0">Entity</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01922.html#a0b43d61429cf1a5929a76fc584018e4f">EntityObject</a></td></tr>
+<tr class="separator:a0b43d61429cf1a5929a76fc584018e4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59a618c8762606752d92cd38f3482468"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a02742.html#a3fd260b01fde3e52a8500d3fa981813f">EntityObject::ImplementationType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01922.html#a59a618c8762606752d92cd38f3482468">EntityImp</a></td></tr>
+<tr class="separator:a59a618c8762606752d92cd38f3482468"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af541e1bcaa30c75a7a43532cb4688316"><td class="memItemLeft" align="right" valign="top">typedef EntityImp::ElementInfo&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01922.html#af541e1bcaa30c75a7a43532cb4688316">ElementInfo</a></td></tr>
+<tr class="separator:af541e1bcaa30c75a7a43532cb4688316"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75caeec24974409fd9d7f60de2d6875e"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a02438.html">AlbertaMarkerVector</a>&lt; <a class="el" href="a01922.html#aca098f1b736adfc935c9b0c459e55f15">dimension</a>, <a class="el" href="a01922.html#ab49649a1abaccbd47871ad999f17b4a0">dimensionworld</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01922.html#a75caeec24974409fd9d7f60de2d6875e">MarkerVector</a></td></tr>
+<tr class="separator:a75caeec24974409fd9d7f60de2d6875e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a620f3c2e52cbfdffff360ab677d69c15"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01922.html#a620f3c2e52cbfdffff360ab677d69c15">AlbertaGridHierarchicIterator</a> ()</td></tr>
-<tr class="separator:a620f3c2e52cbfdffff360ab677d69c15"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0024ece206fd71ebb7bebb52a6925bce"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01922.html#a0024ece206fd71ebb7bebb52a6925bce">AlbertaGridHierarchicIterator</a> (const GridImp &amp;<a class="el" href="a01922.html#a31054a0562ad14be20260af09ea782c6">grid</a>, const <a class="el" href="a01922.html#a435289c34bc0ca385bdac9cadd252502">ElementInfo</a> &amp;elementInfo, int maxLevel)</td></tr>
-<tr class="memdesc:a0024ece206fd71ebb7bebb52a6925bce"><td class="mdescLeft">&#160;</td><td class="mdescRight">the normal Constructor  <a href="a01922.html#a0024ece206fd71ebb7bebb52a6925bce">More...</a><br /></td></tr>
-<tr class="separator:a0024ece206fd71ebb7bebb52a6925bce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a95e0dc0e1ca53d33170b059ec48add"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01922.html#a9a95e0dc0e1ca53d33170b059ec48add">AlbertaGridHierarchicIterator</a> (const GridImp &amp;<a class="el" href="a01922.html#a31054a0562ad14be20260af09ea782c6">grid</a>, int actLevel, int maxLevel)</td></tr>
-<tr class="memdesc:a9a95e0dc0e1ca53d33170b059ec48add"><td class="mdescLeft">&#160;</td><td class="mdescRight">the default Constructor  <a href="a01922.html#a9a95e0dc0e1ca53d33170b059ec48add">More...</a><br /></td></tr>
-<tr class="separator:a9a95e0dc0e1ca53d33170b059ec48add"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa648adc02dcbed8f0cdeb62a634ada2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01922.html#aaa648adc02dcbed8f0cdeb62a634ada2">AlbertaGridHierarchicIterator</a> (const <a class="el" href="a01922.html">This</a> &amp;other)</td></tr>
-<tr class="memdesc:aaa648adc02dcbed8f0cdeb62a634ada2"><td class="mdescLeft">&#160;</td><td class="mdescRight">copy onstructor  <a href="a01922.html#aaa648adc02dcbed8f0cdeb62a634ada2">More...</a><br /></td></tr>
-<tr class="separator:aaa648adc02dcbed8f0cdeb62a634ada2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed36525b470e45c47cd73efbbf0bb776"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01922.html">This</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01922.html#aed36525b470e45c47cd73efbbf0bb776">operator=</a> (const <a class="el" href="a01922.html">This</a> &amp;other)</td></tr>
-<tr class="memdesc:aed36525b470e45c47cd73efbbf0bb776"><td class="mdescLeft">&#160;</td><td class="mdescRight">assignment operator  <a href="a01922.html#aed36525b470e45c47cd73efbbf0bb776">More...</a><br /></td></tr>
-<tr class="separator:aed36525b470e45c47cd73efbbf0bb776"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7200c112124283ec065fb7decc0161ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01922.html#a7200c112124283ec065fb7decc0161ae">increment</a> ()</td></tr>
-<tr class="memdesc:a7200c112124283ec065fb7decc0161ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">increment  <a href="a01922.html#a7200c112124283ec065fb7decc0161ae">More...</a><br /></td></tr>
-<tr class="separator:a7200c112124283ec065fb7decc0161ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae8df9156b1fd97be6b93bc8afe24cc17"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01922.html#ae8df9156b1fd97be6b93bc8afe24cc17">equals</a> (const <a class="el" href="a01922.html">This</a> &amp;other) const</td></tr>
-<tr class="memdesc:ae8df9156b1fd97be6b93bc8afe24cc17"><td class="mdescLeft">&#160;</td><td class="mdescRight">equality  <a href="a01922.html#ae8df9156b1fd97be6b93bc8afe24cc17">More...</a><br /></td></tr>
-<tr class="separator:ae8df9156b1fd97be6b93bc8afe24cc17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb718a6746a1d89b11f211d5f0c801cc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01922.html#a0d8fb96d0c5a78f0b476006b22a35997">Entity</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01922.html#afb718a6746a1d89b11f211d5f0c801cc">dereference</a> () const</td></tr>
-<tr class="memdesc:afb718a6746a1d89b11f211d5f0c801cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">dereferencing  <a href="a01922.html#afb718a6746a1d89b11f211d5f0c801cc">More...</a><br /></td></tr>
-<tr class="separator:afb718a6746a1d89b11f211d5f0c801cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48e71d5d0138884d1d318edada697804"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01922.html#a48e71d5d0138884d1d318edada697804">level</a> () const</td></tr>
-<tr class="memdesc:a48e71d5d0138884d1d318edada697804"><td class="mdescLeft">&#160;</td><td class="mdescRight">ask for level of entities  <a href="a01922.html#a48e71d5d0138884d1d318edada697804">More...</a><br /></td></tr>
-<tr class="separator:a48e71d5d0138884d1d318edada697804"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4789a7466606b79e709f3d24add837f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01922.html#ac4789a7466606b79e709f3d24add837f">AlbertaGridTreeIterator</a> ()</td></tr>
+<tr class="separator:ac4789a7466606b79e709f3d24add837f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8571cf20941bdbbc7f134ae8177013d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01922.html#ad8571cf20941bdbbc7f134ae8177013d">AlbertaGridTreeIterator</a> (const <a class="el" href="a01922.html">This</a> &amp;other)</td></tr>
+<tr class="memdesc:ad8571cf20941bdbbc7f134ae8177013d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor making end iterator.  <a href="a01922.html#ad8571cf20941bdbbc7f134ae8177013d">More...</a><br /></td></tr>
+<tr class="separator:ad8571cf20941bdbbc7f134ae8177013d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6769057e6df94ccfbbba44a8ed90a7cc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01922.html">This</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01922.html#a6769057e6df94ccfbbba44a8ed90a7cc">operator=</a> (const <a class="el" href="a01922.html">This</a> &amp;other)</td></tr>
+<tr class="memdesc:a6769057e6df94ccfbbba44a8ed90a7cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor making end iterator.  <a href="a01922.html#a6769057e6df94ccfbbba44a8ed90a7cc">More...</a><br /></td></tr>
+<tr class="separator:a6769057e6df94ccfbbba44a8ed90a7cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d0ba9b98267a4f31bb962e9023db235"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01922.html#a2d0ba9b98267a4f31bb962e9023db235">AlbertaGridTreeIterator</a> (const GridImp &amp;<a class="el" href="a01922.html#af5c2d57c4bde72e4e08c626ffcd6fe71">grid</a>, int travLevel)</td></tr>
+<tr class="memdesc:a2d0ba9b98267a4f31bb962e9023db235"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor making end iterator.  <a href="a01922.html#a2d0ba9b98267a4f31bb962e9023db235">More...</a><br /></td></tr>
+<tr class="separator:a2d0ba9b98267a4f31bb962e9023db235"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fed21b03caf066bef3e25487a3b1e32"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01922.html#a1fed21b03caf066bef3e25487a3b1e32">AlbertaGridTreeIterator</a> (const GridImp &amp;<a class="el" href="a01922.html#af5c2d57c4bde72e4e08c626ffcd6fe71">grid</a>, const <a class="el" href="a01922.html#a75caeec24974409fd9d7f60de2d6875e">MarkerVector</a> *marker, int travLevel)</td></tr>
+<tr class="memdesc:a1fed21b03caf066bef3e25487a3b1e32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor making begin iterator.  <a href="a01922.html#a1fed21b03caf066bef3e25487a3b1e32">More...</a><br /></td></tr>
+<tr class="separator:a1fed21b03caf066bef3e25487a3b1e32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0587e3fd03b983ddfed68c15ee1796b2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01922.html#a0587e3fd03b983ddfed68c15ee1796b2">equals</a> (const <a class="el" href="a01922.html">This</a> &amp;other) const</td></tr>
+<tr class="memdesc:a0587e3fd03b983ddfed68c15ee1796b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">equality  <a href="a01922.html#a0587e3fd03b983ddfed68c15ee1796b2">More...</a><br /></td></tr>
+<tr class="separator:a0587e3fd03b983ddfed68c15ee1796b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e4e9dbe6c045d8ede15dbf721df265a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01922.html#a9954e2f7ffb4199d9da0d15d03f75aa0">Entity</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01922.html#a1e4e9dbe6c045d8ede15dbf721df265a">dereference</a> () const</td></tr>
+<tr class="memdesc:a1e4e9dbe6c045d8ede15dbf721df265a"><td class="mdescLeft">&#160;</td><td class="mdescRight">dereferencing  <a href="a01922.html#a1e4e9dbe6c045d8ede15dbf721df265a">More...</a><br /></td></tr>
+<tr class="separator:a1e4e9dbe6c045d8ede15dbf721df265a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4965dc0b1f79fa7dc3ac41b9b86370b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01922.html#aa4965dc0b1f79fa7dc3ac41b9b86370b">level</a> () const</td></tr>
+<tr class="memdesc:aa4965dc0b1f79fa7dc3ac41b9b86370b"><td class="mdescLeft">&#160;</td><td class="mdescRight">ask for level of entities  <a href="a01922.html#aa4965dc0b1f79fa7dc3ac41b9b86370b">More...</a><br /></td></tr>
+<tr class="separator:aa4965dc0b1f79fa7dc3ac41b9b86370b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6f73dec675a7306efd9a96fb3186cef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01922.html#ac6f73dec675a7306efd9a96fb3186cef">increment</a> ()</td></tr>
+<tr class="memdesc:ac6f73dec675a7306efd9a96fb3186cef"><td class="mdescLeft">&#160;</td><td class="mdescRight">increment  <a href="a01922.html#ac6f73dec675a7306efd9a96fb3186cef">More...</a><br /></td></tr>
+<tr class="separator:ac6f73dec675a7306efd9a96fb3186cef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:aca098f1b736adfc935c9b0c459e55f15"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01922.html#aca098f1b736adfc935c9b0c459e55f15">dimension</a> = GridImp::dimension</td></tr>
+<tr class="separator:aca098f1b736adfc935c9b0c459e55f15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bc5248bac9980e44e0a281727f1c488"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01922.html#a5bc5248bac9980e44e0a281727f1c488">codimension</a> = codim</td></tr>
+<tr class="separator:a5bc5248bac9980e44e0a281727f1c488"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab49649a1abaccbd47871ad999f17b4a0"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01922.html#ab49649a1abaccbd47871ad999f17b4a0">dimensionworld</a> = GridImp::dimensionworld</td></tr>
+<tr class="separator:ab49649a1abaccbd47871ad999f17b4a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a31054a0562ad14be20260af09ea782c6"><td class="memItemLeft" align="right" valign="top">const GridImp &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01922.html#a31054a0562ad14be20260af09ea782c6">grid</a> () const</td></tr>
-<tr class="memdesc:a31054a0562ad14be20260af09ea782c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">obtain a reference to the grid  <a href="a01922.html#a31054a0562ad14be20260af09ea782c6">More...</a><br /></td></tr>
-<tr class="separator:a31054a0562ad14be20260af09ea782c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5c2d57c4bde72e4e08c626ffcd6fe71"><td class="memItemLeft" align="right" valign="top">const GridImp &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01922.html#af5c2d57c4bde72e4e08c626ffcd6fe71">grid</a> () const</td></tr>
+<tr class="memdesc:af5c2d57c4bde72e4e08c626ffcd6fe71"><td class="mdescLeft">&#160;</td><td class="mdescRight">obtain a reference to the grid  <a href="a01922.html#af5c2d57c4bde72e4e08c626ffcd6fe71">More...</a><br /></td></tr>
+<tr class="separator:af5c2d57c4bde72e4e08c626ffcd6fe71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;class GridImp&gt;<br />
-class Dune::AlbertaGridHierarchicIterator&lt; GridImp &gt;</h3>
+<div class="textblock"><h3>template&lt;int codim, class GridImp, bool leafIterator&gt;<br />
+class Dune::AlbertaGridTreeIterator&lt; codim, GridImp, leafIterator &gt;</h3>
 
-<p>Mesh entities of codimension 0 ("elements") allow to visit all entities of codimension 0 obtained through nested, hierarchic refinement of the entity. Iteration over this set of entities is provided by the HIerarchicIterator, starting from a given entity. This is redundant but important for memory efficient implementations of unstru hierarchically refined meshes. </p>
+<p>Enables iteration over all entities of a given codimension and level of a grid. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a9e1aecb66c11949dfc0770e40bc40f93"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9e1aecb66c11949dfc0770e40bc40f93">&#9670;&nbsp;</a></span>ctype</h2>
+<a id="af541e1bcaa30c75a7a43532cb4688316"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af541e1bcaa30c75a7a43532cb4688316">&#9670;&nbsp;</a></span>ElementInfo</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class GridImp &gt; </div>
+template&lt;int codim, class GridImp , bool leafIterator&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef GridImp::ctype <a class="el" href="a01922.html">Dune::AlbertaGridHierarchicIterator</a>&lt; GridImp &gt;::<a class="el" href="a01922.html#a9e1aecb66c11949dfc0770e40bc40f93">ctype</a></td>
+          <td class="memname">typedef EntityImp::ElementInfo <a class="el" href="a01922.html">Dune::AlbertaGridTreeIterator</a>&lt; codim, GridImp, leafIterator &gt;::<a class="el" href="a01922.html#af541e1bcaa30c75a7a43532cb4688316">ElementInfo</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a435289c34bc0ca385bdac9cadd252502"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a435289c34bc0ca385bdac9cadd252502">&#9670;&nbsp;</a></span>ElementInfo</h2>
+<a id="a9954e2f7ffb4199d9da0d15d03f75aa0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9954e2f7ffb4199d9da0d15d03f75aa0">&#9670;&nbsp;</a></span>Entity</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class GridImp &gt; </div>
+template&lt;int codim, class GridImp , bool leafIterator&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef EntityImp::ElementInfo <a class="el" href="a01922.html">Dune::AlbertaGridHierarchicIterator</a>&lt; GridImp &gt;::<a class="el" href="a01922.html#a435289c34bc0ca385bdac9cadd252502">ElementInfo</a></td>
+          <td class="memname">typedef GridImp::template Codim&lt; codim &gt;::<a class="el" href="a01922.html#a9954e2f7ffb4199d9da0d15d03f75aa0">Entity</a> <a class="el" href="a01922.html">Dune::AlbertaGridTreeIterator</a>&lt; codim, GridImp, leafIterator &gt;::<a class="el" href="a01922.html#a9954e2f7ffb4199d9da0d15d03f75aa0">Entity</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a0d8fb96d0c5a78f0b476006b22a35997"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0d8fb96d0c5a78f0b476006b22a35997">&#9670;&nbsp;</a></span>Entity</h2>
+<a id="a59a618c8762606752d92cd38f3482468"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59a618c8762606752d92cd38f3482468">&#9670;&nbsp;</a></span>EntityImp</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class GridImp &gt; </div>
+template&lt;int codim, class GridImp , bool leafIterator&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef GridImp::template Codim&lt;0&gt;::<a class="el" href="a01922.html#a0d8fb96d0c5a78f0b476006b22a35997">Entity</a> <a class="el" href="a01922.html">Dune::AlbertaGridHierarchicIterator</a>&lt; GridImp &gt;::<a class="el" href="a01922.html#a0d8fb96d0c5a78f0b476006b22a35997">Entity</a></td>
+          <td class="memname">typedef <a class="el" href="a02742.html#a3fd260b01fde3e52a8500d3fa981813f">EntityObject::ImplementationType</a> <a class="el" href="a01922.html">Dune::AlbertaGridTreeIterator</a>&lt; codim, GridImp, leafIterator &gt;::<a class="el" href="a01922.html#a59a618c8762606752d92cd38f3482468">EntityImp</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="abc4a157705eebb0fa979153add0504e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc4a157705eebb0fa979153add0504e6">&#9670;&nbsp;</a></span>EntityImp</h2>
+<a id="a0b43d61429cf1a5929a76fc584018e4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b43d61429cf1a5929a76fc584018e4f">&#9670;&nbsp;</a></span>EntityObject</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class GridImp &gt; </div>
+template&lt;int codim, class GridImp , bool leafIterator&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="a02738.html#a3fd260b01fde3e52a8500d3fa981813f">EntityObject::ImplementationType</a> <a class="el" href="a01922.html">Dune::AlbertaGridHierarchicIterator</a>&lt; GridImp &gt;::<a class="el" href="a01922.html#abc4a157705eebb0fa979153add0504e6">EntityImp</a></td>
+          <td class="memname">typedef <a class="el" href="a02742.html">MakeableInterfaceObject</a>&lt; <a class="el" href="a01922.html#a9954e2f7ffb4199d9da0d15d03f75aa0">Entity</a> &gt; <a class="el" href="a01922.html">Dune::AlbertaGridTreeIterator</a>&lt; codim, GridImp, leafIterator &gt;::<a class="el" href="a01922.html#a0b43d61429cf1a5929a76fc584018e4f">EntityObject</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="af6413b1a0cfea5859ff37a79810c3a37"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af6413b1a0cfea5859ff37a79810c3a37">&#9670;&nbsp;</a></span>EntityObject</h2>
+<a id="a66615462ce7c654102f49460f4791462"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66615462ce7c654102f49460f4791462">&#9670;&nbsp;</a></span>MacroIterator</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class GridImp &gt; </div>
+template&lt;int codim, class GridImp , bool leafIterator&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="a02738.html">MakeableInterfaceObject</a>&lt; <a class="el" href="a01922.html#a0d8fb96d0c5a78f0b476006b22a35997">Entity</a> &gt; <a class="el" href="a01922.html">Dune::AlbertaGridHierarchicIterator</a>&lt; GridImp &gt;::<a class="el" href="a01922.html#af6413b1a0cfea5859ff37a79810c3a37">EntityObject</a></td>
+          <td class="memname">typedef MeshPointer::MacroIterator <a class="el" href="a01922.html">Dune::AlbertaGridTreeIterator</a>&lt; codim, GridImp, leafIterator &gt;::<a class="el" href="a01922.html#a66615462ce7c654102f49460f4791462">MacroIterator</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a75caeec24974409fd9d7f60de2d6875e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75caeec24974409fd9d7f60de2d6875e">&#9670;&nbsp;</a></span>MarkerVector</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int codim, class GridImp , bool leafIterator&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="a02438.html">AlbertaMarkerVector</a>&lt; <a class="el" href="a01922.html#aca098f1b736adfc935c9b0c459e55f15">dimension</a>, <a class="el" href="a01922.html#ab49649a1abaccbd47871ad999f17b4a0">dimensionworld</a> &gt; <a class="el" href="a01922.html">Dune::AlbertaGridTreeIterator</a>&lt; codim, GridImp, leafIterator &gt;::<a class="el" href="a01922.html#a75caeec24974409fd9d7f60de2d6875e">MarkerVector</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1d28f75877ed9cf91be51fa1ffe3ae98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d28f75877ed9cf91be51fa1ffe3ae98">&#9670;&nbsp;</a></span>MeshPointer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int codim, class GridImp , bool leafIterator&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="a01854.html">Alberta::MeshPointer</a>&lt; <a class="el" href="a01922.html#aca098f1b736adfc935c9b0c459e55f15">dimension</a> &gt; <a class="el" href="a01922.html">Dune::AlbertaGridTreeIterator</a>&lt; codim, GridImp, leafIterator &gt;::<a class="el" href="a01922.html#a1d28f75877ed9cf91be51fa1ffe3ae98">MeshPointer</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -213,22 +273,19 @@ template&lt;class GridImp &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a620f3c2e52cbfdffff360ab677d69c15"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a620f3c2e52cbfdffff360ab677d69c15">&#9670;&nbsp;</a></span>AlbertaGridHierarchicIterator() <span class="overload">[1/4]</span></h2>
+<a id="ac4789a7466606b79e709f3d24add837f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4789a7466606b79e709f3d24add837f">&#9670;&nbsp;</a></span>AlbertaGridTreeIterator() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class GridImp &gt; </div>
+template&lt;int codim, class GridImp , bool leafIterator&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a01922.html">Dune::AlbertaGridHierarchicIterator</a>&lt; GridImp &gt;::<a class="el" href="a01922.html">AlbertaGridHierarchicIterator</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname"><a class="el" href="a01922.html">Dune::AlbertaGridTreeIterator</a>&lt; codim, GridImp, leafIterator &gt;::<a class="el" href="a01922.html">AlbertaGridTreeIterator</a></td>
         </tr>
       </table>
   </td>
@@ -240,111 +297,19 @@ template&lt;class GridImp &gt; </div>
 
 </div>
 </div>
-<a id="a0024ece206fd71ebb7bebb52a6925bce"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0024ece206fd71ebb7bebb52a6925bce">&#9670;&nbsp;</a></span>AlbertaGridHierarchicIterator() <span class="overload">[2/4]</span></h2>
+<a id="ad8571cf20941bdbbc7f134ae8177013d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8571cf20941bdbbc7f134ae8177013d">&#9670;&nbsp;</a></span>AlbertaGridTreeIterator() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class GridImp &gt; </div>
+template&lt;int codim, class GridImp , bool leafIterator&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a01922.html">Dune::AlbertaGridHierarchicIterator</a>&lt; GridImp &gt;::<a class="el" href="a01922.html">AlbertaGridHierarchicIterator</a> </td>
-          <td>(</td>
-          <td class="paramtype">const GridImp &amp;&#160;</td>
-          <td class="paramname"><em>grid</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a01922.html#a435289c34bc0ca385bdac9cadd252502">ElementInfo</a> &amp;&#160;</td>
-          <td class="paramname"><em>elementInfo</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>maxLevel</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>the normal Constructor </p>
-
-</div>
-</div>
-<a id="a9a95e0dc0e1ca53d33170b059ec48add"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9a95e0dc0e1ca53d33170b059ec48add">&#9670;&nbsp;</a></span>AlbertaGridHierarchicIterator() <span class="overload">[3/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class GridImp &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a01922.html">Dune::AlbertaGridHierarchicIterator</a>&lt; GridImp &gt;::<a class="el" href="a01922.html">AlbertaGridHierarchicIterator</a> </td>
-          <td>(</td>
-          <td class="paramtype">const GridImp &amp;&#160;</td>
-          <td class="paramname"><em>grid</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>actLevel</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>maxLevel</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>the default Constructor </p>
-
-</div>
-</div>
-<a id="aaa648adc02dcbed8f0cdeb62a634ada2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaa648adc02dcbed8f0cdeb62a634ada2">&#9670;&nbsp;</a></span>AlbertaGridHierarchicIterator() <span class="overload">[4/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class GridImp &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a01922.html">Dune::AlbertaGridHierarchicIterator</a>&lt; GridImp &gt;::<a class="el" href="a01922.html">AlbertaGridHierarchicIterator</a> </td>
+          <td class="memname"><a class="el" href="a01922.html">Dune::AlbertaGridTreeIterator</a>&lt; codim, GridImp, leafIterator &gt;::<a class="el" href="a01922.html">AlbertaGridTreeIterator</a> </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="a01922.html">This</a> &amp;&#160;</td>
           <td class="paramname"><em>other</em></td><td>)</td>
@@ -358,24 +323,110 @@ template&lt;class GridImp &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>copy onstructor </p>
+<p>Constructor making end iterator. </p>
 
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="afb718a6746a1d89b11f211d5f0c801cc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afb718a6746a1d89b11f211d5f0c801cc">&#9670;&nbsp;</a></span>dereference()</h2>
+<a id="a2d0ba9b98267a4f31bb962e9023db235"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d0ba9b98267a4f31bb962e9023db235">&#9670;&nbsp;</a></span>AlbertaGridTreeIterator() <span class="overload">[3/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class GridImp &gt; </div>
+template&lt;int codim, class GridImp , bool leafIterator&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a01922.html#a0d8fb96d0c5a78f0b476006b22a35997">Entity</a>&amp; <a class="el" href="a01922.html">Dune::AlbertaGridHierarchicIterator</a>&lt; GridImp &gt;::dereference </td>
+          <td class="memname"><a class="el" href="a01922.html">Dune::AlbertaGridTreeIterator</a>&lt; codim, GridImp, leafIterator &gt;::<a class="el" href="a01922.html">AlbertaGridTreeIterator</a> </td>
+          <td>(</td>
+          <td class="paramtype">const GridImp &amp;&#160;</td>
+          <td class="paramname"><em>grid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>travLevel</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor making end iterator. </p>
+
+</div>
+</div>
+<a id="a1fed21b03caf066bef3e25487a3b1e32"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fed21b03caf066bef3e25487a3b1e32">&#9670;&nbsp;</a></span>AlbertaGridTreeIterator() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int codim, class GridImp , bool leafIterator&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a01922.html">Dune::AlbertaGridTreeIterator</a>&lt; codim, GridImp, leafIterator &gt;::<a class="el" href="a01922.html">AlbertaGridTreeIterator</a> </td>
+          <td>(</td>
+          <td class="paramtype">const GridImp &amp;&#160;</td>
+          <td class="paramname"><em>grid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a01922.html#a75caeec24974409fd9d7f60de2d6875e">MarkerVector</a> *&#160;</td>
+          <td class="paramname"><em>marker</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>travLevel</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor making begin iterator. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a1e4e9dbe6c045d8ede15dbf721df265a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e4e9dbe6c045d8ede15dbf721df265a">&#9670;&nbsp;</a></span>dereference()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int codim, class GridImp , bool leafIterator&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a01922.html#a9954e2f7ffb4199d9da0d15d03f75aa0">Entity</a>&amp; <a class="el" href="a01922.html">Dune::AlbertaGridTreeIterator</a>&lt; codim, GridImp, leafIterator &gt;::dereference </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -392,19 +443,19 @@ template&lt;class GridImp &gt; </div>
 
 </div>
 </div>
-<a id="ae8df9156b1fd97be6b93bc8afe24cc17"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae8df9156b1fd97be6b93bc8afe24cc17">&#9670;&nbsp;</a></span>equals()</h2>
+<a id="a0587e3fd03b983ddfed68c15ee1796b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0587e3fd03b983ddfed68c15ee1796b2">&#9670;&nbsp;</a></span>equals()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class GridImp &gt; </div>
+template&lt;int codim, class GridImp , bool leafIterator&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="a01922.html">Dune::AlbertaGridHierarchicIterator</a>&lt; GridImp &gt;::equals </td>
+          <td class="memname">bool <a class="el" href="a01922.html">Dune::AlbertaGridTreeIterator</a>&lt; codim, GridImp, leafIterator &gt;::equals </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="a01922.html">This</a> &amp;&#160;</td>
           <td class="paramname"><em>other</em></td><td>)</td>
@@ -422,19 +473,19 @@ template&lt;class GridImp &gt; </div>
 
 </div>
 </div>
-<a id="a31054a0562ad14be20260af09ea782c6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a31054a0562ad14be20260af09ea782c6">&#9670;&nbsp;</a></span>grid()</h2>
+<a id="af5c2d57c4bde72e4e08c626ffcd6fe71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5c2d57c4bde72e4e08c626ffcd6fe71">&#9670;&nbsp;</a></span>grid()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class GridImp &gt; </div>
+template&lt;int codim, class GridImp , bool leafIterator&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const GridImp&amp; <a class="el" href="a01922.html">Dune::AlbertaGridHierarchicIterator</a>&lt; GridImp &gt;::grid </td>
+          <td class="memname">const GridImp&amp; <a class="el" href="a01922.html">Dune::AlbertaGridTreeIterator</a>&lt; codim, GridImp, leafIterator &gt;::grid </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -451,19 +502,19 @@ template&lt;class GridImp &gt; </div>
 
 </div>
 </div>
-<a id="a7200c112124283ec065fb7decc0161ae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7200c112124283ec065fb7decc0161ae">&#9670;&nbsp;</a></span>increment()</h2>
+<a id="ac6f73dec675a7306efd9a96fb3186cef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6f73dec675a7306efd9a96fb3186cef">&#9670;&nbsp;</a></span>increment()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class GridImp &gt; </div>
+template&lt;int codim, class GridImp , bool leafIterator&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="a01922.html">Dune::AlbertaGridHierarchicIterator</a>&lt; GridImp &gt;::increment</td>
+          <td class="memname">void <a class="el" href="a01922.html">Dune::AlbertaGridTreeIterator</a>&lt; codim, GridImp, leafIterator &gt;::increment</td>
         </tr>
       </table>
   </td>
@@ -477,19 +528,19 @@ template&lt;class GridImp &gt; </div>
 
 </div>
 </div>
-<a id="a48e71d5d0138884d1d318edada697804"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a48e71d5d0138884d1d318edada697804">&#9670;&nbsp;</a></span>level()</h2>
+<a id="aa4965dc0b1f79fa7dc3ac41b9b86370b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4965dc0b1f79fa7dc3ac41b9b86370b">&#9670;&nbsp;</a></span>level()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class GridImp &gt; </div>
+template&lt;int codim, class GridImp , bool leafIterator&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int <a class="el" href="a01922.html">Dune::AlbertaGridHierarchicIterator</a>&lt; GridImp &gt;::level </td>
+          <td class="memname">int <a class="el" href="a01922.html">Dune::AlbertaGridTreeIterator</a>&lt; codim, GridImp, leafIterator &gt;::level </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -506,19 +557,19 @@ template&lt;class GridImp &gt; </div>
 
 </div>
 </div>
-<a id="aed36525b470e45c47cd73efbbf0bb776"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aed36525b470e45c47cd73efbbf0bb776">&#9670;&nbsp;</a></span>operator=()</h2>
+<a id="a6769057e6df94ccfbbba44a8ed90a7cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6769057e6df94ccfbbba44a8ed90a7cc">&#9670;&nbsp;</a></span>operator=()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class GridImp &gt; </div>
+template&lt;int codim, class GridImp , bool leafIterator&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a01922.html">AlbertaGridHierarchicIterator</a>&lt; GridImp &gt;::<a class="el" href="a01922.html">This</a> &amp; <a class="el" href="a01922.html">Dune::AlbertaGridHierarchicIterator</a>&lt; GridImp &gt;::operator= </td>
+          <td class="memname"><a class="el" href="a01922.html">AlbertaGridTreeIterator</a>&lt; codim, GridImp, leafIterator &gt;::<a class="el" href="a01922.html">This</a> &amp; <a class="el" href="a01922.html">Dune::AlbertaGridTreeIterator</a>&lt; codim, GridImp, leafIterator &gt;::operator= </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="a01922.html">This</a> &amp;&#160;</td>
           <td class="paramname"><em>other</em></td><td>)</td>
@@ -532,13 +583,86 @@ template&lt;class GridImp &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>assignment operator </p>
+<p>Constructor making end iterator. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a5bc5248bac9980e44e0a281727f1c488"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bc5248bac9980e44e0a281727f1c488">&#9670;&nbsp;</a></span>codimension</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int codim, class GridImp , bool leafIterator&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int <a class="el" href="a01922.html">Dune::AlbertaGridTreeIterator</a>&lt; codim, GridImp, leafIterator &gt;::codimension = codim</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aca098f1b736adfc935c9b0c459e55f15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca098f1b736adfc935c9b0c459e55f15">&#9670;&nbsp;</a></span>dimension</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int codim, class GridImp , bool leafIterator&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int <a class="el" href="a01922.html">Dune::AlbertaGridTreeIterator</a>&lt; codim, GridImp, leafIterator &gt;::dimension = GridImp::dimension</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab49649a1abaccbd47871ad999f17b4a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab49649a1abaccbd47871ad999f17b4a0">&#9670;&nbsp;</a></span>dimensionworld</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int codim, class GridImp , bool leafIterator&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int <a class="el" href="a01922.html">Dune::AlbertaGridTreeIterator</a>&lt; codim, GridImp, leafIterator &gt;::dimensionworld = GridImp::dimensionworld</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="a06770_source.html">albertagrid/entity.hh</a></li>
-<li><a class="el" href="a00521_source.html">hierarchiciterator.hh</a></li>
+<li><a class="el" href="a06675_source.html">albertagrid/entity.hh</a></li>
+<li><a class="el" href="a00575_source.html">treeiterator.hh</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

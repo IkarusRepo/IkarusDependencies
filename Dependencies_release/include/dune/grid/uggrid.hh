@@ -14,7 +14,6 @@
 #include <dune/common/parallel/communication.hh>
 #include <dune/common/exceptions.hh>
 #include <dune/common/parallel/mpihelper.hh>
-#include <dune/common/deprecated.hh>
 
 #include <dune/grid/common/boundarysegment.hh>
 #include <dune/grid/common/capabilities.hh>
@@ -49,13 +48,10 @@
 #define FOR_DUNE
 
 // Set UG's space-dimension flag to 2d
-#ifdef UG_USE_NEW_DIMENSION_DEFINES
 #define UG_DIM_2
-#else
-#define _2
-#endif
 // And include all necessary UG headers
 #include "uggrid/ugincludes.hh"
+#undef DUNE_UGINCLUDES_HH
 
 // Wrap a few large UG macros by functions before they get undef'ed away.
 // Here: The 2d-version of the macros
@@ -66,11 +62,7 @@
 // UG defines a whole load of preprocessor macros.  ug_undefs.hh undefines
 // them all, so we don't get name clashes.
 #include "uggrid/ug_undefs.hh"
-#ifdef UG_USE_NEW_DIMENSION_DEFINES
 #undef UG_DIM_2
-#else
-#undef _2
-#endif
 
 /* Now we're done with 2d, and we can do the whole thing over again for 3d */
 
@@ -88,13 +80,9 @@
 #define __PPIF__
 #endif
 
-#ifdef UG_USE_NEW_DIMENSION_DEFINES
 #define UG_DIM_3
-#else
-#define _3
-#endif
-
 #include "uggrid/ugincludes.hh"
+#undef DUNE_UGINCLUDES_HH
 
 // Wrap a few large UG macros by functions before they get undef'ed away.
 // This time it's the 3d-versions.
@@ -105,11 +93,7 @@
 // undef all macros defined by UG
 #include "uggrid/ug_undefs.hh"
 
-#ifdef UG_USE_NEW_DIMENSION_DEFINES
 #undef UG_DIM_3
-#else
-#undef _3
-#endif
 #undef FOR_DUNE
 
 // The components of the UGGrid interface
@@ -186,14 +170,17 @@ namespace Dune {
   //**********************************************************************
 
   /**
-     \brief Front-end for the grid manager of the finite element toolbox
-            <a href="http://www.iwr.uni-heidelberg.de/frame/iwrwikiequipment/software/ug">UG</a>.
+     \brief Front-end for the grid manager of the finite element toolbox UG3
 
      \ingroup GridImplementations
 
-     This is the implementation of the grid interface
-     using the UG grid management system (http://www.iwr.uni-heidelberg.de/frame/iwrwikiequipment/software/ug).
-     UG provides conforming grids
+     This is the implementation of the grid interface using the UG3 grid management
+     system.  It is best described in this <a href="https://doi.org/10.1007/s007910050003">paper</a>.
+     To our knowledge, the original code is not available anymore,
+     but the relevant parts have been forked into the %Dune module
+     dune-uggrid, available from <a href="https://www.dune-project.org/modules/dune-uggrid"></a>.
+
+     UGGrid provides conforming grids
      in two and three space dimensions.  The grids can be mixed, i.e.
      2d grids can contain triangles and quadrilaterals and 3d grids can
      contain tetrahedra and hexahedra and also pyramids and prisms.
@@ -204,11 +191,7 @@ namespace Dune {
      and you can use boundaries parametrized by either analytical expressions
      or high-resolution piecewise linear surfaces.
 
-     To use this module you need the UG library.  See the
-     DUNE installation notes
-     on how to obtain and install it.
-
-     In your %Dune application, you can now instantiate objects of the
+     In your %Dune application, you can instantiate objects of the
      type UGGrid<2> or UGGrid<3>.  You can have more than one, if
      you choose.  It is even possible to have 2d and 3d grids at the same
      time, even though the original UG system never intended to support
@@ -216,11 +199,6 @@ namespace Dune {
 
      See the documentation for the factory class GridFactory<UGGrid<dimworld> >
      to learn how to create UGGrid objects.
-
-     Please send any questions, suggestions, or bug reports to the Dune mailing list
-     dune@lists.dune-project.org
-
-     For installation instructions see http://www.dune-project.org/external_libraries/install_ug.html .
    */
   template <int dim>
   class UGGrid : public GridDefaultImplementation  <dim, dim, double, UGGridFamily<dim> >
@@ -234,8 +212,8 @@ namespace Dune {
 
     friend class UGGridEntity <0,dim,const UGGrid<dim> >;
     friend class UGGridEntity <1,dim,const UGGrid<dim> >;
+    friend class UGGridEntity <2,dim,const UGGrid<dim> >;
     friend class UGGridEntity <dim,dim,const UGGrid<dim> >;
-    friend class UGEdgeEntity <dim,const UGGrid<dim> >;
     friend class UGGridHierarchicIterator<const UGGrid<dim> >;
     friend class UGGridLeafIntersection<const UGGrid<dim> >;
     friend class UGGridLevelIntersection<const UGGrid<dim> >;
@@ -592,18 +570,14 @@ namespace Dune {
 
       UGMsgBuf::level = level;
 
-      std::vector<typename UG_NS<dim>::DDD_IF> ugIfs;
-      findDDDInterfaces_(ugIfs, iftype, codim);
+      std::vector<typename UG_NS<dim>::DDD_IF> ugIfs = findDDDInterfaces(iftype, codim);
 
       unsigned bufSize = UGMsgBuf::ugBufferSize(gv);
       if (!bufSize)
         return;     // we don't need to communicate if we don't have any data!
       UGMsgBuf::grid_ = this;
       for (unsigned i=0; i < ugIfs.size(); ++i)
-        UG_NS<dim>::DDD_IFOneway(
-#if DUNE_UGGRID_HAVE_DDDCONTEXT
-                                 multigrid_->dddContext(),
-#endif
+        UG_NS<dim>::DDD_IFOneway(multigrid_->dddContext(),
                                  ugIfs[i],
                                  ugIfDir,
                                  bufSize,
@@ -611,110 +585,10 @@ namespace Dune {
                                  &UGMsgBuf::ugScatter_);
     }
 
-    void findDDDInterfaces_(std::vector<typename UG_NS<dim>::DDD_IF > &dddIfaces,
-                            InterfaceType iftype,
-                            int codim) const
-    {
-#if DUNE_UGGRID_HAVE_DDDCONTEXT
-#  define DDD_CONTEXT multigrid_->dddContext()
-#else
-#  define DDD_CONTEXT
+    /** \brief Translate Dune communication interface to UG communication interface */
+    std::vector<typename UG_NS<dim>::DDD_IF> findDDDInterfaces(InterfaceType iftype,
+                                                               int codim) const;
 #endif
-      dddIfaces.clear();
-      if (codim == 0)
-      {
-        switch (iftype) {
-        case InteriorBorder_InteriorBorder_Interface :
-          // do not communicate anything: Elements can not be in
-          // the interior of two processes at the same time
-          return;
-        case InteriorBorder_All_Interface :
-          // The communicated elements are in the sender's
-          // interior and it does not matter what they are for
-          // the receiver
-          dddIfaces.push_back(UG_NS<dim>::ElementVHIF(DDD_CONTEXT));
-          return;
-        case All_All_Interface :
-          // It does neither matter what the communicated
-          // elements are for sender nor for the receiver. If
-          // they are seen by these two processes, data is send
-          // and received.
-          dddIfaces.push_back(UG_NS<dim>::ElementSymmVHIF(DDD_CONTEXT));
-          return;
-        default :
-          DUNE_THROW(GridError,
-                     "Element communication not supported for "
-                     "interfaces of type  "
-                     << iftype);
-        }
-      }
-      else if (codim == dim)
-      {
-        switch (iftype)
-        {
-        case InteriorBorder_InteriorBorder_Interface :
-          dddIfaces.push_back(UG_NS<dim>::BorderNodeSymmIF(DDD_CONTEXT));
-          return;
-        case InteriorBorder_All_Interface :
-          dddIfaces.push_back(UG_NS<dim>::NodeInteriorBorderAllIF(DDD_CONTEXT));
-          return;
-        case All_All_Interface :
-          dddIfaces.push_back(UG_NS<dim>::NodeAllIF(DDD_CONTEXT));
-          return;
-        default :
-          DUNE_THROW(GridError,
-                     "Node communication not supported for "
-                     "interfaces of type  "
-                     << iftype);
-        }
-      }
-      else if (codim == dim-1)
-      {
-        switch (iftype)
-        {
-        case InteriorBorder_InteriorBorder_Interface :
-          dddIfaces.push_back(UG_NS<dim>::BorderEdgeSymmIF(DDD_CONTEXT));
-          return;
-        case InteriorBorder_All_Interface :
-          dddIfaces.push_back(UG_NS<dim>::EdgeVHIF(DDD_CONTEXT));
-          return;
-        case All_All_Interface :
-          dddIfaces.push_back(UG_NS<dim>::EdgeSymmVHIF(DDD_CONTEXT));
-          return;
-        default :
-          DUNE_THROW(GridError,
-                     "Edge communication not supported for "
-                     "interfaces of type  "
-                     << iftype);
-        }
-      }
-      else if (codim == 1)
-      {
-        switch (iftype)
-        {
-        case InteriorBorder_InteriorBorder_Interface :
-        case InteriorBorder_All_Interface :
-          dddIfaces.push_back(UG_NS<dim>::FacetInteriorBorderAllIF(DDD_CONTEXT));
-          return;
-        default :
-          DUNE_THROW(GridError,
-                     "Face communication not supported for "
-                     "interfaces of type  "
-                     << iftype);
-        }
-      }
-      else
-      {
-        DUNE_THROW(GridError,
-                   "Communication for codim "
-                   << codim
-                   << " entities is not yet supported "
-                   << " by the DUNE UGGrid interface!");
-      }
-#undef DDD_CONTEXT
-    };
-#endif // ModelP
-
   public:
     // **********************************************************
     // End of Interface Methods
@@ -758,16 +632,6 @@ namespace Dune {
     void setClosureType(ClosureType type) {
       closureType_ = type;
     }
-
-    /** \brief Sets the default heap size
-     *
-     * UGGrid keeps an internal heap to allocate memory from, which must be
-     * specified on grid creation (at the latest).  This sets the default heap
-     * size, which is used when no heap size is given to the constructor.
-     */
-    static void setDefaultHeapSize(unsigned size)
-    DUNE_DEPRECATED_MSG("Do not set the UGGrid default heap size---it is ignored anyway!")
-    {}
 
     /** \brief Sets a vertex to a new position
 
@@ -876,22 +740,24 @@ namespace Dune {
        \ingroup UGGrid
      */
 
-    /** \brief UGGrid has codim=0 entities (elements)
+    /** \brief UGGrid has entities of all codimensions
        \ingroup UGGrid
      */
-    template<int dim>
-    struct hasEntity< UGGrid<dim>, 0>
+    template<int dim, int codim>
+    struct hasEntity< UGGrid<dim>, codim>
     {
       static const bool v = true;
     };
 
-    /** \brief UGGrid has codim=dim entities (vertices)
-       \ingroup UGGrid
-     */
-    template<int dim>
-    struct hasEntity< UGGrid<dim>, dim>
+    /**
+     * \brief Set default for hasEntityIterator to false
+     * UGGrid can currently only iterate over elements and vertices
+     * \ingroup UGGrid
+     **/
+    template<int dim, int codim>
+    struct hasEntityIterator<UGGrid<dim>, codim>
     {
-      static const bool v = true;
+      static const bool v = false;
     };
 
     /**
@@ -912,6 +778,15 @@ namespace Dune {
     struct hasEntityIterator<UGGrid<dim>, dim>
     {
       static const bool v = true;
+    };
+
+    /** \brief UGGrid can communicate on entities of all (existing) codimensions
+     *  \ingroup UGGrid
+     */
+    template<int dim, int codim>
+    struct canCommunicate<UGGrid<dim>, codim>
+    {
+      static const bool v = (codim>=0 && codim<=dim);
     };
 
     /** \brief UGGrid is levelwise conforming

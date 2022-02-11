@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: Grid Implementations</title>
+<title>dune-grid: CollectiveCommunication</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -63,66 +63,31 @@ $(function() {
 
 <div class="header">
   <div class="summary">
-<a href="#groups">Modules</a> &#124;
 <a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle">
-<div class="title">Grid Implementations<div class="ingroups"><a class="el" href="a00902.html">dune-grid</a></div></div>  </div>
+<div class="title">CollectiveCommunication<div class="ingroups"><a class="el" href="a00905.html">dune-grid</a> &raquo; <a class="el" href="a00907.html">The Grid Interface</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>A list of the different Implementations of the <a class="el" href="a00936.html" title="Include standard header files.">Dune</a> Grid Interface.  
-<a href="#details">More...</a></p>
 <div class="dynheader">
-Collaboration diagram for Grid Implementations:</div>
+Collaboration diagram for CollectiveCommunication:</div>
 <div class="dyncontent">
 <div class="center"><img src="a00917.png" border="0" usemap="#aa00917" alt=""/></div>
 <map name="aa00917" id="aa00917">
-<area shape="rect" href="a00920.html" title=" " alt="" coords="440,16,519,41"/>
-<area shape="rect" href="a00919.html" title=" " alt="" coords="435,77,523,102"/>
-<area shape="rect" title="A list of the different Implementations of the Dune Grid Interface." alt="" coords="129,146,275,172"/>
-<area shape="rect" href="a00923.html" title=" " alt="" coords="436,157,523,182"/>
-<area shape="rect" href="a00921.html" title=" " alt="" coords="447,217,512,242"/>
-<area shape="rect" href="a00922.html" title=" " alt="" coords="441,266,517,292"/>
-<area shape="rect" href="a00918.html" title=" " alt="" coords="428,316,531,341"/>
-<area shape="rect" href="a00902.html" title=" " alt="" coords="5,146,80,172"/>
+<area shape="rect" href="a00907.html" title="Interfaces needed when working with a Dune::Grid." alt="" coords="5,5,129,31"/>
+<area shape="rect" title=" " alt="" coords="177,5,344,31"/>
 </map>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="groups"></a>
-Modules</h2></td></tr>
-<tr class="memitem:a00918"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00918.html">GeometryGrid</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00919"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00919.html">IdentityGrid</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00920"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00920.html">OneDGrid</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00921"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00921.html">UGGrid</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00922"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00922.html">YaspGrid</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00923"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00923.html">AlbertaGrid</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03266.html">Dune::IdentityGrid&lt; HostGrid &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides a meta grid that is identical to its host.  <a href="a03266.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02582.html">Dune::MessageBufferIF&lt; MessageBufferImp &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Communication message buffer interface. This class describes the interface for reading and writing data to the communication message buffer. As message buffers might be deeply implemented in various packages the message buffers implementations cannot be derived from this interface class. Therefore we just apply the engine concept to wrap the message buffer call and make sure that the interface is fulfilled.  <a href="a02582.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03942.html">Dune::OneDGrid</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">One-dimensional adaptive grid.  <a href="a03942.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03970.html">Dune::UGGrid&lt; dim &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Front-end for the grid manager of the finite element toolbox <a href="http://www.iwr.uni-heidelberg.de/frame/iwrwikiequipment/software/ug">UG</a>.  <a href="a03970.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04142.html">Dune::YaspGrid&lt; dim, Coordinates &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">[<em> provides <a class="el" href="a02698.html">Dune::Grid</a> </em>]  <a href="a04142.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01770.html">Dune::AlbertaGrid&lt; dim, dimworld &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">[<em> provides <a class="el" href="a02698.html">Dune::Grid</a> </em>]  <a href="a01770.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02586.html">Dune::CommDataHandleIF&lt; DataHandleImp, DataTypeImp &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a02586.html" title="CommDataHandleIF describes the features of a data handle for communication in parallel runs using the...">CommDataHandleIF</a> describes the features of a data handle for communication in parallel runs using the Grid::communicate methods. Here the Barton-Nackman trick is used to interprete data handle objects as its interface. Therefore usable data handle classes need to be derived from this class.  <a href="a02586.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>A list of the different Implementations of the <a class="el" href="a00936.html" title="Include standard header files.">Dune</a> Grid Interface. </p>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

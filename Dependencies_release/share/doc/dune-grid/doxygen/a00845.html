@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: uggrid.hh File Reference</title>
+<title>dune-grid: vtk.hh File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,240 +62,27 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_282a6d93e11c1f5367984719a29518da.html">dune-grid</a></li><li class="navelem"><a class="el" href="dir_9b356568473fb59d2a92d82c3e3163e0.html">dune</a></li><li class="navelem"><a class="el" href="dir_b835d2b10d4bb6ff2c6d149ed2a0408f.html">grid</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_282a6d93e11c1f5367984719a29518da.html">dune-grid</a></li><li class="navelem"><a class="el" href="dir_9b356568473fb59d2a92d82c3e3163e0.html">dune</a></li><li class="navelem"><a class="el" href="dir_b835d2b10d4bb6ff2c6d149ed2a0408f.html">grid</a></li><li class="navelem"><a class="el" href="dir_5329f25137ae6799dcc39a81c0bad511.html">io</a></li><li class="navelem"><a class="el" href="dir_f2c5e3825b457d6e386f055f5a57985b.html">file</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
-  <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#define-members">Macros</a> &#124;
-<a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle">
-<div class="title">uggrid.hh File Reference</div>  </div>
+<div class="title">vtk.hh File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>The UGGrid class.  
+<p>Convenience header which includes all available VTK writers.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;memory&gt;</code><br />
-<code>#include &lt;dune/common/classname.hh&gt;</code><br />
-<code>#include &lt;dune/common/parallel/communication.hh&gt;</code><br />
-<code>#include &lt;dune/common/exceptions.hh&gt;</code><br />
-<code>#include &lt;dune/common/parallel/mpihelper.hh&gt;</code><br />
-<code>#include &lt;dune/common/deprecated.hh&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00215_source.html">dune/grid/common/boundarysegment.hh</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="a06743_source.html">dune/grid/common/capabilities.hh</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="a06797_source.html">dune/grid/common/grid.hh</a>&gt;</code><br />
-<code>#include &quot;uggrid/ugincludes.hh&quot;</code><br />
-<code>#include &quot;uggrid/ugwrapper.hh&quot;</code><br />
-<code>#include &quot;uggrid/ug_undefs.hh&quot;</code><br />
-<code>#include &quot;uggrid/uggridgeometry.hh&quot;</code><br />
-<code>#include &quot;uggrid/uggridlocalgeometry.hh&quot;</code><br />
-<code>#include &quot;uggrid/uggridentity.hh&quot;</code><br />
-<code>#include &quot;uggrid/uggridentityseed.hh&quot;</code><br />
-<code>#include &quot;uggrid/uggridintersections.hh&quot;</code><br />
-<code>#include &quot;uggrid/uggridintersectioniterators.hh&quot;</code><br />
-<code>#include &quot;uggrid/uggridleveliterator.hh&quot;</code><br />
-<code>#include &quot;uggrid/uggridleafiterator.hh&quot;</code><br />
-<code>#include &quot;uggrid/uggridhieriterator.hh&quot;</code><br />
-<code>#include &quot;uggrid/uggridindexsets.hh&quot;</code><br />
-<code>#include &lt;dune/grid/uggrid/uggridviews.hh&gt;</code><br />
-<code>#include &quot;<a class="el" href="a00848_source.html">uggrid/uggridfactory.hh</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="a00791_source.html">vtk/boundarywriter.hh</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00824_source.html">vtk/subsamplingvtkwriter.hh</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00833_source.html">vtk/vtksequencewriter.hh</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00839_source.html">vtk/vtkwriter.hh</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00830_source.html">vtk/volumewriter.hh</a>&quot;</code><br />
 </div>
 <p><a href="a00845_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03966.html">Dune::UGGridFamily&lt; dim &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03970.html">Dune::UGGrid&lt; dim &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Front-end for the grid manager of the finite element toolbox <a href="http://www.iwr.uni-heidelberg.de/frame/iwrwikiequipment/software/ug">UG</a>.  <a href="a03970.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03974.html">Dune::Capabilities::hasEntity&lt; UGGrid&lt; dim &gt;, 0 &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a03970.html" title="Front-end for the grid manager of the finite element toolbox UG.">UGGrid</a> has codim=0 entities (elements)  <a href="a03974.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03978.html">Dune::Capabilities::hasEntity&lt; UGGrid&lt; dim &gt;, dim &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a03970.html" title="Front-end for the grid manager of the finite element toolbox UG.">UGGrid</a> has codim=dim entities (vertices)  <a href="a03978.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03982.html">Dune::Capabilities::hasEntityIterator&lt; UGGrid&lt; dim &gt;, 0 &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a03970.html" title="Front-end for the grid manager of the finite element toolbox UG.">UGGrid</a> can iterate over codim=0 entities (elements)  <a href="a03982.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03986.html">Dune::Capabilities::hasEntityIterator&lt; UGGrid&lt; dim &gt;, dim &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a03970.html" title="Front-end for the grid manager of the finite element toolbox UG.">UGGrid</a> can iterate over codim=dim entities (vertices)  <a href="a03986.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03990.html">Dune::Capabilities::isLevelwiseConforming&lt; UGGrid&lt; dim &gt; &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a03970.html" title="Front-end for the grid manager of the finite element toolbox UG.">UGGrid</a> is levelwise conforming.  <a href="a03990.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03994.html">Dune::Capabilities::isLeafwiseConforming&lt; UGGrid&lt; dim &gt; &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a03970.html" title="Front-end for the grid manager of the finite element toolbox UG.">UGGrid</a> may not be leafwise conforming.  <a href="a03994.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:a00936"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00936.html">Dune</a></td></tr>
-<tr class="memdesc:a00936"><td class="mdescLeft">&#160;</td><td class="mdescRight">Include standard header files. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00938"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00938.html">Dune::Capabilities</a></td></tr>
-<tr class="memdesc:a00938"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains all capabilities classes. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:ad24a25fadd146e4351a104dc96eb1b01"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00845.html#ad24a25fadd146e4351a104dc96eb1b01">FOR_DUNE</a></td></tr>
-<tr class="separator:ad24a25fadd146e4351a104dc96eb1b01"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d37341ef4cc8a76b3568d4c4fc1c047"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00845.html#a3d37341ef4cc8a76b3568d4c4fc1c047">_2</a></td></tr>
-<tr class="separator:a3d37341ef4cc8a76b3568d4c4fc1c047"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a858c8133641031e590c5c07a19b2e6d3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00845.html#a858c8133641031e590c5c07a19b2e6d3">UG_DIM</a>&#160;&#160;&#160;2</td></tr>
-<tr class="separator:a858c8133641031e590c5c07a19b2e6d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a915570cf23bdb2df819b67baecb634c9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00845.html#a915570cf23bdb2df819b67baecb634c9">UGTYPES_H</a></td></tr>
-<tr class="separator:a915570cf23bdb2df819b67baecb634c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8aadffd9af618a7e5840b15fd12d9cb3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00845.html#a8aadffd9af618a7e5840b15fd12d9cb3">__HEAPS__</a></td></tr>
-<tr class="separator:a8aadffd9af618a7e5840b15fd12d9cb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3e94058bce38e26cf760cf315c173c22"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00845.html#a3e94058bce38e26cf760cf315c173c22">__UGENV__</a></td></tr>
-<tr class="separator:a3e94058bce38e26cf760cf315c173c22"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67ce36ca36b8c8030a8d00aa2e1906cf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00845.html#a67ce36ca36b8c8030a8d00aa2e1906cf">__DEVICESH__</a></td></tr>
-<tr class="separator:a67ce36ca36b8c8030a8d00aa2e1906cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a71101de983f7aa4639d7c805a0f25ad6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00845.html#a71101de983f7aa4639d7c805a0f25ad6">_3</a></td></tr>
-<tr class="separator:a71101de983f7aa4639d7c805a0f25ad6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a858c8133641031e590c5c07a19b2e6d3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00845.html#a858c8133641031e590c5c07a19b2e6d3">UG_DIM</a>&#160;&#160;&#160;3</td></tr>
-<tr class="separator:a858c8133641031e590c5c07a19b2e6d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr class="memitem:aca0e244f2315c2955492bfa4c7804ae7"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00936.html#aca0e244f2315c2955492bfa4c7804ae7">Dune::UGCollectiveCommunication</a> = CollectiveCommunication&lt; No_Comm &gt;</td></tr>
-<tr class="separator:aca0e244f2315c2955492bfa4c7804ae7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The UGGrid class. </p>
-</div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a3d37341ef4cc8a76b3568d4c4fc1c047"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3d37341ef4cc8a76b3568d4c4fc1c047">&#9670;&nbsp;</a></span>_2</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define _2</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a71101de983f7aa4639d7c805a0f25ad6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a71101de983f7aa4639d7c805a0f25ad6">&#9670;&nbsp;</a></span>_3</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define _3</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a67ce36ca36b8c8030a8d00aa2e1906cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a67ce36ca36b8c8030a8d00aa2e1906cf">&#9670;&nbsp;</a></span>__DEVICESH__</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define __DEVICESH__</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a8aadffd9af618a7e5840b15fd12d9cb3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8aadffd9af618a7e5840b15fd12d9cb3">&#9670;&nbsp;</a></span>__HEAPS__</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define __HEAPS__</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a3e94058bce38e26cf760cf315c173c22"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3e94058bce38e26cf760cf315c173c22">&#9670;&nbsp;</a></span>__UGENV__</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define __UGENV__</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ad24a25fadd146e4351a104dc96eb1b01"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad24a25fadd146e4351a104dc96eb1b01">&#9670;&nbsp;</a></span>FOR_DUNE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define FOR_DUNE</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a858c8133641031e590c5c07a19b2e6d3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a858c8133641031e590c5c07a19b2e6d3">&#9670;&nbsp;</a></span>UG_DIM <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define UG_DIM&#160;&#160;&#160;2</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a858c8133641031e590c5c07a19b2e6d3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a858c8133641031e590c5c07a19b2e6d3">&#9670;&nbsp;</a></span>UG_DIM <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define UG_DIM&#160;&#160;&#160;3</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a915570cf23bdb2df819b67baecb634c9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a915570cf23bdb2df819b67baecb634c9">&#9670;&nbsp;</a></span>UGTYPES_H</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define UGTYPES_H</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-</div><!-- contents -->
+<div class="textblock"><p>Convenience header which includes all available VTK writers. </p>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1

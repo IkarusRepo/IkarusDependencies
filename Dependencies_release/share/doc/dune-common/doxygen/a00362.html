@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-common: streamoperators.hh File Reference</title>
+<title>dune-common: stringutility.hh File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-common
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -70,16 +70,21 @@ $(function() {
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">streamoperators.hh File Reference</div>  </div>
+<div class="title">stringutility.hh File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Implementation of stream operators for std::array and std::tuple.  
+<p>Miscellaneous helper stuff.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;array&gt;</code><br />
-<code>#include &lt;tuple&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00128_source.html">dune/common/hybridutilities.hh</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00344_source.html">dune/common/std/utility.hh</a>&gt;</code><br />
+<div class="textblock"><code>#include &lt;cstddef&gt;</code><br />
+<code>#include &lt;cstring&gt;</code><br />
+<code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;cassert&gt;</code><br />
+<code>#include &lt;cstdio&gt;</code><br />
+<code>#include &lt;memory&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;new&gt;</code><br />
+<code>#include &lt;<a class="el" href="a00086_source.html">dune/common/exceptions.hh</a>&gt;</code><br />
 </div>
 <p><a href="a00362_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -91,21 +96,21 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gafda8471a933991be73f03e0d349c1bf1"><td class="memTemplParams" colspan="2">template&lt;typename Stream , typename... Ts&gt; </td></tr>
-<tr class="memitem:gafda8471a933991be73f03e0d349c1bf1"><td class="memTemplItemLeft" align="right" valign="top">Stream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00400.html#gafda8471a933991be73f03e0d349c1bf1">Dune::operator&lt;&lt;</a> (Stream &amp;stream, const std::tuple&lt; Ts... &gt; &amp;t)</td></tr>
-<tr class="memdesc:gafda8471a933991be73f03e0d349c1bf1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print a std::tuple.  <a href="a00400.html#gafda8471a933991be73f03e0d349c1bf1">More...</a><br /></td></tr>
-<tr class="separator:gafda8471a933991be73f03e0d349c1bf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga32f86b48dbe3ad88dfcb32ba01dcc4a2"><td class="memTemplParams" colspan="2">template&lt;typename Stream , typename... Ts&gt; </td></tr>
-<tr class="memitem:ga32f86b48dbe3ad88dfcb32ba01dcc4a2"><td class="memTemplItemLeft" align="right" valign="top">Stream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00400.html#ga32f86b48dbe3ad88dfcb32ba01dcc4a2">Dune::operator&gt;&gt;</a> (Stream &amp;stream, std::tuple&lt; Ts... &gt; &amp;t)</td></tr>
-<tr class="memdesc:ga32f86b48dbe3ad88dfcb32ba01dcc4a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read a std::tuple.  <a href="a00400.html#ga32f86b48dbe3ad88dfcb32ba01dcc4a2">More...</a><br /></td></tr>
-<tr class="separator:ga32f86b48dbe3ad88dfcb32ba01dcc4a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga540c7a094361004a08fdbd9c95063822"><td class="memTemplParams" colspan="2">template&lt;typename Stream , typename T , std::size_t N&gt; </td></tr>
-<tr class="memitem:ga540c7a094361004a08fdbd9c95063822"><td class="memTemplItemLeft" align="right" valign="top">Stream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00400.html#ga540c7a094361004a08fdbd9c95063822">Dune::operator&lt;&lt;</a> (Stream &amp;stream, const std::array&lt; T, N &gt; &amp;a)</td></tr>
-<tr class="memdesc:ga540c7a094361004a08fdbd9c95063822"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print a std::array.  <a href="a00400.html#ga540c7a094361004a08fdbd9c95063822">More...</a><br /></td></tr>
-<tr class="separator:ga540c7a094361004a08fdbd9c95063822"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf31028edab397ce01e0192a2823488f7"><td class="memTemplParams" colspan="2">template&lt;typename C &gt; </td></tr>
+<tr class="memitem:gaf31028edab397ce01e0192a2823488f7"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00405.html#gaf31028edab397ce01e0192a2823488f7">Dune::hasPrefix</a> (const C &amp;c, const char *prefix)</td></tr>
+<tr class="memdesc:gaf31028edab397ce01e0192a2823488f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether a character container has a given prefix.  <a href="a00405.html#gaf31028edab397ce01e0192a2823488f7">More...</a><br /></td></tr>
+<tr class="separator:gaf31028edab397ce01e0192a2823488f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga560ea1a14403e04148126a2e9396dea2"><td class="memTemplParams" colspan="2">template&lt;typename C &gt; </td></tr>
+<tr class="memitem:ga560ea1a14403e04148126a2e9396dea2"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00405.html#ga560ea1a14403e04148126a2e9396dea2">Dune::hasSuffix</a> (const C &amp;c, const char *suffix)</td></tr>
+<tr class="memdesc:ga560ea1a14403e04148126a2e9396dea2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether a character container has a given suffix.  <a href="a00405.html#ga560ea1a14403e04148126a2e9396dea2">More...</a><br /></td></tr>
+<tr class="separator:ga560ea1a14403e04148126a2e9396dea2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab825672ce0273462cb092bba70f39d0b"><td class="memTemplParams" colspan="2">template&lt;class... T&gt; </td></tr>
+<tr class="memitem:gab825672ce0273462cb092bba70f39d0b"><td class="memTemplItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00405.html#gab825672ce0273462cb092bba70f39d0b">Dune::formatString</a> (const std::string &amp;s, const T &amp;... args)</td></tr>
+<tr class="memdesc:gab825672ce0273462cb092bba70f39d0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Format values according to printf format string.  <a href="a00405.html#gab825672ce0273462cb092bba70f39d0b">More...</a><br /></td></tr>
+<tr class="separator:gab825672ce0273462cb092bba70f39d0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Implementation of stream operators for std::array and std::tuple. </p>
+<div class="textblock"><p>Miscellaneous helper stuff. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

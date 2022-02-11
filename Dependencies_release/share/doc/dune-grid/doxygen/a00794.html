@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: corneriterator.hh File Reference</title>
+<title>dune-grid: common.hh File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -68,34 +68,124 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">corneriterator.hh File Reference</div>  </div>
+<div class="title">common.hh File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;iterator&gt;</code><br />
-<code>#include &lt;dune/common/iteratorfacades.hh&gt;</code><br />
+
+<p>Common stuff for the VTKWriter.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &lt;limits&gt;</code><br />
+<code>#include &lt;sstream&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;cstdint&gt;</code><br />
+<code>#include &lt;dune/common/exceptions.hh&gt;</code><br />
+<code>#include &lt;dune/geometry/type.hh&gt;</code><br />
 <code>#include &lt;dune/common/typetraits.hh&gt;</code><br />
-<code>#include &lt;dune/geometry/referenceelements.hh&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00791_source.html">dune/grid/io/file/vtk/corner.hh</a>&gt;</code><br />
 </div>
 <p><a href="a00794_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03746.html">Dune::VTK::CornerIterator&lt; CellIterator &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">iterate over the corners of some cell range  <a href="a03746.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03718.html">Dune::VTK::PrintType&lt; T &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">determine a type to safely put another type into a stream  <a href="a03718.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03722.html">Dune::VTK::PrintType&lt; unsigned char &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03726.html">Dune::VTK::PrintType&lt; signed char &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03730.html">Dune::VTK::PrintType&lt; char &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03734.html">Dune::VTK::FieldInfo</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Descriptor struct for <a class="el" href="a00951.html">VTK</a> fields.  <a href="a03734.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:a00936"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00936.html">Dune</a></td></tr>
-<tr class="memdesc:a00936"><td class="mdescLeft">&#160;</td><td class="mdescRight">Include standard header files. <br /></td></tr>
+<tr class="memitem:a00940"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00940.html">Dune</a></td></tr>
+<tr class="memdesc:a00940"><td class="mdescLeft">&#160;</td><td class="mdescRight">Include standard header files. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00948"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00948.html">Dune::VTK</a></td></tr>
+<tr class="memitem:a00951"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00951.html">Dune::VTK</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a256815237356e8c99c97e7debb1dabf8"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00951.html#a256815237356e8c99c97e7debb1dabf8">Dune::VTK::OutputType</a> { <a class="el" href="a00951.html#a256815237356e8c99c97e7debb1dabf8a21edb20202b6eaae84d2a13937efda27">Dune::VTK::ascii</a>
+, <a class="el" href="a00951.html#a256815237356e8c99c97e7debb1dabf8ac373bd09607ef8537181b4cd476db211">Dune::VTK::base64</a>
+, <a class="el" href="a00951.html#a256815237356e8c99c97e7debb1dabf8a8d9882e8146514d4b8e3b1e69239aaf5">Dune::VTK::appendedraw</a>
+, <a class="el" href="a00951.html#a256815237356e8c99c97e7debb1dabf8ab582a7ce6102d5a4f413d930d44f2a25">Dune::VTK::appendedbase64</a>
+ }</td></tr>
+<tr class="memdesc:a256815237356e8c99c97e7debb1dabf8"><td class="mdescLeft">&#160;</td><td class="mdescRight">How the bulk data should be stored in the file.  <a href="a00951.html#a256815237356e8c99c97e7debb1dabf8">More...</a><br /></td></tr>
+<tr class="separator:a256815237356e8c99c97e7debb1dabf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e39cac1185c9bce3ad9f4e72bd36312"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00951.html#a4e39cac1185c9bce3ad9f4e72bd36312">Dune::VTK::DataMode</a> { <a class="el" href="a00951.html#a4e39cac1185c9bce3ad9f4e72bd36312a293015461843c4dee42c41191a82f60d">Dune::VTK::conforming</a>
+, <a class="el" href="a00951.html#a4e39cac1185c9bce3ad9f4e72bd36312aad7b0e41ffa9e0f8000ecee2b36bd91a">Dune::VTK::nonconforming</a>
+ }</td></tr>
+<tr class="memdesc:a4e39cac1185c9bce3ad9f4e72bd36312"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether to produce conforming or non-conforming output.  <a href="a00951.html#a4e39cac1185c9bce3ad9f4e72bd36312">More...</a><br /></td></tr>
+<tr class="separator:a4e39cac1185c9bce3ad9f4e72bd36312"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aceb67a16cc6beb52f71ba8a06d6ef44f"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00951.html#aceb67a16cc6beb52f71ba8a06d6ef44f">Dune::VTK::GeometryType</a> { <br />
+&#160;&#160;<a class="el" href="a00951.html#aceb67a16cc6beb52f71ba8a06d6ef44faa73937549503da3b2e8acd20e667f041">Dune::VTK::vertex</a> = 1
+, <a class="el" href="a00951.html#aceb67a16cc6beb52f71ba8a06d6ef44fa0ccb47e66e9e878460066ff83b95ce44">Dune::VTK::line</a> = 3
+, <a class="el" href="a00951.html#aceb67a16cc6beb52f71ba8a06d6ef44faef7040fbdcd298cfe28bd275bc3c344c">Dune::VTK::triangle</a> = 5
+, <a class="el" href="a00951.html#aceb67a16cc6beb52f71ba8a06d6ef44faf3c7b04406fb9a5407c4c3ae5ad1ef1c">Dune::VTK::polygon</a> = 7
+, <br />
+&#160;&#160;<a class="el" href="a00951.html#aceb67a16cc6beb52f71ba8a06d6ef44fa93b095b5c9bda1d364e6e7bf636229e2">Dune::VTK::quadrilateral</a> = 9
+, <a class="el" href="a00951.html#aceb67a16cc6beb52f71ba8a06d6ef44fad0a3de136ec998196fef52bf33370fc7">Dune::VTK::tetrahedron</a> = 10
+, <a class="el" href="a00951.html#aceb67a16cc6beb52f71ba8a06d6ef44fae59e8366bab2005e87da6ba5cbea66fe">Dune::VTK::hexahedron</a> = 12
+, <a class="el" href="a00951.html#aceb67a16cc6beb52f71ba8a06d6ef44fad5d0ae3dd1aa17ac4f92e5fe35867c5e">Dune::VTK::prism</a> = 13
+, <br />
+&#160;&#160;<a class="el" href="a00951.html#aceb67a16cc6beb52f71ba8a06d6ef44fa234c09b720019d3750ad7506608c4fe2">Dune::VTK::pyramid</a> = 14
+, <a class="el" href="a00951.html#aceb67a16cc6beb52f71ba8a06d6ef44fa6245fd8594b847416946701d85c7ebb2">Dune::VTK::polyhedron</a> = 42
+<br />
+ }</td></tr>
+<tr class="memdesc:aceb67a16cc6beb52f71ba8a06d6ef44f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type representing VTK's entity geometry types.  <a href="a00951.html#aceb67a16cc6beb52f71ba8a06d6ef44f">More...</a><br /></td></tr>
+<tr class="separator:aceb67a16cc6beb52f71ba8a06d6ef44f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a419fffea9dd82b7dda0e7078889da6d4"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00951.html#a419fffea9dd82b7dda0e7078889da6d4">Dune::VTK::FileType</a> { <a class="el" href="a00951.html#a419fffea9dd82b7dda0e7078889da6d4a109b9e75c1921dd6b8df25eedea009be">Dune::VTK::polyData</a>
+, <a class="el" href="a00951.html#a419fffea9dd82b7dda0e7078889da6d4a2967b7a61021e24289adcd0b7d60bd0b">Dune::VTK::unstructuredGrid</a>
+ }</td></tr>
+<tr class="memdesc:a419fffea9dd82b7dda0e7078889da6d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">which type of VTK file to write  <a href="a00951.html#a419fffea9dd82b7dda0e7078889da6d4">More...</a><br /></td></tr>
+<tr class="separator:a419fffea9dd82b7dda0e7078889da6d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a23264dcb4d2ffc9b85507ffa2741af"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00951.html#a1a23264dcb4d2ffc9b85507ffa2741af">Dune::VTK::Precision</a> { <br />
+&#160;&#160;<a class="el" href="a00951.html#a1a23264dcb4d2ffc9b85507ffa2741afa0241adbbd83925f051b694d40f02747f">Dune::VTK::int32</a>
+, <a class="el" href="a00951.html#a1a23264dcb4d2ffc9b85507ffa2741afa5f423e669d0a8f4ab7c4c3e6da27161a">Dune::VTK::uint8</a>
+, <a class="el" href="a00951.html#a1a23264dcb4d2ffc9b85507ffa2741afa3de84ad0700f2a1571f633d399e1900e">Dune::VTK::uint32</a>
+, <a class="el" href="a00951.html#a1a23264dcb4d2ffc9b85507ffa2741afad33ec2b0bbea6d471a4706cea030e1e3">Dune::VTK::float32</a>
+, <br />
+&#160;&#160;<a class="el" href="a00951.html#a1a23264dcb4d2ffc9b85507ffa2741afafb7fa22ede616c04c68a7663d0f81e92">Dune::VTK::float64</a>
+<br />
+ }</td></tr>
+<tr class="memdesc:a1a23264dcb4d2ffc9b85507ffa2741af"><td class="mdescLeft">&#160;</td><td class="mdescRight">which precision to use when writing out data to vtk files  <a href="a00951.html#a1a23264dcb4d2ffc9b85507ffa2741af">More...</a><br /></td></tr>
+<tr class="separator:a1a23264dcb4d2ffc9b85507ffa2741af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a61dcce1ca0a60b52e4021bcd09db1dad"><td class="memItemLeft" align="right" valign="top">GeometryType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00951.html#a61dcce1ca0a60b52e4021bcd09db1dad">Dune::VTK::geometryType</a> (const Dune::GeometryType &amp;t)</td></tr>
+<tr class="memdesc:a61dcce1ca0a60b52e4021bcd09db1dad"><td class="mdescLeft">&#160;</td><td class="mdescRight">mapping from GeometryType to VTKGeometryType  <a href="a00951.html#a61dcce1ca0a60b52e4021bcd09db1dad">More...</a><br /></td></tr>
+<tr class="separator:a61dcce1ca0a60b52e4021bcd09db1dad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2efc42a6a41effe62a8ea3560a5b8a8d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00951.html#a2efc42a6a41effe62a8ea3560a5b8a8d">Dune::VTK::renumber</a> (const Dune::GeometryType &amp;t, int i)</td></tr>
+<tr class="memdesc:a2efc42a6a41effe62a8ea3560a5b8a8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">renumber <a class="el" href="a00951.html">VTK</a> &lt;-&gt; <a class="el" href="a00940.html" title="Include standard header files.">Dune</a>  <a href="a00951.html#a2efc42a6a41effe62a8ea3560a5b8a8d">More...</a><br /></td></tr>
+<tr class="separator:a2efc42a6a41effe62a8ea3560a5b8a8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe32a5b3a9cda5294c113258e3bc174f"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:abe32a5b3a9cda5294c113258e3bc174f"><td class="memTemplItemLeft" align="right" valign="top">int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00951.html#abe32a5b3a9cda5294c113258e3bc174f">Dune::VTK::renumber</a> (const T &amp;t, int i)</td></tr>
+<tr class="memdesc:abe32a5b3a9cda5294c113258e3bc174f"><td class="mdescLeft">&#160;</td><td class="mdescRight">renumber <a class="el" href="a00951.html">VTK</a> &lt;-&gt; <a class="el" href="a00940.html" title="Include standard header files.">Dune</a>  <a href="a00951.html#abe32a5b3a9cda5294c113258e3bc174f">More...</a><br /></td></tr>
+<tr class="separator:abe32a5b3a9cda5294c113258e3bc174f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bce02a1111502dd0245e7888a532fc5"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00951.html#a8bce02a1111502dd0245e7888a532fc5">Dune::VTK::getEndiannessString</a> ()</td></tr>
+<tr class="memdesc:a8bce02a1111502dd0245e7888a532fc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">determine endianness of this C++ implementation  <a href="a00951.html#a8bce02a1111502dd0245e7888a532fc5">More...</a><br /></td></tr>
+<tr class="separator:a8bce02a1111502dd0245e7888a532fc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48c0538f36588dc8d46cdd54163cdcd1"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00951.html#a48c0538f36588dc8d46cdd54163cdcd1">Dune::VTK::toString</a> (Precision p)</td></tr>
+<tr class="memdesc:a48c0538f36588dc8d46cdd54163cdcd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">map precision to <a class="el" href="a00951.html">VTK</a> type name  <a href="a00951.html#a48c0538f36588dc8d46cdd54163cdcd1">More...</a><br /></td></tr>
+<tr class="separator:a48c0538f36588dc8d46cdd54163cdcd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a559af2a4ab217c95a0b9738920cf9391"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00951.html#a559af2a4ab217c95a0b9738920cf9391">Dune::VTK::typeSize</a> (Precision p)</td></tr>
+<tr class="memdesc:a559af2a4ab217c95a0b9738920cf9391"><td class="mdescLeft">&#160;</td><td class="mdescRight">map precision to byte size  <a href="a00951.html#a559af2a4ab217c95a0b9738920cf9391">More...</a><br /></td></tr>
+<tr class="separator:a559af2a4ab217c95a0b9738920cf9391"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Common stuff for the VTKWriter. </p>
+<dl class="section author"><dt>Author</dt><dd>Peter Bastian, Christian Engwer</dd></dl>
+<p>This file contains common stuff for all instances of VTKWriter. </p>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1

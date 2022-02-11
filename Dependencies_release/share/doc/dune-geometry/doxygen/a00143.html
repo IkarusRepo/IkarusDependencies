@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-geometry: refinement.hh File Reference</title>
+<title>dune-geometry: simplex.cc File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-geometry
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,28 +62,103 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_512d9b5021fe57a3c6a2cce7e527b8fc.html">dune-geometry</a></li><li class="navelem"><a class="el" href="dir_3c9821bb20f800bda9d786759e63a3ce.html">dune</a></li><li class="navelem"><a class="el" href="dir_a97eb41766436cc33ed13691ea788661.html">geometry</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_512d9b5021fe57a3c6a2cce7e527b8fc.html">dune-geometry</a></li><li class="navelem"><a class="el" href="dir_3c9821bb20f800bda9d786759e63a3ce.html">dune</a></li><li class="navelem"><a class="el" href="dir_a97eb41766436cc33ed13691ea788661.html">geometry</a></li><li class="navelem"><a class="el" href="dir_7fa7e8b55b088fa864083ac725a39b1d.html">refinement</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#define-members">Macros</a>  </div>
   <div class="headertitle">
-<div class="title">refinement.hh File Reference</div>  </div>
+<div class="title">simplex.cc File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This file simply includes all <a class="el" href="a00174.html">Refinement</a> implementations so you don't have to do them separately.  
+<p>This file contains the <a class="el" href="a00176.html">Refinement</a> implementation for simplices (triangles, tetrahedrons...)  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="a00125.html">refinement/base.cc</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00128.html">refinement/hcube.cc</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00140.html">refinement/simplex.cc</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00131.html">refinement/hcubetriangulation.cc</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00134.html">refinement/prismtriangulation.cc</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00137.html">refinement/pyramidtriangulation.cc</a>&quot;</code><br />
-</div>
-<p><a href="a00143_source.html">Go to the source code of this file.</a></p>
+<div class="textblock"><code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;dune/common/fvector.hh&gt;</code><br />
+<code>#include &lt;dune/common/power.hh&gt;</code><br />
+<code>#include &lt;<a class="el" href="a00110_source.html">dune/geometry/multilineargeometry.hh</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="a00125_source.html">dune/geometry/referenceelements.hh</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="a00152_source.html">dune/geometry/type.hh</a>&gt;</code><br />
+<code>#include &quot;<a class="el" href="a00128.html">base.cc</a>&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01280.html">Dune::RefinementImp::Simplex::RefinementImp&lt; dimension_, CoordType &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01284.html">Dune::RefinementImp::Simplex::RefinementImp&lt; dimension_, CoordType &gt;::Codim&lt; codimension &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01292.html">Dune::RefinementImp::Simplex::RefinementIteratorSpecial&lt; dimension, CoordType, dimension &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01296.html">Dune::RefinementImp::Simplex::RefinementIteratorSpecial&lt; dimension, CoordType, 0 &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01300.html">Dune::RefinementImp::Simplex::RefinementImp&lt; dimension_, CoordType &gt;::Codim&lt; codimension &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:a00179"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00179.html">Dune</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00186"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00186.html">Dune::RefinementImp</a></td></tr>
+<tr class="memdesc:a00186"><td class="mdescLeft">&#160;</td><td class="mdescRight">This namespace contains the implementation of <a class="el" href="a00176.html">Refinement</a>. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00191"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00191.html">Dune::RefinementImp::Simplex</a></td></tr>
+<tr class="memdesc:a00191"><td class="mdescLeft">&#160;</td><td class="mdescRight">This namespace contains the <a class="el" href="a00176.html">Refinement</a> implementation for simplices (triangles, tetrahedrons...) <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a944407dc4f6f9a372b10b69bbb5a0792"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00143.html#a944407dc4f6f9a372b10b69bbb5a0792">DUNE_GRID_COMMON_REFINEMENT_SIMPLEX_CC</a></td></tr>
+<tr class="separator:a944407dc4f6f9a372b10b69bbb5a0792"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr><td colspan="2"><div class="groupHeader">Utilities</div></td></tr>
+<tr class="memitem:a4e50729390915de9253002c1fef2c911"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00191.html#a4e50729390915de9253002c1fef2c911">Dune::RefinementImp::Simplex::factorial</a> (int n)</td></tr>
+<tr class="memdesc:a4e50729390915de9253002c1fef2c911"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate n!  <a href="a00191.html#a4e50729390915de9253002c1fef2c911">More...</a><br /></td></tr>
+<tr class="separator:a4e50729390915de9253002c1fef2c911"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6913bfef82bab8e8ff1f6c98181d294b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00191.html#a6913bfef82bab8e8ff1f6c98181d294b">Dune::RefinementImp::Simplex::binomial</a> (int upper, int lower)</td></tr>
+<tr class="memdesc:a6913bfef82bab8e8ff1f6c98181d294b"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculate <img class="formulaInl" alt="$\left({upper}\atop{lower}\right)$" src="form_43.png"/>  <a href="a00191.html#a6913bfef82bab8e8ff1f6c98181d294b">More...</a><br /></td></tr>
+<tr class="separator:a6913bfef82bab8e8ff1f6c98181d294b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24c58f3248cb543a0c221c3e9c4ac9bf"><td class="memTemplParams" colspan="2">template&lt;int dimension&gt; </td></tr>
+<tr class="memitem:a24c58f3248cb543a0c221c3e9c4ac9bf"><td class="memTemplItemLeft" align="right" valign="top">int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00191.html#a24c58f3248cb543a0c221c3e9c4ac9bf">Dune::RefinementImp::Simplex::pointIndex</a> (const FieldVector&lt; int, dimension &gt; &amp;point)</td></tr>
+<tr class="memdesc:a24c58f3248cb543a0c221c3e9c4ac9bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculate the index of a given gridpoint within a Kuhn0 simplex  <a href="a00191.html#a24c58f3248cb543a0c221c3e9c4ac9bf">More...</a><br /></td></tr>
+<tr class="separator:a24c58f3248cb543a0c221c3e9c4ac9bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55f624c9c039163297682f0b67c219ea"><td class="memTemplParams" colspan="2">template&lt;int n&gt; </td></tr>
+<tr class="memitem:a55f624c9c039163297682f0b67c219ea"><td class="memTemplItemLeft" align="right" valign="top">FieldVector&lt; int, n &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00191.html#a55f624c9c039163297682f0b67c219ea">Dune::RefinementImp::Simplex::getPermutation</a> (int m)</td></tr>
+<tr class="memdesc:a55f624c9c039163297682f0b67c219ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate permutation from it's index.  <a href="a00191.html#a55f624c9c039163297682f0b67c219ea">More...</a><br /></td></tr>
+<tr class="separator:a55f624c9c039163297682f0b67c219ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a505d65af350ee9dff3f69315f4e1c552"><td class="memTemplParams" colspan="2">template&lt;int dimension, class CoordType &gt; </td></tr>
+<tr class="memitem:a505d65af350ee9dff3f69315f4e1c552"><td class="memTemplItemLeft" align="right" valign="top">FieldVector&lt; CoordType, dimension &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00191.html#a505d65af350ee9dff3f69315f4e1c552">Dune::RefinementImp::Simplex::referenceToKuhn</a> (FieldVector&lt; CoordType, dimension &gt; point, const FieldVector&lt; int, dimension &gt; &amp;kuhn)</td></tr>
+<tr class="memdesc:a505d65af350ee9dff3f69315f4e1c552"><td class="mdescLeft">&#160;</td><td class="mdescRight">Map from the reference simplex to some Kuhn simplex.  <a href="a00191.html#a505d65af350ee9dff3f69315f4e1c552">More...</a><br /></td></tr>
+<tr class="separator:a505d65af350ee9dff3f69315f4e1c552"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad723b1ab6a7961edb7b73e9d905a8e69"><td class="memTemplParams" colspan="2">template&lt;int dimension, class CoordType &gt; </td></tr>
+<tr class="memitem:ad723b1ab6a7961edb7b73e9d905a8e69"><td class="memTemplItemLeft" align="right" valign="top">FieldVector&lt; CoordType, dimension &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00191.html#ad723b1ab6a7961edb7b73e9d905a8e69">Dune::RefinementImp::Simplex::kuhnToReference</a> (FieldVector&lt; CoordType, dimension &gt; point, const FieldVector&lt; int, dimension &gt; &amp;kuhn)</td></tr>
+<tr class="memdesc:ad723b1ab6a7961edb7b73e9d905a8e69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Map from some Kuhn simplex to the reference simplex.  <a href="a00191.html#ad723b1ab6a7961edb7b73e9d905a8e69">More...</a><br /></td></tr>
+<tr class="separator:ad723b1ab6a7961edb7b73e9d905a8e69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This file simply includes all <a class="el" href="a00174.html">Refinement</a> implementations so you don't have to do them separately. </p>
-</div></div><!-- contents -->
+<div class="textblock"><p>This file contains the <a class="el" href="a00176.html">Refinement</a> implementation for simplices (triangles, tetrahedrons...) </p>
+<p>See <a class="el" href="a00175.html">Refinement implementation for simplices</a>. </p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a944407dc4f6f9a372b10b69bbb5a0792"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a944407dc4f6f9a372b10b69bbb5a0792">&#9670;&nbsp;</a></span>DUNE_GRID_COMMON_REFINEMENT_SIMPLEX_CC</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DUNE_GRID_COMMON_REFINEMENT_SIMPLEX_CC</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-common: Member List</title>
+<title>dune-common: Dune::CommPolicy&lt; V &gt;::CopyGatherScatter&lt; T &gt; Struct Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-common
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,21 +62,152 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00428.html">Dune</a></li><li class="navelem"><a class="el" href="a01976.html">CommPolicy</a></li><li class="navelem"><a class="el" href="a01996.html">CopyGatherScatter</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00428.html">Dune</a></li><li class="navelem"><a class="el" href="a01973.html">CommPolicy</a></li><li class="navelem"><a class="el" href="a01993.html">CopyGatherScatter</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="a01990.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::CommPolicy&lt; V &gt;::CopyGatherScatter&lt; T &gt; Member List</div>  </div>
+<div class="title">Dune::CommPolicy&lt; V &gt;::CopyGatherScatter&lt; T &gt; Struct Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="a01996.html">Dune::CommPolicy&lt; V &gt;::CopyGatherScatter&lt; T &gt;</a>, including all inherited members.</p>
-<table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="a01996.html#a4ed5e82c9263f288ff74f3bbbfbe2b7b">gather</a>(const T &amp;vec, std::size_t i)</td><td class="entry"><a class="el" href="a01996.html">Dune::CommPolicy&lt; V &gt;::CopyGatherScatter&lt; T &gt;</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
-  <tr><td class="entry"><a class="el" href="a01996.html#a75f3ea805efadcb366dc402490a20929">IndexedType</a> typedef</td><td class="entry"><a class="el" href="a01996.html">Dune::CommPolicy&lt; V &gt;::CopyGatherScatter&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a01996.html#a3a2e583dfb9e572e4e0606cfafcd4aa2">scatter</a>(T &amp;vec, const IndexedType &amp;v, std::size_t i)</td><td class="entry"><a class="el" href="a01996.html">Dune::CommPolicy&lt; V &gt;::CopyGatherScatter&lt; T &gt;</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
-</table></div><!-- contents -->
+<p>GatherScatter default implementation that just copies data.  
+ <a href="a01993.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="a00182_source.html">dune/common/parallel/communicator.hh</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a75f3ea805efadcb366dc402490a20929"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a01973.html">CommPolicy</a>&lt; T &gt;::<a class="el" href="a01993.html#a75f3ea805efadcb366dc402490a20929">IndexedType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01993.html#a75f3ea805efadcb366dc402490a20929">IndexedType</a></td></tr>
+<tr class="separator:a75f3ea805efadcb366dc402490a20929"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a4ed5e82c9263f288ff74f3bbbfbe2b7b"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a01993.html#a75f3ea805efadcb366dc402490a20929">IndexedType</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01993.html#a4ed5e82c9263f288ff74f3bbbfbe2b7b">gather</a> (const T &amp;vec, std::size_t i)</td></tr>
+<tr class="separator:a4ed5e82c9263f288ff74f3bbbfbe2b7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a2e583dfb9e572e4e0606cfafcd4aa2"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01993.html#a3a2e583dfb9e572e4e0606cfafcd4aa2">scatter</a> (T &amp;vec, const <a class="el" href="a01993.html#a75f3ea805efadcb366dc402490a20929">IndexedType</a> &amp;v, std::size_t i)</td></tr>
+<tr class="separator:a3a2e583dfb9e572e4e0606cfafcd4aa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;class V&gt;<br />
+template&lt;class T&gt;<br />
+struct Dune::CommPolicy&lt; V &gt;::CopyGatherScatter&lt; T &gt;</h3>
+
+<p>GatherScatter default implementation that just copies data. </p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a75f3ea805efadcb366dc402490a20929"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75f3ea805efadcb366dc402490a20929">&#9670;&nbsp;</a></span>IndexedType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class V &gt; </div>
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="a01973.html">CommPolicy</a>&lt;T&gt;::<a class="el" href="a01993.html#a75f3ea805efadcb366dc402490a20929">IndexedType</a> <a class="el" href="a01973.html">Dune::CommPolicy</a>&lt; V &gt;::<a class="el" href="a01993.html">CopyGatherScatter</a>&lt; T &gt;::<a class="el" href="a01993.html#a75f3ea805efadcb366dc402490a20929">IndexedType</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a4ed5e82c9263f288ff74f3bbbfbe2b7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ed5e82c9263f288ff74f3bbbfbe2b7b">&#9670;&nbsp;</a></span>gather()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class V &gt; </div>
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static const <a class="el" href="a01993.html#a75f3ea805efadcb366dc402490a20929">IndexedType</a>&amp; <a class="el" href="a01973.html">Dune::CommPolicy</a>&lt; V &gt;::<a class="el" href="a01993.html">CopyGatherScatter</a>&lt; T &gt;::gather </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>vec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>i</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3a2e583dfb9e572e4e0606cfafcd4aa2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a2e583dfb9e572e4e0606cfafcd4aa2">&#9670;&nbsp;</a></span>scatter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class V &gt; </div>
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void <a class="el" href="a01973.html">Dune::CommPolicy</a>&lt; V &gt;::<a class="el" href="a01993.html">CopyGatherScatter</a>&lt; T &gt;::scatter </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;&#160;</td>
+          <td class="paramname"><em>vec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a01993.html#a75f3ea805efadcb366dc402490a20929">IndexedType</a> &amp;&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>i</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li><a class="el" href="a00182_source.html">communicator.hh</a></li>
+</ul>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: Dune::IdentityGridLevelIntersectionIterator&lt; GridImp &gt; Class Template Reference</title>
+<title>dune-grid: Dune::IdentityGridHierarchicIterator&lt; GridImp &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,7 +62,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00936.html">Dune</a></li><li class="navelem"><a class="el" href="a03302.html">IdentityGridLevelIntersectionIterator</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00940.html">Dune</a></li><li class="navelem"><a class="el" href="a03302.html">IdentityGridHierarchicIterator</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -71,41 +71,48 @@ $(function() {
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="a03299.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::IdentityGridLevelIntersectionIterator&lt; GridImp &gt; Class Template Reference</div>  </div>
+<div class="title">Dune::IdentityGridHierarchicIterator&lt; GridImp &gt; Class Template Reference<div class="ingroups"><a class="el" href="a00905.html">dune-grid</a> &raquo; <a class="el" href="a00921.html">Grid Implementations</a> &raquo; <a class="el" href="a00923.html">IdentityGrid</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="a00602_source.html">dune/grid/identitygrid/identitygridintersectioniterator.hh</a>&gt;</code></p>
+<p>Iterator over the descendants of an entity.Mesh entities of codimension 0 ("elements") allow to visit all entities of codimension 0 obtained through nested, hierarchic refinement of the entity. Iteration over this set of entities is provided by the HierarchicIterator, starting from a given entity.  
+ <a href="a03302.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="a00602_source.html">dune/grid/identitygrid/identitygridhierarchiciterator.hh</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a75a25ee462a58f047d999fdda1969282"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a01838.html">Dune::Intersection</a>&lt; const GridImp, <a class="el" href="a03346.html">Dune::IdentityGridLevelIntersection</a>&lt; GridImp &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03302.html#a75a25ee462a58f047d999fdda1969282">Intersection</a></td></tr>
-<tr class="separator:a75a25ee462a58f047d999fdda1969282"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2517b22492bc82640e11c6731c9c20f7"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="a03302.html#a2517b22492bc82640e11c6731c9c20f7aeb1389571026cf96edf3929e1af6ed63">codimension</a> = 0
+ }</td></tr>
+<tr class="separator:a2517b22492bc82640e11c6731c9c20f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e18a57baf6ae3125ef5c33881ea7d89"><td class="memItemLeft" align="right" valign="top">typedef GridImp::template Codim&lt; 0 &gt;::<a class="el" href="a03302.html#a8e18a57baf6ae3125ef5c33881ea7d89">Entity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03302.html#a8e18a57baf6ae3125ef5c33881ea7d89">Entity</a></td></tr>
+<tr class="separator:a8e18a57baf6ae3125ef5c33881ea7d89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:afd1e42c0136920c19fa3fdb5d034da56"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03302.html#afd1e42c0136920c19fa3fdb5d034da56">IdentityGridLevelIntersectionIterator</a> ()</td></tr>
-<tr class="separator:afd1e42c0136920c19fa3fdb5d034da56"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a38b71d9d098ab3921c2f6b1d70d8b429"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03302.html#a38b71d9d098ab3921c2f6b1d70d8b429">IdentityGridLevelIntersectionIterator</a> (const GridImp *identityGrid, const HostLevelIntersectionIterator &amp;hostIterator)</td></tr>
-<tr class="separator:a38b71d9d098ab3921c2f6b1d70d8b429"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b54b5bb834901b85dd139034c2cd761"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03302.html#a0b54b5bb834901b85dd139034c2cd761">equals</a> (const <a class="el" href="a03302.html">IdentityGridLevelIntersectionIterator</a>&lt; GridImp &gt; &amp;other) const</td></tr>
-<tr class="memdesc:a0b54b5bb834901b85dd139034c2cd761"><td class="mdescLeft">&#160;</td><td class="mdescRight">equality  <a href="a03302.html#a0b54b5bb834901b85dd139034c2cd761">More...</a><br /></td></tr>
-<tr class="separator:a0b54b5bb834901b85dd139034c2cd761"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1037566787074ac53496da640e803415"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03302.html#a1037566787074ac53496da640e803415">increment</a> ()</td></tr>
-<tr class="memdesc:a1037566787074ac53496da640e803415"><td class="mdescLeft">&#160;</td><td class="mdescRight">prefix increment  <a href="a03302.html#a1037566787074ac53496da640e803415">More...</a><br /></td></tr>
-<tr class="separator:a1037566787074ac53496da640e803415"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac32574a7f8f237bea4294f37b2c73ce2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a03302.html#a75a25ee462a58f047d999fdda1969282">Intersection</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03302.html#ac32574a7f8f237bea4294f37b2c73ce2">dereference</a> () const</td></tr>
-<tr class="memdesc:ac32574a7f8f237bea4294f37b2c73ce2"><td class="mdescLeft">&#160;</td><td class="mdescRight">dereferencing  <a href="a03302.html#ac32574a7f8f237bea4294f37b2c73ce2">More...</a><br /></td></tr>
-<tr class="separator:ac32574a7f8f237bea4294f37b2c73ce2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebd5e0d03c127b9836d8e2fc76936c83"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03302.html#aebd5e0d03c127b9836d8e2fc76936c83">IdentityGridHierarchicIterator</a> (const GridImp *identityGrid, const <a class="el" href="a03302.html#a8e18a57baf6ae3125ef5c33881ea7d89">Entity</a> &amp;startEntity, int maxLevel)</td></tr>
+<tr class="memdesc:aebd5e0d03c127b9836d8e2fc76936c83"><td class="mdescLeft">&#160;</td><td class="mdescRight">the default Constructor  <a href="a03302.html#aebd5e0d03c127b9836d8e2fc76936c83">More...</a><br /></td></tr>
+<tr class="separator:aebd5e0d03c127b9836d8e2fc76936c83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a3ef4b194cb332e03ec8a6b2c7afcd4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03302.html#a6a3ef4b194cb332e03ec8a6b2c7afcd4">IdentityGridHierarchicIterator</a> (const GridImp *identityGrid, const <a class="el" href="a03302.html#a8e18a57baf6ae3125ef5c33881ea7d89">Entity</a> &amp;startEntity, int maxLevel, [[maybe_unused]] bool endDummy)</td></tr>
+<tr class="separator:a6a3ef4b194cb332e03ec8a6b2c7afcd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d67c2e9ce45504c1a0cd5a532ac97d3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03302.html#a7d67c2e9ce45504c1a0cd5a532ac97d3">increment</a> ()</td></tr>
+<tr class="separator:a7d67c2e9ce45504c1a0cd5a532ac97d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0b559e450987269683ea0100cfe5a11"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a03302.html#a8e18a57baf6ae3125ef5c33881ea7d89">Entity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03302.html#ae0b559e450987269683ea0100cfe5a11">dereference</a> () const</td></tr>
+<tr class="memdesc:ae0b559e450987269683ea0100cfe5a11"><td class="mdescLeft">&#160;</td><td class="mdescRight">dereferencing  <a href="a03302.html#ae0b559e450987269683ea0100cfe5a11">More...</a><br /></td></tr>
+<tr class="separator:ae0b559e450987269683ea0100cfe5a11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94f4e2dba240d68b8050d60e58b005fc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03302.html#a94f4e2dba240d68b8050d60e58b005fc">equals</a> (const <a class="el" href="a03302.html">IdentityGridHierarchicIterator</a> &amp;i) const</td></tr>
+<tr class="memdesc:a94f4e2dba240d68b8050d60e58b005fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">equality  <a href="a03302.html#a94f4e2dba240d68b8050d60e58b005fc">More...</a><br /></td></tr>
+<tr class="separator:a94f4e2dba240d68b8050d60e58b005fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;class GridImp&gt;<br />
-class Dune::IdentityGridLevelIntersectionIterator&lt; GridImp &gt;</h3>
+class Dune::IdentityGridHierarchicIterator&lt; GridImp &gt;</h3>
 
-<dl class="todo"><dt><b><a class="el" href="a00900.html#_todo000024">Todo:</a></b></dt><dd>Please doc me ! </dd></dl>
+<p>Iterator over the descendants of an entity.</p>
+<p>Mesh entities of codimension 0 ("elements") allow to visit all entities of codimension 0 obtained through nested, hierarchic refinement of the entity. Iteration over this set of entities is provided by the HierarchicIterator, starting from a given entity. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a75a25ee462a58f047d999fdda1969282"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a75a25ee462a58f047d999fdda1969282">&#9670;&nbsp;</a></span>Intersection</h2>
+<a id="a8e18a57baf6ae3125ef5c33881ea7d89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e18a57baf6ae3125ef5c33881ea7d89">&#9670;&nbsp;</a></span>Entity</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -113,16 +120,36 @@ class Dune::IdentityGridLevelIntersectionIterator&lt; GridImp &gt;</h3>
 template&lt;class GridImp &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="a01838.html">Dune::Intersection</a>&lt;const GridImp, <a class="el" href="a03346.html">Dune::IdentityGridLevelIntersection</a>&lt;GridImp&gt; &gt; <a class="el" href="a03302.html">Dune::IdentityGridLevelIntersectionIterator</a>&lt; GridImp &gt;::<a class="el" href="a03302.html#a75a25ee462a58f047d999fdda1969282">Intersection</a></td>
+          <td class="memname">typedef GridImp::template Codim&lt;0&gt;::<a class="el" href="a03302.html#a8e18a57baf6ae3125ef5c33881ea7d89">Entity</a> <a class="el" href="a03302.html">Dune::IdentityGridHierarchicIterator</a>&lt; GridImp &gt;::<a class="el" href="a03302.html#a8e18a57baf6ae3125ef5c33881ea7d89">Entity</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="a2517b22492bc82640e11c6731c9c20f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2517b22492bc82640e11c6731c9c20f7">&#9670;&nbsp;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class GridImp &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a2517b22492bc82640e11c6731c9c20f7aeb1389571026cf96edf3929e1af6ed63"></a>codimension&#160;</td><td class="fielddoc"></td></tr>
+</table>
 
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="afd1e42c0136920c19fa3fdb5d034da56"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afd1e42c0136920c19fa3fdb5d034da56">&#9670;&nbsp;</a></span>IdentityGridLevelIntersectionIterator() <span class="overload">[1/2]</span></h2>
+<a id="aebd5e0d03c127b9836d8e2fc76936c83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebd5e0d03c127b9836d8e2fc76936c83">&#9670;&nbsp;</a></span>IdentityGridHierarchicIterator() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -133,34 +160,7 @@ template&lt;class GridImp &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a03302.html">Dune::IdentityGridLevelIntersectionIterator</a>&lt; GridImp &gt;::<a class="el" href="a03302.html">IdentityGridLevelIntersectionIterator</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a38b71d9d098ab3921c2f6b1d70d8b429"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a38b71d9d098ab3921c2f6b1d70d8b429">&#9670;&nbsp;</a></span>IdentityGridLevelIntersectionIterator() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class GridImp &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a03302.html">Dune::IdentityGridLevelIntersectionIterator</a>&lt; GridImp &gt;::<a class="el" href="a03302.html">IdentityGridLevelIntersectionIterator</a> </td>
+          <td class="memname"><a class="el" href="a03302.html">Dune::IdentityGridHierarchicIterator</a>&lt; GridImp &gt;::<a class="el" href="a03302.html">IdentityGridHierarchicIterator</a> </td>
           <td>(</td>
           <td class="paramtype">const GridImp *&#160;</td>
           <td class="paramname"><em>identityGrid</em>, </td>
@@ -168,8 +168,14 @@ template&lt;class GridImp &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const HostLevelIntersectionIterator &amp;&#160;</td>
-          <td class="paramname"><em>hostIterator</em>&#160;</td>
+          <td class="paramtype">const <a class="el" href="a03302.html#a8e18a57baf6ae3125ef5c33881ea7d89">Entity</a> &amp;&#160;</td>
+          <td class="paramname"><em>startEntity</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>maxLevel</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -179,16 +185,17 @@ template&lt;class GridImp &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
+<p>the default Constructor </p>
+
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="ac32574a7f8f237bea4294f37b2c73ce2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac32574a7f8f237bea4294f37b2c73ce2">&#9670;&nbsp;</a></span>dereference()</h2>
+<a id="a6a3ef4b194cb332e03ec8a6b2c7afcd4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a3ef4b194cb332e03ec8a6b2c7afcd4">&#9670;&nbsp;</a></span>IdentityGridHierarchicIterator() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -199,7 +206,59 @@ template&lt;class GridImp &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a03302.html#a75a25ee462a58f047d999fdda1969282">Intersection</a> <a class="el" href="a03302.html">Dune::IdentityGridLevelIntersectionIterator</a>&lt; GridImp &gt;::dereference </td>
+          <td class="memname"><a class="el" href="a03302.html">Dune::IdentityGridHierarchicIterator</a>&lt; GridImp &gt;::<a class="el" href="a03302.html">IdentityGridHierarchicIterator</a> </td>
+          <td>(</td>
+          <td class="paramtype">const GridImp *&#160;</td>
+          <td class="paramname"><em>identityGrid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a03302.html#a8e18a57baf6ae3125ef5c33881ea7d89">Entity</a> &amp;&#160;</td>
+          <td class="paramname"><em>startEntity</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>maxLevel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">[[maybe_unused] ] bool&#160;</td>
+          <td class="paramname"><em>endDummy</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="todo"><dt><b><a class="el" href="a00903.html#_todo000018">Todo:</a></b></dt><dd>Please doc me ! </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ae0b559e450987269683ea0100cfe5a11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0b559e450987269683ea0100cfe5a11">&#9670;&nbsp;</a></span>dereference()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class GridImp &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a03302.html#a8e18a57baf6ae3125ef5c33881ea7d89">Entity</a> <a class="el" href="a03302.html">Dune::IdentityGridHierarchicIterator</a>&lt; GridImp &gt;::dereference </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -216,8 +275,8 @@ template&lt;class GridImp &gt; </div>
 
 </div>
 </div>
-<a id="a0b54b5bb834901b85dd139034c2cd761"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0b54b5bb834901b85dd139034c2cd761">&#9670;&nbsp;</a></span>equals()</h2>
+<a id="a94f4e2dba240d68b8050d60e58b005fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94f4e2dba240d68b8050d60e58b005fc">&#9670;&nbsp;</a></span>equals()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -228,10 +287,10 @@ template&lt;class GridImp &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="a03302.html">Dune::IdentityGridLevelIntersectionIterator</a>&lt; GridImp &gt;::equals </td>
+          <td class="memname">bool <a class="el" href="a03302.html">Dune::IdentityGridHierarchicIterator</a>&lt; GridImp &gt;::equals </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a03302.html">IdentityGridLevelIntersectionIterator</a>&lt; GridImp &gt; &amp;&#160;</td>
-          <td class="paramname"><em>other</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="a03302.html">IdentityGridHierarchicIterator</a>&lt; GridImp &gt; &amp;&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -246,8 +305,8 @@ template&lt;class GridImp &gt; </div>
 
 </div>
 </div>
-<a id="a1037566787074ac53496da640e803415"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1037566787074ac53496da640e803415">&#9670;&nbsp;</a></span>increment()</h2>
+<a id="a7d67c2e9ce45504c1a0cd5a532ac97d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d67c2e9ce45504c1a0cd5a532ac97d3">&#9670;&nbsp;</a></span>increment()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -258,7 +317,7 @@ template&lt;class GridImp &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="a03302.html">Dune::IdentityGridLevelIntersectionIterator</a>&lt; GridImp &gt;::increment </td>
+          <td class="memname">void <a class="el" href="a03302.html">Dune::IdentityGridHierarchicIterator</a>&lt; GridImp &gt;::increment </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -270,14 +329,13 @@ template&lt;class GridImp &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>prefix increment </p>
+<dl class="todo"><dt><b><a class="el" href="a00903.html#_todo000019">Todo:</a></b></dt><dd>Please doc me ! </dd></dl>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="a00587_source.html">identitygridentity.hh</a></li>
-<li><a class="el" href="a00602_source.html">identitygridintersectioniterator.hh</a></li>
+<li><a class="el" href="a00593_source.html">identitygridentity.hh</a></li>
+<li><a class="el" href="a00602_source.html">identitygridhierarchiciterator.hh</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

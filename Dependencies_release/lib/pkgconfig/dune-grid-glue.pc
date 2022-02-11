@@ -1,0 +1,15 @@
+prefix=C:/ID/cmake-build-release/../Dependencies_release
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+CXX=D:/winlibs_gcc11/mingw64/bin/g++.exe 
+CC=D:/winlibs_gcc11/mingw64/bin/gcc.exe
+DEPENDENCIES=
+
+Name: dune-grid-glue
+Version: 2.8.0
+Description: dune-grid-glue module
+URL: http://www.dune-project.org/modules/dune-grid-glue/
+Requires: dune-common dune-grid
+Libs: -L${libdir} -ldunegridglue
+Cflags: -I${includedir}

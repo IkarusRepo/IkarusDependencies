@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-common: Member List</title>
+<title>dune-common: Dune::AlwaysFalse&lt; T &gt; Struct Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-common
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,19 +62,60 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00428.html">Dune</a></li><li class="navelem"><a class="el" href="a03072.html">JoinTuples</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00428.html">Dune</a></li><li class="navelem"><a class="el" href="a03069.html">AlwaysFalse</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">Dune::JoinTuples&lt; Head, Tail &gt; Member List</div>  </div>
+<div class="title">Dune::AlwaysFalse&lt; T &gt; Struct Template Reference<div class="ingroups"><a class="el" href="a00400.html">Common</a> &raquo; <a class="el" href="a00402.html">Utilities</a> &raquo; <a class="el" href="a00409.html">C++ utilities and backports</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="a03072.html">Dune::JoinTuples&lt; Head, Tail &gt;</a>, including all inherited members.</p>
-<table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="a00406.html#ga61efbf30dbd7906f2922063af3068a92">type</a> typedef</td><td class="entry"><a class="el" href="a03072.html">Dune::JoinTuples&lt; Head, Tail &gt;</a></td><td class="entry"></td></tr>
-</table></div><!-- contents -->
+<p>template which always yields a false value  
+ <a href="a03069.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="a00383_source.html">dune/common/typetraits.hh</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for Dune::AlwaysFalse&lt; T &gt;:</div>
+<div class="dyncontent">
+<div class="center"><img src="a03068.png" border="0" usemap="#a_dune_1_1_always_false_3_01_t_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="a_dune_1_1_always_false_3_01_t_01_4_inherit__map" id="a_dune_1_1_always_false_3_01_t_01_4_inherit__map">
+<area shape="rect" title="template which always yields a false value" alt="" coords="5,80,171,107"/>
+<area shape="rect" title=" " alt="" coords="35,5,141,32"/>
+</map>
+</div>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename T&gt;<br />
+struct Dune::AlwaysFalse&lt; T &gt;</h3>
+
+<p>template which always yields a false value </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Some type. It should be a type expression involving template parameters of the class or function using <a class="el" href="a03069.html" title="template which always yields a false value">AlwaysFalse</a>.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Suppose you have a template class. You want to document the required members of this class in the non-specialized template, but you know that actually instantiating the non-specialized template is an error. You can try something like this: </p><div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><span class="keyword">struct </span>Traits {</div>
+<div class="line">  static_assert(<span class="keyword">false</span>,</div>
+<div class="line">                     <span class="stringliteral">&quot;Instanciating this non-specialized template is an &quot;</span></div>
+<div class="line">                     <span class="stringliteral">&quot;error.  You should use one of the specializations &quot;</span></div>
+<div class="line">                     <span class="stringliteral">&quot;instead.&quot;</span>);</div>
+<div class="line">  <span class="keyword">typedef</span> <span class="keywordtype">void</span> FrobnicateType;</div>
+<div class="line">};</div>
+</div><!-- fragment --><p> This will trigger static_assert() as soon as the compiler reads the definition for the Traits template, since it knows that "false" can never become true, no matter what the template parameters of Traits are. As a workaround you can use <a class="el" href="a03069.html" title="template which always yields a false value">AlwaysFalse</a>: replace <code>false</code> by <code>AlwaysFalse&lt;T&gt;::value</code>, like this: </p><div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><span class="keyword">struct </span>Traits {</div>
+<div class="line">  static_assert(AlwaysFalse&lt;T&gt;::value,</div>
+<div class="line">                     <span class="stringliteral">&quot;Instanciating this non-specialized template is an &quot;</span></div>
+<div class="line">                     <span class="stringliteral">&quot;error.  You should use one of the specializations &quot;</span></div>
+<div class="line">                     <span class="stringliteral">&quot;instead.&quot;</span>);</div>
+<div class="line">  <span class="keyword">typedef</span> <span class="keywordtype">void</span> FrobnicateType;</div>
+<div class="line">};</div>
+</div><!-- fragment --><p> Since there might be an specialization of <a class="el" href="a03069.html" title="template which always yields a false value">AlwaysFalse</a> for template parameter T, the compiler cannot trigger static_assert() until the type of T is known, that is, until Traits&lt;T&gt; is instantiated. </p>
+</div><hr/>The documentation for this struct was generated from the following file:<ul>
+<li><a class="el" href="a00383_source.html">typetraits.hh</a></li>
+</ul>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1

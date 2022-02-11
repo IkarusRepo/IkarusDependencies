@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: boundaryprojection.hh Source File</title>
+<title>dune-grid: yaspgridpersistentcontainer.hh Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,301 +62,134 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_282a6d93e11c1f5367984719a29518da.html">dune-grid</a></li><li class="navelem"><a class="el" href="dir_9b356568473fb59d2a92d82c3e3163e0.html">dune</a></li><li class="navelem"><a class="el" href="dir_b835d2b10d4bb6ff2c6d149ed2a0408f.html">grid</a></li><li class="navelem"><a class="el" href="dir_05ed8ed1c1e941e5d6d5ad1f84d0c9e0.html">common</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_282a6d93e11c1f5367984719a29518da.html">dune-grid</a></li><li class="navelem"><a class="el" href="dir_9b356568473fb59d2a92d82c3e3163e0.html">dune</a></li><li class="navelem"><a class="el" href="dir_b835d2b10d4bb6ff2c6d149ed2a0408f.html">grid</a></li><li class="navelem"><a class="el" href="dir_16d1802081d077e2602eacd84d2c767a.html">yaspgrid</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">boundaryprojection.hh</div>  </div>
+<div class="title">yaspgridpersistentcontainer.hh</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="a00212.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*-</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// vi: set et ts=4 sw=2 sts=2:</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifndef DUNE_BOUNDARYPROJECTION_HH</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define DUNE_BOUNDARYPROJECTION_HH</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifndef DUNE_GRID_YASPGRIDPERSISTENTCONTAINER_HH</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define DUNE_GRID_YASPGRIDPERSISTENTCONTAINER_HH</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//- system includes</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;cmath&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">//- Dune includes</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;dune/common/fvector.hh&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;cassert&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;dune/geometry/multilineargeometry.hh&gt;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00215.html">dune/grid/common/boundarysegment.hh</a>&gt;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00227.html">dune/grid/common/datahandleif.hh</a>&gt;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00758.html">dune/grid/io/file/gmshreader.hh</a>&gt;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00936.html">Dune</a></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dimworld&gt;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="keyword">struct </span>DuneBoundaryProjection;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dimworld&gt;</div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="a02462.html">   29</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a02462.html">DuneBoundaryProjection</a></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    : <span class="keyword">public</span> <a class="code" href="a02482.html">BoundarySegmentBackupRestore</a>&lt; DuneBoundaryProjection&lt; dimworld &gt; &gt;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  {</div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="a02462.html#a1240ce037f995c5ed5bbe0458640b044">   32</a></span>&#160;    <span class="keyword">typedef</span> <a class="code" href="a02462.html">DuneBoundaryProjection&lt; dimworld &gt;</a> <a class="code" href="a02462.html#a1240ce037f995c5ed5bbe0458640b044">ThisType</a>;</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="a02462.html#acaef9ce982a7554333139a3b3d592027">   33</a></span>&#160;    <span class="keyword">typedef</span> <a class="code" href="a02482.html">BoundarySegmentBackupRestore&lt; DuneBoundaryProjection&lt; dimworld &gt;</a> &gt; <a class="code" href="a02462.html#acaef9ce982a7554333139a3b3d592027">BaseType</a>;</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="a02462.html#ad60cc6247113babeee6a08075cd54dd5">   34</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="a02482.html#a5f1caab3482efa6040f65abf6df4983c">BaseType :: ObjectStreamType</a>  <a class="code" href="a02462.html#ad60cc6247113babeee6a08075cd54dd5">ObjectStreamType</a>;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">using</span> <a class="code" href="a02482.html#a1d347a431cce7dd13a050453b5f04b63">BaseType :: restore</a>;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">using</span> <a class="code" href="a02482.html#acd33be44661200bd7a32cf39801c8a43">BaseType :: registerFactory</a>;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="a02462.html#aa5dfff6108e6ac695d972a5e9fe56be9">   40</a></span>&#160;    <span class="keyword">typedef</span> FieldVector&lt; double, dimworld&gt; <a class="code" href="a02462.html#aa5dfff6108e6ac695d972a5e9fe56be9">CoordinateType</a>;</div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="a02462.html#a91bd64f068b15343c9f00a8bd5b42ba6">   42</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="a02462.html#a91bd64f068b15343c9f00a8bd5b42ba6">~DuneBoundaryProjection</a>() {}</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="a02462.html#a5d9ef189a3460ea062ab96daed520fbe">   45</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="a02462.html#aa5dfff6108e6ac695d972a5e9fe56be9">CoordinateType</a> <a class="code" href="a02462.html#a5d9ef189a3460ea062ab96daed520fbe">operator() </a>(<span class="keyword">const</span> <a class="code" href="a02462.html#aa5dfff6108e6ac695d972a5e9fe56be9">CoordinateType</a>&amp; global) <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="a02462.html#a1a5b899a00ee3f03edbcb54ae6beb5d5">   50</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a02462.html#a1a5b899a00ee3f03edbcb54ae6beb5d5">backup</a>( <a class="code" href="a02462.html#ad60cc6247113babeee6a08075cd54dd5">ObjectStreamType</a>&amp; buffer )<span class="keyword"> const</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      DUNE_THROW(NotImplemented,<span class="stringliteral">&quot;DuneBoundaryProjection::backup not overloaded!&quot;</span>);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    }</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> BufferImp&gt;</div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="a02462.html#a6d9a483589850a809c3b15b566475066">   56</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a02462.html#a6d9a483589850a809c3b15b566475066">toBuffer</a>( BufferImp&amp; buffer )<span class="keyword"> const</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a06777.html">dune/grid/utility/persistentcontainer.hh</a>&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00887.html">dune/grid/utility/persistentcontainervector.hh</a>&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;../yaspgrid.hh&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00940.html">Dune</a></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Gr<span class="keywordtype">id</span>&gt;</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="a04174.html">   32</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a04174.html">YaspPersistentContainerIndex</a></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="a04174.html#a3ccf162629ed3ba1ac86dcd3c47cbabc">   36</a></span>&#160;    <a class="code" href="a04174.html#a3ccf162629ed3ba1ac86dcd3c47cbabc">YaspPersistentContainerIndex</a>(<span class="keyword">const</span> <a class="code" href="a02710.html">Grid</a> &amp; grid, <span class="keywordtype">int</span> codim)</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;      : _grid(grid), _codim(codim)</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;      recomputeOffsets();</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    }</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="a04174.html#acc97799d77743808c24b4cb17e1949f4">   43</a></span>&#160;    <span class="keyword">typedef</span> std::size_t <a class="code" href="a04174.html#acc97799d77743808c24b4cb17e1949f4">IndexType</a>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> Entity&gt;</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="a04174.html#a18d3412b83bbc65807cb8161da90ac8a">   47</a></span>&#160;    <a class="code" href="a04174.html#acc97799d77743808c24b4cb17e1949f4">IndexType</a> <a class="code" href="a04174.html#a18d3412b83bbc65807cb8161da90ac8a">index</a> (<span class="keyword">const</span> <a class="code" href="a02642.html">Entity</a>&amp; e)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;      <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> cc = <a class="code" href="a02642.html#aaa6c6e1d981fce9dbe550666f7a97800a0ce22137a3853646973cf5cd16c87868">Entity::codimension</a>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;      std::size_t level = e.<a class="code" href="a02642.html#aa5f17df3f43df86bb7170277cd891ed3">level</a>();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;      <span class="keywordflow">return</span> _grid.indexsets[level]-&gt;template index&lt;cc&gt;(e) + _offsets[level];</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    }</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">class</span> Entity &gt;</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="a04174.html#a317263e82e143db8e6e18f2015e6c0d8">   56</a></span>&#160;    <a class="code" href="a04174.html#acc97799d77743808c24b4cb17e1949f4">IndexType</a> <a class="code" href="a04174.html#a317263e82e143db8e6e18f2015e6c0d8">subIndex</a> ( <span class="keyword">const</span> <a class="code" href="a02642.html">Entity</a> &amp;e, <span class="keywordtype">int</span> i, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> codim )<span class="keyword"> const</span></div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;      <a class="code" href="a02570.html">MessageBufferIF&lt; BufferImp &gt;</a> buf( buffer );</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;      <a class="code" href="a02462.html#a6d9a483589850a809c3b15b566475066">toBuffer</a>( buf );</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    }</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> BufferImp&gt;</div>
-<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="a02462.html#aad2bfc023b531dd03481aa9ae7db922f">   63</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a02462.html#aad2bfc023b531dd03481aa9ae7db922f">toBuffer</a>( <a class="code" href="a02570.html">MessageBufferIF&lt; BufferImp &gt;</a> &amp; buffer )<span class="keyword"> const</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;      <a class="code" href="a02462.html#ad60cc6247113babeee6a08075cd54dd5">ObjectStreamType</a> str;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;      <span class="comment">// call virtual interface backup</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;      <a class="code" href="a02462.html#a1a5b899a00ee3f03edbcb54ae6beb5d5">backup</a>( str );</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;      std::string data = str.str();</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">size_t</span> size = data.size();</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;      buffer.<a class="code" href="a02570.html#ab007f6d86a97356527b42a379b600079">write</a>( size );</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;      <span class="keywordflow">for</span>( <span class="keywordtype">size_t</span> i=0; i&lt;size; ++i )</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        buffer.<a class="code" href="a02570.html#ab007f6d86a97356527b42a379b600079">write</a>( data[ i ] );</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    }</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> BufferImp&gt;</div>
-<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="a02462.html#a9ec397bb9f5aa4ef51fbd2a45fbb9a3f">   76</a></span>&#160;    <span class="keyword">static</span> std::unique_ptr&lt; ThisType &gt; <a class="code" href="a02462.html#a9ec397bb9f5aa4ef51fbd2a45fbb9a3f">restoreFromBuffer</a>( BufferImp &amp; buffer )</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    {</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;      <a class="code" href="a02570.html">MessageBufferIF&lt; BufferImp &gt;</a> buf( buffer );</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="a02462.html#a9ec397bb9f5aa4ef51fbd2a45fbb9a3f">restoreFromBuffer</a>( buf );</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    }</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> BufferImp&gt;</div>
-<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="a02462.html#a4d65a8d868ccde06ae2d921e1d1d0e04">   83</a></span>&#160;    <span class="keyword">static</span> std::unique_ptr&lt; ThisType &gt; <a class="code" href="a02462.html#a4d65a8d868ccde06ae2d921e1d1d0e04">restoreFromBuffer</a>( <a class="code" href="a02570.html">MessageBufferIF&lt; BufferImp &gt;</a> &amp; buffer )</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    {</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;      std::string data;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;      <span class="keywordtype">size_t</span> size = 0;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;      buffer.<a class="code" href="a02570.html#aec928187168ac22813a0af3343d5f0c0">read</a>( size );</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;      data.resize( size );</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;      <span class="keywordflow">for</span>( <span class="keywordtype">size_t</span> i=0; i&lt;size; ++i )</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        buffer.<a class="code" href="a02570.html#aec928187168ac22813a0af3343d5f0c0">read</a>( data[ i ] );</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;      <a class="code" href="a02462.html#ad60cc6247113babeee6a08075cd54dd5">ObjectStreamType</a> str;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;      str.write( data.c_str(), size );</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="a02482.html#a1d347a431cce7dd13a050453b5f04b63">BaseType::restore</a>( str );</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    }</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  };</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  <span class="keyword">template</span> &lt; <span class="keywordtype">int</span> dimworld &gt;</div>
-<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="a02466.html">   99</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a02466.html">BoundaryProjectionWrapper</a></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    : <span class="keyword">public</span> <a class="code" href="a02462.html">DuneBoundaryProjection</a>&lt; dimworld &gt;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  {</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="a02466.html#a595c7eea4cb5f090bef1a77b39d89cfa">  103</a></span>&#160;    <span class="keyword">typedef</span> <a class="code" href="a02462.html">DuneBoundaryProjection&lt; dimworld &gt;</a> <a class="code" href="a02466.html#a595c7eea4cb5f090bef1a77b39d89cfa">BaseType</a>;</div>
-<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="a02466.html#a21da0cf3cfff392a0f47feb59e8362d0">  104</a></span>&#160;    <span class="keyword">const</span> <a class="code" href="a02482.html">BaseType</a>&amp; <a class="code" href="a02466.html#a21da0cf3cfff392a0f47feb59e8362d0">proj_</a>;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="a02466.html#acef377f66bf06df20eb1b7aaf2407876">  107</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="a02462.html#aa5dfff6108e6ac695d972a5e9fe56be9">BaseType :: CoordinateType</a> <a class="code" href="a02466.html#acef377f66bf06df20eb1b7aaf2407876">CoordinateType</a>;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="comment">// constructor taking other projection</span></div>
-<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="a02466.html#a1f3c1c8dd1dd80a2fe085d2af5ee072e">  110</a></span>&#160;    <a class="code" href="a02466.html#a1f3c1c8dd1dd80a2fe085d2af5ee072e">BoundaryProjectionWrapper</a>( <span class="keyword">const</span> <a class="code" href="a02482.html">BaseType</a>&amp; proje )</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;      : <a class="code" href="a02466.html#a21da0cf3cfff392a0f47feb59e8362d0">proj_</a>( proje )</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    {}</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
-<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="a02466.html#ad9f03bc12230ef62c9dfee5471380084">  115</a></span>&#160;    <a class="code" href="a02466.html#ad9f03bc12230ef62c9dfee5471380084">~BoundaryProjectionWrapper</a> () {}</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
-<div class="line"><a name="l00118"></a><span class="lineno"><a class="line" href="a02466.html#a8e42947b0ba2b2501cc988c58fb5e4b8">  118</a></span>&#160;    <a class="code" href="a02462.html#aa5dfff6108e6ac695d972a5e9fe56be9">CoordinateType</a> <a class="code" href="a02466.html#a8e42947b0ba2b2501cc988c58fb5e4b8">operator() </a>(<span class="keyword">const</span> <a class="code" href="a02462.html#aa5dfff6108e6ac695d972a5e9fe56be9">CoordinateType</a>&amp; global)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="a02466.html#a21da0cf3cfff392a0f47feb59e8362d0">proj_</a>( global );</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    }</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;  };</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  <span class="comment">// BoundarySegmentWrapper</span></div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  <span class="comment">// ----------------------</span></div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;  <span class="keyword">template</span>&lt; <span class="keywordtype">int</span> dim, <span class="keywordtype">int</span> dimworld &gt;</div>
-<div class="line"><a name="l00129"></a><span class="lineno"><a class="line" href="a02470.html">  129</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a02470.html">BoundarySegmentWrapper</a></div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    : <span class="keyword">public</span> <a class="code" href="a02462.html">DuneBoundaryProjection</a>&lt; dimworld &gt;</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;  {</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keyword">typedef</span> <a class="code" href="a02470.html">BoundarySegmentWrapper&lt; dim, dimworld &gt;</a>  <a class="code" href="a02462.html">ThisType</a>;</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="keyword">typedef</span> <a class="code" href="a02462.html">DuneBoundaryProjection&lt; dimworld &gt;</a>       <a class="code" href="a02462.html">Base</a>;</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="a02462.html#ad60cc6247113babeee6a08075cd54dd5">Base :: ObjectStreamType</a>  <a class="code" href="a02462.html#ad60cc6247113babeee6a08075cd54dd5">ObjectStreamType</a>;</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <span class="keyword">typedef</span> MultiLinearGeometry&lt;<span class="keyword">typename</span> Base::CoordinateType::value_type,dim-1,dimworld&gt; FaceMapping;</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00140"></a><span class="lineno"><a class="line" href="a02470.html#afb62d0ffc1946b3081f79ff56ec93ef5">  140</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="a02462.html#aa5dfff6108e6ac695d972a5e9fe56be9">Base::CoordinateType</a> <a class="code" href="a02470.html#afb62d0ffc1946b3081f79ff56ec93ef5">CoordinateType</a>;</div>
-<div class="line"><a name="l00141"></a><span class="lineno"><a class="line" href="a02470.html#a5a619d6975fa60419d3156009e9fa8a5">  141</a></span>&#160;    <span class="keyword">typedef</span> <a class="code" href="a02478.html">Dune::BoundarySegment&lt; dim, dimworld &gt;</a> <a class="code" href="a02470.html#a5a619d6975fa60419d3156009e9fa8a5">BoundarySegment</a>;</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
-<div class="line"><a name="l00151"></a><span class="lineno"><a class="line" href="a02470.html#a1b858aa8d667c5404ff1c2ba7f7627ed">  151</a></span>&#160;    <a class="code" href="a02470.html#a1b858aa8d667c5404ff1c2ba7f7627ed">BoundarySegmentWrapper</a> ( <span class="keyword">const</span> <a class="code" href="a00948.html#aceb67a16cc6beb52f71ba8a06d6ef44f">GeometryType</a> &amp;type,</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;                             <span class="keyword">const</span> std::vector&lt; CoordinateType &gt; &amp;vertices,</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;                             <span class="keyword">const</span> std::shared_ptr&lt; BoundarySegment &gt; &amp;<a class="code" href="a02470.html#a297be7d48cda7162fc231de8f69c3107">boundarySegment</a> )</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;      : faceMapping_( FaceMapping( type, vertices ) ),</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        boundarySegment_( <a class="code" href="a02470.html#a297be7d48cda7162fc231de8f69c3107">boundarySegment</a> )</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    {}</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; </div>
-<div class="line"><a name="l00158"></a><span class="lineno"><a class="line" href="a02470.html#a538fd545270ab85cafc1d65a9e1cab37">  158</a></span>&#160;    <a class="code" href="a02470.html#a538fd545270ab85cafc1d65a9e1cab37">BoundarySegmentWrapper</a>( <a class="code" href="a02462.html#ad60cc6247113babeee6a08075cd54dd5">ObjectStreamType</a>&amp; buffer )</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;      : faceMapping_( <a class="code" href="a02470.html#aa6792869d84c1363f3756ab072385a10">readFaceMapping</a>( buffer ) ),</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        boundarySegment_( <a class="code" href="a02478.html">BoundarySegment</a>::<a class="code" href="a02482.html#a1d347a431cce7dd13a050453b5f04b63">restore</a>( buffer ).release() )</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    {</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    }</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
-<div class="line"><a name="l00164"></a><span class="lineno"><a class="line" href="a02470.html#a082fec52d698e2a69e2de09713c01201">  164</a></span>&#160;    <a class="code" href="a02462.html#aa5dfff6108e6ac695d972a5e9fe56be9">CoordinateType</a> <a class="code" href="a02470.html#a082fec52d698e2a69e2de09713c01201">operator() </a>( <span class="keyword">const</span> <a class="code" href="a02462.html#aa5dfff6108e6ac695d972a5e9fe56be9">CoordinateType</a> &amp;global )<span class="keyword"> const</span></div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="a02470.html#a297be7d48cda7162fc231de8f69c3107">boundarySegment</a>() ( faceMapping_.local( global ) );</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    }</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160; </div>
-<div class="line"><a name="l00169"></a><span class="lineno"><a class="line" href="a02470.html#a297be7d48cda7162fc231de8f69c3107">  169</a></span>&#160;    <span class="keyword">const</span> <a class="code" href="a02478.html">BoundarySegment</a> &amp;<a class="code" href="a02470.html#a297be7d48cda7162fc231de8f69c3107">boundarySegment</a> ()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;      <span class="keywordflow">return</span> *boundarySegment_;</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    }</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
-<div class="line"><a name="l00174"></a><span class="lineno"><a class="line" href="a02470.html#a098c7b0194b76a0b75cb66b9e22f5d4f">  174</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a02470.html#a098c7b0194b76a0b75cb66b9e22f5d4f">backup</a>( <a class="code" href="a02462.html#ad60cc6247113babeee6a08075cd54dd5">ObjectStreamType</a>&amp; buffer )<span class="keyword"> const</span></div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;      <span class="comment">// write identifier key first</span></div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;      buffer.write( (<span class="keyword">const</span> <span class="keywordtype">char</span> *) &amp;<a class="code" href="a02470.html#aa5962cc12c45bafcb22dcded0d3a5db3">key</a>(), <span class="keyword">sizeof</span>(<span class="keywordtype">int</span>));</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;      <span class="comment">// now all data</span></div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;      <a class="code" href="a00948.html#aceb67a16cc6beb52f71ba8a06d6ef44f">GeometryType</a> type = faceMapping_.type();</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;      buffer.write( (<span class="keyword">const</span> <span class="keywordtype">char</span> *) &amp;type, <span class="keyword">sizeof</span>(<a class="code" href="a00948.html#aceb67a16cc6beb52f71ba8a06d6ef44f">GeometryType</a>) );</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160; </div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;      <span class="keywordtype">int</span> corners = faceMapping_.corners() ;</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;      buffer.write( (<span class="keyword">const</span> <span class="keywordtype">char</span> *) &amp;corners, <span class="keyword">sizeof</span>(<span class="keywordtype">int</span>) );</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; </div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;      <a class="code" href="a02462.html#aa5dfff6108e6ac695d972a5e9fe56be9">CoordinateType</a> corner( 0 );</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;      <span class="keywordflow">for</span>( <span class="keywordtype">int</span> i=0; i&lt;corners; ++i )</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;      {</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        corner = faceMapping_.corner( i );</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        buffer.write( (<span class="keyword">const</span> <span class="keywordtype">char</span> *) &amp;corner[ 0 ], <span class="keyword">sizeof</span>(<span class="keywordtype">double</span>)*CoordinateType::dimension );</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;      }</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160; </div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;      boundarySegment_-&gt;backup( buffer );</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    }</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160; </div>
-<div class="line"><a name="l00195"></a><span class="lineno"><a class="line" href="a02470.html#a6d1241b48fee1f708eeea720a63c681d">  195</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="a02470.html#a6d1241b48fee1f708eeea720a63c681d">registerFactory</a>()</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    {</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;      <span class="keywordflow">if</span>( <a class="code" href="a02470.html#aa5962cc12c45bafcb22dcded0d3a5db3">key</a>() &lt; 0 )</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;      {</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        <a class="code" href="a02470.html#aa5962cc12c45bafcb22dcded0d3a5db3">key</a>() = Base::template registerFactory&lt; ThisType &gt;();</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;      }</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    }</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160; </div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;  <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00204"></a><span class="lineno"><a class="line" href="a02470.html#aa5962cc12c45bafcb22dcded0d3a5db3">  204</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span>&amp; <a class="code" href="a02470.html#aa5962cc12c45bafcb22dcded0d3a5db3">key</a>()</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    {</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;      <span class="keyword">static</span> <span class="keywordtype">int</span> k = -1;</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;      <span class="keywordflow">return</span> k;</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    }</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160; </div>
-<div class="line"><a name="l00210"></a><span class="lineno"><a class="line" href="a02470.html#aa6792869d84c1363f3756ab072385a10">  210</a></span>&#160;    FaceMapping <a class="code" href="a02470.html#aa6792869d84c1363f3756ab072385a10">readFaceMapping</a>( <a class="code" href="a02462.html#ad60cc6247113babeee6a08075cd54dd5">ObjectStreamType</a>&amp; buffer )</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    {</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;      <a class="code" href="a00948.html#aceb67a16cc6beb52f71ba8a06d6ef44f">GeometryType</a> type;</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;      buffer.read( (<span class="keywordtype">char</span> *) &amp;type, <span class="keyword">sizeof</span>(<a class="code" href="a00948.html#aceb67a16cc6beb52f71ba8a06d6ef44f">GeometryType</a>) );</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;      <span class="keywordtype">int</span> corners = 0;</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;      buffer.read( (<span class="keywordtype">char</span> *) &amp;corners, <span class="keyword">sizeof</span>(<span class="keywordtype">int</span>) );</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;      std::vector&lt; CoordinateType &gt; vertices( corners, <a class="code" href="a02470.html#afb62d0ffc1946b3081f79ff56ec93ef5">CoordinateType</a>(0) );</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;      <span class="keywordflow">for</span>( <span class="keywordtype">int</span> i=0; i&lt;corners; ++i )</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;      {</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;        buffer.read( (<span class="keywordtype">char</span> *) &amp;vertices[ i ][ 0 ], <span class="keyword">sizeof</span>(<span class="keywordtype">double</span>)*CoordinateType::dimension );</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;      }</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;      <span class="keywordflow">return</span> FaceMapping( type, vertices );</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    }</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160; </div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    FaceMapping faceMapping_;</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    <span class="keyword">const</span> std::shared_ptr&lt; BoundarySegment &gt; boundarySegment_;</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;  };</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160; </div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160; </div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160; </div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;  <span class="comment">//</span></div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;  <span class="comment">// Example of boundary projection projection to a circle</span></div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;  <span class="comment">//</span></div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;<span class="comment"></span>  <span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dimworld&gt;</div>
-<div class="line"><a name="l00237"></a><span class="lineno"><a class="line" href="a02474.html">  237</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a02474.html">CircleBoundaryProjection</a> : <span class="keyword">public</span> <a class="code" href="a02462.html">DuneBoundaryProjection</a>&lt; dimworld &gt;</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;  {</div>
-<div class="line"><a name="l00240"></a><span class="lineno"><a class="line" href="a02474.html#a02ed116e6857555b5b8282661fc4245b">  240</a></span>&#160;    <span class="keyword">typedef</span> FieldVector&lt; double, dimworld&gt; <a class="code" href="a02474.html#a02ed116e6857555b5b8282661fc4245b">CoordinateType</a>;</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160; </div>
-<div class="line"><a name="l00243"></a><span class="lineno"><a class="line" href="a02474.html#a5e5a2cdaec59f8c8391c368869fbaa96">  243</a></span>&#160;    <a class="code" href="a02474.html#a5e5a2cdaec59f8c8391c368869fbaa96">CircleBoundaryProjection</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> radius = std::sqrt( (<span class="keywordtype">double</span>)dimworld ))</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;      : <a class="code" href="a02474.html#af2b67c7083b3fd279cea685fa67d4c2d">radius_</a>( radius ) {}</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160; </div>
-<div class="line"><a name="l00247"></a><span class="lineno"><a class="line" href="a02474.html#acdc9cd8d5fa14328df4b03747ea3bc7c">  247</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="a02474.html#acdc9cd8d5fa14328df4b03747ea3bc7c">~CircleBoundaryProjection</a>() {}</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160; </div>
-<div class="line"><a name="l00250"></a><span class="lineno"><a class="line" href="a02474.html#a82369296c902d7e92d342ba073935d24">  250</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="a02462.html#aa5dfff6108e6ac695d972a5e9fe56be9">CoordinateType</a> <a class="code" href="a02474.html#a82369296c902d7e92d342ba073935d24">operator() </a>(<span class="keyword">const</span> <a class="code" href="a02462.html#aa5dfff6108e6ac695d972a5e9fe56be9">CoordinateType</a>&amp; global)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;      <a class="code" href="a02462.html#aa5dfff6108e6ac695d972a5e9fe56be9">CoordinateType</a> prj( global );</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;      <span class="comment">// get adjustment factor</span></div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">double</span> factor = <a class="code" href="a02474.html#af2b67c7083b3fd279cea685fa67d4c2d">radius_</a>  / global.two_norm();</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;      <span class="comment">// adjust</span></div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;      prj *= factor;</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;      <span class="keywordflow">return</span> prj;</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    }</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160; </div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;  <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00262"></a><span class="lineno"><a class="line" href="a02474.html#af2b67c7083b3fd279cea685fa67d4c2d">  262</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">double</span> <a class="code" href="a02474.html#af2b67c7083b3fd279cea685fa67d4c2d">radius_</a>;</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;  };</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160; </div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;} <span class="comment">// end namespace</span></div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160; </div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// #ifndef DUNE_BOUNDARYPROJECTION_HH</span></div>
-<div class="ttc" id="aa00215_html"><div class="ttname"><a href="a00215.html">boundarysegment.hh</a></div><div class="ttdoc">Base class for grid boundary segments of arbitrary geometry.</div></div>
-<div class="ttc" id="aa00227_html"><div class="ttname"><a href="a00227.html">datahandleif.hh</a></div><div class="ttdoc">Describes the parallel communication interface class for MessageBuffers and DataHandles.</div></div>
-<div class="ttc" id="aa00758_html"><div class="ttname"><a href="a00758.html">gmshreader.hh</a></div></div>
-<div class="ttc" id="aa00936_html"><div class="ttname"><a href="a00936.html">Dune</a></div><div class="ttdoc">Include standard header files.</div><div class="ttdef"><b>Definition:</b> agrid.hh:59</div></div>
-<div class="ttc" id="aa00948_html_aceb67a16cc6beb52f71ba8a06d6ef44f"><div class="ttname"><a href="a00948.html#aceb67a16cc6beb52f71ba8a06d6ef44f">Dune::VTK::GeometryType</a></div><div class="ttdeci">GeometryType</div><div class="ttdoc">Type representing VTK's entity geometry types.</div><div class="ttdef"><b>Definition:</b> common.hh:180</div></div>
-<div class="ttc" id="aa02462_html"><div class="ttname"><a href="a02462.html">Dune::DuneBoundaryProjection</a></div><div class="ttdoc">Interface class for vertex projection at the boundary.</div><div class="ttdef"><b>Definition:</b> boundaryprojection.hh:31</div></div>
-<div class="ttc" id="aa02462_html_a1240ce037f995c5ed5bbe0458640b044"><div class="ttname"><a href="a02462.html#a1240ce037f995c5ed5bbe0458640b044">Dune::DuneBoundaryProjection::ThisType</a></div><div class="ttdeci">DuneBoundaryProjection&lt; dimworld &gt; ThisType</div><div class="ttdef"><b>Definition:</b> boundaryprojection.hh:32</div></div>
-<div class="ttc" id="aa02462_html_a1a5b899a00ee3f03edbcb54ae6beb5d5"><div class="ttname"><a href="a02462.html#a1a5b899a00ee3f03edbcb54ae6beb5d5">Dune::DuneBoundaryProjection::backup</a></div><div class="ttdeci">virtual void backup(ObjectStreamType &amp;buffer) const</div><div class="ttdoc">write DuneBoundaryProjection's data to stream buffer</div><div class="ttdef"><b>Definition:</b> boundaryprojection.hh:50</div></div>
-<div class="ttc" id="aa02462_html_a4d65a8d868ccde06ae2d921e1d1d0e04"><div class="ttname"><a href="a02462.html#a4d65a8d868ccde06ae2d921e1d1d0e04">Dune::DuneBoundaryProjection::restoreFromBuffer</a></div><div class="ttdeci">static std::unique_ptr&lt; ThisType &gt; restoreFromBuffer(MessageBufferIF&lt; BufferImp &gt; &amp;buffer)</div><div class="ttdef"><b>Definition:</b> boundaryprojection.hh:83</div></div>
-<div class="ttc" id="aa02462_html_a5d9ef189a3460ea062ab96daed520fbe"><div class="ttname"><a href="a02462.html#a5d9ef189a3460ea062ab96daed520fbe">Dune::DuneBoundaryProjection::operator()</a></div><div class="ttdeci">virtual CoordinateType operator()(const CoordinateType &amp;global) const =0</div><div class="ttdoc">projection operator projection a global coordinate</div></div>
-<div class="ttc" id="aa02462_html_a6d9a483589850a809c3b15b566475066"><div class="ttname"><a href="a02462.html#a6d9a483589850a809c3b15b566475066">Dune::DuneBoundaryProjection::toBuffer</a></div><div class="ttdeci">void toBuffer(BufferImp &amp;buffer) const</div><div class="ttdef"><b>Definition:</b> boundaryprojection.hh:56</div></div>
-<div class="ttc" id="aa02462_html_a91bd64f068b15343c9f00a8bd5b42ba6"><div class="ttname"><a href="a02462.html#a91bd64f068b15343c9f00a8bd5b42ba6">Dune::DuneBoundaryProjection::~DuneBoundaryProjection</a></div><div class="ttdeci">virtual ~DuneBoundaryProjection()</div><div class="ttdoc">destructor</div><div class="ttdef"><b>Definition:</b> boundaryprojection.hh:42</div></div>
-<div class="ttc" id="aa02462_html_a9ec397bb9f5aa4ef51fbd2a45fbb9a3f"><div class="ttname"><a href="a02462.html#a9ec397bb9f5aa4ef51fbd2a45fbb9a3f">Dune::DuneBoundaryProjection::restoreFromBuffer</a></div><div class="ttdeci">static std::unique_ptr&lt; ThisType &gt; restoreFromBuffer(BufferImp &amp;buffer)</div><div class="ttdef"><b>Definition:</b> boundaryprojection.hh:76</div></div>
-<div class="ttc" id="aa02462_html_aa5dfff6108e6ac695d972a5e9fe56be9"><div class="ttname"><a href="a02462.html#aa5dfff6108e6ac695d972a5e9fe56be9">Dune::DuneBoundaryProjection::CoordinateType</a></div><div class="ttdeci">FieldVector&lt; double, dimworld &gt; CoordinateType</div><div class="ttdoc">type of coordinate vector</div><div class="ttdef"><b>Definition:</b> boundaryprojection.hh:40</div></div>
-<div class="ttc" id="aa02462_html_aad2bfc023b531dd03481aa9ae7db922f"><div class="ttname"><a href="a02462.html#aad2bfc023b531dd03481aa9ae7db922f">Dune::DuneBoundaryProjection::toBuffer</a></div><div class="ttdeci">void toBuffer(MessageBufferIF&lt; BufferImp &gt; &amp;buffer) const</div><div class="ttdef"><b>Definition:</b> boundaryprojection.hh:63</div></div>
-<div class="ttc" id="aa02462_html_acaef9ce982a7554333139a3b3d592027"><div class="ttname"><a href="a02462.html#acaef9ce982a7554333139a3b3d592027">Dune::DuneBoundaryProjection::BaseType</a></div><div class="ttdeci">BoundarySegmentBackupRestore&lt; DuneBoundaryProjection&lt; dimworld &gt; &gt; BaseType</div><div class="ttdef"><b>Definition:</b> boundaryprojection.hh:33</div></div>
-<div class="ttc" id="aa02462_html_ad60cc6247113babeee6a08075cd54dd5"><div class="ttname"><a href="a02462.html#ad60cc6247113babeee6a08075cd54dd5">Dune::DuneBoundaryProjection::ObjectStreamType</a></div><div class="ttdeci">BaseType ::ObjectStreamType ObjectStreamType</div><div class="ttdef"><b>Definition:</b> boundaryprojection.hh:34</div></div>
-<div class="ttc" id="aa02466_html"><div class="ttname"><a href="a02466.html">Dune::BoundaryProjectionWrapper</a></div><div class="ttdef"><b>Definition:</b> boundaryprojection.hh:101</div></div>
-<div class="ttc" id="aa02466_html_a1f3c1c8dd1dd80a2fe085d2af5ee072e"><div class="ttname"><a href="a02466.html#a1f3c1c8dd1dd80a2fe085d2af5ee072e">Dune::BoundaryProjectionWrapper::BoundaryProjectionWrapper</a></div><div class="ttdeci">BoundaryProjectionWrapper(const BaseType &amp;proje)</div><div class="ttdef"><b>Definition:</b> boundaryprojection.hh:110</div></div>
-<div class="ttc" id="aa02466_html_a21da0cf3cfff392a0f47feb59e8362d0"><div class="ttname"><a href="a02466.html#a21da0cf3cfff392a0f47feb59e8362d0">Dune::BoundaryProjectionWrapper::proj_</a></div><div class="ttdeci">const BaseType &amp; proj_</div><div class="ttdef"><b>Definition:</b> boundaryprojection.hh:104</div></div>
-<div class="ttc" id="aa02466_html_a595c7eea4cb5f090bef1a77b39d89cfa"><div class="ttname"><a href="a02466.html#a595c7eea4cb5f090bef1a77b39d89cfa">Dune::BoundaryProjectionWrapper::BaseType</a></div><div class="ttdeci">DuneBoundaryProjection&lt; dimworld &gt; BaseType</div><div class="ttdef"><b>Definition:</b> boundaryprojection.hh:103</div></div>
-<div class="ttc" id="aa02466_html_a8e42947b0ba2b2501cc988c58fb5e4b8"><div class="ttname"><a href="a02466.html#a8e42947b0ba2b2501cc988c58fb5e4b8">Dune::BoundaryProjectionWrapper::operator()</a></div><div class="ttdeci">CoordinateType operator()(const CoordinateType &amp;global) const</div><div class="ttdoc">projection operator projection a global coordinate</div><div class="ttdef"><b>Definition:</b> boundaryprojection.hh:118</div></div>
-<div class="ttc" id="aa02466_html_acef377f66bf06df20eb1b7aaf2407876"><div class="ttname"><a href="a02466.html#acef377f66bf06df20eb1b7aaf2407876">Dune::BoundaryProjectionWrapper::CoordinateType</a></div><div class="ttdeci">BaseType ::CoordinateType CoordinateType</div><div class="ttdoc">type of coordinate vector</div><div class="ttdef"><b>Definition:</b> boundaryprojection.hh:107</div></div>
-<div class="ttc" id="aa02466_html_ad9f03bc12230ef62c9dfee5471380084"><div class="ttname"><a href="a02466.html#ad9f03bc12230ef62c9dfee5471380084">Dune::BoundaryProjectionWrapper::~BoundaryProjectionWrapper</a></div><div class="ttdeci">~BoundaryProjectionWrapper()</div><div class="ttdoc">destructor</div><div class="ttdef"><b>Definition:</b> boundaryprojection.hh:115</div></div>
-<div class="ttc" id="aa02470_html"><div class="ttname"><a href="a02470.html">Dune::BoundarySegmentWrapper</a></div><div class="ttdef"><b>Definition:</b> boundaryprojection.hh:131</div></div>
-<div class="ttc" id="aa02470_html_a082fec52d698e2a69e2de09713c01201"><div class="ttname"><a href="a02470.html#a082fec52d698e2a69e2de09713c01201">Dune::BoundarySegmentWrapper::operator()</a></div><div class="ttdeci">CoordinateType operator()(const CoordinateType &amp;global) const</div><div class="ttdoc">projection operator projection a global coordinate</div><div class="ttdef"><b>Definition:</b> boundaryprojection.hh:164</div></div>
-<div class="ttc" id="aa02470_html_a098c7b0194b76a0b75cb66b9e22f5d4f"><div class="ttname"><a href="a02470.html#a098c7b0194b76a0b75cb66b9e22f5d4f">Dune::BoundarySegmentWrapper::backup</a></div><div class="ttdeci">void backup(ObjectStreamType &amp;buffer) const</div><div class="ttdoc">write DuneBoundaryProjection's data to stream buffer</div><div class="ttdef"><b>Definition:</b> boundaryprojection.hh:174</div></div>
-<div class="ttc" id="aa02470_html_a1b858aa8d667c5404ff1c2ba7f7627ed"><div class="ttname"><a href="a02470.html#a1b858aa8d667c5404ff1c2ba7f7627ed">Dune::BoundarySegmentWrapper::BoundarySegmentWrapper</a></div><div class="ttdeci">BoundarySegmentWrapper(const GeometryType &amp;type, const std::vector&lt; CoordinateType &gt; &amp;vertices, const std::shared_ptr&lt; BoundarySegment &gt; &amp;boundarySegment)</div><div class="ttdef"><b>Definition:</b> boundaryprojection.hh:151</div></div>
-<div class="ttc" id="aa02470_html_a297be7d48cda7162fc231de8f69c3107"><div class="ttname"><a href="a02470.html#a297be7d48cda7162fc231de8f69c3107">Dune::BoundarySegmentWrapper::boundarySegment</a></div><div class="ttdeci">const BoundarySegment &amp; boundarySegment() const</div><div class="ttdef"><b>Definition:</b> boundaryprojection.hh:169</div></div>
-<div class="ttc" id="aa02470_html_a538fd545270ab85cafc1d65a9e1cab37"><div class="ttname"><a href="a02470.html#a538fd545270ab85cafc1d65a9e1cab37">Dune::BoundarySegmentWrapper::BoundarySegmentWrapper</a></div><div class="ttdeci">BoundarySegmentWrapper(ObjectStreamType &amp;buffer)</div><div class="ttdef"><b>Definition:</b> boundaryprojection.hh:158</div></div>
-<div class="ttc" id="aa02470_html_a5a619d6975fa60419d3156009e9fa8a5"><div class="ttname"><a href="a02470.html#a5a619d6975fa60419d3156009e9fa8a5">Dune::BoundarySegmentWrapper::BoundarySegment</a></div><div class="ttdeci">Dune::BoundarySegment&lt; dim, dimworld &gt; BoundarySegment</div><div class="ttdef"><b>Definition:</b> boundaryprojection.hh:141</div></div>
-<div class="ttc" id="aa02470_html_a6d1241b48fee1f708eeea720a63c681d"><div class="ttname"><a href="a02470.html#a6d1241b48fee1f708eeea720a63c681d">Dune::BoundarySegmentWrapper::registerFactory</a></div><div class="ttdeci">static void registerFactory()</div><div class="ttdef"><b>Definition:</b> boundaryprojection.hh:195</div></div>
-<div class="ttc" id="aa02470_html_aa5962cc12c45bafcb22dcded0d3a5db3"><div class="ttname"><a href="a02470.html#aa5962cc12c45bafcb22dcded0d3a5db3">Dune::BoundarySegmentWrapper::key</a></div><div class="ttdeci">static int &amp; key()</div><div class="ttdef"><b>Definition:</b> boundaryprojection.hh:204</div></div>
-<div class="ttc" id="aa02470_html_aa6792869d84c1363f3756ab072385a10"><div class="ttname"><a href="a02470.html#aa6792869d84c1363f3756ab072385a10">Dune::BoundarySegmentWrapper::readFaceMapping</a></div><div class="ttdeci">FaceMapping readFaceMapping(ObjectStreamType &amp;buffer)</div><div class="ttdef"><b>Definition:</b> boundaryprojection.hh:210</div></div>
-<div class="ttc" id="aa02470_html_afb62d0ffc1946b3081f79ff56ec93ef5"><div class="ttname"><a href="a02470.html#afb62d0ffc1946b3081f79ff56ec93ef5">Dune::BoundarySegmentWrapper::CoordinateType</a></div><div class="ttdeci">Base::CoordinateType CoordinateType</div><div class="ttdef"><b>Definition:</b> boundaryprojection.hh:140</div></div>
-<div class="ttc" id="aa02474_html"><div class="ttname"><a href="a02474.html">Dune::CircleBoundaryProjection</a></div><div class="ttdef"><b>Definition:</b> boundaryprojection.hh:238</div></div>
-<div class="ttc" id="aa02474_html_a02ed116e6857555b5b8282661fc4245b"><div class="ttname"><a href="a02474.html#a02ed116e6857555b5b8282661fc4245b">Dune::CircleBoundaryProjection::CoordinateType</a></div><div class="ttdeci">FieldVector&lt; double, dimworld &gt; CoordinateType</div><div class="ttdoc">type of coordinate vector</div><div class="ttdef"><b>Definition:</b> boundaryprojection.hh:240</div></div>
-<div class="ttc" id="aa02474_html_a5e5a2cdaec59f8c8391c368869fbaa96"><div class="ttname"><a href="a02474.html#a5e5a2cdaec59f8c8391c368869fbaa96">Dune::CircleBoundaryProjection::CircleBoundaryProjection</a></div><div class="ttdeci">CircleBoundaryProjection(const double radius=std::sqrt((double) dimworld))</div><div class="ttdoc">constructor taking radius of circle (default = sqrt( dimworld ) )</div><div class="ttdef"><b>Definition:</b> boundaryprojection.hh:243</div></div>
-<div class="ttc" id="aa02474_html_a82369296c902d7e92d342ba073935d24"><div class="ttname"><a href="a02474.html#a82369296c902d7e92d342ba073935d24">Dune::CircleBoundaryProjection::operator()</a></div><div class="ttdeci">virtual CoordinateType operator()(const CoordinateType &amp;global) const</div><div class="ttdoc">projection operator projection a global coordinate</div><div class="ttdef"><b>Definition:</b> boundaryprojection.hh:250</div></div>
-<div class="ttc" id="aa02474_html_acdc9cd8d5fa14328df4b03747ea3bc7c"><div class="ttname"><a href="a02474.html#acdc9cd8d5fa14328df4b03747ea3bc7c">Dune::CircleBoundaryProjection::~CircleBoundaryProjection</a></div><div class="ttdeci">virtual ~CircleBoundaryProjection()</div><div class="ttdoc">destructor</div><div class="ttdef"><b>Definition:</b> boundaryprojection.hh:247</div></div>
-<div class="ttc" id="aa02474_html_af2b67c7083b3fd279cea685fa67d4c2d"><div class="ttname"><a href="a02474.html#af2b67c7083b3fd279cea685fa67d4c2d">Dune::CircleBoundaryProjection::radius_</a></div><div class="ttdeci">const double radius_</div><div class="ttdoc">radius of circ</div><div class="ttdef"><b>Definition:</b> boundaryprojection.hh:262</div></div>
-<div class="ttc" id="aa02478_html"><div class="ttname"><a href="a02478.html">Dune::BoundarySegment</a></div><div class="ttdoc">Base class for classes implementing geometries of boundary segments.</div><div class="ttdef"><b>Definition:</b> boundarysegment.hh:92</div></div>
-<div class="ttc" id="aa02482_html"><div class="ttname"><a href="a02482.html">Dune::BoundarySegmentBackupRestore</a></div><div class="ttdef"><b>Definition:</b> boundarysegment.hh:39</div></div>
-<div class="ttc" id="aa02482_html_a1d347a431cce7dd13a050453b5f04b63"><div class="ttname"><a href="a02482.html#a1d347a431cce7dd13a050453b5f04b63">Dune::BoundarySegmentBackupRestore&lt; DuneBoundaryProjection&lt; dimworld &gt; &gt;::restore</a></div><div class="ttdeci">static std::unique_ptr&lt; BoundarySegment &gt; restore(ObjectStreamType &amp;in)</div><div class="ttdoc">create an object of BoundarySegment type from a previously registered factory linked to key.</div><div class="ttdef"><b>Definition:</b> boundarysegment.hh:57</div></div>
-<div class="ttc" id="aa02482_html_a5f1caab3482efa6040f65abf6df4983c"><div class="ttname"><a href="a02482.html#a5f1caab3482efa6040f65abf6df4983c">Dune::BoundarySegmentBackupRestore&lt; DuneBoundaryProjection&lt; dimworld &gt; &gt;::ObjectStreamType</a></div><div class="ttdeci">std::stringstream ObjectStreamType</div><div class="ttdef"><b>Definition:</b> boundarysegment.hh:42</div></div>
-<div class="ttc" id="aa02482_html_acd33be44661200bd7a32cf39801c8a43"><div class="ttname"><a href="a02482.html#acd33be44661200bd7a32cf39801c8a43">Dune::BoundarySegmentBackupRestore&lt; DuneBoundaryProjection&lt; dimworld &gt; &gt;::registerFactory</a></div><div class="ttdeci">static int registerFactory()</div><div class="ttdef"><b>Definition:</b> boundarysegment.hh:68</div></div>
-<div class="ttc" id="aa02570_html"><div class="ttname"><a href="a02570.html">Dune::MessageBufferIF</a></div><div class="ttdoc">Communication message buffer interface. This class describes the interface for reading and writing da...</div><div class="ttdef"><b>Definition:</b> datahandleif.hh:31</div></div>
-<div class="ttc" id="aa02570_html_ab007f6d86a97356527b42a379b600079"><div class="ttname"><a href="a02570.html#ab007f6d86a97356527b42a379b600079">Dune::MessageBufferIF::write</a></div><div class="ttdeci">void write(const T &amp;val)</div><div class="ttdoc">just wraps the call of the internal buffer method write which writes the data of type T from the buff...</div><div class="ttdef"><b>Definition:</b> datahandleif.hh:43</div></div>
-<div class="ttc" id="aa02570_html_aec928187168ac22813a0af3343d5f0c0"><div class="ttname"><a href="a02570.html#aec928187168ac22813a0af3343d5f0c0">Dune::MessageBufferIF::read</a></div><div class="ttdeci">void read(T &amp;val)</div><div class="ttdoc">just wraps the call of the internal buffer method read which reads the data of type T from the buffer...</div><div class="ttdef"><b>Definition:</b> datahandleif.hh:57</div></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;      <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> cc = <a class="code" href="a02642.html#aaa6c6e1d981fce9dbe550666f7a97800a0ce22137a3853646973cf5cd16c87868">Entity::codimension</a>;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;      std::size_t level = e.<a class="code" href="a02642.html#aa5f17df3f43df86bb7170277cd891ed3">level</a>();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;      <span class="keywordflow">return</span> _grid.indexsets[level]-&gt;template subIndex&lt;cc&gt;(e,i,codim) + _offsets[level];</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    }</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="a04174.html#a2806f89ae5b327c6f68a1a105ad06439">   65</a></span>&#160;    std::size_t <a class="code" href="a04174.html#a2806f89ae5b327c6f68a1a105ad06439">size</a> (<span class="keywordtype">int</span> <span class="comment">/* codim */</span>)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;      <span class="keywordflow">if</span> (_grid.indexsets.<a class="code" href="a02710.html#a14bffeb2e87c19ae6dcc461891f7da20">size</a>()+1 != _offsets.size())</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        recomputeOffsets();</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;      <span class="keywordflow">return</span> _offsets.back();</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    }</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">void</span> recomputeOffsets()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;      _offsets.resize(_grid.indexsets.<a class="code" href="a02710.html#a14bffeb2e87c19ae6dcc461891f7da20">size</a>()+1,0);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;      _offsets[0] = 0;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;      <span class="keywordflow">for</span> (std::size_t i=0; i&lt;_grid.indexsets.<a class="code" href="a02710.html#a14bffeb2e87c19ae6dcc461891f7da20">size</a>(); i++)</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        _offsets[i+1] = _offsets[i] + _grid.indexsets[i]-&gt;<a class="code" href="a02710.html#a14bffeb2e87c19ae6dcc461891f7da20">size</a>(_codim);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    }</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keyword">const</span> Grid&amp; _grid;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordtype">int</span> _codim;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keyword">mutable</span> std::vector&lt;std::size_t&gt; _offsets;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  };</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> dim, <span class="keyword">class</span> CoordCont, <span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="a04310.html">   93</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a04086.html">PersistentContainer</a>&lt; <a class="code" href="a04134.html">YaspGrid</a>&lt;dim, CoordCont&gt;, T &gt;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  <span class="comment">/* We have to pass the reference to the IndexSet to the constructor</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="comment">     of the PersistentContainerVector.  In order to have a valid</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="comment">     indexset available, we inherit from a private indexset</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="comment">   */</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    : <span class="keyword">private</span> <a class="code" href="a04174.html">YaspPersistentContainerIndex</a>&lt; const YaspGrid&lt;dim, CoordCont&gt; &gt;,</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;      <span class="keyword">public</span> <a class="code" href="a04106.html">PersistentContainerVector</a>&lt; YaspGrid&lt;dim, CoordCont&gt;,</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                                        YaspPersistentContainerIndex&lt; const YaspGrid&lt;dim, CoordCont&gt; &gt;,</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                                        std::vector&lt;T&gt; &gt;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  {</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keyword">typedef</span> <a class="code" href="a04174.html">YaspPersistentContainerIndex&lt; const YaspGrid&lt;dim, CoordCont&gt;</a> &gt; <a class="code" href="a04174.html">IndexSet</a>;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keyword">typedef</span> <a class="code" href="a04106.html">PersistentContainerVector&lt; YaspGrid&lt;dim, CoordCont&gt;</a>, <a class="code" href="a04174.html">IndexSet</a>, std::vector&lt;T&gt; &gt; <a class="code" href="a04106.html">Base</a>;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="a04310.html#a1df41288e0ed0eae6aa0bde49f5ef4fe">  107</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="a04106.html#a2d3c3f900bd1621cbd5b9e9b696016d0">Base::Grid</a> <a class="code" href="a04310.html#a1df41288e0ed0eae6aa0bde49f5ef4fe">Grid</a>;</div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="a04310.html#a3e651f70900b29b658f175ade4713fed">  108</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="a04106.html#a15354e12c04f170d270ee6b53f3cfd59">Base::Value</a> <a class="code" href="a04310.html#a3e651f70900b29b658f175ade4713fed">Value</a>;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keyword">using</span> <a class="code" href="a04098.html#ae0242509604b29711bad1a2747f05ead">Base::size</a>;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="a04310.html#ad73c43d04c3fcbf742834697cdc6eef8">  112</a></span>&#160;    <a class="code" href="a04310.html#ad73c43d04c3fcbf742834697cdc6eef8">PersistentContainer</a> ( <span class="keyword">const</span> <a class="code" href="a04310.html#a1df41288e0ed0eae6aa0bde49f5ef4fe">Grid</a> &amp;<a class="code" href="a04098.html#af1e915ee313dfae32af8b8aefc17b706">grid</a>, <span class="keywordtype">int</span> codim, <span class="keyword">const</span> <a class="code" href="a04310.html#a3e651f70900b29b658f175ade4713fed">Value</a> &amp;value = <a class="code" href="a04086.html#a69b5bc93ba825d1a3edacde3a805bb2d">Value</a>() )</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;      : <a class="code" href="a04174.html">IndexSet</a>(<a class="code" href="a04098.html#af1e915ee313dfae32af8b8aefc17b706">grid</a>, codim),</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <a class="code" href="a04106.html">Base</a>(*this, codim, value)</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    {}</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  };</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;} <span class="comment">// end namespace Dune</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// end DUNE_GRID_YASPGRIDPERSISTENTCONTAINER_HH</span></div>
+<div class="ttc" id="aa00887_html"><div class="ttname"><a href="a00887.html">persistentcontainervector.hh</a></div></div>
+<div class="ttc" id="aa00940_html"><div class="ttname"><a href="a00940.html">Dune</a></div><div class="ttdoc">Include standard header files.</div><div class="ttdef"><b>Definition:</b> agrid.hh:58</div></div>
+<div class="ttc" id="aa02642_html"><div class="ttname"><a href="a02642.html">Dune::Entity</a></div><div class="ttdoc">Wrapper class for entities.</div><div class="ttdef"><b>Definition:</b> common/entity.hh:64</div></div>
+<div class="ttc" id="aa02642_html_aa5f17df3f43df86bb7170277cd891ed3"><div class="ttname"><a href="a02642.html#aa5f17df3f43df86bb7170277cd891ed3">Dune::Entity::level</a></div><div class="ttdeci">int level() const</div><div class="ttdoc">The level of this entity.</div><div class="ttdef"><b>Definition:</b> common/entity.hh:126</div></div>
+<div class="ttc" id="aa02642_html_aaa6c6e1d981fce9dbe550666f7a97800a0ce22137a3853646973cf5cd16c87868"><div class="ttname"><a href="a02642.html#aaa6c6e1d981fce9dbe550666f7a97800a0ce22137a3853646973cf5cd16c87868">Dune::Entity::codimension</a></div><div class="ttdeci">@ codimension</div><div class="ttdoc">Know your own codimension.</div><div class="ttdef"><b>Definition:</b> common/entity.hh:105</div></div>
+<div class="ttc" id="aa02710_html"><div class="ttname"><a href="a02710.html">Dune::Grid</a></div><div class="ttdoc">Grid abstract base class.</div><div class="ttdef"><b>Definition:</b> common/grid.hh:372</div></div>
+<div class="ttc" id="aa02710_html_a14bffeb2e87c19ae6dcc461891f7da20"><div class="ttname"><a href="a02710.html#a14bffeb2e87c19ae6dcc461891f7da20">Dune::Grid::size</a></div><div class="ttdeci">int size(int level, int codim) const</div><div class="ttdoc">Return number of grid entities of a given codim on a given level in this process.</div><div class="ttdef"><b>Definition:</b> common/grid.hh:541</div></div>
+<div class="ttc" id="aa04086_html"><div class="ttname"><a href="a04086.html">Dune::PersistentContainer</a></div><div class="ttdoc">A class for storing data during an adaptation cycle.</div><div class="ttdef"><b>Definition:</b> utility/persistentcontainer.hh:20</div></div>
+<div class="ttc" id="aa04086_html_a69b5bc93ba825d1a3edacde3a805bb2d"><div class="ttname"><a href="a04086.html#a69b5bc93ba825d1a3edacde3a805bb2d">Dune::PersistentContainer::Value</a></div><div class="ttdeci">Base::Value Value</div><div class="ttdef"><b>Definition:</b> utility/persistentcontainer.hh:25</div></div>
+<div class="ttc" id="aa04098_html_ae0242509604b29711bad1a2747f05ead"><div class="ttname"><a href="a04098.html#ae0242509604b29711bad1a2747f05ead">Dune::PersistentContainerMap::size</a></div><div class="ttdeci">Size size() const</div><div class="ttdef"><b>Definition:</b> persistentcontainermap.hh:83</div></div>
+<div class="ttc" id="aa04098_html_af1e915ee313dfae32af8b8aefc17b706"><div class="ttname"><a href="a04098.html#af1e915ee313dfae32af8b8aefc17b706">Dune::PersistentContainerMap&lt; G, G::LocalIdSet, std::map&lt; G::LocalIdSet::IdType, T &gt; &gt;::grid</a></div><div class="ttdeci">const Grid &amp; grid() const</div><div class="ttdef"><b>Definition:</b> persistentcontainermap.hh:112</div></div>
+<div class="ttc" id="aa04106_html"><div class="ttname"><a href="a04106.html">Dune::PersistentContainerVector</a></div><div class="ttdoc">vector-based implementation of the PersistentContainer</div><div class="ttdef"><b>Definition:</b> persistentcontainervector.hh:49</div></div>
+<div class="ttc" id="aa04106_html_a15354e12c04f170d270ee6b53f3cfd59"><div class="ttname"><a href="a04106.html#a15354e12c04f170d270ee6b53f3cfd59">Dune::PersistentContainerVector::Value</a></div><div class="ttdeci">Vector::value_type Value</div><div class="ttdef"><b>Definition:</b> persistentcontainervector.hh:55</div></div>
+<div class="ttc" id="aa04106_html_a2d3c3f900bd1621cbd5b9e9b696016d0"><div class="ttname"><a href="a04106.html#a2d3c3f900bd1621cbd5b9e9b696016d0">Dune::PersistentContainerVector::Grid</a></div><div class="ttdeci">G Grid</div><div class="ttdef"><b>Definition:</b> persistentcontainervector.hh:53</div></div>
+<div class="ttc" id="aa04134_html"><div class="ttname"><a href="a04134.html">Dune::YaspGrid</a></div><div class="ttdoc">[ provides Dune::Grid ]</div><div class="ttdef"><b>Definition:</b> yaspgrid.hh:160</div></div>
+<div class="ttc" id="aa04174_html"><div class="ttname"><a href="a04174.html">Dune::YaspPersistentContainerIndex</a></div><div class="ttdef"><b>Definition:</b> yaspgridpersistentcontainer.hh:33</div></div>
+<div class="ttc" id="aa04174_html_a18d3412b83bbc65807cb8161da90ac8a"><div class="ttname"><a href="a04174.html#a18d3412b83bbc65807cb8161da90ac8a">Dune::YaspPersistentContainerIndex::index</a></div><div class="ttdeci">IndexType index(const Entity &amp;e) const</div><div class="ttdoc">Map entity to index. The result of calling this method with an entity that is not in the index set is...</div><div class="ttdef"><b>Definition:</b> yaspgridpersistentcontainer.hh:47</div></div>
+<div class="ttc" id="aa04174_html_a2806f89ae5b327c6f68a1a105ad06439"><div class="ttname"><a href="a04174.html#a2806f89ae5b327c6f68a1a105ad06439">Dune::YaspPersistentContainerIndex::size</a></div><div class="ttdeci">std::size_t size(int) const</div><div class="ttdoc">Return total number of entities of given geometry type in entity set .</div><div class="ttdef"><b>Definition:</b> yaspgridpersistentcontainer.hh:65</div></div>
+<div class="ttc" id="aa04174_html_a317263e82e143db8e6e18f2015e6c0d8"><div class="ttname"><a href="a04174.html#a317263e82e143db8e6e18f2015e6c0d8">Dune::YaspPersistentContainerIndex::subIndex</a></div><div class="ttdeci">IndexType subIndex(const Entity &amp;e, int i, unsigned int codim) const</div><div class="ttdoc">Map a subentity to an index.</div><div class="ttdef"><b>Definition:</b> yaspgridpersistentcontainer.hh:56</div></div>
+<div class="ttc" id="aa04174_html_a3ccf162629ed3ba1ac86dcd3c47cbabc"><div class="ttname"><a href="a04174.html#a3ccf162629ed3ba1ac86dcd3c47cbabc">Dune::YaspPersistentContainerIndex::YaspPersistentContainerIndex</a></div><div class="ttdeci">YaspPersistentContainerIndex(const Grid &amp;grid, int codim)</div><div class="ttdef"><b>Definition:</b> yaspgridpersistentcontainer.hh:36</div></div>
+<div class="ttc" id="aa04174_html_acc97799d77743808c24b4cb17e1949f4"><div class="ttname"><a href="a04174.html#acc97799d77743808c24b4cb17e1949f4">Dune::YaspPersistentContainerIndex::IndexType</a></div><div class="ttdeci">std::size_t IndexType</div><div class="ttdoc">The type used for the indices.</div><div class="ttdef"><b>Definition:</b> yaspgridpersistentcontainer.hh:43</div></div>
+<div class="ttc" id="aa04310_html_a1df41288e0ed0eae6aa0bde49f5ef4fe"><div class="ttname"><a href="a04310.html#a1df41288e0ed0eae6aa0bde49f5ef4fe">Dune::PersistentContainer&lt; YaspGrid&lt; dim, CoordCont &gt;, T &gt;::Grid</a></div><div class="ttdeci">Base::Grid Grid</div><div class="ttdef"><b>Definition:</b> yaspgridpersistentcontainer.hh:107</div></div>
+<div class="ttc" id="aa04310_html_a3e651f70900b29b658f175ade4713fed"><div class="ttname"><a href="a04310.html#a3e651f70900b29b658f175ade4713fed">Dune::PersistentContainer&lt; YaspGrid&lt; dim, CoordCont &gt;, T &gt;::Value</a></div><div class="ttdeci">Base::Value Value</div><div class="ttdef"><b>Definition:</b> yaspgridpersistentcontainer.hh:108</div></div>
+<div class="ttc" id="aa04310_html_ad73c43d04c3fcbf742834697cdc6eef8"><div class="ttname"><a href="a04310.html#ad73c43d04c3fcbf742834697cdc6eef8">Dune::PersistentContainer&lt; YaspGrid&lt; dim, CoordCont &gt;, T &gt;::PersistentContainer</a></div><div class="ttdeci">PersistentContainer(const Grid &amp;grid, int codim, const Value &amp;value=Value())</div><div class="ttdef"><b>Definition:</b> yaspgridpersistentcontainer.hh:112</div></div>
+<div class="ttc" id="aa06777_html"><div class="ttname"><a href="a06777.html">persistentcontainer.hh</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

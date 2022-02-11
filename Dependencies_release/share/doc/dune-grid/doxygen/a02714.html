@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: Dune::GridDefaultImplementation&lt; dim, dimworld, ct, GridFamily &gt;::ReturnImplementationType&lt; const T &gt; Class Template Reference</title>
+<title>dune-grid: Dune::Grid&lt; dim, dimworld, ct, GridFamily &gt;::Codim&lt; cd &gt; Struct Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,55 +62,186 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00936.html">Dune</a></li><li class="navelem"><a class="el" href="a02666.html">GridDefaultImplementation</a></li><li class="navelem"><a class="el" href="a02714.html">ReturnImplementationType&lt; const T &gt;</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00940.html">Dune</a></li><li class="navelem"><a class="el" href="a02710.html">Grid</a></li><li class="navelem"><a class="el" href="a02714.html">Codim</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-types">Public Types</a> &#124;
 <a href="a02711.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::GridDefaultImplementation&lt; dim, dimworld, ct, GridFamily &gt;::ReturnImplementationType&lt; const T &gt; Class Template Reference</div>  </div>
+<div class="title">Dune::Grid&lt; dim, dimworld, ct, GridFamily &gt;::Codim&lt; cd &gt; Struct Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="a06797_source.html">dune/grid/common/grid.hh</a>&gt;</code></p>
-<div class="dynheader">
-Inheritance diagram for Dune::GridDefaultImplementation&lt; dim, dimworld, ct, GridFamily &gt;::ReturnImplementationType&lt; const T &gt;:</div>
-<div class="dyncontent">
-<div class="center"><img src="a02713.png" border="0" usemap="#a_dune_1_1_grid_default_implementation_3_01dim_00_01dimworld_00_01ct_00_01_grid_family_01_4_1_1_return_implementation_type_3_01const_01_t_01_4_inherit__map" alt="Inheritance graph"/></div>
-<map name="a_dune_1_1_grid_default_implementation_3_01dim_00_01dimworld_00_01ct_00_01_grid_family_01_4_1_1_return_implementation_type_3_01const_01_t_01_4_inherit__map" id="a_dune_1_1_grid_default_implementation_3_01dim_00_01dimworld_00_01ct_00_01_grid_family_01_4_1_1_return_implementation_type_3_01const_01_t_01_4_inherit__map">
-<area shape="rect" title=" " alt="" coords="5,80,217,151"/>
-<area shape="rect" title=" " alt="" coords="92,5,131,32"/>
-</map>
-</div>
+<p>A Traits struct that collects all associated types of one implementation.  
+ <a href="a02714.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="a06702_source.html">dune/grid/common/grid.hh</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02718.html">Partition</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A struct collecting all types depending on the partition iterator type.  <a href="a02718.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a587769dfbb3723f9bcdeb941ddb142f4"><td class="memItemLeft" align="right" valign="top">typedef const T::Implementation&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02714.html#a587769dfbb3723f9bcdeb941ddb142f4">ImplementationType</a></td></tr>
-<tr class="separator:a587769dfbb3723f9bcdeb941ddb142f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c17d34312a333e90a59667aa5a946d3"><td class="memItemLeft" align="right" valign="top">typedef GridFamily::Traits::template <a class="el" href="a02714.html">Codim</a>&lt; cd &gt;::<a class="el" href="a02714.html#a2c17d34312a333e90a59667aa5a946d3">Geometry</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02714.html#a2c17d34312a333e90a59667aa5a946d3">Geometry</a></td></tr>
+<tr class="memdesc:a2c17d34312a333e90a59667aa5a946d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">A type that is a model of <a class="el" href="a02682.html" title="Wrapper class for geometries.">Dune::Geometry</a>&lt;dim-cd,dimworld&gt;.  <a href="a02714.html#a2c17d34312a333e90a59667aa5a946d3">More...</a><br /></td></tr>
+<tr class="separator:a2c17d34312a333e90a59667aa5a946d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0141e1edba39c66d7d94de53c978440c"><td class="memItemLeft" align="right" valign="top">typedef GridFamily::Traits::template <a class="el" href="a02714.html">Codim</a>&lt; cd &gt;::<a class="el" href="a02714.html#a0141e1edba39c66d7d94de53c978440c">LocalGeometry</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02714.html#a0141e1edba39c66d7d94de53c978440c">LocalGeometry</a></td></tr>
+<tr class="memdesc:a0141e1edba39c66d7d94de53c978440c"><td class="mdescLeft">&#160;</td><td class="mdescRight">A type that is a model of <a class="el" href="a02682.html" title="Wrapper class for geometries.">Dune::Geometry</a>&lt;dim-cd,dim&gt;.  <a href="a02714.html#a0141e1edba39c66d7d94de53c978440c">More...</a><br /></td></tr>
+<tr class="separator:a0141e1edba39c66d7d94de53c978440c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a010395efed236aefd4d2fab3b0ad8e96"><td class="memItemLeft" align="right" valign="top">typedef GridFamily::Traits::template <a class="el" href="a02714.html">Codim</a>&lt; cd &gt;::<a class="el" href="a02714.html#a010395efed236aefd4d2fab3b0ad8e96">Entity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02714.html#a010395efed236aefd4d2fab3b0ad8e96">Entity</a></td></tr>
+<tr class="memdesc:a010395efed236aefd4d2fab3b0ad8e96"><td class="mdescLeft">&#160;</td><td class="mdescRight">A type that is a model of a Dune::Entity&lt;cd,dim,...&gt;.  <a href="a02714.html#a010395efed236aefd4d2fab3b0ad8e96">More...</a><br /></td></tr>
+<tr class="separator:a010395efed236aefd4d2fab3b0ad8e96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71d6e6d997419f6b536ff1f59bb2dbe7"><td class="memItemLeft" align="right" valign="top">typedef GridFamily::Traits::template <a class="el" href="a02714.html">Codim</a>&lt; cd &gt;::<a class="el" href="a02714.html#a71d6e6d997419f6b536ff1f59bb2dbe7">EntitySeed</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02714.html#a71d6e6d997419f6b536ff1f59bb2dbe7">EntitySeed</a></td></tr>
+<tr class="memdesc:a71d6e6d997419f6b536ff1f59bb2dbe7"><td class="mdescLeft">&#160;</td><td class="mdescRight">A type that is a model (not yet) of Dune::EntitySeed&lt;cd,dim,...&gt;.  <a href="a02714.html#a71d6e6d997419f6b536ff1f59bb2dbe7">More...</a><br /></td></tr>
+<tr class="separator:a71d6e6d997419f6b536ff1f59bb2dbe7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14d3d7ea9a8e166407c7b61759c14ea1"><td class="memItemLeft" align="right" valign="top">typedef GridFamily::Traits::template <a class="el" href="a02714.html">Codim</a>&lt; cd &gt;::<a class="el" href="a02714.html#a14d3d7ea9a8e166407c7b61759c14ea1">LevelIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02714.html#a14d3d7ea9a8e166407c7b61759c14ea1">LevelIterator</a></td></tr>
+<tr class="memdesc:a14d3d7ea9a8e166407c7b61759c14ea1"><td class="mdescLeft">&#160;</td><td class="mdescRight">A type that is a model of Dune::LevelIterator with partition type All_Partition.  <a href="a02714.html#a14d3d7ea9a8e166407c7b61759c14ea1">More...</a><br /></td></tr>
+<tr class="separator:a14d3d7ea9a8e166407c7b61759c14ea1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf1c81a40e78a0b3d9007f718ea26b37"><td class="memItemLeft" align="right" valign="top">typedef GridFamily::Traits::template <a class="el" href="a02714.html">Codim</a>&lt; cd &gt;::<a class="el" href="a02714.html#aaf1c81a40e78a0b3d9007f718ea26b37">LeafIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02714.html#aaf1c81a40e78a0b3d9007f718ea26b37">LeafIterator</a></td></tr>
+<tr class="memdesc:aaf1c81a40e78a0b3d9007f718ea26b37"><td class="mdescLeft">&#160;</td><td class="mdescRight">A type that is a model of Dune::LeafIterator with partition type All_Partition.  <a href="a02714.html#aaf1c81a40e78a0b3d9007f718ea26b37">More...</a><br /></td></tr>
+<tr class="separator:aaf1c81a40e78a0b3d9007f718ea26b37"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a587769dfbb3723f9bcdeb941ddb142f4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a587769dfbb3723f9bcdeb941ddb142f4">&#9670;&nbsp;</a></span>ImplementationType</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;int dim, int dimworld, class ct, class GridFamily&gt;<br />
+template&lt;int cd&gt;<br />
+struct Dune::Grid&lt; dim, dimworld, ct, GridFamily &gt;::Codim&lt; cd &gt;</h3>
+
+<p>A Traits struct that collects all associated types of one implementation. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">cd</td><td>codimension. Note that not all types in this struct depend on this template parameter. </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a010395efed236aefd4d2fab3b0ad8e96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a010395efed236aefd4d2fab3b0ad8e96">&#9670;&nbsp;</a></span>Entity</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;int dim, int dimworld, class ct , class GridFamily &gt; </div>
 <div class="memtemplate">
-template&lt;class T &gt; </div>
+template&lt;int cd&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef const T::Implementation <a class="el" href="a02666.html">Dune::GridDefaultImplementation</a>&lt; dim, dimworld, ct, GridFamily &gt;::<a class="el" href="a02710.html">ReturnImplementationType</a>&lt; const T &gt;::<a class="el" href="a02714.html#a587769dfbb3723f9bcdeb941ddb142f4">ImplementationType</a></td>
+          <td class="memname">typedef GridFamily::Traits::template <a class="el" href="a02714.html">Codim</a>&lt;cd&gt;::<a class="el" href="a02714.html#a010395efed236aefd4d2fab3b0ad8e96">Entity</a> <a class="el" href="a02710.html">Dune::Grid</a>&lt; dim, dimworld, ct, GridFamily &gt;::<a class="el" href="a02714.html">Codim</a>&lt; cd &gt;::<a class="el" href="a02714.html#a010395efed236aefd4d2fab3b0ad8e96">Entity</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>A type that is a model of a Dune::Entity&lt;cd,dim,...&gt;. </p>
+
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="a06797_source.html">common/grid.hh</a></li>
+<a id="a71d6e6d997419f6b536ff1f59bb2dbe7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71d6e6d997419f6b536ff1f59bb2dbe7">&#9670;&nbsp;</a></span>EntitySeed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, int dimworld, class ct , class GridFamily &gt; </div>
+<div class="memtemplate">
+template&lt;int cd&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef GridFamily::Traits::template <a class="el" href="a02714.html">Codim</a>&lt;cd&gt;::<a class="el" href="a02714.html#a71d6e6d997419f6b536ff1f59bb2dbe7">EntitySeed</a> <a class="el" href="a02710.html">Dune::Grid</a>&lt; dim, dimworld, ct, GridFamily &gt;::<a class="el" href="a02714.html">Codim</a>&lt; cd &gt;::<a class="el" href="a02714.html#a71d6e6d997419f6b536ff1f59bb2dbe7">EntitySeed</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A type that is a model (not yet) of Dune::EntitySeed&lt;cd,dim,...&gt;. </p>
+
+</div>
+</div>
+<a id="a2c17d34312a333e90a59667aa5a946d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c17d34312a333e90a59667aa5a946d3">&#9670;&nbsp;</a></span>Geometry</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, int dimworld, class ct , class GridFamily &gt; </div>
+<div class="memtemplate">
+template&lt;int cd&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef GridFamily::Traits::template <a class="el" href="a02714.html">Codim</a>&lt;cd&gt;::<a class="el" href="a02714.html#a2c17d34312a333e90a59667aa5a946d3">Geometry</a> <a class="el" href="a02710.html">Dune::Grid</a>&lt; dim, dimworld, ct, GridFamily &gt;::<a class="el" href="a02714.html">Codim</a>&lt; cd &gt;::<a class="el" href="a02714.html#a2c17d34312a333e90a59667aa5a946d3">Geometry</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A type that is a model of <a class="el" href="a02682.html" title="Wrapper class for geometries.">Dune::Geometry</a>&lt;dim-cd,dimworld&gt;. </p>
+
+</div>
+</div>
+<a id="aaf1c81a40e78a0b3d9007f718ea26b37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf1c81a40e78a0b3d9007f718ea26b37">&#9670;&nbsp;</a></span>LeafIterator</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, int dimworld, class ct , class GridFamily &gt; </div>
+<div class="memtemplate">
+template&lt;int cd&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef GridFamily::Traits::template <a class="el" href="a02714.html">Codim</a>&lt;cd&gt;::<a class="el" href="a02714.html#aaf1c81a40e78a0b3d9007f718ea26b37">LeafIterator</a> <a class="el" href="a02710.html">Dune::Grid</a>&lt; dim, dimworld, ct, GridFamily &gt;::<a class="el" href="a02714.html">Codim</a>&lt; cd &gt;::<a class="el" href="a02714.html#aaf1c81a40e78a0b3d9007f718ea26b37">LeafIterator</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A type that is a model of Dune::LeafIterator with partition type All_Partition. </p>
+
+</div>
+</div>
+<a id="a14d3d7ea9a8e166407c7b61759c14ea1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14d3d7ea9a8e166407c7b61759c14ea1">&#9670;&nbsp;</a></span>LevelIterator</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, int dimworld, class ct , class GridFamily &gt; </div>
+<div class="memtemplate">
+template&lt;int cd&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef GridFamily::Traits::template <a class="el" href="a02714.html">Codim</a>&lt;cd&gt;::<a class="el" href="a02714.html#a14d3d7ea9a8e166407c7b61759c14ea1">LevelIterator</a> <a class="el" href="a02710.html">Dune::Grid</a>&lt; dim, dimworld, ct, GridFamily &gt;::<a class="el" href="a02714.html">Codim</a>&lt; cd &gt;::<a class="el" href="a02714.html#a14d3d7ea9a8e166407c7b61759c14ea1">LevelIterator</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A type that is a model of Dune::LevelIterator with partition type All_Partition. </p>
+
+</div>
+</div>
+<a id="a0141e1edba39c66d7d94de53c978440c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0141e1edba39c66d7d94de53c978440c">&#9670;&nbsp;</a></span>LocalGeometry</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, int dimworld, class ct , class GridFamily &gt; </div>
+<div class="memtemplate">
+template&lt;int cd&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef GridFamily::Traits::template <a class="el" href="a02714.html">Codim</a>&lt;cd&gt;::<a class="el" href="a02714.html#a0141e1edba39c66d7d94de53c978440c">LocalGeometry</a> <a class="el" href="a02710.html">Dune::Grid</a>&lt; dim, dimworld, ct, GridFamily &gt;::<a class="el" href="a02714.html">Codim</a>&lt; cd &gt;::<a class="el" href="a02714.html#a0141e1edba39c66d7d94de53c978440c">LocalGeometry</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A type that is a model of <a class="el" href="a02682.html" title="Wrapper class for geometries.">Dune::Geometry</a>&lt;dim-cd,dim&gt;. </p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li><a class="el" href="a06702_source.html">common/grid.hh</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

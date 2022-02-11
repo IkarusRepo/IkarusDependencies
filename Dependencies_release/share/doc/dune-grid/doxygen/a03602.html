@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: Dune::DGFGridInfo&lt; YaspGrid&lt; dim, EquidistantOffsetCoordinates&lt; ctype, dim &gt; &gt; &gt; Struct Template Reference</title>
+<title>dune-grid: Dune::ElementFaceUtil Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,44 +62,62 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00936.html">Dune</a></li><li class="navelem"><a class="el" href="a03602.html">DGFGridInfo&lt; YaspGrid&lt; dim, EquidistantOffsetCoordinates&lt; ctype, dim &gt; &gt; &gt;</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00940.html">Dune</a></li><li class="navelem"><a class="el" href="a03602.html">ElementFaceUtil</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="a03599.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::DGFGridInfo&lt; YaspGrid&lt; dim, EquidistantOffsetCoordinates&lt; ctype, dim &gt; &gt; &gt; Struct Template Reference</div>  </div>
+<div class="title">Dune::ElementFaceUtil Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="a00734_source.html">dune/grid/io/file/dgfparser/dgfyasp.hh</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00743_source.html">dune/grid/io/file/dgfparser/entitykey.hh</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a9e308b82251922ec6ca38cfd3442107e"><td class="memTemplParams" colspan="2">template&lt;int dim&gt; </td></tr>
+<tr class="memitem:a9e308b82251922ec6ca38cfd3442107e"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="a03598.html">DGFEntityKey</a>&lt; unsigned int &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a03602.html#a9e308b82251922ec6ca38cfd3442107e">generateSimplexFace</a> (const std ::vector&lt; unsigned int &gt; &amp;element, int f)</td></tr>
+<tr class="separator:a9e308b82251922ec6ca38cfd3442107e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a79778111dac1259af681f9c4b797b60f"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03602.html#a79778111dac1259af681f9c4b797b60f">refineStepsForHalf</a> ()</td></tr>
-<tr class="separator:a79778111dac1259af681f9c4b797b60f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a3fe325372c75aabf45156b005c2da9"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03602.html#a3a3fe325372c75aabf45156b005c2da9">refineWeight</a> ()</td></tr>
-<tr class="separator:a3a3fe325372c75aabf45156b005c2da9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e289a9c477fe7f06eb2c370c82fd57e"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03602.html#a8e289a9c477fe7f06eb2c370c82fd57e">nofFaces</a> (int dim, const std::vector&lt; unsigned int &gt; &amp;element)</td></tr>
+<tr class="separator:a8e289a9c477fe7f06eb2c370c82fd57e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c7917d0f388517f69534cbe826ed91e"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03602.html#a3c7917d0f388517f69534cbe826ed91e">faceSize</a> (int dim, bool simpl)</td></tr>
+<tr class="separator:a3c7917d0f388517f69534cbe826ed91e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01bfd7df250fed73d7e6f07270285f97"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a03598.html">DGFEntityKey</a>&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03602.html#a01bfd7df250fed73d7e6f07270285f97">generateFace</a> (int dim, const std::vector&lt; unsigned int &gt; &amp;element, int f)</td></tr>
+<tr class="separator:a01bfd7df250fed73d7e6f07270285f97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a79778111dac1259af681f9c4b797b60f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a79778111dac1259af681f9c4b797b60f">&#9670;&nbsp;</a></span>refineStepsForHalf()</h2>
+<a id="a3c7917d0f388517f69534cbe826ed91e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c7917d0f388517f69534cbe826ed91e">&#9670;&nbsp;</a></span>faceSize()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename ctype , int dim&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static int <a class="el" href="a03574.html">Dune::DGFGridInfo</a>&lt; <a class="el" href="a04142.html">YaspGrid</a>&lt; dim, <a class="el" href="a04246.html">EquidistantOffsetCoordinates</a>&lt; ctype, dim &gt; &gt; &gt;::refineStepsForHalf </td>
+          <td class="memname">int Dune::ElementFaceUtil::faceSize </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>dim</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>simpl</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -111,22 +129,37 @@ template&lt;typename ctype , int dim&gt; </div>
 
 </div>
 </div>
-<a id="a3a3fe325372c75aabf45156b005c2da9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3a3fe325372c75aabf45156b005c2da9">&#9670;&nbsp;</a></span>refineWeight()</h2>
+<a id="a01bfd7df250fed73d7e6f07270285f97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01bfd7df250fed73d7e6f07270285f97">&#9670;&nbsp;</a></span>generateFace()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename ctype , int dim&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static double <a class="el" href="a03574.html">Dune::DGFGridInfo</a>&lt; <a class="el" href="a04142.html">YaspGrid</a>&lt; dim, <a class="el" href="a04246.html">EquidistantOffsetCoordinates</a>&lt; ctype, dim &gt; &gt; &gt;::refineWeight </td>
+          <td class="memname"><a class="el" href="a03598.html">DGFEntityKey</a>&lt; unsigned int &gt; Dune::ElementFaceUtil::generateFace </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>dim</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const std::vector&lt; unsigned int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>element</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>f</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -138,8 +171,83 @@ template&lt;typename ctype , int dim&gt; </div>
 
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="a00734_source.html">dgfyasp.hh</a></li>
+<a id="a9e308b82251922ec6ca38cfd3442107e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e308b82251922ec6ca38cfd3442107e">&#9670;&nbsp;</a></span>generateSimplexFace()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a03598.html">DGFEntityKey</a>&lt; unsigned int &gt; Dune::ElementFaceUtil::generateSimplexFace </td>
+          <td>(</td>
+          <td class="paramtype">const std ::vector&lt; unsigned int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>element</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>f</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8e289a9c477fe7f06eb2c370c82fd57e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e289a9c477fe7f06eb2c370c82fd57e">&#9670;&nbsp;</a></span>nofFaces()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Dune::ElementFaceUtil::nofFaces </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>dim</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; unsigned int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>element</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following files:<ul>
+<li><a class="el" href="a00743_source.html">entitykey.hh</a></li>
+<li><a class="el" href="a00746_source.html">entitykey_inline.hh</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

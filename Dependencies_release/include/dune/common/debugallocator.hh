@@ -3,7 +3,12 @@
 #ifndef DUNE_DEBUG_ALLOCATOR_HH
 #define DUNE_DEBUG_ALLOCATOR_HH
 
-#include <dune/common/unused.hh>
+#if __has_include(<sys/mman.h>)
+
+#include <sys/mman.h>
+#define HAVE_SYS_MMAN_H 1
+#define HAVE_MPROTECT 1
+
 #include <exception>
 #include <typeinfo>
 #include <vector>
@@ -12,17 +17,8 @@
 #include <cstdint>
 #include <cstdlib>
 #include <new>
-#if HAVE_SYS_MMAN_H && HAVE_MPROTECT
-#include <sys/mman.h>
-#else
-enum DummyProtFlags { PROT_NONE, PROT_WRITE, PROT_READ };
-#endif
 
 #include "mallocallocator.hh"
-
-#if not HAVE_MPROTECT
-#error mprotect is required to use the DebugAllocator
-#else
 
 namespace Dune
 {
@@ -68,7 +64,9 @@ namespace Dune
       AllocationList allocation_list;
 
     private:
-      void memprotect(void* from, difference_type len, int prot)
+      void memprotect([[maybe_unused]] void* from,
+                      [[maybe_unused]] difference_type len,
+                      [[maybe_unused]] int prot)
       {
 #if HAVE_SYS_MMAN_H && HAVE_MPROTECT
         int result = mprotect(from, len, prot);
@@ -89,9 +87,6 @@ namespace Dune
           abort();
         }
 #else
-        DUNE_UNUSED_PARAMETER(from);
-        DUNE_UNUSED_PARAMETER(len);
-        DUNE_UNUSED_PARAMETER(prot);
         std::cerr << "WARNING: memory protection not available" << std::endl;
 #endif
       }
@@ -266,9 +261,8 @@ namespace Dune
 
     //! allocate n objects of type T
     pointer allocate(size_type n,
-                     DebugAllocator<void>::const_pointer hint = 0)
+                     [[maybe_unused]] DebugAllocator<void>::const_pointer hint = 0)
     {
-      DUNE_UNUSED_PARAMETER(hint);
       return DebugMemory::alloc_man.allocate<T>(n);
     }
 
@@ -352,6 +346,6 @@ void operator delete(void * p, size_t size) noexcept
 
 #endif // DEBUG_NEW_DELETE
 
-#endif // HAVE_PROTECT
+#endif // __has_include(<sys/mman.h>)
 
 #endif // DUNE_DEBUG_ALLOCATOR_HH

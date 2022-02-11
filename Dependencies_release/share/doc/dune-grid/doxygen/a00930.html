@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: Gnuplot</title>
+<title>dune-grid: The Dune Grid Format (DGF)</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -63,34 +63,378 @@ $(function() {
 
 <div class="header">
   <div class="summary">
+<a href="#groups">Modules</a> &#124;
 <a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle">
-<div class="title">Gnuplot<div class="ingroups"><a class="el" href="a00902.html">dune-grid</a> &raquo; <a class="el" href="a00924.html">I/O</a></div></div>  </div>
+<div class="title">The Dune Grid Format (DGF)<div class="ingroups"><a class="el" href="a00905.html">dune-grid</a> &raquo; <a class="el" href="a00928.html">I/O</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Classes for reading a macrogrid file in the dune macrogrid format (dgf)  
+<a href="#details">More...</a></p>
 <div class="dynheader">
-Collaboration diagram for Gnuplot:</div>
+Collaboration diagram for The Dune Grid Format (DGF):</div>
 <div class="dyncontent">
 <div class="center"><img src="a00930.png" border="0" usemap="#aa00930" alt=""/></div>
 <map name="aa00930" id="aa00930">
-<area shape="rect" href="a00924.html" title=" " alt="" coords="5,5,44,31"/>
-<area shape="rect" title=" " alt="" coords="92,5,159,31"/>
+<area shape="rect" href="a00928.html" title=" " alt="" coords="5,13,44,38"/>
+<area shape="rect" title="Classes for reading a macrogrid file in the dune macrogrid format (dgf)" alt="" coords="92,5,243,45"/>
+<area shape="rect" href="a00931.html" title=" " alt="" coords="291,5,427,45"/>
 </map>
 </div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="groups"></a>
+Modules</h2></td></tr>
+<tr class="memitem:a00931"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00931.html">DGF grid parameter for different grids</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03670.html">Dune::GnuplotWriter&lt; GridView &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writer for 1D grids in gnuplot format.  <a href="a03670.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03674.html">Dune::LeafGnuplotWriter&lt; G &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a03670.html" title="Writer for 1D grids in gnuplot format.">GnuplotWriter</a> on the leaf grid.  <a href="a03674.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03678.html">Dune::LevelGnuplotWriter&lt; G &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a03670.html" title="Writer for 1D grids in gnuplot format.">GnuplotWriter</a> on a given level grid.  <a href="a03678.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03574.html">Dune::DGFWriter&lt; GV &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">write a <a class="el" href="a02758.html" title="Grid view abstract base class.">GridView</a> to a DGF file  <a href="a03574.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>Classes for reading a macrogrid file in the dune macrogrid format (dgf) </p>
+<h1><a class="anchor" id="General"></a>
+General</h1>
+<p>The DGF format allows the simple description of macrogrids, which can be used to construct <a class="el" href="a00940.html" title="Include standard header files.">Dune</a> grids independent of the underlying implementation. Due to the generality of the approach only a subset of the description language for each grid implementation is available through this interface.</p>
+<h1><a class="anchor" id="Usage"></a>
+Usage</h1>
+<p>We assume in the following that the type <code>GridType</code> is suitably defined, denoting a dune grid type in <code>dimworld</code> space dimension. A point in dimworld space is called a vector.</p>
+<p>In general dgf files consists of one or more blocks, each starting with a keyword and ending with a line starting with a # symbol. In a block each full line is parsed from the beginning up to the first occupance of a % symbol, which can be used to include comments. Trailing whitespaces are ignored during line parsing. Also the parsing is not case sensitive.</p>
+<p>Some example files are given below (<a class="el" href="a00930.html#EXAMPLES">Examples</a>).</p>
+<h2><a class="anchor" id="START"></a>
+First line</h2>
+<h1><a class="anchor" id="OPEN"></a>
+Work in progress</h1>
+<ol type="1">
+<li>There should be a mechanism to fix the desired refinement edge for simplex grids. An automatic selection is performed using the longest edge, but it should be possible to turn off this automatic selection.</li>
+<li>A callback to the user between parsing the DGF file and the construction of the dune grid; here e.g. a post-processing of the vertex coordinates could be included.</li>
+</ol>
+<h1><a class="anchor" id="EXAMPLES"></a>
+Examples</h1>
+<p>In two space dimensions:</p><ul>
+<li><a class="el" href="a00930.html#dgfexample1">Manual Grid Construction</a></li>
+<li><a class="el" href="a00930.html#dgfexample2">Automated Grid Construction</a></li>
+<li><a class="el" href="a00930.html#dgfexampleParam">Using Parameters</a></li>
+<li><a class="el" href="a00930.html#dgfexample3">Interval Domain</a></li>
+<li>dgfexample6</li>
+</ul>
+<p>In three space dimensions:</p><ul>
+<li>dgfexample4</li>
+<li>dgfexample5</li>
+</ul>
+<h1><a class="anchor" id="dgfexample1"></a>
+Manual Grid Construction</h1>
+<p>A tessellation of the unit square into six simplex entities. Some boundary segments on the lower and right boundary are given their own id the remaining are given a default id.</p>
+<div class="fragment"><div class="line">DGF</div>
+<div class="line">Vertex        % the vertices of the grid</div>
+<div class="line">-1   -1       % vertex 0</div>
+<div class="line">-0.2 -1       % vertex 1</div>
+<div class="line"> 1   -1       % vertex 2</div>
+<div class="line"> 1    -0.6    % vertex 3</div>
+<div class="line"> 1    1       % vertex 4</div>
+<div class="line">-1    1       % vertex 5</div>
+<div class="line">0.2  -0.2     % vertex 6</div>
+<div class="line">#</div>
+<div class="line">SIMPLEX       % a simplex grid</div>
+<div class="line">0 1 5         % triangle 0, vertices 0,1,5</div>
+<div class="line">1 3 6         % triangle 1</div>
+<div class="line">1 2 3         % triangle 2</div>
+<div class="line">6 3 4         % triangle 3</div>
+<div class="line">6 4 5         % triangle 4</div>
+<div class="line">6 5 1         % triangle 5</div>
+<div class="line">#</div>
+<div class="line">BOUNDARYSEGMENTS</div>
+<div class="line">2   1 2       % between vertex 1,2 use id 2</div>
+<div class="line">2   2 3       % between vertex 2,3 use id 2</div>
+<div class="line">4   3 4       % between vertex 3,4 use id 4</div>
+<div class="line">#</div>
+<div class="line">BOUNDARYDOMAIN</div>
+<div class="line">default 1     % all other boundary segments have id 1</div>
+<div class="line">#</div>
+<div class="line"># examplegrid1s.dgf</div>
+</div><!-- fragment --><div class="image">
+<img src="examplegrid1s.png" alt=""/>
+<div class="caption">
+The resulting grid</div></div>
+<p>A tessellation into cubes using the same vertices as before,</p>
+<div class="fragment"><div class="line">DGF</div>
+<div class="line">Vertex        % the vertices of the grid</div>
+<div class="line">-1   -1       % vertex 0</div>
+<div class="line">-0.2 -1       % vertex 1</div>
+<div class="line"> 1   -1       % vertex 2</div>
+<div class="line"> 1    -0.6    % vertex 3</div>
+<div class="line"> 1    1       % vertex 4</div>
+<div class="line">-1    1       % vertex 5</div>
+<div class="line">0.2  -0.2     % vertex 6</div>
+<div class="line">#</div>
+<div class="line">CUBE            % a cube grid</div>
+<div class="line">0 1 5 6         % cube 0, vertices 0,1,5,6</div>
+<div class="line">1 2 6 3         % cube 1</div>
+<div class="line">6 3 5 4         % cube 2</div>
+<div class="line">#</div>
+<div class="line">BOUNDARYSEGMENTS</div>
+<div class="line">2   1 2       % between vertex 1,2 use id 2</div>
+<div class="line">2   2 3       % between vertex 2,3 use id 2</div>
+<div class="line">4   3 4       % between vertex 3,4 use id 4</div>
+<div class="line">#</div>
+<div class="line">BOUNDARYDOMAIN</div>
+<div class="line">default 1     % all other boundary segments have id 1</div>
+<div class="line">#</div>
+<div class="line"># examplegrid1c.dgf</div>
+</div><!-- fragment --><div class="image">
+<img src="examplegrid1c.png" alt=""/>
+<div class="caption">
+The resulting grid</div></div>
+<p>Using the last input file with a simplex grid or by adding an empty <code>Simplex</code> block </p><div class="fragment"><div class="line">  Simplex</div>
+<div class="line"><span class="preprocessor">#</span></div>
+</div><!-- fragment --><p> leads to the following macro triangulation</p>
+<div class="image">
+<img src="examplegrid1cs.png" alt=""/>
+<div class="caption">
+The resulting grid</div></div>
+<h1><a class="anchor" id="dgfexample2"></a>
+Automated Grid Construction</h1>
+<p>Automatic tessellation using Triangle, with vertices defined as in the example <a class="el" href="a00930.html#dgfexample1">Manual Grid Construction</a> :</p>
+<div class="fragment"><div class="line">DGF</div>
+<div class="line">Simplexgenerator</div>
+<div class="line">min-angle 30</div>
+<div class="line">display 0</div>
+<div class="line"> </div>
+<div class="line">% to use Triangle from a certain path, uncomment this path line </div>
+<div class="line">%path $HOME/bin  % path to Triangle</div>
+<div class="line"> </div>
+<div class="line">#</div>
+<div class="line">Vertex        % the vertices of the grid</div>
+<div class="line">-1   -1       % vertex 0</div>
+<div class="line">-0.2 -1       % vertex 1</div>
+<div class="line"> 1   -1       % vertex 2</div>
+<div class="line"> 1    -0.6    % vertex 3</div>
+<div class="line"> 1    1       % vertex 4</div>
+<div class="line">-1    1       % vertex 5</div>
+<div class="line">0.2  -0.2     % vertex 6</div>
+<div class="line">#</div>
+<div class="line">BOUNDARYDOMAIN</div>
+<div class="line">default 1     % all other boundary segments have id 1</div>
+<div class="line">#</div>
+<div class="line"># examplegrid1gen.dgf</div>
+</div><!-- fragment --><div class="image">
+<img src="examplegrid1gen.png" alt=""/>
+<div class="caption">
+The resulting grid</div></div>
+<p>The quality of the grid can be enhanced by adding the line </p><div class="fragment"><div class="line"><a class="code" href="a00941.html#aca064a9bc66806f78ea771e804e5582d">min</a>-angle 30</div>
+<div class="ttc" id="aa00941_html_aca064a9bc66806f78ea771e804e5582d"><div class="ttname"><a href="a00941.html#aca064a9bc66806f78ea771e804e5582d">Dune::Alberta::min</a></div><div class="ttdeci">int min(const DofVectorPointer&lt; int &gt; &amp;dofVector)</div><div class="ttdef"><b>Definition:</b> dofvector.hh:346</div></div>
+</div><!-- fragment --><p> in the <code>Simplexgenerator</code> block</p>
+<div class="image">
+<img src="examplegrid1genangle.png" alt=""/>
+<div class="caption">
+The resulting grid</div></div>
+<p>Automatic tessellation using Triangle, with vertices are defined on a Cartesian grid with two additional vertices in the top right corner and one vertex outside the unit square.</p>
+<p>All boundary are given a default id.</p>
+<div class="fragment"><div class="line">DGF</div>
+<div class="line">Interval</div>
+<div class="line">-1  -1       % first corner </div>
+<div class="line"> 1  1        % second corner</div>
+<div class="line"> 4  4        % 4 cells in x and 4 in y direction</div>
+<div class="line">#</div>
+<div class="line">Vertex       % some additional points</div>
+<div class="line"> 0.75 0.75   % inside the interval</div>
+<div class="line"> 0.9 0.9     % also inside the interval</div>
+<div class="line"> 1.25 1.25   % and one outside of the interval</div>
+<div class="line">#</div>
+<div class="line">Simplexgenerator</div>
+<div class="line">display 0    % show result using Triangle viewer</div>
+<div class="line"> </div>
+<div class="line">% to use Triangle from a certain path, uncomment path line </div>
+<div class="line">%path $HOME/bin   % path to Triangle</div>
+<div class="line"> </div>
+<div class="line">#</div>
+<div class="line">BOUNDARYDOMAIN</div>
+<div class="line">default 1    % all boundaries have id 1</div>
+<div class="line">#BOUNDARYDOMAIN</div>
+<div class="line"># examplegrid2a.dgf</div>
+</div><!-- fragment --><div class="image">
+<img src="examplegrid2a.png" alt=""/>
+<div class="caption">
+The resulting grid</div></div>
+<p>Adding some quality enhancement. The boundaries are numbered counterclockwise starting at the left boundary from one to four.</p>
+<div class="fragment"><div class="line">DGF</div>
+<div class="line">Interval</div>
+<div class="line">-1  -1       % first corner </div>
+<div class="line"> 1  1        % second corner</div>
+<div class="line"> 4  4        % 4 cells in x and 4 in y direction</div>
+<div class="line">#</div>
+<div class="line">Vertex       % some additional points</div>
+<div class="line"> 0.75 0.75   % inside the interval</div>
+<div class="line"> 0.9 0.9     % also inside the interval</div>
+<div class="line"> 1.25 1.25   % and one outside of the interval</div>
+<div class="line">#</div>
+<div class="line">Simplexgenerator  </div>
+<div class="line">min-angle 30      % quality enhancment</div>
+<div class="line">display 0         % show result using Triangle viewer</div>
+<div class="line">% area restriction</div>
+<div class="line"> </div>
+<div class="line">% to use Triangle from a certain path, uncomment this path line</div>
+<div class="line">%path $HOME/bin   % path to Triangle</div>
+<div class="line"> </div>
+<div class="line">#</div>
+<div class="line">BOUNDARYDOMAIN</div>
+<div class="line">1   1 -1    1.25  1.25  % right boundary has id 1</div>
+<div class="line">2  -1  1    1.25  1.25  % upper boundary has id 2</div>
+<div class="line">3  -1 -1   -1  1        % left boundary has id 3</div>
+<div class="line">4  -1 -1    1 -1        % lower boundary has id 4</div>
+<div class="line">#BOUNDARYDOMAIN</div>
+<div class="line"># examplegrid2b.dgf</div>
+<div class="line"> </div>
+</div><!-- fragment --><div class="image">
+<img src="examplegrid2b.png" alt=""/>
+<div class="caption">
+The resulting grid</div></div>
+<p>Using both quality enhancement and a maximum area restriction. The bottom boundary is given the id 1 all other boundaries have id 2; here we do not use a default value.</p>
+<div class="fragment"><div class="line">DGF</div>
+<div class="line">Interval</div>
+<div class="line">-1  -1       % first corner </div>
+<div class="line"> 1  1        % second corner</div>
+<div class="line"> 4  4        % 4 cells in x and 4 in y direction</div>
+<div class="line">#</div>
+<div class="line">Vertex       % some additional points</div>
+<div class="line"> 0.75 0.75   % inside the interval</div>
+<div class="line"> 0.9 0.9     % also inside the interval</div>
+<div class="line"> 1.25 1.25   % and one outside of the interval</div>
+<div class="line">#</div>
+<div class="line">Simplexgenerator</div>
+<div class="line">min-angle 30    % quality enhancment</div>
+<div class="line">max-area 0.01   % area restriction</div>
+<div class="line">display 0       % show result using Triangle viewer</div>
+<div class="line"> </div>
+<div class="line">% to use Triangle from a certain path, uncomment this path line</div>
+<div class="line">%path $HOME/bin      % path to Triangle</div>
+<div class="line"> </div>
+<div class="line">#</div>
+<div class="line">BOUNDARYDOMAIN</div>
+<div class="line">1  -1 -1    1 -1       % lower boundary has id 1</div>
+<div class="line">2  -10 -10    10  10   % all others have id 2 (could use default keyword...)</div>
+<div class="line">#BOUNDARYDOMAIN</div>
+<div class="line"># examplegrid2c.dgf</div>
+<div class="line"> </div>
+</div><!-- fragment --><div class="image">
+<img src="examplegrid2c.png" alt=""/>
+<div class="caption">
+The resulting grid</div></div>
+<p>A similar grid is generated by prescribing the boundary of the domain:</p>
+<div class="fragment"><div class="line">DGF</div>
+<div class="line">Vertex       % some additional points</div>
+<div class="line"> -1 -1</div>
+<div class="line">  1 -1</div>
+<div class="line">  1  1</div>
+<div class="line"> -1  1</div>
+<div class="line"> 0.75 0.75   % inside the interval</div>
+<div class="line"> 0.9 0.9     % also inside the interval</div>
+<div class="line"> 1.25 1.25   % and one outside of the interval</div>
+<div class="line">#</div>
+<div class="line">Simplexgenerator</div>
+<div class="line">min-angle 30    % quality enhancment</div>
+<div class="line">max-area 0.01   % area restriction</div>
+<div class="line">display 0       % show result using Triangle viewer</div>
+<div class="line"> </div>
+<div class="line">% to use Triangle from a certain path, uncomment this path line</div>
+<div class="line">%path $HOME/bin      % path to Triangle</div>
+<div class="line">#</div>
+<div class="line">BOUNDARYSEGMENTS</div>
+<div class="line">1 0 1</div>
+<div class="line">2 1 6 3 0</div>
+<div class="line">#</div>
+<div class="line"># examplegrid2d.dgf</div>
+<div class="line"> </div>
+</div><!-- fragment --><div class="image">
+<img src="examplegrid2d.png" alt=""/>
+<div class="caption">
+The resulting grid</div></div>
+<h1><a class="anchor" id="dgfexampleParam"></a>
+Using Parameters</h1>
+<p>We use the same domain as in the previous example but include vertex and element parameters:</p>
+<div class="fragment"><div class="line">DGF</div>
+<div class="line">vertex</div>
+<div class="line">parameters 2</div>
+<div class="line">       -1  -1  0  -1    </div>
+<div class="line">       1  -1  1  1    </div>
+<div class="line">       1  1  2  1    </div>
+<div class="line">       -1  1  1  -1    </div>
+<div class="line">       0.75  0.75  2  0.75    </div>
+<div class="line">       0.90000000000000002  0.90000000000000002  2  0.90000000000000002    </div>
+<div class="line">       1.25  1.25  -1  1.25    </div>
+<div class="line"># </div>
+<div class="line">simplex</div>
+<div class="line">parameters 1</div>
+<div class="line">          0     4     3  1 </div>
+<div class="line">          4     0     1  -1 </div>
+<div class="line">          3     4     5  1 </div>
+<div class="line">          5     1     2  1</div>
+<div class="line">          1     5     4  -1</div>
+<div class="line">          2     6     3   1</div>
+<div class="line">          6     2     1  -1</div>
+<div class="line">          5     2     3  -1 </div>
+<div class="line">#</div>
+<div class="line">boundarydomain</div>
+<div class="line">default 1</div>
+<div class="line">#</div>
+<div class="line">Simplexgenerator</div>
+<div class="line">min-angle 30    % quality enhancment</div>
+<div class="line">max-area 0.01   % area restriction</div>
+<div class="line">display 0       % show result using Triangle viewer</div>
+<div class="line">% to use Triangle from a certain path, uncomment this path line</div>
+<div class="line">% path $HOME/bin      % path to Triangle</div>
+<div class="line">#</div>
+<div class="line"># examplegrid2e.dgf</div>
+<div class="line"> </div>
+</div><!-- fragment --><p>The results in piecewise constant data on the elements and piecewise linear date using the vertex parameters:</p>
+<div class="image">
+<img src="examplegrid2e.png" alt=""/>
+<div class="caption">
+The resulting grid with element and vertex parameters</div></div>
+<h1><a class="anchor" id="dgfexample3"></a>
+Interval Domain</h1>
+<p>A automatic tessellation of the unit square using a Cartesian <a class="el" href="a02710.html" title="Grid abstract base class.">Grid</a>. All boundaries have id 1.</p>
+<div class="fragment"><div class="line">DGF</div>
+<div class="line">Interval</div>
+<div class="line"> 0  0         % first corner </div>
+<div class="line"> 1  1         % second corner</div>
+<div class="line"> 4  8         % 4 cells in x and 8 in y direction</div>
+<div class="line">#</div>
+<div class="line">Simplex</div>
+<div class="line">#</div>
+<div class="line"> </div>
+<div class="line">GridParameter</div>
+<div class="line">% set overlap to 1</div>
+<div class="line">overlap 1</div>
+<div class="line">% set closure to none for UGGrid </div>
+<div class="line">closure none</div>
+<div class="line">% generate copies in UGGrid</div>
+<div class="line">copies yes</div>
+<div class="line">#</div>
+<div class="line"> </div>
+<div class="line">PERIODICFACETRANSFORMATION</div>
+<div class="line">% set periodic boundaries in x direction</div>
+<div class="line">% 1 0, 0 1 + 1 0</div>
+<div class="line">#</div>
+<div class="line"> </div>
+<div class="line">BOUNDARYDOMAIN</div>
+<div class="line">default 1     % default boundary id</div>
+<div class="line">#BOUNDARYDOMAIN</div>
+<div class="line"># examplegrid5.dgf</div>
+</div><!-- fragment --><div class="image">
+<img src="examplegrid5c.png" alt=""/>
+<div class="caption">
+The resulting grid using YaspGrid&lt;2&gt;</div></div>
+ <div class="image">
+<img src="examplegrid5s.png" alt=""/>
+<div class="caption">
+The resulting grid using AlbertaGrid&lt;2,2&gt;</div></div>
+<p>If UGGrid&lt;2,2&gt; is used the result would be the same as for YaspGrid&lt;2&gt;. If an empty <code>Simplex</code> Block </p><div class="fragment"><div class="line">  Simplex</div>
+<div class="line"><span class="preprocessor">#</span></div>
+</div><!-- fragment --><p> is added than the same simplex grid as for AlbertaGrid&lt;2,2&gt; would be constructed. </p>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

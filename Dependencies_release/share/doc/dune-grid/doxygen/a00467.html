@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: mainpage.txt File Reference</title>
+<title>dune-grid: iterator.hh File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -60,12 +60,59 @@ $(function() {
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_282a6d93e11c1f5367984719a29518da.html">dune-grid</a></li><li class="navelem"><a class="el" href="dir_9b356568473fb59d2a92d82c3e3163e0.html">dune</a></li><li class="navelem"><a class="el" href="dir_b835d2b10d4bb6ff2c6d149ed2a0408f.html">grid</a></li><li class="navelem"><a class="el" href="dir_04a1ff5d051d9de02a4d4465e986fdf9.html">geometrygrid</a></li>  </ul>
+</div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">mainpage.txt File Reference</div>  </div>
+<div class="title">iterator.hh File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><code>#include &lt;cassert&gt;</code><br />
+<code>#include &lt;type_traits&gt;</code><br />
+<code>#include &lt;utility&gt;</code><br />
+<code>#include &lt;dune/geometry/referenceelements.hh&gt;</code><br />
+<code>#include &lt;<a class="el" href="a06651_source.html">dune/grid/geometrygrid/capabilities.hh</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="a00446_source.html">dune/grid/geometrygrid/declaration.hh</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="a06681_source.html">dune/grid/geometrygrid/entity.hh</a>&gt;</code><br />
+</div>
+<p><a href="a00467_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03218.html">Dune::GeoGrid::PartitionIteratorFilter&lt; codim, Interior_Partition, Grid &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03222.html">Dune::GeoGrid::PartitionIteratorFilter&lt; codim, InteriorBorder_Partition, Grid &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03226.html">Dune::GeoGrid::PartitionIteratorFilter&lt; codim, Overlap_Partition, Grid &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03230.html">Dune::GeoGrid::PartitionIteratorFilter&lt; codim, OverlapFront_Partition, Grid &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03234.html">Dune::GeoGrid::PartitionIteratorFilter&lt; codim, All_Partition, Grid &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03238.html">Dune::GeoGrid::PartitionIteratorFilter&lt; codim, Ghost_Partition, Grid &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03242.html">Dune::GeoGrid::Iterator&lt; HostGridView, codim, pitype, G, false &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03246.html">Dune::GeoGrid::Iterator&lt; HostGridView, codim, pitype, G, true &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03074.html">Dune::GeoGrid::HierarchicIterator&lt; G &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:a00940"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00940.html">Dune</a></td></tr>
+<tr class="memdesc:a00940"><td class="mdescLeft">&#160;</td><td class="mdescRight">Include standard header files. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00945"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00945.html">Dune::GeoGrid</a></td></tr>
+<tr class="memdesc:a00945"><td class="mdescLeft">&#160;</td><td class="mdescRight">namespace containing the implementations of <a class="el" href="a03062.html" title="grid wrapper replacing the geometries">GeometryGrid</a> <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -54,8 +54,7 @@ endif()
 add_library(dunecommon STATIC IMPORTED)
 
 set_target_properties(dunecommon PROPERTIES
-  INTERFACE_COMPILE_DEFINITIONS "ENABLE_TBB=1;_TBB_CPP0X"
-  INTERFACE_LINK_LIBRARIES "${_IMPORT_PREFIX}/lib/liblapack.a;${_IMPORT_PREFIX}/lib/libblas.a"
+  INTERFACE_LINK_LIBRARIES "Threads::Threads"
 )
 
 if(CMAKE_VERSION VERSION_LESS 2.8.12)

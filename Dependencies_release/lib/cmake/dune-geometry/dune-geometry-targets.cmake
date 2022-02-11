@@ -54,7 +54,7 @@ endif()
 add_library(dunegeometry STATIC IMPORTED)
 
 set_target_properties(dunegeometry PROPERTIES
-  INTERFACE_LINK_LIBRARIES "dunecommon"
+  INTERFACE_LINK_LIBRARIES "Threads::Threads;dunecommon"
 )
 
 if(CMAKE_VERSION VERSION_LESS 2.8.12)

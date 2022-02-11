@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: Dune::GeoGrid::InferHasSingleGeometryType&lt; hasSingleGeometryType, dim, mydim &gt; Struct Template Reference</title>
+<title>dune-grid: Dune::GeoGrid::GeometryTraits&lt; Grid &gt; Struct Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,80 +62,114 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00936.html">Dune</a></li><li class="navelem"><a class="el" href="a00942.html">GeoGrid</a></li><li class="navelem"><a class="el" href="a03118.html">InferHasSingleGeometryType</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00940.html">Dune</a></li><li class="navelem"><a class="el" href="a00945.html">GeoGrid</a></li><li class="navelem"><a class="el" href="a03118.html">GeometryTraits</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="a03115.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::GeoGrid::InferHasSingleGeometryType&lt; hasSingleGeometryType, dim, mydim &gt; Struct Template Reference</div>  </div>
+<div class="title">Dune::GeoGrid::GeometryTraits&lt; Grid &gt; Struct Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="a06794_source.html">dune/grid/geometrygrid/geometry.hh</a>&gt;</code></p>
-<div class="dynheader">
-Inheritance diagram for Dune::GeoGrid::InferHasSingleGeometryType&lt; hasSingleGeometryType, dim, mydim &gt;:</div>
-<div class="dyncontent">
-<div class="center"><img src="a03117.png" border="0" usemap="#a_dune_1_1_geo_grid_1_1_infer_has_single_geometry_type_3_01has_single_geometry_type_00_01dim_00_01mydim_01_4_inherit__map" alt="Inheritance graph"/></div>
-<map name="a_dune_1_1_geo_grid_1_1_infer_has_single_geometry_type_3_01has_single_geometry_type_00_01dim_00_01mydim_01_4_inherit__map" id="a_dune_1_1_geo_grid_1_1_infer_has_single_geometry_type_3_01has_single_geometry_type_00_01dim_00_01mydim_01_4_inherit__map">
-<area shape="rect" title=" " alt="" coords="5,21,271,77"/>
-<area shape="rect" href="a03118.html" title=" " alt="" coords="492,14,700,85"/>
-<area shape="rect" href="a03138.html" title=" " alt="" coords="749,21,969,77"/>
-</map>
-</div>
+<p><code>#include &lt;<a class="el" href="a06699_source.html">dune/grid/geometrygrid/geometry.hh</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr class="memitem:a8b34ef261fada62642a3abdcf1859950"><td class="memItemLeft" align="right" valign="top">static const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03118.html#a8b34ef261fada62642a3abdcf1859950">v</a> = hasSingleGeometryType::v &amp;&amp; ((mydim == dim) || ((id | 1u) == 1u) || ((id | 1u) == idMask))</td></tr>
-<tr class="separator:a8b34ef261fada62642a3abdcf1859950"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7bc971869926958ab8096f87b30d2c11"><td class="memItemLeft" align="right" valign="top">static const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03118.html#a7bc971869926958ab8096f87b30d2c11">topologyId</a> = (<a class="el" href="a03118.html#a8b34ef261fada62642a3abdcf1859950">v</a> ? id &amp; idMask : ~0u)</td></tr>
-<tr class="separator:a7bc971869926958ab8096f87b30d2c11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03122.html">CornerStorage</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03126.html">hasSingleGeometryType</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a2871f8b3ba537e044458adf15f9639a4"><td class="memItemLeft" align="right" valign="top">typedef std::remove_const&lt; <a class="el" href="a02710.html">Grid</a> &gt;::type::Traits&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03118.html#a2871f8b3ba537e044458adf15f9639a4">Traits</a></td></tr>
+<tr class="separator:a2871f8b3ba537e044458adf15f9639a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42dd0a07b9966b95baf0c45bbcd6d2ed"><td class="memItemLeft" align="right" valign="top">typedef Traits::ctype&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03118.html#a42dd0a07b9966b95baf0c45bbcd6d2ed">ctype</a></td></tr>
+<tr class="separator:a42dd0a07b9966b95baf0c45bbcd6d2ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5316103c11917243eb297d6da4f51abe"><td class="memItemLeft" align="right" valign="top">typedef Impl::FieldMatrixHelper&lt; <a class="el" href="a03118.html#a42dd0a07b9966b95baf0c45bbcd6d2ed">ctype</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03118.html#a5316103c11917243eb297d6da4f51abe">MatrixHelper</a></td></tr>
+<tr class="separator:a5316103c11917243eb297d6da4f51abe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a5d7fde30365a77909b14d7aead7c8ed4"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a03118.html#a42dd0a07b9966b95baf0c45bbcd6d2ed">ctype</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03118.html#a5d7fde30365a77909b14d7aead7c8ed4">tolerance</a> ()</td></tr>
+<tr class="separator:a5d7fde30365a77909b14d7aead7c8ed4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a7bc971869926958ab8096f87b30d2c11"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7bc971869926958ab8096f87b30d2c11">&#9670;&nbsp;</a></span>topologyId</h2>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a42dd0a07b9966b95baf0c45bbcd6d2ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42dd0a07b9966b95baf0c45bbcd6d2ed">&#9670;&nbsp;</a></span>ctype</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class hasSingleGeometryType , int dim, int mydim&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
+template&lt;class Grid &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">const unsigned int <a class="el" href="a03118.html">Dune::GeoGrid::InferHasSingleGeometryType</a>&lt; hasSingleGeometryType, dim, mydim &gt;::topologyId = (<a class="el" href="a03118.html#a8b34ef261fada62642a3abdcf1859950">v</a> ? id &amp; idMask : ~0u)</td>
+          <td class="memname">typedef Traits::ctype <a class="el" href="a03118.html">Dune::GeoGrid::GeometryTraits</a>&lt; <a class="el" href="a02710.html">Grid</a> &gt;::<a class="el" href="a03118.html#a42dd0a07b9966b95baf0c45bbcd6d2ed">ctype</a></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a8b34ef261fada62642a3abdcf1859950"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8b34ef261fada62642a3abdcf1859950">&#9670;&nbsp;</a></span>v</h2>
+<a id="a5316103c11917243eb297d6da4f51abe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5316103c11917243eb297d6da4f51abe">&#9670;&nbsp;</a></span>MatrixHelper</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class hasSingleGeometryType , int dim, int mydim&gt; </div>
+template&lt;class Grid &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Impl::FieldMatrixHelper&lt; <a class="el" href="a03118.html#a42dd0a07b9966b95baf0c45bbcd6d2ed">ctype</a> &gt; <a class="el" href="a03118.html">Dune::GeoGrid::GeometryTraits</a>&lt; <a class="el" href="a02710.html">Grid</a> &gt;::<a class="el" href="a03118.html#a5316103c11917243eb297d6da4f51abe">MatrixHelper</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2871f8b3ba537e044458adf15f9639a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2871f8b3ba537e044458adf15f9639a4">&#9670;&nbsp;</a></span>Traits</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Grid &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::remove_const&lt; <a class="el" href="a02710.html">Grid</a> &gt;::type::Traits <a class="el" href="a03118.html">Dune::GeoGrid::GeometryTraits</a>&lt; <a class="el" href="a02710.html">Grid</a> &gt;::<a class="el" href="a03118.html#a2871f8b3ba537e044458adf15f9639a4">Traits</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a5d7fde30365a77909b14d7aead7c8ed4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d7fde30365a77909b14d7aead7c8ed4">&#9670;&nbsp;</a></span>tolerance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Grid &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const bool <a class="el" href="a03118.html">Dune::GeoGrid::InferHasSingleGeometryType</a>&lt; hasSingleGeometryType, dim, mydim &gt;::v = hasSingleGeometryType::v &amp;&amp; ((mydim == dim) || ((id | 1u) == 1u) || ((id | 1u) == idMask))</td>
+          <td class="memname">static <a class="el" href="a03118.html#a42dd0a07b9966b95baf0c45bbcd6d2ed">ctype</a> <a class="el" href="a03118.html">Dune::GeoGrid::GeometryTraits</a>&lt; <a class="el" href="a02710.html">Grid</a> &gt;::tolerance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -143,7 +177,7 @@ template&lt;class hasSingleGeometryType , int dim, int mydim&gt; </div>
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="a06794_source.html">geometrygrid/geometry.hh</a></li>
+<li><a class="el" href="a06699_source.html">geometrygrid/geometry.hh</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

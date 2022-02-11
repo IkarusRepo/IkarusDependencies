@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: Dune::YLoadBalancePowerD&lt; d &gt; Class Template Reference</title>
+<title>dune-grid: Dune::StructuredGridFactory&lt; YaspGrid&lt; dim, EquidistantCoordinates&lt; ctype, dim &gt; &gt; &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,144 +62,146 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00936.html">Dune</a></li><li class="navelem"><a class="el" href="a04262.html">YLoadBalancePowerD</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00940.html">Dune</a></li><li class="navelem"><a class="el" href="a04262.html">StructuredGridFactory&lt; YaspGrid&lt; dim, EquidistantCoordinates&lt; ctype, dim &gt; &gt; &gt;</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
-<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="a04259.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::YLoadBalancePowerD&lt; d &gt; Class Template Reference</div>  </div>
+<div class="title">Dune::StructuredGridFactory&lt; YaspGrid&lt; dim, EquidistantCoordinates&lt; ctype, dim &gt; &gt; &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Implement yaspgrid load balance strategy for P=x^{dim} processors.  
+<p>Specialization of the <a class="el" href="a02426.html" title="Construct structured cube and simplex grids in unstructured grid managers.">StructuredGridFactory</a> for <a class="el" href="a04134.html" title="[ provides Dune::Grid ]">YaspGrid</a>.  
  <a href="a04262.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00158_source.html">dune/grid/yaspgrid/partitioning.hh</a>&gt;</code></p>
-<div class="dynheader">
-Inheritance diagram for Dune::YLoadBalancePowerD&lt; d &gt;:</div>
-<div class="dyncontent">
-<div class="center"><img src="a04261.png" border="0" usemap="#a_dune_1_1_y_load_balance_power_d_3_01d_01_4_inherit__map" alt="Inheritance graph"/></div>
-<map name="a_dune_1_1_y_load_balance_power_d_3_01d_01_4_inherit__map" id="a_dune_1_1_y_load_balance_power_d_3_01d_01_4_inherit__map">
-<area shape="rect" title="Implement yaspgrid load balance strategy for P=x^{dim} processors." alt="" coords="5,80,225,107"/>
-<area shape="rect" href="a04254.html" title="a base class for the yaspgrid partitioning strategy The name might be irritating. It will probably ch..." alt="" coords="28,5,203,32"/>
-</map>
-</div>
+<p><code>#include &lt;<a class="el" href="a00170_source.html">dune/grid/yaspgrid/structuredyaspgridfactory.hh</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:a409375fafc152aac14aeb42860ab8527"><td class="memItemLeft" align="right" valign="top">typedef std::array&lt; int, d &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04262.html#a409375fafc152aac14aeb42860ab8527">iTupel</a></td></tr>
-<tr class="separator:a409375fafc152aac14aeb42860ab8527"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:abd74562edd023b8177997da92be19a42"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04262.html#abd74562edd023b8177997da92be19a42">~YLoadBalancePowerD</a> ()</td></tr>
-<tr class="separator:abd74562edd023b8177997da92be19a42"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab845061f9040b74b73042885c0212578"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04262.html#ab845061f9040b74b73042885c0212578">loadbalance</a> (const <a class="el" href="a04254.html#aff6c1817d7290b72c628d45f54a9c590">iTupel</a> &amp;size, int P, <a class="el" href="a04254.html#aff6c1817d7290b72c628d45f54a9c590">iTupel</a> &amp;dims) const</td></tr>
-<tr class="separator:ab845061f9040b74b73042885c0212578"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a57a5e3998fffd0b35edefa4f1b39c572"><td class="memItemLeft" align="right" valign="top">static std::unique_ptr&lt; <a class="el" href="a04134.html">GridType</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04262.html#a57a5e3998fffd0b35edefa4f1b39c572">createCubeGrid</a> (const FieldVector&lt; ctype, dimworld &gt; &amp;lowerLeft, const FieldVector&lt; ctype, dimworld &gt; &amp;upperRight, const std::array&lt; unsigned int, dim &gt; &amp;elements)</td></tr>
+<tr class="memdesc:a57a5e3998fffd0b35edefa4f1b39c572"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a structured cube grid.  <a href="a04262.html#a57a5e3998fffd0b35edefa4f1b39c572">More...</a><br /></td></tr>
+<tr class="separator:a57a5e3998fffd0b35edefa4f1b39c572"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1dfbe50cb813e2a5b13e59acbe7436e8"><td class="memItemLeft" align="right" valign="top">static std::unique_ptr&lt; <a class="el" href="a04134.html">GridType</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04262.html#a1dfbe50cb813e2a5b13e59acbe7436e8">createSimplexGrid</a> (const FieldVector&lt; ctype, dimworld &gt; &amp;lowerLeft, const FieldVector&lt; ctype, dimworld &gt; &amp;upperRight, const std::array&lt; unsigned int, dim &gt; &amp;elements)</td></tr>
+<tr class="memdesc:a1dfbe50cb813e2a5b13e59acbe7436e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a structured simplex grid.  <a href="a04262.html#a1dfbe50cb813e2a5b13e59acbe7436e8">More...</a><br /></td></tr>
+<tr class="separator:a1dfbe50cb813e2a5b13e59acbe7436e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;int d&gt;<br />
-class Dune::YLoadBalancePowerD&lt; d &gt;</h3>
+<div class="textblock"><h3>template&lt;class ctype, int dim&gt;<br />
+class Dune::StructuredGridFactory&lt; YaspGrid&lt; dim, EquidistantCoordinates&lt; ctype, dim &gt; &gt; &gt;</h3>
 
-<p>Implement yaspgrid load balance strategy for P=x^{dim} processors. </p>
-</div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a409375fafc152aac14aeb42860ab8527"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a409375fafc152aac14aeb42860ab8527">&#9670;&nbsp;</a></span>iTupel</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int d&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef std::array&lt;int, d&gt; <a class="el" href="a04262.html">Dune::YLoadBalancePowerD</a>&lt; d &gt;::<a class="el" href="a04254.html#aff6c1817d7290b72c628d45f54a9c590">iTupel</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="abd74562edd023b8177997da92be19a42"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abd74562edd023b8177997da92be19a42">&#9670;&nbsp;</a></span>~YLoadBalancePowerD()</h2>
+<p>Specialization of the <a class="el" href="a02426.html" title="Construct structured cube and simplex grids in unstructured grid managers.">StructuredGridFactory</a> for <a class="el" href="a04134.html" title="[ provides Dune::Grid ]">YaspGrid</a>. </p>
+<p>This allows a <a class="el" href="a04134.html" title="[ provides Dune::Grid ]">YaspGrid</a> to be constructed using the <a class="el" href="a02426.html" title="Construct structured cube and simplex grids in unstructured grid managers.">StructuredGridFactory</a> just like the unstructured Grids. There are two limitations: </p><ul>
+<li><a class="el" href="a04134.html" title="[ provides Dune::Grid ]">YaspGrid</a> does not support simplices </li>
+<li>If the lower left corner should not be at the origin, the second template parameter of Yaspgrid has to be chosen as Dune::EquidistantOffsetCoordinates&lt;ctype,dim&gt;. </li>
+</ul>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a57a5e3998fffd0b35edefa4f1b39c572"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57a5e3998fffd0b35edefa4f1b39c572">&#9670;&nbsp;</a></span>createCubeGrid()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int d&gt; </div>
+template&lt;class ctype , int dim&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="a04262.html">Dune::YLoadBalancePowerD</a>&lt; d &gt;::~<a class="el" href="a04262.html">YLoadBalancePowerD</a> </td>
+          <td class="memname">static std::unique_ptr&lt;<a class="el" href="a04134.html">GridType</a>&gt; <a class="el" href="a02426.html">Dune::StructuredGridFactory</a>&lt; <a class="el" href="a04134.html">YaspGrid</a>&lt; dim, <a class="el" href="a04234.html">EquidistantCoordinates</a>&lt; ctype, dim &gt; &gt; &gt;::createCubeGrid </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="ab845061f9040b74b73042885c0212578"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab845061f9040b74b73042885c0212578">&#9670;&nbsp;</a></span>loadbalance()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int d&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void <a class="el" href="a04262.html">Dune::YLoadBalancePowerD</a>&lt; d &gt;::loadbalance </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a04254.html#aff6c1817d7290b72c628d45f54a9c590">iTupel</a> &amp;&#160;</td>
-          <td class="paramname"><em>size</em>, </td>
+          <td class="paramtype">const FieldVector&lt; ctype, dimworld &gt; &amp;&#160;</td>
+          <td class="paramname"><em>lowerLeft</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>P</em>, </td>
+          <td class="paramtype">const FieldVector&lt; ctype, dimworld &gt; &amp;&#160;</td>
+          <td class="paramname"><em>upperRight</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a04254.html#aff6c1817d7290b72c628d45f54a9c590">iTupel</a> &amp;&#160;</td>
-          <td class="paramname"><em>dims</em>&#160;</td>
+          <td class="paramtype">const std::array&lt; unsigned int, dim &gt; &amp;&#160;</td>
+          <td class="paramname"><em>elements</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td> const</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="a04254.html#ae7995b1c6d66c615f64631453ea2fe7c">Dune::YLoadBalance&lt; d &gt;</a>.</p>
+<p>Create a structured cube grid. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lowerLeft</td><td>Lower left corner of the grid </td></tr>
+    <tr><td class="paramname">upperRight</td><td>Upper right corner of the grid </td></tr>
+    <tr><td class="paramname">elements</td><td>Number of elements in each coordinate direction</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>The default variant of <a class="el" href="a04134.html" title="[ provides Dune::Grid ]">YaspGrid</a> only supports lowerLeft at the origin. Use <a class="el" href="a04134.html" title="[ provides Dune::Grid ]">YaspGrid</a>&lt;dim, EquidistantOffsetCoordinates&lt;ctype,dim&gt; &gt; instead for non-trivial origin. </dd></dl>
+
+</div>
+</div>
+<a id="a1dfbe50cb813e2a5b13e59acbe7436e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1dfbe50cb813e2a5b13e59acbe7436e8">&#9670;&nbsp;</a></span>createSimplexGrid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class ctype , int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::unique_ptr&lt;<a class="el" href="a04134.html">GridType</a>&gt; <a class="el" href="a02426.html">Dune::StructuredGridFactory</a>&lt; <a class="el" href="a04134.html">YaspGrid</a>&lt; dim, <a class="el" href="a04234.html">EquidistantCoordinates</a>&lt; ctype, dim &gt; &gt; &gt;::createSimplexGrid </td>
+          <td>(</td>
+          <td class="paramtype">const FieldVector&lt; ctype, dimworld &gt; &amp;&#160;</td>
+          <td class="paramname"><em>lowerLeft</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const FieldVector&lt; ctype, dimworld &gt; &amp;&#160;</td>
+          <td class="paramname"><em>upperRight</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::array&lt; unsigned int, dim &gt; &amp;&#160;</td>
+          <td class="paramname"><em>elements</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Create a structured simplex grid. </p>
+<dl class="section note"><dt>Note</dt><dd>Simplices are not supported in <a class="el" href="a04134.html" title="[ provides Dune::Grid ]">YaspGrid</a>, so this functions unconditionally throws a <a class="el" href="a02674.html" title="Base class for exceptions in Dune grid modules.">GridError</a>. </dd></dl>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="a00158_source.html">partitioning.hh</a></li>
+<li><a class="el" href="a00170_source.html">structuredyaspgridfactory.hh</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

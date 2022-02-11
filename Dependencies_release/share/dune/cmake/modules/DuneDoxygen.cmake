@@ -23,6 +23,7 @@
 #    The documentation is built during the top-level :code:`make doc` call. We have added a dependency
 #    that makes sure it is built before running :code:`make install`.
 #
+include_guard(GLOBAL)
 
 find_package(Doxygen)
 set_package_properties("Doxygen" PROPERTIES
@@ -82,7 +83,7 @@ macro(add_doxygen_target)
   endif()
 
   dune_module_path(MODULE dune-common RESULT scriptdir SCRIPT_DIR)
-  if("${CMAKE_PROJECT_NAME}" STREQUAL "dune-common")
+  if(PROJECT_NAME STREQUAL "dune-common")
     set(DOXYSTYLE_FILE ${CMAKE_CURRENT_SOURCE_DIR}/Doxystyle)
     set(DOXYGENMACROS_FILE ${CMAKE_CURRENT_SOURCE_DIR}/doxygen-macros)
   endif()
@@ -113,7 +114,9 @@ macro(add_doxygen_target)
           ${CMAKE_CURRENT_BINARY_DIR}/html/*.js
           ${CMAKE_CURRENT_BINARY_DIR}/html/*.png
           ${CMAKE_CURRENT_BINARY_DIR}/html/*.css
-          ${CMAKE_CURRENT_BINARY_DIR}/html/*.gif)
+          ${CMAKE_CURRENT_BINARY_DIR}/html/*.gif
+          ${CMAKE_CURRENT_BINARY_DIR}/*.tag
+          )
         set(doxygenfiles \"\${doxygenfiles}\")
         foreach(_file \${doxygenfiles})
            get_filename_component(_basename \${_file} NAME)

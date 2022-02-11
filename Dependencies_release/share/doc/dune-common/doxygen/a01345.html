@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-common: Member List</title>
+<title>dune-common: Dune::Concept::Refines&lt; BaseConcepts &gt; Struct Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-common
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,24 +62,61 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00428.html">Dune</a></li><li class="navelem"><a class="el" href="a01348.html">AlignedBase</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00428.html">Dune</a></li><li class="navelem"><a class="el" href="a00430.html">Concept</a></li><li class="navelem"><a class="el" href="a01345.html">Refines</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
+<a href="a01342.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::AlignedBase&lt; align, Impl &gt; Member List</div>  </div>
+<div class="title">Dune::Concept::Refines&lt; BaseConcepts &gt; Struct Template Reference<div class="ingroups"><a class="el" href="a00400.html">Common</a> &raquo; <a class="el" href="a00402.html">Utilities</a> &raquo; <a class="el" href="a00410.html">C++ concepts</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="a01348.html">Dune::AlignedBase&lt; align, Impl &gt;</a>, including all inherited members.</p>
-<table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="a01348.html#aefd3a8d5a861f72c5d3daf2042b37c60">AlignedBase</a>()</td><td class="entry"><a class="el" href="a01348.html">Dune::AlignedBase&lt; align, Impl &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="a01348.html#aeefae775a26ac5838489c6a095783024">AlignedBase</a>(const AlignedBase &amp;)</td><td class="entry"><a class="el" href="a01348.html">Dune::AlignedBase&lt; align, Impl &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a01348.html#a8ab2f10ea442b779556c5efcd59b8c47">AlignedBase</a>(AlignedBase &amp;&amp;)</td><td class="entry"><a class="el" href="a01348.html">Dune::AlignedBase&lt; align, Impl &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="a01348.html#a51c6412f6781209d9a8923f9b8736953">operator=</a>(const AlignedBase &amp;)=default</td><td class="entry"><a class="el" href="a01348.html">Dune::AlignedBase&lt; align, Impl &gt;</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a01348.html#a5076eefade0799b1781ca01f99ee2228">operator=</a>(AlignedBase &amp;&amp;)=default</td><td class="entry"><a class="el" href="a01348.html">Dune::AlignedBase&lt; align, Impl &gt;</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="a01348.html#a21ec503814f8c7af0494a86215d4a591">~AlignedBase</a>()</td><td class="entry"><a class="el" href="a01348.html">Dune::AlignedBase&lt; align, Impl &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-</table></div><!-- contents -->
+<p>Base class for refined concepts.  
+ <a href="a01345.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="a00035_source.html">dune/common/concept.hh</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:ae7207e9050eb5211a4dcbea2007a382e"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a00407.html#ga7e18d05cb5d1e95f0e7c7409ffe9689f">TypeList</a>&lt; BaseConcepts... &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01345.html#ae7207e9050eb5211a4dcbea2007a382e">BaseConceptList</a></td></tr>
+<tr class="separator:ae7207e9050eb5211a4dcbea2007a382e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;class... BaseConcepts&gt;<br />
+struct Dune::Concept::Refines&lt; BaseConcepts &gt;</h3>
+
+<p>Base class for refined concepts. </p>
+<p>If a new concept should refine one or more existing concepts, this can be achieved by deriving the new concept from Refines&lt;C1,...,CN&gt; where C1, ..., CN are the concepts to be refined. If you want to refine several concepts they should all be put in a single Refines&lt;...&gt; base class.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">BaseConcepts</td><td>The list of concepts to be refined. </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="ae7207e9050eb5211a4dcbea2007a382e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7207e9050eb5211a4dcbea2007a382e">&#9670;&nbsp;</a></span>BaseConceptList</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class... BaseConcepts&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="a00407.html#ga7e18d05cb5d1e95f0e7c7409ffe9689f">TypeList</a>&lt;BaseConcepts...&gt; <a class="el" href="a01345.html">Dune::Concept::Refines</a>&lt; BaseConcepts &gt;::<a class="el" href="a01345.html#ae7207e9050eb5211a4dcbea2007a382e">BaseConceptList</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li><a class="el" href="a00035_source.html">concept.hh</a></li>
+</ul>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1

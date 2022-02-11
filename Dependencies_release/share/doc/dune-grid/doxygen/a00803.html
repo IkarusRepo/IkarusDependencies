@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: functionwriter.hh File Reference</title>
+<title>dune-grid: dataarraywriter.hh File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -70,57 +70,64 @@ $(function() {
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">functionwriter.hh File Reference</div>  </div>
+<div class="title">dataarraywriter.hh File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;cstddef&gt;</code><br />
-<code>#include &lt;memory&gt;</code><br />
+
+<p>Data array writers for the VTKWriter.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &lt;cstdint&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
-<code>#include &lt;typeinfo&gt;</code><br />
-<code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;iomanip&gt;</code><br />
+<code>#include &lt;cmath&gt;</code><br />
 <code>#include &lt;dune/common/exceptions.hh&gt;</code><br />
-<code>#include &lt;dune/common/fvector.hh&gt;</code><br />
-<code>#include &lt;dune/geometry/referenceelements.hh&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00788_source.html">dune/grid/io/file/vtk/common.hh</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00797_source.html">dune/grid/io/file/vtk/dataarraywriter.hh</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00809_source.html">dune/grid/io/file/vtk/pvtuwriter.hh</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00836_source.html">dune/grid/io/file/vtk/vtuwriter.hh</a>&gt;</code><br />
+<code>#include &lt;dune/common/indent.hh&gt;</code><br />
+<code>#include &lt;<a class="el" href="a00821_source.html">dune/grid/io/file/vtk/streams.hh</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="a00794_source.html">dune/grid/io/file/vtk/common.hh</a>&gt;</code><br />
 </div>
 <p><a href="a00803_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03794.html">Dune::VTK::FunctionWriterBase&lt; Cell_ &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for function writers.  <a href="a03794.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03746.html">Dune::VTK::DataArrayWriter</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">base class for data array writers  <a href="a03746.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03798.html">Dune::VTK::VTKFunctionWriter&lt; Func &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for function writers.  <a href="a03798.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03750.html">Dune::VTK::AsciiDataArrayWriter</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">a streaming writer for data array tags, uses ASCII inline format  <a href="a03750.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03802.html">Dune::VTK::CoordinatesWriter&lt; Cell &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">writer for the Coordinates array  <a href="a03802.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03754.html">Dune::VTK::BinaryDataArrayWriter</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">a streaming writer for data array tags, uses binary inline format  <a href="a03754.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03806.html">Dune::VTK::ConformingConnectivityWriter&lt; IteratorFactory &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">writer for the connectivity array in conforming mode  <a href="a03806.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03758.html">Dune::VTK::AppendedRawDataArrayWriter</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">a streaming writer for data array tags, uses appended raw format  <a href="a03758.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03810.html">Dune::VTK::NonConformingConnectivityWriter&lt; Cell &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">writer for the connectivity array in nonconforming mode  <a href="a03810.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03762.html">Dune::VTK::AppendedBase64DataArrayWriter</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">a streaming writer for data array tags, uses appended base64 format  <a href="a03762.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03814.html">Dune::VTK::OffsetsWriter&lt; Cell &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">writer for the offsets array  <a href="a03814.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03766.html">Dune::VTK::NakedBase64DataArrayWriter</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">a streaming writer for appended data array tags, uses base64 format  <a href="a03766.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03818.html">Dune::VTK::TypesWriter&lt; Cell &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">writer for the types array  <a href="a03818.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03770.html">Dune::VTK::NakedRawDataArrayWriter</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">a streaming writer for appended data arrays, uses raw format  <a href="a03770.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03774.html">Dune::VTK::DataArrayWriterFactory</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">a factory for DataArrayWriters  <a href="a03774.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:a00936"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00936.html">Dune</a></td></tr>
-<tr class="memdesc:a00936"><td class="mdescLeft">&#160;</td><td class="mdescRight">Include standard header files. <br /></td></tr>
+<tr class="memitem:a00940"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00940.html">Dune</a></td></tr>
+<tr class="memdesc:a00940"><td class="mdescLeft">&#160;</td><td class="mdescRight">Include standard header files. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00948"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00948.html">Dune::VTK</a></td></tr>
+<tr class="memitem:a00951"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00951.html">Dune::VTK</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Data array writers for the VTKWriter. </p>
+<dl class="section author"><dt>Author</dt><dd>Peter Bastian, Christian Engwer</dd></dl>
+<p>This file contains classes to help writing data in the difeerent VTK output modes </p>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1

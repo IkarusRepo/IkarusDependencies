@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: albertagrid.cc File Reference</title>
+<title>dune-grid: agrid.hh File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -69,50 +69,81 @@ $(function() {
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#define-members">Macros</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#define-members">Macros</a>  </div>
   <div class="headertitle">
-<div class="title">albertagrid.cc File Reference</div>  </div>
+<div class="title">agrid.hh File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="a00512.html">geometry.cc</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00509.html">entity.cc</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00530.html">intersection.cc</a>&quot;</code><br />
-</div><table class="memberdecls">
+
+<p>provides the AlbertaGrid class  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &lt;cassert&gt;</code><br />
+<code>#include &lt;cstddef&gt;</code><br />
+<code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;fstream&gt;</code><br />
+<code>#include &lt;memory&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;dune/common/fvector.hh&gt;</code><br />
+<code>#include &lt;dune/common/fmatrix.hh&gt;</code><br />
+<code>#include &lt;dune/common/stdstreams.hh&gt;</code><br />
+<code>#include &lt;dune/common/parallel/communication.hh&gt;</code><br />
+<code>#include &lt;<a class="el" href="a06702_source.html">dune/grid/common/grid.hh</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="a06711_source.html">dune/grid/common/gridfactory.hh</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="a00218_source.html">dune/grid/common/adaptcallback.hh</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="a00314_source.html">dune/grid/common/sizecache.hh</a>&gt;</code><br />
+<code>#include &quot;<a class="el" href="a00482_source.html">albertaheader.hh</a>&quot;</code><br />
+<code>#include &lt;<a class="el" href="a00560_source.html">dune/grid/albertagrid/misc.hh</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="a06645_source.html">dune/grid/albertagrid/capabilities.hh</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="a06633_source.html">dune/grid/albertagrid/backuprestore.hh</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="a00491_source.html">dune/grid/albertagrid/coordcache.hh</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="a06714_source.html">dune/grid/albertagrid/gridfamily.hh</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="a00539_source.html">dune/grid/albertagrid/level.hh</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="a06741_source.html">dune/grid/albertagrid/intersection.hh</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="a06750_source.html">dune/grid/albertagrid/intersectioniterator.hh</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="a06654_source.html">dune/grid/albertagrid/datahandle.hh</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="a06684_source.html">dune/grid/albertagrid/entityseed.hh</a>&gt;</code><br />
+<code>#include &quot;<a class="el" href="a06735_source.html">indexsets.hh</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a06693_source.html">geometry.hh</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a06675_source.html">entity.hh</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00524_source.html">hierarchiciterator.hh</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00575_source.html">treeiterator.hh</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00542_source.html">leveliterator.hh</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00536_source.html">leafiterator.hh</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00479.html">albertagrid.cc</a>&quot;</code><br />
+<code>#include &lt;<a class="el" href="a00581_source.html">dune/grid/albertagrid/undefine-3.0.hh</a>&gt;</code><br />
+</div>
+<p><a href="a00476_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01774.html">Dune::AlbertaGrid&lt; dim, dimworld &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">[<em> provides <a class="el" href="a02710.html">Dune::Grid</a> </em>]  <a href="a01774.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:a00936"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00936.html">Dune</a></td></tr>
-<tr class="memdesc:a00936"><td class="mdescLeft">&#160;</td><td class="mdescRight">Include standard header files. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00937"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00937.html">Dune::Alberta</a></td></tr>
+<tr class="memitem:a00940"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00940.html">Dune</a></td></tr>
+<tr class="memdesc:a00940"><td class="mdescLeft">&#160;</td><td class="mdescRight">Include standard header files. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a53133f6d063b9eb2237193ae58eef706"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00476.html#a53133f6d063b9eb2237193ae58eef706">DUNE_ALBERTAGRID_CC</a></td></tr>
-<tr class="separator:a53133f6d063b9eb2237193ae58eef706"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a9add90da0373ad65d2bb698209911981"><td class="memTemplParams" colspan="2">template&lt;int dim, int dimworld&gt; </td></tr>
-<tr class="memitem:a9add90da0373ad65d2bb698209911981"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00936.html#a9add90da0373ad65d2bb698209911981">Dune::checkAlbertaDimensions</a> ()</td></tr>
-<tr class="separator:a9add90da0373ad65d2bb698209911981"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:ae8607628dd0ee8dfb96046221b374752"><td class="memItemLeft" align="right" valign="top">static void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00937.html#ae8607628dd0ee8dfb96046221b374752">Dune::Alberta::adaptationDataHandler_</a></td></tr>
-<tr class="separator:ae8607628dd0ee8dfb96046221b374752"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1067446415cacb23802d0f38ff2017d7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00476.html#a1067446415cacb23802d0f38ff2017d7">_ALBERTA_H_</a></td></tr>
+<tr class="separator:a1067446415cacb23802d0f38ff2017d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a53133f6d063b9eb2237193ae58eef706"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a53133f6d063b9eb2237193ae58eef706">&#9670;&nbsp;</a></span>DUNE_ALBERTAGRID_CC</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>provides the AlbertaGrid class </p>
+<dl class="section author"><dt>Author</dt><dd>Robert Kloefkorn and Martin Nolte </dd></dl>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a1067446415cacb23802d0f38ff2017d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1067446415cacb23802d0f38ff2017d7">&#9670;&nbsp;</a></span>_ALBERTA_H_</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define DUNE_ALBERTAGRID_CC</td>
+          <td class="memname">#define _ALBERTA_H_</td>
         </tr>
       </table>
 </div><div class="memdoc">

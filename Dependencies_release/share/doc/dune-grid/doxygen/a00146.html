@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: coordinates.hh File Reference</title>
+<title>dune-grid: recipe-integration.cc File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,66 +62,68 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_282a6d93e11c1f5367984719a29518da.html">dune-grid</a></li><li class="navelem"><a class="el" href="dir_9b356568473fb59d2a92d82c3e3163e0.html">dune</a></li><li class="navelem"><a class="el" href="dir_b835d2b10d4bb6ff2c6d149ed2a0408f.html">grid</a></li><li class="navelem"><a class="el" href="dir_16d1802081d077e2602eacd84d2c767a.html">yaspgrid</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_282a6d93e11c1f5367984719a29518da.html">dune-grid</a></li><li class="navelem"><a class="el" href="dir_834fe4625512f2468861549d5da97412.html">doc</a></li><li class="navelem"><a class="el" href="dir_308a9ccf27b3a0c51ac83bbdc137d315.html">recipes</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">coordinates.hh File Reference</div>  </div>
+<div class="title">recipe-integration.cc File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>This provides container classes for the coordinates to be used in YaspGrid Upon implementation of the tensorproduct feature, the coordinate information has been encapsulated to keep performance for the equidistant grid. Containers for equidistant and tensorproduct grids are provided here.  
-<a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;array&gt;</code><br />
-<code>#include &lt;bitset&gt;</code><br />
-<code>#include &lt;vector&gt;</code><br />
-<code>#include &lt;dune/common/fvector.hh&gt;</code><br />
-</div>
-<p><a href="a00146_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04242.html">Dune::EquidistantCoordinates&lt; ct, dim &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Container for equidistant coordinates in a <a class="el" href="a04142.html" title="[ provides Dune::Grid ]">YaspGrid</a>.  <a href="a04242.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04246.html">Dune::EquidistantOffsetCoordinates&lt; ct, dim &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Container for equidistant coordinates in a <a class="el" href="a04142.html" title="[ provides Dune::Grid ]">YaspGrid</a> with non-trivial origin.  <a href="a04246.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04250.html">Dune::TensorProductCoordinates&lt; ct, dim &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coordinate container for a tensor product <a class="el" href="a04142.html" title="[ provides Dune::Grid ]">YaspGrid</a>.  <a href="a04250.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:a00936"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00936.html">Dune</a></td></tr>
-<tr class="memdesc:a00936"><td class="mdescLeft">&#160;</td><td class="mdescRight">Include standard header files. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00950"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00950.html">Dune::Yasp</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
+<div class="textblock"><code>#include &lt;math.h&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;dune/common/parallel/mpihelper.hh&gt;</code><br />
+<code>#include &lt;dune/common/parametertreeparser.hh&gt;</code><br />
+<code>#include &lt;dune/common/timer.hh&gt;</code><br />
+<code>#include &lt;dune/geometry/referenceelements.hh&gt;</code><br />
+<code>#include &lt;dune/geometry/quadraturerules.hh&gt;</code><br />
+<code>#include &lt;<a class="el" href="a00899_source.html">dune/grid/yaspgrid.hh</a>&gt;</code><br />
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ae5cc7b42420505a8484774dcd6df6538"><td class="memTemplParams" colspan="2">template&lt;class ct , int dim&gt; </td></tr>
-<tr class="memitem:ae5cc7b42420505a8484774dcd6df6538"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00936.html#ae5cc7b42420505a8484774dcd6df6538">Dune::operator&lt;&lt;</a> (std::ostream &amp;s, EquidistantCoordinates&lt; ct, dim &gt; &amp;c)</td></tr>
-<tr class="separator:ae5cc7b42420505a8484774dcd6df6538"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ef78eb9a547d8401cc2b452429e3598"><td class="memTemplParams" colspan="2">template&lt;class ct , int dim&gt; </td></tr>
-<tr class="memitem:a3ef78eb9a547d8401cc2b452429e3598"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00936.html#a3ef78eb9a547d8401cc2b452429e3598">Dune::operator&lt;&lt;</a> (std::ostream &amp;s, EquidistantOffsetCoordinates&lt; ct, dim &gt; &amp;c)</td></tr>
-<tr class="separator:a3ef78eb9a547d8401cc2b452429e3598"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b79ad3b0e1489f0ac98c284bbb8956b"><td class="memTemplParams" colspan="2">template&lt;class ct , int dim&gt; </td></tr>
-<tr class="memitem:a4b79ad3b0e1489f0ac98c284bbb8956b"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00936.html#a4b79ad3b0e1489f0ac98c284bbb8956b">Dune::operator&lt;&lt;</a> (std::ostream &amp;s, TensorProductCoordinates&lt; ct, dim &gt; &amp;c)</td></tr>
-<tr class="separator:a4b79ad3b0e1489f0ac98c284bbb8956b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33c1f696f7736c183ec2af79ab5e0ce8"><td class="memTemplParams" colspan="2">template&lt;class ctype , std::size_t dim&gt; </td></tr>
-<tr class="memitem:a33c1f696f7736c183ec2af79ab5e0ce8"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00950.html#a33c1f696f7736c183ec2af79ab5e0ce8">Dune::Yasp::checkIfMonotonous</a> (const std::array&lt; std::vector&lt; ctype &gt;, dim &gt; &amp;coords)</td></tr>
-<tr class="separator:a33c1f696f7736c183ec2af79ab5e0ce8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00146.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a> (int argc, char **argv)</td></tr>
+<tr class="separator:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This provides container classes for the coordinates to be used in YaspGrid Upon implementation of the tensorproduct feature, the coordinate information has been encapsulated to keep performance for the equidistant grid. Containers for equidistant and tensorproduct grids are provided here. </p>
-</div></div><!-- contents -->
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a3c04138a5bfe5d72780bb7e82a18e627"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c04138a5bfe5d72780bb7e82a18e627">&#9670;&nbsp;</a></span>main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int main </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>argv</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>[set up grid]</p>
+<p>[small vectors and matrices]</p>
+<p>[a function to integrate]</p>
+<p>[integration with midpoint rule]</p>
+<p>[integration with quadrature rule]</p>
+<p>[integrating a flux]</p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="a04343.html#a0">recipe-integration.cc</a>.</dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1

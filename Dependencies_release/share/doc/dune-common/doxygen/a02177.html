@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-common: Member List</title>
+<title>dune-common: Dune::FakeMPIHelper Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-common
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,27 +62,344 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00428.html">Dune</a></li><li class="navelem"><a class="el" href="a02180.html">FakeMPIHelper</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00428.html">Dune</a></li><li class="navelem"><a class="el" href="a02177.html">FakeMPIHelper</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="a02174.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::FakeMPIHelper Member List</div>  </div>
+<div class="title">Dune::FakeMPIHelper Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="a02180.html">Dune::FakeMPIHelper</a>, including all inherited members.</p>
-<table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="a02180.html#a58313225271f50e082de37e5e51f0585">getCollectiveCommunication</a>()</td><td class="entry"><a class="el" href="a02180.html">Dune::FakeMPIHelper</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
-  <tr><td class="entry"><a class="el" href="a02180.html#a6c5c3f921b6a5adadc42479819e85e05">getCommunication</a>()</td><td class="entry"><a class="el" href="a02180.html">Dune::FakeMPIHelper</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a02180.html#a021b715f26fb0098c3d7647bab416338">getCommunicator</a>()</td><td class="entry"><a class="el" href="a02180.html">Dune::FakeMPIHelper</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
-  <tr><td class="entry"><a class="el" href="a02180.html#a7c0cb1ffbda2e8f4feeadd745f64a5ef">getLocalCommunicator</a>()</td><td class="entry"><a class="el" href="a02180.html">Dune::FakeMPIHelper</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a02180.html#a7386f7a48c970713ecf1fd3f6f10cf23">instance</a>(int argc, char **argv)</td><td class="entry"><a class="el" href="a02180.html">Dune::FakeMPIHelper</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
-  <tr><td class="entry"><a class="el" href="a02180.html#a77ccbc0d197e7a7f0694d219b77eac43a087fbd12564de3aefb47b98987acd752">isFake</a> enum value</td><td class="entry"><a class="el" href="a02180.html">Dune::FakeMPIHelper</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a02180.html#a8273f31d2599a0e2daf8ca47778effe7">MPICommunicator</a> typedef</td><td class="entry"><a class="el" href="a02180.html">Dune::FakeMPIHelper</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="a02180.html#aebff07320a4b09dc687d0d13ee9a75a6">rank</a>() const</td><td class="entry"><a class="el" href="a02180.html">Dune::FakeMPIHelper</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a02180.html#a60a600fe6ed51c70a0a61b86ebba2977">size</a>() const</td><td class="entry"><a class="el" href="a02180.html">Dune::FakeMPIHelper</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-</table></div><!-- contents -->
+<p>A fake mpi helper.  
+ <a href="a02177.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="a00215_source.html">dune/common/parallel/mpihelper.hh</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a77ccbc0d197e7a7f0694d219b77eac43"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="a02177.html#a77ccbc0d197e7a7f0694d219b77eac43a087fbd12564de3aefb47b98987acd752">isFake</a> = true
+ }</td></tr>
+<tr class="separator:a77ccbc0d197e7a7f0694d219b77eac43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8273f31d2599a0e2daf8ca47778effe7"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a01957.html">No_Comm</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02177.html#a8273f31d2599a0e2daf8ca47778effe7">MPICommunicator</a></td></tr>
+<tr class="memdesc:a8273f31d2599a0e2daf8ca47778effe7"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type of the mpi communicator.  <a href="a02177.html#a8273f31d2599a0e2daf8ca47778effe7">More...</a><br /></td></tr>
+<tr class="separator:a8273f31d2599a0e2daf8ca47778effe7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:aebff07320a4b09dc687d0d13ee9a75a6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02177.html#aebff07320a4b09dc687d0d13ee9a75a6">rank</a> () const</td></tr>
+<tr class="memdesc:aebff07320a4b09dc687d0d13ee9a75a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">return rank of process, i.e. zero  <a href="a02177.html#aebff07320a4b09dc687d0d13ee9a75a6">More...</a><br /></td></tr>
+<tr class="separator:aebff07320a4b09dc687d0d13ee9a75a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60a600fe6ed51c70a0a61b86ebba2977"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02177.html#a60a600fe6ed51c70a0a61b86ebba2977">size</a> () const</td></tr>
+<tr class="memdesc:a60a600fe6ed51c70a0a61b86ebba2977"><td class="mdescLeft">&#160;</td><td class="mdescRight">return rank of process, i.e. one  <a href="a02177.html#a60a600fe6ed51c70a0a61b86ebba2977">More...</a><br /></td></tr>
+<tr class="separator:a60a600fe6ed51c70a0a61b86ebba2977"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a021b715f26fb0098c3d7647bab416338"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00395.html#a392e8fb5628732502467b715b88974b4">DUNE_EXPORT</a> <a class="el" href="a02177.html#a8273f31d2599a0e2daf8ca47778effe7">MPICommunicator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02177.html#a021b715f26fb0098c3d7647bab416338">getCommunicator</a> ()</td></tr>
+<tr class="memdesc:a021b715f26fb0098c3d7647bab416338"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the default communicator  <a href="a02177.html#a021b715f26fb0098c3d7647bab416338">More...</a><br /></td></tr>
+<tr class="separator:a021b715f26fb0098c3d7647bab416338"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c0cb1ffbda2e8f4feeadd745f64a5ef"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a02177.html#a8273f31d2599a0e2daf8ca47778effe7">MPICommunicator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02177.html#a7c0cb1ffbda2e8f4feeadd745f64a5ef">getLocalCommunicator</a> ()</td></tr>
+<tr class="memdesc:a7c0cb1ffbda2e8f4feeadd745f64a5ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">get a local communicator  <a href="a02177.html#a7c0cb1ffbda2e8f4feeadd745f64a5ef">More...</a><br /></td></tr>
+<tr class="separator:a7c0cb1ffbda2e8f4feeadd745f64a5ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58313225271f50e082de37e5e51f0585"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a01961.html">Communication</a>&lt; <a class="el" href="a02177.html#a8273f31d2599a0e2daf8ca47778effe7">MPICommunicator</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02177.html#a58313225271f50e082de37e5e51f0585">getCollectiveCommunication</a> ()</td></tr>
+<tr class="separator:a58313225271f50e082de37e5e51f0585"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c5c3f921b6a5adadc42479819e85e05"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a01961.html">Communication</a>&lt; <a class="el" href="a02177.html#a8273f31d2599a0e2daf8ca47778effe7">MPICommunicator</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02177.html#a6c5c3f921b6a5adadc42479819e85e05">getCommunication</a> ()</td></tr>
+<tr class="separator:a6c5c3f921b6a5adadc42479819e85e05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d0bbe12acc4855b08e03c35f63a7e3e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00395.html#a392e8fb5628732502467b715b88974b4">DUNE_EXPORT</a> <a class="el" href="a02177.html">FakeMPIHelper</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02177.html#a0d0bbe12acc4855b08e03c35f63a7e3e">instance</a> ([[maybe_unused]] int argc, [[maybe_unused]] char **argv)</td></tr>
+<tr class="memdesc:a0d0bbe12acc4855b08e03c35f63a7e3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the singleton instance of the helper.  <a href="a02177.html#a0d0bbe12acc4855b08e03c35f63a7e3e">More...</a><br /></td></tr>
+<tr class="separator:a0d0bbe12acc4855b08e03c35f63a7e3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b7c9887e6bd88896475a68039f7d15d"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00395.html#a392e8fb5628732502467b715b88974b4">DUNE_EXPORT</a> <a class="el" href="a02177.html">FakeMPIHelper</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02177.html#a9b7c9887e6bd88896475a68039f7d15d">instance</a> ()</td></tr>
+<tr class="separator:a9b7c9887e6bd88896475a68039f7d15d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A fake mpi helper. </p>
+<p>This helper can be used if no MPI is available or one wants to run sequentially even if MPI is available and used. </p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a8273f31d2599a0e2daf8ca47778effe7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8273f31d2599a0e2daf8ca47778effe7">&#9670;&nbsp;</a></span>MPICommunicator</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="a01957.html">No_Comm</a> <a class="el" href="a02177.html#a8273f31d2599a0e2daf8ca47778effe7">Dune::FakeMPIHelper::MPICommunicator</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The type of the mpi communicator. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="a77ccbc0d197e7a7f0694d219b77eac43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77ccbc0d197e7a7f0694d219b77eac43">&#9670;&nbsp;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a77ccbc0d197e7a7f0694d219b77eac43a087fbd12564de3aefb47b98987acd752"></a>isFake&#160;</td><td class="fielddoc"><p>Are we fake (i.e. pretend to have MPI support but are compiled without.) </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a58313225271f50e082de37e5e51f0585"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58313225271f50e082de37e5e51f0585">&#9670;&nbsp;</a></span>getCollectiveCommunication()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="a01961.html">Communication</a>&lt;<a class="el" href="a02177.html#a8273f31d2599a0e2daf8ca47778effe7">MPICommunicator</a>&gt; Dune::FakeMPIHelper::getCollectiveCommunication </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6c5c3f921b6a5adadc42479819e85e05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c5c3f921b6a5adadc42479819e85e05">&#9670;&nbsp;</a></span>getCommunication()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="a01961.html">Communication</a>&lt;<a class="el" href="a02177.html#a8273f31d2599a0e2daf8ca47778effe7">MPICommunicator</a>&gt; Dune::FakeMPIHelper::getCommunication </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a021b715f26fb0098c3d7647bab416338"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a021b715f26fb0098c3d7647bab416338">&#9670;&nbsp;</a></span>getCommunicator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="a00395.html#a392e8fb5628732502467b715b88974b4">DUNE_EXPORT</a> <a class="el" href="a02177.html#a8273f31d2599a0e2daf8ca47778effe7">MPICommunicator</a> Dune::FakeMPIHelper::getCommunicator </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>get the default communicator </p>
+<p>Return a communicator to exchange data with all processes</p>
+<dl class="section return"><dt>Returns</dt><dd>a fake communicator </dd></dl>
+
+</div>
+</div>
+<a id="a7c0cb1ffbda2e8f4feeadd745f64a5ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c0cb1ffbda2e8f4feeadd745f64a5ef">&#9670;&nbsp;</a></span>getLocalCommunicator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="a02177.html#a8273f31d2599a0e2daf8ca47778effe7">MPICommunicator</a> Dune::FakeMPIHelper::getLocalCommunicator </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>get a local communicator </p>
+<p>Returns a communicator to communicate with the local process only</p>
+<dl class="section return"><dt>Returns</dt><dd>a fake communicator </dd></dl>
+
+</div>
+</div>
+<a id="a9b7c9887e6bd88896475a68039f7d15d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b7c9887e6bd88896475a68039f7d15d">&#9670;&nbsp;</a></span>instance() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="a00395.html#a392e8fb5628732502467b715b88974b4">DUNE_EXPORT</a> <a class="el" href="a02177.html">FakeMPIHelper</a>&amp; Dune::FakeMPIHelper::instance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0d0bbe12acc4855b08e03c35f63a7e3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d0bbe12acc4855b08e03c35f63a7e3e">&#9670;&nbsp;</a></span>instance() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="a00395.html#a392e8fb5628732502467b715b88974b4">DUNE_EXPORT</a> <a class="el" href="a02177.html">FakeMPIHelper</a>&amp; Dune::FakeMPIHelper::instance </td>
+          <td>(</td>
+          <td class="paramtype">[[maybe_unused] ] int&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">[[maybe_unused] ] char **&#160;</td>
+          <td class="paramname"><em>argv</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the singleton instance of the helper. </p>
+<p>This method has to be called with the same arguments that the main method of the program was called: </p><div class="fragment"><div class="line"><span class="keywordtype">int</span> <a class="code" href="a00173.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>** argv){</div>
+<div class="line">  <a class="code" href="a02181.html#ae2f69b1380c8a6c270dc30a4a79167b5">MPIHelper::instance</a>(argc, argv);</div>
+<div class="line">  <span class="comment">// program code comes here</span></div>
+<div class="line">  ...</div>
+<div class="line">}</div>
+<div class="ttc" id="aa00173_html_a3c04138a5bfe5d72780bb7e82a18e627"><div class="ttname"><a href="a00173.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a></div><div class="ttdeci">int main(int argc, char **argv)</div><div class="ttdef"><b>Definition:</b> mpi_collective_benchmark.cc:291</div></div>
+<div class="ttc" id="aa02181_html_ae2f69b1380c8a6c270dc30a4a79167b5"><div class="ttname"><a href="a02181.html#ae2f69b1380c8a6c270dc30a4a79167b5">Dune::MPIHelper::instance</a></div><div class="ttdeci">static DUNE_EXPORT MPIHelper &amp; instance()</div><div class="ttdef"><b>Definition:</b> mpihelper.hh:252</div></div>
+</div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">argc</td><td>The number of arguments provided to main. </td></tr>
+    <tr><td class="paramname">argv</td><td>The arguments provided to main. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aebff07320a4b09dc687d0d13ee9a75a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebff07320a4b09dc687d0d13ee9a75a6">&#9670;&nbsp;</a></span>rank()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Dune::FakeMPIHelper::rank </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>return rank of process, i.e. zero </p>
+
+</div>
+</div>
+<a id="a60a600fe6ed51c70a0a61b86ebba2977"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60a600fe6ed51c70a0a61b86ebba2977">&#9670;&nbsp;</a></span>size()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Dune::FakeMPIHelper::size </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>return rank of process, i.e. one </p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="a00215_source.html">mpihelper.hh</a></li>
+</ul>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1

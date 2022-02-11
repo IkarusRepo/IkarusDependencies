@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: yaspgrididset.hh Source File</title>
+<title>dune-grid: yaspgridentityseed.hh Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -67,70 +67,64 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">yaspgrididset.hh</div>  </div>
+<div class="title">yaspgridentityseed.hh</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="a00188.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*-</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// vi: set et ts=4 sw=2 sts=2:</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifndef DUNE_GRID_YASPGRIDIDSET_HH</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define DUNE_GRID_YASPGRIDIDSET_HH</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifndef DUNE_GRID_YASPGRIDENTITYSEED_HH</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define DUNE_GRID_YASPGRIDENTITYSEED_HH</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00936.html">Dune</a> {</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;  <span class="comment">//========================================================================</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"></span>  <span class="comment">//========================================================================</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class</span> Gr<span class="keywordtype">id</span>Imp&gt;</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="a04178.html">   17</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a04178.html">YaspGlobalIdSet</a> : <span class="keyword">public</span> <a class="code" href="a02694.html">IdSet</a>&lt;GridImp,YaspGlobalIdSet&lt;GridImp&gt;,</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;                              typename std::remove_const&lt;GridImp&gt;::type::PersistentIndexType &gt;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                          <span class="comment">/*</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">                             We used the remove_const to extract the Type from the mutable class,</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">                             because the const class is not instantiated yet.</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">                           */</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  {</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">typedef</span> <a class="code" href="a04178.html">YaspGlobalIdSet&lt; GridImp &gt;</a> <a class="code" href="a04178.html">This</a>;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="a04178.html#a65ee9a60e36f50cf6c9cfd77496412db">   28</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> std::remove_const&lt;GridImp&gt;::type::PersistentIndexType <a class="code" href="a04178.html#a65ee9a60e36f50cf6c9cfd77496412db">IdType</a>;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">using</span> <a class="code" href="a02694.html">IdSet&lt;GridImp, This, IdType&gt;::subId</a>;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="a04178.html#ae08bc939b3a98e9328215bc3ef71dd0c">   33</a></span>&#160;    <a class="code" href="a04178.html#ae08bc939b3a98e9328215bc3ef71dd0c">YaspGlobalIdSet</a>()</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00940.html">Dune</a> {</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> codim, <span class="keyword">class</span> Gr<span class="keywordtype">id</span>Imp&gt;</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="a04146.html">   15</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a04146.html">YaspEntitySeed</a></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">enum</span> { dim=GridImp::dimension };</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="a04146.html#af0aa69fbecbb9253990fdf9e0eb89315a8eae8b27a251bbb9d89b6eed551aa03a">   22</a></span>&#160;    <span class="keyword">enum</span> { <a class="code" href="a04146.html#af0aa69fbecbb9253990fdf9e0eb89315a8eae8b27a251bbb9d89b6eed551aa03a">codimension</a> = codim };</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="a04146.html#a773cb8b14826633ee022c14167298fe6">   25</a></span>&#160;    <a class="code" href="a04146.html#a773cb8b14826633ee022c14167298fe6">YaspEntitySeed</a> ()</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;      : <a class="code" href="a04146.html#a4758b907723b558a4d0d913d4bf273c9">_l</a>(-1), <a class="code" href="a04146.html#a0a8efd203e9c589837ac0ed91b464006">_o</a>(0)</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;      std::fill(<a class="code" href="a04146.html#a3350345ce4ee0fe45c648cd934e96e6c">_c</a>.begin(),<a class="code" href="a04146.html#a3350345ce4ee0fe45c648cd934e96e6c">_c</a>.end(),0);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    }</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="a04146.html#a906fed882264711b4386e725dd8848a9">   32</a></span>&#160;    <a class="code" href="a04146.html#a906fed882264711b4386e725dd8848a9">YaspEntitySeed</a> (<span class="keywordtype">int</span> <a class="code" href="a04146.html#a5139fe422d0b73d10885aa49427eaefb">level</a>, std::array&lt;int, dim&gt; <a class="code" href="a04146.html#a35c34bade303f75ad8eb3c1a6878e254">coord</a>, <span class="keywordtype">int</span> o = 0)</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;      : <a class="code" href="a04146.html#a4758b907723b558a4d0d913d4bf273c9">_l</a>(<a class="code" href="a04146.html#a5139fe422d0b73d10885aa49427eaefb">level</a>), <a class="code" href="a04146.html#a3350345ce4ee0fe45c648cd934e96e6c">_c</a>(<a class="code" href="a04146.html#a35c34bade303f75ad8eb3c1a6878e254">coord</a>), <a class="code" href="a04146.html#a0a8efd203e9c589837ac0ed91b464006">_o</a>(o)</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    {}</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">       We use the remove_const to extract the Type from the mutable class,</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">       because the const class is not instantiated yet.</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> cd&gt;</div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="a04178.html#ae09b59080ce0e920d49e1487ae43c5bd">   42</a></span>&#160;    <a class="code" href="a04178.html#a65ee9a60e36f50cf6c9cfd77496412db">IdType</a> <a class="code" href="a04178.html#ae09b59080ce0e920d49e1487ae43c5bd">id</a> (<span class="keyword">const</span> <span class="keyword">typename</span> std::remove_const&lt;GridImp&gt;::type::Traits::template Codim&lt;cd&gt;::Entity&amp; e)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;      <span class="keywordflow">return</span> e.impl().persistentIndex();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    }</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">       We use the remove_const to extract the Type from the mutable class,</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">       because the const class is not instantiated yet.</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="a04178.html#a216b83fb3c5f77892fcc0e7759951598">   52</a></span>&#160;    <a class="code" href="a04178.html#a65ee9a60e36f50cf6c9cfd77496412db">IdType</a> <a class="code" href="a04178.html#a216b83fb3c5f77892fcc0e7759951598">subId</a> (<span class="keyword">const</span> <span class="keyword">typename</span> std::remove_const&lt;GridImp&gt;::type::Traits::template Codim&lt; 0 &gt;::Entity &amp;e,</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                  <span class="keywordtype">int</span> i, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> codim )<span class="keyword"> const</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;      <span class="keywordflow">return</span> e.impl().subPersistentIndex(i,codim);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    }</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  };</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;} <span class="comment">// namespace Dune</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//  DUNE_GRID_YASPGRIDIDSET_HH</span></div>
-<div class="ttc" id="aa00936_html"><div class="ttname"><a href="a00936.html">Dune</a></div><div class="ttdoc">Include standard header files.</div><div class="ttdef"><b>Definition:</b> agrid.hh:59</div></div>
-<div class="ttc" id="aa02694_html"><div class="ttname"><a href="a02694.html">Dune::IdSet</a></div><div class="ttdoc">Id Set Interface.</div><div class="ttdef"><b>Definition:</b> indexidset.hh:441</div></div>
-<div class="ttc" id="aa04178_html"><div class="ttname"><a href="a04178.html">Dune::YaspGlobalIdSet</a></div><div class="ttdoc">persistent, globally unique Ids</div><div class="ttdef"><b>Definition:</b> yaspgrididset.hh:23</div></div>
-<div class="ttc" id="aa04178_html_a216b83fb3c5f77892fcc0e7759951598"><div class="ttname"><a href="a04178.html#a216b83fb3c5f77892fcc0e7759951598">Dune::YaspGlobalIdSet::subId</a></div><div class="ttdeci">IdType subId(const typename std::remove_const&lt; GridImp &gt;::type::Traits::template Codim&lt; 0 &gt;::Entity &amp;e, int i, unsigned int codim) const</div><div class="ttdoc">get id of subentity</div><div class="ttdef"><b>Definition:</b> yaspgrididset.hh:52</div></div>
-<div class="ttc" id="aa04178_html_a65ee9a60e36f50cf6c9cfd77496412db"><div class="ttname"><a href="a04178.html#a65ee9a60e36f50cf6c9cfd77496412db">Dune::YaspGlobalIdSet::IdType</a></div><div class="ttdeci">std::remove_const&lt; GridImp &gt;::type::PersistentIndexType IdType</div><div class="ttdoc">define the type used for persistent indices</div><div class="ttdef"><b>Definition:</b> yaspgrididset.hh:28</div></div>
-<div class="ttc" id="aa04178_html_ae08bc939b3a98e9328215bc3ef71dd0c"><div class="ttname"><a href="a04178.html#ae08bc939b3a98e9328215bc3ef71dd0c">Dune::YaspGlobalIdSet::YaspGlobalIdSet</a></div><div class="ttdeci">YaspGlobalIdSet()</div><div class="ttdoc">Only default-constructible.</div><div class="ttdef"><b>Definition:</b> yaspgrididset.hh:33</div></div>
-<div class="ttc" id="aa04178_html_ae09b59080ce0e920d49e1487ae43c5bd"><div class="ttname"><a href="a04178.html#ae09b59080ce0e920d49e1487ae43c5bd">Dune::YaspGlobalIdSet::id</a></div><div class="ttdeci">IdType id(const typename std::remove_const&lt; GridImp &gt;::type::Traits::template Codim&lt; cd &gt;::Entity &amp;e) const</div><div class="ttdoc">get id of an entity</div><div class="ttdef"><b>Definition:</b> yaspgrididset.hh:42</div></div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="a04146.html#af828a8ec9444ff8bf6c7e01b0890cc29">   37</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="a04146.html#af828a8ec9444ff8bf6c7e01b0890cc29">isValid</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="a04146.html#a4758b907723b558a4d0d913d4bf273c9">_l</a> != -1;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    }</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="a04146.html#a5139fe422d0b73d10885aa49427eaefb">   42</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="a04146.html#a5139fe422d0b73d10885aa49427eaefb">level</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="a04146.html#a4758b907723b558a4d0d913d4bf273c9">_l</a>; }</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="a04146.html#a35c34bade303f75ad8eb3c1a6878e254">   43</a></span>&#160;    <span class="keyword">const</span> std::array&lt;int, dim&gt; &amp; <a class="code" href="a04146.html#a35c34bade303f75ad8eb3c1a6878e254">coord</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="a04146.html#a3350345ce4ee0fe45c648cd934e96e6c">_c</a>; }</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="a04146.html#ad659dd001feb331bf7f962008e72be63">   44</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="a04146.html#ad659dd001feb331bf7f962008e72be63">offset</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="a04146.html#a0a8efd203e9c589837ac0ed91b464006">_o</a>; }</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="a04146.html#a4758b907723b558a4d0d913d4bf273c9">   47</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="a04146.html#a4758b907723b558a4d0d913d4bf273c9">_l</a>;                  <span class="comment">// grid level</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="a04146.html#a3350345ce4ee0fe45c648cd934e96e6c">   48</a></span>&#160;    std::array&lt;int, dim&gt; <a class="code" href="a04146.html#a3350345ce4ee0fe45c648cd934e96e6c">_c</a>; <span class="comment">// coord in the global grid</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="a04146.html#a0a8efd203e9c589837ac0ed91b464006">   49</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="a04146.html#a0a8efd203e9c589837ac0ed91b464006">_o</a>; <span class="comment">// the offset: which YGridComponent, does the entity belong to</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  };</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}  <span class="comment">// namespace Dune</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#endif   </span><span class="comment">// DUNE_GRID_YASPGRIDENTITYSEED_HH</span></div>
+<div class="ttc" id="aa00940_html"><div class="ttname"><a href="a00940.html">Dune</a></div><div class="ttdoc">Include standard header files.</div><div class="ttdef"><b>Definition:</b> agrid.hh:58</div></div>
+<div class="ttc" id="aa04146_html"><div class="ttname"><a href="a04146.html">Dune::YaspEntitySeed</a></div><div class="ttdoc">Describes the minimal information necessary to create a fully functional YaspEntity.</div><div class="ttdef"><b>Definition:</b> yaspgridentityseed.hh:16</div></div>
+<div class="ttc" id="aa04146_html_a0a8efd203e9c589837ac0ed91b464006"><div class="ttname"><a href="a04146.html#a0a8efd203e9c589837ac0ed91b464006">Dune::YaspEntitySeed::_o</a></div><div class="ttdeci">int _o</div><div class="ttdef"><b>Definition:</b> yaspgridentityseed.hh:49</div></div>
+<div class="ttc" id="aa04146_html_a3350345ce4ee0fe45c648cd934e96e6c"><div class="ttname"><a href="a04146.html#a3350345ce4ee0fe45c648cd934e96e6c">Dune::YaspEntitySeed::_c</a></div><div class="ttdeci">std::array&lt; int, dim &gt; _c</div><div class="ttdef"><b>Definition:</b> yaspgridentityseed.hh:48</div></div>
+<div class="ttc" id="aa04146_html_a35c34bade303f75ad8eb3c1a6878e254"><div class="ttname"><a href="a04146.html#a35c34bade303f75ad8eb3c1a6878e254">Dune::YaspEntitySeed::coord</a></div><div class="ttdeci">const std::array&lt; int, dim &gt; &amp; coord() const</div><div class="ttdef"><b>Definition:</b> yaspgridentityseed.hh:43</div></div>
+<div class="ttc" id="aa04146_html_a4758b907723b558a4d0d913d4bf273c9"><div class="ttname"><a href="a04146.html#a4758b907723b558a4d0d913d4bf273c9">Dune::YaspEntitySeed::_l</a></div><div class="ttdeci">int _l</div><div class="ttdef"><b>Definition:</b> yaspgridentityseed.hh:47</div></div>
+<div class="ttc" id="aa04146_html_a5139fe422d0b73d10885aa49427eaefb"><div class="ttname"><a href="a04146.html#a5139fe422d0b73d10885aa49427eaefb">Dune::YaspEntitySeed::level</a></div><div class="ttdeci">int level() const</div><div class="ttdef"><b>Definition:</b> yaspgridentityseed.hh:42</div></div>
+<div class="ttc" id="aa04146_html_a773cb8b14826633ee022c14167298fe6"><div class="ttname"><a href="a04146.html#a773cb8b14826633ee022c14167298fe6">Dune::YaspEntitySeed::YaspEntitySeed</a></div><div class="ttdeci">YaspEntitySeed()</div><div class="ttdoc">default construct an invalid entity seed</div><div class="ttdef"><b>Definition:</b> yaspgridentityseed.hh:25</div></div>
+<div class="ttc" id="aa04146_html_a906fed882264711b4386e725dd8848a9"><div class="ttname"><a href="a04146.html#a906fed882264711b4386e725dd8848a9">Dune::YaspEntitySeed::YaspEntitySeed</a></div><div class="ttdeci">YaspEntitySeed(int level, std::array&lt; int, dim &gt; coord, int o=0)</div><div class="ttdoc">constructor</div><div class="ttdef"><b>Definition:</b> yaspgridentityseed.hh:32</div></div>
+<div class="ttc" id="aa04146_html_ad659dd001feb331bf7f962008e72be63"><div class="ttname"><a href="a04146.html#ad659dd001feb331bf7f962008e72be63">Dune::YaspEntitySeed::offset</a></div><div class="ttdeci">int offset() const</div><div class="ttdef"><b>Definition:</b> yaspgridentityseed.hh:44</div></div>
+<div class="ttc" id="aa04146_html_af0aa69fbecbb9253990fdf9e0eb89315a8eae8b27a251bbb9d89b6eed551aa03a"><div class="ttname"><a href="a04146.html#af0aa69fbecbb9253990fdf9e0eb89315a8eae8b27a251bbb9d89b6eed551aa03a">Dune::YaspEntitySeed::codimension</a></div><div class="ttdeci">@ codimension</div><div class="ttdef"><b>Definition:</b> yaspgridentityseed.hh:22</div></div>
+<div class="ttc" id="aa04146_html_af828a8ec9444ff8bf6c7e01b0890cc29"><div class="ttname"><a href="a04146.html#af828a8ec9444ff8bf6c7e01b0890cc29">Dune::YaspEntitySeed::isValid</a></div><div class="ttdeci">bool isValid() const</div><div class="ttdoc">check whether the EntitySeed refers to a valid Entity</div><div class="ttdef"><b>Definition:</b> yaspgridentityseed.hh:37</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

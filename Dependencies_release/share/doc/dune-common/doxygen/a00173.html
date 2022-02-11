@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-common
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -78,7 +78,7 @@ $(function() {
 <code>#include &lt;iomanip&gt;</code><br />
 <code>#include &lt;thread&gt;</code><br />
 <code>#include &lt;<a class="el" href="a00215_source.html">dune/common/parallel/mpihelper.hh</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00368_source.html">dune/common/timer.hh</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="a00365_source.html">dune/common/timer.hh</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="a00242_source.html">dune/common/parametertree.hh</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="a00248_source.html">dune/common/parametertreeparser.hh</a>&gt;</code><br />
 </div><table class="memberdecls">
@@ -88,7 +88,7 @@ Functions</h2></td></tr>
 <tr class="memitem:afb912825e02284a6c9ff4f616d528d86"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00173.html#afb912825e02284a6c9ff4f616d528d86">communicate</a> (CC &amp;cc)</td></tr>
 <tr class="separator:afb912825e02284a6c9ff4f616d528d86"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae54df330063f8bff6dc9f02a28301909"><td class="memTemplParams" colspan="2">template&lt;class CC &gt; </td></tr>
-<tr class="memitem:ae54df330063f8bff6dc9f02a28301909"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="a02052.html">Dune::Future</a>&lt; void &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00173.html#ae54df330063f8bff6dc9f02a28301909">startCommunication</a> (CC &amp;cc)</td></tr>
+<tr class="memitem:ae54df330063f8bff6dc9f02a28301909"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="a02049.html">Dune::Future</a>&lt; void &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00173.html#ae54df330063f8bff6dc9f02a28301909">startCommunication</a> (CC &amp;cc)</td></tr>
 <tr class="separator:ae54df330063f8bff6dc9f02a28301909"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2346f2e9a9ad80d88d9bcec29ff6dd00"><td class="memTemplParams" colspan="2">template&lt;class CC &gt; </td></tr>
 <tr class="memitem:a2346f2e9a9ad80d88d9bcec29ff6dd00"><td class="memTemplItemLeft" align="right" valign="top">double&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00173.html#a2346f2e9a9ad80d88d9bcec29ff6dd00">runBlocking</a> (CC &amp;cc)</td></tr>
@@ -96,9 +96,9 @@ Functions</h2></td></tr>
 <tr class="memitem:abc473f2a6a96ee4a7a3c297d40a04bde"><td class="memTemplParams" colspan="2">template&lt;class CC &gt; </td></tr>
 <tr class="memitem:abc473f2a6a96ee4a7a3c297d40a04bde"><td class="memTemplItemLeft" align="right" valign="top">double&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00173.html#abc473f2a6a96ee4a7a3c297d40a04bde">runNonblockingWait</a> (CC &amp;cc)</td></tr>
 <tr class="separator:abc473f2a6a96ee4a7a3c297d40a04bde"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ca41d63c6616ce71a11bfb8a94c24fb"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; double, double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00173.html#a4ca41d63c6616ce71a11bfb8a94c24fb">runNonblockingSleep</a> (decltype(<a class="el" href="a02184.html#ad80a7288909998bac8155a81164ce8a9">Dune::MPIHelper::getCommunication</a>())&amp;cc, std::chrono::duration&lt; double &gt; wait_time)</td></tr>
+<tr class="memitem:a4ca41d63c6616ce71a11bfb8a94c24fb"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; double, double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00173.html#a4ca41d63c6616ce71a11bfb8a94c24fb">runNonblockingSleep</a> (decltype(<a class="el" href="a02181.html#ad80a7288909998bac8155a81164ce8a9">Dune::MPIHelper::getCommunication</a>())&amp;cc, std::chrono::duration&lt; double &gt; wait_time)</td></tr>
 <tr class="separator:a4ca41d63c6616ce71a11bfb8a94c24fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a9db255ad861239c51bf19b2a1b5317"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; double, double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00173.html#a5a9db255ad861239c51bf19b2a1b5317">runNonblockingActive</a> (decltype(<a class="el" href="a02184.html#ad80a7288909998bac8155a81164ce8a9">Dune::MPIHelper::getCommunication</a>())&amp;cc, std::chrono::duration&lt; double &gt; wait_time)</td></tr>
+<tr class="memitem:a5a9db255ad861239c51bf19b2a1b5317"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; double, double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00173.html#a5a9db255ad861239c51bf19b2a1b5317">runNonblockingActive</a> (decltype(<a class="el" href="a02181.html#ad80a7288909998bac8155a81164ce8a9">Dune::MPIHelper::getCommunication</a>())&amp;cc, std::chrono::duration&lt; double &gt; wait_time)</td></tr>
 <tr class="separator:a5a9db255ad861239c51bf19b2a1b5317"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53a6cbf349be1a52cf9eae296d5a845e"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; double, double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00173.html#a53a6cbf349be1a52cf9eae296d5a845e">determineOverlap</a> (std::function&lt; std::tuple&lt; double, double &gt;(std::chrono::duration&lt; double &gt;)&gt; fun)</td></tr>
 <tr class="separator:a53a6cbf349be1a52cf9eae296d5a845e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -111,7 +111,7 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a27e2a51c9830747b1c6fd2825389fbae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a02316.html">Dune::ParameterTree</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00173.html#a27e2a51c9830747b1c6fd2825389fbae">options</a></td></tr>
+<tr class="memitem:a27e2a51c9830747b1c6fd2825389fbae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a02317.html">Dune::ParameterTree</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00173.html#a27e2a51c9830747b1c6fd2825389fbae">options</a></td></tr>
 <tr class="memdesc:a27e2a51c9830747b1c6fd2825389fbae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Benchmark for measure the possible overlap of computation and communication at MPI collective communications.  <a href="a00173.html#a27e2a51c9830747b1c6fd2825389fbae">More...</a><br /></td></tr>
 <tr class="separator:a27e2a51c9830747b1c6fd2825389fbae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a041dd892dba6b2c051d9ab750ef9f3c7"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00173.html#a041dd892dba6b2c051d9ab750ef9f3c7">all_methods</a></td></tr>
@@ -248,7 +248,7 @@ template&lt;class CC &gt; </div>
         <tr>
           <td class="memname">std::tuple&lt;double, double&gt; runNonblockingActive </td>
           <td>(</td>
-          <td class="paramtype">decltype(<a class="el" href="a02184.html#ad80a7288909998bac8155a81164ce8a9">Dune::MPIHelper::getCommunication</a>())&amp;&#160;</td>
+          <td class="paramtype">decltype(<a class="el" href="a02181.html#ad80a7288909998bac8155a81164ce8a9">Dune::MPIHelper::getCommunication</a>())&amp;&#160;</td>
           <td class="paramname"><em>cc</em>, </td>
         </tr>
         <tr>
@@ -276,7 +276,7 @@ template&lt;class CC &gt; </div>
         <tr>
           <td class="memname">std::tuple&lt;double, double&gt; runNonblockingSleep </td>
           <td>(</td>
-          <td class="paramtype">decltype(<a class="el" href="a02184.html#ad80a7288909998bac8155a81164ce8a9">Dune::MPIHelper::getCommunication</a>())&amp;&#160;</td>
+          <td class="paramtype">decltype(<a class="el" href="a02181.html#ad80a7288909998bac8155a81164ce8a9">Dune::MPIHelper::getCommunication</a>())&amp;&#160;</td>
           <td class="paramname"><em>cc</em>, </td>
         </tr>
         <tr>
@@ -324,7 +324,7 @@ template&lt;class CC &gt; </div>
 template&lt;class CC &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a02052.html">Dune::Future</a>&lt;void&gt; startCommunication </td>
+          <td class="memname"><a class="el" href="a02049.html">Dune::Future</a>&lt;void&gt; startCommunication </td>
           <td>(</td>
           <td class="paramtype">CC &amp;&#160;</td>
           <td class="paramname"><em>cc</em></td><td>)</td>
@@ -363,7 +363,7 @@ template&lt;class CC &gt; </div>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a02316.html">Dune::ParameterTree</a> options</td>
+          <td class="memname"><a class="el" href="a02317.html">Dune::ParameterTree</a> options</td>
         </tr>
       </table>
 </div><div class="memdoc">

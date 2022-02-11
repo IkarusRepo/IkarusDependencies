@@ -135,7 +135,8 @@
 #
 #       You may specify the COMMAND option to give the exact command line to be
 #       executed when running the test. This defaults to the name of the executable
-#       added by dune_add_test for this test. Note that if you specify both CMD_ARGS
+#       added by dune_add_test for this test or the name of the executable of the given TARGET.
+#       Note that if you specify both CMD_ARGS
 #       and COMMAND, the given CMD_ARGS will be put behind your COMMAND. If you use
 #       this in combination with the MPI_RANKS parameter, the call to mpi will still be
 #       wrapped around the given commands.
@@ -205,6 +206,7 @@
 #    build all tests during `make all`. Note, that this may take quite some time for some modules.
 #    If not in use, you have to build tests through the target :code:`build_tests`.
 #
+include_guard(GLOBAL)
 
 # enable the testing suite on the CMake side.
 enable_testing()
@@ -286,7 +288,11 @@ function(dune_add_test)
     endif()
   endif()
   if(NOT ADDTEST_COMMAND)
-    set(ADDTEST_COMMAND ${ADDTEST_NAME})
+    if(ADDTEST_TARGET)
+      set(ADDTEST_COMMAND ${ADDTEST_TARGET})
+    else()
+      set(ADDTEST_COMMAND ${ADDTEST_NAME})
+    endif()
   endif()
   if(ADDTEST_MPI_RANKS AND (NOT ADDTEST_TIMEOUT))
     message(FATAL_ERROR "dune_add_test: You need to specify the TIMEOUT parameter if using the MPI_RANKS parameter.")
@@ -339,7 +345,7 @@ function(dune_add_test)
     # This is just a placeholder
     target_compile_definitions(${ADDTEST_NAME} PUBLIC ${ADDTEST_COMPILE_DEFINITIONS})
     target_compile_options(${ADDTEST_NAME} PUBLIC ${ADDTEST_COMPILE_FLAGS})
-    target_link_libraries(${ADDTEST_NAME} ${ADDTEST_LINK_LIBRARIES})
+    target_link_libraries(${ADDTEST_NAME} PUBLIC ${ADDTEST_LINK_LIBRARIES})
     set(ADDTEST_TARGET ${ADDTEST_NAME})
   endif()
 

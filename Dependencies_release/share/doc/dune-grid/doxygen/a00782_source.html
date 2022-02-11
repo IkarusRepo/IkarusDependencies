@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: boundaryiterators.hh Source File</title>
+<title>dune-grid: b64enc.hh Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -67,235 +67,82 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">boundaryiterators.hh</div>  </div>
+<div class="title">b64enc.hh</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="a00782.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*-</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// vi: set et ts=4 sw=2 sts=2:</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#ifndef DUNE_GRID_IO_FILE_VTK_BOUNDARYITERATORS_HH</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#define DUNE_GRID_IO_FILE_VTK_BOUNDARYITERATORS_HH</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#ifndef DUNE_GRID_IO_FILE_VTK_B64ENC_HH</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#define DUNE_GRID_IO_FILE_VTK_B64ENC_HH</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;iterator&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;dune/common/iteratorfacades.hh&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00791.html">dune/grid/io/file/vtk/corner.hh</a>&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00794.html">dune/grid/io/file/vtk/corneriterator.hh</a>&gt;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00803.html">dune/grid/io/file/vtk/functionwriter.hh</a>&gt;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00936.html">Dune</a> {</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keyword">namespace </span>VTK {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;assert.h&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00940.html">Dune</a> {</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="a00940.html#a0f8eaefa183de6150378561ac93d210a">   21</a></span>&#160;  <span class="keyword">const</span> <span class="keywordtype">char</span> <a class="code" href="a00940.html#a0f8eaefa183de6150378561ac93d210a">base64table</a>[] =</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="charliteral">&#39;A&#39;</span>, <span class="charliteral">&#39;B&#39;</span>, <span class="charliteral">&#39;C&#39;</span>, <span class="charliteral">&#39;D&#39;</span>, <span class="charliteral">&#39;E&#39;</span>, <span class="charliteral">&#39;F&#39;</span>, <span class="charliteral">&#39;G&#39;</span>, <span class="charliteral">&#39;H&#39;</span>, <span class="charliteral">&#39;I&#39;</span>, <span class="charliteral">&#39;J&#39;</span>, <span class="charliteral">&#39;K&#39;</span>, <span class="charliteral">&#39;L&#39;</span>, <span class="charliteral">&#39;M&#39;</span>,</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="charliteral">&#39;N&#39;</span>, <span class="charliteral">&#39;O&#39;</span>, <span class="charliteral">&#39;P&#39;</span>, <span class="charliteral">&#39;Q&#39;</span>, <span class="charliteral">&#39;R&#39;</span>, <span class="charliteral">&#39;S&#39;</span>, <span class="charliteral">&#39;T&#39;</span>, <span class="charliteral">&#39;U&#39;</span>, <span class="charliteral">&#39;V&#39;</span>, <span class="charliteral">&#39;W&#39;</span>, <span class="charliteral">&#39;X&#39;</span>, <span class="charliteral">&#39;Y&#39;</span>, <span class="charliteral">&#39;Z&#39;</span>,</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="charliteral">&#39;a&#39;</span>, <span class="charliteral">&#39;b&#39;</span>, <span class="charliteral">&#39;c&#39;</span>, <span class="charliteral">&#39;d&#39;</span>, <span class="charliteral">&#39;e&#39;</span>, <span class="charliteral">&#39;f&#39;</span>, <span class="charliteral">&#39;g&#39;</span>, <span class="charliteral">&#39;h&#39;</span>, <span class="charliteral">&#39;i&#39;</span>, <span class="charliteral">&#39;j&#39;</span>, <span class="charliteral">&#39;k&#39;</span>, <span class="charliteral">&#39;l&#39;</span>, <span class="charliteral">&#39;m&#39;</span>,</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="charliteral">&#39;n&#39;</span>, <span class="charliteral">&#39;o&#39;</span>, <span class="charliteral">&#39;p&#39;</span>, <span class="charliteral">&#39;q&#39;</span>, <span class="charliteral">&#39;r&#39;</span>, <span class="charliteral">&#39;s&#39;</span>, <span class="charliteral">&#39;t&#39;</span>, <span class="charliteral">&#39;u&#39;</span>, <span class="charliteral">&#39;v&#39;</span>, <span class="charliteral">&#39;w&#39;</span>, <span class="charliteral">&#39;x&#39;</span>, <span class="charliteral">&#39;y&#39;</span>, <span class="charliteral">&#39;z&#39;</span>,</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="charliteral">&#39;0&#39;</span>, <span class="charliteral">&#39;1&#39;</span>, <span class="charliteral">&#39;2&#39;</span>, <span class="charliteral">&#39;3&#39;</span>, <span class="charliteral">&#39;4&#39;</span>, <span class="charliteral">&#39;5&#39;</span>, <span class="charliteral">&#39;6&#39;</span>, <span class="charliteral">&#39;7&#39;</span>, <span class="charliteral">&#39;8&#39;</span>, <span class="charliteral">&#39;9&#39;</span>, <span class="charliteral">&#39;+&#39;</span>, <span class="charliteral">&#39;/&#39;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  };</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> GV&gt;</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="a03702.html">   34</a></span>&#160;    <span class="keyword">class </span><a class="code" href="a03702.html">BoundaryIterator</a></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;      : <span class="keyword">public</span> ForwardIteratorFacade</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        &lt; BoundaryIterator&lt;GV&gt;,</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            const typename GV::Intersection,</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            const typename GV::Intersection&amp;,</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            typename std::iterator_traits&lt;typename GV::template Codim&lt;0&gt;::</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                Iterator&gt;::difference_type&gt;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      <span class="comment">// reiterator the facades typedefs here</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="a03702.html#a11a5c1a50347477a1fd85233127c054b">   44</a></span>&#160;      <span class="keyword">typedef</span> <a class="code" href="a03702.html">BoundaryIterator&lt;GV&gt;</a> <a class="code" href="a03702.html#a11a5c1a50347477a1fd85233127c054b">DerivedType</a>;</div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="a03702.html#a5c3b50023c63240cf43ee0bfd2f5aa87">   45</a></span>&#160;      <span class="keyword">typedef</span> <span class="keyword">const</span> <span class="keyword">typename</span> GV::Intersection <a class="code" href="a03702.html#a5c3b50023c63240cf43ee0bfd2f5aa87">Value</a>;</div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="a03702.html#aa9fed1e7517d00e064f36d3eb21ae0f7">   46</a></span>&#160;      <span class="keyword">typedef</span> <a class="code" href="a03702.html#a5c3b50023c63240cf43ee0bfd2f5aa87">Value</a>&amp; <a class="code" href="a03702.html#aa9fed1e7517d00e064f36d3eb21ae0f7">Reference</a>;</div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="a03702.html#a87ee265ccb15dd573bfff8fc1aa7ff6a">   47</a></span>&#160;      <span class="keyword">typedef</span> <span class="keyword">typename</span> GV::template Codim&lt;0&gt;::Iterator <a class="code" href="a03702.html#a87ee265ccb15dd573bfff8fc1aa7ff6a">ElementIterator</a>;</div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="a03702.html#abaf2b5c99a14196b7ba0197f3ff13782">   48</a></span>&#160;      <span class="keyword">typedef</span> <span class="keyword">typename</span> GV::IntersectionIterator <a class="code" href="a03702.html#abaf2b5c99a14196b7ba0197f3ff13782">IntersectionIterator</a>;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;      <span class="keyword">typedef</span> <span class="keyword">typename</span> std::iterator_traits&lt;ElementIterator&gt;::difference_type</div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="a03702.html#ae94324fa35c001a669295339eb41ae0c">   50</a></span>&#160;      <a class="code" href="a03702.html#ae94324fa35c001a669295339eb41ae0c">DifferenceType</a>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="a03694.html">   31</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a03694.html">b64chunk</a></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  {</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="a03694.html#a1131ba9802a736203dcd7566ee7d6c65">   33</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="a03694.html#a1131ba9802a736203dcd7566ee7d6c65">size_type</a> = <span class="keywordtype">unsigned</span> char;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="a03694.html#a2b2a74e2ab67c618a07ed52b683f9e6f">   34</a></span>&#160;    <a class="code" href="a03694.html#a1131ba9802a736203dcd7566ee7d6c65">size_type</a> <a class="code" href="a03694.html#a2b2a74e2ab67c618a07ed52b683f9e6f">size</a>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="a03694.html#a11037bab216ec528d03aeec77ae8b505">   35</a></span>&#160;    <span class="keywordtype">char</span> <a class="code" href="a03694.html#a11037bab216ec528d03aeec77ae8b505">txt</a>[3];</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="a03694.html#af5b86cb11f0aca7381e1802b9a5f9580">   37</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a03694.html#af5b86cb11f0aca7381e1802b9a5f9580">reset</a>()</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;      <a class="code" href="a03694.html#a2b2a74e2ab67c618a07ed52b683f9e6f">size</a> = 0;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;      <a class="code" href="a03694.html#a11037bab216ec528d03aeec77ae8b505">txt</a>[0] = <a class="code" href="a03694.html#a11037bab216ec528d03aeec77ae8b505">txt</a>[1] = <a class="code" href="a03694.html#a11037bab216ec528d03aeec77ae8b505">txt</a>[2] = 0;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    }</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="a03694.html#aec6f229c1c8d0af459d81116ee20330a">   43</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="a03694.html#aec6f229c1c8d0af459d81116ee20330a">read</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* t, <a class="code" href="a03694.html#a1131ba9802a736203dcd7566ee7d6c65">size_type</a> s)</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;      <a class="code" href="a03694.html#a2b2a74e2ab67c618a07ed52b683f9e6f">size</a> = s&gt;=3 ? 3 : s;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;      <a class="code" href="a03694.html#a11037bab216ec528d03aeec77ae8b505">txt</a>[0] = s&gt;0 ? t[0] : 0;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;      <a class="code" href="a03694.html#a11037bab216ec528d03aeec77ae8b505">txt</a>[1] = s&gt;1 ? t[1] : 0;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;      <a class="code" href="a03694.html#a11037bab216ec528d03aeec77ae8b505">txt</a>[2] = s&gt;2 ? t[2] : 0;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="a03694.html#a2b2a74e2ab67c618a07ed52b683f9e6f">size</a>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    }</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;      <span class="keyword">typedef</span> ForwardIteratorFacade&lt;<a class="code" href="a03702.html#a11a5c1a50347477a1fd85233127c054b">DerivedType</a>, <a class="code" href="a03702.html#a5c3b50023c63240cf43ee0bfd2f5aa87">Value</a>, <a class="code" href="a03702.html#aa9fed1e7517d00e064f36d3eb21ae0f7">Reference</a>,</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;          <a class="code" href="a03702.html#ae94324fa35c001a669295339eb41ae0c">DifferenceType</a>&gt; Facade;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      <span class="keyword">const</span> GV* gv;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      <a class="code" href="a03702.html#a87ee265ccb15dd573bfff8fc1aa7ff6a">ElementIterator</a> eit;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;      std::shared_ptr&lt;IntersectionIterator&gt; iit;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;      <span class="keywordtype">bool</span> valid()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="comment">// we&#39;re valid if we&#39;re passed-the-end</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordflow">if</span>(eit == gv-&gt;template end&lt;0&gt;()) <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="comment">// or if we&#39;re on a boundary</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">if</span>((*iit)-&gt;boundary() &amp;&amp; !(*iit)-&gt;neighbor()) <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="comment">// otherwise we&#39;re invalid</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;      }</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;      <span class="keywordtype">void</span> basic_increment() {</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        ++*iit;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordflow">if</span>(*iit == gv-&gt;iend(*eit)) {</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;          iit.reset();</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;          ++eit;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;          <span class="keywordflow">if</span>(eit != gv-&gt;template end&lt;0&gt;())</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            iit.reset(<span class="keyword">new</span> <a class="code" href="a03702.html#abaf2b5c99a14196b7ba0197f3ff13782">IntersectionIterator</a>(gv-&gt;ibegin(*eit)));</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        }</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;      }</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="a03702.html#a5019a7e6a4fc5f6da958142176d43444">   80</a></span>&#160;      <a class="code" href="a03702.html#aa9fed1e7517d00e064f36d3eb21ae0f7">Reference</a> <a class="code" href="a03702.html#a5019a7e6a4fc5f6da958142176d43444">dereference</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordflow">return</span> **iit;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;      }</div>
-<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="a03702.html#ac8a11f3300bb31c8ab298b972d83f2ce">   83</a></span>&#160;      <span class="keywordtype">bool</span> <a class="code" href="a03702.html#ac8a11f3300bb31c8ab298b972d83f2ce">equals</a>(<span class="keyword">const</span> <a class="code" href="a03702.html">DerivedType</a>&amp; other)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordflow">if</span>(eit != other.eit) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="comment">// this is a bit tricky, since we may not compare iit if we are</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="comment">// passed-the-end</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keywordtype">bool</span> mePassedTheEnd = eit == gv-&gt;template end&lt;0&gt;();</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordtype">bool</span> otherPassedTheEnd = other.eit == other.gv-&gt;template end&lt;0&gt;();</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="comment">// both passed-the-end =&gt; consider them equal</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordflow">if</span>(mePassedTheEnd &amp;&amp; otherPassedTheEnd) <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="comment">// one passed the end =&gt; not equal</span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keywordflow">if</span>(mePassedTheEnd || otherPassedTheEnd) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="comment">// none passed-the-end =&gt; do their iit iterators match?</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keywordflow">return</span> *iit == *other.iit;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;      }</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
-<div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="a03702.html#aed4b0d8c4dc7a28be2627d05c3e49b62">  101</a></span>&#160;      <span class="keywordtype">void</span> <a class="code" href="a03702.html#aed4b0d8c4dc7a28be2627d05c3e49b62">increment</a>() {</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        basic_increment();</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keywordflow">while</span>(!valid()) basic_increment();</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;      }</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
-<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="a03702.html#a60718d4da462586aabae62bb3be9ccf6">  111</a></span>&#160;      <a class="code" href="a03702.html#a60718d4da462586aabae62bb3be9ccf6">BoundaryIterator</a>(<span class="keyword">const</span> GV&amp; gv_, <span class="keyword">const</span> <a class="code" href="a03702.html#a87ee265ccb15dd573bfff8fc1aa7ff6a">ElementIterator</a>&amp; eit_,</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                       <span class="keyword">const</span> <a class="code" href="a03702.html#abaf2b5c99a14196b7ba0197f3ff13782">IntersectionIterator</a>&amp; iit_)</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        : gv(&amp;gv_), eit(eit_), iit(new <a class="code" href="a03702.html#abaf2b5c99a14196b7ba0197f3ff13782">IntersectionIterator</a>(iit_))</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;      {</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="keywordflow">while</span>(!valid()) basic_increment();</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;      }</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
-<div class="line"><a name="l00123"></a><span class="lineno"><a class="line" href="a03702.html#a43a4d0e2d252793e88fda000620795a8">  123</a></span>&#160;      <a class="code" href="a03702.html#a43a4d0e2d252793e88fda000620795a8">BoundaryIterator</a>(<span class="keyword">const</span> GV&amp; gv_, <span class="keyword">const</span> <a class="code" href="a03702.html#a87ee265ccb15dd573bfff8fc1aa7ff6a">ElementIterator</a>&amp; eit_)</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        : gv(&amp;gv_), eit(eit_)</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;      {</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        <span class="keywordflow">if</span>(eit != gv-&gt;template end&lt;0&gt;())</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;          iit.reset(<span class="keyword">new</span> <a class="code" href="a03702.html#abaf2b5c99a14196b7ba0197f3ff13782">IntersectionIterator</a>(gv-&gt;ibegin(*eit)));</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        <span class="keywordflow">while</span>(!valid()) basic_increment();</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;      }</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
-<div class="line"><a name="l00136"></a><span class="lineno"><a class="line" href="a03702.html#a5da406255b1932e3b69e7815f717f6aa">  136</a></span>&#160;      <a class="code" href="a03702.html#a5da406255b1932e3b69e7815f717f6aa">BoundaryIterator</a>(<span class="keyword">const</span> GV&amp; gv_, <span class="keywordtype">bool</span> end = <span class="keyword">false</span>)</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        : gv(&amp;gv_), eit(end ? gv-&gt;template end&lt;0&gt;() : gv-&gt;template begin&lt;0&gt;())</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;      {</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        <span class="keywordflow">if</span>(eit != gv-&gt;template end&lt;0&gt;())</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;          iit.reset(<span class="keyword">new</span> <a class="code" href="a03702.html#abaf2b5c99a14196b7ba0197f3ff13782">IntersectionIterator</a>(gv-&gt;ibegin(*eit)));</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        <span class="keywordflow">while</span>(!valid()) basic_increment();</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;      }</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    };</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ElementIndexSet&gt;</div>
-<div class="line"><a name="l00147"></a><span class="lineno"><a class="line" href="a03706.html">  147</a></span>&#160;    <span class="keyword">class </span><a class="code" href="a03706.html">IntersectionIndexSet</a> {</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;      <span class="keyword">const</span> ElementIndexSet&amp; eis;</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00151"></a><span class="lineno"><a class="line" href="a03706.html#a3ebc26cae83cf1322d96657f89077cae">  151</a></span>&#160;      <a class="code" href="a03706.html#a3ebc26cae83cf1322d96657f89077cae">IntersectionIndexSet</a>(<span class="keyword">const</span> ElementIndexSet&amp; eis_)</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        : eis(eis_)</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;      { }</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    };</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> GV&gt;</div>
-<div class="line"><a name="l00157"></a><span class="lineno"><a class="line" href="a03710.html">  157</a></span>&#160;    <span class="keyword">class </span><a class="code" href="a03710.html">NonConformingBoundaryIteratorFactory</a> {</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;      <span class="keyword">const</span> GV&amp; gv;</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160; </div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00161"></a><span class="lineno"><a class="line" href="a03710.html#a5913f8236a45bbbf308f6ccb12350286">  161</a></span>&#160;      <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <a class="code" href="a03710.html#a5913f8236a45bbbf308f6ccb12350286">dimCell</a> = GV::dimension-1;</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
-<div class="line"><a name="l00163"></a><span class="lineno"><a class="line" href="a03710.html#adc68b74a8655a836dccacefc2c3931b3">  163</a></span>&#160;      <span class="keyword">typedef</span> <span class="keyword">typename</span> GV::Intersection <a class="code" href="a03710.html#adc68b74a8655a836dccacefc2c3931b3">Cell</a>;</div>
-<div class="line"><a name="l00164"></a><span class="lineno"><a class="line" href="a03710.html#a5ae22285ede9e10217fea36098a11e84">  164</a></span>&#160;      <span class="keyword">typedef</span> <a class="code" href="a03702.html">BoundaryIterator&lt;GV&gt;</a> <a class="code" href="a03710.html#a5ae22285ede9e10217fea36098a11e84">CellIterator</a>;</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; </div>
-<div class="line"><a name="l00166"></a><span class="lineno"><a class="line" href="a03710.html#aca019583c6399a3f1a83aaaca270f632">  166</a></span>&#160;      <span class="keyword">typedef</span> <a class="code" href="a03742.html">VTK::Corner&lt;Cell&gt;</a> <a class="code" href="a03710.html#aca019583c6399a3f1a83aaaca270f632">Corner</a>;</div>
-<div class="line"><a name="l00167"></a><span class="lineno"><a class="line" href="a03710.html#a5a469dc6e767492696b215022b453f74">  167</a></span>&#160;      <span class="keyword">typedef</span> <a class="code" href="a03746.html">VTK::CornerIterator&lt;CellIterator&gt;</a> <a class="code" href="a03710.html#a5a469dc6e767492696b215022b453f74">CornerIterator</a>;</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160; </div>
-<div class="line"><a name="l00169"></a><span class="lineno"><a class="line" href="a03710.html#aa20b781ab17a0c40310f8dc6dc8495a9">  169</a></span>&#160;      <span class="keyword">typedef</span> <a class="code" href="a03742.html">Corner</a> <a class="code" href="a03710.html#aa20b781ab17a0c40310f8dc6dc8495a9">Point</a>;</div>
-<div class="line"><a name="l00170"></a><span class="lineno"><a class="line" href="a03710.html#af28e498e637cd1dfb0b2a9475e1fe1a2">  170</a></span>&#160;      <span class="keyword">typedef</span> <a class="code" href="a03746.html">CornerIterator</a> <a class="code" href="a03710.html#af28e498e637cd1dfb0b2a9475e1fe1a2">PointIterator</a>;</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160; </div>
-<div class="line"><a name="l00172"></a><span class="lineno"><a class="line" href="a03710.html#abde9276afc72434bde8232afb1c1fc9a">  172</a></span>&#160;      <span class="keyword">typedef</span> <a class="code" href="a03810.html">NonConformingConnectivityWriter&lt;Cell&gt;</a> <a class="code" href="a03710.html#abde9276afc72434bde8232afb1c1fc9a">ConnectivityWriter</a>;</div>
-<div class="line"><a name="l00173"></a><span class="lineno"><a class="line" href="a03710.html#afa7aa59892174ce7b0bec6169d3630b3">  173</a></span>&#160;      <span class="keyword">typedef</span> <span class="keyword">typename</span> GV::CollectiveCommunication <a class="code" href="a03710.html#afa7aa59892174ce7b0bec6169d3630b3">CollectiveCommunication</a>;</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160; </div>
-<div class="line"><a name="l00175"></a><span class="lineno"><a class="line" href="a03710.html#af5597ca2fb54c5a6529b6bea038a04b6">  175</a></span>&#160;      <span class="keyword">explicit</span> <a class="code" href="a03710.html#af5597ca2fb54c5a6529b6bea038a04b6">NonConformingBoundaryIteratorFactory</a>(<span class="keyword">const</span> GV&amp; gv_)</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        : gv(gv_)</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;      { }</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160; </div>
-<div class="line"><a name="l00179"></a><span class="lineno"><a class="line" href="a03710.html#ab20518bd6f6701e73c5c7459469890b0">  179</a></span>&#160;      <a class="code" href="a03702.html">CellIterator</a> <a class="code" href="a03710.html#ab20518bd6f6701e73c5c7459469890b0">beginCells</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="a03710.html#a5ae22285ede9e10217fea36098a11e84">CellIterator</a>(gv);</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;      }</div>
-<div class="line"><a name="l00182"></a><span class="lineno"><a class="line" href="a03710.html#af8415e3c6cbbada8cc91bd0873bced3a">  182</a></span>&#160;      <a class="code" href="a03702.html">CellIterator</a> <a class="code" href="a03710.html#af8415e3c6cbbada8cc91bd0873bced3a">endCells</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="a03710.html#a5ae22285ede9e10217fea36098a11e84">CellIterator</a>(gv, <span class="keyword">true</span>);</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;      }</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; </div>
-<div class="line"><a name="l00186"></a><span class="lineno"><a class="line" href="a03710.html#aa2aa13a5f55201fedc4986f39760344e">  186</a></span>&#160;      <a class="code" href="a03746.html">CornerIterator</a> <a class="code" href="a03710.html#aa2aa13a5f55201fedc4986f39760344e">beginCorners</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="a03710.html#a5a469dc6e767492696b215022b453f74">CornerIterator</a>(<a class="code" href="a03710.html#ab20518bd6f6701e73c5c7459469890b0">beginCells</a>(), <a class="code" href="a03710.html#af8415e3c6cbbada8cc91bd0873bced3a">endCells</a>());</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;      }</div>
-<div class="line"><a name="l00189"></a><span class="lineno"><a class="line" href="a03710.html#ac92a737d025dbf430397a114067b7ecf">  189</a></span>&#160;      <a class="code" href="a03746.html">CornerIterator</a> <a class="code" href="a03710.html#ac92a737d025dbf430397a114067b7ecf">endCorners</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="a03710.html#a5a469dc6e767492696b215022b453f74">CornerIterator</a>(<a class="code" href="a03710.html#af8415e3c6cbbada8cc91bd0873bced3a">endCells</a>());</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;      }</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160; </div>
-<div class="line"><a name="l00193"></a><span class="lineno"><a class="line" href="a03710.html#a08ac73b743d2a1fe177bf3f8fec1a97c">  193</a></span>&#160;      <a class="code" href="a03746.html">PointIterator</a> <a class="code" href="a03710.html#a08ac73b743d2a1fe177bf3f8fec1a97c">beginPoints</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="a03710.html#aa2aa13a5f55201fedc4986f39760344e">beginCorners</a>(); }</div>
-<div class="line"><a name="l00194"></a><span class="lineno"><a class="line" href="a03710.html#afbcc06c7068f27588f332b4f5e5d4357">  194</a></span>&#160;      <a class="code" href="a03746.html">PointIterator</a> <a class="code" href="a03710.html#afbcc06c7068f27588f332b4f5e5d4357">endPoints</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="a03710.html#ac92a737d025dbf430397a114067b7ecf">endCorners</a>(); }</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160; </div>
-<div class="line"><a name="l00196"></a><span class="lineno"><a class="line" href="a03710.html#a1d15016185666af07ca5e788e41d78b1">  196</a></span>&#160;      <a class="code" href="a03810.html">ConnectivityWriter</a> <a class="code" href="a03710.html#a1d15016185666af07ca5e788e41d78b1">makeConnectivity</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="a03710.html#abde9276afc72434bde8232afb1c1fc9a">ConnectivityWriter</a>();</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;      }</div>
-<div class="line"><a name="l00199"></a><span class="lineno"><a class="line" href="a03710.html#ab57ee90fbf231139d9e776671e4c459f">  199</a></span>&#160;      <span class="keyword">const</span> <a class="code" href="a03710.html#afa7aa59892174ce7b0bec6169d3630b3">CollectiveCommunication</a>&amp; <a class="code" href="a03710.html#ab57ee90fbf231139d9e776671e4c459f">comm</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        <span class="keywordflow">return</span> gv.comm();</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;      }</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    };</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160; </div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;  } <span class="comment">// namespace VTK</span></div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160; </div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160; </div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;} <span class="comment">// namespace Dune</span></div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160; </div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// DUNE_GRID_IO_FILE_VTK_BOUNDARYITERATORS_HH</span></div>
-<div class="ttc" id="aa00791_html"><div class="ttname"><a href="a00791.html">corner.hh</a></div></div>
-<div class="ttc" id="aa00794_html"><div class="ttname"><a href="a00794.html">corneriterator.hh</a></div></div>
-<div class="ttc" id="aa00803_html"><div class="ttname"><a href="a00803.html">functionwriter.hh</a></div></div>
-<div class="ttc" id="aa00936_html"><div class="ttname"><a href="a00936.html">Dune</a></div><div class="ttdoc">Include standard header files.</div><div class="ttdef"><b>Definition:</b> agrid.hh:59</div></div>
-<div class="ttc" id="aa03702_html"><div class="ttname"><a href="a03702.html">Dune::VTK::BoundaryIterator</a></div><div class="ttdoc">iterate over the GridViews boundary intersections</div><div class="ttdef"><b>Definition:</b> boundaryiterators.hh:41</div></div>
-<div class="ttc" id="aa03702_html_a11a5c1a50347477a1fd85233127c054b"><div class="ttname"><a href="a03702.html#a11a5c1a50347477a1fd85233127c054b">Dune::VTK::BoundaryIterator::DerivedType</a></div><div class="ttdeci">BoundaryIterator&lt; GV &gt; DerivedType</div><div class="ttdef"><b>Definition:</b> boundaryiterators.hh:44</div></div>
-<div class="ttc" id="aa03702_html_a43a4d0e2d252793e88fda000620795a8"><div class="ttname"><a href="a03702.html#a43a4d0e2d252793e88fda000620795a8">Dune::VTK::BoundaryIterator::BoundaryIterator</a></div><div class="ttdeci">BoundaryIterator(const GV &amp;gv_, const ElementIterator &amp;eit_)</div><div class="ttdoc">construct a BoundaryIterator</div><div class="ttdef"><b>Definition:</b> boundaryiterators.hh:123</div></div>
-<div class="ttc" id="aa03702_html_a5019a7e6a4fc5f6da958142176d43444"><div class="ttname"><a href="a03702.html#a5019a7e6a4fc5f6da958142176d43444">Dune::VTK::BoundaryIterator::dereference</a></div><div class="ttdeci">Reference dereference() const</div><div class="ttdef"><b>Definition:</b> boundaryiterators.hh:80</div></div>
-<div class="ttc" id="aa03702_html_a5c3b50023c63240cf43ee0bfd2f5aa87"><div class="ttname"><a href="a03702.html#a5c3b50023c63240cf43ee0bfd2f5aa87">Dune::VTK::BoundaryIterator::Value</a></div><div class="ttdeci">const GV::Intersection Value</div><div class="ttdef"><b>Definition:</b> boundaryiterators.hh:45</div></div>
-<div class="ttc" id="aa03702_html_a5da406255b1932e3b69e7815f717f6aa"><div class="ttname"><a href="a03702.html#a5da406255b1932e3b69e7815f717f6aa">Dune::VTK::BoundaryIterator::BoundaryIterator</a></div><div class="ttdeci">BoundaryIterator(const GV &amp;gv_, bool end=false)</div><div class="ttdoc">construct a BoundaryIterator</div><div class="ttdef"><b>Definition:</b> boundaryiterators.hh:136</div></div>
-<div class="ttc" id="aa03702_html_a60718d4da462586aabae62bb3be9ccf6"><div class="ttname"><a href="a03702.html#a60718d4da462586aabae62bb3be9ccf6">Dune::VTK::BoundaryIterator::BoundaryIterator</a></div><div class="ttdeci">BoundaryIterator(const GV &amp;gv_, const ElementIterator &amp;eit_, const IntersectionIterator &amp;iit_)</div><div class="ttdoc">construct a BoundaryIterator</div><div class="ttdef"><b>Definition:</b> boundaryiterators.hh:111</div></div>
-<div class="ttc" id="aa03702_html_a87ee265ccb15dd573bfff8fc1aa7ff6a"><div class="ttname"><a href="a03702.html#a87ee265ccb15dd573bfff8fc1aa7ff6a">Dune::VTK::BoundaryIterator::ElementIterator</a></div><div class="ttdeci">GV::template Codim&lt; 0 &gt;::Iterator ElementIterator</div><div class="ttdef"><b>Definition:</b> boundaryiterators.hh:47</div></div>
-<div class="ttc" id="aa03702_html_aa9fed1e7517d00e064f36d3eb21ae0f7"><div class="ttname"><a href="a03702.html#aa9fed1e7517d00e064f36d3eb21ae0f7">Dune::VTK::BoundaryIterator::Reference</a></div><div class="ttdeci">Value &amp; Reference</div><div class="ttdef"><b>Definition:</b> boundaryiterators.hh:46</div></div>
-<div class="ttc" id="aa03702_html_abaf2b5c99a14196b7ba0197f3ff13782"><div class="ttname"><a href="a03702.html#abaf2b5c99a14196b7ba0197f3ff13782">Dune::VTK::BoundaryIterator::IntersectionIterator</a></div><div class="ttdeci">GV::IntersectionIterator IntersectionIterator</div><div class="ttdef"><b>Definition:</b> boundaryiterators.hh:48</div></div>
-<div class="ttc" id="aa03702_html_ac8a11f3300bb31c8ab298b972d83f2ce"><div class="ttname"><a href="a03702.html#ac8a11f3300bb31c8ab298b972d83f2ce">Dune::VTK::BoundaryIterator::equals</a></div><div class="ttdeci">bool equals(const DerivedType &amp;other) const</div><div class="ttdef"><b>Definition:</b> boundaryiterators.hh:83</div></div>
-<div class="ttc" id="aa03702_html_ae94324fa35c001a669295339eb41ae0c"><div class="ttname"><a href="a03702.html#ae94324fa35c001a669295339eb41ae0c">Dune::VTK::BoundaryIterator::DifferenceType</a></div><div class="ttdeci">std::iterator_traits&lt; ElementIterator &gt;::difference_type DifferenceType</div><div class="ttdef"><b>Definition:</b> boundaryiterators.hh:50</div></div>
-<div class="ttc" id="aa03702_html_aed4b0d8c4dc7a28be2627d05c3e49b62"><div class="ttname"><a href="a03702.html#aed4b0d8c4dc7a28be2627d05c3e49b62">Dune::VTK::BoundaryIterator::increment</a></div><div class="ttdeci">void increment()</div><div class="ttdef"><b>Definition:</b> boundaryiterators.hh:101</div></div>
-<div class="ttc" id="aa03706_html"><div class="ttname"><a href="a03706.html">Dune::VTK::IntersectionIndexSet</a></div><div class="ttdef"><b>Definition:</b> boundaryiterators.hh:147</div></div>
-<div class="ttc" id="aa03706_html_a3ebc26cae83cf1322d96657f89077cae"><div class="ttname"><a href="a03706.html#a3ebc26cae83cf1322d96657f89077cae">Dune::VTK::IntersectionIndexSet::IntersectionIndexSet</a></div><div class="ttdeci">IntersectionIndexSet(const ElementIndexSet &amp;eis_)</div><div class="ttdef"><b>Definition:</b> boundaryiterators.hh:151</div></div>
-<div class="ttc" id="aa03710_html"><div class="ttname"><a href="a03710.html">Dune::VTK::NonConformingBoundaryIteratorFactory</a></div><div class="ttdef"><b>Definition:</b> boundaryiterators.hh:157</div></div>
-<div class="ttc" id="aa03710_html_a08ac73b743d2a1fe177bf3f8fec1a97c"><div class="ttname"><a href="a03710.html#a08ac73b743d2a1fe177bf3f8fec1a97c">Dune::VTK::NonConformingBoundaryIteratorFactory::beginPoints</a></div><div class="ttdeci">PointIterator beginPoints() const</div><div class="ttdef"><b>Definition:</b> boundaryiterators.hh:193</div></div>
-<div class="ttc" id="aa03710_html_a1d15016185666af07ca5e788e41d78b1"><div class="ttname"><a href="a03710.html#a1d15016185666af07ca5e788e41d78b1">Dune::VTK::NonConformingBoundaryIteratorFactory::makeConnectivity</a></div><div class="ttdeci">ConnectivityWriter makeConnectivity() const</div><div class="ttdef"><b>Definition:</b> boundaryiterators.hh:196</div></div>
-<div class="ttc" id="aa03710_html_a5913f8236a45bbbf308f6ccb12350286"><div class="ttname"><a href="a03710.html#a5913f8236a45bbbf308f6ccb12350286">Dune::VTK::NonConformingBoundaryIteratorFactory::dimCell</a></div><div class="ttdeci">static const unsigned dimCell</div><div class="ttdef"><b>Definition:</b> boundaryiterators.hh:161</div></div>
-<div class="ttc" id="aa03710_html_a5a469dc6e767492696b215022b453f74"><div class="ttname"><a href="a03710.html#a5a469dc6e767492696b215022b453f74">Dune::VTK::NonConformingBoundaryIteratorFactory::CornerIterator</a></div><div class="ttdeci">VTK::CornerIterator&lt; CellIterator &gt; CornerIterator</div><div class="ttdef"><b>Definition:</b> boundaryiterators.hh:167</div></div>
-<div class="ttc" id="aa03710_html_a5ae22285ede9e10217fea36098a11e84"><div class="ttname"><a href="a03710.html#a5ae22285ede9e10217fea36098a11e84">Dune::VTK::NonConformingBoundaryIteratorFactory::CellIterator</a></div><div class="ttdeci">BoundaryIterator&lt; GV &gt; CellIterator</div><div class="ttdef"><b>Definition:</b> boundaryiterators.hh:164</div></div>
-<div class="ttc" id="aa03710_html_aa20b781ab17a0c40310f8dc6dc8495a9"><div class="ttname"><a href="a03710.html#aa20b781ab17a0c40310f8dc6dc8495a9">Dune::VTK::NonConformingBoundaryIteratorFactory::Point</a></div><div class="ttdeci">Corner Point</div><div class="ttdef"><b>Definition:</b> boundaryiterators.hh:169</div></div>
-<div class="ttc" id="aa03710_html_aa2aa13a5f55201fedc4986f39760344e"><div class="ttname"><a href="a03710.html#aa2aa13a5f55201fedc4986f39760344e">Dune::VTK::NonConformingBoundaryIteratorFactory::beginCorners</a></div><div class="ttdeci">CornerIterator beginCorners() const</div><div class="ttdef"><b>Definition:</b> boundaryiterators.hh:186</div></div>
-<div class="ttc" id="aa03710_html_ab20518bd6f6701e73c5c7459469890b0"><div class="ttname"><a href="a03710.html#ab20518bd6f6701e73c5c7459469890b0">Dune::VTK::NonConformingBoundaryIteratorFactory::beginCells</a></div><div class="ttdeci">CellIterator beginCells() const</div><div class="ttdef"><b>Definition:</b> boundaryiterators.hh:179</div></div>
-<div class="ttc" id="aa03710_html_ab57ee90fbf231139d9e776671e4c459f"><div class="ttname"><a href="a03710.html#ab57ee90fbf231139d9e776671e4c459f">Dune::VTK::NonConformingBoundaryIteratorFactory::comm</a></div><div class="ttdeci">const CollectiveCommunication &amp; comm() const</div><div class="ttdef"><b>Definition:</b> boundaryiterators.hh:199</div></div>
-<div class="ttc" id="aa03710_html_abde9276afc72434bde8232afb1c1fc9a"><div class="ttname"><a href="a03710.html#abde9276afc72434bde8232afb1c1fc9a">Dune::VTK::NonConformingBoundaryIteratorFactory::ConnectivityWriter</a></div><div class="ttdeci">NonConformingConnectivityWriter&lt; Cell &gt; ConnectivityWriter</div><div class="ttdef"><b>Definition:</b> boundaryiterators.hh:172</div></div>
-<div class="ttc" id="aa03710_html_ac92a737d025dbf430397a114067b7ecf"><div class="ttname"><a href="a03710.html#ac92a737d025dbf430397a114067b7ecf">Dune::VTK::NonConformingBoundaryIteratorFactory::endCorners</a></div><div class="ttdeci">CornerIterator endCorners() const</div><div class="ttdef"><b>Definition:</b> boundaryiterators.hh:189</div></div>
-<div class="ttc" id="aa03710_html_aca019583c6399a3f1a83aaaca270f632"><div class="ttname"><a href="a03710.html#aca019583c6399a3f1a83aaaca270f632">Dune::VTK::NonConformingBoundaryIteratorFactory::Corner</a></div><div class="ttdeci">VTK::Corner&lt; Cell &gt; Corner</div><div class="ttdef"><b>Definition:</b> boundaryiterators.hh:166</div></div>
-<div class="ttc" id="aa03710_html_adc68b74a8655a836dccacefc2c3931b3"><div class="ttname"><a href="a03710.html#adc68b74a8655a836dccacefc2c3931b3">Dune::VTK::NonConformingBoundaryIteratorFactory::Cell</a></div><div class="ttdeci">GV::Intersection Cell</div><div class="ttdef"><b>Definition:</b> boundaryiterators.hh:163</div></div>
-<div class="ttc" id="aa03710_html_af28e498e637cd1dfb0b2a9475e1fe1a2"><div class="ttname"><a href="a03710.html#af28e498e637cd1dfb0b2a9475e1fe1a2">Dune::VTK::NonConformingBoundaryIteratorFactory::PointIterator</a></div><div class="ttdeci">CornerIterator PointIterator</div><div class="ttdef"><b>Definition:</b> boundaryiterators.hh:170</div></div>
-<div class="ttc" id="aa03710_html_af5597ca2fb54c5a6529b6bea038a04b6"><div class="ttname"><a href="a03710.html#af5597ca2fb54c5a6529b6bea038a04b6">Dune::VTK::NonConformingBoundaryIteratorFactory::NonConformingBoundaryIteratorFactory</a></div><div class="ttdeci">NonConformingBoundaryIteratorFactory(const GV &amp;gv_)</div><div class="ttdef"><b>Definition:</b> boundaryiterators.hh:175</div></div>
-<div class="ttc" id="aa03710_html_af8415e3c6cbbada8cc91bd0873bced3a"><div class="ttname"><a href="a03710.html#af8415e3c6cbbada8cc91bd0873bced3a">Dune::VTK::NonConformingBoundaryIteratorFactory::endCells</a></div><div class="ttdeci">CellIterator endCells() const</div><div class="ttdef"><b>Definition:</b> boundaryiterators.hh:182</div></div>
-<div class="ttc" id="aa03710_html_afa7aa59892174ce7b0bec6169d3630b3"><div class="ttname"><a href="a03710.html#afa7aa59892174ce7b0bec6169d3630b3">Dune::VTK::NonConformingBoundaryIteratorFactory::CollectiveCommunication</a></div><div class="ttdeci">GV::CollectiveCommunication CollectiveCommunication</div><div class="ttdef"><b>Definition:</b> boundaryiterators.hh:173</div></div>
-<div class="ttc" id="aa03710_html_afbcc06c7068f27588f332b4f5e5d4357"><div class="ttname"><a href="a03710.html#afbcc06c7068f27588f332b4f5e5d4357">Dune::VTK::NonConformingBoundaryIteratorFactory::endPoints</a></div><div class="ttdeci">PointIterator endPoints() const</div><div class="ttdef"><b>Definition:</b> boundaryiterators.hh:194</div></div>
-<div class="ttc" id="aa03742_html"><div class="ttname"><a href="a03742.html">Dune::VTK::Corner</a></div><div class="ttdoc">simple class representing a corner of a cell</div><div class="ttdef"><b>Definition:</b> corner.hh:23</div></div>
-<div class="ttc" id="aa03746_html"><div class="ttname"><a href="a03746.html">Dune::VTK::CornerIterator</a></div><div class="ttdoc">iterate over the corners of some cell range</div><div class="ttdef"><b>Definition:</b> corneriterator.hh:37</div></div>
-<div class="ttc" id="aa03810_html"><div class="ttname"><a href="a03810.html">Dune::VTK::NonConformingConnectivityWriter</a></div><div class="ttdoc">writer for the connectivity array in nonconforming mode</div><div class="ttdef"><b>Definition:</b> functionwriter.hh:259</div></div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="a03694.html#aef8a9dfb8d2ba5a6dda94cd047f363e6">   52</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a03694.html#aef8a9dfb8d2ba5a6dda94cd047f363e6">put</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> c)</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      assert (<a class="code" href="a03694.html#a2b2a74e2ab67c618a07ed52b683f9e6f">size</a> &lt; 3);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;      <a class="code" href="a03694.html#a11037bab216ec528d03aeec77ae8b505">txt</a>[<a class="code" href="a03694.html#a2b2a74e2ab67c618a07ed52b683f9e6f">size</a>++] = c;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="a03694.html#a142e802572914a4ddfeaf0c6637a0c13">   58</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a03694.html#a142e802572914a4ddfeaf0c6637a0c13">write</a>(<span class="keywordtype">char</span>* t)</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    {</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">unsigned</span> A = (<a class="code" href="a03694.html#a11037bab216ec528d03aeec77ae8b505">txt</a>[0] &amp; 0b1111&#39;1100) &gt;&gt; 2;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">unsigned</span> B = (<a class="code" href="a03694.html#a11037bab216ec528d03aeec77ae8b505">txt</a>[0] &amp; 0b0000&#39;0011) &lt;&lt; 4 | (<a class="code" href="a03694.html#a11037bab216ec528d03aeec77ae8b505">txt</a>[1] &amp; 0b1111&#39;0000) &gt;&gt; 4;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">unsigned</span> C = (<a class="code" href="a03694.html#a11037bab216ec528d03aeec77ae8b505">txt</a>[1] &amp; 0b0000&#39;1111) &lt;&lt; 2 | (<a class="code" href="a03694.html#a11037bab216ec528d03aeec77ae8b505">txt</a>[2] &amp; 0b1100&#39;0000) &gt;&gt; 6;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">unsigned</span> D = <a class="code" href="a03694.html#a11037bab216ec528d03aeec77ae8b505">txt</a>[2] &amp; 0b0011&#39;1111;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;      t[0] = <a class="code" href="a03694.html#a2b2a74e2ab67c618a07ed52b683f9e6f">size</a>&gt;0 ? <a class="code" href="a00940.html#a0f8eaefa183de6150378561ac93d210a">base64table</a>[A] : <span class="charliteral">&#39;=&#39;</span>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;      t[1] = <a class="code" href="a03694.html#a2b2a74e2ab67c618a07ed52b683f9e6f">size</a>&gt;0 ? <a class="code" href="a00940.html#a0f8eaefa183de6150378561ac93d210a">base64table</a>[B] : <span class="charliteral">&#39;=&#39;</span>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;      t[2] = <a class="code" href="a03694.html#a2b2a74e2ab67c618a07ed52b683f9e6f">size</a>&gt;1 ? <a class="code" href="a00940.html#a0f8eaefa183de6150378561ac93d210a">base64table</a>[C] : <span class="charliteral">&#39;=&#39;</span>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;      t[3] = <a class="code" href="a03694.html#a2b2a74e2ab67c618a07ed52b683f9e6f">size</a>&gt;2 ? <a class="code" href="a00940.html#a0f8eaefa183de6150378561ac93d210a">base64table</a>[D] : <span class="charliteral">&#39;=&#39;</span>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;      <a class="code" href="a03694.html#a2b2a74e2ab67c618a07ed52b683f9e6f">size</a> = 0;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    }</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  };</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;} <span class="comment">// namespace Dune</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// DUNE_GRID_IO_FILE_VTK_B64ENC_HH</span></div>
+<div class="ttc" id="aa00940_html"><div class="ttname"><a href="a00940.html">Dune</a></div><div class="ttdoc">Include standard header files.</div><div class="ttdef"><b>Definition:</b> agrid.hh:58</div></div>
+<div class="ttc" id="aa00940_html_a0f8eaefa183de6150378561ac93d210a"><div class="ttname"><a href="a00940.html#a0f8eaefa183de6150378561ac93d210a">Dune::base64table</a></div><div class="ttdeci">const char base64table[]</div><div class="ttdoc">endoing table</div><div class="ttdef"><b>Definition:</b> b64enc.hh:21</div></div>
+<div class="ttc" id="aa03694_html"><div class="ttname"><a href="a03694.html">Dune::b64chunk</a></div><div class="ttdoc">struct representing the three byte text as well as the four 6 bit chunks</div><div class="ttdef"><b>Definition:</b> b64enc.hh:32</div></div>
+<div class="ttc" id="aa03694_html_a11037bab216ec528d03aeec77ae8b505"><div class="ttname"><a href="a03694.html#a11037bab216ec528d03aeec77ae8b505">Dune::b64chunk::txt</a></div><div class="ttdeci">char txt[3]</div><div class="ttdef"><b>Definition:</b> b64enc.hh:35</div></div>
+<div class="ttc" id="aa03694_html_a1131ba9802a736203dcd7566ee7d6c65"><div class="ttname"><a href="a03694.html#a1131ba9802a736203dcd7566ee7d6c65">Dune::b64chunk::size_type</a></div><div class="ttdeci">unsigned char size_type</div><div class="ttdef"><b>Definition:</b> b64enc.hh:33</div></div>
+<div class="ttc" id="aa03694_html_a142e802572914a4ddfeaf0c6637a0c13"><div class="ttname"><a href="a03694.html#a142e802572914a4ddfeaf0c6637a0c13">Dune::b64chunk::write</a></div><div class="ttdeci">void write(char *t)</div><div class="ttdef"><b>Definition:</b> b64enc.hh:58</div></div>
+<div class="ttc" id="aa03694_html_a2b2a74e2ab67c618a07ed52b683f9e6f"><div class="ttname"><a href="a03694.html#a2b2a74e2ab67c618a07ed52b683f9e6f">Dune::b64chunk::size</a></div><div class="ttdeci">size_type size</div><div class="ttdef"><b>Definition:</b> b64enc.hh:34</div></div>
+<div class="ttc" id="aa03694_html_aec6f229c1c8d0af459d81116ee20330a"><div class="ttname"><a href="a03694.html#aec6f229c1c8d0af459d81116ee20330a">Dune::b64chunk::read</a></div><div class="ttdeci">int read(const char *t, size_type s)</div><div class="ttdef"><b>Definition:</b> b64enc.hh:43</div></div>
+<div class="ttc" id="aa03694_html_aef8a9dfb8d2ba5a6dda94cd047f363e6"><div class="ttname"><a href="a03694.html#aef8a9dfb8d2ba5a6dda94cd047f363e6">Dune::b64chunk::put</a></div><div class="ttdeci">void put(const char c)</div><div class="ttdef"><b>Definition:</b> b64enc.hh:52</div></div>
+<div class="ttc" id="aa03694_html_af5b86cb11f0aca7381e1802b9a5f9580"><div class="ttname"><a href="a03694.html#af5b86cb11f0aca7381e1802b9a5f9580">Dune::b64chunk::reset</a></div><div class="ttdeci">void reset()</div><div class="ttdef"><b>Definition:</b> b64enc.hh:37</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

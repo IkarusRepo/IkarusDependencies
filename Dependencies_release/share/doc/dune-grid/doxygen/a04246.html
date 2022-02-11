@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: Dune::EquidistantOffsetCoordinates&lt; ct, dim &gt; Class Template Reference</title>
+<title>dune-grid: Dune::YLoadBalance&lt; d &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,104 +62,83 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00936.html">Dune</a></li><li class="navelem"><a class="el" href="a04246.html">EquidistantOffsetCoordinates</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00940.html">Dune</a></li><li class="navelem"><a class="el" href="a04246.html">YLoadBalance</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="a04243.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::EquidistantOffsetCoordinates&lt; ct, dim &gt; Class Template Reference</div>  </div>
+<div class="title">Dune::YLoadBalance&lt; d &gt; Class Template Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Container for equidistant coordinates in a <a class="el" href="a04142.html" title="[ provides Dune::Grid ]">YaspGrid</a> with non-trivial origin.  
+<p>a base class for the yaspgrid partitioning strategy The name might be irritating. It will probably change to YaspPartitionerBase in a 3.0 release.  
  <a href="a04246.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00146_source.html">dune/grid/yaspgrid/coordinates.hh</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00167_source.html">dune/grid/yaspgrid/partitioning.hh</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for Dune::YLoadBalance&lt; d &gt;:</div>
+<div class="dyncontent">
+<div class="center"><img src="a04245.png" border="0" usemap="#a_dune_1_1_y_load_balance_3_01d_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="a_dune_1_1_y_load_balance_3_01d_01_4_inherit__map" id="a_dune_1_1_y_load_balance_3_01d_01_4_inherit__map">
+<area shape="rect" title="a base class for the yaspgrid partitioning strategy The name might be irritating. It will probably ch..." alt="" coords="5,56,180,83"/>
+<area shape="rect" href="a04250.html" title="Implement the default load balance strategy of yaspgrid." alt="" coords="240,5,455,32"/>
+<area shape="rect" href="a04254.html" title="Implement yaspgrid load balance strategy for P=x^{dim} processors." alt="" coords="237,56,457,83"/>
+<area shape="rect" href="a04258.html" title="Implement partitioner that gets a fixed partitioning from an array If the given partitioning doesn&#39;t ..." alt="" coords="228,107,467,133"/>
+</map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:ab503bb21ce09618a8e9f3f922ac31942"><td class="memItemLeft" align="right" valign="top">typedef ct&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04246.html#ab503bb21ce09618a8e9f3f922ac31942">ctype</a></td></tr>
-<tr class="memdesc:ab503bb21ce09618a8e9f3f922ac31942"><td class="mdescLeft">&#160;</td><td class="mdescRight">export the coordinate type  <a href="a04246.html#ab503bb21ce09618a8e9f3f922ac31942">More...</a><br /></td></tr>
-<tr class="separator:ab503bb21ce09618a8e9f3f922ac31942"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff6c1817d7290b72c628d45f54a9c590"><td class="memItemLeft" align="right" valign="top">typedef std::array&lt; int, d &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04246.html#aff6c1817d7290b72c628d45f54a9c590">iTupel</a></td></tr>
+<tr class="separator:aff6c1817d7290b72c628d45f54a9c590"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a01fd41c182a319fee3dce4e3e050991f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04246.html#a01fd41c182a319fee3dce4e3e050991f">EquidistantOffsetCoordinates</a> ()</td></tr>
-<tr class="memdesc:a01fd41c182a319fee3dce4e3e050991f"><td class="mdescLeft">&#160;</td><td class="mdescRight">default constructor  <a href="a04246.html#a01fd41c182a319fee3dce4e3e050991f">More...</a><br /></td></tr>
-<tr class="separator:a01fd41c182a319fee3dce4e3e050991f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19b79e5ce53cf8c4c6152b5094df711e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04246.html#a19b79e5ce53cf8c4c6152b5094df711e">EquidistantOffsetCoordinates</a> (const Dune::FieldVector&lt; ct, dim &gt; &amp;lowerLeft, const Dune::FieldVector&lt; ct, dim &gt; &amp;upperRight, const std::array&lt; int, dim &gt; &amp;s)</td></tr>
-<tr class="memdesc:a19b79e5ce53cf8c4c6152b5094df711e"><td class="mdescLeft">&#160;</td><td class="mdescRight">construct a container with all necessary information  <a href="a04246.html#a19b79e5ce53cf8c4c6152b5094df711e">More...</a><br /></td></tr>
-<tr class="separator:a19b79e5ce53cf8c4c6152b5094df711e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e35d336515c83e30d4d7198bb5ba4cd"><td class="memItemLeft" align="right" valign="top">ct&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04246.html#a6e35d336515c83e30d4d7198bb5ba4cd">meshsize</a> (int d, int i) const</td></tr>
-<tr class="separator:a6e35d336515c83e30d4d7198bb5ba4cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb72448b015e8bfbdf1f2ae3a399d351"><td class="memItemLeft" align="right" valign="top">ct&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04246.html#aeb72448b015e8bfbdf1f2ae3a399d351">coordinate</a> (int d, int i) const</td></tr>
-<tr class="separator:aeb72448b015e8bfbdf1f2ae3a399d351"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaef18604075bd26baca90da0643869b6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04246.html#aaef18604075bd26baca90da0643869b6">size</a> (int d) const</td></tr>
-<tr class="separator:aaef18604075bd26baca90da0643869b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a751c8b340bd9574846e4d98a55ff146c"><td class="memItemLeft" align="right" valign="top">ct&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04246.html#a751c8b340bd9574846e4d98a55ff146c">origin</a> (int d) const</td></tr>
-<tr class="separator:a751c8b340bd9574846e4d98a55ff146c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af182db6d6bbc358741467197720d5f94"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a04246.html">EquidistantOffsetCoordinates</a>&lt; ct, dim &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04246.html#af182db6d6bbc358741467197720d5f94">refine</a> (std::bitset&lt; dim &gt; ovlp_low, std::bitset&lt; dim &gt; ovlp_up, int overlap, bool keep_ovlp) const</td></tr>
-<tr class="separator:af182db6d6bbc358741467197720d5f94"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2dc78924f119f0789b7ddb9cd5a8065a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04246.html#a2dc78924f119f0789b7ddb9cd5a8065a">print</a> (std::ostream &amp;s) const</td></tr>
-<tr class="memdesc:a2dc78924f119f0789b7ddb9cd5a8065a"><td class="mdescLeft">&#160;</td><td class="mdescRight">print information on this container  <a href="a04246.html#a2dc78924f119f0789b7ddb9cd5a8065a">More...</a><br /></td></tr>
-<tr class="separator:a2dc78924f119f0789b7ddb9cd5a8065a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr class="memitem:ad1eb8f110cfe82b43436ea19877ae01e"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04246.html#ad1eb8f110cfe82b43436ea19877ae01e">dimension</a> = dim</td></tr>
-<tr class="memdesc:ad1eb8f110cfe82b43436ea19877ae01e"><td class="mdescLeft">&#160;</td><td class="mdescRight">export dimension  <a href="a04246.html#ad1eb8f110cfe82b43436ea19877ae01e">More...</a><br /></td></tr>
-<tr class="separator:ad1eb8f110cfe82b43436ea19877ae01e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8887f86ebf7a6098ba442180a47156b"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04246.html#ae8887f86ebf7a6098ba442180a47156b">~YLoadBalance</a> ()</td></tr>
+<tr class="separator:ae8887f86ebf7a6098ba442180a47156b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7995b1c6d66c615f64631453ea2fe7c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04246.html#ae7995b1c6d66c615f64631453ea2fe7c">loadbalance</a> (const <a class="el" href="a04246.html#aff6c1817d7290b72c628d45f54a9c590">iTupel</a> &amp;, int, <a class="el" href="a04246.html#aff6c1817d7290b72c628d45f54a9c590">iTupel</a> &amp;) const =0</td></tr>
+<tr class="separator:ae7995b1c6d66c615f64631453ea2fe7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;class ct, int dim&gt;<br />
-class Dune::EquidistantOffsetCoordinates&lt; ct, dim &gt;</h3>
+<div class="textblock"><h3>template&lt;int d&gt;<br />
+class Dune::YLoadBalance&lt; d &gt;</h3>
 
-<p>Container for equidistant coordinates in a <a class="el" href="a04142.html" title="[ provides Dune::Grid ]">YaspGrid</a> with non-trivial origin. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">ct</td><td>the coordinate type </td></tr>
-    <tr><td class="paramname">dim</td><td>the dimension of the grid </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>a base class for the yaspgrid partitioning strategy The name might be irritating. It will probably change to YaspPartitionerBase in a 3.0 release. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="ab503bb21ce09618a8e9f3f922ac31942"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab503bb21ce09618a8e9f3f922ac31942">&#9670;&nbsp;</a></span>ctype</h2>
+<a id="aff6c1817d7290b72c628d45f54a9c590"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff6c1817d7290b72c628d45f54a9c590">&#9670;&nbsp;</a></span>iTupel</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class ct , int dim&gt; </div>
+template&lt;int d&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef ct <a class="el" href="a04246.html">Dune::EquidistantOffsetCoordinates</a>&lt; ct, dim &gt;::<a class="el" href="a04246.html#ab503bb21ce09618a8e9f3f922ac31942">ctype</a></td>
+          <td class="memname">typedef std::array&lt;int, d&gt; <a class="el" href="a04246.html">Dune::YLoadBalance</a>&lt; d &gt;::<a class="el" href="a04246.html#aff6c1817d7290b72c628d45f54a9c590">iTupel</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>export the coordinate type </p>
-
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a01fd41c182a319fee3dce4e3e050991f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a01fd41c182a319fee3dce4e3e050991f">&#9670;&nbsp;</a></span>EquidistantOffsetCoordinates() <span class="overload">[1/2]</span></h2>
+<a id="ae8887f86ebf7a6098ba442180a47156b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8887f86ebf7a6098ba442180a47156b">&#9670;&nbsp;</a></span>~YLoadBalance()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class ct , int dim&gt; </div>
+template&lt;int d&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a04246.html">Dune::EquidistantOffsetCoordinates</a>&lt; ct, dim &gt;::<a class="el" href="a04246.html">EquidistantOffsetCoordinates</a> </td>
+          <td class="memname">virtual <a class="el" href="a04246.html">Dune::YLoadBalance</a>&lt; d &gt;::~<a class="el" href="a04246.html">YLoadBalance</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -167,93 +146,42 @@ template&lt;class ct , int dim&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>default constructor </p>
-
-</div>
-</div>
-<a id="a19b79e5ce53cf8c4c6152b5094df711e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a19b79e5ce53cf8c4c6152b5094df711e">&#9670;&nbsp;</a></span>EquidistantOffsetCoordinates() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class ct , int dim&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a04246.html">Dune::EquidistantOffsetCoordinates</a>&lt; ct, dim &gt;::<a class="el" href="a04246.html">EquidistantOffsetCoordinates</a> </td>
-          <td>(</td>
-          <td class="paramtype">const Dune::FieldVector&lt; ct, dim &gt; &amp;&#160;</td>
-          <td class="paramname"><em>lowerLeft</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Dune::FieldVector&lt; ct, dim &gt; &amp;&#160;</td>
-          <td class="paramname"><em>upperRight</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::array&lt; int, dim &gt; &amp;&#160;</td>
-          <td class="paramname"><em>s</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>construct a container with all necessary information </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">lowerLeft</td><td>the lower left corner of the grid </td></tr>
-    <tr><td class="paramname">upperRight</td><td>the upper right corner of the grid </td></tr>
-    <tr><td class="paramname">s</td><td>the size (in codim 0 elements) of the grid on this processor</td></tr>
-  </table>
-  </dd>
-</dl>
-<p>the size information is kept with this container, because this is the natural way to handle this for a tensorproduct grid. </p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="aeb72448b015e8bfbdf1f2ae3a399d351"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeb72448b015e8bfbdf1f2ae3a399d351">&#9670;&nbsp;</a></span>coordinate()</h2>
+<a id="ae7995b1c6d66c615f64631453ea2fe7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7995b1c6d66c615f64631453ea2fe7c">&#9670;&nbsp;</a></span>loadbalance()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class ct , int dim&gt; </div>
+template&lt;int d&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">ct <a class="el" href="a04246.html">Dune::EquidistantOffsetCoordinates</a>&lt; ct, dim &gt;::coordinate </td>
+          <td class="memname">virtual void <a class="el" href="a04246.html">Dune::YLoadBalance</a>&lt; d &gt;::loadbalance </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>d</em>, </td>
+          <td class="paramtype">const <a class="el" href="a04246.html#aff6c1817d7290b72c628d45f54a9c590">iTupel</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>i</em>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a04246.html#aff6c1817d7290b72c628d45f54a9c590">iTupel</a> &amp;&#160;</td>
+          <td class="paramname">&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -263,256 +191,17 @@ template&lt;class ct , int dim&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>a coordinate given a direction and an index </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">d</td><td>the direction to be used </td></tr>
-    <tr><td class="paramname">i</td><td>the global coordinate index </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a6e35d336515c83e30d4d7198bb5ba4cd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6e35d336515c83e30d4d7198bb5ba4cd">&#9670;&nbsp;</a></span>meshsize()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class ct , int dim&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">ct <a class="el" href="a04246.html">Dune::EquidistantOffsetCoordinates</a>&lt; ct, dim &gt;::meshsize </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>d</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>i</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>the meshsize in given direction at given position </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">d</td><td>the direction to be used </td></tr>
-    <tr><td class="paramname">i</td><td>the global coordinate index where to return the meshsize </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a751c8b340bd9574846e4d98a55ff146c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a751c8b340bd9574846e4d98a55ff146c">&#9670;&nbsp;</a></span>origin()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class ct , int dim&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">ct <a class="el" href="a04246.html">Dune::EquidistantOffsetCoordinates</a>&lt; ct, dim &gt;::origin </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>d</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>the dth component of the origin </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">d</td><td>the direction to be used </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a2dc78924f119f0789b7ddb9cd5a8065a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2dc78924f119f0789b7ddb9cd5a8065a">&#9670;&nbsp;</a></span>print()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class ct , int dim&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a04246.html">Dune::EquidistantOffsetCoordinates</a>&lt; ct, dim &gt;::print </td>
-          <td>(</td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>s</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>print information on this container </p>
-
-</div>
-</div>
-<a id="af182db6d6bbc358741467197720d5f94"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af182db6d6bbc358741467197720d5f94">&#9670;&nbsp;</a></span>refine()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class ct , int dim&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a04246.html">EquidistantOffsetCoordinates</a>&lt;ct,dim&gt; <a class="el" href="a04246.html">Dune::EquidistantOffsetCoordinates</a>&lt; ct, dim &gt;::refine </td>
-          <td>(</td>
-          <td class="paramtype">std::bitset&lt; dim &gt;&#160;</td>
-          <td class="paramname"><em>ovlp_low</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::bitset&lt; dim &gt;&#160;</td>
-          <td class="paramname"><em>ovlp_up</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>overlap</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>keep_ovlp</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>a container that represents the same grid after one step of uniform refinement </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ovlp_low</td><td>whether we have an overlap area at the lower processor boundary </td></tr>
-    <tr><td class="paramname">ovlp_up</td><td>whether we have an overlap area at the upper processor boundary </td></tr>
-    <tr><td class="paramname">overlap</td><td>the size of the overlap region </td></tr>
-    <tr><td class="paramname">keep_ovlp</td><td>the refinement option parameter to be used </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="aaef18604075bd26baca90da0643869b6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaef18604075bd26baca90da0643869b6">&#9670;&nbsp;</a></span>size()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class ct , int dim&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="a04246.html">Dune::EquidistantOffsetCoordinates</a>&lt; ct, dim &gt;::size </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>d</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>the size in given direction </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">d</td><td>the direction to be used </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="ad1eb8f110cfe82b43436ea19877ae01e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad1eb8f110cfe82b43436ea19877ae01e">&#9670;&nbsp;</a></span>dimension</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class ct , int dim&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const int <a class="el" href="a04246.html">Dune::EquidistantOffsetCoordinates</a>&lt; ct, dim &gt;::dimension = dim</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>export dimension </p>
+<p>Implemented in <a class="el" href="a04258.html#acd5c1f83a1377b789c0a796626229f46">Dune::YaspFixedSizePartitioner&lt; d &gt;</a>, <a class="el" href="a04254.html#ab845061f9040b74b73042885c0212578">Dune::YLoadBalancePowerD&lt; d &gt;</a>, and <a class="el" href="a04250.html#a6c816fac482ccc2c7e519aa93b56d7b6">Dune::YLoadBalanceDefault&lt; d &gt;</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="a00146_source.html">coordinates.hh</a></li>
+<li><a class="el" href="a00167_source.html">partitioning.hh</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

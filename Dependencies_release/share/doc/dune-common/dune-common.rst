@@ -15,12 +15,9 @@ CMake...
 - is portable
 - is controlled by ONE rather simple language
 
-Dune got support for CMake in version 2.3 alongside the old Autotools build system. It got the default in the
-2.4 release.
-
 You can install CMake through your favorite package manager or downloading source code from
 `KITWare <http://www.cmake.org>`_
-The minimum required version to build Dune with CMake is 3.1.
+The minimum required version to build Dune with CMake is 3.13.
 
 .. _howtouse:
 
@@ -199,7 +196,7 @@ How do I change my compiler and compiler flags?
 In general, there are multiple ways to do this:
 
 * Setting the CMake variables :ref:`CMAKE_<LANG>_COMPILER` (with :code:`LANG` being :code:`C`
-  or :code:`CXX` or :code:`Fortran`) from the opts file, e.g. via :code:`CMAKE_FLAGS="-DCMAKE_CXX_COMPILER=otherc++"`.
+  or :code:`CXX`) from the opts file, e.g. via :code:`CMAKE_FLAGS="-DCMAKE_CXX_COMPILER=otherc++"`.
 * Setting those variables within the project with the :code:`set` command
 * Setting the environment variables :code:`CC`, :code:`CXX`, :code:`FC` etc.
 
@@ -209,7 +206,7 @@ to your compiler, but Dune will issue a warning, if you violate that.
 
 You can modify your default compiler flags by setting the variables
 :ref:`CMAKE_<LANG>_FLAGS` in your opts file (again with :code:`LANG` being :code:`C` or
-:code:`CXX` or :code:`Fortran`).
+:code:`CXX`).
 
 .. _symlink:
 
@@ -330,19 +327,21 @@ The headercheck feature has been disabled by default. You can enable it by setti
 through your opts file. This step has been necessary, because of the large amount of additional file the headercheck adds to the
 build directory. A better implementation has not been found yet, because it simply does not fit the CMake philosophy.
 
-.. _tarball:
+.. _packages:
 
-How do I create tarballs?
-=========================
+How do I create tarballs or packages?
+=====================================
 
-CMake has a packaging tool CPack. This creates tarballs or binary packages. To build tarballs add
-the variable :code:`CPACK_SET_DESTDIR` which must be set to :code:`true` for the configuration
-of all modules. Inside the build directory run :code:`make package_source` and you'll find the
-packages below :code:`<CMAKE_BINARY_DIR>/_CPack_Packages`.
+To create source code packages, also known as tarballs, run `git archive` within your
+module's Git repository.
 
-Note that an un-packed copy is located there which contains a :code:`dune.module` file. Delete the
-subdirectory. Otherwise it is going to break your next :code:`dunecontrol` run, because the module
-is defined multiple times.
+There is no default way to create binary packages like Deb or RPM packages. You can use
+the Open Build Service for openSuse RPMs and related distributions. Or create packages according
+to the distribution of your choice like the tools around dpkg-buildpackage and debuild
+for Debian.
+
+CMake has a packaging tool CPack, but with CPack you are on your own. In the past, our
+results based on CPack were not satisfying.
 
 .. _dune-python:
 

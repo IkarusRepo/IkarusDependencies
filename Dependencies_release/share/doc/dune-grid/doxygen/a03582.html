@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: Dune::DGFWriter&lt; GV &gt; Class Template Reference</title>
+<title>dune-grid: Dune::DGFGridFactory&lt; YaspGrid&lt; dim, EquidistantCoordinates&lt; ctype, dim &gt; &gt; &gt; Struct Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,7 +62,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00936.html">Dune</a></li><li class="navelem"><a class="el" href="a03582.html">DGFWriter</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00940.html">Dune</a></li><li class="navelem"><a class="el" href="a03582.html">DGFGridFactory&lt; YaspGrid&lt; dim, EquidistantCoordinates&lt; ctype, dim &gt; &gt; &gt;</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -70,164 +70,187 @@ $(function() {
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
-<a href="#pro-methods">Protected Member Functions</a> &#124;
-<a href="#pro-static-methods">Static Protected Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="a03579.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::DGFWriter&lt; GV &gt; Class Template Reference<div class="ingroups"><a class="el" href="a00902.html">dune-grid</a> &raquo; <a class="el" href="a00924.html">I/O</a> &raquo; <a class="el" href="a00926.html">The Dune Grid Format (DGF)</a></div></div>  </div>
+<div class="title">Dune::DGFGridFactory&lt; YaspGrid&lt; dim, EquidistantCoordinates&lt; ctype, dim &gt; &gt; &gt; Struct Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>write a <a class="el" href="a02754.html" title="Grid view abstract base class.">GridView</a> to a DGF file  
+<p><a class="el" href="a02710.html" title="Grid abstract base class.">Grid</a> factory for <a class="el" href="a04134.html" title="[ provides Dune::Grid ]">YaspGrid</a> with equidistant coordinates.  
  <a href="a03582.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00731_source.html">dune/grid/io/file/dgfparser/dgfwriter.hh</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00740_source.html">dune/grid/io/file/dgfparser/dgfyasp.hh</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a814c282ea4de383110d1fb060c3c3151"><td class="memItemLeft" align="right" valign="top">typedef GV&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03582.html#a814c282ea4de383110d1fb060c3c3151">GridView</a></td></tr>
-<tr class="memdesc:a814c282ea4de383110d1fb060c3c3151"><td class="mdescLeft">&#160;</td><td class="mdescRight">type of grid view  <a href="a03582.html#a814c282ea4de383110d1fb060c3c3151">More...</a><br /></td></tr>
-<tr class="separator:a814c282ea4de383110d1fb060c3c3151"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90242e0f8f0e3e553ee95f598a2365cc"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a00906.html#gad6482279521362048503475e72e8adef">GridView::Grid</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03582.html#a90242e0f8f0e3e553ee95f598a2365cc">Grid</a></td></tr>
-<tr class="memdesc:a90242e0f8f0e3e553ee95f598a2365cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">type of underlying hierarchical grid  <a href="a03582.html#a90242e0f8f0e3e553ee95f598a2365cc">More...</a><br /></td></tr>
-<tr class="separator:a90242e0f8f0e3e553ee95f598a2365cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6d2bdaea782009dcf36034b96a751a2"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a04134.html">YaspGrid</a>&lt; dim, <a class="el" href="a04234.html">EquidistantCoordinates</a>&lt; ctype, dim &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03582.html#ad6d2bdaea782009dcf36034b96a751a2">Grid</a></td></tr>
+<tr class="separator:ad6d2bdaea782009dcf36034b96a751a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a786a6bc5b24a2e57ec4475f6502155f1"><td class="memItemLeft" align="right" valign="top">typedef MPIHelper::MPICommunicator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03582.html#a786a6bc5b24a2e57ec4475f6502155f1">MPICommunicatorType</a></td></tr>
+<tr class="separator:a786a6bc5b24a2e57ec4475f6502155f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a21e3098a425d5a4ab205821a9f11071c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03582.html#a21e3098a425d5a4ab205821a9f11071c">DGFWriter</a> (const <a class="el" href="a03582.html#a814c282ea4de383110d1fb060c3c3151">GridView</a> &amp;gridView)</td></tr>
-<tr class="memdesc:a21e3098a425d5a4ab205821a9f11071c"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor  <a href="a03582.html#a21e3098a425d5a4ab205821a9f11071c">More...</a><br /></td></tr>
-<tr class="separator:a21e3098a425d5a4ab205821a9f11071c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c56e613f5366d79c27f5eb30c42a3d1"><td class="memTemplParams" colspan="2">template&lt;class BoundaryData &gt; </td></tr>
-<tr class="memitem:a4c56e613f5366d79c27f5eb30c42a3d1"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a03582.html#a4c56e613f5366d79c27f5eb30c42a3d1">write</a> (std::ostream &amp;gridout, const std::vector&lt; Index &gt; &amp;newElemOrder, BoundaryData &amp;&amp;boundaryData, const std::stringstream &amp;addParams=std::stringstream()) const</td></tr>
-<tr class="memdesc:a4c56e613f5366d79c27f5eb30c42a3d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">write the <a class="el" href="a02754.html" title="Grid view abstract base class.">GridView</a> into a std::ostream  <a href="a03582.html#a4c56e613f5366d79c27f5eb30c42a3d1">More...</a><br /></td></tr>
-<tr class="separator:a4c56e613f5366d79c27f5eb30c42a3d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab3975f0c46fa6b3b4561731a63267bc3"><td class="memTemplParams" colspan="2">template&lt;class BoundaryData &gt; </td></tr>
-<tr class="memitem:ab3975f0c46fa6b3b4561731a63267bc3"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a03582.html#ab3975f0c46fa6b3b4561731a63267bc3">write</a> (std::ostream &amp;gridout, BoundaryData &amp;&amp;boundaryData, const std::stringstream &amp;addParams=std::stringstream()) const</td></tr>
-<tr class="memdesc:ab3975f0c46fa6b3b4561731a63267bc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">write the <a class="el" href="a02754.html" title="Grid view abstract base class.">GridView</a> to a file  <a href="a03582.html#ab3975f0c46fa6b3b4561731a63267bc3">More...</a><br /></td></tr>
-<tr class="separator:ab3975f0c46fa6b3b4561731a63267bc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c45d965307fe286a9adae3c603e2e26"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03582.html#a3c45d965307fe286a9adae3c603e2e26">write</a> (std::ostream &amp;gridout, const std::vector&lt; Index &gt; &amp;newElemOrder, const std::stringstream &amp;addParams=std::stringstream()) const</td></tr>
-<tr class="memdesc:a3c45d965307fe286a9adae3c603e2e26"><td class="mdescLeft">&#160;</td><td class="mdescRight">write the <a class="el" href="a02754.html" title="Grid view abstract base class.">GridView</a> into a std::ostream  <a href="a03582.html#a3c45d965307fe286a9adae3c603e2e26">More...</a><br /></td></tr>
-<tr class="separator:a3c45d965307fe286a9adae3c603e2e26"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a22019f13f007f4f9f4eb3977c7766d8e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03582.html#a22019f13f007f4f9f4eb3977c7766d8e">write</a> (std::ostream &amp;gridout, const std::stringstream &amp;addParams=std::stringstream()) const</td></tr>
-<tr class="memdesc:a22019f13f007f4f9f4eb3977c7766d8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">write the <a class="el" href="a02754.html" title="Grid view abstract base class.">GridView</a> into a std::ostream  <a href="a03582.html#a22019f13f007f4f9f4eb3977c7766d8e">More...</a><br /></td></tr>
-<tr class="separator:a22019f13f007f4f9f4eb3977c7766d8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34b5b4e4e198fa52487af89023ec644f"><td class="memTemplParams" colspan="2">template&lt;class... Args&gt; </td></tr>
-<tr class="memitem:a34b5b4e4e198fa52487af89023ec644f"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a03582.html#a34b5b4e4e198fa52487af89023ec644f">write</a> (const std::string &amp;fileName, Args &amp;&amp;... args) const -&gt; void_t&lt; decltype(this-&gt;write(std::declval&lt; std::ostream &amp; &gt;(), std::declval&lt; Args &gt;()...)) &gt;</td></tr>
-<tr class="memdesc:a34b5b4e4e198fa52487af89023ec644f"><td class="mdescLeft">&#160;</td><td class="mdescRight">write the <a class="el" href="a02754.html" title="Grid view abstract base class.">GridView</a> to a file  <a href="a03582.html#a34b5b4e4e198fa52487af89023ec644f">More...</a><br /></td></tr>
-<tr class="separator:a34b5b4e4e198fa52487af89023ec644f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c2d97aa5e408409fc784bf0afa66452"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03582.html#a0c2d97aa5e408409fc784bf0afa66452">DGFGridFactory</a> (std::istream &amp;input, <a class="el" href="a03582.html#a786a6bc5b24a2e57ec4475f6502155f1">MPICommunicatorType</a> comm=MPIHelper::getCommunicator())</td></tr>
+<tr class="separator:a0c2d97aa5e408409fc784bf0afa66452"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15b994327a2cd8a6d641ea3b57468144"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03582.html#a15b994327a2cd8a6d641ea3b57468144">DGFGridFactory</a> (const std::string &amp;filename, <a class="el" href="a03582.html#a786a6bc5b24a2e57ec4475f6502155f1">MPICommunicatorType</a> comm=MPIHelper::getCommunicator())</td></tr>
+<tr class="separator:a15b994327a2cd8a6d641ea3b57468144"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9090a129ca259a55bf7af4ef30892928"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03582.html#a9090a129ca259a55bf7af4ef30892928">~DGFGridFactory</a> ()</td></tr>
+<tr class="separator:a9090a129ca259a55bf7af4ef30892928"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab330069d5fb10d46f5774a70fc951197"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a03582.html#ad6d2bdaea782009dcf36034b96a751a2">Grid</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03582.html#ab330069d5fb10d46f5774a70fc951197">grid</a> () const</td></tr>
+<tr class="separator:ab330069d5fb10d46f5774a70fc951197"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f0263e60633efb4641d69bfa7d2da00"><td class="memTemplParams" colspan="2">template&lt;class Intersection &gt; </td></tr>
+<tr class="memitem:a2f0263e60633efb4641d69bfa7d2da00"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a03582.html#a2f0263e60633efb4641d69bfa7d2da00">wasInserted</a> (const <a class="el" href="a01842.html">Intersection</a> &amp;intersection) const</td></tr>
+<tr class="separator:a2f0263e60633efb4641d69bfa7d2da00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af81fa04e74910bff0281c483ee4d8e6a"><td class="memTemplParams" colspan="2">template&lt;class Intersection &gt; </td></tr>
+<tr class="memitem:af81fa04e74910bff0281c483ee4d8e6a"><td class="memTemplItemLeft" align="right" valign="top">int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a03582.html#af81fa04e74910bff0281c483ee4d8e6a">boundaryId</a> (const <a class="el" href="a01842.html">Intersection</a> &amp;intersection) const</td></tr>
+<tr class="separator:af81fa04e74910bff0281c483ee4d8e6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a363418ae9a27544df7331317545c6928"><td class="memTemplParams" colspan="2">template&lt;int codim&gt; </td></tr>
+<tr class="memitem:a363418ae9a27544df7331317545c6928"><td class="memTemplItemLeft" align="right" valign="top">int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a03582.html#a363418ae9a27544df7331317545c6928">numParameters</a> () const</td></tr>
+<tr class="separator:a363418ae9a27544df7331317545c6928"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90c2db32e78149d68777656e3c44a23d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03582.html#a90c2db32e78149d68777656e3c44a23d">haveBoundaryParameters</a> () const</td></tr>
+<tr class="separator:a90c2db32e78149d68777656e3c44a23d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab313705e84ad38fafc84a5409a4b0509"><td class="memTemplParams" colspan="2">template&lt;class GG , class II &gt; </td></tr>
+<tr class="memitem:ab313705e84ad38fafc84a5409a4b0509"><td class="memTemplItemLeft" align="right" valign="top">const <a class="el" href="a03626.html#afa9bc1f519c309d951d1955cbce7ea7f">DGFBoundaryParameter::type</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a03582.html#ab313705e84ad38fafc84a5409a4b0509">boundaryParameter</a> (const <a class="el" href="a01842.html">Intersection</a>&lt; GG, II &gt; &amp;intersection) const</td></tr>
+<tr class="separator:ab313705e84ad38fafc84a5409a4b0509"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad987e97719b3feea3501315df375854b"><td class="memTemplParams" colspan="2">template&lt;class Entity &gt; </td></tr>
+<tr class="memitem:ad987e97719b3feea3501315df375854b"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; double &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a03582.html#ad987e97719b3feea3501315df375854b">parameter</a> (const <a class="el" href="a02642.html">Entity</a> &amp;)</td></tr>
+<tr class="separator:ad987e97719b3feea3501315df375854b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a03d3c9e2011ce4adc65602042e31dc61"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03582.html#a03d3c9e2011ce4adc65602042e31dc61">dimGrid</a> = <a class="el" href="a00906.html#gga5c76b0a0ed3fdcf2bd9ab2bbb2df0847a7170531f3c1c62b7904410099cf37a37">GridView::dimension</a></td></tr>
-<tr class="memdesc:a03d3c9e2011ce4adc65602042e31dc61"><td class="mdescLeft">&#160;</td><td class="mdescRight">dimension of the grid  <a href="a03582.html#a03d3c9e2011ce4adc65602042e31dc61">More...</a><br /></td></tr>
-<tr class="separator:a03d3c9e2011ce4adc65602042e31dc61"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:aeebcd2ad2f9337c0965bd02609f651ae"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03582.html#aeebcd2ad2f9337c0965bd02609f651ae">elementsSeeds</a> (const std::vector&lt; Index &gt; &amp;newElemOrder) const -&gt; std::vector&lt; ElementSeed &gt;</td></tr>
-<tr class="separator:aeebcd2ad2f9337c0965bd02609f651ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae207a7a784ce1d73adf7add51a9a171d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03582.html#ae207a7a784ce1d73adf7add51a9a171d">writeHeader</a> (std::ostream &amp;gridout) const</td></tr>
-<tr class="separator:ae207a7a784ce1d73adf7add51a9a171d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f966630e5590816d260a7c8cc2c88f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03582.html#a8f966630e5590816d260a7c8cc2c88f1">writeFooter</a> (std::ostream &amp;gridout) const</td></tr>
-<tr class="separator:a8f966630e5590816d260a7c8cc2c88f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91e045450ebef18855557179860a928f"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03582.html#a91e045450ebef18855557179860a928f">writeVertices</a> (std::ostream &amp;gridout) const -&gt; std::vector&lt; Index &gt;</td></tr>
-<tr class="separator:a91e045450ebef18855557179860a928f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b9cab48142895117b4b21d13577739b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03582.html#a7b9cab48142895117b4b21d13577739b">writeElement</a> (std::ostream &amp;gridout, const std::vector&lt; Index &gt; &amp;dgfIndices, const Element &amp;element, const GeometryType &amp;elementType) const</td></tr>
-<tr class="separator:a7b9cab48142895117b4b21d13577739b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad2cfd1644b8e3b21ceead12361875298"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03582.html#ad2cfd1644b8e3b21ceead12361875298">writeSimplices</a> (std::ostream &amp;gridout, const std::vector&lt; Index &gt; &amp;dgfIndices) const</td></tr>
-<tr class="separator:ad2cfd1644b8e3b21ceead12361875298"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a888f59a88d1efbddc8ccc8d6f64c3f12"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03582.html#a888f59a88d1efbddc8ccc8d6f64c3f12">writeSimplices</a> (std::ostream &amp;gridout, const std::vector&lt; Index &gt; &amp;dgfIndices, const std::vector&lt; ElementSeed &gt; &amp;elementSeeds) const</td></tr>
-<tr class="separator:a888f59a88d1efbddc8ccc8d6f64c3f12"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6382af25d9fc3c70915c16d6a00cdd0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03582.html#ab6382af25d9fc3c70915c16d6a00cdd0">writeCubes</a> (std::ostream &amp;gridout, const std::vector&lt; Index &gt; &amp;dgfIndices) const</td></tr>
-<tr class="separator:ab6382af25d9fc3c70915c16d6a00cdd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e17c71400bb43e10a77dd9552bea7a3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03582.html#a1e17c71400bb43e10a77dd9552bea7a3">writeCubes</a> (std::ostream &amp;gridout, const std::vector&lt; Index &gt; &amp;dgfIndices, const std::vector&lt; ElementSeed &gt; &amp;elementSeeds) const</td></tr>
-<tr class="separator:a1e17c71400bb43e10a77dd9552bea7a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa475c98c97d6312ba28ae72402f6b4a1"><td class="memTemplParams" colspan="2">template&lt;class... Args&gt; </td></tr>
-<tr class="memitem:aa475c98c97d6312ba28ae72402f6b4a1"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a03582.html#aa475c98c97d6312ba28ae72402f6b4a1">writeElements</a> (std::ostream &amp;gridout, const std::vector&lt; Index &gt; &amp;dgfIndices, const Args &amp;... args) const</td></tr>
-<tr class="separator:aa475c98c97d6312ba28ae72402f6b4a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a259a85b2a33dbec4bcb0726a28364913"><td class="memTemplParams" colspan="2">template&lt;class BoundaryData &gt; </td></tr>
-<tr class="memitem:a259a85b2a33dbec4bcb0726a28364913"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a03582.html#a259a85b2a33dbec4bcb0726a28364913">writeBoundaries</a> (std::ostream &amp;gridout, const std::vector&lt; Index &gt; &amp;dgfIndices, BoundaryData &amp;&amp;boundaryData) const</td></tr>
-<tr class="separator:a259a85b2a33dbec4bcb0726a28364913"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa75e04c2d07c550062006d278272b245"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03582.html#aa75e04c2d07c550062006d278272b245">writeBoundaries</a> (std::ostream &amp;gridout, const std::vector&lt; Index &gt; &amp;dgfIndices) const</td></tr>
-<tr class="separator:aa75e04c2d07c550062006d278272b245"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-methods"></a>
-Static Protected Member Functions</h2></td></tr>
-<tr class="memitem:a2dda71c2e24926b19ad94c26de71e14e"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03582.html#a2dda71c2e24926b19ad94c26de71e14e">boundaryId</a> (const Intersection &amp;i)</td></tr>
-<tr class="separator:a2dda71c2e24926b19ad94c26de71e14e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr class="memitem:a74af0a19066c5b82bc0ac101317f849f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a03582.html#a814c282ea4de383110d1fb060c3c3151">GridView</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03582.html#a74af0a19066c5b82bc0ac101317f849f">gridView_</a></td></tr>
-<tr class="separator:a74af0a19066c5b82bc0ac101317f849f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae107ab9b7bc06cb72e9c12a5b84f034f"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03582.html#ae107ab9b7bc06cb72e9c12a5b84f034f">dimension</a> = Grid::dimension</td></tr>
+<tr class="separator:ae107ab9b7bc06cb72e9c12a5b84f034f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;class GV&gt;<br />
-class Dune::DGFWriter&lt; GV &gt;</h3>
+<div class="textblock"><h3>template&lt;typename ctype, int dim&gt;<br />
+struct Dune::DGFGridFactory&lt; YaspGrid&lt; dim, EquidistantCoordinates&lt; ctype, dim &gt; &gt; &gt;</h3>
 
-<p>write a <a class="el" href="a02754.html" title="Grid view abstract base class.">GridView</a> to a DGF file </p>
-<p>The <a class="el" href="a03582.html" title="write a GridView to a DGF file">DGFWriter</a> allows create a DGF file from a given <a class="el" href="a02754.html" title="Grid view abstract base class.">GridView</a>. It allows for the easy creation of file format converters.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">GV</td><td><a class="el" href="a02754.html" title="Grid view abstract base class.">GridView</a> to write in DGF format </td></tr>
-  </table>
-  </dd>
-</dl>
+<p><a class="el" href="a02710.html" title="Grid abstract base class.">Grid</a> factory for <a class="el" href="a04134.html" title="[ provides Dune::Grid ]">YaspGrid</a> with equidistant coordinates. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a90242e0f8f0e3e553ee95f598a2365cc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a90242e0f8f0e3e553ee95f598a2365cc">&#9670;&nbsp;</a></span>Grid</h2>
+<a id="ad6d2bdaea782009dcf36034b96a751a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6d2bdaea782009dcf36034b96a751a2">&#9670;&nbsp;</a></span>Grid</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class GV &gt; </div>
+template&lt;typename ctype , int dim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="a00906.html#gad6482279521362048503475e72e8adef">GridView::Grid</a> <a class="el" href="a03582.html">Dune::DGFWriter</a>&lt; GV &gt;::<a class="el" href="a03582.html#a90242e0f8f0e3e553ee95f598a2365cc">Grid</a></td>
+          <td class="memname">typedef <a class="el" href="a04134.html">YaspGrid</a>&lt;dim, <a class="el" href="a04234.html">EquidistantCoordinates</a>&lt;ctype, dim&gt; &gt; <a class="el" href="a01770.html">Dune::DGFGridFactory</a>&lt; <a class="el" href="a04134.html">YaspGrid</a>&lt; dim, <a class="el" href="a04234.html">EquidistantCoordinates</a>&lt; ctype, dim &gt; &gt; &gt;::<a class="el" href="a03582.html#ad6d2bdaea782009dcf36034b96a751a2">Grid</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>type of underlying hierarchical grid </p>
-
 </div>
 </div>
-<a id="a814c282ea4de383110d1fb060c3c3151"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a814c282ea4de383110d1fb060c3c3151">&#9670;&nbsp;</a></span>GridView</h2>
+<a id="a786a6bc5b24a2e57ec4475f6502155f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a786a6bc5b24a2e57ec4475f6502155f1">&#9670;&nbsp;</a></span>MPICommunicatorType</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class GV &gt; </div>
+template&lt;typename ctype , int dim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef GV <a class="el" href="a03582.html">Dune::DGFWriter</a>&lt; GV &gt;::<a class="el" href="a03582.html#a814c282ea4de383110d1fb060c3c3151">GridView</a></td>
+          <td class="memname">typedef MPIHelper::MPICommunicator <a class="el" href="a01770.html">Dune::DGFGridFactory</a>&lt; <a class="el" href="a04134.html">YaspGrid</a>&lt; dim, <a class="el" href="a04234.html">EquidistantCoordinates</a>&lt; ctype, dim &gt; &gt; &gt;::<a class="el" href="a03582.html#a786a6bc5b24a2e57ec4475f6502155f1">MPICommunicatorType</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>type of grid view </p>
 
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a21e3098a425d5a4ab205821a9f11071c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a21e3098a425d5a4ab205821a9f11071c">&#9670;&nbsp;</a></span>DGFWriter()</h2>
+<a id="a0c2d97aa5e408409fc784bf0afa66452"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c2d97aa5e408409fc784bf0afa66452">&#9670;&nbsp;</a></span>DGFGridFactory() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class GV &gt; </div>
+template&lt;typename ctype , int dim&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a03582.html">Dune::DGFWriter</a>&lt; GV &gt;::<a class="el" href="a03582.html">DGFWriter</a> </td>
+          <td class="memname"><a class="el" href="a01770.html">Dune::DGFGridFactory</a>&lt; <a class="el" href="a04134.html">YaspGrid</a>&lt; dim, <a class="el" href="a04234.html">EquidistantCoordinates</a>&lt; ctype, dim &gt; &gt; &gt;::<a class="el" href="a01770.html">DGFGridFactory</a> </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a03582.html#a814c282ea4de383110d1fb060c3c3151">GridView</a> &amp;&#160;</td>
-          <td class="paramname"><em>gridView</em></td><td>)</td>
+          <td class="paramtype">std::istream &amp;&#160;</td>
+          <td class="paramname"><em>input</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a03582.html#a786a6bc5b24a2e57ec4475f6502155f1">MPICommunicatorType</a>&#160;</td>
+          <td class="paramname"><em>comm</em> = <code>MPIHelper::getCommunicator()</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a15b994327a2cd8a6d641ea3b57468144"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15b994327a2cd8a6d641ea3b57468144">&#9670;&nbsp;</a></span>DGFGridFactory() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ctype , int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a01770.html">Dune::DGFGridFactory</a>&lt; <a class="el" href="a04134.html">YaspGrid</a>&lt; dim, <a class="el" href="a04234.html">EquidistantCoordinates</a>&lt; ctype, dim &gt; &gt; &gt;::<a class="el" href="a01770.html">DGFGridFactory</a> </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a03582.html#a786a6bc5b24a2e57ec4475f6502155f1">MPICommunicatorType</a>&#160;</td>
+          <td class="paramname"><em>comm</em> = <code>MPIHelper::getCommunicator()</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9090a129ca259a55bf7af4ef30892928"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9090a129ca259a55bf7af4ef30892928">&#9670;&nbsp;</a></span>~DGFGridFactory()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ctype , int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a01770.html">Dune::DGFGridFactory</a>&lt; <a class="el" href="a04134.html">YaspGrid</a>&lt; dim, <a class="el" href="a04234.html">EquidistantCoordinates</a>&lt; ctype, dim &gt; &gt; &gt;::~<a class="el" href="a01770.html">DGFGridFactory</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -237,766 +260,207 @@ template&lt;class GV &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>constructor </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">gridView</td><td>grid view to operate on </td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a2dda71c2e24926b19ad94c26de71e14e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2dda71c2e24926b19ad94c26de71e14e">&#9670;&nbsp;</a></span>boundaryId()</h2>
+<a id="af81fa04e74910bff0281c483ee4d8e6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af81fa04e74910bff0281c483ee4d8e6a">&#9670;&nbsp;</a></span>boundaryId()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class GV &gt; </div>
+template&lt;typename ctype , int dim&gt; </div>
+<div class="memtemplate">
+template&lt;class Intersection &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static int <a class="el" href="a03582.html">Dune::DGFWriter</a>&lt; GV &gt;::boundaryId </td>
+          <td class="memname">int <a class="el" href="a01770.html">Dune::DGFGridFactory</a>&lt; <a class="el" href="a04134.html">YaspGrid</a>&lt; dim, <a class="el" href="a04234.html">EquidistantCoordinates</a>&lt; ctype, dim &gt; &gt; &gt;::boundaryId </td>
           <td>(</td>
-          <td class="paramtype">const Intersection &amp;&#160;</td>
-          <td class="paramname"><em>i</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aeebcd2ad2f9337c0965bd02609f651ae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeebcd2ad2f9337c0965bd02609f651ae">&#9670;&nbsp;</a></span>elementsSeeds()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class GV &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">auto <a class="el" href="a03582.html">Dune::DGFWriter</a>&lt; GV &gt;::elementsSeeds </td>
-          <td>(</td>
-          <td class="paramtype">const std::vector&lt; Index &gt; &amp;&#160;</td>
-          <td class="paramname"><em>newElemOrder</em></td><td>)</td>
-          <td> const -&gt; std::vector&lt; ElementSeed &gt;</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a34b5b4e4e198fa52487af89023ec644f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a34b5b4e4e198fa52487af89023ec644f">&#9670;&nbsp;</a></span>write() <span class="overload">[1/5]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class GV &gt; </div>
-<div class="memtemplate">
-template&lt;class... Args&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">auto <a class="el" href="a03582.html">Dune::DGFWriter</a>&lt; GV &gt;::write </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>fileName</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Args &amp;&amp;...&#160;</td>
-          <td class="paramname"><em>args</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const -&gt; void_t&lt; decltype( this-&gt;write( std::declval&lt; std::ostream &amp; &gt;(), std::declval&lt; Args &gt;()... ) ) &gt;
-    </td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>write the <a class="el" href="a02754.html" title="Grid view abstract base class.">GridView</a> to a file </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">fileName</td><td>name of the write to write the grid to </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">args</td><td>arguments for the write method with istream </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="ab3975f0c46fa6b3b4561731a63267bc3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab3975f0c46fa6b3b4561731a63267bc3">&#9670;&nbsp;</a></span>write() <span class="overload">[2/5]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class GV &gt; </div>
-<div class="memtemplate">
-template&lt;class BoundaryData &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a03582.html">Dune::DGFWriter</a>&lt; GV &gt;::write </td>
-          <td>(</td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>gridout</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">BoundaryData &amp;&amp;&#160;</td>
-          <td class="paramname"><em>boundaryData</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::stringstream &amp;&#160;</td>
-          <td class="paramname"><em>addParams</em> = <code>std::stringstream()</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>write the <a class="el" href="a02754.html" title="Grid view abstract base class.">GridView</a> to a file </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">gridout</td><td>std::ostream to write the grid to </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">boundaryData</td><td>callable attaching boundary data to each intersection </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">addParams</td><td>additional data to write to dgf file, such as projections, etc. (defaults to an empty data stream) </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a22019f13f007f4f9f4eb3977c7766d8e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a22019f13f007f4f9f4eb3977c7766d8e">&#9670;&nbsp;</a></span>write() <span class="overload">[3/5]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class GV &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a03582.html">Dune::DGFWriter</a>&lt; GV &gt;::write </td>
-          <td>(</td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>gridout</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::stringstream &amp;&#160;</td>
-          <td class="paramname"><em>addParams</em> = <code>std::stringstream()</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>write the <a class="el" href="a02754.html" title="Grid view abstract base class.">GridView</a> into a std::ostream </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">gridout</td><td>std::ostream to write the grid to </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">addParams</td><td>additional data to write to dgf file, such as projections, etc. (defaults to an empty data stream) </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a4c56e613f5366d79c27f5eb30c42a3d1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4c56e613f5366d79c27f5eb30c42a3d1">&#9670;&nbsp;</a></span>write() <span class="overload">[4/5]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class GV &gt; </div>
-<div class="memtemplate">
-template&lt;class BoundaryData &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a03582.html">Dune::DGFWriter</a>&lt; GV &gt;::write </td>
-          <td>(</td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>gridout</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::vector&lt; Index &gt; &amp;&#160;</td>
-          <td class="paramname"><em>newElemOrder</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">BoundaryData &amp;&amp;&#160;</td>
-          <td class="paramname"><em>boundaryData</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::stringstream &amp;&#160;</td>
-          <td class="paramname"><em>addParams</em> = <code>std::stringstream()</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>write the <a class="el" href="a02754.html" title="Grid view abstract base class.">GridView</a> into a std::ostream </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">gridout</td><td>std::ostream to write the grid to </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">newElemOrder</td><td>vector providing a new ordering for the elements in the given <a class="el" href="a02754.html" title="Grid view abstract base class.">GridView</a> </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">boundaryData</td><td>callable attaching boundary data to each intersection </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">addParams</td><td>additional data to write to dgf file, such as projections etc. (defaults to an emoty data stream) </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a3c45d965307fe286a9adae3c603e2e26"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3c45d965307fe286a9adae3c603e2e26">&#9670;&nbsp;</a></span>write() <span class="overload">[5/5]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class GV &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a03582.html">Dune::DGFWriter</a>&lt; GV &gt;::write </td>
-          <td>(</td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>gridout</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::vector&lt; Index &gt; &amp;&#160;</td>
-          <td class="paramname"><em>newElemOrder</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::stringstream &amp;&#160;</td>
-          <td class="paramname"><em>addParams</em> = <code>std::stringstream()</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>write the <a class="el" href="a02754.html" title="Grid view abstract base class.">GridView</a> into a std::ostream </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">gridout</td><td>std::ostream to write the grid to </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">newElemOrder</td><td>vector providing a new ordering for the elements in the given <a class="el" href="a02754.html" title="Grid view abstract base class.">GridView</a> </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">addParams</td><td>additional data to write to dgf file, such as projections etc. (defaults to an emoty data stream) </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="aa75e04c2d07c550062006d278272b245"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa75e04c2d07c550062006d278272b245">&#9670;&nbsp;</a></span>writeBoundaries() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class GV &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a03582.html">Dune::DGFWriter</a>&lt; GV &gt;::writeBoundaries </td>
-          <td>(</td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>gridout</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::vector&lt; Index &gt; &amp;&#160;</td>
-          <td class="paramname"><em>dgfIndices</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a259a85b2a33dbec4bcb0726a28364913"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a259a85b2a33dbec4bcb0726a28364913">&#9670;&nbsp;</a></span>writeBoundaries() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class GV &gt; </div>
-<div class="memtemplate">
-template&lt;class BoundaryData &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a03582.html">Dune::DGFWriter</a>&lt; GV &gt;::writeBoundaries </td>
-          <td>(</td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>gridout</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::vector&lt; Index &gt; &amp;&#160;</td>
-          <td class="paramname"><em>dgfIndices</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">BoundaryData &amp;&amp;&#160;</td>
-          <td class="paramname"><em>boundaryData</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ab6382af25d9fc3c70915c16d6a00cdd0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab6382af25d9fc3c70915c16d6a00cdd0">&#9670;&nbsp;</a></span>writeCubes() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class GV &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a03582.html">Dune::DGFWriter</a>&lt; GV &gt;::writeCubes </td>
-          <td>(</td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>gridout</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::vector&lt; Index &gt; &amp;&#160;</td>
-          <td class="paramname"><em>dgfIndices</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a1e17c71400bb43e10a77dd9552bea7a3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1e17c71400bb43e10a77dd9552bea7a3">&#9670;&nbsp;</a></span>writeCubes() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class GV &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a03582.html">Dune::DGFWriter</a>&lt; GV &gt;::writeCubes </td>
-          <td>(</td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>gridout</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::vector&lt; Index &gt; &amp;&#160;</td>
-          <td class="paramname"><em>dgfIndices</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::vector&lt; ElementSeed &gt; &amp;&#160;</td>
-          <td class="paramname"><em>elementSeeds</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a7b9cab48142895117b4b21d13577739b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7b9cab48142895117b4b21d13577739b">&#9670;&nbsp;</a></span>writeElement()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class GV &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a03582.html">Dune::DGFWriter</a>&lt; GV &gt;::writeElement </td>
-          <td>(</td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>gridout</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::vector&lt; Index &gt; &amp;&#160;</td>
-          <td class="paramname"><em>dgfIndices</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Element &amp;&#160;</td>
-          <td class="paramname"><em>element</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const GeometryType &amp;&#160;</td>
-          <td class="paramname"><em>elementType</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aa475c98c97d6312ba28ae72402f6b4a1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa475c98c97d6312ba28ae72402f6b4a1">&#9670;&nbsp;</a></span>writeElements()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class GV &gt; </div>
-<div class="memtemplate">
-template&lt;class... Args&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a03582.html">Dune::DGFWriter</a>&lt; GV &gt;::writeElements </td>
-          <td>(</td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>gridout</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::vector&lt; Index &gt; &amp;&#160;</td>
-          <td class="paramname"><em>dgfIndices</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Args &amp;...&#160;</td>
-          <td class="paramname"><em>args</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a8f966630e5590816d260a7c8cc2c88f1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8f966630e5590816d260a7c8cc2c88f1">&#9670;&nbsp;</a></span>writeFooter()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class GV &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a03582.html">Dune::DGFWriter</a>&lt; GV &gt;::writeFooter </td>
-          <td>(</td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>gridout</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="a01842.html">Intersection</a> &amp;&#160;</td>
+          <td class="paramname"><em>intersection</em></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="ae207a7a784ce1d73adf7add51a9a171d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae207a7a784ce1d73adf7add51a9a171d">&#9670;&nbsp;</a></span>writeHeader()</h2>
+<a id="ab313705e84ad38fafc84a5409a4b0509"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab313705e84ad38fafc84a5409a4b0509">&#9670;&nbsp;</a></span>boundaryParameter()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class GV &gt; </div>
+template&lt;typename ctype , int dim&gt; </div>
+<div class="memtemplate">
+template&lt;class GG , class II &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="a03582.html">Dune::DGFWriter</a>&lt; GV &gt;::writeHeader </td>
+          <td class="memname">const <a class="el" href="a03626.html#afa9bc1f519c309d951d1955cbce7ea7f">DGFBoundaryParameter::type</a>&amp; <a class="el" href="a01770.html">Dune::DGFGridFactory</a>&lt; <a class="el" href="a04134.html">YaspGrid</a>&lt; dim, <a class="el" href="a04234.html">EquidistantCoordinates</a>&lt; ctype, dim &gt; &gt; &gt;::boundaryParameter </td>
           <td>(</td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>gridout</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="a01842.html">Intersection</a>&lt; GG, II &gt; &amp;&#160;</td>
+          <td class="paramname"><em>intersection</em></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="ad2cfd1644b8e3b21ceead12361875298"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad2cfd1644b8e3b21ceead12361875298">&#9670;&nbsp;</a></span>writeSimplices() <span class="overload">[1/2]</span></h2>
+<a id="ab330069d5fb10d46f5774a70fc951197"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab330069d5fb10d46f5774a70fc951197">&#9670;&nbsp;</a></span>grid()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class GV &gt; </div>
+template&lt;typename ctype , int dim&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="a03582.html">Dune::DGFWriter</a>&lt; GV &gt;::writeSimplices </td>
+          <td class="memname"><a class="el" href="a03582.html#ad6d2bdaea782009dcf36034b96a751a2">Grid</a>* <a class="el" href="a01770.html">Dune::DGFGridFactory</a>&lt; <a class="el" href="a04134.html">YaspGrid</a>&lt; dim, <a class="el" href="a04234.html">EquidistantCoordinates</a>&lt; ctype, dim &gt; &gt; &gt;::grid </td>
           <td>(</td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>gridout</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::vector&lt; Index &gt; &amp;&#160;</td>
-          <td class="paramname"><em>dgfIndices</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a888f59a88d1efbddc8ccc8d6f64c3f12"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a888f59a88d1efbddc8ccc8d6f64c3f12">&#9670;&nbsp;</a></span>writeSimplices() <span class="overload">[2/2]</span></h2>
+<a id="a90c2db32e78149d68777656e3c44a23d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90c2db32e78149d68777656e3c44a23d">&#9670;&nbsp;</a></span>haveBoundaryParameters()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class GV &gt; </div>
+template&lt;typename ctype , int dim&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="a03582.html">Dune::DGFWriter</a>&lt; GV &gt;::writeSimplices </td>
+          <td class="memname">bool <a class="el" href="a01770.html">Dune::DGFGridFactory</a>&lt; <a class="el" href="a04134.html">YaspGrid</a>&lt; dim, <a class="el" href="a04234.html">EquidistantCoordinates</a>&lt; ctype, dim &gt; &gt; &gt;::haveBoundaryParameters </td>
           <td>(</td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>gridout</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::vector&lt; Index &gt; &amp;&#160;</td>
-          <td class="paramname"><em>dgfIndices</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::vector&lt; ElementSeed &gt; &amp;&#160;</td>
-          <td class="paramname"><em>elementSeeds</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a91e045450ebef18855557179860a928f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a91e045450ebef18855557179860a928f">&#9670;&nbsp;</a></span>writeVertices()</h2>
+<a id="a363418ae9a27544df7331317545c6928"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a363418ae9a27544df7331317545c6928">&#9670;&nbsp;</a></span>numParameters()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class GV &gt; </div>
+template&lt;typename ctype , int dim&gt; </div>
+<div class="memtemplate">
+template&lt;int codim&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">auto <a class="el" href="a03582.html">Dune::DGFWriter</a>&lt; GV &gt;::writeVertices </td>
+          <td class="memname">int <a class="el" href="a01770.html">Dune::DGFGridFactory</a>&lt; <a class="el" href="a04134.html">YaspGrid</a>&lt; dim, <a class="el" href="a04234.html">EquidistantCoordinates</a>&lt; ctype, dim &gt; &gt; &gt;::numParameters </td>
           <td>(</td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>gridout</em></td><td>)</td>
-          <td> const -&gt; std::vector&lt; Index &gt;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad987e97719b3feea3501315df375854b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad987e97719b3feea3501315df375854b">&#9670;&nbsp;</a></span>parameter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ctype , int dim&gt; </div>
+<div class="memtemplate">
+template&lt;class Entity &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;double&gt;&amp; <a class="el" href="a01770.html">Dune::DGFGridFactory</a>&lt; <a class="el" href="a04134.html">YaspGrid</a>&lt; dim, <a class="el" href="a04234.html">EquidistantCoordinates</a>&lt; ctype, dim &gt; &gt; &gt;::parameter </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a02642.html">Entity</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2f0263e60633efb4641d69bfa7d2da00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f0263e60633efb4641d69bfa7d2da00">&#9670;&nbsp;</a></span>wasInserted()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ctype , int dim&gt; </div>
+<div class="memtemplate">
+template&lt;class Intersection &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="a01770.html">Dune::DGFGridFactory</a>&lt; <a class="el" href="a04134.html">YaspGrid</a>&lt; dim, <a class="el" href="a04234.html">EquidistantCoordinates</a>&lt; ctype, dim &gt; &gt; &gt;::wasInserted </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a01842.html">Intersection</a> &amp;&#160;</td>
+          <td class="paramname"><em>intersection</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1004,19 +468,19 @@ template&lt;class GV &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a03d3c9e2011ce4adc65602042e31dc61"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a03d3c9e2011ce4adc65602042e31dc61">&#9670;&nbsp;</a></span>dimGrid</h2>
+<a id="ae107ab9b7bc06cb72e9c12a5b84f034f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae107ab9b7bc06cb72e9c12a5b84f034f">&#9670;&nbsp;</a></span>dimension</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class GV &gt; </div>
+template&lt;typename ctype , int dim&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const int <a class="el" href="a03582.html">Dune::DGFWriter</a>&lt; GV &gt;::dimGrid = <a class="el" href="a00906.html#gga5c76b0a0ed3fdcf2bd9ab2bbb2df0847a7170531f3c1c62b7904410099cf37a37">GridView::dimension</a></td>
+          <td class="memname">const int <a class="el" href="a01770.html">Dune::DGFGridFactory</a>&lt; <a class="el" href="a04134.html">YaspGrid</a>&lt; dim, <a class="el" href="a04234.html">EquidistantCoordinates</a>&lt; ctype, dim &gt; &gt; &gt;::dimension = Grid::dimension</td>
         </tr>
       </table>
   </td>
@@ -1026,36 +490,10 @@ template&lt;class GV &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>dimension of the grid </p>
-
 </div>
 </div>
-<a id="a74af0a19066c5b82bc0ac101317f849f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a74af0a19066c5b82bc0ac101317f849f">&#9670;&nbsp;</a></span>gridView_</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class GV &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a03582.html#a814c282ea4de383110d1fb060c3c3151">GridView</a> <a class="el" href="a03582.html">Dune::DGFWriter</a>&lt; GV &gt;::gridView_</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="a00731_source.html">dgfwriter.hh</a></li>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li><a class="el" href="a00740_source.html">dgfyasp.hh</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

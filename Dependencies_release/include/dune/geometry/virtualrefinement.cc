@@ -33,25 +33,11 @@ namespace Dune
   template<int dimension, class CoordType>
   typename VirtualRefinement<dimension, CoordType>::VertexIterator
   VirtualRefinement<dimension, CoordType>::
-  vBegin(int level) const
-  {
-    return VertexIterator(vBeginBack(Dune::refinementIntervals(1<<level)));
-  }
-  template<int dimension, class CoordType>
-  typename VirtualRefinement<dimension, CoordType>::VertexIterator
-  VirtualRefinement<dimension, CoordType>::
   vBegin(Dune::RefinementIntervals tag) const
   {
     return VertexIterator(vBeginBack(tag));
   }
 
-  template<int dimension, class CoordType>
-  typename VirtualRefinement<dimension, CoordType>::VertexIterator
-  VirtualRefinement<dimension, CoordType>::
-  vEnd(int level) const
-  {
-    return VertexIterator(vEndBack(Dune::refinementIntervals(1<<level)));
-  }
   template<int dimension, class CoordType>
   typename VirtualRefinement<dimension, CoordType>::VertexIterator
   VirtualRefinement<dimension, CoordType>::
@@ -63,25 +49,11 @@ namespace Dune
   template<int dimension, class CoordType>
   typename VirtualRefinement<dimension, CoordType>::ElementIterator
   VirtualRefinement<dimension, CoordType>::
-  eBegin(int level) const
-  {
-    return ElementIterator(eBeginBack(Dune::refinementIntervals(1<<level)));
-  }
-  template<int dimension, class CoordType>
-  typename VirtualRefinement<dimension, CoordType>::ElementIterator
-  VirtualRefinement<dimension, CoordType>::
   eBegin(Dune::RefinementIntervals tag) const
   {
     return ElementIterator(eBeginBack(tag));
   }
 
-  template<int dimension, class CoordType>
-  typename VirtualRefinement<dimension, CoordType>::ElementIterator
-  VirtualRefinement<dimension, CoordType>::
-  eEnd(int level) const
-  {
-    return ElementIterator(eEndBack(Dune::refinementIntervals(1<<level)));
-  }
   template<int dimension, class CoordType>
   typename VirtualRefinement<dimension, CoordType>::ElementIterator
   VirtualRefinement<dimension, CoordType>::
@@ -292,12 +264,8 @@ namespace Dune
     template<int codimension>
     class SubEntityIteratorBack;
 
-    DUNE_DEPRECATED_MSG("nVertices(int) is deprecated, use nVertices(Dune::RefinementImp::{Intervals|Levels})")
-    int nVertices(int level) const;
     int nVertices(Dune::RefinementIntervals tag) const;
 
-    DUNE_DEPRECATED_MSG("nElements(int) is deprecated, use nElements(Dune::RefinementImp::{Intervals|Levels})")
-    int nElements(int level) const;
     int nElements(Dune::RefinementIntervals tag) const;
 
     static VirtualRefinementImp<topologyId, CoordType, coerceToId, dimension> &instance();
@@ -319,14 +287,7 @@ namespace Dune
     return instance_;
   }
 
-  template<unsigned topologyId, class CoordType,
-      unsigned coerceToId, int dimension>
-  int VirtualRefinementImp<topologyId, CoordType, coerceToId, dimension>::
-  nVertices(int level) const
-  {
-    return StaticRefinement::nVertices(Dune::refinementIntervals(1<<level));
-  }
-  template<unsigned topologyId, class CoordType,
+    template<unsigned topologyId, class CoordType,
       unsigned coerceToId, int dimension>
   int VirtualRefinementImp<topologyId, CoordType, coerceToId, dimension>::
   nVertices(Dune::RefinementIntervals tag) const
@@ -352,12 +313,6 @@ namespace Dune
     return new SubEntityIteratorBack<dimension>(StaticRefinement::vEnd(tag));
   }
 
-  template<unsigned topologyId, class CoordType,
-      unsigned coerceToId, int dimension>
-  int VirtualRefinementImp<topologyId, CoordType, coerceToId, dimension>::nElements(int level) const
-  {
-    return StaticRefinement::nElements(Dune::refinementIntervals(1<<level));
-  }
   template<unsigned topologyId, class CoordType,
       unsigned coerceToId, int dimension>
   int VirtualRefinementImp<topologyId, CoordType, coerceToId, dimension>::nElements(Dune::RefinementIntervals tag) const
@@ -567,8 +522,8 @@ namespace Dune
       topologyId &= ~1;
       coerceToId &= ~1;
 
-      const unsigned idSimplex = GeometryTypes::simplex(dimension).id() & ~1;
-      const unsigned idCube = GeometryTypes::cube(dimension).id() & ~1;
+      constexpr unsigned idSimplex = GeometryTypes::simplex(dimension).id() & ~1;
+      constexpr unsigned idCube = GeometryTypes::cube(dimension).id() & ~1;
 
       switch( topologyId )
       {
@@ -618,7 +573,7 @@ namespace Dune
       topologyId &= ~1;
       coerceToId &= ~1;
 
-      const unsigned idSimplex = GeometryTypes::simplex(dimension).id() & ~1;
+      constexpr unsigned idSimplex = GeometryTypes::simplex(dimension).id() & ~1;
 
       if (topologyId == 0 && coerceToId == 0)
         return VirtualRefinementImp< idSimplex, CoordType, idSimplex, dimension>::instance();
@@ -640,10 +595,10 @@ namespace Dune
       topologyId &= ~1;
       coerceToId &= ~1;
 
-      const unsigned idSimplex = GeometryTypes::simplex(dimension).id() & ~1;
-      const unsigned idCube = GeometryTypes::cube(dimension).id() & ~1;
-      const unsigned idPrism = GeometryTypes::prism.id() & ~1;
-      const unsigned idPyramid = GeometryTypes::pyramid.id() & ~1;
+      constexpr unsigned idSimplex = GeometryTypes::simplex(dimension).id() & ~1;
+      constexpr unsigned idCube = GeometryTypes::cube(dimension).id() & ~1;
+      constexpr unsigned idPrism = GeometryTypes::prism.id() & ~1;
+      constexpr unsigned idPyramid = GeometryTypes::pyramid.id() & ~1;
 
       switch( topologyId )
       {

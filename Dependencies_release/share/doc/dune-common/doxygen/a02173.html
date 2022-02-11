@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-common: Member List</title>
+<title>dune-common: Dune::MPIGuard Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-common
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,25 +62,334 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00428.html">Dune</a></li><li class="navelem"><a class="el" href="a02176.html">MPIGuard</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00428.html">Dune</a></li><li class="navelem"><a class="el" href="a02173.html">MPIGuard</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="a02170.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::MPIGuard Member List</div>  </div>
+<div class="title">Dune::MPIGuard Class Reference<div class="ingroups"><a class="el" href="a00400.html">Common</a> &raquo; <a class="el" href="a00418.html">Parallel Communication</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="a02176.html">Dune::MPIGuard</a>, including all inherited members.</p>
-<table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="a02176.html#aa62d92872dd577561a2014a94e12ce93">finalize</a>(bool success=true)</td><td class="entry"><a class="el" href="a02176.html">Dune::MPIGuard</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="a02176.html#ad0dafbe8eb21985ac54f70e48ce44def">MPIGuard</a>(bool active=true)</td><td class="entry"><a class="el" href="a02176.html">Dune::MPIGuard</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a02176.html#ade82937388e34e6b822f440abcebc515">MPIGuard</a>(MPIHelper &amp;m, bool active=true)</td><td class="entry"><a class="el" href="a02176.html">Dune::MPIGuard</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="a02176.html#aa8a8f8af42a0d96879e6a07def3f08fe">MPIGuard</a>(const C &amp;comm, bool active=true)</td><td class="entry"><a class="el" href="a02176.html">Dune::MPIGuard</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a02176.html#aafb09885f516dcf7b8006387867a3f4c">MPIGuard</a>(const MPI_Comm &amp;comm, bool active=true)</td><td class="entry"><a class="el" href="a02176.html">Dune::MPIGuard</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="a02176.html#a5d2f7d69ac52a68541a5fa4993affa9b">reactivate</a>()</td><td class="entry"><a class="el" href="a02176.html">Dune::MPIGuard</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a02176.html#aa6f3f082ef7baf6c289d7100355b47d7">~MPIGuard</a>()</td><td class="entry"><a class="el" href="a02176.html">Dune::MPIGuard</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-</table></div><!-- contents -->
+<p>detects a thrown exception and communicates to all other processes  
+ <a href="a02173.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="a00212_source.html">dune/common/parallel/mpiguard.hh</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:ad0dafbe8eb21985ac54f70e48ce44def"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02173.html#ad0dafbe8eb21985ac54f70e48ce44def">MPIGuard</a> (bool active=true)</td></tr>
+<tr class="memdesc:ad0dafbe8eb21985ac54f70e48ce44def"><td class="mdescLeft">&#160;</td><td class="mdescRight">create an <a class="el" href="a02173.html" title="detects a thrown exception and communicates to all other processes">MPIGuard</a> operating on the Communicator of the global <a class="el" href="a02181.html" title="A real mpi helper.">Dune::MPIHelper</a>  <a href="a02173.html#ad0dafbe8eb21985ac54f70e48ce44def">More...</a><br /></td></tr>
+<tr class="separator:ad0dafbe8eb21985ac54f70e48ce44def"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade82937388e34e6b822f440abcebc515"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02173.html#ade82937388e34e6b822f440abcebc515">MPIGuard</a> (<a class="el" href="a02181.html">MPIHelper</a> &amp;m, bool active=true)</td></tr>
+<tr class="memdesc:ade82937388e34e6b822f440abcebc515"><td class="mdescLeft">&#160;</td><td class="mdescRight">create an <a class="el" href="a02173.html" title="detects a thrown exception and communicates to all other processes">MPIGuard</a> operating on the Communicator of a special <a class="el" href="a02181.html" title="A real mpi helper.">Dune::MPIHelper</a> m  <a href="a02173.html#ade82937388e34e6b822f440abcebc515">More...</a><br /></td></tr>
+<tr class="separator:ade82937388e34e6b822f440abcebc515"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8a8f8af42a0d96879e6a07def3f08fe"><td class="memTemplParams" colspan="2">template&lt;class C &gt; </td></tr>
+<tr class="memitem:aa8a8f8af42a0d96879e6a07def3f08fe"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a02173.html#aa8a8f8af42a0d96879e6a07def3f08fe">MPIGuard</a> (const C &amp;comm, bool active=true)</td></tr>
+<tr class="memdesc:aa8a8f8af42a0d96879e6a07def3f08fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">create an <a class="el" href="a02173.html" title="detects a thrown exception and communicates to all other processes">MPIGuard</a> operating on an arbitrary communicator.  <a href="a02173.html#aa8a8f8af42a0d96879e6a07def3f08fe">More...</a><br /></td></tr>
+<tr class="separator:aa8a8f8af42a0d96879e6a07def3f08fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafb09885f516dcf7b8006387867a3f4c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02173.html#aafb09885f516dcf7b8006387867a3f4c">MPIGuard</a> (const MPI_Comm &amp;comm, bool active=true)</td></tr>
+<tr class="separator:aafb09885f516dcf7b8006387867a3f4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6f3f082ef7baf6c289d7100355b47d7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02173.html#aa6f3f082ef7baf6c289d7100355b47d7">~MPIGuard</a> ()</td></tr>
+<tr class="memdesc:aa6f3f082ef7baf6c289d7100355b47d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">destroy the guard and check for undetected exceptions  <a href="a02173.html#aa6f3f082ef7baf6c289d7100355b47d7">More...</a><br /></td></tr>
+<tr class="separator:aa6f3f082ef7baf6c289d7100355b47d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d2f7d69ac52a68541a5fa4993affa9b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02173.html#a5d2f7d69ac52a68541a5fa4993affa9b">reactivate</a> ()</td></tr>
+<tr class="memdesc:a5d2f7d69ac52a68541a5fa4993affa9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">reactivate the guard.  <a href="a02173.html#a5d2f7d69ac52a68541a5fa4993affa9b">More...</a><br /></td></tr>
+<tr class="separator:a5d2f7d69ac52a68541a5fa4993affa9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa62d92872dd577561a2014a94e12ce93"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02173.html#aa62d92872dd577561a2014a94e12ce93">finalize</a> (bool success=true)</td></tr>
+<tr class="memdesc:aa62d92872dd577561a2014a94e12ce93"><td class="mdescLeft">&#160;</td><td class="mdescRight">stop the guard.  <a href="a02173.html#aa62d92872dd577561a2014a94e12ce93">More...</a><br /></td></tr>
+<tr class="separator:aa62d92872dd577561a2014a94e12ce93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>detects a thrown exception and communicates to all other processes </p>
+<div class="fragment"><div class="line">{</div>
+<div class="line">  MPIGuard guard(...);</div>
+<div class="line"> </div>
+<div class="line">  do_something();</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// tell the guard that you successfully passed a critical operation</span></div>
+<div class="line">  guard.finalize();</div>
+<div class="line">  <span class="comment">// reactivate the guard for the next critical operation</span></div>
+<div class="line">  guard.reactivate();</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordtype">int</span> result = do_something_else();</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// tell the guard the result of your operation</span></div>
+<div class="line">  guard.finalize(result == success);</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>You create a <a class="el" href="a02173.html" title="detects a thrown exception and communicates to all other processes">MPIGuard</a> object. If an exception is risen on a process the <a class="el" href="a02173.html" title="detects a thrown exception and communicates to all other processes">MPIGuard</a> detects the exception, because the finalize method was not called. When reaching the finalize call all other processes are informed that an error occurred and the <a class="el" href="a02173.html" title="detects a thrown exception and communicates to all other processes">MPIGuard</a> throws an exception of type <a class="el" href="a02169.html" title="This exception is thrown if the MPIGuard detects an error on a remote process.">MPIGuardError</a>.</p>
+<dl class="section note"><dt>Note</dt><dd>You can initialize the <a class="el" href="a02173.html" title="detects a thrown exception and communicates to all other processes">MPIGuard</a> from different types of communication objects:<ul>
+<li><a class="el" href="a02181.html" title="A real mpi helper.">MPIHelper</a></li>
+<li><a class="el" href="a01961.html" title="Collective communication interface and sequential default implementation.">Communication</a></li>
+<li>MPI_Comm </li>
+</ul>
+</dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ad0dafbe8eb21985ac54f70e48ce44def"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0dafbe8eb21985ac54f70e48ce44def">&#9670;&nbsp;</a></span>MPIGuard() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Dune::MPIGuard::MPIGuard </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>active</em> = <code>true</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>create an <a class="el" href="a02173.html" title="detects a thrown exception and communicates to all other processes">MPIGuard</a> operating on the Communicator of the global <a class="el" href="a02181.html" title="A real mpi helper.">Dune::MPIHelper</a> </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">active</td><td>should the <a class="el" href="a02173.html" title="detects a thrown exception and communicates to all other processes">MPIGuard</a> be active upon creation? </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ade82937388e34e6b822f440abcebc515"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade82937388e34e6b822f440abcebc515">&#9670;&nbsp;</a></span>MPIGuard() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Dune::MPIGuard::MPIGuard </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a02181.html">MPIHelper</a> &amp;&#160;</td>
+          <td class="paramname"><em>m</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>active</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>create an <a class="el" href="a02173.html" title="detects a thrown exception and communicates to all other processes">MPIGuard</a> operating on the Communicator of a special <a class="el" href="a02181.html" title="A real mpi helper.">Dune::MPIHelper</a> m </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">m</td><td>a reference to an <a class="el" href="a02181.html" title="A real mpi helper.">MPIHelper</a> </td></tr>
+    <tr><td class="paramname">active</td><td>should the <a class="el" href="a02173.html" title="detects a thrown exception and communicates to all other processes">MPIGuard</a> be active upon creation? </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa8a8f8af42a0d96879e6a07def3f08fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8a8f8af42a0d96879e6a07def3f08fe">&#9670;&nbsp;</a></span>MPIGuard() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class C &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Dune::MPIGuard::MPIGuard </td>
+          <td>(</td>
+          <td class="paramtype">const C &amp;&#160;</td>
+          <td class="paramname"><em>comm</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>active</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>create an <a class="el" href="a02173.html" title="detects a thrown exception and communicates to all other processes">MPIGuard</a> operating on an arbitrary communicator. </p>
+<p>Supported types for the communication object are:</p><ul>
+<li><a class="el" href="a02181.html" title="A real mpi helper.">MPIHelper</a></li>
+<li><a class="el" href="a01961.html" title="Collective communication interface and sequential default implementation.">Communication</a></li>
+<li>MPI_Comm</li>
+</ul>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">comm</td><td>reference to a communication object </td></tr>
+    <tr><td class="paramname">active</td><td>should the <a class="el" href="a02173.html" title="detects a thrown exception and communicates to all other processes">MPIGuard</a> be active upon creation? </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aafb09885f516dcf7b8006387867a3f4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafb09885f516dcf7b8006387867a3f4c">&#9670;&nbsp;</a></span>MPIGuard() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Dune::MPIGuard::MPIGuard </td>
+          <td>(</td>
+          <td class="paramtype">const MPI_Comm &amp;&#160;</td>
+          <td class="paramname"><em>comm</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>active</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa6f3f082ef7baf6c289d7100355b47d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6f3f082ef7baf6c289d7100355b47d7">&#9670;&nbsp;</a></span>~MPIGuard()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Dune::MPIGuard::~MPIGuard </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>destroy the guard and check for undetected exceptions </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="aa62d92872dd577561a2014a94e12ce93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa62d92872dd577561a2014a94e12ce93">&#9670;&nbsp;</a></span>finalize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Dune::MPIGuard::finalize </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>success</em> = <code>true</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>stop the guard. </p>
+<p>If no success parameter is passed, the guard assumes that everything worked as planned. All errors are communicated and an exception of type <a class="el" href="a02169.html" title="This exception is thrown if the MPIGuard detects an error on a remote process.">MPIGuardError</a> is thrown if an error (or exception) occurred on any of the processors in the communicator.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">success</td><td>inform the guard about possible errors </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5d2f7d69ac52a68541a5fa4993affa9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d2f7d69ac52a68541a5fa4993affa9b">&#9670;&nbsp;</a></span>reactivate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Dune::MPIGuard::reactivate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>reactivate the guard. </p>
+<p>If the guard is still active finalize(true) is called first. </p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="a00212_source.html">mpiguard.hh</a></li>
+</ul>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1

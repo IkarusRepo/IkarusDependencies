@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: uggridfactory.hh File Reference</title>
+<title>dune-grid: onedgrid.hh File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,48 +62,86 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_282a6d93e11c1f5367984719a29518da.html">dune-grid</a></li><li class="navelem"><a class="el" href="dir_9b356568473fb59d2a92d82c3e3163e0.html">dune</a></li><li class="navelem"><a class="el" href="dir_b835d2b10d4bb6ff2c6d149ed2a0408f.html">grid</a></li><li class="navelem"><a class="el" href="dir_1a8a249def9a6a94df73f44edb2c6906.html">uggrid</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_282a6d93e11c1f5367984719a29518da.html">dune-grid</a></li><li class="navelem"><a class="el" href="dir_9b356568473fb59d2a92d82c3e3163e0.html">dune</a></li><li class="navelem"><a class="el" href="dir_b835d2b10d4bb6ff2c6d149ed2a0408f.html">grid</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle">
-<div class="title">uggridfactory.hh File Reference</div>  </div>
+<div class="title">onedgrid.hh File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>The specialization of the generic GridFactory for UGGrid.  
+<p>The OneDGrid class.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;array&gt;</code><br />
-<code>#include &lt;memory&gt;</code><br />
+<div class="textblock"><code>#include &lt;tuple&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
-<code>#include &lt;dune/common/fvector.hh&gt;</code><br />
-<code>#include &lt;dune/common/to_unique_ptr.hh&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00215_source.html">dune/grid/common/boundarysegment.hh</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="a06806_source.html">dune/grid/common/gridfactory.hh</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00845_source.html">dune/grid/uggrid.hh</a>&gt;</code><br />
+<code>#include &lt;list&gt;</code><br />
+<code>#include &lt;dune/common/parallel/communication.hh&gt;</code><br />
+<code>#include &lt;<a class="el" href="a06648_source.html">dune/grid/common/capabilities.hh</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="a06702_source.html">dune/grid/common/grid.hh</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="a06711_source.html">dune/grid/common/gridfactory.hh</a>&gt;</code><br />
+<code>#include &lt;dune/geometry/axisalignedcubegeometry.hh&gt;</code><br />
+<code>#include &lt;dune/geometry/type.hh&gt;</code><br />
+<code>#include &quot;onedgrid/onedgridlist.hh&quot;</code><br />
+<code>#include &quot;onedgrid/nulliteratorfactory.hh&quot;</code><br />
+<code>#include &quot;onedgrid/onedgridentity.hh&quot;</code><br />
+<code>#include &quot;onedgrid/onedgridentityseed.hh&quot;</code><br />
+<code>#include &quot;onedgrid/onedgridintersections.hh&quot;</code><br />
+<code>#include &quot;onedgrid/onedgridintersectioniterators.hh&quot;</code><br />
+<code>#include &quot;onedgrid/onedgridleafiterator.hh&quot;</code><br />
+<code>#include &quot;onedgrid/onedgridviews.hh&quot;</code><br />
+<code>#include &quot;onedgrid/onedgridleveliterator.hh&quot;</code><br />
+<code>#include &quot;onedgrid/onedgridhieriterator.hh&quot;</code><br />
+<code>#include &quot;onedgrid/onedgridindexsets.hh&quot;</code><br />
+<code>#include &lt;dune/grid/onedgrid/onedgridfactory.hh&gt;</code><br />
 </div>
 <p><a href="a00848_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03998.html">Dune::GridFactory&lt; UGGrid&lt; dimworld &gt; &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specialization of the generic <a class="el" href="a02750.html" title="Provide a generic factory class for unstructured grids.">GridFactory</a> for <a class="el" href="a03970.html" title="Front-end for the grid manager of the finite element toolbox UG.">UGGrid</a>.  <a href="a03998.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03930.html">Dune::OneDGridFamily</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04002.html">Dune::GridFactory&lt; UGGrid&lt; dimworld &gt; &gt;::Codim&lt; codim &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03934.html">Dune::OneDGrid</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">One-dimensional adaptive grid.  <a href="a03934.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03938.html">Dune::Capabilities::hasSingleGeometryType&lt; OneDGrid &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a03934.html" title="One-dimensional adaptive grid.">OneDGrid</a> has only one geometry type for codim 0 entities.  <a href="a03938.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03942.html">Dune::Capabilities::hasEntity&lt; OneDGrid, cdim &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a03934.html" title="One-dimensional adaptive grid.">OneDGrid</a> has entities for all codimension.  <a href="a03942.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03946.html">Dune::Capabilities::hasEntityIterator&lt; OneDGrid, codim &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a03934.html" title="One-dimensional adaptive grid.">OneDGrid</a> can iterate over all codimensions.  <a href="a03946.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03950.html">Dune::Capabilities::isLevelwiseConforming&lt; OneDGrid &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a03934.html" title="One-dimensional adaptive grid.">OneDGrid</a> is levelwise conforming.  <a href="a03950.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03954.html">Dune::Capabilities::isLeafwiseConforming&lt; OneDGrid &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a03934.html" title="One-dimensional adaptive grid.">OneDGrid</a> is leafwise conforming.  <a href="a03954.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:a00936"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00936.html">Dune</a></td></tr>
-<tr class="memdesc:a00936"><td class="mdescLeft">&#160;</td><td class="mdescRight">Include standard header files. <br /></td></tr>
+<tr class="memitem:a00940"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00940.html">Dune</a></td></tr>
+<tr class="memdesc:a00940"><td class="mdescLeft">&#160;</td><td class="mdescRight">Include standard header files. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00942"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00942.html">Dune::Capabilities</a></td></tr>
+<tr class="memdesc:a00942"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains all capabilities classes. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a95dfaabfd00063ad5bd988583a6629c1"><td class="memTemplParams" colspan="2">template&lt;int mydim, int coorddim, class GridImp &gt; </td></tr>
+<tr class="memitem:a95dfaabfd00063ad5bd988583a6629c1"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00940.html#a95dfaabfd00063ad5bd988583a6629c1">Dune::OneDGridGeometry</a> = AxisAlignedCubeGeometry&lt; double, mydim, coorddim &gt;</td></tr>
+<tr class="memdesc:a95dfaabfd00063ad5bd988583a6629c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type used to for <a class="el" href="a03934.html" title="One-dimensional adaptive grid.">OneDGrid</a> geometries.  <a href="a00940.html#a95dfaabfd00063ad5bd988583a6629c1">More...</a><br /></td></tr>
+<tr class="separator:a95dfaabfd00063ad5bd988583a6629c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The specialization of the generic GridFactory for UGGrid. </p>
-<dl class="section author"><dt>Author</dt><dd>Oliver Sander </dd></dl>
+<div class="textblock"><p>The OneDGrid class. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

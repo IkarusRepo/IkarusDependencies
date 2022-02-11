@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: Dune::YGridComponent&lt; Coordinates &gt;::Iterator Class Reference</title>
+<title>dune-grid: Dune::YGridList&lt; Coordinates &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,200 +62,93 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00936.html">Dune</a></li><li class="navelem"><a class="el" href="a04326.html">YGridComponent</a></li><li class="navelem"><a class="el" href="a04330.html">Iterator</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00940.html">Dune</a></li><li class="navelem"><a class="el" href="a04330.html">YGridList</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="a04327.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::YGridComponent&lt; Coordinates &gt;::Iterator Class Reference</div>  </div>
+<div class="title">Dune::YGridList&lt; Coordinates &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="a00206_source.html">dune/grid/yaspgrid/ygrid.hh</a>&gt;</code></p>
+<p>implements a collection of multiple std::deque&lt;Intersection&gt; Intersections with neighboring processors are stored as std::deque&lt;Intersection&gt;. Eachsuch intersection only holds one <a class="el" href="a04314.html">YGridComponent</a>. To do all communication associated with one codimension, multiple such deques have to be concatenated. <a class="el" href="a04330.html" title="implements a collection of multiple std::deque&lt;Intersection&gt; Intersections with neighboring processor...">YGridList</a> manges this concatenation. As for YGrids, <a class="el" href="a04330.html" title="implements a collection of multiple std::deque&lt;Intersection&gt; Intersections with neighboring processor...">YGridList</a> doesn't hold any data, but an iterator range into a data array owned by YGridLevel.  
+ <a href="a04330.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="a00215_source.html">dune/grid/yaspgrid/ygrid.hh</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04334.html">Intersection</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">type describing an intersection with a neighboring processor  <a href="a04334.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04338.html">Iterator</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a4e5a703b1b3925806c3982b46839379c"><td class="memItemLeft" align="right" valign="top">typedef std::array&lt; std::deque&lt; <a class="el" href="a04334.html">Intersection</a> &gt;, StaticPower&lt; 2, <a class="el" href="a04330.html#abaee207da8080704f1563f3c8ced50e7">dim</a> &gt;::power &gt;::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04330.html#a4e5a703b1b3925806c3982b46839379c">DAI</a></td></tr>
+<tr class="separator:a4e5a703b1b3925806c3982b46839379c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4ba0c2aae4df2a9a6958d1d98bed93f5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04330.html#a4ba0c2aae4df2a9a6958d1d98bed93f5">Iterator</a> ()=default</td></tr>
-<tr class="separator:a4ba0c2aae4df2a9a6958d1d98bed93f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf4ad59d5aa5bc9499cdb5e3ec09bb54"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04330.html#abf4ad59d5aa5bc9499cdb5e3ec09bb54">Iterator</a> (const <a class="el" href="a04326.html">YGridComponent</a>&lt; Coordinates &gt; &amp;r)</td></tr>
-<tr class="memdesc:abf4ad59d5aa5bc9499cdb5e3ec09bb54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make iterator pointing to first cell in a grid.  <a href="a04330.html#abf4ad59d5aa5bc9499cdb5e3ec09bb54">More...</a><br /></td></tr>
-<tr class="separator:abf4ad59d5aa5bc9499cdb5e3ec09bb54"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae8501c88db9bb671f1cdcce262fbf013"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04330.html#ae8501c88db9bb671f1cdcce262fbf013">Iterator</a> (const <a class="el" href="a04326.html">YGridComponent</a>&lt; Coordinates &gt; &amp;r, const <a class="el" href="a04326.html#a18ed7fcd6f8e2824f4aa7c0a4ef72864">iTupel</a> &amp;<a class="el" href="a04330.html#ad06b2a6976c07aafe26eb0e5d4953ffe">coord</a>)</td></tr>
-<tr class="memdesc:ae8501c88db9bb671f1cdcce262fbf013"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make iterator pointing to given cell in a grid.  <a href="a04330.html#ae8501c88db9bb671f1cdcce262fbf013">More...</a><br /></td></tr>
-<tr class="separator:ae8501c88db9bb671f1cdcce262fbf013"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7281c9cdae5f77a73c9c6b2c83294589"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04330.html#a7281c9cdae5f77a73c9c6b2c83294589">reinit</a> (const <a class="el" href="a04326.html">YGridComponent</a>&lt; Coordinates &gt; &amp;r, const <a class="el" href="a04326.html#a18ed7fcd6f8e2824f4aa7c0a4ef72864">iTupel</a> &amp;<a class="el" href="a04330.html#ad06b2a6976c07aafe26eb0e5d4953ffe">coord</a>)</td></tr>
-<tr class="memdesc:a7281c9cdae5f77a73c9c6b2c83294589"><td class="mdescLeft">&#160;</td><td class="mdescRight">reinitialize iterator to given position  <a href="a04330.html#a7281c9cdae5f77a73c9c6b2c83294589">More...</a><br /></td></tr>
-<tr class="separator:a7281c9cdae5f77a73c9c6b2c83294589"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adba8deacf65dc3dfa9e106c6d314b588"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04330.html#adba8deacf65dc3dfa9e106c6d314b588">operator==</a> (const <a class="el" href="a04330.html">Iterator</a> &amp;i) const</td></tr>
-<tr class="memdesc:adba8deacf65dc3dfa9e106c6d314b588"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return true when two iterators over the same grid are equal (!).  <a href="a04330.html#adba8deacf65dc3dfa9e106c6d314b588">More...</a><br /></td></tr>
-<tr class="separator:adba8deacf65dc3dfa9e106c6d314b588"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18bff0c23c4218648a26baa78272f30d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04330.html#a18bff0c23c4218648a26baa78272f30d">operator!=</a> (const <a class="el" href="a04330.html">Iterator</a> &amp;i) const</td></tr>
-<tr class="memdesc:a18bff0c23c4218648a26baa78272f30d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return true when two iterators over the same grid are not equal (!).  <a href="a04330.html#a18bff0c23c4218648a26baa78272f30d">More...</a><br /></td></tr>
-<tr class="separator:a18bff0c23c4218648a26baa78272f30d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13f6991aac99626e41e7b1b0ef8345e1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04330.html#a13f6991aac99626e41e7b1b0ef8345e1">superindex</a> () const</td></tr>
-<tr class="memdesc:a13f6991aac99626e41e7b1b0ef8345e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return consecutive index in enclosing grid.  <a href="a04330.html#a13f6991aac99626e41e7b1b0ef8345e1">More...</a><br /></td></tr>
-<tr class="separator:a13f6991aac99626e41e7b1b0ef8345e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad06b2a6976c07aafe26eb0e5d4953ffe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04330.html#ad06b2a6976c07aafe26eb0e5d4953ffe">coord</a> (int i) const</td></tr>
-<tr class="memdesc:ad06b2a6976c07aafe26eb0e5d4953ffe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return coordinate of the cell in direction i.  <a href="a04330.html#ad06b2a6976c07aafe26eb0e5d4953ffe">More...</a><br /></td></tr>
-<tr class="separator:ad06b2a6976c07aafe26eb0e5d4953ffe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a083dbd8e5e6e1fd5f8b49c36b1812b42"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a04326.html#a18ed7fcd6f8e2824f4aa7c0a4ef72864">iTupel</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04330.html#a083dbd8e5e6e1fd5f8b49c36b1812b42">coord</a> () const</td></tr>
-<tr class="memdesc:a083dbd8e5e6e1fd5f8b49c36b1812b42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return coordinate of the cell as reference (do not modify).  <a href="a04330.html#a083dbd8e5e6e1fd5f8b49c36b1812b42">More...</a><br /></td></tr>
-<tr class="separator:a083dbd8e5e6e1fd5f8b49c36b1812b42"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab478b8a9e4b0ef59c7290309cb3f3763"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04330.html#ab478b8a9e4b0ef59c7290309cb3f3763">move</a> (int i, int dist)</td></tr>
-<tr class="memdesc:ab478b8a9e4b0ef59c7290309cb3f3763"><td class="mdescLeft">&#160;</td><td class="mdescRight">move this iterator dist cells in direction i  <a href="a04330.html#ab478b8a9e4b0ef59c7290309cb3f3763">More...</a><br /></td></tr>
-<tr class="separator:ab478b8a9e4b0ef59c7290309cb3f3763"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a83821787fd67ca55d36402993e039f08"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04330.html#a83821787fd67ca55d36402993e039f08">move</a> (const <a class="el" href="a04326.html#a18ed7fcd6f8e2824f4aa7c0a4ef72864">iTupel</a> &amp;dist)</td></tr>
-<tr class="memdesc:a83821787fd67ca55d36402993e039f08"><td class="mdescLeft">&#160;</td><td class="mdescRight">move this iterator dist cells in direction i  <a href="a04330.html#a83821787fd67ca55d36402993e039f08">More...</a><br /></td></tr>
-<tr class="separator:a83821787fd67ca55d36402993e039f08"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae115908bdfe4d7a07f7e98beaa7504e2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a04330.html">Iterator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04330.html#ae115908bdfe4d7a07f7e98beaa7504e2">operator++</a> ()</td></tr>
-<tr class="memdesc:ae115908bdfe4d7a07f7e98beaa7504e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increment iterator to next cell with position.  <a href="a04330.html#ae115908bdfe4d7a07f7e98beaa7504e2">More...</a><br /></td></tr>
-<tr class="separator:ae115908bdfe4d7a07f7e98beaa7504e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25e54c54097592cfa51dd7c09500b6cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a04326.html#a3fcc1cc3f33ea8f73cd1ddb2a50ad094">ct</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04330.html#a25e54c54097592cfa51dd7c09500b6cf">lowerleft</a> (int i) const</td></tr>
-<tr class="memdesc:a25e54c54097592cfa51dd7c09500b6cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return ith component of lower left corner of the entity associated with the current coordinates and shift.  <a href="a04330.html#a25e54c54097592cfa51dd7c09500b6cf">More...</a><br /></td></tr>
-<tr class="separator:a25e54c54097592cfa51dd7c09500b6cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a87350b4b2bdd03676edbebd4f11c8dc6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a04326.html#a8bc72880287dea7ff9a30d2b23266aa9">fTupel</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04330.html#a87350b4b2bdd03676edbebd4f11c8dc6">lowerleft</a> () const</td></tr>
-<tr class="memdesc:a87350b4b2bdd03676edbebd4f11c8dc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return lower left corner of the entity associated with the current coordinates and shift.  <a href="a04330.html#a87350b4b2bdd03676edbebd4f11c8dc6">More...</a><br /></td></tr>
-<tr class="separator:a87350b4b2bdd03676edbebd4f11c8dc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac36fe9b08916f201ea90601f5ba949db"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a04326.html#a3fcc1cc3f33ea8f73cd1ddb2a50ad094">ct</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04330.html#ac36fe9b08916f201ea90601f5ba949db">upperright</a> (int i) const</td></tr>
-<tr class="memdesc:ac36fe9b08916f201ea90601f5ba949db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return ith component of upper right corder of the entity associated with the current coordinates and shift.  <a href="a04330.html#ac36fe9b08916f201ea90601f5ba949db">More...</a><br /></td></tr>
-<tr class="separator:ac36fe9b08916f201ea90601f5ba949db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad827bbe846849a7c0a04640bd4ac42c2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a04326.html#a8bc72880287dea7ff9a30d2b23266aa9">fTupel</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04330.html#ad827bbe846849a7c0a04640bd4ac42c2">upperright</a> () const</td></tr>
-<tr class="memdesc:ad827bbe846849a7c0a04640bd4ac42c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return upper right corder of the entity associated with the current coordinates and shift.  <a href="a04330.html#ad827bbe846849a7c0a04640bd4ac42c2">More...</a><br /></td></tr>
-<tr class="separator:ad827bbe846849a7c0a04640bd4ac42c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57bcb1ca4727d569ca1b8d41625e5b17"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a04326.html#a3fcc1cc3f33ea8f73cd1ddb2a50ad094">ct</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04330.html#a57bcb1ca4727d569ca1b8d41625e5b17">meshsize</a> (int i) const</td></tr>
-<tr class="memdesc:a57bcb1ca4727d569ca1b8d41625e5b17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return meshsize in direction i.  <a href="a04330.html#a57bcb1ca4727d569ca1b8d41625e5b17">More...</a><br /></td></tr>
-<tr class="separator:a57bcb1ca4727d569ca1b8d41625e5b17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a83a14845e722ca317b43c5e17af0ae74"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a04326.html#a8bc72880287dea7ff9a30d2b23266aa9">fTupel</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04330.html#a83a14845e722ca317b43c5e17af0ae74">meshsize</a> () const</td></tr>
-<tr class="memdesc:a83a14845e722ca317b43c5e17af0ae74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return meshsize of current cell as reference.  <a href="a04330.html#a83a14845e722ca317b43c5e17af0ae74">More...</a><br /></td></tr>
-<tr class="separator:a83a14845e722ca317b43c5e17af0ae74"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6af5f4b95fea6276938f88fecb67c9a7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04330.html#a6af5f4b95fea6276938f88fecb67c9a7">shift</a> (int i) const</td></tr>
-<tr class="separator:a6af5f4b95fea6276938f88fecb67c9a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e5dd8448e7f3dccf28c5dd35068ed88"><td class="memItemLeft" align="right" valign="top">std::bitset&lt; <a class="el" href="a04326.html#a2af9dafe3cf099d09f4940d003bcde40">d</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04330.html#a2e5dd8448e7f3dccf28c5dd35068ed88">shift</a> () const</td></tr>
-<tr class="separator:a2e5dd8448e7f3dccf28c5dd35068ed88"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a161fabbd4da52361e030d71b512929d1"><td class="memItemLeft" align="right" valign="top">Coordinates *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04330.html#a161fabbd4da52361e030d71b512929d1">coordCont</a> () const</td></tr>
-<tr class="separator:a161fabbd4da52361e030d71b512929d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90df99e94e01d82019eaca6243f48a52"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a04338.html">Iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04330.html#a90df99e94e01d82019eaca6243f48a52">begin</a> () const</td></tr>
+<tr class="memdesc:a90df99e94e01d82019eaca6243f48a52"><td class="mdescLeft">&#160;</td><td class="mdescRight">return iterator pointing to the begin of the container  <a href="a04330.html#a90df99e94e01d82019eaca6243f48a52">More...</a><br /></td></tr>
+<tr class="separator:a90df99e94e01d82019eaca6243f48a52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a614a98f0df98b7c465576bc6d36aae71"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a04338.html">Iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04330.html#a614a98f0df98b7c465576bc6d36aae71">end</a> () const</td></tr>
+<tr class="memdesc:a614a98f0df98b7c465576bc6d36aae71"><td class="mdescLeft">&#160;</td><td class="mdescRight">return iterator pointing to the end of the container  <a href="a04330.html#a614a98f0df98b7c465576bc6d36aae71">More...</a><br /></td></tr>
+<tr class="separator:a614a98f0df98b7c465576bc6d36aae71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fac580d311506aa7e3912cae28b857e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04330.html#a8fac580d311506aa7e3912cae28b857e">setBegin</a> (typename std::array&lt; std::deque&lt; <a class="el" href="a04334.html">Intersection</a> &gt;, StaticPower&lt; 2, <a class="el" href="a04330.html#abaee207da8080704f1563f3c8ced50e7">dim</a> &gt;::power &gt;::iterator <a class="el" href="a04330.html#a90df99e94e01d82019eaca6243f48a52">begin</a>)</td></tr>
+<tr class="memdesc:a8fac580d311506aa7e3912cae28b857e"><td class="mdescLeft">&#160;</td><td class="mdescRight">set start iterator in the data array  <a href="a04330.html#a8fac580d311506aa7e3912cae28b857e">More...</a><br /></td></tr>
+<tr class="separator:a8fac580d311506aa7e3912cae28b857e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abef2c9506e02a5a365d7a7355c60d176"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a04330.html#a4e5a703b1b3925806c3982b46839379c">DAI</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04330.html#abef2c9506e02a5a365d7a7355c60d176">dataBegin</a> () const</td></tr>
+<tr class="memdesc:abef2c9506e02a5a365d7a7355c60d176"><td class="mdescLeft">&#160;</td><td class="mdescRight">get start iterator in the data array  <a href="a04330.html#abef2c9506e02a5a365d7a7355c60d176">More...</a><br /></td></tr>
+<tr class="separator:abef2c9506e02a5a365d7a7355c60d176"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a801cffe4a0dabea03e4455906f81f142"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a04330.html#a4e5a703b1b3925806c3982b46839379c">DAI</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04330.html#a801cffe4a0dabea03e4455906f81f142">dataEnd</a> () const</td></tr>
+<tr class="memdesc:a801cffe4a0dabea03e4455906f81f142"><td class="mdescLeft">&#160;</td><td class="mdescRight">get end iterator in the data array  <a href="a04330.html#a801cffe4a0dabea03e4455906f81f142">More...</a><br /></td></tr>
+<tr class="separator:a801cffe4a0dabea03e4455906f81f142"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47edf7f19d5b1e3e9cf911c5f188eb63"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04330.html#a47edf7f19d5b1e3e9cf911c5f188eb63">size</a> () const</td></tr>
+<tr class="memdesc:a47edf7f19d5b1e3e9cf911c5f188eb63"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the size of the container, this is the sum of the sizes of all deques  <a href="a04330.html#a47edf7f19d5b1e3e9cf911c5f188eb63">More...</a><br /></td></tr>
+<tr class="separator:a47edf7f19d5b1e3e9cf911c5f188eb63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a322cdf17b39cab204790852ec073f18a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04330.html#a322cdf17b39cab204790852ec073f18a">finalize</a> (<a class="el" href="a04330.html#a4e5a703b1b3925806c3982b46839379c">DAI</a> <a class="el" href="a04330.html#a614a98f0df98b7c465576bc6d36aae71">end</a>, const <a class="el" href="a04322.html">YGrid</a>&lt; Coordinates &gt; &amp;ygrid)</td></tr>
+<tr class="memdesc:a322cdf17b39cab204790852ec073f18a"><td class="mdescLeft">&#160;</td><td class="mdescRight">finalize the YGridLIst  <a href="a04330.html#a322cdf17b39cab204790852ec073f18a">More...</a><br /></td></tr>
+<tr class="separator:a322cdf17b39cab204790852ec073f18a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr class="memitem:a9a45dd0ef57d874932b1e5220b8b107f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a04326.html#a18ed7fcd6f8e2824f4aa7c0a4ef72864">iTupel</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04330.html#a9a45dd0ef57d874932b1e5220b8b107f">_coord</a></td></tr>
-<tr class="memdesc:a9a45dd0ef57d874932b1e5220b8b107f"><td class="mdescLeft">&#160;</td><td class="mdescRight">current position in index set  <a href="a04330.html#a9a45dd0ef57d874932b1e5220b8b107f">More...</a><br /></td></tr>
-<tr class="separator:a9a45dd0ef57d874932b1e5220b8b107f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afab1f638f77531e6d2d6b25582976fa4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04330.html#afab1f638f77531e6d2d6b25582976fa4">_superindex</a> = 0</td></tr>
-<tr class="memdesc:afab1f638f77531e6d2d6b25582976fa4"><td class="mdescLeft">&#160;</td><td class="mdescRight">consecutive index in enclosing grid  <a href="a04330.html#afab1f638f77531e6d2d6b25582976fa4">More...</a><br /></td></tr>
-<tr class="separator:afab1f638f77531e6d2d6b25582976fa4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6efc4bea1f4844886f33fe78fe87f10b"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a04326.html">YGridComponent</a>&lt; Coordinates &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04330.html#a6efc4bea1f4844886f33fe78fe87f10b">_grid</a> = nullptr</td></tr>
-<tr class="separator:a6efc4bea1f4844886f33fe78fe87f10b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:abaee207da8080704f1563f3c8ced50e7"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04330.html#abaee207da8080704f1563f3c8ced50e7">dim</a> = Coordinates::dimension</td></tr>
+<tr class="separator:abaee207da8080704f1563f3c8ced50e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;class Coordinates&gt;<br />
-class Dune::YGridComponent&lt; Coordinates &gt;::Iterator</h3>
+class Dune::YGridList&lt; Coordinates &gt;</h3>
 
-<p><a class="el" href="a04330.html">Iterator</a> class allows one to run over all cells of a grid. The cells of the grid to iterate over are numbered consecutively starting with zero. Via the <a class="el" href="a04326.html#a03d45ce77d620ca77e4a47b3f5003a55" title="given a tupel compute its index in the lexicographic numbering">index()</a> method the iterator provides a mapping of the cells of the grid to a one-dimensional array. The number of entries in this array must be the size of the grid. </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a4ba0c2aae4df2a9a6958d1d98bed93f5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4ba0c2aae4df2a9a6958d1d98bed93f5">&#9670;&nbsp;</a></span>Iterator() <span class="overload">[1/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class Coordinates &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a04326.html">Dune::YGridComponent</a>&lt; Coordinates &gt;::Iterator::Iterator </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="abf4ad59d5aa5bc9499cdb5e3ec09bb54"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abf4ad59d5aa5bc9499cdb5e3ec09bb54">&#9670;&nbsp;</a></span>Iterator() <span class="overload">[2/3]</span></h2>
+<p>implements a collection of multiple std::deque&lt;Intersection&gt; Intersections with neighboring processors are stored as std::deque&lt;Intersection&gt;. Eachsuch intersection only holds one <a class="el" href="a04314.html">YGridComponent</a>. To do all communication associated with one codimension, multiple such deques have to be concatenated. <a class="el" href="a04330.html" title="implements a collection of multiple std::deque&lt;Intersection&gt; Intersections with neighboring processor...">YGridList</a> manges this concatenation. As for YGrids, <a class="el" href="a04330.html" title="implements a collection of multiple std::deque&lt;Intersection&gt; Intersections with neighboring processor...">YGridList</a> doesn't hold any data, but an iterator range into a data array owned by YGridLevel. </p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a4e5a703b1b3925806c3982b46839379c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e5a703b1b3925806c3982b46839379c">&#9670;&nbsp;</a></span>DAI</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class Coordinates &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a04326.html">Dune::YGridComponent</a>&lt; Coordinates &gt;::Iterator::Iterator </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a04326.html">YGridComponent</a>&lt; Coordinates &gt; &amp;&#160;</td>
-          <td class="paramname"><em>r</em></td><td>)</td>
-          <td></td>
+          <td class="memname">typedef std::array&lt;std::deque&lt;<a class="el" href="a04334.html">Intersection</a>&gt;, StaticPower&lt;2,<a class="el" href="a04330.html#abaee207da8080704f1563f3c8ced50e7">dim</a>&gt;::power&gt;::iterator <a class="el" href="a04330.html">Dune::YGridList</a>&lt; Coordinates &gt;::<a class="el" href="a04330.html#a4e5a703b1b3925806c3982b46839379c">DAI</a></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-
-<p>Make iterator pointing to first cell in a grid. </p>
-
-</div>
-</div>
-<a id="ae8501c88db9bb671f1cdcce262fbf013"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae8501c88db9bb671f1cdcce262fbf013">&#9670;&nbsp;</a></span>Iterator() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class Coordinates &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a04326.html">Dune::YGridComponent</a>&lt; Coordinates &gt;::Iterator::Iterator </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a04326.html">YGridComponent</a>&lt; Coordinates &gt; &amp;&#160;</td>
-          <td class="paramname"><em>r</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a04326.html#a18ed7fcd6f8e2824f4aa7c0a4ef72864">iTupel</a> &amp;&#160;</td>
-          <td class="paramname"><em>coord</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Make iterator pointing to given cell in a grid. </p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a083dbd8e5e6e1fd5f8b49c36b1812b42"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a083dbd8e5e6e1fd5f8b49c36b1812b42">&#9670;&nbsp;</a></span>coord() <span class="overload">[1/2]</span></h2>
+<a id="a90df99e94e01d82019eaca6243f48a52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90df99e94e01d82019eaca6243f48a52">&#9670;&nbsp;</a></span>begin()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -266,7 +159,7 @@ template&lt;class Coordinates &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a04326.html#a18ed7fcd6f8e2824f4aa7c0a4ef72864">iTupel</a>&amp; <a class="el" href="a04326.html">Dune::YGridComponent</a>&lt; Coordinates &gt;::Iterator::coord </td>
+          <td class="memname"><a class="el" href="a04338.html">Iterator</a> <a class="el" href="a04330.html">Dune::YGridList</a>&lt; Coordinates &gt;::begin </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -279,12 +172,12 @@ template&lt;class Coordinates &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Return coordinate of the cell as reference (do not modify). </p>
+<p>return iterator pointing to the begin of the container </p>
 
 </div>
 </div>
-<a id="ad06b2a6976c07aafe26eb0e5d4953ffe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad06b2a6976c07aafe26eb0e5d4953ffe">&#9670;&nbsp;</a></span>coord() <span class="overload">[2/2]</span></h2>
+<a id="abef2c9506e02a5a365d7a7355c60d176"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abef2c9506e02a5a365d7a7355c60d176">&#9670;&nbsp;</a></span>dataBegin()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -295,37 +188,7 @@ template&lt;class Coordinates &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int <a class="el" href="a04326.html">Dune::YGridComponent</a>&lt; Coordinates &gt;::Iterator::coord </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>i</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Return coordinate of the cell in direction i. </p>
-
-</div>
-</div>
-<a id="a161fabbd4da52361e030d71b512929d1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a161fabbd4da52361e030d71b512929d1">&#9670;&nbsp;</a></span>coordCont()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class Coordinates &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Coordinates* <a class="el" href="a04326.html">Dune::YGridComponent</a>&lt; Coordinates &gt;::Iterator::coordCont </td>
+          <td class="memname"><a class="el" href="a04330.html#a4e5a703b1b3925806c3982b46839379c">DAI</a> <a class="el" href="a04330.html">Dune::YGridList</a>&lt; Coordinates &gt;::dataBegin </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -338,10 +201,12 @@ template&lt;class Coordinates &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>get start iterator in the data array </p>
+
 </div>
 </div>
-<a id="a87350b4b2bdd03676edbebd4f11c8dc6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a87350b4b2bdd03676edbebd4f11c8dc6">&#9670;&nbsp;</a></span>lowerleft() <span class="overload">[1/2]</span></h2>
+<a id="a801cffe4a0dabea03e4455906f81f142"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a801cffe4a0dabea03e4455906f81f142">&#9670;&nbsp;</a></span>dataEnd()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -352,7 +217,7 @@ template&lt;class Coordinates &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a04326.html#a8bc72880287dea7ff9a30d2b23266aa9">fTupel</a> <a class="el" href="a04326.html">Dune::YGridComponent</a>&lt; Coordinates &gt;::Iterator::lowerleft </td>
+          <td class="memname"><a class="el" href="a04330.html#a4e5a703b1b3925806c3982b46839379c">DAI</a> <a class="el" href="a04330.html">Dune::YGridList</a>&lt; Coordinates &gt;::dataEnd </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -365,12 +230,12 @@ template&lt;class Coordinates &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Return lower left corner of the entity associated with the current coordinates and shift. </p>
+<p>get end iterator in the data array </p>
 
 </div>
 </div>
-<a id="a25e54c54097592cfa51dd7c09500b6cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a25e54c54097592cfa51dd7c09500b6cf">&#9670;&nbsp;</a></span>lowerleft() <span class="overload">[2/2]</span></h2>
+<a id="a614a98f0df98b7c465576bc6d36aae71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a614a98f0df98b7c465576bc6d36aae71">&#9670;&nbsp;</a></span>end()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -381,37 +246,7 @@ template&lt;class Coordinates &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a04326.html#a3fcc1cc3f33ea8f73cd1ddb2a50ad094">ct</a> <a class="el" href="a04326.html">Dune::YGridComponent</a>&lt; Coordinates &gt;::Iterator::lowerleft </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>i</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Return ith component of lower left corner of the entity associated with the current coordinates and shift. </p>
-
-</div>
-</div>
-<a id="a83a14845e722ca317b43c5e17af0ae74"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a83a14845e722ca317b43c5e17af0ae74">&#9670;&nbsp;</a></span>meshsize() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class Coordinates &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a04326.html#a8bc72880287dea7ff9a30d2b23266aa9">fTupel</a> <a class="el" href="a04326.html">Dune::YGridComponent</a>&lt; Coordinates &gt;::Iterator::meshsize </td>
+          <td class="memname"><a class="el" href="a04338.html">Iterator</a> <a class="el" href="a04330.html">Dune::YGridList</a>&lt; Coordinates &gt;::end </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -424,12 +259,12 @@ template&lt;class Coordinates &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Return meshsize of current cell as reference. </p>
+<p>return iterator pointing to the end of the container </p>
 
 </div>
 </div>
-<a id="a57bcb1ca4727d569ca1b8d41625e5b17"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a57bcb1ca4727d569ca1b8d41625e5b17">&#9670;&nbsp;</a></span>meshsize() <span class="overload">[2/2]</span></h2>
+<a id="a322cdf17b39cab204790852ec073f18a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a322cdf17b39cab204790852ec073f18a">&#9670;&nbsp;</a></span>finalize()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -440,76 +275,16 @@ template&lt;class Coordinates &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a04326.html#a3fcc1cc3f33ea8f73cd1ddb2a50ad094">ct</a> <a class="el" href="a04326.html">Dune::YGridComponent</a>&lt; Coordinates &gt;::Iterator::meshsize </td>
+          <td class="memname">void <a class="el" href="a04330.html">Dune::YGridList</a>&lt; Coordinates &gt;::finalize </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>i</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Return meshsize in direction i. </p>
-
-</div>
-</div>
-<a id="a83821787fd67ca55d36402993e039f08"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a83821787fd67ca55d36402993e039f08">&#9670;&nbsp;</a></span>move() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class Coordinates &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a04326.html">Dune::YGridComponent</a>&lt; Coordinates &gt;::Iterator::move </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a04326.html#a18ed7fcd6f8e2824f4aa7c0a4ef72864">iTupel</a> &amp;&#160;</td>
-          <td class="paramname"><em>dist</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>move this iterator dist cells in direction i </p>
-
-</div>
-</div>
-<a id="ab478b8a9e4b0ef59c7290309cb3f3763"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab478b8a9e4b0ef59c7290309cb3f3763">&#9670;&nbsp;</a></span>move() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class Coordinates &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a04326.html">Dune::YGridComponent</a>&lt; Coordinates &gt;::Iterator::move </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>i</em>, </td>
+          <td class="paramtype"><a class="el" href="a04330.html#a4e5a703b1b3925806c3982b46839379c">DAI</a>&#160;</td>
+          <td class="paramname"><em>end</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>dist</em>&#160;</td>
+          <td class="paramtype">const <a class="el" href="a04322.html">YGrid</a>&lt; Coordinates &gt; &amp;&#160;</td>
+          <td class="paramname"><em>ygrid</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -524,12 +299,13 @@ template&lt;class Coordinates &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>move this iterator dist cells in direction i </p>
+<p>finalize the YGridLIst </p>
+<p>set offsets allow the YGridComponents in the Intersctions to behave as YGrids</p>
 
 </div>
 </div>
-<a id="a18bff0c23c4218648a26baa78272f30d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a18bff0c23c4218648a26baa78272f30d">&#9670;&nbsp;</a></span>operator!=()</h2>
+<a id="a8fac580d311506aa7e3912cae28b857e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fac580d311506aa7e3912cae28b857e">&#9670;&nbsp;</a></span>setBegin()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -540,39 +316,10 @@ template&lt;class Coordinates &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="a04326.html">Dune::YGridComponent</a>&lt; Coordinates &gt;::Iterator::operator!= </td>
+          <td class="memname">void <a class="el" href="a04330.html">Dune::YGridList</a>&lt; Coordinates &gt;::setBegin </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a04330.html">Iterator</a> &amp;&#160;</td>
-          <td class="paramname"><em>i</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Return true when two iterators over the same grid are not equal (!). </p>
-
-</div>
-</div>
-<a id="ae115908bdfe4d7a07f7e98beaa7504e2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae115908bdfe4d7a07f7e98beaa7504e2">&#9670;&nbsp;</a></span>operator++()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class Coordinates &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a04330.html">Iterator</a>&amp; <a class="el" href="a04326.html">Dune::YGridComponent</a>&lt; Coordinates &gt;::Iterator::operator++ </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">typename std::array&lt; std::deque&lt; <a class="el" href="a04334.html">Intersection</a> &gt;, StaticPower&lt; 2, <a class="el" href="a04330.html#abaee207da8080704f1563f3c8ced50e7">dim</a> &gt;::power &gt;::iterator&#160;</td>
+          <td class="paramname"><em>begin</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -583,12 +330,12 @@ template&lt;class Coordinates &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Increment iterator to next cell with position. </p>
+<p>set start iterator in the data array </p>
 
 </div>
 </div>
-<a id="adba8deacf65dc3dfa9e106c6d314b588"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adba8deacf65dc3dfa9e106c6d314b588">&#9670;&nbsp;</a></span>operator==()</h2>
+<a id="a47edf7f19d5b1e3e9cf911c5f188eb63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47edf7f19d5b1e3e9cf911c5f188eb63">&#9670;&nbsp;</a></span>size()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -599,77 +346,7 @@ template&lt;class Coordinates &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="a04326.html">Dune::YGridComponent</a>&lt; Coordinates &gt;::Iterator::operator== </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a04330.html">Iterator</a> &amp;&#160;</td>
-          <td class="paramname"><em>i</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Return true when two iterators over the same grid are equal (!). </p>
-
-</div>
-</div>
-<a id="a7281c9cdae5f77a73c9c6b2c83294589"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7281c9cdae5f77a73c9c6b2c83294589">&#9670;&nbsp;</a></span>reinit()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class Coordinates &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a04326.html">Dune::YGridComponent</a>&lt; Coordinates &gt;::Iterator::reinit </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a04326.html">YGridComponent</a>&lt; Coordinates &gt; &amp;&#160;</td>
-          <td class="paramname"><em>r</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a04326.html#a18ed7fcd6f8e2824f4aa7c0a4ef72864">iTupel</a> &amp;&#160;</td>
-          <td class="paramname"><em>coord</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>reinitialize iterator to given position </p>
-
-</div>
-</div>
-<a id="a2e5dd8448e7f3dccf28c5dd35068ed88"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2e5dd8448e7f3dccf28c5dd35068ed88">&#9670;&nbsp;</a></span>shift() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class Coordinates &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::bitset&lt;<a class="el" href="a04326.html#a2af9dafe3cf099d09f4940d003bcde40">d</a>&gt; <a class="el" href="a04326.html">Dune::YGridComponent</a>&lt; Coordinates &gt;::Iterator::shift </td>
+          <td class="memname">int <a class="el" href="a04330.html">Dune::YGridList</a>&lt; Coordinates &gt;::size </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -682,127 +359,13 @@ template&lt;class Coordinates &gt; </div>
 </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="a6af5f4b95fea6276938f88fecb67c9a7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6af5f4b95fea6276938f88fecb67c9a7">&#9670;&nbsp;</a></span>shift() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class Coordinates &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="a04326.html">Dune::YGridComponent</a>&lt; Coordinates &gt;::Iterator::shift </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>i</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a13f6991aac99626e41e7b1b0ef8345e1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a13f6991aac99626e41e7b1b0ef8345e1">&#9670;&nbsp;</a></span>superindex()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class Coordinates &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="a04326.html">Dune::YGridComponent</a>&lt; Coordinates &gt;::Iterator::superindex </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Return consecutive index in enclosing grid. </p>
-
-</div>
-</div>
-<a id="ad827bbe846849a7c0a04640bd4ac42c2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad827bbe846849a7c0a04640bd4ac42c2">&#9670;&nbsp;</a></span>upperright() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class Coordinates &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a04326.html#a8bc72880287dea7ff9a30d2b23266aa9">fTupel</a> <a class="el" href="a04326.html">Dune::YGridComponent</a>&lt; Coordinates &gt;::Iterator::upperright </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Return upper right corder of the entity associated with the current coordinates and shift. </p>
-
-</div>
-</div>
-<a id="ac36fe9b08916f201ea90601f5ba949db"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac36fe9b08916f201ea90601f5ba949db">&#9670;&nbsp;</a></span>upperright() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class Coordinates &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a04326.html#a3fcc1cc3f33ea8f73cd1ddb2a50ad094">ct</a> <a class="el" href="a04326.html">Dune::YGridComponent</a>&lt; Coordinates &gt;::Iterator::upperright </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>i</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Return ith component of upper right corder of the entity associated with the current coordinates and shift. </p>
+<p>return the size of the container, this is the sum of the sizes of all deques </p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a9a45dd0ef57d874932b1e5220b8b107f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9a45dd0ef57d874932b1e5220b8b107f">&#9670;&nbsp;</a></span>_coord</h2>
+<a id="abaee207da8080704f1563f3c8ced50e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abaee207da8080704f1563f3c8ced50e7">&#9670;&nbsp;</a></span>dim</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -813,72 +376,20 @@ template&lt;class Coordinates &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a04326.html#a18ed7fcd6f8e2824f4aa7c0a4ef72864">iTupel</a> <a class="el" href="a04326.html">Dune::YGridComponent</a>&lt; Coordinates &gt;::Iterator::_coord</td>
+          <td class="memname">const int <a class="el" href="a04330.html">Dune::YGridList</a>&lt; Coordinates &gt;::dim = Coordinates::dimension</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>current position in index set </p>
-
-</div>
-</div>
-<a id="a6efc4bea1f4844886f33fe78fe87f10b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6efc4bea1f4844886f33fe78fe87f10b">&#9670;&nbsp;</a></span>_grid</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class Coordinates &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a04326.html">YGridComponent</a>&lt;Coordinates&gt;* <a class="el" href="a04326.html">Dune::YGridComponent</a>&lt; Coordinates &gt;::Iterator::_grid = nullptr</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="afab1f638f77531e6d2d6b25582976fa4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afab1f638f77531e6d2d6b25582976fa4">&#9670;&nbsp;</a></span>_superindex</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class Coordinates &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="a04326.html">Dune::YGridComponent</a>&lt; Coordinates &gt;::Iterator::_superindex = 0</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>consecutive index in enclosing grid </p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="a00206_source.html">ygrid.hh</a></li>
+<li><a class="el" href="a00215_source.html">ygrid.hh</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

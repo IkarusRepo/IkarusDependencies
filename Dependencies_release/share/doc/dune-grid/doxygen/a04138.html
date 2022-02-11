@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: Dune::VertexOrderByIdFactory&lt; IdSet, Index &gt;::VertexOrder&lt; dim &gt; Struct Template Reference</title>
+<title>dune-grid: Dune::YaspGeometry&lt; mydim, cdim, GridImp &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,58 +62,126 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00936.html">Dune</a></li><li class="navelem"><a class="el" href="a04134.html">VertexOrderByIdFactory</a></li><li class="navelem"><a class="el" href="a04138.html">VertexOrder</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00940.html">Dune</a></li><li class="navelem"><a class="el" href="a04138.html">YaspGeometry</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="a04135.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::VertexOrderByIdFactory&lt; IdSet, Index &gt;::VertexOrder&lt; dim &gt; Struct Template Reference</div>  </div>
+<div class="title">Dune::YaspGeometry&lt; mydim, cdim, GridImp &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>type of vertex order object may depend on the dimension of the element  
+<p>The general version that handles all codimensions but 0 and dim.  
  <a href="a04138.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00893_source.html">dune/grid/utility/vertexorderfactory.hh</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00191_source.html">dune/grid/yaspgrid/yaspgridgeometry.hh</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for Dune::YaspGeometry&lt; mydim, cdim, GridImp &gt;:</div>
+<div class="dyncontent">
+<div class="center"><img src="a04137.png" border="0" usemap="#a_dune_1_1_yasp_geometry_3_01mydim_00_01cdim_00_01_grid_imp_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="a_dune_1_1_yasp_geometry_3_01mydim_00_01cdim_00_01_grid_imp_01_4_inherit__map" id="a_dune_1_1_yasp_geometry_3_01mydim_00_01cdim_00_01_grid_imp_01_4_inherit__map">
+<area shape="rect" title="The general version that handles all codimensions but 0 and dim." alt="" coords="7,109,182,151"/>
+<area shape="rect" title=" " alt="" coords="5,5,184,61"/>
+</map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a114a03e5e4ba2c7a20ecbfadf6aa10ef"><td class="memItemLeft" align="right" valign="top">typedef GeneralVertexOrder&lt; dim, Index &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04138.html#a114a03e5e4ba2c7a20ecbfadf6aa10ef">type</a></td></tr>
-<tr class="memdesc:a114a03e5e4ba2c7a20ecbfadf6aa10ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">type of vertex order object  <a href="a04138.html#a114a03e5e4ba2c7a20ecbfadf6aa10ef">More...</a><br /></td></tr>
-<tr class="separator:a114a03e5e4ba2c7a20ecbfadf6aa10ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53e1e4f7c3a892f71d14b6fc49cc028e"><td class="memItemLeft" align="right" valign="top">typedef GridImp::ctype&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04138.html#a53e1e4f7c3a892f71d14b6fc49cc028e">ctype</a></td></tr>
+<tr class="memdesc:a53e1e4f7c3a892f71d14b6fc49cc028e"><td class="mdescLeft">&#160;</td><td class="mdescRight">define type used for coordinates in grid module  <a href="a04138.html#a53e1e4f7c3a892f71d14b6fc49cc028e">More...</a><br /></td></tr>
+<tr class="separator:a53e1e4f7c3a892f71d14b6fc49cc028e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a0b05fcd4911ea30adc1d61664802f3bf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04138.html#a0b05fcd4911ea30adc1d61664802f3bf">YaspGeometry</a> (const FieldVector&lt; <a class="el" href="a04138.html#a53e1e4f7c3a892f71d14b6fc49cc028e">ctype</a>, cdim &gt; &amp;ll, const FieldVector&lt; <a class="el" href="a04138.html#a53e1e4f7c3a892f71d14b6fc49cc028e">ctype</a>, cdim &gt; &amp;ur, const std::bitset&lt; cdim &gt; &amp;shift)</td></tr>
+<tr class="memdesc:a0b05fcd4911ea30adc1d61664802f3bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor from midpoint and extension and a bitset defining which unit vectors span the entity  <a href="a04138.html#a0b05fcd4911ea30adc1d61664802f3bf">More...</a><br /></td></tr>
+<tr class="separator:a0b05fcd4911ea30adc1d61664802f3bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;class IdSet, class Index = std::size_t&gt;<br />
-template&lt;std::size_t dim&gt;<br />
-struct Dune::VertexOrderByIdFactory&lt; IdSet, Index &gt;::VertexOrder&lt; dim &gt;</h3>
+<div class="textblock"><h3>template&lt;int mydim, int cdim, class GridImp&gt;<br />
+class Dune::YaspGeometry&lt; mydim, cdim, GridImp &gt;</h3>
 
-<p>type of vertex order object may depend on the dimension of the element </p>
+<p>The general version that handles all codimensions but 0 and dim. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">mydim</td><td>the codimension </td></tr>
+    <tr><td class="paramname">cdim</td><td>the coordinate dimension (NOT codim) </td></tr>
+  </table>
+  </dd>
+</dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a114a03e5e4ba2c7a20ecbfadf6aa10ef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a114a03e5e4ba2c7a20ecbfadf6aa10ef">&#9670;&nbsp;</a></span>type</h2>
+<a id="a53e1e4f7c3a892f71d14b6fc49cc028e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53e1e4f7c3a892f71d14b6fc49cc028e">&#9670;&nbsp;</a></span>ctype</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class IdSet , class Index  = std::size_t&gt; </div>
-<div class="memtemplate">
-template&lt;std::size_t dim&gt; </div>
+template&lt;int mydim, int cdim, class GridImp &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef GeneralVertexOrder&lt;dim, Index&gt; <a class="el" href="a04134.html">Dune::VertexOrderByIdFactory</a>&lt; <a class="el" href="a02694.html">IdSet</a>, Index &gt;::<a class="el" href="a04138.html">VertexOrder</a>&lt; dim &gt;::<a class="el" href="a04138.html#a114a03e5e4ba2c7a20ecbfadf6aa10ef">type</a></td>
+          <td class="memname">typedef GridImp::ctype <a class="el" href="a04138.html">Dune::YaspGeometry</a>&lt; mydim, cdim, GridImp &gt;::<a class="el" href="a04138.html#a53e1e4f7c3a892f71d14b6fc49cc028e">ctype</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>type of vertex order object </p>
+<p>define type used for coordinates in grid module </p>
 
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="a00893_source.html">vertexorderfactory.hh</a></li>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a0b05fcd4911ea30adc1d61664802f3bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b05fcd4911ea30adc1d61664802f3bf">&#9670;&nbsp;</a></span>YaspGeometry()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int mydim, int cdim, class GridImp &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a04138.html">Dune::YaspGeometry</a>&lt; mydim, cdim, GridImp &gt;::<a class="el" href="a04138.html">YaspGeometry</a> </td>
+          <td>(</td>
+          <td class="paramtype">const FieldVector&lt; <a class="el" href="a04138.html#a53e1e4f7c3a892f71d14b6fc49cc028e">ctype</a>, cdim &gt; &amp;&#160;</td>
+          <td class="paramname"><em>ll</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const FieldVector&lt; <a class="el" href="a04138.html#a53e1e4f7c3a892f71d14b6fc49cc028e">ctype</a>, cdim &gt; &amp;&#160;</td>
+          <td class="paramname"><em>ur</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::bitset&lt; cdim &gt; &amp;&#160;</td>
+          <td class="paramname"><em>shift</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>constructor from midpoint and extension and a bitset defining which unit vectors span the entity </p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="a00899_source.html">yaspgrid.hh</a></li>
+<li><a class="el" href="a00191_source.html">yaspgridgeometry.hh</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

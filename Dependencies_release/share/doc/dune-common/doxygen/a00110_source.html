@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-common
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -72,99 +72,120 @@ $(function() {
 <div class="contents">
 <a href="a00110.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*-</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// vi: set et ts=4 sw=2 sts=2:</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifndef DUNE_FUNCTION_HH</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define DUNE_FUNCTION_HH</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;utility&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="a00383.html">typetraits.hh</a>&quot;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00428.html">Dune</a> {</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifndef DUNE_FUNCTION_HH_SILENCE_DEPRECATION</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#warning This file is deprecated after Dune 2.7!  Use C++ function objects and std::function stuff instead!</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#else </span><span class="comment">// !DUNE_FUNCTION_HH_SILENCE_DEPRECATION</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#undef DUNE_FUNCTION_HH_SILENCE_DEPRECATION</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// !DUNE_FUNCTION_HH_SILENCE_DEPRECATION</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef DUNE_FUNCTION_HH</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="a00110.html#aeca4539848c4c95eebbb2389446432c0">   10</a></span>&#160;<span class="preprocessor">#define DUNE_FUNCTION_HH</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">class</span> Domain, <span class="keyword">class</span> Range&gt;</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="a01768.html">   28</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a01768.html">Function</a></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> std::remove_cv&lt;typename std::remove_reference&lt; Domain &gt;::type &gt;::type RawDomainType;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> std::remove_cv&lt;typename std::remove_reference&lt; Range &gt;::type &gt;::type RawRangeType;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="a01768.html#aee694ec3111307a12bdec1eed399965d">   36</a></span>&#160;    <span class="keyword">typedef</span> RawRangeType <a class="code" href="a01768.html#aee694ec3111307a12bdec1eed399965d">RangeType</a>;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="a01768.html#ab05c710b26671cefdfac5a1a403aa6aa">   39</a></span>&#160;    <span class="keyword">typedef</span> RawDomainType <a class="code" href="a01768.html#ab05c710b26671cefdfac5a1a403aa6aa">DomainType</a>;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="a01772.html">   42</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="a01772.html">Traits</a></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    {</div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="a01772.html#a66c4ebef1a18a71c2c642f40cea94b98">   44</a></span>&#160;      <span class="keyword">typedef</span> RawDomainType <a class="code" href="a01772.html#a66c4ebef1a18a71c2c642f40cea94b98">DomainType</a>;</div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="a01772.html#aaea602c51557193beda54005f318361e">   45</a></span>&#160;      <span class="keyword">typedef</span> RawRangeType <a class="code" href="a01772.html#aaea602c51557193beda54005f318361e">RangeType</a>;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    };</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;utility&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00059.html">dune/common/deprecated.hh</a>&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="a00383.html">typetraits.hh</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00428.html">Dune</a> {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">class</span> Domain, <span class="keyword">class</span> Range&gt;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="a01753.html">   35</a></span>&#160;  <span class="keyword">class</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  [[deprecated(<span class="stringliteral">&quot;Dune::Function is deprecated after Dune 2.7.  Use C++ &quot;</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;               <span class="stringliteral">&quot;function objects instead!&quot;</span>)]]</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <a class="code" href="a01753.html">Function</a></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> std::remove_cv&lt;typename std::remove_reference&lt; Domain &gt;::type &gt;::type RawDomainType;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> std::remove_cv&lt;typename std::remove_reference&lt; Range &gt;::type &gt;::type RawRangeType;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="a01753.html#aee694ec3111307a12bdec1eed399965d">   46</a></span>&#160;    <span class="keyword">typedef</span> RawRangeType <a class="code" href="a01753.html#aee694ec3111307a12bdec1eed399965d">RangeType</a>;</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="a01768.html#adac10ee9c30ce5fb8162ddf6c56f4872">   54</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a01768.html#adac10ee9c30ce5fb8162ddf6c56f4872">evaluate</a>(<span class="keyword">const</span> <span class="keyword">typename</span> <a class="code" href="a01772.html#a66c4ebef1a18a71c2c642f40cea94b98">Traits::DomainType</a>&amp; x, <span class="keyword">typename</span> <a class="code" href="a01772.html#aaea602c51557193beda54005f318361e">Traits::RangeType</a>&amp; y) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  }; <span class="comment">// end of Function class</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="a01753.html#ab05c710b26671cefdfac5a1a403aa6aa">   49</a></span>&#160;    <span class="keyword">typedef</span> RawDomainType <a class="code" href="a01753.html#ab05c710b26671cefdfac5a1a403aa6aa">DomainType</a>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="a01757.html">   52</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="a01757.html">Traits</a></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    {</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="a01757.html#a66c4ebef1a18a71c2c642f40cea94b98">   54</a></span>&#160;      <span class="keyword">typedef</span> RawDomainType <a class="code" href="a01757.html#a66c4ebef1a18a71c2c642f40cea94b98">DomainType</a>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="a01757.html#aaea602c51557193beda54005f318361e">   55</a></span>&#160;      <span class="keyword">typedef</span> RawRangeType <a class="code" href="a01757.html#aaea602c51557193beda54005f318361e">RangeType</a>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    };</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">class</span> DomainType, <span class="keyword">class</span> RangeType&gt;</div>
-<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="a01776.html">   70</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a01776.html">VirtualFunction</a> :</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keyword">public</span> <a class="code" href="a01768.html">Function</a>&lt;const DomainType&amp;, RangeType&amp;&gt;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  {</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="a01776.html#a42fc84ca33a00bb52d033c3c80c541f5">   74</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="a01768.html">Function&lt;const DomainType&amp;, RangeType&amp;&gt;::Traits</a> <a class="code" href="a01776.html#a42fc84ca33a00bb52d033c3c80c541f5">Traits</a>;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="a01776.html#a30df51e33c5f7ace1cdc1dba02dc50ea">   76</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="a01776.html#a30df51e33c5f7ace1cdc1dba02dc50ea">~VirtualFunction</a>() {}</div>
-<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="a01776.html#a9b9122921a590c9152704edbc0476609">   83</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a01776.html#a9b9122921a590c9152704edbc0476609">evaluate</a>(<span class="keyword">const</span> <span class="keyword">typename</span> <a class="code" href="a01772.html#a66c4ebef1a18a71c2c642f40cea94b98">Traits::DomainType</a>&amp; x, <span class="keyword">typename</span> <a class="code" href="a01772.html#aaea602c51557193beda54005f318361e">Traits::RangeType</a>&amp; y) <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  }; <span class="comment">// end of VirtualFunction class</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  <span class="keyword">namespace </span>Impl {</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Domain, <span class="keyword">typename</span> Range, <span class="keyword">typename</span> F&gt;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  <span class="keyword">class </span>LambdaVirtualFunction final</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    : <span class="keyword">public</span> <a class="code" href="a01776.html">VirtualFunction</a>&lt;Domain, Range&gt;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  {</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    LambdaVirtualFunction(F&amp;&amp; f)</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;      : f_(std::move(f))</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;      {}</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    LambdaVirtualFunction(<span class="keyword">const</span> F&amp; f)</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;      : f_(f)</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;      {}</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordtype">void</span> evaluate(<span class="keyword">const</span> Domain&amp; x, Range&amp; y)<span class="keyword"> const override</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="keyword">      </span>{</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        y = f_(x);</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;      }</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keyword">const</span> F f_;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  };</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  } <span class="comment">/* namespace Impl */</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="a01753.html#adac10ee9c30ce5fb8162ddf6c56f4872">   64</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a01753.html#adac10ee9c30ce5fb8162ddf6c56f4872">evaluate</a>(<span class="keyword">const</span> <span class="keyword">typename</span> <a class="code" href="a01757.html#a66c4ebef1a18a71c2c642f40cea94b98">Traits::DomainType</a>&amp; x, <span class="keyword">typename</span> <a class="code" href="a01757.html#aaea602c51557193beda54005f318361e">Traits::RangeType</a>&amp; y) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  }; <span class="comment">// end of Function class</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <a class="code" href="a00409.html#ga74d440d098178dc5a4adea8f7c160e99">DUNE_NO_DEPRECATED_BEGIN</a></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">class</span> DomainType, <span class="keyword">class</span> RangeType&gt;</div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="a01761.html">   81</a></span>&#160;  <span class="keyword">class</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  [[deprecated(<span class="stringliteral">&quot;Dune::VirtualFunction is deprecated after Dune 2.7.  Use C++ &quot;</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;               <span class="stringliteral">&quot;function objects and std::function instead!&quot;</span>)]]</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  <a class="code" href="a01761.html">VirtualFunction</a> : <span class="keyword">public</span> <a class="code" href="a01753.html">Function&lt;const DomainType&amp;, RangeType&amp;&gt;</a></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  {</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="a01761.html#a42fc84ca33a00bb52d033c3c80c541f5">   87</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="a01753.html">Function&lt;const DomainType&amp;, RangeType&amp;&gt;::Traits</a> <a class="code" href="a01761.html#a42fc84ca33a00bb52d033c3c80c541f5">Traits</a>;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="a01761.html#a30df51e33c5f7ace1cdc1dba02dc50ea">   89</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="a01761.html#a30df51e33c5f7ace1cdc1dba02dc50ea">~VirtualFunction</a>() {}</div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="a01761.html#a9b9122921a590c9152704edbc0476609">   96</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a01761.html#a9b9122921a590c9152704edbc0476609">evaluate</a>(<span class="keyword">const</span> <span class="keyword">typename</span> <a class="code" href="a01757.html#a66c4ebef1a18a71c2c642f40cea94b98">Traits::DomainType</a>&amp; x, <span class="keyword">typename</span> <a class="code" href="a01757.html#aaea602c51557193beda54005f318361e">Traits::RangeType</a>&amp; y) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  }; <span class="comment">// end of VirtualFunction class</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  <a class="code" href="a00409.html#ga664ae9266c2a074c71746e68aaa8eb6a">DUNE_NO_DEPRECATED_END</a></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  <span class="keyword">namespace </span>Impl {</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  <a class="code" href="a00409.html#ga74d440d098178dc5a4adea8f7c160e99">DUNE_NO_DEPRECATED_BEGIN</a></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Domain, <span class="keyword">typename</span> Range, <span class="keyword">typename</span> F&gt;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  <span class="keyword">class </span>LambdaVirtualFunction final</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    : <span class="keyword">public</span> <a class="code" href="a01761.html">VirtualFunction</a>&lt;Domain, Range&gt;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  {</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    LambdaVirtualFunction(F&amp;&amp; f)</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;      : f_(std::move(f))</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;      {}</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Domain, <span class="keyword">typename</span> Range, <span class="keyword">typename</span> F&gt;</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;  Impl::LambdaVirtualFunction&lt; Domain, Range, std::decay_t&lt;F&gt; &gt;</div>
-<div class="line"><a name="l00133"></a><span class="lineno"><a class="line" href="a00400.html#ga8d326289f3fb37ecc5f30dd0cab45bb6">  133</a></span>&#160;  <a class="code" href="a00400.html#ga8d326289f3fb37ecc5f30dd0cab45bb6">makeVirtualFunction</a>(F&amp;&amp; f)</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;  {</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keywordflow">return</span> {std::forward&lt;F&gt;(f)};</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;  }</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;} <span class="comment">// end namespace</span></div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    LambdaVirtualFunction(<span class="keyword">const</span> F&amp; f)</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;      : f_(f)</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;      {}</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keywordtype">void</span> evaluate(<span class="keyword">const</span> Domain&amp; x, Range&amp; y)<span class="keyword"> const override</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        y = f_(x);</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;      }</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keyword">const</span> F f_;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  };</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  <a class="code" href="a00409.html#ga664ae9266c2a074c71746e68aaa8eb6a">DUNE_NO_DEPRECATED_END</a></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  } <span class="comment">/* namespace Impl */</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Domain, <span class="keyword">typename</span> Range, <span class="keyword">typename</span> F&gt;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;  [[deprecated(<span class="stringliteral">&quot;Dune::LambdaVirtualFunction is deprecated after Dune 2.7.  &quot;</span></div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;               <span class="stringliteral">&quot;Use std::function instead!&quot;</span>)]]</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;  Impl::LambdaVirtualFunction&lt; Domain, Range, std::decay_t&lt;F&gt; &gt;</div>
+<div class="line"><a name="l00151"></a><span class="lineno"><a class="line" href="a00400.html#ga8d326289f3fb37ecc5f30dd0cab45bb6">  151</a></span>&#160;  <a class="code" href="a00400.html#ga8d326289f3fb37ecc5f30dd0cab45bb6">makeVirtualFunction</a>(F&amp;&amp; f)</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;  {</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keywordflow">return</span> {std::forward&lt;F&gt;(f)};</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;  }</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;} <span class="comment">// end namespace</span></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160; </div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aa00059_html"><div class="ttname"><a href="a00059.html">deprecated.hh</a></div><div class="ttdoc">Definition of the DUNE_DEPRECATED macro for the case that config.h is not available.</div></div>
 <div class="ttc" id="aa00383_html"><div class="ttname"><a href="a00383.html">typetraits.hh</a></div><div class="ttdoc">Traits for type conversions and type information.</div></div>
-<div class="ttc" id="aa00400_html_ga8d326289f3fb37ecc5f30dd0cab45bb6"><div class="ttname"><a href="a00400.html#ga8d326289f3fb37ecc5f30dd0cab45bb6">Dune::makeVirtualFunction</a></div><div class="ttdeci">Impl::LambdaVirtualFunction&lt; Domain, Range, std::decay_t&lt; F &gt; &gt; makeVirtualFunction(F &amp;&amp;f)</div><div class="ttdoc">make VirtualFunction out of a function object</div><div class="ttdef"><b>Definition:</b> function.hh:133</div></div>
-<div class="ttc" id="aa00428_html"><div class="ttname"><a href="a00428.html">Dune</a></div><div class="ttdoc">Dune namespace.</div><div class="ttdef"><b>Definition:</b> alignedallocator.hh:14</div></div>
-<div class="ttc" id="aa01768_html"><div class="ttname"><a href="a01768.html">Dune::Function</a></div><div class="ttdoc">Base class template for function classes.</div><div class="ttdef"><b>Definition:</b> function.hh:29</div></div>
-<div class="ttc" id="aa01768_html_ab05c710b26671cefdfac5a1a403aa6aa"><div class="ttname"><a href="a01768.html#ab05c710b26671cefdfac5a1a403aa6aa">Dune::Function::DomainType</a></div><div class="ttdeci">RawDomainType DomainType</div><div class="ttdoc">Raw type of output variable with removed reference and constness.</div><div class="ttdef"><b>Definition:</b> function.hh:39</div></div>
-<div class="ttc" id="aa01768_html_adac10ee9c30ce5fb8162ddf6c56f4872"><div class="ttname"><a href="a01768.html#adac10ee9c30ce5fb8162ddf6c56f4872">Dune::Function::evaluate</a></div><div class="ttdeci">void evaluate(const typename Traits::DomainType &amp;x, typename Traits::RangeType &amp;y) const</div><div class="ttdoc">Function evaluation.</div></div>
-<div class="ttc" id="aa01768_html_aee694ec3111307a12bdec1eed399965d"><div class="ttname"><a href="a01768.html#aee694ec3111307a12bdec1eed399965d">Dune::Function::RangeType</a></div><div class="ttdeci">RawRangeType RangeType</div><div class="ttdoc">Raw type of input variable with removed reference and constness.</div><div class="ttdef"><b>Definition:</b> function.hh:36</div></div>
-<div class="ttc" id="aa01772_html"><div class="ttname"><a href="a01772.html">Dune::Function::Traits</a></div><div class="ttdoc">Traits class containing raw types.</div><div class="ttdef"><b>Definition:</b> function.hh:43</div></div>
-<div class="ttc" id="aa01772_html_a66c4ebef1a18a71c2c642f40cea94b98"><div class="ttname"><a href="a01772.html#a66c4ebef1a18a71c2c642f40cea94b98">Dune::Function::Traits::DomainType</a></div><div class="ttdeci">RawDomainType DomainType</div><div class="ttdef"><b>Definition:</b> function.hh:44</div></div>
-<div class="ttc" id="aa01772_html_aaea602c51557193beda54005f318361e"><div class="ttname"><a href="a01772.html#aaea602c51557193beda54005f318361e">Dune::Function::Traits::RangeType</a></div><div class="ttdeci">RawRangeType RangeType</div><div class="ttdef"><b>Definition:</b> function.hh:45</div></div>
-<div class="ttc" id="aa01776_html"><div class="ttname"><a href="a01776.html">Dune::VirtualFunction</a></div><div class="ttdoc">Virtual base class template for function classes.</div><div class="ttdef"><b>Definition:</b> function.hh:72</div></div>
-<div class="ttc" id="aa01776_html_a30df51e33c5f7ace1cdc1dba02dc50ea"><div class="ttname"><a href="a01776.html#a30df51e33c5f7ace1cdc1dba02dc50ea">Dune::VirtualFunction::~VirtualFunction</a></div><div class="ttdeci">virtual ~VirtualFunction()</div><div class="ttdef"><b>Definition:</b> function.hh:76</div></div>
-<div class="ttc" id="aa01776_html_a42fc84ca33a00bb52d033c3c80c541f5"><div class="ttname"><a href="a01776.html#a42fc84ca33a00bb52d033c3c80c541f5">Dune::VirtualFunction::Traits</a></div><div class="ttdeci">Function&lt; const DomainType &amp;, RangeType &amp; &gt;::Traits Traits</div><div class="ttdef"><b>Definition:</b> function.hh:74</div></div>
-<div class="ttc" id="aa01776_html_a9b9122921a590c9152704edbc0476609"><div class="ttname"><a href="a01776.html#a9b9122921a590c9152704edbc0476609">Dune::VirtualFunction::evaluate</a></div><div class="ttdeci">virtual void evaluate(const typename Traits::DomainType &amp;x, typename Traits::RangeType &amp;y) const =0</div><div class="ttdoc">Function evaluation.</div></div>
+<div class="ttc" id="aa00400_html_ga8d326289f3fb37ecc5f30dd0cab45bb6"><div class="ttname"><a href="a00400.html#ga8d326289f3fb37ecc5f30dd0cab45bb6">Dune::makeVirtualFunction</a></div><div class="ttdeci">Impl::LambdaVirtualFunction&lt; Domain, Range, std::decay_t&lt; F &gt; &gt; makeVirtualFunction(F &amp;&amp;f)</div><div class="ttdoc">make VirtualFunction out of a function object</div><div class="ttdef"><b>Definition:</b> function.hh:151</div></div>
+<div class="ttc" id="aa00409_html_ga664ae9266c2a074c71746e68aaa8eb6a"><div class="ttname"><a href="a00409.html#ga664ae9266c2a074c71746e68aaa8eb6a">DUNE_NO_DEPRECATED_END</a></div><div class="ttdeci">#define DUNE_NO_DEPRECATED_END</div><div class="ttdoc">Ignore deprecation warnings (end)</div><div class="ttdef"><b>Definition:</b> deprecated.hh:61</div></div>
+<div class="ttc" id="aa00409_html_ga74d440d098178dc5a4adea8f7c160e99"><div class="ttname"><a href="a00409.html#ga74d440d098178dc5a4adea8f7c160e99">DUNE_NO_DEPRECATED_BEGIN</a></div><div class="ttdeci">#define DUNE_NO_DEPRECATED_BEGIN</div><div class="ttdoc">Ignore deprecation warnings (start)</div><div class="ttdef"><b>Definition:</b> deprecated.hh:55</div></div>
+<div class="ttc" id="aa00428_html"><div class="ttname"><a href="a00428.html">Dune</a></div><div class="ttdoc">Dune namespace.</div><div class="ttdef"><b>Definition:</b> alignedallocator.hh:11</div></div>
+<div class="ttc" id="aa01753_html"><div class="ttname"><a href="a01753.html">Dune::Function</a></div><div class="ttdoc">Base class template for function classes.</div><div class="ttdef"><b>Definition:</b> function.hh:39</div></div>
+<div class="ttc" id="aa01753_html_ab05c710b26671cefdfac5a1a403aa6aa"><div class="ttname"><a href="a01753.html#ab05c710b26671cefdfac5a1a403aa6aa">Dune::Function::DomainType</a></div><div class="ttdeci">RawDomainType DomainType</div><div class="ttdoc">Raw type of output variable with removed reference and constness.</div><div class="ttdef"><b>Definition:</b> function.hh:49</div></div>
+<div class="ttc" id="aa01753_html_adac10ee9c30ce5fb8162ddf6c56f4872"><div class="ttname"><a href="a01753.html#adac10ee9c30ce5fb8162ddf6c56f4872">Dune::Function::evaluate</a></div><div class="ttdeci">void evaluate(const typename Traits::DomainType &amp;x, typename Traits::RangeType &amp;y) const</div><div class="ttdoc">Function evaluation.</div></div>
+<div class="ttc" id="aa01753_html_aee694ec3111307a12bdec1eed399965d"><div class="ttname"><a href="a01753.html#aee694ec3111307a12bdec1eed399965d">Dune::Function::RangeType</a></div><div class="ttdeci">RawRangeType RangeType</div><div class="ttdoc">Raw type of input variable with removed reference and constness.</div><div class="ttdef"><b>Definition:</b> function.hh:46</div></div>
+<div class="ttc" id="aa01757_html"><div class="ttname"><a href="a01757.html">Dune::Function::Traits</a></div><div class="ttdoc">Traits class containing raw types.</div><div class="ttdef"><b>Definition:</b> function.hh:53</div></div>
+<div class="ttc" id="aa01757_html_a66c4ebef1a18a71c2c642f40cea94b98"><div class="ttname"><a href="a01757.html#a66c4ebef1a18a71c2c642f40cea94b98">Dune::Function::Traits::DomainType</a></div><div class="ttdeci">RawDomainType DomainType</div><div class="ttdef"><b>Definition:</b> function.hh:54</div></div>
+<div class="ttc" id="aa01757_html_aaea602c51557193beda54005f318361e"><div class="ttname"><a href="a01757.html#aaea602c51557193beda54005f318361e">Dune::Function::Traits::RangeType</a></div><div class="ttdeci">RawRangeType RangeType</div><div class="ttdef"><b>Definition:</b> function.hh:55</div></div>
+<div class="ttc" id="aa01761_html"><div class="ttname"><a href="a01761.html">Dune::VirtualFunction</a></div><div class="ttdoc">Virtual base class template for function classes.</div><div class="ttdef"><b>Definition:</b> function.hh:85</div></div>
+<div class="ttc" id="aa01761_html_a30df51e33c5f7ace1cdc1dba02dc50ea"><div class="ttname"><a href="a01761.html#a30df51e33c5f7ace1cdc1dba02dc50ea">Dune::VirtualFunction::~VirtualFunction</a></div><div class="ttdeci">virtual ~VirtualFunction()</div><div class="ttdef"><b>Definition:</b> function.hh:89</div></div>
+<div class="ttc" id="aa01761_html_a42fc84ca33a00bb52d033c3c80c541f5"><div class="ttname"><a href="a01761.html#a42fc84ca33a00bb52d033c3c80c541f5">Dune::VirtualFunction::Traits</a></div><div class="ttdeci">Function&lt; const DomainType &amp;, RangeType &amp; &gt;::Traits Traits</div><div class="ttdef"><b>Definition:</b> function.hh:87</div></div>
+<div class="ttc" id="aa01761_html_a9b9122921a590c9152704edbc0476609"><div class="ttname"><a href="a01761.html#a9b9122921a590c9152704edbc0476609">Dune::VirtualFunction::evaluate</a></div><div class="ttdeci">virtual void evaluate(const typename Traits::DomainType &amp;x, typename Traits::RangeType &amp;y) const =0</div><div class="ttdoc">Function evaluation.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

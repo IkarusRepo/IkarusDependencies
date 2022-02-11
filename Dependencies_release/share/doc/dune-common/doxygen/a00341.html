@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-common: type_traits.hh File Reference</title>
+<title>dune-common: utility.hh File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-common
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -67,110 +67,23 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#typedef-members">Typedefs</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">type_traits.hh File Reference</div>  </div>
+<div class="title">utility.hh File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;type_traits&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00383_source.html">dune/common/typetraits.hh</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00386_source.html">dune/common/typeutilities.hh</a>&gt;</code><br />
+<div class="textblock"><code>#include &lt;utility&gt;</code><br />
 </div>
 <p><a href="a00341_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02856.html">Dune::Std::to_false_type&lt; T &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">template mapping a type to <code>std::false_type</code>  <a href="a02856.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02860.html">Dune::Std::to_true_type&lt; T &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">template mapping a type to <code>std::true_type</code>  <a href="a02860.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02868.html">Dune::Std::is_callable&lt; F(Args...), R &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Traits class to check if function is callable.  <a href="a02868.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02872.html">Dune::Std::is_invocable&lt; F, Args &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Traits class to check if function is invocable.  <a href="a02872.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02876.html">Dune::Std::is_invocable_r&lt; R, F, Args &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Traits class to check if function is invocable and the return type is compatible.  <a href="a02876.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02880.html">Dune::Std::nonesuch</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type representing a lookup failure by std::detected_or and friends.  <a href="a02880.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02888.html">Dune::Std::conjunction&lt;&gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02892.html">Dune::Std::conjunction&lt; B &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02896.html">Dune::Std::conjunction&lt; B1, Bn... &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02904.html">Dune::Std::disjunction&lt;&gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02908.html">Dune::Std::disjunction&lt; B &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02912.html">Dune::Std::disjunction&lt; B1, Bn... &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02916.html">Dune::Std::negation&lt; B &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">forms the logical negation of the type traits B...  <a href="a02916.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:a00428"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00428.html">Dune</a></td></tr>
 <tr class="memdesc:a00428"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a00428.html" title="Dune namespace.">Dune</a> namespace. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00453"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00453.html">Dune::Std</a></td></tr>
-<tr class="memdesc:a00453"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for features backported from new C++ standards. <br /></td></tr>
+<tr class="memitem:a00454"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00454.html">Dune::Std</a></td></tr>
+<tr class="memdesc:a00454"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace for features backported from new C++ standards. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr class="memitem:ga049b2ca3667aca812f290f41a8a5fc9a"><td class="memTemplParams" colspan="2">template&lt;bool value&gt; </td></tr>
-<tr class="memitem:ga049b2ca3667aca812f290f41a8a5fc9a"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00409.html#ga049b2ca3667aca812f290f41a8a5fc9a">Dune::Std::bool_constant</a> = std::integral_constant&lt; bool, value &gt;</td></tr>
-<tr class="memdesc:ga049b2ca3667aca812f290f41a8a5fc9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">A template alias for std::integral_constant&lt;bool, value&gt;  <a href="a00409.html#ga049b2ca3667aca812f290f41a8a5fc9a">More...</a><br /></td></tr>
-<tr class="separator:ga049b2ca3667aca812f290f41a8a5fc9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gadb4713b99082ef169f74666e0ec7a46e"><td class="memTemplParams" colspan="2">template&lt;typename Default , template&lt; typename... &gt; class Op, typename... Args&gt; </td></tr>
-<tr class="memitem:gadb4713b99082ef169f74666e0ec7a46e"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00409.html#gadb4713b99082ef169f74666e0ec7a46e">Dune::Std::detected_or</a> = Impl::detector&lt; Default, void, Op, Args... &gt;</td></tr>
-<tr class="memdesc:gadb4713b99082ef169f74666e0ec7a46e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detects whether <code>Op&lt;Args...&gt;</code> is valid and makes the result available.  <a href="a00409.html#gadb4713b99082ef169f74666e0ec7a46e">More...</a><br /></td></tr>
-<tr class="separator:gadb4713b99082ef169f74666e0ec7a46e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaccaa5104ef0c27be164435f42ef81fd5"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename... &gt; class Op, typename... Args&gt; </td></tr>
-<tr class="memitem:gaccaa5104ef0c27be164435f42ef81fd5"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00409.html#gaccaa5104ef0c27be164435f42ef81fd5">Dune::Std::is_detected</a> = typename detected_or&lt; nonesuch, Op, Args... &gt;::value_t</td></tr>
-<tr class="memdesc:gaccaa5104ef0c27be164435f42ef81fd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detects whether <code>Op&lt;Args...&gt;</code> is valid.  <a href="a00409.html#gaccaa5104ef0c27be164435f42ef81fd5">More...</a><br /></td></tr>
-<tr class="separator:gaccaa5104ef0c27be164435f42ef81fd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga67b8ffda29f365419403a66e49ec0ffe"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename... &gt; class Op, typename... Args&gt; </td></tr>
-<tr class="memitem:ga67b8ffda29f365419403a66e49ec0ffe"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00409.html#ga67b8ffda29f365419403a66e49ec0ffe">Dune::Std::detected_t</a> = typename detected_or&lt; nonesuch, Op, Args... &gt;::type</td></tr>
-<tr class="memdesc:ga67b8ffda29f365419403a66e49ec0ffe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns <code>Op&lt;Args...&gt;</code> if that is valid; otherwise returns nonesuch.  <a href="a00409.html#ga67b8ffda29f365419403a66e49ec0ffe">More...</a><br /></td></tr>
-<tr class="separator:ga67b8ffda29f365419403a66e49ec0ffe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2f49a21b2f60f94fa8911db7e32c9703"><td class="memTemplParams" colspan="2">template&lt;typename Default , template&lt; typename... &gt; class Op, typename... Args&gt; </td></tr>
-<tr class="memitem:ga2f49a21b2f60f94fa8911db7e32c9703"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00409.html#ga2f49a21b2f60f94fa8911db7e32c9703">Dune::Std::detected_or_t</a> = typename detected_or&lt; Default, Op, Args... &gt;::type</td></tr>
-<tr class="memdesc:ga2f49a21b2f60f94fa8911db7e32c9703"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns <code>Op&lt;Args...&gt;</code> if that is valid; otherwise returns the fallback type <code>Default</code>.  <a href="a00409.html#ga2f49a21b2f60f94fa8911db7e32c9703">More...</a><br /></td></tr>
-<tr class="separator:ga2f49a21b2f60f94fa8911db7e32c9703"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6778de5ea60a45fdae6db8b6d8c8b6f7"><td class="memTemplParams" colspan="2">template&lt;typename Expected , template&lt; typename... &gt; class Op, typename... Args&gt; </td></tr>
-<tr class="memitem:ga6778de5ea60a45fdae6db8b6d8c8b6f7"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00409.html#ga6778de5ea60a45fdae6db8b6d8c8b6f7">Dune::Std::is_detected_exact</a> = std::is_same&lt; Expected, detected_t&lt; Op, Args... &gt; &gt;</td></tr>
-<tr class="memdesc:ga6778de5ea60a45fdae6db8b6d8c8b6f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether <code>Op&lt;Args...&gt;</code> is <code>Expected</code> without causing an error if <code>Op&lt;Args...&gt;</code> is invalid.  <a href="a00409.html#ga6778de5ea60a45fdae6db8b6d8c8b6f7">More...</a><br /></td></tr>
-<tr class="separator:ga6778de5ea60a45fdae6db8b6d8c8b6f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf26ed902d20da735bae252683a9ac5ce"><td class="memTemplParams" colspan="2">template&lt;typename Target , template&lt; typename... &gt; class Op, typename... Args&gt; </td></tr>
-<tr class="memitem:gaf26ed902d20da735bae252683a9ac5ce"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00409.html#gaf26ed902d20da735bae252683a9ac5ce">Dune::Std::is_detected_convertible</a> = std::is_convertible&lt; Target, detected_t&lt; Op, Args... &gt; &gt;</td></tr>
-<tr class="memdesc:gaf26ed902d20da735bae252683a9ac5ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether <code>Op&lt;Args...&gt;</code> is convertible to <code>Target</code> without causing an error if <code>Op&lt;Args...&gt;</code> is invalid.  <a href="a00409.html#gaf26ed902d20da735bae252683a9ac5ce">More...</a><br /></td></tr>
-<tr class="separator:gaf26ed902d20da735bae252683a9ac5ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:ga9f0b8af5e80b339c8346a327f28bab33"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename... &gt; class Op, typename... Args&gt; </td></tr>
-<tr class="memitem:ga9f0b8af5e80b339c8346a327f28bab33"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00409.html#ga9f0b8af5e80b339c8346a327f28bab33">Dune::Std::is_detected_v</a> = is_detected&lt;Op,Args...&gt;::value</td></tr>
-<tr class="memdesc:ga9f0b8af5e80b339c8346a327f28bab33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detects whether <code>Op&lt;Args...&gt;</code> is valid and makes the result available as a value.  <a href="a00409.html#ga9f0b8af5e80b339c8346a327f28bab33">More...</a><br /></td></tr>
-<tr class="separator:ga9f0b8af5e80b339c8346a327f28bab33"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga043d312181849f21d950de3f7198bac6"><td class="memTemplParams" colspan="2">template&lt;typename Expected , template&lt; typename... &gt; class Op, typename... Args&gt; </td></tr>
-<tr class="memitem:ga043d312181849f21d950de3f7198bac6"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00409.html#ga043d312181849f21d950de3f7198bac6">Dune::Std::is_detected_exact_v</a> = is_detected_exact&lt;Expected,Op,Args...&gt;::value</td></tr>
-<tr class="memdesc:ga043d312181849f21d950de3f7198bac6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenient access to the result value of is_detected_exact.  <a href="a00409.html#ga043d312181849f21d950de3f7198bac6">More...</a><br /></td></tr>
-<tr class="separator:ga043d312181849f21d950de3f7198bac6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga044daf77dd81fbaeb71a7ce6d15bf761"><td class="memTemplParams" colspan="2">template&lt;typename Target , template&lt; typename... &gt; class Op, typename... Args&gt; </td></tr>
-<tr class="memitem:ga044daf77dd81fbaeb71a7ce6d15bf761"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00409.html#ga044daf77dd81fbaeb71a7ce6d15bf761">Dune::Std::is_detected_convertible_v</a> = is_detected_convertible&lt;Target,Op,Args...&gt;::value</td></tr>
-<tr class="memdesc:ga044daf77dd81fbaeb71a7ce6d15bf761"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenient access to the result value of is_detected_convertible.  <a href="a00409.html#ga044daf77dd81fbaeb71a7ce6d15bf761">More...</a><br /></td></tr>
-<tr class="separator:ga044daf77dd81fbaeb71a7ce6d15bf761"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->

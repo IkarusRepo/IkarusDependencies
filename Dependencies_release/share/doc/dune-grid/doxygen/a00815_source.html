@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: streams.hh Source File</title>
+<title>dune-grid: pvtuwriter.hh Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -67,102 +67,157 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">streams.hh</div>  </div>
+<div class="title">pvtuwriter.hh</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="a00815.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*-</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// vi: set et ts=4 sw=2 sts=2:</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#ifndef DUNE_GRID_IO_FILE_VTK_STREAMS_HH</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#define DUNE_GRID_IO_FILE_VTK_STREAMS_HH</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#ifndef DUNE_GRID_IO_FILE_VTK_PVTUWRITER_HH</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#define DUNE_GRID_IO_FILE_VTK_PVTUWRITER_HH</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;ostream&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00776.html">dune/grid/io/file/vtk/b64enc.hh</a>&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00936.html">Dune</a> {</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;dune/common/exceptions.hh&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;dune/common/indent.hh&gt;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="a03842.html">   14</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a03842.html">Base64Stream</a> {</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    std::ostream&amp; s;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="a03694.html">b64chunk</a> chunk;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">char</span> obuf[4];</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00794.html">dune/grid/io/file/vtk/common.hh</a>&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00940.html">Dune</a> {</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <span class="keyword">namespace </span>VTK {</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="a03842.html#a8a7027f3d59f72de295f2579e95ba8d6">   25</a></span>&#160;    <a class="code" href="a03842.html#a8a7027f3d59f72de295f2579e95ba8d6">Base64Stream</a>(std::ostream&amp; s_)</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;      : s(s_)</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;      <span class="comment">// reset chunk</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;      chunk.<a class="code" href="a03694.html#af5b86cb11f0aca7381e1802b9a5f9580">reset</a>();</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    }</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> X&gt;</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="a03842.html#a24ec170183dc09a2c46c4765e77f1248">   40</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a03842.html#a24ec170183dc09a2c46c4765e77f1248">write</a>(X &amp; data)</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      <span class="keywordtype">char</span>* p = <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">char</span>*<span class="keyword">&gt;</span>(&amp;data);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> len = <span class="keyword">sizeof</span>(X); len &gt; 0; len--,p++)</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;      {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        chunk.<a class="code" href="a03694.html#aef8a9dfb8d2ba5a6dda94cd047f363e6">put</a>(*p);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">if</span> (chunk.<a class="code" href="a03694.html#a2b2a74e2ab67c618a07ed52b683f9e6f">size</a> == 3)</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        {</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;          chunk.<a class="code" href="a03694.html#a142e802572914a4ddfeaf0c6637a0c13">write</a>(obuf);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;          s.write(obuf,4);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        }</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;      }</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    }</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="a03842.html#a48aab0178aad2e1fa1b85dac76f899a9">   62</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a03842.html#a48aab0178aad2e1fa1b85dac76f899a9">flush</a>()</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;      <span class="keywordflow">if</span> (chunk.<a class="code" href="a03694.html#a2b2a74e2ab67c618a07ed52b683f9e6f">size</a> &gt; 0)</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;      {</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        chunk.<a class="code" href="a03694.html#a142e802572914a4ddfeaf0c6637a0c13">write</a>(obuf);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        s.write(obuf,4);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;      }</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    }</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="a03842.html#aa1ad6d6fc4b55ff8256cf387729e8ab8">   75</a></span>&#160;    <a class="code" href="a03842.html#aa1ad6d6fc4b55ff8256cf387729e8ab8">~Base64Stream</a>() {</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;      <a class="code" href="a03842.html#a48aab0178aad2e1fa1b85dac76f899a9">flush</a>();</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    }</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  };</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="a03846.html">   81</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a03846.html">RawStream</a></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  {</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="a03846.html#ae90a2afd5f9649c6ea71418224e2b4cc">   85</a></span>&#160;    <span class="keyword">inline</span> <a class="code" href="a03846.html#ae90a2afd5f9649c6ea71418224e2b4cc">RawStream</a> (std::ostream&amp; theStream)</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;      : s(theStream)</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    {}</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="a03846.html#adf41844c46341d33726479291c162a5f">   91</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a03846.html#adf41844c46341d33726479291c162a5f">write</a> (T data)</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    {</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;      <span class="keywordtype">char</span>* p = <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">char</span>*<span class="keyword">&gt;</span>(&amp;data);</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;      s.write(p,<span class="keyword">sizeof</span>(T));</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    }</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    std::ostream&amp; s;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  };</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;} <span class="comment">// namespace Dune</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// DUNE_GRID_IO_FILE_VTK_STREAMS_HH</span></div>
-<div class="ttc" id="aa00776_html"><div class="ttname"><a href="a00776.html">b64enc.hh</a></div><div class="ttdoc">Simple base64 encode.</div></div>
-<div class="ttc" id="aa00936_html"><div class="ttname"><a href="a00936.html">Dune</a></div><div class="ttdoc">Include standard header files.</div><div class="ttdef"><b>Definition:</b> agrid.hh:59</div></div>
-<div class="ttc" id="aa03694_html"><div class="ttname"><a href="a03694.html">Dune::b64chunk</a></div><div class="ttdoc">struct representing the three byte text as well as the four 6 bit chunks</div><div class="ttdef"><b>Definition:</b> b64enc.hh:32</div></div>
-<div class="ttc" id="aa03694_html_a142e802572914a4ddfeaf0c6637a0c13"><div class="ttname"><a href="a03694.html#a142e802572914a4ddfeaf0c6637a0c13">Dune::b64chunk::write</a></div><div class="ttdeci">void write(char *t)</div><div class="ttdef"><b>Definition:</b> b64enc.hh:58</div></div>
-<div class="ttc" id="aa03694_html_a2b2a74e2ab67c618a07ed52b683f9e6f"><div class="ttname"><a href="a03694.html#a2b2a74e2ab67c618a07ed52b683f9e6f">Dune::b64chunk::size</a></div><div class="ttdeci">size_type size</div><div class="ttdef"><b>Definition:</b> b64enc.hh:34</div></div>
-<div class="ttc" id="aa03694_html_aef8a9dfb8d2ba5a6dda94cd047f363e6"><div class="ttname"><a href="a03694.html#aef8a9dfb8d2ba5a6dda94cd047f363e6">Dune::b64chunk::put</a></div><div class="ttdeci">void put(const char c)</div><div class="ttdef"><b>Definition:</b> b64enc.hh:52</div></div>
-<div class="ttc" id="aa03694_html_af5b86cb11f0aca7381e1802b9a5f9580"><div class="ttname"><a href="a03694.html#af5b86cb11f0aca7381e1802b9a5f9580">Dune::b64chunk::reset</a></div><div class="ttdeci">void reset()</div><div class="ttdef"><b>Definition:</b> b64enc.hh:37</div></div>
-<div class="ttc" id="aa03842_html"><div class="ttname"><a href="a03842.html">Dune::Base64Stream</a></div><div class="ttdoc">class to base64 encode a stream of data</div><div class="ttdef"><b>Definition:</b> streams.hh:14</div></div>
-<div class="ttc" id="aa03842_html_a24ec170183dc09a2c46c4765e77f1248"><div class="ttname"><a href="a03842.html#a24ec170183dc09a2c46c4765e77f1248">Dune::Base64Stream::write</a></div><div class="ttdeci">void write(X &amp;data)</div><div class="ttdoc">encode a data item</div><div class="ttdef"><b>Definition:</b> streams.hh:40</div></div>
-<div class="ttc" id="aa03842_html_a48aab0178aad2e1fa1b85dac76f899a9"><div class="ttname"><a href="a03842.html#a48aab0178aad2e1fa1b85dac76f899a9">Dune::Base64Stream::flush</a></div><div class="ttdeci">void flush()</div><div class="ttdoc">flush the current unwritten data to the stream.</div><div class="ttdef"><b>Definition:</b> streams.hh:62</div></div>
-<div class="ttc" id="aa03842_html_a8a7027f3d59f72de295f2579e95ba8d6"><div class="ttname"><a href="a03842.html#a8a7027f3d59f72de295f2579e95ba8d6">Dune::Base64Stream::Base64Stream</a></div><div class="ttdeci">Base64Stream(std::ostream &amp;s_)</div><div class="ttdoc">Construct a Base64Stream.</div><div class="ttdef"><b>Definition:</b> streams.hh:25</div></div>
-<div class="ttc" id="aa03842_html_aa1ad6d6fc4b55ff8256cf387729e8ab8"><div class="ttname"><a href="a03842.html#aa1ad6d6fc4b55ff8256cf387729e8ab8">Dune::Base64Stream::~Base64Stream</a></div><div class="ttdeci">~Base64Stream()</div><div class="ttdoc">destroy the object</div><div class="ttdef"><b>Definition:</b> streams.hh:75</div></div>
-<div class="ttc" id="aa03846_html"><div class="ttname"><a href="a03846.html">Dune::RawStream</a></div><div class="ttdoc">write out data in binary</div><div class="ttdef"><b>Definition:</b> streams.hh:82</div></div>
-<div class="ttc" id="aa03846_html_adf41844c46341d33726479291c162a5f"><div class="ttname"><a href="a03846.html#adf41844c46341d33726479291c162a5f">Dune::RawStream::write</a></div><div class="ttdeci">void write(T data)</div><div class="ttdoc">write data to stream</div><div class="ttdef"><b>Definition:</b> streams.hh:91</div></div>
-<div class="ttc" id="aa03846_html_ae90a2afd5f9649c6ea71418224e2b4cc"><div class="ttname"><a href="a03846.html#ae90a2afd5f9649c6ea71418224e2b4cc">Dune::RawStream::RawStream</a></div><div class="ttdeci">RawStream(std::ostream &amp;theStream)</div><div class="ttdoc">make a new stream</div><div class="ttdef"><b>Definition:</b> streams.hh:85</div></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="a03822.html">   60</a></span>&#160;    <span class="keyword">class </span><a class="code" href="a03822.html">PVTUWriter</a> {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;      std::ostream&amp; stream;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;      std::string fileType;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;      Indent indent;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="a03822.html#a7027e4054f07696a2aff3ab888bc6d7b">   76</a></span>&#160;      <span class="keyword">inline</span> <a class="code" href="a03822.html#a7027e4054f07696a2aff3ab888bc6d7b">PVTUWriter</a>(std::ostream&amp; stream_, <a class="code" href="a00951.html#a419fffea9dd82b7dda0e7078889da6d4">FileType</a> fileType_)</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        : stream(stream_)</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;      {</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordflow">switch</span>(fileType_) {</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="a00951.html#a419fffea9dd82b7dda0e7078889da6d4a109b9e75c1921dd6b8df25eedea009be">polyData</a> :</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;          fileType = <span class="stringliteral">&quot;PPolyData&quot;</span>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;          <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="a00951.html#a419fffea9dd82b7dda0e7078889da6d4a2967b7a61021e24289adcd0b7d60bd0b">unstructuredGrid</a> :</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;          fileType = <span class="stringliteral">&quot;PUnstructuredGrid&quot;</span>;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;          <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        default :</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;          DUNE_THROW(IOError, <span class="stringliteral">&quot;PVTUWriter: Unknown fileType: &quot;</span> &lt;&lt; fileType_);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        }</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keyword">const</span> std::string&amp; byteOrder = <a class="code" href="a00951.html#a8bce02a1111502dd0245e7888a532fc5">getEndiannessString</a>();</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        stream &lt;&lt; indent &lt;&lt; <span class="stringliteral">&quot;&lt;?xml version=\&quot;1.0\&quot;?&gt;\n&quot;</span>;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        stream &lt;&lt; indent &lt;&lt; <span class="stringliteral">&quot;&lt;VTKFile&quot;</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;               &lt;&lt; <span class="stringliteral">&quot; type=\&quot;&quot;</span> &lt;&lt; fileType &lt;&lt; <span class="stringliteral">&quot;\&quot;&quot;</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;               &lt;&lt; <span class="stringliteral">&quot; version=\&quot;0.1\&quot;&quot;</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;               &lt;&lt; <span class="stringliteral">&quot; byte_order=\&quot;&quot;</span> &lt;&lt; byteOrder &lt;&lt; <span class="stringliteral">&quot;\&quot;&gt;\n&quot;</span>;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        ++indent;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;      }</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="a03822.html#a0c13ee229553c4adff45cca48d423623">  100</a></span>&#160;      <span class="keyword">inline</span> <a class="code" href="a03822.html#a0c13ee229553c4adff45cca48d423623">~PVTUWriter</a>() {</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        --indent;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        stream &lt;&lt; indent &lt;&lt; <span class="stringliteral">&quot;&lt;/VTKFile&gt;\n&quot;</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;               &lt;&lt; std::flush;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;      }</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno"><a class="line" href="a03822.html#a501fc2f31cf0191ee295a2ae9ac6c461">  118</a></span>&#160;      <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="a03822.html#a501fc2f31cf0191ee295a2ae9ac6c461">beginPointData</a>(<span class="keyword">const</span> std::string&amp; scalars = <span class="stringliteral">&quot;&quot;</span>,</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                                 <span class="keyword">const</span> std::string&amp; vectors = <span class="stringliteral">&quot;&quot;</span>) {</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        stream &lt;&lt; indent &lt;&lt; <span class="stringliteral">&quot;&lt;PPointData&quot;</span>;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <span class="keywordflow">if</span>(scalars != <span class="stringliteral">&quot;&quot;</span>) stream &lt;&lt; <span class="stringliteral">&quot; Scalars=\&quot;&quot;</span> &lt;&lt; scalars &lt;&lt; <span class="stringliteral">&quot;\&quot;&quot;</span>;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <span class="keywordflow">if</span>(vectors != <span class="stringliteral">&quot;&quot;</span>) stream &lt;&lt; <span class="stringliteral">&quot; Vectors=\&quot;&quot;</span> &lt;&lt; vectors &lt;&lt; <span class="stringliteral">&quot;\&quot;&quot;</span>;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        stream &lt;&lt; <span class="stringliteral">&quot;&gt;\n&quot;</span>;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        ++indent;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;      }</div>
+<div class="line"><a name="l00127"></a><span class="lineno"><a class="line" href="a03822.html#a96e94f37d4c094da2579e26fea3a1366">  127</a></span>&#160;      <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="a03822.html#a96e94f37d4c094da2579e26fea3a1366">endPointData</a>() {</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        --indent;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        stream &lt;&lt; indent &lt;&lt; <span class="stringliteral">&quot;&lt;/PPointData&gt;\n&quot;</span>;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;      }</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
+<div class="line"><a name="l00144"></a><span class="lineno"><a class="line" href="a03822.html#a4f8ab5eff05c013fb706fd041277d264">  144</a></span>&#160;      <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="a03822.html#a4f8ab5eff05c013fb706fd041277d264">beginCellData</a>(<span class="keyword">const</span> std::string&amp; scalars = <span class="stringliteral">&quot;&quot;</span>,</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;                                <span class="keyword">const</span> std::string&amp; vectors = <span class="stringliteral">&quot;&quot;</span>) {</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        stream &lt;&lt; indent &lt;&lt; <span class="stringliteral">&quot;&lt;PCellData&quot;</span>;</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        <span class="keywordflow">if</span>(scalars != <span class="stringliteral">&quot;&quot;</span>) stream &lt;&lt; <span class="stringliteral">&quot; Scalars=\&quot;&quot;</span> &lt;&lt; scalars &lt;&lt; <span class="stringliteral">&quot;\&quot;&quot;</span>;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        <span class="keywordflow">if</span>(vectors != <span class="stringliteral">&quot;&quot;</span>) stream &lt;&lt; <span class="stringliteral">&quot; Vectors=\&quot;&quot;</span> &lt;&lt; vectors &lt;&lt; <span class="stringliteral">&quot;\&quot;&quot;</span>;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        stream &lt;&lt; <span class="stringliteral">&quot;&gt;\n&quot;</span>;</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        ++indent;</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;      }</div>
+<div class="line"><a name="l00153"></a><span class="lineno"><a class="line" href="a03822.html#a2a4b38c703d70d2d2438961729074fa4">  153</a></span>&#160;      <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="a03822.html#a2a4b38c703d70d2d2438961729074fa4">endCellData</a>() {</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        --indent;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        stream &lt;&lt; indent &lt;&lt; <span class="stringliteral">&quot;&lt;/PCellData&gt;\n&quot;</span>;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;      }</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; </div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160; </div>
+<div class="line"><a name="l00164"></a><span class="lineno"><a class="line" href="a03822.html#aec478c72119a9f55e4d39688b6226b76">  164</a></span>&#160;      <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="a03822.html#aec478c72119a9f55e4d39688b6226b76">beginPoints</a>() {</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        stream &lt;&lt; indent &lt;&lt; <span class="stringliteral">&quot;&lt;PPoints&gt;\n&quot;</span>;</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        ++indent;</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;      }</div>
+<div class="line"><a name="l00169"></a><span class="lineno"><a class="line" href="a03822.html#a9934734d0ef582a2f7adc15567e57387">  169</a></span>&#160;      <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="a03822.html#a9934734d0ef582a2f7adc15567e57387">endPoints</a>() {</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        --indent;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        stream &lt;&lt; indent &lt;&lt; <span class="stringliteral">&quot;&lt;/PPoints&gt;\n&quot;</span>;</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;      }</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160; </div>
+<div class="line"><a name="l00187"></a><span class="lineno"><a class="line" href="a03822.html#a4c240f9f4c77aebbf428a497075d2b2a">  187</a></span>&#160;      <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="a03822.html#a4c240f9f4c77aebbf428a497075d2b2a">beginMain</a>(<span class="keywordtype">unsigned</span> ghostLevel = 0) {</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        stream &lt;&lt; indent &lt;&lt; <span class="stringliteral">&quot;&lt;&quot;</span> &lt;&lt; fileType</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;               &lt;&lt; <span class="stringliteral">&quot; GhostLevel=\&quot;&quot;</span> &lt;&lt; ghostLevel &lt;&lt; <span class="stringliteral">&quot;\&quot;&gt;\n&quot;</span>;</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        ++indent;</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;      }</div>
+<div class="line"><a name="l00193"></a><span class="lineno"><a class="line" href="a03822.html#a208501a765e54b73e183d529df40700f">  193</a></span>&#160;      <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="a03822.html#a208501a765e54b73e183d529df40700f">endMain</a>() {</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        --indent;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        stream &lt;&lt; indent &lt;&lt; <span class="stringliteral">&quot;&lt;/&quot;</span> &lt;&lt; fileType &lt;&lt; <span class="stringliteral">&quot;&gt;\n&quot;</span>;</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;      }</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160; </div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160; </div>
+<div class="line"><a name="l00205"></a><span class="lineno"><a class="line" href="a03822.html#a3df4501fbc4a7bcd5e8cbfee7d93bcb5">  205</a></span>&#160;      <span class="keywordtype">void</span> <a class="code" href="a03822.html#a3df4501fbc4a7bcd5e8cbfee7d93bcb5">addArray</a>(<span class="keyword">const</span> std::string&amp; name, <span class="keywordtype">unsigned</span> ncomps, <a class="code" href="a00951.html#a1a23264dcb4d2ffc9b85507ffa2741af">Precision</a> prec) {</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;        stream &lt;&lt; indent &lt;&lt; <span class="stringliteral">&quot;&lt;PDataArray&quot;</span></div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;               &lt;&lt; <span class="stringliteral">&quot; type=\&quot;&quot;</span> &lt;&lt; <a class="code" href="a00951.html#a48c0538f36588dc8d46cdd54163cdcd1">toString</a>(prec) &lt;&lt; <span class="stringliteral">&quot;\&quot;&quot;</span></div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;               &lt;&lt; <span class="stringliteral">&quot; Name=\&quot;&quot;</span> &lt;&lt; name &lt;&lt; <span class="stringliteral">&quot;\&quot;&quot;</span></div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;               &lt;&lt; <span class="stringliteral">&quot; NumberOfComponents=\&quot;&quot;</span> &lt;&lt; ncomps &lt;&lt; <span class="stringliteral">&quot;\&quot;/&gt;\n&quot;</span>;</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;      }</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160; </div>
+<div class="line"><a name="l00213"></a><span class="lineno"><a class="line" href="a03822.html#a6bbbc54ea28814e6fdacd63a7fbd6583">  213</a></span>&#160;      <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="a03822.html#a6bbbc54ea28814e6fdacd63a7fbd6583">addPiece</a>(<span class="keyword">const</span> std::string&amp; filename) {</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;        stream &lt;&lt; indent &lt;&lt; <span class="stringliteral">&quot;&lt;Piece &quot;</span></div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;               &lt;&lt; <span class="stringliteral">&quot; Source=\&quot;&quot;</span> &lt;&lt; filename &lt;&lt; <span class="stringliteral">&quot;\&quot;/&gt;\n&quot;</span>;</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;      }</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    };</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160; </div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;  } <span class="comment">// namespace VTK</span></div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160; </div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160; </div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;} <span class="comment">// namespace Dune</span></div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160; </div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// DUNE_GRID_IO_FILE_VTK_PVTUWRITER_HH</span></div>
+<div class="ttc" id="aa00794_html"><div class="ttname"><a href="a00794.html">common.hh</a></div><div class="ttdoc">Common stuff for the VTKWriter.</div></div>
+<div class="ttc" id="aa00940_html"><div class="ttname"><a href="a00940.html">Dune</a></div><div class="ttdoc">Include standard header files.</div><div class="ttdef"><b>Definition:</b> agrid.hh:58</div></div>
+<div class="ttc" id="aa00951_html_a1a23264dcb4d2ffc9b85507ffa2741af"><div class="ttname"><a href="a00951.html#a1a23264dcb4d2ffc9b85507ffa2741af">Dune::VTK::Precision</a></div><div class="ttdeci">Precision</div><div class="ttdoc">which precision to use when writing out data to vtk files</div><div class="ttdef"><b>Definition:</b> common.hh:269</div></div>
+<div class="ttc" id="aa00951_html_a419fffea9dd82b7dda0e7078889da6d4"><div class="ttname"><a href="a00951.html#a419fffea9dd82b7dda0e7078889da6d4">Dune::VTK::FileType</a></div><div class="ttdeci">FileType</div><div class="ttdoc">which type of VTK file to write</div><div class="ttdef"><b>Definition:</b> common.hh:250</div></div>
+<div class="ttc" id="aa00951_html_a419fffea9dd82b7dda0e7078889da6d4a109b9e75c1921dd6b8df25eedea009be"><div class="ttname"><a href="a00951.html#a419fffea9dd82b7dda0e7078889da6d4a109b9e75c1921dd6b8df25eedea009be">Dune::VTK::polyData</a></div><div class="ttdeci">@ polyData</div><div class="ttdoc">for .vtp files (PolyData)</div><div class="ttdef"><b>Definition:</b> common.hh:252</div></div>
+<div class="ttc" id="aa00951_html_a419fffea9dd82b7dda0e7078889da6d4a2967b7a61021e24289adcd0b7d60bd0b"><div class="ttname"><a href="a00951.html#a419fffea9dd82b7dda0e7078889da6d4a2967b7a61021e24289adcd0b7d60bd0b">Dune::VTK::unstructuredGrid</a></div><div class="ttdeci">@ unstructuredGrid</div><div class="ttdoc">for .vtu files (UnstructuredGrid)</div><div class="ttdef"><b>Definition:</b> common.hh:254</div></div>
+<div class="ttc" id="aa00951_html_a48c0538f36588dc8d46cdd54163cdcd1"><div class="ttname"><a href="a00951.html#a48c0538f36588dc8d46cdd54163cdcd1">Dune::VTK::toString</a></div><div class="ttdeci">std::string toString(Precision p)</div><div class="ttdoc">map precision to VTK type name</div><div class="ttdef"><b>Definition:</b> common.hh:278</div></div>
+<div class="ttc" id="aa00951_html_a8bce02a1111502dd0245e7888a532fc5"><div class="ttname"><a href="a00951.html#a8bce02a1111502dd0245e7888a532fc5">Dune::VTK::getEndiannessString</a></div><div class="ttdeci">std::string getEndiannessString()</div><div class="ttdoc">determine endianness of this C++ implementation</div><div class="ttdef"><b>Definition:</b> common.hh:230</div></div>
+<div class="ttc" id="aa03822_html"><div class="ttname"><a href="a03822.html">Dune::VTK::PVTUWriter</a></div><div class="ttdoc">Dump a .vtu/.vtp files contents to a stream.</div><div class="ttdef"><b>Definition:</b> pvtuwriter.hh:60</div></div>
+<div class="ttc" id="aa03822_html_a0c13ee229553c4adff45cca48d423623"><div class="ttname"><a href="a03822.html#a0c13ee229553c4adff45cca48d423623">Dune::VTK::PVTUWriter::~PVTUWriter</a></div><div class="ttdeci">~PVTUWriter()</div><div class="ttdoc">write footer</div><div class="ttdef"><b>Definition:</b> pvtuwriter.hh:100</div></div>
+<div class="ttc" id="aa03822_html_a208501a765e54b73e183d529df40700f"><div class="ttname"><a href="a03822.html#a208501a765e54b73e183d529df40700f">Dune::VTK::PVTUWriter::endMain</a></div><div class="ttdeci">void endMain()</div><div class="ttdoc">finish the main PolyData/UnstructuredGrid section</div><div class="ttdef"><b>Definition:</b> pvtuwriter.hh:193</div></div>
+<div class="ttc" id="aa03822_html_a2a4b38c703d70d2d2438961729074fa4"><div class="ttname"><a href="a03822.html#a2a4b38c703d70d2d2438961729074fa4">Dune::VTK::PVTUWriter::endCellData</a></div><div class="ttdeci">void endCellData()</div><div class="ttdoc">finish CellData section</div><div class="ttdef"><b>Definition:</b> pvtuwriter.hh:153</div></div>
+<div class="ttc" id="aa03822_html_a3df4501fbc4a7bcd5e8cbfee7d93bcb5"><div class="ttname"><a href="a03822.html#a3df4501fbc4a7bcd5e8cbfee7d93bcb5">Dune::VTK::PVTUWriter::addArray</a></div><div class="ttdeci">void addArray(const std::string &amp;name, unsigned ncomps, Precision prec)</div><div class="ttdoc">Add an array to the output file.</div><div class="ttdef"><b>Definition:</b> pvtuwriter.hh:205</div></div>
+<div class="ttc" id="aa03822_html_a4c240f9f4c77aebbf428a497075d2b2a"><div class="ttname"><a href="a03822.html#a4c240f9f4c77aebbf428a497075d2b2a">Dune::VTK::PVTUWriter::beginMain</a></div><div class="ttdeci">void beginMain(unsigned ghostLevel=0)</div><div class="ttdoc">start the main PPolyData/PUnstructuredGrid section</div><div class="ttdef"><b>Definition:</b> pvtuwriter.hh:187</div></div>
+<div class="ttc" id="aa03822_html_a4f8ab5eff05c013fb706fd041277d264"><div class="ttname"><a href="a03822.html#a4f8ab5eff05c013fb706fd041277d264">Dune::VTK::PVTUWriter::beginCellData</a></div><div class="ttdeci">void beginCellData(const std::string &amp;scalars=&quot;&quot;, const std::string &amp;vectors=&quot;&quot;)</div><div class="ttdoc">start CellData section</div><div class="ttdef"><b>Definition:</b> pvtuwriter.hh:144</div></div>
+<div class="ttc" id="aa03822_html_a501fc2f31cf0191ee295a2ae9ac6c461"><div class="ttname"><a href="a03822.html#a501fc2f31cf0191ee295a2ae9ac6c461">Dune::VTK::PVTUWriter::beginPointData</a></div><div class="ttdeci">void beginPointData(const std::string &amp;scalars=&quot;&quot;, const std::string &amp;vectors=&quot;&quot;)</div><div class="ttdoc">start PointData section</div><div class="ttdef"><b>Definition:</b> pvtuwriter.hh:118</div></div>
+<div class="ttc" id="aa03822_html_a6bbbc54ea28814e6fdacd63a7fbd6583"><div class="ttname"><a href="a03822.html#a6bbbc54ea28814e6fdacd63a7fbd6583">Dune::VTK::PVTUWriter::addPiece</a></div><div class="ttdeci">void addPiece(const std::string &amp;filename)</div><div class="ttdoc">Add a serial piece to the output file.</div><div class="ttdef"><b>Definition:</b> pvtuwriter.hh:213</div></div>
+<div class="ttc" id="aa03822_html_a7027e4054f07696a2aff3ab888bc6d7b"><div class="ttname"><a href="a03822.html#a7027e4054f07696a2aff3ab888bc6d7b">Dune::VTK::PVTUWriter::PVTUWriter</a></div><div class="ttdeci">PVTUWriter(std::ostream &amp;stream_, FileType fileType_)</div><div class="ttdoc">create a PVTUWriter object</div><div class="ttdef"><b>Definition:</b> pvtuwriter.hh:76</div></div>
+<div class="ttc" id="aa03822_html_a96e94f37d4c094da2579e26fea3a1366"><div class="ttname"><a href="a03822.html#a96e94f37d4c094da2579e26fea3a1366">Dune::VTK::PVTUWriter::endPointData</a></div><div class="ttdeci">void endPointData()</div><div class="ttdoc">finish PointData section</div><div class="ttdef"><b>Definition:</b> pvtuwriter.hh:127</div></div>
+<div class="ttc" id="aa03822_html_a9934734d0ef582a2f7adc15567e57387"><div class="ttname"><a href="a03822.html#a9934734d0ef582a2f7adc15567e57387">Dune::VTK::PVTUWriter::endPoints</a></div><div class="ttdeci">void endPoints()</div><div class="ttdoc">finish section for the point coordinates</div><div class="ttdef"><b>Definition:</b> pvtuwriter.hh:169</div></div>
+<div class="ttc" id="aa03822_html_aec478c72119a9f55e4d39688b6226b76"><div class="ttname"><a href="a03822.html#aec478c72119a9f55e4d39688b6226b76">Dune::VTK::PVTUWriter::beginPoints</a></div><div class="ttdeci">void beginPoints()</div><div class="ttdoc">start section for the point coordinates</div><div class="ttdef"><b>Definition:</b> pvtuwriter.hh:164</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

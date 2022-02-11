@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: rangegenerators.hh Source File</title>
+<title>dune-grid: mapper.hh Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -67,274 +67,97 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">rangegenerators.hh</div>  </div>
+<div class="title">mapper.hh</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="a00299.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*-</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// vi: set et ts=4 sw=2 sts=2:</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifndef DUNE_GRID_COMMON_RANGEGENERATORS_HH</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define DUNE_GRID_COMMON_RANGEGENERATORS_HH</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifndef DUNE_GRID_COMMON_MAPPER_HH</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define DUNE_GRID_COMMON_MAPPER_HH</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;dune/common/iteratorrange.hh&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;dune/geometry/dimension.hh&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00251.html">dune/grid/common/gridenums.hh</a>&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00296.html">dune/grid/common/partitionset.hh</a>&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00936.html">Dune</a></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#ifdef DOXYGEN</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;  <span class="comment">// *****************************************************************************************</span></div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;  <span class="comment">// Doxygen documentation</span></div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;  <span class="comment">// *****************************************************************************************</span></div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;  <span class="comment">//</span></div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;  <span class="comment">// In the following, the range generating functions are documented for Doxygen; the actual</span></div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;  <span class="comment">// implementations are further down in this file and hidden from Doxygen.</span></div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;  <span class="comment">// The main reason for this split are the return types of those functions, which either contain</span></div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;  <span class="comment">// long type listings to obtain the iterator type or (in the case of the forwarded functions</span></div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;  <span class="comment">// use the new-style function syntax and calculate the return type using decltype. In both cases,</span></div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;  <span class="comment">// Doxygen generates function signatures that are very confusing to the average user.</span></div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;  <span class="comment">//</span></div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;  <span class="comment">// *****************************************************************************************</span></div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160; </div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160; </div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;utility&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;dune/common/bartonnackmanifcheck.hh&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00940.html">Dune</a></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;{</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> G, <span class="keyword">typename</span> MapperImp, <span class="keyword">typename</span> IndexType=<span class="keywordtype">int</span>&gt;</div>
+<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="a02794.html">  107</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a02794.html">Mapper</a></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  {</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="a02794.html#ab80318f3c2a4543f220375b9d29fa1ef">  112</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="a02794.html#ab80318f3c2a4543f220375b9d29fa1ef">Index</a> = IndexType;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> EntityType&gt;</div>
+<div class="line"><a name="l00120"></a><span class="lineno"><a class="line" href="a02794.html#a4c0290ee379b1fc0e90bfb69f00dc02b">  120</a></span>&#160;    <a class="code" href="a02794.html#ab80318f3c2a4543f220375b9d29fa1ef">Index</a> <a class="code" href="a02794.html#a4c0290ee379b1fc0e90bfb69f00dc02b">index</a> (<span class="keyword">const</span> EntityType&amp; e)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;      CHECK_INTERFACE_IMPLEMENTATION((asImp().map(e)));</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;      <span class="keywordflow">return</span> asImp().index(e);</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    }</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
+<div class="line"><a name="l00134"></a><span class="lineno"><a class="line" href="a02794.html#ae07866494fdaac4477284509cdccfbc6">  134</a></span>&#160;    <a class="code" href="a02794.html#ab80318f3c2a4543f220375b9d29fa1ef">Index</a> <a class="code" href="a02794.html#ae07866494fdaac4477284509cdccfbc6">subIndex</a> (<span class="keyword">const</span> <span class="keyword">typename</span> G::Traits::template Codim&lt;0&gt;::Entity&amp; e,</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                    <span class="keywordtype">int</span> i,</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;                    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> codim)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;      CHECK_INTERFACE_IMPLEMENTATION((asImp().map(e,i,codim)));</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;      <span class="keywordflow">return</span> asImp().subIndex(e,i,codim);</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    }</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
+<div class="line"><a name="l00150"></a><span class="lineno"><a class="line" href="a02794.html#a3081058f1833c266eb0d1768f762a4bf">  150</a></span>&#160;    <span class="keyword">auto</span> <a class="code" href="a02794.html#a3081058f1833c266eb0d1768f762a4bf">size</a> ()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;      CHECK_INTERFACE_IMPLEMENTATION((asImp().<a class="code" href="a02794.html#a3081058f1833c266eb0d1768f762a4bf">size</a>()));</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;      <span class="keywordflow">return</span> asImp().size();</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    }</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160; </div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> EntityType&gt;</div>
+<div class="line"><a name="l00165"></a><span class="lineno"><a class="line" href="a02794.html#af1a0762b3a23e985aa68c94360e67122">  165</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="a02794.html#af1a0762b3a23e985aa68c94360e67122">contains</a> (<span class="keyword">const</span> EntityType&amp; e, IndexType&amp; result)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;      CHECK_INTERFACE_IMPLEMENTATION((asImp().<a class="code" href="a02794.html#af1a0762b3a23e985aa68c94360e67122">contains</a>(e,result )));</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;      <span class="keywordflow">return</span> asImp().contains(e,result );</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    }</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; </div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160; </div>
+<div class="line"><a name="l00181"></a><span class="lineno"><a class="line" href="a02794.html#aee3cf2d8ab3b88110247706b26df2223">  181</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="a02794.html#aee3cf2d8ab3b88110247706b26df2223">contains</a> (<span class="keyword">const</span> <span class="keyword">typename</span> G::Traits::template Codim&lt;0&gt;::Entity&amp; e, <span class="keywordtype">int</span> i, <span class="keywordtype">int</span> cc, IndexType&amp; result)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;      CHECK_INTERFACE_IMPLEMENTATION((asImp().<a class="code" href="a02794.html#af1a0762b3a23e985aa68c94360e67122">contains</a>(e,i,cc,result)))</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;      <span class="keywordflow">return</span> asImp().contains(e,i,cc,result);</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    }</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; </div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> Gr<span class="keywordtype">id</span>View&gt;</div>
+<div class="line"><a name="l00190"></a><span class="lineno"><a class="line" href="a02794.html#a3a17f4d28a75ce575c690a1afddb9443">  190</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a02794.html#a3a17f4d28a75ce575c690a1afddb9443">update</a> (<a class="code" href="a02758.html">GridView</a>&amp;&amp; gridView)</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    {</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;      CHECK_AND_CALL_INTERFACE_IMPLEMENTATION((asImp().<a class="code" href="a02794.html#a3acf48870c0b79ef9995e2635e7a958b">update</a>(std::forward&lt;GridView&gt;(gridView))));</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    }</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160; </div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    [[deprecated(<span class="stringliteral">&quot;Use update(gridView) instead! Will be removed after release 2.8. Mappers have to implement update(gridView).&quot;</span>)]]</div>
+<div class="line"><a name="l00198"></a><span class="lineno"><a class="line" href="a02794.html#a3acf48870c0b79ef9995e2635e7a958b">  198</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a02794.html#a3acf48870c0b79ef9995e2635e7a958b">update</a> ()</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    {</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;      CHECK_AND_CALL_INTERFACE_IMPLEMENTATION((asImp().<a class="code" href="a02794.html#a3acf48870c0b79ef9995e2635e7a958b">update</a>()));</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    }</div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160; </div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160; </div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160; </div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> GV&gt;</div>
-<div class="line"><a name="l00235"></a><span class="lineno"><a class="line" href="a00911.html#ga9bbe243bea9b505e0fa4f3ab0005c7f5">  235</a></span>&#160;  <span class="keyword">inline</span> IteratorRange&lt;...&gt; <a class="code" href="a00911.html#ga9bbe243bea9b505e0fa4f3ab0005c7f5">elements</a>(<span class="keyword">const</span> GV&amp; gv);</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160; </div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160; </div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160; </div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> GV&gt;</div>
-<div class="line"><a name="l00269"></a><span class="lineno"><a class="line" href="a00911.html#gad2988e47e63b21c5d21cf344a3604e82">  269</a></span>&#160;  <span class="keyword">inline</span> IteratorRange&lt;...&gt; <a class="code" href="a00911.html#gad2988e47e63b21c5d21cf344a3604e82">facets</a>(<span class="keyword">const</span> GV&amp; gv);</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160; </div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160; </div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160; </div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> GV&gt;</div>
-<div class="line"><a name="l00303"></a><span class="lineno"><a class="line" href="a00911.html#gadc6db5e0e39171ba2d9d50d55ec70b80">  303</a></span>&#160;  <span class="keyword">inline</span> IteratorRange&lt;...&gt; <a class="code" href="a00911.html#gadc6db5e0e39171ba2d9d50d55ec70b80">edges</a>(<span class="keyword">const</span> GV&amp; gv);</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160; </div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160; </div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160; </div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> GV&gt;</div>
-<div class="line"><a name="l00337"></a><span class="lineno"><a class="line" href="a00911.html#ga0b3a52863a2cefddd5af1b80a63f8226">  337</a></span>&#160;  <span class="keyword">inline</span> IteratorRange&lt;...&gt; <a class="code" href="a00911.html#ga0b3a52863a2cefddd5af1b80a63f8226">vertices</a>(<span class="keyword">const</span> GV&amp; gv);</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160; </div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160; </div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160; </div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160; </div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160; </div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160; </div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160; </div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> GV, <span class="keyword">typename</span> Entity&gt;</div>
-<div class="line"><a name="l00373"></a><span class="lineno"><a class="line" href="a00911.html#ga0927181ebf10ed59531e262a63f92daf">  373</a></span>&#160;  <span class="keyword">inline</span> IteratorRange&lt;...&gt; <a class="code" href="a00911.html#ga0927181ebf10ed59531e262a63f92daf">intersections</a>(<span class="keyword">const</span> GV&amp; gv, <span class="keyword">const</span> <a class="code" href="a02630.html">Entity</a>&amp; e);</div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160; </div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160; </div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160; </div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160; </div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160; </div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160; </div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160; </div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160; </div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Entity&gt;</div>
-<div class="line"><a name="l00413"></a><span class="lineno"><a class="line" href="a00911.html#gae3280c6d5c25ef7993a59b45e401f935">  413</a></span>&#160;  <span class="keyword">inline</span> IteratorRange&lt;...&gt; <a class="code" href="a00911.html#gae3280c6d5c25ef7993a59b45e401f935">descendantElements</a>(<span class="keyword">const</span> <a class="code" href="a02630.html">Entity</a>&amp; e, <span class="keywordtype">int</span> maxLevel);</div>
-<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;  <span class="comment">// Entity&lt;int dim, class GridImp, template&lt;int,int,class&gt; class EntityImp&gt;</span></div>
-<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160; </div>
-<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160; </div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160; </div>
-<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160; </div>
-<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160; </div>
-<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160; </div>
-<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160; </div>
-<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> GV, <span class="keywordtype">int</span> codim&gt;</div>
-<div class="line"><a name="l00465"></a><span class="lineno"><a class="line" href="a00911.html#gacc8f311deabddf0c759465f623e87886">  465</a></span>&#160;  <span class="keyword">inline</span> IteratorRange&lt;...&gt; <a class="code" href="a00911.html#gacc8f311deabddf0c759465f623e87886">entities</a>(<span class="keyword">const</span> GV&amp; gv, <a class="code" href="a02758.html">Codim&lt;codim&gt;</a> cd);</div>
-<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160; </div>
-<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160; </div>
-<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160; </div>
-<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> GV, <span class="keywordtype">int</span> dim&gt;</div>
-<div class="line"><a name="l00510"></a><span class="lineno"><a class="line" href="a00911.html#ga4f194e5ca8f8dc43e3552316925eb885">  510</a></span>&#160;  <span class="keyword">inline</span> IteratorRange&lt;...&gt; <a class="code" href="a00911.html#ga4f194e5ca8f8dc43e3552316925eb885">entities</a>(<span class="keyword">const</span> GV&amp; gv, Dim&lt;dim&gt; d);</div>
-<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160; </div>
-<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160; </div>
-<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160; </div>
-<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160; </div>
-<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160; </div>
-<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160; </div>
-<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160; </div>
-<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> GV, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> partitions&gt;</div>
-<div class="line"><a name="l00549"></a><span class="lineno"><a class="line" href="a00911.html#ga163b69ed0f5787171662b67ee84af991">  549</a></span>&#160;  <span class="keyword">inline</span> IteratorRange&lt;...&gt; <a class="code" href="a00911.html#ga163b69ed0f5787171662b67ee84af991">elements</a>(<span class="keyword">const</span> GV&amp; gv, <a class="code" href="a02866.html">PartitionSet&lt;partitions&gt;</a> ps);</div>
-<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160; </div>
-<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160; </div>
-<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160; </div>
-<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> GV, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> partitions&gt;</div>
-<div class="line"><a name="l00583"></a><span class="lineno"><a class="line" href="a00911.html#gad05c567186a050cda1b13cd8a8ca9399">  583</a></span>&#160;  <span class="keyword">inline</span> IteratorRange&lt;...&gt; <a class="code" href="a00911.html#gad05c567186a050cda1b13cd8a8ca9399">facets</a>(<span class="keyword">const</span> GV&amp; gv, <a class="code" href="a02866.html">PartitionSet&lt;partitions&gt;</a> ps);</div>
-<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160; </div>
-<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160; </div>
-<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160; </div>
-<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> GV, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> partitions&gt;</div>
-<div class="line"><a name="l00614"></a><span class="lineno"><a class="line" href="a00911.html#ga238916c208f9e3ead728a253d101fda6">  614</a></span>&#160;  <span class="keyword">inline</span> IteratorRange&lt;...&gt; <a class="code" href="a00911.html#ga238916c208f9e3ead728a253d101fda6">edges</a>(<span class="keyword">const</span> GV&amp; gv, <a class="code" href="a02866.html">PartitionSet&lt;partitions&gt;</a> ps);</div>
-<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160; </div>
-<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160; </div>
-<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160; </div>
-<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> GV, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> partitions&gt;</div>
-<div class="line"><a name="l00645"></a><span class="lineno"><a class="line" href="a00911.html#ga9259fd91c0202503a0fd9d3436360bd4">  645</a></span>&#160;  <span class="keyword">inline</span> IteratorRange&lt;...&gt; <a class="code" href="a00911.html#ga9259fd91c0202503a0fd9d3436360bd4">vertices</a>(<span class="keyword">const</span> GV&amp; gv, <a class="code" href="a02866.html">PartitionSet&lt;partitions&gt;</a> ps);</div>
-<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160; </div>
-<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160; </div>
-<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160; </div>
-<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160; </div>
-<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160; </div>
-<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160; </div>
-<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160; </div>
-<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> GV, <span class="keywordtype">int</span> codim, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> partitions&gt;</div>
-<div class="line"><a name="l00694"></a><span class="lineno"><a class="line" href="a00911.html#gacb029263c157b9d9e3310007ab6ed2ad">  694</a></span>&#160;  <span class="keyword">inline</span> IteratorRange&lt;...&gt; <a class="code" href="a00911.html#gacb029263c157b9d9e3310007ab6ed2ad">entities</a>(<span class="keyword">const</span> GV&amp; gv gv, <a class="code" href="a02758.html">Codim&lt;codim&gt;</a> cd, <a class="code" href="a02866.html">PartitionSet&lt;partitions&gt;</a> ps);</div>
-<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160; </div>
-<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160; </div>
-<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160; </div>
-<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> GV, <span class="keywordtype">int</span> dim, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> partitions&gt;</div>
-<div class="line"><a name="l00735"></a><span class="lineno"><a class="line" href="a00911.html#ga3deab7ac40c219b9c381bd9de2f3e06b">  735</a></span>&#160;  <span class="keyword">inline</span> IteratorRange&lt;...&gt; <a class="code" href="a00911.html#ga3deab7ac40c219b9c381bd9de2f3e06b">entities</a>(<span class="keyword">const</span> GV&amp; gv, Dim&lt;dim&gt; d, <a class="code" href="a02866.html">PartitionSet&lt;partitions&gt;</a> ps);</div>
-<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160; </div>
-<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160; </div>
-<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160; </div>
-<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160; </div>
-<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;<span class="preprocessor">#else </span><span class="comment">// DOXYGEN</span></div>
-<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160; </div>
-<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;  <span class="comment">// ******************************************************************************************</span></div>
-<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;  <span class="comment">// Implementations</span></div>
-<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;  <span class="comment">// ******************************************************************************************</span></div>
-<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160; </div>
-<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160; </div>
-<div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> GV, <span class="keywordtype">int</span> codim, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> partitions&gt;</div>
-<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;  <span class="keyword">inline</span> <span class="keyword">auto</span> entities(<span class="keyword">const</span> GV&amp; gv, <a class="code" href="a02758.html">Codim&lt;codim&gt;</a>, <a class="code" href="a02866.html">PartitionSet&lt;partitions&gt;</a>)</div>
-<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;    -&gt; IteratorRange&lt;decltype(gv.template begin&lt;codim,derive_partition_iterator_type&lt;partitions&gt;::value&gt;())&gt;</div>
-<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;  {</div>
-<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;    static_assert(0 &lt;= codim &amp;&amp; codim &lt;= GV::dimension, <span class="stringliteral">&quot;invalid codimension for given GridView&quot;</span>);</div>
-<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;    <span class="keyword">const</span> <a class="code" href="a00904.html#gaa5b9e8102d7f70f3f4178182629d98b6">PartitionIteratorType</a> pit = derive_partition_iterator_type&lt;partitions&gt;::value;</div>
-<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;    <span class="keyword">typedef</span> IteratorRange&lt;decltype(gv.template begin&lt;codim,pit&gt;())&gt; return_type;</div>
-<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;    <span class="keywordflow">return</span> return_type(gv.template begin&lt;codim,pit&gt;(),gv.template end&lt;codim,pit&gt;());</div>
-<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;  }</div>
-<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160; </div>
-<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> GV, <span class="keywordtype">int</span> codim&gt;</div>
-<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;  <span class="keyword">inline</span> <span class="keyword">auto</span> entities(<span class="keyword">const</span> GV&amp; gv, Codim&lt;codim&gt;)</div>
-<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;    -&gt; IteratorRange&lt;decltype(gv.template begin&lt;codim&gt;())&gt;</div>
-<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;  {</div>
-<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;    static_assert(0 &lt;= codim &amp;&amp; codim &lt;= GV::dimension, <span class="stringliteral">&quot;invalid codimension for given GridView&quot;</span>);</div>
-<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;    <span class="keyword">typedef</span> IteratorRange&lt;decltype(gv.template begin&lt;codim&gt;())&gt; return_type;</div>
-<div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;    <span class="keywordflow">return</span> return_type(gv.template begin&lt;codim&gt;(),gv.template end&lt;codim&gt;());</div>
-<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;  }</div>
-<div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160; </div>
-<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Entity&gt;</div>
-<div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;  <span class="keyword">inline</span> IteratorRange&lt;typename Entity::HierarchicIterator&gt; descendantElements(<span class="keyword">const</span> Entity&amp; e, <span class="keywordtype">int</span> maxLevel)</div>
-<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;  {</div>
-<div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;    <span class="keyword">typedef</span> IteratorRange&lt;typename Entity::HierarchicIterator&gt; return_type;</div>
-<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;    <span class="keywordflow">return</span> return_type(e.hbegin(maxLevel),e.hend(maxLevel));</div>
-<div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160;  }</div>
-<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160; </div>
-<div class="line"><a name="l00796"></a><span class="lineno">  796</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> GV, <span class="keyword">typename</span> Entity&gt;</div>
-<div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160;  <span class="keyword">inline</span> <span class="keyword">auto</span> intersections(<span class="keyword">const</span> GV&amp; gv, <span class="keyword">const</span> Entity&amp; e)</div>
-<div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160;    -&gt; IteratorRange&lt;decltype(gv.ibegin(e))&gt;</div>
-<div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160;  {</div>
-<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;    <span class="keywordflow">return</span> IteratorRange&lt;decltype(gv.ibegin(e))&gt;(gv.ibegin(e),gv.iend(e));</div>
-<div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160;  }</div>
-<div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160; </div>
-<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160; </div>
-<div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> GV, <span class="keywordtype">int</span> dim, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> partitions&gt;</div>
-<div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160;  <span class="keyword">inline</span> <span class="keyword">auto</span> entities(<span class="keyword">const</span> GV&amp; gv, Dim&lt;dim&gt;, PartitionSet&lt;partitions&gt;)</div>
-<div class="line"><a name="l00811"></a><span class="lineno">  811</span>&#160;    -&gt; decltype(entities(gv,Codim&lt;GV::dimension - dim&gt;(),PartitionSet&lt;partitions&gt;()))</div>
-<div class="line"><a name="l00812"></a><span class="lineno">  812</span>&#160;  {</div>
-<div class="line"><a name="l00813"></a><span class="lineno">  813</span>&#160;    static_assert(0 &lt;= dim &amp;&amp; dim &lt;= GV::dimension, <span class="stringliteral">&quot;invalid dimension for given GridView&quot;</span>);</div>
-<div class="line"><a name="l00814"></a><span class="lineno">  814</span>&#160;    <span class="keywordflow">return</span> entities(gv,Codim&lt;GV::dimension - dim&gt;(),PartitionSet&lt;partitions&gt;());</div>
-<div class="line"><a name="l00815"></a><span class="lineno">  815</span>&#160;  }</div>
-<div class="line"><a name="l00816"></a><span class="lineno">  816</span>&#160; </div>
-<div class="line"><a name="l00817"></a><span class="lineno">  817</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> GV, <span class="keywordtype">int</span> dim&gt;</div>
-<div class="line"><a name="l00818"></a><span class="lineno">  818</span>&#160;  <span class="keyword">inline</span> <span class="keyword">auto</span> entities(<span class="keyword">const</span> GV&amp; gv, Dim&lt;dim&gt;)</div>
-<div class="line"><a name="l00819"></a><span class="lineno">  819</span>&#160;    -&gt; decltype(entities(gv,Codim&lt;GV::dimension - dim&gt;()))</div>
-<div class="line"><a name="l00820"></a><span class="lineno">  820</span>&#160;  {</div>
-<div class="line"><a name="l00821"></a><span class="lineno">  821</span>&#160;    static_assert(0 &lt;= dim &amp;&amp; dim &lt;= GV::dimension, <span class="stringliteral">&quot;invalid dimension for given GridView&quot;</span>);</div>
-<div class="line"><a name="l00822"></a><span class="lineno">  822</span>&#160;    <span class="keywordflow">return</span> entities(gv,Codim&lt;GV::dimension - dim&gt;());</div>
-<div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160;  }</div>
-<div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160; </div>
-<div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> GV, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> partitions&gt;</div>
-<div class="line"><a name="l00826"></a><span class="lineno">  826</span>&#160;  <span class="keyword">inline</span> <span class="keyword">auto</span> elements(<span class="keyword">const</span> GV&amp; gv, PartitionSet&lt;partitions&gt;)</div>
-<div class="line"><a name="l00827"></a><span class="lineno">  827</span>&#160;    -&gt; decltype(entities(gv,Codim&lt;0&gt;(),PartitionSet&lt;partitions&gt;()))</div>
-<div class="line"><a name="l00828"></a><span class="lineno">  828</span>&#160;  {</div>
-<div class="line"><a name="l00829"></a><span class="lineno">  829</span>&#160;    <span class="keywordflow">return</span> entities(gv,Codim&lt;0&gt;(),PartitionSet&lt;partitions&gt;());</div>
-<div class="line"><a name="l00830"></a><span class="lineno">  830</span>&#160;  }</div>
-<div class="line"><a name="l00831"></a><span class="lineno">  831</span>&#160; </div>
-<div class="line"><a name="l00832"></a><span class="lineno">  832</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> GV&gt;</div>
-<div class="line"><a name="l00833"></a><span class="lineno">  833</span>&#160;  <span class="keyword">inline</span> <span class="keyword">auto</span> elements(<span class="keyword">const</span> GV&amp; gv)</div>
-<div class="line"><a name="l00834"></a><span class="lineno">  834</span>&#160;    -&gt; decltype(entities(gv,Codim&lt;0&gt;()))</div>
-<div class="line"><a name="l00835"></a><span class="lineno">  835</span>&#160;  {</div>
-<div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160;    <span class="keywordflow">return</span> entities(gv,Codim&lt;0&gt;());</div>
-<div class="line"><a name="l00837"></a><span class="lineno">  837</span>&#160;  }</div>
-<div class="line"><a name="l00838"></a><span class="lineno">  838</span>&#160; </div>
-<div class="line"><a name="l00839"></a><span class="lineno">  839</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> GV, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> partitions&gt;</div>
-<div class="line"><a name="l00840"></a><span class="lineno">  840</span>&#160;  <span class="keyword">inline</span> <span class="keyword">auto</span> facets(<span class="keyword">const</span> GV&amp; gv, PartitionSet&lt;partitions&gt;)</div>
-<div class="line"><a name="l00841"></a><span class="lineno">  841</span>&#160;    -&gt; decltype(entities(gv,Codim&lt;1&gt;(),PartitionSet&lt;partitions&gt;()))</div>
-<div class="line"><a name="l00842"></a><span class="lineno">  842</span>&#160;  {</div>
-<div class="line"><a name="l00843"></a><span class="lineno">  843</span>&#160;    <span class="keywordflow">return</span> entities(gv,Codim&lt;1&gt;(),PartitionSet&lt;partitions&gt;());</div>
-<div class="line"><a name="l00844"></a><span class="lineno">  844</span>&#160;  }</div>
-<div class="line"><a name="l00845"></a><span class="lineno">  845</span>&#160; </div>
-<div class="line"><a name="l00846"></a><span class="lineno">  846</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> GV&gt;</div>
-<div class="line"><a name="l00847"></a><span class="lineno">  847</span>&#160;  <span class="keyword">inline</span> <span class="keyword">auto</span> facets(<span class="keyword">const</span> GV&amp; gv)</div>
-<div class="line"><a name="l00848"></a><span class="lineno">  848</span>&#160;    -&gt; decltype(entities(gv,Codim&lt;1&gt;()))</div>
-<div class="line"><a name="l00849"></a><span class="lineno">  849</span>&#160;  {</div>
-<div class="line"><a name="l00850"></a><span class="lineno">  850</span>&#160;    <span class="keywordflow">return</span> entities(gv,Codim&lt;1&gt;());</div>
-<div class="line"><a name="l00851"></a><span class="lineno">  851</span>&#160;  }</div>
-<div class="line"><a name="l00852"></a><span class="lineno">  852</span>&#160; </div>
-<div class="line"><a name="l00853"></a><span class="lineno">  853</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> GV, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> partitions&gt;</div>
-<div class="line"><a name="l00854"></a><span class="lineno">  854</span>&#160;  <span class="keyword">inline</span> <span class="keyword">auto</span> edges(<span class="keyword">const</span> GV&amp; gv, PartitionSet&lt;partitions&gt;)</div>
-<div class="line"><a name="l00855"></a><span class="lineno">  855</span>&#160;    -&gt; decltype(entities(gv,Dim&lt;1&gt;(),PartitionSet&lt;partitions&gt;()))</div>
-<div class="line"><a name="l00856"></a><span class="lineno">  856</span>&#160;  {</div>
-<div class="line"><a name="l00857"></a><span class="lineno">  857</span>&#160;    <span class="keywordflow">return</span> entities(gv,Dim&lt;1&gt;(),PartitionSet&lt;partitions&gt;());</div>
-<div class="line"><a name="l00858"></a><span class="lineno">  858</span>&#160;  }</div>
-<div class="line"><a name="l00859"></a><span class="lineno">  859</span>&#160; </div>
-<div class="line"><a name="l00860"></a><span class="lineno">  860</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> GV&gt;</div>
-<div class="line"><a name="l00861"></a><span class="lineno">  861</span>&#160;  <span class="keyword">inline</span> <span class="keyword">auto</span> edges(<span class="keyword">const</span> GV&amp; gv)</div>
-<div class="line"><a name="l00862"></a><span class="lineno">  862</span>&#160;    -&gt; decltype(entities(gv,Dim&lt;1&gt;()))</div>
-<div class="line"><a name="l00863"></a><span class="lineno">  863</span>&#160;  {</div>
-<div class="line"><a name="l00864"></a><span class="lineno">  864</span>&#160;    <span class="keywordflow">return</span> entities(gv,Dim&lt;1&gt;());</div>
-<div class="line"><a name="l00865"></a><span class="lineno">  865</span>&#160;  }</div>
-<div class="line"><a name="l00866"></a><span class="lineno">  866</span>&#160; </div>
-<div class="line"><a name="l00867"></a><span class="lineno">  867</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> GV, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> partitions&gt;</div>
-<div class="line"><a name="l00868"></a><span class="lineno">  868</span>&#160;  <span class="keyword">inline</span> <span class="keyword">auto</span> vertices(<span class="keyword">const</span> GV&amp; gv, PartitionSet&lt;partitions&gt;)</div>
-<div class="line"><a name="l00869"></a><span class="lineno">  869</span>&#160;    -&gt; decltype(entities(gv,Dim&lt;0&gt;(),PartitionSet&lt;partitions&gt;()))</div>
-<div class="line"><a name="l00870"></a><span class="lineno">  870</span>&#160;  {</div>
-<div class="line"><a name="l00871"></a><span class="lineno">  871</span>&#160;    <span class="keywordflow">return</span> entities(gv,Dim&lt;0&gt;(),PartitionSet&lt;partitions&gt;());</div>
-<div class="line"><a name="l00872"></a><span class="lineno">  872</span>&#160;  }</div>
-<div class="line"><a name="l00873"></a><span class="lineno">  873</span>&#160; </div>
-<div class="line"><a name="l00874"></a><span class="lineno">  874</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> GV&gt;</div>
-<div class="line"><a name="l00875"></a><span class="lineno">  875</span>&#160;  <span class="keyword">inline</span> <span class="keyword">auto</span> vertices(<span class="keyword">const</span> GV&amp; gv)</div>
-<div class="line"><a name="l00876"></a><span class="lineno">  876</span>&#160;    -&gt; decltype(entities(gv,Dim&lt;0&gt;()))</div>
-<div class="line"><a name="l00877"></a><span class="lineno">  877</span>&#160;  {</div>
-<div class="line"><a name="l00878"></a><span class="lineno">  878</span>&#160;    <span class="keywordflow">return</span> entities(gv,Dim&lt;0&gt;());</div>
-<div class="line"><a name="l00879"></a><span class="lineno">  879</span>&#160;  }</div>
-<div class="line"><a name="l00880"></a><span class="lineno">  880</span>&#160; </div>
-<div class="line"><a name="l00881"></a><span class="lineno">  881</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// DOXYGEN</span></div>
-<div class="line"><a name="l00882"></a><span class="lineno">  882</span>&#160; </div>
-<div class="line"><a name="l00887"></a><span class="lineno">  887</span>&#160;} <span class="comment">// namespace Dune</span></div>
-<div class="line"><a name="l00888"></a><span class="lineno">  888</span>&#160; </div>
-<div class="line"><a name="l00889"></a><span class="lineno">  889</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// DUNE_GRID_COMMON_RANGEGENERATORS_HH</span></div>
-<div class="ttc" id="aa00251_html"><div class="ttname"><a href="a00251.html">gridenums.hh</a></div></div>
-<div class="ttc" id="aa00296_html"><div class="ttname"><a href="a00296.html">partitionset.hh</a></div></div>
-<div class="ttc" id="aa00904_html_gaa5b9e8102d7f70f3f4178182629d98b6"><div class="ttname"><a href="a00904.html#gaa5b9e8102d7f70f3f4178182629d98b6">Dune::PartitionIteratorType</a></div><div class="ttdeci">PartitionIteratorType</div><div class="ttdoc">Parameter to be used for the parallel level- and leaf iterators.</div><div class="ttdef"><b>Definition:</b> gridenums.hh:134</div></div>
-<div class="ttc" id="aa00911_html_ga0927181ebf10ed59531e262a63f92daf"><div class="ttname"><a href="a00911.html#ga0927181ebf10ed59531e262a63f92daf">Dune::Entity::intersections</a></div><div class="ttdeci">IteratorRange&lt;... &gt; intersections(const GV &amp;gv, const Entity &amp;e)</div><div class="ttdoc">Iterates over all Intersections  of an Entity with respect to the given GridView.</div></div>
-<div class="ttc" id="aa00911_html_ga0b3a52863a2cefddd5af1b80a63f8226"><div class="ttname"><a href="a00911.html#ga0b3a52863a2cefddd5af1b80a63f8226">Dune::GridView::vertices</a></div><div class="ttdeci">IteratorRange&lt;... &gt; vertices(const GV &amp;gv)</div><div class="ttdoc">Iterates over all vertices (entities with dimension 0) of a GridView.</div></div>
-<div class="ttc" id="aa00911_html_ga163b69ed0f5787171662b67ee84af991"><div class="ttname"><a href="a00911.html#ga163b69ed0f5787171662b67ee84af991">Dune::GridView::elements</a></div><div class="ttdeci">IteratorRange&lt;... &gt; elements(const GV &amp;gv, PartitionSet&lt; partitions &gt; ps)</div><div class="ttdoc">Iterates over all elements / cells (entities with codimension 0) of a GridView that belong to the giv...</div></div>
-<div class="ttc" id="aa00911_html_ga238916c208f9e3ead728a253d101fda6"><div class="ttname"><a href="a00911.html#ga238916c208f9e3ead728a253d101fda6">Dune::GridView::edges</a></div><div class="ttdeci">IteratorRange&lt;... &gt; edges(const GV &amp;gv, PartitionSet&lt; partitions &gt; ps)</div><div class="ttdoc">Iterates over all edges (entities with dimension 1) of a GridView that belong to the given PartitionS...</div></div>
-<div class="ttc" id="aa00911_html_ga3deab7ac40c219b9c381bd9de2f3e06b"><div class="ttname"><a href="a00911.html#ga3deab7ac40c219b9c381bd9de2f3e06b">Dune::GridView::entities</a></div><div class="ttdeci">IteratorRange&lt;... &gt; entities(const GV &amp;gv, Dim&lt; dim &gt; d, PartitionSet&lt; partitions &gt; ps)</div><div class="ttdoc">Iterates over all entities of a GridView with the given dimension that belong to the given PartitionS...</div></div>
-<div class="ttc" id="aa00911_html_ga4f194e5ca8f8dc43e3552316925eb885"><div class="ttname"><a href="a00911.html#ga4f194e5ca8f8dc43e3552316925eb885">Dune::GridView::entities</a></div><div class="ttdeci">IteratorRange&lt;... &gt; entities(const GV &amp;gv, Dim&lt; dim &gt; d)</div><div class="ttdoc">Iterates over all entities of a GridView with the given dimension.</div></div>
-<div class="ttc" id="aa00911_html_ga9259fd91c0202503a0fd9d3436360bd4"><div class="ttname"><a href="a00911.html#ga9259fd91c0202503a0fd9d3436360bd4">Dune::GridView::vertices</a></div><div class="ttdeci">IteratorRange&lt;... &gt; vertices(const GV &amp;gv, PartitionSet&lt; partitions &gt; ps)</div><div class="ttdoc">Iterates over all vertices (entities with dimension 0) of a GridView that belong to the given Partiti...</div></div>
-<div class="ttc" id="aa00911_html_ga9bbe243bea9b505e0fa4f3ab0005c7f5"><div class="ttname"><a href="a00911.html#ga9bbe243bea9b505e0fa4f3ab0005c7f5">Dune::GridView::elements</a></div><div class="ttdeci">IteratorRange&lt;... &gt; elements(const GV &amp;gv)</div><div class="ttdoc">Iterates over all elements / cells (entities with codimension 0) of a GridView.</div></div>
-<div class="ttc" id="aa00911_html_gacb029263c157b9d9e3310007ab6ed2ad"><div class="ttname"><a href="a00911.html#gacb029263c157b9d9e3310007ab6ed2ad">Dune::GridView::entities</a></div><div class="ttdeci">IteratorRange&lt;... &gt; entities(const GV &amp;gv gv, Codim&lt; codim &gt; cd, PartitionSet&lt; partitions &gt; ps)</div><div class="ttdoc">Iterates over all entities of a GridView with the given codimension that belong to the given Partitio...</div></div>
-<div class="ttc" id="aa00911_html_gacc8f311deabddf0c759465f623e87886"><div class="ttname"><a href="a00911.html#gacc8f311deabddf0c759465f623e87886">Dune::GridView::entities</a></div><div class="ttdeci">IteratorRange&lt;... &gt; entities(const GV &amp;gv, Codim&lt; codim &gt; cd)</div><div class="ttdoc">Iterates over all entities of a GridView with the given codimension.</div></div>
-<div class="ttc" id="aa00911_html_gad05c567186a050cda1b13cd8a8ca9399"><div class="ttname"><a href="a00911.html#gad05c567186a050cda1b13cd8a8ca9399">Dune::GridView::facets</a></div><div class="ttdeci">IteratorRange&lt;... &gt; facets(const GV &amp;gv, PartitionSet&lt; partitions &gt; ps)</div><div class="ttdoc">Iterates over all facets (entities with codimension 1) of a GridView that belong to the given Partiti...</div></div>
-<div class="ttc" id="aa00911_html_gad2988e47e63b21c5d21cf344a3604e82"><div class="ttname"><a href="a00911.html#gad2988e47e63b21c5d21cf344a3604e82">Dune::GridView::facets</a></div><div class="ttdeci">IteratorRange&lt;... &gt; facets(const GV &amp;gv)</div><div class="ttdoc">Iterates over all facets (entities with codimension 1) of a GridView.</div></div>
-<div class="ttc" id="aa00911_html_gadc6db5e0e39171ba2d9d50d55ec70b80"><div class="ttname"><a href="a00911.html#gadc6db5e0e39171ba2d9d50d55ec70b80">Dune::GridView::edges</a></div><div class="ttdeci">IteratorRange&lt;... &gt; edges(const GV &amp;gv)</div><div class="ttdoc">Iterates over all edges (entities with dimension 1) of a GridView.</div></div>
-<div class="ttc" id="aa00911_html_gae3280c6d5c25ef7993a59b45e401f935"><div class="ttname"><a href="a00911.html#gae3280c6d5c25ef7993a59b45e401f935">Dune::Entity::descendantElements</a></div><div class="ttdeci">IteratorRange&lt;... &gt; descendantElements(const Entity &amp;e, int maxLevel)</div><div class="ttdoc">Iterates over all descendant elements of the given element up to a maximum level.</div></div>
-<div class="ttc" id="aa00936_html"><div class="ttname"><a href="a00936.html">Dune</a></div><div class="ttdoc">Include standard header files.</div><div class="ttdef"><b>Definition:</b> agrid.hh:59</div></div>
-<div class="ttc" id="aa02630_html"><div class="ttname"><a href="a02630.html">Dune::Entity</a></div><div class="ttdoc">Wrapper class for entities.</div><div class="ttdef"><b>Definition:</b> common/entity.hh:64</div></div>
-<div class="ttc" id="aa02758_html"><div class="ttname"><a href="a02758.html">Dune::GridView::Codim</a></div><div class="ttdoc">A struct that collects all associated types of one implementation from the Traits class.</div><div class="ttdef"><b>Definition:</b> common/gridview.hh:95</div></div>
-<div class="ttc" id="aa02866_html"><div class="ttname"><a href="a02866.html">Dune::PartitionSet</a></div><div class="ttdoc">A set of PartitionType values.</div><div class="ttdef"><b>Definition:</b> partitionset.hh:136</div></div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    MapperImp&amp; asImp () {<span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>MapperImp &amp;<span class="keyword">&gt;</span> (*this);}</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    <span class="keyword">const</span> MapperImp&amp; asImp ()<span class="keyword"> const </span>{<span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keyword">const </span>MapperImp &amp;<span class="keyword">&gt;</span>(*this);}</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;  };</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160; </div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;<span class="preprocessor">#undef CHECK_INTERFACE_IMPLEMENTATION</span></div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;<span class="preprocessor">#undef CHECK_AND_CALL_INTERFACE_IMPLEMENTATION</span></div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160; </div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;}</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aa00940_html"><div class="ttname"><a href="a00940.html">Dune</a></div><div class="ttdoc">Include standard header files.</div><div class="ttdef"><b>Definition:</b> agrid.hh:58</div></div>
+<div class="ttc" id="aa02758_html"><div class="ttname"><a href="a02758.html">Dune::GridView</a></div><div class="ttdoc">Grid view abstract base class.</div><div class="ttdef"><b>Definition:</b> common/gridview.hh:63</div></div>
+<div class="ttc" id="aa02794_html"><div class="ttname"><a href="a02794.html">Dune::Mapper</a></div><div class="ttdoc">Mapper interface.</div><div class="ttdef"><b>Definition:</b> mapper.hh:108</div></div>
+<div class="ttc" id="aa02794_html_a3081058f1833c266eb0d1768f762a4bf"><div class="ttname"><a href="a02794.html#a3081058f1833c266eb0d1768f762a4bf">Dune::Mapper::size</a></div><div class="ttdeci">auto size() const</div><div class="ttdoc">Return total number of entities in the entity set managed by the mapper.</div><div class="ttdef"><b>Definition:</b> mapper.hh:150</div></div>
+<div class="ttc" id="aa02794_html_a3a17f4d28a75ce575c690a1afddb9443"><div class="ttname"><a href="a02794.html#a3a17f4d28a75ce575c690a1afddb9443">Dune::Mapper::update</a></div><div class="ttdeci">void update(GridView &amp;&amp;gridView)</div><div class="ttdoc">Reinitialize mapper after grid has been modified.</div><div class="ttdef"><b>Definition:</b> mapper.hh:190</div></div>
+<div class="ttc" id="aa02794_html_a3acf48870c0b79ef9995e2635e7a958b"><div class="ttname"><a href="a02794.html#a3acf48870c0b79ef9995e2635e7a958b">Dune::Mapper::update</a></div><div class="ttdeci">void update()</div><div class="ttdoc">Reinitialize mapper after grid has been modified.</div><div class="ttdef"><b>Definition:</b> mapper.hh:198</div></div>
+<div class="ttc" id="aa02794_html_a4c0290ee379b1fc0e90bfb69f00dc02b"><div class="ttname"><a href="a02794.html#a4c0290ee379b1fc0e90bfb69f00dc02b">Dune::Mapper::index</a></div><div class="ttdeci">Index index(const EntityType &amp;e) const</div><div class="ttdoc">Map entity to array index.</div><div class="ttdef"><b>Definition:</b> mapper.hh:120</div></div>
+<div class="ttc" id="aa02794_html_ab80318f3c2a4543f220375b9d29fa1ef"><div class="ttname"><a href="a02794.html#ab80318f3c2a4543f220375b9d29fa1ef">Dune::Mapper::Index</a></div><div class="ttdeci">IndexType Index</div><div class="ttdoc">Number type used for indices.</div><div class="ttdef"><b>Definition:</b> mapper.hh:112</div></div>
+<div class="ttc" id="aa02794_html_ae07866494fdaac4477284509cdccfbc6"><div class="ttname"><a href="a02794.html#ae07866494fdaac4477284509cdccfbc6">Dune::Mapper::subIndex</a></div><div class="ttdeci">Index subIndex(const typename G::Traits::template Codim&lt; 0 &gt;::Entity &amp;e, int i, unsigned int codim) const</div><div class="ttdoc">Map subentity i of codim cc of a codim 0 entity to array index.</div><div class="ttdef"><b>Definition:</b> mapper.hh:134</div></div>
+<div class="ttc" id="aa02794_html_aee3cf2d8ab3b88110247706b26df2223"><div class="ttname"><a href="a02794.html#aee3cf2d8ab3b88110247706b26df2223">Dune::Mapper::contains</a></div><div class="ttdeci">bool contains(const typename G::Traits::template Codim&lt; 0 &gt;::Entity &amp;e, int i, int cc, IndexType &amp;result) const</div><div class="ttdoc">Returns true if the subentity is contained in the index set and at the same time the array index is r...</div><div class="ttdef"><b>Definition:</b> mapper.hh:181</div></div>
+<div class="ttc" id="aa02794_html_af1a0762b3a23e985aa68c94360e67122"><div class="ttname"><a href="a02794.html#af1a0762b3a23e985aa68c94360e67122">Dune::Mapper::contains</a></div><div class="ttdeci">bool contains(const EntityType &amp;e, IndexType &amp;result) const</div><div class="ttdoc">Returns true if the entity is contained in the index set and at the same time the array index is retu...</div><div class="ttdef"><b>Definition:</b> mapper.hh:165</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

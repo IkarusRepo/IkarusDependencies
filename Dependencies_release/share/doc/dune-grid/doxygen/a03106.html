@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: Dune::GeoGrid::EntitySeed&lt; codim, Grid, fake &gt; Class Template Reference</title>
+<title>dune-grid: Dune::GeoGrid::InferHasSingleGeometryType&lt; hasSingleGeometryType, dim, mydim &gt; Struct Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,16 +62,88 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00936.html">Dune</a></li><li class="navelem"><a class="el" href="a00942.html">GeoGrid</a></li><li class="navelem"><a class="el" href="a03106.html">EntitySeed</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00940.html">Dune</a></li><li class="navelem"><a class="el" href="a00945.html">GeoGrid</a></li><li class="navelem"><a class="el" href="a03106.html">InferHasSingleGeometryType</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="a03103.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::GeoGrid::EntitySeed&lt; codim, Grid, fake &gt; Class Template Reference</div>  </div>
+<div class="title">Dune::GeoGrid::InferHasSingleGeometryType&lt; hasSingleGeometryType, dim, mydim &gt; Struct Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="a06785_source.html">geometrygrid/entityseed.hh</a></li>
+
+<p><code>#include &lt;<a class="el" href="a06699_source.html">dune/grid/geometrygrid/geometry.hh</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for Dune::GeoGrid::InferHasSingleGeometryType&lt; hasSingleGeometryType, dim, mydim &gt;:</div>
+<div class="dyncontent">
+<div class="center"><img src="a03105.png" border="0" usemap="#a_dune_1_1_geo_grid_1_1_infer_has_single_geometry_type_3_01has_single_geometry_type_00_01dim_00_01mydim_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="a_dune_1_1_geo_grid_1_1_infer_has_single_geometry_type_3_01has_single_geometry_type_00_01dim_00_01mydim_01_4_inherit__map" id="a_dune_1_1_geo_grid_1_1_infer_has_single_geometry_type_3_01has_single_geometry_type_00_01dim_00_01mydim_01_4_inherit__map">
+<area shape="rect" title=" " alt="" coords="5,21,271,77"/>
+<area shape="rect" href="a03106.html" title=" " alt="" coords="492,14,700,85"/>
+<area shape="rect" href="a03126.html" title=" " alt="" coords="749,21,969,77"/>
+</map>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a8b34ef261fada62642a3abdcf1859950"><td class="memItemLeft" align="right" valign="top">static const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03106.html#a8b34ef261fada62642a3abdcf1859950">v</a> = hasSingleGeometryType::v &amp;&amp; ((mydim == dim) || ((id | 1u) == 1u) || ((id | 1u) == idMask))</td></tr>
+<tr class="separator:a8b34ef261fada62642a3abdcf1859950"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bc971869926958ab8096f87b30d2c11"><td class="memItemLeft" align="right" valign="top">static const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03106.html#a7bc971869926958ab8096f87b30d2c11">topologyId</a> = (<a class="el" href="a03106.html#a8b34ef261fada62642a3abdcf1859950">v</a> ? id &amp; idMask : ~0u)</td></tr>
+<tr class="separator:a7bc971869926958ab8096f87b30d2c11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a7bc971869926958ab8096f87b30d2c11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7bc971869926958ab8096f87b30d2c11">&#9670;&nbsp;</a></span>topologyId</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class hasSingleGeometryType , int dim, int mydim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const unsigned int <a class="el" href="a03106.html">Dune::GeoGrid::InferHasSingleGeometryType</a>&lt; hasSingleGeometryType, dim, mydim &gt;::topologyId = (<a class="el" href="a03106.html#a8b34ef261fada62642a3abdcf1859950">v</a> ? id &amp; idMask : ~0u)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8b34ef261fada62642a3abdcf1859950"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b34ef261fada62642a3abdcf1859950">&#9670;&nbsp;</a></span>v</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class hasSingleGeometryType , int dim, int mydim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool <a class="el" href="a03106.html">Dune::GeoGrid::InferHasSingleGeometryType</a>&lt; hasSingleGeometryType, dim, mydim &gt;::v = hasSingleGeometryType::v &amp;&amp; ((mydim == dim) || ((id | 1u) == 1u) || ((id | 1u) == idMask))</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li><a class="el" href="a06699_source.html">geometrygrid/geometry.hh</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

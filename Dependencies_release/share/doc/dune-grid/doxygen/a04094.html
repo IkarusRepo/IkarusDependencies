@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: Dune::PersistentContainer&lt; const Grid, T &gt; Class Template Reference</title>
+<title>dune-grid: Dune::PersistentContainerInterface&lt; G, T &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,231 +62,187 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00936.html">Dune</a></li><li class="navelem"><a class="el" href="a04094.html">PersistentContainer&lt; const Grid, T &gt;</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00940.html">Dune</a></li><li class="navelem"><a class="el" href="a04094.html">PersistentContainerInterface</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-methods">Protected Member Functions</a> &#124;
-<a href="#pro-static-methods">Static Protected Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="a04091.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::PersistentContainer&lt; const Grid, T &gt; Class Template Reference</div>  </div>
+<div class="title">Dune::PersistentContainerInterface&lt; G, T &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>refer PersistentContainer&lt;const Grid&gt; to the implementation of the mutable grid  
+<p>Persistent storage of data on all entities of a grid.  
  <a href="a04094.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a06866_source.html">dune/grid/utility/persistentcontainer.hh</a>&gt;</code></p>
-<div class="dynheader">
-Inheritance diagram for Dune::PersistentContainer&lt; const Grid, T &gt;:</div>
-<div class="dyncontent">
-<div class="center"><img src="a04093.png" border="0" usemap="#a_dune_1_1_persistent_container_3_01const_01_grid_00_01_t_01_4_inherit__map" alt="Inheritance graph"/></div>
-<map name="a_dune_1_1_persistent_container_3_01const_01_grid_00_01_t_01_4_inherit__map" id="a_dune_1_1_persistent_container_3_01const_01_grid_00_01_t_01_4_inherit__map">
-<area shape="rect" title="refer PersistentContainer&lt;const Grid&gt; to the implementation of the mutable grid" alt="" coords="1113,5,1288,47"/>
-<area shape="rect" href="a04090.html" title=" " alt="" coords="889,5,1064,47"/>
-<area shape="rect" href="a04102.html" title="map&#45;based implementation of the PersistentContainer" alt="" coords="5,17,180,59"/>
-<area shape="rect" href="a04102.html" title=" " alt="" coords="375,40,549,111"/>
-<area shape="rect" href="a04090.html" title="A class for storing data during an adaptation cycle." alt="" coords="599,44,773,85"/>
-</map>
-</div>
+<p><code>#include &lt;<a class="el" href="a00881_source.html">dune/grid/utility/persistentcontainerinterface.hh</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a17eef2bc9db2ee8d9255e4efa8c73f81"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a04090.html#a69b5bc93ba825d1a3edacde3a805bb2d">Base::Value</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04094.html#a17eef2bc9db2ee8d9255e4efa8c73f81">Value</a></td></tr>
-<tr class="separator:a17eef2bc9db2ee8d9255e4efa8c73f81"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e77292e6eba67236a5d08cb6da80fba"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a04090.html#a6e77292e6eba67236a5d08cb6da80fba">Base::Grid</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04090.html#a6e77292e6eba67236a5d08cb6da80fba">Grid</a></td></tr>
-<tr class="separator:a6e77292e6eba67236a5d08cb6da80fba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc1712ee3dcef8daa2dc4ca4de121153"><td class="memItemLeft" align="right" valign="top">typedef Map::size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04102.html#abc1712ee3dcef8daa2dc4ca4de121153">Size</a></td></tr>
-<tr class="separator:abc1712ee3dcef8daa2dc4ca4de121153"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2df91a67aa69c25eeba45e6ccd5b094e"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a04106.html">IteratorWrapper</a>&lt; const <a class="el" href="a04094.html#a17eef2bc9db2ee8d9255e4efa8c73f81">Value</a>, typename Map::const_iterator &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04102.html#a2df91a67aa69c25eeba45e6ccd5b094e">ConstIterator</a></td></tr>
-<tr class="separator:a2df91a67aa69c25eeba45e6ccd5b094e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae1c558bf3354c0a569df33b18e929be0"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a04106.html">IteratorWrapper</a>&lt; <a class="el" href="a04094.html#a17eef2bc9db2ee8d9255e4efa8c73f81">Value</a>, typename Map::iterator &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04102.html#ae1c558bf3354c0a569df33b18e929be0">Iterator</a></td></tr>
-<tr class="separator:ae1c558bf3354c0a569df33b18e929be0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf28dd85cc8e3cdfb48ec3d639d1436c"><td class="memItemLeft" align="right" valign="top">typedef G&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04094.html#aaf28dd85cc8e3cdfb48ec3d639d1436c">Grid</a></td></tr>
+<tr class="separator:aaf28dd85cc8e3cdfb48ec3d639d1436c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1833f4547351dc31dda536fea8b264ee"><td class="memItemLeft" align="right" valign="top">typedef T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04094.html#a1833f4547351dc31dda536fea8b264ee">Value</a></td></tr>
+<tr class="separator:a1833f4547351dc31dda536fea8b264ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a042a4377e10c3fca2c07292c5c077fba"><td class="memItemLeft" align="right" valign="top">typedef ImplementationDefined&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04094.html#a042a4377e10c3fca2c07292c5c077fba">Size</a></td></tr>
+<tr class="separator:a042a4377e10c3fca2c07292c5c077fba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e6c0024121f781d24ca5894e6cab40f"><td class="memItemLeft" align="right" valign="top">typedef ImplementationDefined&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04094.html#a4e6c0024121f781d24ca5894e6cab40f">ConstIterator</a></td></tr>
+<tr class="separator:a4e6c0024121f781d24ca5894e6cab40f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48a813a4745f32050705ef8c557c4ace"><td class="memItemLeft" align="right" valign="top">typedef ImplementationDefined&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04094.html#a48a813a4745f32050705ef8c557c4ace">Iterator</a></td></tr>
+<tr class="separator:a48a813a4745f32050705ef8c557c4ace"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a60af4fda4e1cb3de0dadd662a3b67bb3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04094.html#a60af4fda4e1cb3de0dadd662a3b67bb3">PersistentContainer</a> (const typename <a class="el" href="a04090.html#a6e77292e6eba67236a5d08cb6da80fba">Base::Grid</a> &amp;<a class="el" href="a04102.html#af1e915ee313dfae32af8b8aefc17b706">grid</a>, int codim, const <a class="el" href="a04094.html#a17eef2bc9db2ee8d9255e4efa8c73f81">Value</a> &amp;value=<a class="el" href="a04094.html#a17eef2bc9db2ee8d9255e4efa8c73f81">Value</a>())</td></tr>
-<tr class="separator:a60af4fda4e1cb3de0dadd662a3b67bb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a92ee5df0af9cbf8d4d022c776752bddc"><td class="memTemplParams" colspan="2">template&lt;class Entity &gt; </td></tr>
-<tr class="memitem:a92ee5df0af9cbf8d4d022c776752bddc"><td class="memTemplItemLeft" align="right" valign="top">const <a class="el" href="a04094.html#a17eef2bc9db2ee8d9255e4efa8c73f81">Value</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a04102.html#a92ee5df0af9cbf8d4d022c776752bddc">operator[]</a> (const <a class="el" href="a02630.html">Entity</a> &amp;entity) const</td></tr>
-<tr class="separator:a92ee5df0af9cbf8d4d022c776752bddc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ace193d0c6c9f10fe3463171d42c96a2a"><td class="memTemplParams" colspan="2">template&lt;class Entity &gt; </td></tr>
-<tr class="memitem:ace193d0c6c9f10fe3463171d42c96a2a"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="a04094.html#a17eef2bc9db2ee8d9255e4efa8c73f81">Value</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a04102.html#ace193d0c6c9f10fe3463171d42c96a2a">operator[]</a> (const <a class="el" href="a02630.html">Entity</a> &amp;entity)</td></tr>
-<tr class="separator:ace193d0c6c9f10fe3463171d42c96a2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1481b442dfa1b7d1a52d369770ae96f0"><td class="memTemplParams" colspan="2">template&lt;class Entity &gt; </td></tr>
-<tr class="memitem:a1481b442dfa1b7d1a52d369770ae96f0"><td class="memTemplItemLeft" align="right" valign="top">const <a class="el" href="a04094.html#a17eef2bc9db2ee8d9255e4efa8c73f81">Value</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a04102.html#a1481b442dfa1b7d1a52d369770ae96f0">operator()</a> (const <a class="el" href="a02630.html">Entity</a> &amp;entity, int subEntity) const</td></tr>
-<tr class="separator:a1481b442dfa1b7d1a52d369770ae96f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59da4933d4dac339d8d93d00b5320b7f"><td class="memTemplParams" colspan="2">template&lt;class Entity &gt; </td></tr>
-<tr class="memitem:a59da4933d4dac339d8d93d00b5320b7f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="a04094.html#a17eef2bc9db2ee8d9255e4efa8c73f81">Value</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a04102.html#a59da4933d4dac339d8d93d00b5320b7f">operator()</a> (const <a class="el" href="a02630.html">Entity</a> &amp;entity, int subEntity)</td></tr>
-<tr class="separator:a59da4933d4dac339d8d93d00b5320b7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0242509604b29711bad1a2747f05ead"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a04102.html#abc1712ee3dcef8daa2dc4ca4de121153">Size</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04102.html#ae0242509604b29711bad1a2747f05ead">size</a> () const</td></tr>
-<tr class="separator:ae0242509604b29711bad1a2747f05ead"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48d6ac1ae8d5abea6288539acb2d9461"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04102.html#a48d6ac1ae8d5abea6288539acb2d9461">resize</a> (const <a class="el" href="a04094.html#a17eef2bc9db2ee8d9255e4efa8c73f81">Value</a> &amp;value=<a class="el" href="a04094.html#a17eef2bc9db2ee8d9255e4efa8c73f81">Value</a>())</td></tr>
-<tr class="separator:a48d6ac1ae8d5abea6288539acb2d9461"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af896d65b2d42450f0f2ddea606ffae66"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04102.html#af896d65b2d42450f0f2ddea606ffae66">shrinkToFit</a> ()</td></tr>
-<tr class="separator:af896d65b2d42450f0f2ddea606ffae66"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a086b7677af48f8286c7f62b6eb286aa2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04102.html#a086b7677af48f8286c7f62b6eb286aa2">fill</a> (const <a class="el" href="a04094.html#a17eef2bc9db2ee8d9255e4efa8c73f81">Value</a> &amp;value)</td></tr>
-<tr class="separator:a086b7677af48f8286c7f62b6eb286aa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0738f061eb60675341496d78003c53de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04102.html#a0738f061eb60675341496d78003c53de">swap</a> (<a class="el" href="a04102.html">This</a> &amp;other)</td></tr>
-<tr class="separator:a0738f061eb60675341496d78003c53de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a53d6067277588335e00fcbd51e0c7527"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a04102.html#a2df91a67aa69c25eeba45e6ccd5b094e">ConstIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04102.html#a53d6067277588335e00fcbd51e0c7527">begin</a> () const</td></tr>
-<tr class="separator:a53d6067277588335e00fcbd51e0c7527"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1c6a44c7cd716a8c008b512d3ee4bff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a04102.html#ae1c558bf3354c0a569df33b18e929be0">Iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04102.html#ab1c6a44c7cd716a8c008b512d3ee4bff">begin</a> ()</td></tr>
-<tr class="separator:ab1c6a44c7cd716a8c008b512d3ee4bff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac65153f0ec87128eee577d1ce2870cad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a04102.html#a2df91a67aa69c25eeba45e6ccd5b094e">ConstIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04102.html#ac65153f0ec87128eee577d1ce2870cad">end</a> () const</td></tr>
-<tr class="separator:ac65153f0ec87128eee577d1ce2870cad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7fba8c9161bc460d9b4580ff5f839241"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a04102.html#ae1c558bf3354c0a569df33b18e929be0">Iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04102.html#a7fba8c9161bc460d9b4580ff5f839241">end</a> ()</td></tr>
-<tr class="separator:a7fba8c9161bc460d9b4580ff5f839241"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3bdfe5c4c1feda7f2b3255d0f2001577"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04102.html#a3bdfe5c4c1feda7f2b3255d0f2001577">codimension</a> () const</td></tr>
-<tr class="separator:a3bdfe5c4c1feda7f2b3255d0f2001577"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:a260501921dad94dfa64068161653763c"><td class="memTemplParams" colspan="2">template&lt;int codim&gt; </td></tr>
-<tr class="memitem:a260501921dad94dfa64068161653763c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a04102.html#a260501921dad94dfa64068161653763c">resize</a> (const <a class="el" href="a04094.html#a17eef2bc9db2ee8d9255e4efa8c73f81">Value</a> &amp;value)</td></tr>
-<tr class="separator:a260501921dad94dfa64068161653763c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af1e915ee313dfae32af8b8aefc17b706"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a04102.html#a148f33f791c8776236f44c201760514a">Grid</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04102.html#af1e915ee313dfae32af8b8aefc17b706">grid</a> () const</td></tr>
-<tr class="separator:af1e915ee313dfae32af8b8aefc17b706"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af1ca1e8959d340fc94b8a6e18f5965b4"><td class="memTemplParams" colspan="2">template&lt;int codim&gt; </td></tr>
-<tr class="memitem:af1ca1e8959d340fc94b8a6e18f5965b4"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a04102.html#af1ca1e8959d340fc94b8a6e18f5965b4">migrateLevel</a> (int level, const <a class="el" href="a04094.html#a17eef2bc9db2ee8d9255e4efa8c73f81">Value</a> &amp;value, Map &amp;data, std::integral_constant&lt; bool, true &gt;)</td></tr>
-<tr class="separator:af1ca1e8959d340fc94b8a6e18f5965b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04136bd8ff36001fdba173734a871e23"><td class="memTemplParams" colspan="2">template&lt;int codim&gt; </td></tr>
-<tr class="memitem:a04136bd8ff36001fdba173734a871e23"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a04102.html#a04136bd8ff36001fdba173734a871e23">migrateLevel</a> (int level, const <a class="el" href="a04094.html#a17eef2bc9db2ee8d9255e4efa8c73f81">Value</a> &amp;value, Map &amp;data, std::integral_constant&lt; bool, false &gt;)</td></tr>
-<tr class="separator:a04136bd8ff36001fdba173734a871e23"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae19e81d7bab91c4f508af75a0ee82141"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a02694.html">IdSet</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04102.html#ae19e81d7bab91c4f508af75a0ee82141">idSet</a> () const</td></tr>
-<tr class="separator:ae19e81d7bab91c4f508af75a0ee82141"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-methods"></a>
-Static Protected Member Functions</h2></td></tr>
-<tr class="memitem:a607a55fd4ac473b7c3f1f89a25a4785c"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04102.html#a607a55fd4ac473b7c3f1f89a25a4785c">migrateEntry</a> (const typename <a class="el" href="a02694.html#a7da8f5ba2179b1896017b5b1016d6011">IdSet::IdType</a> &amp;id, const <a class="el" href="a04094.html#a17eef2bc9db2ee8d9255e4efa8c73f81">Value</a> &amp;value, Map &amp;oldData, Map &amp;newData)</td></tr>
-<tr class="separator:a607a55fd4ac473b7c3f1f89a25a4785c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr class="memitem:a38e954fcf8d20bf56a4474db517ed1c0"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a04102.html#a148f33f791c8776236f44c201760514a">Grid</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04102.html#a38e954fcf8d20bf56a4474db517ed1c0">grid_</a></td></tr>
-<tr class="separator:a38e954fcf8d20bf56a4474db517ed1c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e3e7b47ac387c01a2cc86f8dbe5b135"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04102.html#a2e3e7b47ac387c01a2cc86f8dbe5b135">codim_</a></td></tr>
-<tr class="separator:a2e3e7b47ac387c01a2cc86f8dbe5b135"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae7bcde9dff8cbb05329d403655dba350"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a02694.html">IdSet</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04102.html#ae7bcde9dff8cbb05329d403655dba350">idSet_</a></td></tr>
-<tr class="separator:ae7bcde9dff8cbb05329d403655dba350"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca083ceb2ad50d0934e5812268e309ec"><td class="memItemLeft" align="right" valign="top">Map&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04102.html#aca083ceb2ad50d0934e5812268e309ec">data_</a></td></tr>
-<tr class="separator:aca083ceb2ad50d0934e5812268e309ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1394b23dc3e824afe58704cc93aa500c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04094.html#a1394b23dc3e824afe58704cc93aa500c">PersistentContainerInterface</a> (<a class="el" href="a04094.html#aaf28dd85cc8e3cdfb48ec3d639d1436c">Grid</a> &amp;grid, int codim, const <a class="el" href="a04094.html#a1833f4547351dc31dda536fea8b264ee">Value</a> &amp;value=<a class="el" href="a04094.html#a1833f4547351dc31dda536fea8b264ee">Value</a>())</td></tr>
+<tr class="memdesc:a1394b23dc3e824afe58704cc93aa500c"><td class="mdescLeft">&#160;</td><td class="mdescRight">constuctor  <a href="a04094.html#a1394b23dc3e824afe58704cc93aa500c">More...</a><br /></td></tr>
+<tr class="separator:a1394b23dc3e824afe58704cc93aa500c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49ba72f683489cc1fb00a95f1ba6ace6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04094.html#a49ba72f683489cc1fb00a95f1ba6ace6">PersistentContainerInterface</a> (const <a class="el" href="a04094.html">This</a> &amp;other)</td></tr>
+<tr class="memdesc:a49ba72f683489cc1fb00a95f1ba6ace6"><td class="mdescLeft">&#160;</td><td class="mdescRight">copy constructor  <a href="a04094.html#a49ba72f683489cc1fb00a95f1ba6ace6">More...</a><br /></td></tr>
+<tr class="separator:a49ba72f683489cc1fb00a95f1ba6ace6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af328a373ab17f4dcc319a00c79cc9de5"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a04094.html">This</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04094.html#af328a373ab17f4dcc319a00c79cc9de5">operator=</a> (const <a class="el" href="a04094.html">This</a> &amp;other)</td></tr>
+<tr class="memdesc:af328a373ab17f4dcc319a00c79cc9de5"><td class="mdescLeft">&#160;</td><td class="mdescRight">assignment operator  <a href="a04094.html#af328a373ab17f4dcc319a00c79cc9de5">More...</a><br /></td></tr>
+<tr class="separator:af328a373ab17f4dcc319a00c79cc9de5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab138df3e07064d6bb7caa7ed5f28c52f"><td class="memTemplParams" colspan="2">template&lt;class Entity &gt; </td></tr>
+<tr class="memitem:ab138df3e07064d6bb7caa7ed5f28c52f"><td class="memTemplItemLeft" align="right" valign="top">const <a class="el" href="a04094.html#a1833f4547351dc31dda536fea8b264ee">Value</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a04094.html#ab138df3e07064d6bb7caa7ed5f28c52f">operator[]</a> (const <a class="el" href="a02642.html">Entity</a> &amp;entity) const</td></tr>
+<tr class="memdesc:ab138df3e07064d6bb7caa7ed5f28c52f"><td class="mdescLeft">&#160;</td><td class="mdescRight">access the data associated with an entity  <a href="a04094.html#ab138df3e07064d6bb7caa7ed5f28c52f">More...</a><br /></td></tr>
+<tr class="separator:ab138df3e07064d6bb7caa7ed5f28c52f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af15271004b121507d81684050ae35827"><td class="memTemplParams" colspan="2">template&lt;class Entity &gt; </td></tr>
+<tr class="memitem:af15271004b121507d81684050ae35827"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="a04094.html#a1833f4547351dc31dda536fea8b264ee">Value</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a04094.html#af15271004b121507d81684050ae35827">operator[]</a> (const <a class="el" href="a02642.html">Entity</a> &amp;entity)</td></tr>
+<tr class="memdesc:af15271004b121507d81684050ae35827"><td class="mdescLeft">&#160;</td><td class="mdescRight">access the data associated with an entity  <a href="a04094.html#af15271004b121507d81684050ae35827">More...</a><br /></td></tr>
+<tr class="separator:af15271004b121507d81684050ae35827"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab991e2c027e14b83d4a09956546457a5"><td class="memTemplParams" colspan="2">template&lt;class Entity &gt; </td></tr>
+<tr class="memitem:ab991e2c027e14b83d4a09956546457a5"><td class="memTemplItemLeft" align="right" valign="top">const <a class="el" href="a04094.html#a1833f4547351dc31dda536fea8b264ee">Value</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a04094.html#ab991e2c027e14b83d4a09956546457a5">operator()</a> (const <a class="el" href="a02642.html">Entity</a> &amp;entity, int subEntity) const</td></tr>
+<tr class="memdesc:ab991e2c027e14b83d4a09956546457a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">access the data associated with a subentity  <a href="a04094.html#ab991e2c027e14b83d4a09956546457a5">More...</a><br /></td></tr>
+<tr class="separator:ab991e2c027e14b83d4a09956546457a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a40e9fff0f6c2652106c1b162d23220"><td class="memTemplParams" colspan="2">template&lt;class Entity &gt; </td></tr>
+<tr class="memitem:a0a40e9fff0f6c2652106c1b162d23220"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="a04094.html#a1833f4547351dc31dda536fea8b264ee">Value</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a04094.html#a0a40e9fff0f6c2652106c1b162d23220">operator()</a> (const <a class="el" href="a02642.html">Entity</a> &amp;entity, int subEntity)</td></tr>
+<tr class="memdesc:a0a40e9fff0f6c2652106c1b162d23220"><td class="mdescLeft">&#160;</td><td class="mdescRight">access the data associated with a subentity  <a href="a04094.html#a0a40e9fff0f6c2652106c1b162d23220">More...</a><br /></td></tr>
+<tr class="separator:a0a40e9fff0f6c2652106c1b162d23220"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ad82e212691728e9b75fdf57ef033ad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a04094.html#a042a4377e10c3fca2c07292c5c077fba">Size</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04094.html#a3ad82e212691728e9b75fdf57ef033ad">size</a> () const</td></tr>
+<tr class="memdesc:a3ad82e212691728e9b75fdf57ef033ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of entries in the container  <a href="a04094.html#a3ad82e212691728e9b75fdf57ef033ad">More...</a><br /></td></tr>
+<tr class="separator:a3ad82e212691728e9b75fdf57ef033ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac73d321af6e5c7ad86758e8e56b02439"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04094.html#ac73d321af6e5c7ad86758e8e56b02439">resize</a> (const <a class="el" href="a04094.html#a1833f4547351dc31dda536fea8b264ee">Value</a> &amp;value=<a class="el" href="a04094.html#a1833f4547351dc31dda536fea8b264ee">Value</a>())</td></tr>
+<tr class="memdesc:ac73d321af6e5c7ad86758e8e56b02439"><td class="mdescLeft">&#160;</td><td class="mdescRight">reserve memory for all entities in the grid  <a href="a04094.html#ac73d321af6e5c7ad86758e8e56b02439">More...</a><br /></td></tr>
+<tr class="separator:ac73d321af6e5c7ad86758e8e56b02439"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b95603a7d98e57afb62003e77c31f5d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04094.html#a8b95603a7d98e57afb62003e77c31f5d">shrinkToFit</a> ()</td></tr>
+<tr class="memdesc:a8b95603a7d98e57afb62003e77c31f5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">remove unnecessary entries from container  <a href="a04094.html#a8b95603a7d98e57afb62003e77c31f5d">More...</a><br /></td></tr>
+<tr class="separator:a8b95603a7d98e57afb62003e77c31f5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef35f7421955dd94173792c47f771fbd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04094.html#aef35f7421955dd94173792c47f771fbd">fill</a> (const <a class="el" href="a04094.html#a1833f4547351dc31dda536fea8b264ee">Value</a> &amp;value)</td></tr>
+<tr class="memdesc:aef35f7421955dd94173792c47f771fbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">set all accessible entries to a given value  <a href="a04094.html#aef35f7421955dd94173792c47f771fbd">More...</a><br /></td></tr>
+<tr class="separator:aef35f7421955dd94173792c47f771fbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab58d05bb498f5e4fbda449a55d9f1477"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04094.html#ab58d05bb498f5e4fbda449a55d9f1477">swap</a> (<a class="el" href="a04094.html">This</a> &amp;other)</td></tr>
+<tr class="memdesc:ab58d05bb498f5e4fbda449a55d9f1477"><td class="mdescLeft">&#160;</td><td class="mdescRight">exchange the content of the container with another one  <a href="a04094.html#ab58d05bb498f5e4fbda449a55d9f1477">More...</a><br /></td></tr>
+<tr class="separator:ab58d05bb498f5e4fbda449a55d9f1477"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5484e3b951608f1e5fb034171cca41bd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a04094.html#a4e6c0024121f781d24ca5894e6cab40f">ConstIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04094.html#a5484e3b951608f1e5fb034171cca41bd">begin</a> () const</td></tr>
+<tr class="memdesc:a5484e3b951608f1e5fb034171cca41bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns an iterator pointing to the first element of the container  <a href="a04094.html#a5484e3b951608f1e5fb034171cca41bd">More...</a><br /></td></tr>
+<tr class="separator:a5484e3b951608f1e5fb034171cca41bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69214511716038dc8bd728d074bc342d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a04094.html#a48a813a4745f32050705ef8c557c4ace">Iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04094.html#a69214511716038dc8bd728d074bc342d">begin</a> ()</td></tr>
+<tr class="memdesc:a69214511716038dc8bd728d074bc342d"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns an iterator pointing to the first element of the container  <a href="a04094.html#a69214511716038dc8bd728d074bc342d">More...</a><br /></td></tr>
+<tr class="separator:a69214511716038dc8bd728d074bc342d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5045cf2b5f7cf47ee3e881102e11a426"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a04094.html#a4e6c0024121f781d24ca5894e6cab40f">ConstIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04094.html#a5045cf2b5f7cf47ee3e881102e11a426">end</a> () const</td></tr>
+<tr class="memdesc:a5045cf2b5f7cf47ee3e881102e11a426"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns an iterator pointing to the last element of the container  <a href="a04094.html#a5045cf2b5f7cf47ee3e881102e11a426">More...</a><br /></td></tr>
+<tr class="separator:a5045cf2b5f7cf47ee3e881102e11a426"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74a7647256c1c1cbbff1ccd84283e5e1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a04094.html#a48a813a4745f32050705ef8c557c4ace">Iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04094.html#a74a7647256c1c1cbbff1ccd84283e5e1">end</a> ()</td></tr>
+<tr class="memdesc:a74a7647256c1c1cbbff1ccd84283e5e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns an iterator pointing to the last element of the container  <a href="a04094.html#a74a7647256c1c1cbbff1ccd84283e5e1">More...</a><br /></td></tr>
+<tr class="separator:a74a7647256c1c1cbbff1ccd84283e5e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b738ee09daa2bd3c308e61cb1e6d54a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04094.html#a9b738ee09daa2bd3c308e61cb1e6d54a">codimension</a> () const</td></tr>
+<tr class="memdesc:a9b738ee09daa2bd3c308e61cb1e6d54a"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the codimension, the container attaches data to  <a href="a04094.html#a9b738ee09daa2bd3c308e61cb1e6d54a">More...</a><br /></td></tr>
+<tr class="separator:a9b738ee09daa2bd3c308e61cb1e6d54a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;class Grid, class T&gt;<br />
-class Dune::PersistentContainer&lt; const Grid, T &gt;</h3>
+<div class="textblock"><h3>template&lt;class G, class T&gt;<br />
+class Dune::PersistentContainerInterface&lt; G, T &gt;</h3>
 
-<p>refer PersistentContainer&lt;const Grid&gt; to the implementation of the mutable grid </p>
+<p>Persistent storage of data on all entities of a grid. </p>
+<p>This container allows to store data which is to remain persistent even during adaptation cycles. It provides storage for all entities in the hierarchy of a given codimension (provided dynamically during construction) and behaves much like an STL container.</p>
+<p>The container stores one entry for each entity in the hierarchical grid. However, it may also store some additional entries, which are not (or no longer) attached to an entity.</p>
+<p>After grid modification the method resize must be called to ensure entries for each entity in the modified grid. Accessing newly created entities before calling resize results in undefined behavior (e.g., a segmentation fault). To reduce the amount of overallocated entries, the method shrinkToFit may be called. It is explicitly possible that the grid adapts any persistent containers directly during the adaptation process.</p>
+<p>The containers are also be persistent over backup / restore of the grid. After 'shrinkToFit', the entries in the container (and their order) must match those of a newly created container, even after a backup and restore of the grid.</p>
+<p>There is a default implementation based on std::map but a grid implementation may provide a specialized implementation. Grids with a hashable id type can use std::unordered_map to store the data by simply deriving their <a class="el" href="a04086.html" title="A class for storing data during an adaptation cycle.">PersistentContainer</a> from <a class="el" href="a04098.html" title="map-based implementation of the PersistentContainer">Dune::PersistentContainerMap</a>. For grids providing an id set suitable addressing vector-like storages, i.e., the id is an integral type and a method <a class="el" href="a04094.html#a3ad82e212691728e9b75fdf57ef033ad" title="number of entries in the container">size()</a> is provided, <a class="el" href="a04106.html" title="vector-based implementation of the PersistentContainer">Dune::PersistentContainerVector</a> can be used.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">G</td><td><a class="el" href="a02710.html" title="Grid abstract base class.">Grid</a> type </td></tr>
+    <tr><td class="paramname">T</td><td>Container's value type </td></tr>
+  </table>
+  </dd>
+</dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a2df91a67aa69c25eeba45e6ccd5b094e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2df91a67aa69c25eeba45e6ccd5b094e">&#9670;&nbsp;</a></span>ConstIterator</h2>
+<a id="a4e6c0024121f781d24ca5894e6cab40f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e6c0024121f781d24ca5894e6cab40f">&#9670;&nbsp;</a></span>ConstIterator</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class G , class IdSet , class Map &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
+template&lt;class G , class T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="a04106.html">IteratorWrapper</a>&lt; const <a class="el" href="a04094.html#a17eef2bc9db2ee8d9255e4efa8c73f81">Value</a>, typename Map::const_iterator &gt; <a class="el" href="a04102.html">Dune::PersistentContainerMap</a>&lt; G, <a class="el" href="a02694.html">IdSet</a>, Map &gt;::<a class="el" href="a04102.html#a2df91a67aa69c25eeba45e6ccd5b094e">ConstIterator</a></td>
+          <td class="memname">typedef ImplementationDefined <a class="el" href="a04094.html">Dune::PersistentContainerInterface</a>&lt; G, T &gt;::<a class="el" href="a04094.html#a4e6c0024121f781d24ca5894e6cab40f">ConstIterator</a></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a6e77292e6eba67236a5d08cb6da80fba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6e77292e6eba67236a5d08cb6da80fba">&#9670;&nbsp;</a></span>Grid</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef <a class="el" href="a04090.html#a6e77292e6eba67236a5d08cb6da80fba">Base::Grid</a> <a class="el" href="a04090.html">Dune::PersistentContainer</a>&lt; <a class="el" href="a04102.html#a148f33f791c8776236f44c201760514a">Grid</a> , T &gt;::<a class="el" href="a04102.html#a148f33f791c8776236f44c201760514a">Grid</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ae1c558bf3354c0a569df33b18e929be0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae1c558bf3354c0a569df33b18e929be0">&#9670;&nbsp;</a></span>Iterator</h2>
+<a id="aaf28dd85cc8e3cdfb48ec3d639d1436c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf28dd85cc8e3cdfb48ec3d639d1436c">&#9670;&nbsp;</a></span>Grid</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class G , class IdSet , class Map &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
+template&lt;class G , class T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="a04106.html">IteratorWrapper</a>&lt; <a class="el" href="a04094.html#a17eef2bc9db2ee8d9255e4efa8c73f81">Value</a>, typename Map::iterator &gt; <a class="el" href="a04102.html">Dune::PersistentContainerMap</a>&lt; G, <a class="el" href="a02694.html">IdSet</a>, Map &gt;::<a class="el" href="a04102.html#ae1c558bf3354c0a569df33b18e929be0">Iterator</a></td>
+          <td class="memname">typedef G <a class="el" href="a04094.html">Dune::PersistentContainerInterface</a>&lt; G, T &gt;::<a class="el" href="a04094.html#aaf28dd85cc8e3cdfb48ec3d639d1436c">Grid</a></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="abc1712ee3dcef8daa2dc4ca4de121153"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc1712ee3dcef8daa2dc4ca4de121153">&#9670;&nbsp;</a></span>Size</h2>
+<a id="a48a813a4745f32050705ef8c557c4ace"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48a813a4745f32050705ef8c557c4ace">&#9670;&nbsp;</a></span>Iterator</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class G , class IdSet , class Map &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
+template&lt;class G , class T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef Map::size_type <a class="el" href="a04102.html">Dune::PersistentContainerMap</a>&lt; G, <a class="el" href="a02694.html">IdSet</a>, Map &gt;::<a class="el" href="a04102.html#abc1712ee3dcef8daa2dc4ca4de121153">Size</a></td>
+          <td class="memname">typedef ImplementationDefined <a class="el" href="a04094.html">Dune::PersistentContainerInterface</a>&lt; G, T &gt;::<a class="el" href="a04094.html#a48a813a4745f32050705ef8c557c4ace">Iterator</a></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a17eef2bc9db2ee8d9255e4efa8c73f81"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a17eef2bc9db2ee8d9255e4efa8c73f81">&#9670;&nbsp;</a></span>Value</h2>
+<a id="a042a4377e10c3fca2c07292c5c077fba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a042a4377e10c3fca2c07292c5c077fba">&#9670;&nbsp;</a></span>Size</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Grid , class T &gt; </div>
+template&lt;class G , class T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="a04090.html#a69b5bc93ba825d1a3edacde3a805bb2d">Base::Value</a> <a class="el" href="a04090.html">Dune::PersistentContainer</a>&lt; const <a class="el" href="a04102.html#a148f33f791c8776236f44c201760514a">Grid</a>, T &gt;::<a class="el" href="a04094.html#a17eef2bc9db2ee8d9255e4efa8c73f81">Value</a></td>
+          <td class="memname">typedef ImplementationDefined <a class="el" href="a04094.html">Dune::PersistentContainerInterface</a>&lt; G, T &gt;::<a class="el" href="a04094.html#a042a4377e10c3fca2c07292c5c077fba">Size</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1833f4547351dc31dda536fea8b264ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1833f4547351dc31dda536fea8b264ee">&#9670;&nbsp;</a></span>Value</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class G , class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef T <a class="el" href="a04094.html">Dune::PersistentContainerInterface</a>&lt; G, T &gt;::<a class="el" href="a04094.html#a1833f4547351dc31dda536fea8b264ee">Value</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -294,21 +250,18 @@ template&lt;class Grid , class T &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a60af4fda4e1cb3de0dadd662a3b67bb3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a60af4fda4e1cb3de0dadd662a3b67bb3">&#9670;&nbsp;</a></span>PersistentContainer()</h2>
+<a id="a1394b23dc3e824afe58704cc93aa500c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1394b23dc3e824afe58704cc93aa500c">&#9670;&nbsp;</a></span>PersistentContainerInterface() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Grid , class T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
+template&lt;class G , class T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a04090.html">Dune::PersistentContainer</a>&lt; const <a class="el" href="a04102.html#a148f33f791c8776236f44c201760514a">Grid</a>, T &gt;::<a class="el" href="a04090.html">PersistentContainer</a> </td>
+          <td class="memname"><a class="el" href="a04094.html">Dune::PersistentContainerInterface</a>&lt; G, T &gt;::<a class="el" href="a04094.html">PersistentContainerInterface</a> </td>
           <td>(</td>
-          <td class="paramtype">const typename <a class="el" href="a04090.html#a6e77292e6eba67236a5d08cb6da80fba">Base::Grid</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="a04094.html#aaf28dd85cc8e3cdfb48ec3d639d1436c">Grid</a> &amp;&#160;</td>
           <td class="paramname"><em>grid</em>, </td>
         </tr>
         <tr>
@@ -320,8 +273,8 @@ template&lt;class Grid , class T &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="a04094.html#a17eef2bc9db2ee8d9255e4efa8c73f81">Value</a> &amp;&#160;</td>
-          <td class="paramname"><em>value</em> = <code><a class="el" href="a04094.html#a17eef2bc9db2ee8d9255e4efa8c73f81">Value</a>()</code>&#160;</td>
+          <td class="paramtype">const <a class="el" href="a04094.html#a1833f4547351dc31dda536fea8b264ee">Value</a> &amp;&#160;</td>
+          <td class="paramname"><em>value</em> = <code><a class="el" href="a04094.html#a1833f4547351dc31dda536fea8b264ee">Value</a>()</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -329,392 +282,190 @@ template&lt;class Grid , class T &gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+
+<p>constuctor </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">grid</td><td>reference to the grid to attach data to </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">codim</td><td>codimension to attach data to </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>value for initial entries</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>All implementations must provide at least this constructor. </dd></dl>
+
+</div>
+</div>
+<a id="a49ba72f683489cc1fb00a95f1ba6ace6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49ba72f683489cc1fb00a95f1ba6ace6">&#9670;&nbsp;</a></span>PersistentContainerInterface() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class G , class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a04094.html">Dune::PersistentContainerInterface</a>&lt; G, T &gt;::<a class="el" href="a04094.html">PersistentContainerInterface</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a04094.html">This</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>copy constructor </p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ab1c6a44c7cd716a8c008b512d3ee4bff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab1c6a44c7cd716a8c008b512d3ee4bff">&#9670;&nbsp;</a></span>begin() <span class="overload">[1/2]</span></h2>
+<a id="a69214511716038dc8bd728d074bc342d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69214511716038dc8bd728d074bc342d">&#9670;&nbsp;</a></span>begin() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class G , class IdSet , class Map &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
+template&lt;class G , class T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a04102.html">PersistentContainerMap</a>&lt; G, <a class="el" href="a02694.html">IdSet</a>, Map &gt;::<a class="el" href="a04102.html#ae1c558bf3354c0a569df33b18e929be0">Iterator</a> <a class="el" href="a04102.html">Dune::PersistentContainerMap</a>&lt; G, <a class="el" href="a02694.html">IdSet</a>, Map &gt;::begin</td>
+          <td class="memname"><a class="el" href="a04094.html#a48a813a4745f32050705ef8c557c4ace">Iterator</a> <a class="el" href="a04094.html">Dune::PersistentContainerInterface</a>&lt; G, T &gt;::begin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+
+<p>returns an iterator pointing to the first element of the container </p>
+<dl class="section note"><dt>Note</dt><dd>Iterators stop at all entries of the container, even if they are no longer accessible from the grid. </dd></dl>
 
 </div>
 </div>
-<a id="a53d6067277588335e00fcbd51e0c7527"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a53d6067277588335e00fcbd51e0c7527">&#9670;&nbsp;</a></span>begin() <span class="overload">[2/2]</span></h2>
+<a id="a5484e3b951608f1e5fb034171cca41bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5484e3b951608f1e5fb034171cca41bd">&#9670;&nbsp;</a></span>begin() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class G , class IdSet , class Map &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
+template&lt;class G , class T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a04102.html">PersistentContainerMap</a>&lt; G, <a class="el" href="a02694.html">IdSet</a>, Map &gt;::<a class="el" href="a04102.html#a2df91a67aa69c25eeba45e6ccd5b094e">ConstIterator</a> <a class="el" href="a04102.html">Dune::PersistentContainerMap</a>&lt; G, <a class="el" href="a02694.html">IdSet</a>, Map &gt;::begin</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a3bdfe5c4c1feda7f2b3255d0f2001577"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3bdfe5c4c1feda7f2b3255d0f2001577">&#9670;&nbsp;</a></span>codimension()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class G , class IdSet , class Map &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="a04102.html">Dune::PersistentContainerMap</a>&lt; G, <a class="el" href="a02694.html">IdSet</a>, Map &gt;::codimension </td>
+          <td class="memname"><a class="el" href="a04094.html#a4e6c0024121f781d24ca5894e6cab40f">ConstIterator</a> <a class="el" href="a04094.html">Dune::PersistentContainerInterface</a>&lt; G, T &gt;::begin </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+
+<p>returns an iterator pointing to the first element of the container </p>
+<dl class="section note"><dt>Note</dt><dd>Iterators stop at all entries of the container, even if they are no longer accessible from the grid. </dd></dl>
 
 </div>
 </div>
-<a id="a7fba8c9161bc460d9b4580ff5f839241"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7fba8c9161bc460d9b4580ff5f839241">&#9670;&nbsp;</a></span>end() <span class="overload">[1/2]</span></h2>
+<a id="a9b738ee09daa2bd3c308e61cb1e6d54a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b738ee09daa2bd3c308e61cb1e6d54a">&#9670;&nbsp;</a></span>codimension()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class G , class IdSet , class Map &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
+template&lt;class G , class T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a04102.html">PersistentContainerMap</a>&lt; G, <a class="el" href="a02694.html">IdSet</a>, Map &gt;::<a class="el" href="a04102.html#ae1c558bf3354c0a569df33b18e929be0">Iterator</a> <a class="el" href="a04102.html">Dune::PersistentContainerMap</a>&lt; G, <a class="el" href="a02694.html">IdSet</a>, Map &gt;::end</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac65153f0ec87128eee577d1ce2870cad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac65153f0ec87128eee577d1ce2870cad">&#9670;&nbsp;</a></span>end() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class G , class IdSet , class Map &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a04102.html">PersistentContainerMap</a>&lt; G, <a class="el" href="a02694.html">IdSet</a>, Map &gt;::<a class="el" href="a04102.html#a2df91a67aa69c25eeba45e6ccd5b094e">ConstIterator</a> <a class="el" href="a04102.html">Dune::PersistentContainerMap</a>&lt; G, <a class="el" href="a02694.html">IdSet</a>, Map &gt;::end</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a086b7677af48f8286c7f62b6eb286aa2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a086b7677af48f8286c7f62b6eb286aa2">&#9670;&nbsp;</a></span>fill()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class G , class IdSet , class Map &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a04102.html">Dune::PersistentContainerMap</a>&lt; G, <a class="el" href="a02694.html">IdSet</a>, Map &gt;::fill </td>
+          <td class="memname">int <a class="el" href="a04094.html">Dune::PersistentContainerInterface</a>&lt; G, T &gt;::codimension </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a04102.html#a7eb9fff073201cc24a722d05428234a7">Value</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>return the codimension, the container attaches data to </p>
+
+</div>
+</div>
+<a id="a74a7647256c1c1cbbff1ccd84283e5e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74a7647256c1c1cbbff1ccd84283e5e1">&#9670;&nbsp;</a></span>end() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class G , class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a04094.html#a48a813a4745f32050705ef8c557c4ace">Iterator</a> <a class="el" href="a04094.html">Dune::PersistentContainerInterface</a>&lt; G, T &gt;::end </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>returns an iterator pointing to the last element of the container </p>
+<dl class="section note"><dt>Note</dt><dd>Iterators stop at all entries of the container, even if they are no longer accessible from the grid. </dd></dl>
+
+</div>
+</div>
+<a id="a5045cf2b5f7cf47ee3e881102e11a426"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5045cf2b5f7cf47ee3e881102e11a426">&#9670;&nbsp;</a></span>end() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class G , class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a04094.html#a4e6c0024121f781d24ca5894e6cab40f">ConstIterator</a> <a class="el" href="a04094.html">Dune::PersistentContainerInterface</a>&lt; G, T &gt;::end </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>returns an iterator pointing to the last element of the container </p>
+<dl class="section note"><dt>Note</dt><dd>Iterators stop at all entries of the container, even if they are no longer accessible from the grid. </dd></dl>
+
+</div>
+</div>
+<a id="aef35f7421955dd94173792c47f771fbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef35f7421955dd94173792c47f771fbd">&#9670;&nbsp;</a></span>fill()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class G , class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="a04094.html">Dune::PersistentContainerInterface</a>&lt; G, T &gt;::fill </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a04094.html#a1833f4547351dc31dda536fea8b264ee">Value</a> &amp;&#160;</td>
           <td class="paramname"><em>value</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+
+<p>set all accessible entries to a given value </p>
+<dl class="section note"><dt>Note</dt><dd>It is undefined, whether the inaccessible values are also motified. </dd></dl>
 
 </div>
 </div>
-<a id="af1e915ee313dfae32af8b8aefc17b706"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af1e915ee313dfae32af8b8aefc17b706">&#9670;&nbsp;</a></span>grid()</h2>
+<a id="a0a40e9fff0f6c2652106c1b162d23220"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a40e9fff0f6c2652106c1b162d23220">&#9670;&nbsp;</a></span>operator()() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class G , class IdSet , class Map &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a04102.html#a148f33f791c8776236f44c201760514a">Grid</a>&amp; <a class="el" href="a04102.html">Dune::PersistentContainerMap</a>&lt; G, <a class="el" href="a02694.html">IdSet</a>, Map &gt;::grid </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ae19e81d7bab91c4f508af75a0ee82141"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae19e81d7bab91c4f508af75a0ee82141">&#9670;&nbsp;</a></span>idSet()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class G , class IdSet , class Map &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a02694.html">IdSet</a>&amp; <a class="el" href="a04102.html">Dune::PersistentContainerMap</a>&lt; G, <a class="el" href="a02694.html">IdSet</a>, Map &gt;::idSet </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a607a55fd4ac473b7c3f1f89a25a4785c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a607a55fd4ac473b7c3f1f89a25a4785c">&#9670;&nbsp;</a></span>migrateEntry()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class G , class IdSet , class Map &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a04102.html">Dune::PersistentContainerMap</a>&lt; G, <a class="el" href="a02694.html">IdSet</a>, Map &gt;::migrateEntry </td>
-          <td>(</td>
-          <td class="paramtype">const typename <a class="el" href="a02694.html#a7da8f5ba2179b1896017b5b1016d6011">IdSet::IdType</a> &amp;&#160;</td>
-          <td class="paramname"><em>id</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a04102.html#a7eb9fff073201cc24a722d05428234a7">Value</a> &amp;&#160;</td>
-          <td class="paramname"><em>value</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Map &amp;&#160;</td>
-          <td class="paramname"><em>oldData</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Map &amp;&#160;</td>
-          <td class="paramname"><em>newData</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a04136bd8ff36001fdba173734a871e23"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a04136bd8ff36001fdba173734a871e23">&#9670;&nbsp;</a></span>migrateLevel() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class G , class IdSet , class Map &gt; </div>
-<div class="memtemplate">
-template&lt;int codim&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a04102.html">Dune::PersistentContainerMap</a>&lt; G, <a class="el" href="a02694.html">IdSet</a>, Map &gt;::migrateLevel </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>level</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a04102.html#a7eb9fff073201cc24a722d05428234a7">Value</a> &amp;&#160;</td>
-          <td class="paramname"><em>value</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Map &amp;&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::integral_constant&lt; bool, false &gt;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="af1ca1e8959d340fc94b8a6e18f5965b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af1ca1e8959d340fc94b8a6e18f5965b4">&#9670;&nbsp;</a></span>migrateLevel() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class G , class IdSet , class Map &gt; </div>
-<div class="memtemplate">
-template&lt;int codim&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a04102.html">Dune::PersistentContainerMap</a>&lt; G, <a class="el" href="a02694.html">IdSet</a>, Map &gt;::migrateLevel </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>level</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a04102.html#a7eb9fff073201cc24a722d05428234a7">Value</a> &amp;&#160;</td>
-          <td class="paramname"><em>value</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Map &amp;&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::integral_constant&lt; bool, true &gt;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a59da4933d4dac339d8d93d00b5320b7f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a59da4933d4dac339d8d93d00b5320b7f">&#9670;&nbsp;</a></span>operator()() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class G , class IdSet , class Map &gt; </div>
+template&lt;class G , class T &gt; </div>
 <div class="memtemplate">
 template&lt;class Entity &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a04094.html#a17eef2bc9db2ee8d9255e4efa8c73f81">Value</a>&amp; <a class="el" href="a04102.html">Dune::PersistentContainerMap</a>&lt; G, <a class="el" href="a02694.html">IdSet</a>, Map &gt;::operator() </td>
+          <td class="memname"><a class="el" href="a04094.html#a1833f4547351dc31dda536fea8b264ee">Value</a>&amp; <a class="el" href="a04094.html">Dune::PersistentContainerInterface</a>&lt; G, T &gt;::operator() </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a02630.html">Entity</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="a02642.html">Entity</a> &amp;&#160;</td>
           <td class="paramname"><em>entity</em>, </td>
         </tr>
         <tr>
@@ -729,32 +480,27 @@ template&lt;class Entity &gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+
+<p>access the data associated with a subentity </p>
+<dl class="section note"><dt>Note</dt><dd>The codimension of the entity must be less or equal to the codimension of the container. </dd></dl>
 
 </div>
 </div>
-<a id="a1481b442dfa1b7d1a52d369770ae96f0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1481b442dfa1b7d1a52d369770ae96f0">&#9670;&nbsp;</a></span>operator()() <span class="overload">[2/2]</span></h2>
+<a id="ab991e2c027e14b83d4a09956546457a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab991e2c027e14b83d4a09956546457a5">&#9670;&nbsp;</a></span>operator()() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class G , class IdSet , class Map &gt; </div>
+template&lt;class G , class T &gt; </div>
 <div class="memtemplate">
 template&lt;class Entity &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a04094.html#a17eef2bc9db2ee8d9255e4efa8c73f81">Value</a>&amp; <a class="el" href="a04102.html">Dune::PersistentContainerMap</a>&lt; G, <a class="el" href="a02694.html">IdSet</a>, Map &gt;::operator() </td>
+          <td class="memname">const <a class="el" href="a04094.html#a1833f4547351dc31dda536fea8b264ee">Value</a>&amp; <a class="el" href="a04094.html">Dune::PersistentContainerInterface</a>&lt; G, T &gt;::operator() </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a02630.html">Entity</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="a02642.html">Entity</a> &amp;&#160;</td>
           <td class="paramname"><em>entity</em>, </td>
         </tr>
         <tr>
@@ -769,314 +515,181 @@ template&lt;class Entity &gt; </div>
           <td></td><td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+
+<p>access the data associated with a subentity </p>
+<dl class="section note"><dt>Note</dt><dd>The codimension of the entity must be less or equal to the codimension of the container. </dd></dl>
 
 </div>
 </div>
-<a id="ace193d0c6c9f10fe3463171d42c96a2a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ace193d0c6c9f10fe3463171d42c96a2a">&#9670;&nbsp;</a></span>operator[]() <span class="overload">[1/2]</span></h2>
+<a id="af328a373ab17f4dcc319a00c79cc9de5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af328a373ab17f4dcc319a00c79cc9de5">&#9670;&nbsp;</a></span>operator=()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class G , class IdSet , class Map &gt; </div>
-<div class="memtemplate">
-template&lt;class Entity &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
+template&lt;class G , class T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a04094.html#a17eef2bc9db2ee8d9255e4efa8c73f81">Value</a>&amp; <a class="el" href="a04102.html">Dune::PersistentContainerMap</a>&lt; G, <a class="el" href="a02694.html">IdSet</a>, Map &gt;::operator[] </td>
+          <td class="memname">const <a class="el" href="a04094.html">This</a>&amp; <a class="el" href="a04094.html">Dune::PersistentContainerInterface</a>&lt; G, T &gt;::operator= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a02630.html">Entity</a> &amp;&#160;</td>
-          <td class="paramname"><em>entity</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a92ee5df0af9cbf8d4d022c776752bddc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a92ee5df0af9cbf8d4d022c776752bddc">&#9670;&nbsp;</a></span>operator[]() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class G , class IdSet , class Map &gt; </div>
-<div class="memtemplate">
-template&lt;class Entity &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a04094.html#a17eef2bc9db2ee8d9255e4efa8c73f81">Value</a>&amp; <a class="el" href="a04102.html">Dune::PersistentContainerMap</a>&lt; G, <a class="el" href="a02694.html">IdSet</a>, Map &gt;::operator[] </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a02630.html">Entity</a> &amp;&#160;</td>
-          <td class="paramname"><em>entity</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a260501921dad94dfa64068161653763c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a260501921dad94dfa64068161653763c">&#9670;&nbsp;</a></span>resize() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class G , class IdSet , class Map &gt; </div>
-<div class="memtemplate">
-template&lt;int codim&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a04102.html">Dune::PersistentContainerMap</a>&lt; G, <a class="el" href="a02694.html">IdSet</a>, Map &gt;::resize </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a04102.html#a7eb9fff073201cc24a722d05428234a7">Value</a> &amp;&#160;</td>
-          <td class="paramname"><em>value</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a48d6ac1ae8d5abea6288539acb2d9461"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a48d6ac1ae8d5abea6288539acb2d9461">&#9670;&nbsp;</a></span>resize() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class G , class IdSet , class Map &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a04102.html">Dune::PersistentContainerMap</a>&lt; G, <a class="el" href="a02694.html">IdSet</a>, Map &gt;::resize </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a04102.html#a7eb9fff073201cc24a722d05428234a7">Value</a> &amp;&#160;</td>
-          <td class="paramname"><em>value</em> = <code><a class="el" href="a04102.html#a7eb9fff073201cc24a722d05428234a7">Value</a>()</code></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="af896d65b2d42450f0f2ddea606ffae66"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af896d65b2d42450f0f2ddea606ffae66">&#9670;&nbsp;</a></span>shrinkToFit()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class G , class IdSet , class Map &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a04102.html">Dune::PersistentContainerMap</a>&lt; G, <a class="el" href="a02694.html">IdSet</a>, Map &gt;::shrinkToFit </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ae0242509604b29711bad1a2747f05ead"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae0242509604b29711bad1a2747f05ead">&#9670;&nbsp;</a></span>size()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class G , class IdSet , class Map &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a04102.html#abc1712ee3dcef8daa2dc4ca4de121153">Size</a> <a class="el" href="a04102.html">Dune::PersistentContainerMap</a>&lt; G, <a class="el" href="a02694.html">IdSet</a>, Map &gt;::size </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a0738f061eb60675341496d78003c53de"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0738f061eb60675341496d78003c53de">&#9670;&nbsp;</a></span>swap()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class G , class IdSet , class Map &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a04102.html">Dune::PersistentContainerMap</a>&lt; G, <a class="el" href="a02694.html">IdSet</a>, Map &gt;::swap </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a04102.html">This</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="a04094.html">This</a> &amp;&#160;</td>
           <td class="paramname"><em>other</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+
+<p>assignment operator </p>
 
 </div>
 </div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a2e3e7b47ac387c01a2cc86f8dbe5b135"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2e3e7b47ac387c01a2cc86f8dbe5b135">&#9670;&nbsp;</a></span>codim_</h2>
+<a id="af15271004b121507d81684050ae35827"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af15271004b121507d81684050ae35827">&#9670;&nbsp;</a></span>operator[]() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class G , class IdSet , class Map &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
+template&lt;class G , class T &gt; </div>
+<div class="memtemplate">
+template&lt;class Entity &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">int <a class="el" href="a04102.html">Dune::PersistentContainerMap</a>&lt; G, <a class="el" href="a02694.html">IdSet</a>, Map &gt;::codim_</td>
+          <td class="memname"><a class="el" href="a04094.html#a1833f4547351dc31dda536fea8b264ee">Value</a>&amp; <a class="el" href="a04094.html">Dune::PersistentContainerInterface</a>&lt; G, T &gt;::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a02642.html">Entity</a> &amp;&#160;</td>
+          <td class="paramname"><em>entity</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+
+<p>access the data associated with an entity </p>
+<dl class="section note"><dt>Note</dt><dd>The entity must be of the same codimension as the container </dd></dl>
 
 </div>
 </div>
-<a id="aca083ceb2ad50d0934e5812268e309ec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aca083ceb2ad50d0934e5812268e309ec">&#9670;&nbsp;</a></span>data_</h2>
+<a id="ab138df3e07064d6bb7caa7ed5f28c52f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab138df3e07064d6bb7caa7ed5f28c52f">&#9670;&nbsp;</a></span>operator[]() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class G , class IdSet , class Map &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
+template&lt;class G , class T &gt; </div>
+<div class="memtemplate">
+template&lt;class Entity &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">Map <a class="el" href="a04102.html">Dune::PersistentContainerMap</a>&lt; G, <a class="el" href="a02694.html">IdSet</a>, Map &gt;::data_</td>
+          <td class="memname">const <a class="el" href="a04094.html#a1833f4547351dc31dda536fea8b264ee">Value</a>&amp; <a class="el" href="a04094.html">Dune::PersistentContainerInterface</a>&lt; G, T &gt;::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a02642.html">Entity</a> &amp;&#160;</td>
+          <td class="paramname"><em>entity</em></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+
+<p>access the data associated with an entity </p>
+<dl class="section note"><dt>Note</dt><dd>The entity must be of the same codimension as the container </dd></dl>
 
 </div>
 </div>
-<a id="a38e954fcf8d20bf56a4474db517ed1c0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a38e954fcf8d20bf56a4474db517ed1c0">&#9670;&nbsp;</a></span>grid_</h2>
+<a id="ac73d321af6e5c7ad86758e8e56b02439"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac73d321af6e5c7ad86758e8e56b02439">&#9670;&nbsp;</a></span>resize()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class G , class IdSet , class Map &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
+template&lt;class G , class T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a04102.html#a148f33f791c8776236f44c201760514a">Grid</a>* <a class="el" href="a04102.html">Dune::PersistentContainerMap</a>&lt; G, <a class="el" href="a02694.html">IdSet</a>, Map &gt;::grid_</td>
+          <td class="memname">void <a class="el" href="a04094.html">Dune::PersistentContainerInterface</a>&lt; G, T &gt;::resize </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a04094.html#a1833f4547351dc31dda536fea8b264ee">Value</a> &amp;&#160;</td>
+          <td class="paramname"><em>value</em> = <code><a class="el" href="a04094.html#a1833f4547351dc31dda536fea8b264ee">Value</a>()</code></td><td>)</td>
+          <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+
+<p>reserve memory for all entities in the grid </p>
+<p>This method will enlarge the container such that there is an entry for each entity.</p>
+<p>After a grid modification, this method must be called before accessing any data associated to newly created entities.</p>
+<dl class="section note"><dt>Note</dt><dd>The container might still hold entries for entities that no longer exist in the grid. While those entries ca no longer be accessed through an entity, iterators will still stop at such entries. </dd></dl>
 
 </div>
 </div>
-<a id="ae7bcde9dff8cbb05329d403655dba350"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae7bcde9dff8cbb05329d403655dba350">&#9670;&nbsp;</a></span>idSet_</h2>
+<a id="a8b95603a7d98e57afb62003e77c31f5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b95603a7d98e57afb62003e77c31f5d">&#9670;&nbsp;</a></span>shrinkToFit()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class G , class IdSet , class Map &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
+template&lt;class G , class T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a02694.html">IdSet</a>* <a class="el" href="a04102.html">Dune::PersistentContainerMap</a>&lt; G, <a class="el" href="a02694.html">IdSet</a>, Map &gt;::idSet_</td>
+          <td class="memname">void <a class="el" href="a04094.html">Dune::PersistentContainerInterface</a>&lt; G, T &gt;::shrinkToFit </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+
+<p>remove unnecessary entries from container </p>
+<p>This method will remove entries from the container that can no longer be accessed from the grid.</p>
+<p>The entries in the container (and their order) must match those of a newly created container. This property must be persistent over backup / restore of the grid.</p>
+<dl class="section note"><dt>Note</dt><dd>This method is merely a hint to the container. According to the container's internal addressing rules, some inaccessible entries might remain in the container. </dd></dl>
+
+</div>
+</div>
+<a id="a3ad82e212691728e9b75fdf57ef033ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ad82e212691728e9b75fdf57ef033ad">&#9670;&nbsp;</a></span>size()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class G , class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a04094.html#a042a4377e10c3fca2c07292c5c077fba">Size</a> <a class="el" href="a04094.html">Dune::PersistentContainerInterface</a>&lt; G, T &gt;::size </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>number of entries in the container </p>
+<dl class="section note"><dt>Note</dt><dd>The number of entries in the container may be large than the number of entities in the grid. </dd></dl>
+
+</div>
+</div>
+<a id="ab58d05bb498f5e4fbda449a55d9f1477"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab58d05bb498f5e4fbda449a55d9f1477">&#9670;&nbsp;</a></span>swap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class G , class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="a04094.html">Dune::PersistentContainerInterface</a>&lt; G, T &gt;::swap </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a04094.html">This</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>exchange the content of the container with another one </p>
+<dl class="section note"><dt>Note</dt><dd>std::swap is overloaded to refor to this method </dd></dl>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="a06866_source.html">utility/persistentcontainer.hh</a></li>
+<li><a class="el" href="a00881_source.html">persistentcontainerinterface.hh</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

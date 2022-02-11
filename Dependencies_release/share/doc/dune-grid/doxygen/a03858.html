@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: Dune::VTK::ConformingVolumeIteratorFactory&lt; GV &gt; Class Template Reference</title>
+<title>dune-grid: Dune::VTK::NonConformingVolumeIteratorFactory&lt; GV &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,7 +62,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00936.html">Dune</a></li><li class="navelem"><a class="el" href="a00948.html">VTK</a></li><li class="navelem"><a class="el" href="a03858.html">ConformingVolumeIteratorFactory</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00940.html">Dune</a></li><li class="navelem"><a class="el" href="a00951.html">VTK</a></li><li class="navelem"><a class="el" href="a03858.html">NonConformingVolumeIteratorFactory</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -72,69 +72,60 @@ $(function() {
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="a03855.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::VTK::ConformingVolumeIteratorFactory&lt; GV &gt; Class Template Reference</div>  </div>
+<div class="title">Dune::VTK::NonConformingVolumeIteratorFactory&lt; GV &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="a00821_source.html">dune/grid/io/file/vtk/volumeiterators.hh</a>&gt;</code></p>
-<div class="dynheader">
-Inheritance diagram for Dune::VTK::ConformingVolumeIteratorFactory&lt; GV &gt;:</div>
-<div class="dyncontent">
-<div class="center"><img src="a03857.png" border="0" usemap="#a_dune_1_1_v_t_k_1_1_conforming_volume_iterator_factory_3_01_g_v_01_4_inherit__map" alt="Inheritance graph"/></div>
-<map name="a_dune_1_1_v_t_k_1_1_conforming_volume_iterator_factory_3_01_g_v_01_4_inherit__map" id="a_dune_1_1_v_t_k_1_1_conforming_volume_iterator_factory_3_01_g_v_01_4_inherit__map">
-<area shape="rect" title=" " alt="" coords="5,5,208,47"/>
-<area shape="rect" href="a03866.html" title=" " alt="" coords="5,95,208,136"/>
-</map>
-</div>
+<p><code>#include &lt;<a class="el" href="a00827_source.html">dune/grid/io/file/vtk/volumeiterators.hh</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:ae6215cf619aa91c50ea484dd97ac727f"><td class="memItemLeft" align="right" valign="top">typedef GV::template Codim&lt; 0 &gt;::<a class="el" href="a02630.html">Entity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#ae6215cf619aa91c50ea484dd97ac727f">Cell</a></td></tr>
-<tr class="separator:ae6215cf619aa91c50ea484dd97ac727f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c973430beba78f11b88e7dd21e0aa34"><td class="memItemLeft" align="right" valign="top">typedef GV::template Codim&lt; 0 &gt;::template Partition&lt; <a class="el" href="a00904.html#ggaa5b9e8102d7f70f3f4178182629d98b6a8da384ab42a2918b7cf88220328cff19">InteriorBorder_Partition</a> &gt;::Iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#a2c973430beba78f11b88e7dd21e0aa34">CellIterator</a></td></tr>
-<tr class="separator:a2c973430beba78f11b88e7dd21e0aa34"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69c1e7e99c32cc2d86fff8519526a9f9"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a03742.html">VTK::Corner</a>&lt; <a class="el" href="a03858.html#ae6215cf619aa91c50ea484dd97ac727f">Cell</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#a69c1e7e99c32cc2d86fff8519526a9f9">Corner</a></td></tr>
-<tr class="separator:a69c1e7e99c32cc2d86fff8519526a9f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a610893d34f81ac0470b21554c133d71c"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a03746.html">VTK::CornerIterator</a>&lt; <a class="el" href="a03858.html#a2c973430beba78f11b88e7dd21e0aa34">CellIterator</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#a610893d34f81ac0470b21554c133d71c">CornerIterator</a></td></tr>
-<tr class="separator:a610893d34f81ac0470b21554c133d71c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abacbecdfa7ef99ffa859d1976522761f"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a03742.html">VTK::Corner</a>&lt; <a class="el" href="a03858.html#ae6215cf619aa91c50ea484dd97ac727f">Cell</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#abacbecdfa7ef99ffa859d1976522761f">Point</a></td></tr>
-<tr class="separator:abacbecdfa7ef99ffa859d1976522761f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8cbaec5a413791981eccc637e117e81d"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a03822.html">VTK::PointIterator</a>&lt; <a class="el" href="a03858.html#a2c973430beba78f11b88e7dd21e0aa34">CellIterator</a>, typename GV::IndexSet &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#a8cbaec5a413791981eccc637e117e81d">PointIterator</a></td></tr>
-<tr class="separator:a8cbaec5a413791981eccc637e117e81d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99a0905da2e8c1823ccfb6ade7a32ad8"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a03806.html">ConformingConnectivityWriter</a>&lt; <a class="el" href="a03858.html">ConformingVolumeIteratorFactory</a>&lt; GV &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#a99a0905da2e8c1823ccfb6ade7a32ad8">ConnectivityWriter</a></td></tr>
-<tr class="separator:a99a0905da2e8c1823ccfb6ade7a32ad8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8592288ba202cb1ae54b90b3221da2e"><td class="memItemLeft" align="right" valign="top">typedef GV::CollectiveCommunication&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#ac8592288ba202cb1ae54b90b3221da2e">CollectiveCommunication</a></td></tr>
-<tr class="separator:ac8592288ba202cb1ae54b90b3221da2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5be5a8fa24a05ec9445ec7cf68c19b0a"><td class="memItemLeft" align="right" valign="top">typedef GV::template Codim&lt; 0 &gt;::<a class="el" href="a02642.html">Entity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#a5be5a8fa24a05ec9445ec7cf68c19b0a">Cell</a></td></tr>
+<tr class="separator:a5be5a8fa24a05ec9445ec7cf68c19b0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af34505a8d5f7385cd2a9965e95b54d97"><td class="memItemLeft" align="right" valign="top">typedef GV::template Codim&lt; 0 &gt;::template Partition&lt; <a class="el" href="a00908.html#ggaa5b9e8102d7f70f3f4178182629d98b6a8da384ab42a2918b7cf88220328cff19">InteriorBorder_Partition</a> &gt;::Iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#af34505a8d5f7385cd2a9965e95b54d97">CellIterator</a></td></tr>
+<tr class="separator:af34505a8d5f7385cd2a9965e95b54d97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae20334b5d13f93f6f862786bd84e3e3"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a03738.html">VTK::Corner</a>&lt; <a class="el" href="a03858.html#a5be5a8fa24a05ec9445ec7cf68c19b0a">Cell</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#aae20334b5d13f93f6f862786bd84e3e3">Corner</a></td></tr>
+<tr class="separator:aae20334b5d13f93f6f862786bd84e3e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae0dac7e856d8b554e9efd9617e76095"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a03742.html">VTK::CornerIterator</a>&lt; <a class="el" href="a03858.html#af34505a8d5f7385cd2a9965e95b54d97">CellIterator</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#aae0dac7e856d8b554e9efd9617e76095">CornerIterator</a></td></tr>
+<tr class="separator:aae0dac7e856d8b554e9efd9617e76095"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1b10a08ebef7da7df5c16f2b9a8dd01"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a03858.html#aae20334b5d13f93f6f862786bd84e3e3">Corner</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#af1b10a08ebef7da7df5c16f2b9a8dd01">Point</a></td></tr>
+<tr class="separator:af1b10a08ebef7da7df5c16f2b9a8dd01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1ee9e92aad4764beeeb36eb64c164eb"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a03858.html#aae0dac7e856d8b554e9efd9617e76095">CornerIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#ab1ee9e92aad4764beeeb36eb64c164eb">PointIterator</a></td></tr>
+<tr class="separator:ab1ee9e92aad4764beeeb36eb64c164eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fd19dab8eef49344e79e5f9a9c07601"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a03806.html">NonConformingConnectivityWriter</a>&lt; <a class="el" href="a03858.html#a5be5a8fa24a05ec9445ec7cf68c19b0a">Cell</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#a6fd19dab8eef49344e79e5f9a9c07601">ConnectivityWriter</a></td></tr>
+<tr class="separator:a6fd19dab8eef49344e79e5f9a9c07601"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28d3480031fd61fe6e1ec0be06d12745"><td class="memItemLeft" align="right" valign="top">typedef GV::CollectiveCommunication&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#a28d3480031fd61fe6e1ec0be06d12745">CollectiveCommunication</a></td></tr>
+<tr class="separator:a28d3480031fd61fe6e1ec0be06d12745"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab57f74709d2ba0987d8cf0a2e5a86602"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#ab57f74709d2ba0987d8cf0a2e5a86602">ConformingVolumeIteratorFactory</a> (const GV &amp;gv_)</td></tr>
-<tr class="separator:ab57f74709d2ba0987d8cf0a2e5a86602"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0e33d61befa77ee84e37f2f0f8951ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a03858.html#a2c973430beba78f11b88e7dd21e0aa34">CellIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#ae0e33d61befa77ee84e37f2f0f8951ff">beginCells</a> () const</td></tr>
-<tr class="separator:ae0e33d61befa77ee84e37f2f0f8951ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a72933dc1a25db46a6fdb9e474fa40f90"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a03858.html#a2c973430beba78f11b88e7dd21e0aa34">CellIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#a72933dc1a25db46a6fdb9e474fa40f90">endCells</a> () const</td></tr>
-<tr class="separator:a72933dc1a25db46a6fdb9e474fa40f90"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9aff567af22a6812aa8e242e1650f5d9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a03858.html#a610893d34f81ac0470b21554c133d71c">CornerIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#a9aff567af22a6812aa8e242e1650f5d9">beginCorners</a> () const</td></tr>
-<tr class="separator:a9aff567af22a6812aa8e242e1650f5d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c978cb21ce59845402fb2d1d4f7c0af"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a03858.html#a610893d34f81ac0470b21554c133d71c">CornerIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#a0c978cb21ce59845402fb2d1d4f7c0af">endCorners</a> () const</td></tr>
-<tr class="separator:a0c978cb21ce59845402fb2d1d4f7c0af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae9825228b36b518fa8a86c89557fda6d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a03858.html#a8cbaec5a413791981eccc637e117e81d">PointIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#ae9825228b36b518fa8a86c89557fda6d">beginPoints</a> () const</td></tr>
-<tr class="separator:ae9825228b36b518fa8a86c89557fda6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa77f31ca31e64793e352851afa61daf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a03858.html#a8cbaec5a413791981eccc637e117e81d">PointIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#aaa77f31ca31e64793e352851afa61daf">endPoints</a> () const</td></tr>
-<tr class="separator:aaa77f31ca31e64793e352851afa61daf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acfd5e0f7db6110d3f7f2022cf473de39"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a03858.html#a99a0905da2e8c1823ccfb6ade7a32ad8">ConnectivityWriter</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#acfd5e0f7db6110d3f7f2022cf473de39">makeConnectivity</a> () const</td></tr>
-<tr class="separator:acfd5e0f7db6110d3f7f2022cf473de39"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac61848001e2bafa379d0925715cee482"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a03858.html#ac8592288ba202cb1ae54b90b3221da2e">CollectiveCommunication</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#ac61848001e2bafa379d0925715cee482">comm</a> () const</td></tr>
-<tr class="separator:ac61848001e2bafa379d0925715cee482"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a615fa7083fa364f601d352ee6e4ee0b6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#a615fa7083fa364f601d352ee6e4ee0b6">NonConformingVolumeIteratorFactory</a> (const GV &amp;gv_)</td></tr>
+<tr class="separator:a615fa7083fa364f601d352ee6e4ee0b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59b0aa21f3efcc8236956d6d3a72d88b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a03858.html#af34505a8d5f7385cd2a9965e95b54d97">CellIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#a59b0aa21f3efcc8236956d6d3a72d88b">beginCells</a> () const</td></tr>
+<tr class="separator:a59b0aa21f3efcc8236956d6d3a72d88b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a884623f17418634e1cb26d4888951080"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a03858.html#af34505a8d5f7385cd2a9965e95b54d97">CellIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#a884623f17418634e1cb26d4888951080">endCells</a> () const</td></tr>
+<tr class="separator:a884623f17418634e1cb26d4888951080"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af287d90f3fd14b5a08d9ac1702d66eea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a03858.html#aae0dac7e856d8b554e9efd9617e76095">CornerIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#af287d90f3fd14b5a08d9ac1702d66eea">beginCorners</a> () const</td></tr>
+<tr class="separator:af287d90f3fd14b5a08d9ac1702d66eea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92bf3f40c401aa2cd33deaf30306b059"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a03858.html#aae0dac7e856d8b554e9efd9617e76095">CornerIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#a92bf3f40c401aa2cd33deaf30306b059">endCorners</a> () const</td></tr>
+<tr class="separator:a92bf3f40c401aa2cd33deaf30306b059"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a347583d4a62b5a91d8bbf0e4e4c21868"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a03858.html#ab1ee9e92aad4764beeeb36eb64c164eb">PointIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#a347583d4a62b5a91d8bbf0e4e4c21868">beginPoints</a> () const</td></tr>
+<tr class="separator:a347583d4a62b5a91d8bbf0e4e4c21868"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8f23089aefabfffcf229e5848fb3248"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a03858.html#ab1ee9e92aad4764beeeb36eb64c164eb">PointIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#ad8f23089aefabfffcf229e5848fb3248">endPoints</a> () const</td></tr>
+<tr class="separator:ad8f23089aefabfffcf229e5848fb3248"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ed38e2922bae98395ce02a8e3e0d818"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a03858.html#a6fd19dab8eef49344e79e5f9a9c07601">ConnectivityWriter</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#a6ed38e2922bae98395ce02a8e3e0d818">makeConnectivity</a> () const</td></tr>
+<tr class="separator:a6ed38e2922bae98395ce02a8e3e0d818"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cb7d7a449eab9c9bbf5c8ba4f0efb96"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a03858.html#a28d3480031fd61fe6e1ec0be06d12745">CollectiveCommunication</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#a2cb7d7a449eab9c9bbf5c8ba4f0efb96">comm</a> () const</td></tr>
+<tr class="separator:a2cb7d7a449eab9c9bbf5c8ba4f0efb96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a9c6a74528c100d905040e6d92c3ddf82"><td class="memItemLeft" align="right" valign="top">static const unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#a9c6a74528c100d905040e6d92c3ddf82">dimCell</a> = GV::dimension</td></tr>
-<tr class="separator:a9c6a74528c100d905040e6d92c3ddf82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8148bb1efae32bbfc5debdf72cb78e88"><td class="memItemLeft" align="right" valign="top">static const unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#a8148bb1efae32bbfc5debdf72cb78e88">dimCell</a> = GV::dimension</td></tr>
+<tr class="separator:a8148bb1efae32bbfc5debdf72cb78e88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="ae6215cf619aa91c50ea484dd97ac727f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae6215cf619aa91c50ea484dd97ac727f">&#9670;&nbsp;</a></span>Cell</h2>
+<a id="a5be5a8fa24a05ec9445ec7cf68c19b0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5be5a8fa24a05ec9445ec7cf68c19b0a">&#9670;&nbsp;</a></span>Cell</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -142,15 +133,15 @@ Static Public Attributes</h2></td></tr>
 template&lt;typename GV &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef GV::template Codim&lt;0&gt;::<a class="el" href="a02630.html">Entity</a> <a class="el" href="a03858.html">Dune::VTK::ConformingVolumeIteratorFactory</a>&lt; GV &gt;::<a class="el" href="a03858.html#ae6215cf619aa91c50ea484dd97ac727f">Cell</a></td>
+          <td class="memname">typedef GV::template Codim&lt;0&gt;::<a class="el" href="a02642.html">Entity</a> <a class="el" href="a03858.html">Dune::VTK::NonConformingVolumeIteratorFactory</a>&lt; GV &gt;::<a class="el" href="a03858.html#a5be5a8fa24a05ec9445ec7cf68c19b0a">Cell</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a2c973430beba78f11b88e7dd21e0aa34"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2c973430beba78f11b88e7dd21e0aa34">&#9670;&nbsp;</a></span>CellIterator</h2>
+<a id="af34505a8d5f7385cd2a9965e95b54d97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af34505a8d5f7385cd2a9965e95b54d97">&#9670;&nbsp;</a></span>CellIterator</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -158,15 +149,15 @@ template&lt;typename GV &gt; </div>
 template&lt;typename GV &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef GV::template Codim&lt;0&gt;:: template Partition&lt;<a class="el" href="a00904.html#ggaa5b9e8102d7f70f3f4178182629d98b6a8da384ab42a2918b7cf88220328cff19">InteriorBorder_Partition</a>&gt;::Iterator <a class="el" href="a03858.html">Dune::VTK::ConformingVolumeIteratorFactory</a>&lt; GV &gt;::<a class="el" href="a03858.html#a2c973430beba78f11b88e7dd21e0aa34">CellIterator</a></td>
+          <td class="memname">typedef GV::template Codim&lt;0&gt;:: template Partition&lt;<a class="el" href="a00908.html#ggaa5b9e8102d7f70f3f4178182629d98b6a8da384ab42a2918b7cf88220328cff19">InteriorBorder_Partition</a>&gt;::Iterator <a class="el" href="a03858.html">Dune::VTK::NonConformingVolumeIteratorFactory</a>&lt; GV &gt;::<a class="el" href="a03858.html#af34505a8d5f7385cd2a9965e95b54d97">CellIterator</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="ac8592288ba202cb1ae54b90b3221da2e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac8592288ba202cb1ae54b90b3221da2e">&#9670;&nbsp;</a></span>CollectiveCommunication</h2>
+<a id="a28d3480031fd61fe6e1ec0be06d12745"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28d3480031fd61fe6e1ec0be06d12745">&#9670;&nbsp;</a></span>CollectiveCommunication</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -174,15 +165,15 @@ template&lt;typename GV &gt; </div>
 template&lt;typename GV &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef GV::CollectiveCommunication <a class="el" href="a03858.html">Dune::VTK::ConformingVolumeIteratorFactory</a>&lt; GV &gt;::<a class="el" href="a03858.html#ac8592288ba202cb1ae54b90b3221da2e">CollectiveCommunication</a></td>
+          <td class="memname">typedef GV::CollectiveCommunication <a class="el" href="a03858.html">Dune::VTK::NonConformingVolumeIteratorFactory</a>&lt; GV &gt;::<a class="el" href="a03858.html#a28d3480031fd61fe6e1ec0be06d12745">CollectiveCommunication</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a99a0905da2e8c1823ccfb6ade7a32ad8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a99a0905da2e8c1823ccfb6ade7a32ad8">&#9670;&nbsp;</a></span>ConnectivityWriter</h2>
+<a id="a6fd19dab8eef49344e79e5f9a9c07601"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fd19dab8eef49344e79e5f9a9c07601">&#9670;&nbsp;</a></span>ConnectivityWriter</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -190,15 +181,15 @@ template&lt;typename GV &gt; </div>
 template&lt;typename GV &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="a03806.html">ConformingConnectivityWriter</a>&lt;<a class="el" href="a03858.html">ConformingVolumeIteratorFactory</a>&lt;GV&gt; &gt; <a class="el" href="a03858.html">Dune::VTK::ConformingVolumeIteratorFactory</a>&lt; GV &gt;::<a class="el" href="a03858.html#a99a0905da2e8c1823ccfb6ade7a32ad8">ConnectivityWriter</a></td>
+          <td class="memname">typedef <a class="el" href="a03806.html">NonConformingConnectivityWriter</a>&lt;<a class="el" href="a03858.html#a5be5a8fa24a05ec9445ec7cf68c19b0a">Cell</a>&gt; <a class="el" href="a03858.html">Dune::VTK::NonConformingVolumeIteratorFactory</a>&lt; GV &gt;::<a class="el" href="a03858.html#a6fd19dab8eef49344e79e5f9a9c07601">ConnectivityWriter</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a69c1e7e99c32cc2d86fff8519526a9f9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a69c1e7e99c32cc2d86fff8519526a9f9">&#9670;&nbsp;</a></span>Corner</h2>
+<a id="aae20334b5d13f93f6f862786bd84e3e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae20334b5d13f93f6f862786bd84e3e3">&#9670;&nbsp;</a></span>Corner</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -206,15 +197,15 @@ template&lt;typename GV &gt; </div>
 template&lt;typename GV &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="a03742.html">VTK::Corner</a>&lt;<a class="el" href="a03858.html#ae6215cf619aa91c50ea484dd97ac727f">Cell</a>&gt; <a class="el" href="a03858.html">Dune::VTK::ConformingVolumeIteratorFactory</a>&lt; GV &gt;::<a class="el" href="a03858.html#a69c1e7e99c32cc2d86fff8519526a9f9">Corner</a></td>
+          <td class="memname">typedef <a class="el" href="a03738.html">VTK::Corner</a>&lt;<a class="el" href="a03858.html#a5be5a8fa24a05ec9445ec7cf68c19b0a">Cell</a>&gt; <a class="el" href="a03858.html">Dune::VTK::NonConformingVolumeIteratorFactory</a>&lt; GV &gt;::<a class="el" href="a03858.html#aae20334b5d13f93f6f862786bd84e3e3">Corner</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a610893d34f81ac0470b21554c133d71c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a610893d34f81ac0470b21554c133d71c">&#9670;&nbsp;</a></span>CornerIterator</h2>
+<a id="aae0dac7e856d8b554e9efd9617e76095"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae0dac7e856d8b554e9efd9617e76095">&#9670;&nbsp;</a></span>CornerIterator</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -222,15 +213,15 @@ template&lt;typename GV &gt; </div>
 template&lt;typename GV &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="a03746.html">VTK::CornerIterator</a>&lt;<a class="el" href="a03858.html#a2c973430beba78f11b88e7dd21e0aa34">CellIterator</a>&gt; <a class="el" href="a03858.html">Dune::VTK::ConformingVolumeIteratorFactory</a>&lt; GV &gt;::<a class="el" href="a03858.html#a610893d34f81ac0470b21554c133d71c">CornerIterator</a></td>
+          <td class="memname">typedef <a class="el" href="a03742.html">VTK::CornerIterator</a>&lt;<a class="el" href="a03858.html#af34505a8d5f7385cd2a9965e95b54d97">CellIterator</a>&gt; <a class="el" href="a03858.html">Dune::VTK::NonConformingVolumeIteratorFactory</a>&lt; GV &gt;::<a class="el" href="a03858.html#aae0dac7e856d8b554e9efd9617e76095">CornerIterator</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="abacbecdfa7ef99ffa859d1976522761f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abacbecdfa7ef99ffa859d1976522761f">&#9670;&nbsp;</a></span>Point</h2>
+<a id="af1b10a08ebef7da7df5c16f2b9a8dd01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1b10a08ebef7da7df5c16f2b9a8dd01">&#9670;&nbsp;</a></span>Point</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -238,15 +229,15 @@ template&lt;typename GV &gt; </div>
 template&lt;typename GV &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="a03742.html">VTK::Corner</a>&lt;<a class="el" href="a03858.html#ae6215cf619aa91c50ea484dd97ac727f">Cell</a>&gt; <a class="el" href="a03858.html">Dune::VTK::ConformingVolumeIteratorFactory</a>&lt; GV &gt;::<a class="el" href="a03858.html#abacbecdfa7ef99ffa859d1976522761f">Point</a></td>
+          <td class="memname">typedef <a class="el" href="a03858.html#aae20334b5d13f93f6f862786bd84e3e3">Corner</a> <a class="el" href="a03858.html">Dune::VTK::NonConformingVolumeIteratorFactory</a>&lt; GV &gt;::<a class="el" href="a03858.html#af1b10a08ebef7da7df5c16f2b9a8dd01">Point</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a8cbaec5a413791981eccc637e117e81d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8cbaec5a413791981eccc637e117e81d">&#9670;&nbsp;</a></span>PointIterator</h2>
+<a id="ab1ee9e92aad4764beeeb36eb64c164eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1ee9e92aad4764beeeb36eb64c164eb">&#9670;&nbsp;</a></span>PointIterator</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -254,7 +245,7 @@ template&lt;typename GV &gt; </div>
 template&lt;typename GV &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="a03822.html">VTK::PointIterator</a>&lt;<a class="el" href="a03858.html#a2c973430beba78f11b88e7dd21e0aa34">CellIterator</a>, typename GV::IndexSet&gt; <a class="el" href="a03858.html">Dune::VTK::ConformingVolumeIteratorFactory</a>&lt; GV &gt;::<a class="el" href="a03858.html#a8cbaec5a413791981eccc637e117e81d">PointIterator</a></td>
+          <td class="memname">typedef <a class="el" href="a03858.html#aae0dac7e856d8b554e9efd9617e76095">CornerIterator</a> <a class="el" href="a03858.html">Dune::VTK::NonConformingVolumeIteratorFactory</a>&lt; GV &gt;::<a class="el" href="a03858.html#ab1ee9e92aad4764beeeb36eb64c164eb">PointIterator</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -262,8 +253,8 @@ template&lt;typename GV &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ab57f74709d2ba0987d8cf0a2e5a86602"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab57f74709d2ba0987d8cf0a2e5a86602">&#9670;&nbsp;</a></span>ConformingVolumeIteratorFactory()</h2>
+<a id="a615fa7083fa364f601d352ee6e4ee0b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a615fa7083fa364f601d352ee6e4ee0b6">&#9670;&nbsp;</a></span>NonConformingVolumeIteratorFactory()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -274,7 +265,7 @@ template&lt;typename GV &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a03858.html">Dune::VTK::ConformingVolumeIteratorFactory</a>&lt; GV &gt;::<a class="el" href="a03858.html">ConformingVolumeIteratorFactory</a> </td>
+          <td class="memname"><a class="el" href="a03858.html">Dune::VTK::NonConformingVolumeIteratorFactory</a>&lt; GV &gt;::<a class="el" href="a03858.html">NonConformingVolumeIteratorFactory</a> </td>
           <td>(</td>
           <td class="paramtype">const GV &amp;&#160;</td>
           <td class="paramname"><em>gv_</em></td><td>)</td>
@@ -291,8 +282,8 @@ template&lt;typename GV &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ae0e33d61befa77ee84e37f2f0f8951ff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae0e33d61befa77ee84e37f2f0f8951ff">&#9670;&nbsp;</a></span>beginCells()</h2>
+<a id="a59b0aa21f3efcc8236956d6d3a72d88b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59b0aa21f3efcc8236956d6d3a72d88b">&#9670;&nbsp;</a></span>beginCells()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -303,7 +294,7 @@ template&lt;typename GV &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a03858.html#a2c973430beba78f11b88e7dd21e0aa34">CellIterator</a> <a class="el" href="a03858.html">Dune::VTK::ConformingVolumeIteratorFactory</a>&lt; GV &gt;::beginCells </td>
+          <td class="memname"><a class="el" href="a03858.html#af34505a8d5f7385cd2a9965e95b54d97">CellIterator</a> <a class="el" href="a03858.html">Dune::VTK::NonConformingVolumeIteratorFactory</a>&lt; GV &gt;::beginCells </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -318,8 +309,8 @@ template&lt;typename GV &gt; </div>
 
 </div>
 </div>
-<a id="a9aff567af22a6812aa8e242e1650f5d9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9aff567af22a6812aa8e242e1650f5d9">&#9670;&nbsp;</a></span>beginCorners()</h2>
+<a id="af287d90f3fd14b5a08d9ac1702d66eea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af287d90f3fd14b5a08d9ac1702d66eea">&#9670;&nbsp;</a></span>beginCorners()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -330,7 +321,7 @@ template&lt;typename GV &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a03858.html#a610893d34f81ac0470b21554c133d71c">CornerIterator</a> <a class="el" href="a03858.html">Dune::VTK::ConformingVolumeIteratorFactory</a>&lt; GV &gt;::beginCorners </td>
+          <td class="memname"><a class="el" href="a03858.html#aae0dac7e856d8b554e9efd9617e76095">CornerIterator</a> <a class="el" href="a03858.html">Dune::VTK::NonConformingVolumeIteratorFactory</a>&lt; GV &gt;::beginCorners </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -345,8 +336,8 @@ template&lt;typename GV &gt; </div>
 
 </div>
 </div>
-<a id="ae9825228b36b518fa8a86c89557fda6d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae9825228b36b518fa8a86c89557fda6d">&#9670;&nbsp;</a></span>beginPoints()</h2>
+<a id="a347583d4a62b5a91d8bbf0e4e4c21868"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a347583d4a62b5a91d8bbf0e4e4c21868">&#9670;&nbsp;</a></span>beginPoints()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -357,7 +348,7 @@ template&lt;typename GV &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a03858.html#a8cbaec5a413791981eccc637e117e81d">PointIterator</a> <a class="el" href="a03858.html">Dune::VTK::ConformingVolumeIteratorFactory</a>&lt; GV &gt;::beginPoints </td>
+          <td class="memname"><a class="el" href="a03858.html#ab1ee9e92aad4764beeeb36eb64c164eb">PointIterator</a> <a class="el" href="a03858.html">Dune::VTK::NonConformingVolumeIteratorFactory</a>&lt; GV &gt;::beginPoints </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -372,8 +363,8 @@ template&lt;typename GV &gt; </div>
 
 </div>
 </div>
-<a id="ac61848001e2bafa379d0925715cee482"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac61848001e2bafa379d0925715cee482">&#9670;&nbsp;</a></span>comm()</h2>
+<a id="a2cb7d7a449eab9c9bbf5c8ba4f0efb96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cb7d7a449eab9c9bbf5c8ba4f0efb96">&#9670;&nbsp;</a></span>comm()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -384,7 +375,7 @@ template&lt;typename GV &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a03858.html#ac8592288ba202cb1ae54b90b3221da2e">CollectiveCommunication</a>&amp; <a class="el" href="a03858.html">Dune::VTK::ConformingVolumeIteratorFactory</a>&lt; GV &gt;::comm </td>
+          <td class="memname">const <a class="el" href="a03858.html#a28d3480031fd61fe6e1ec0be06d12745">CollectiveCommunication</a>&amp; <a class="el" href="a03858.html">Dune::VTK::NonConformingVolumeIteratorFactory</a>&lt; GV &gt;::comm </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -399,8 +390,8 @@ template&lt;typename GV &gt; </div>
 
 </div>
 </div>
-<a id="a72933dc1a25db46a6fdb9e474fa40f90"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a72933dc1a25db46a6fdb9e474fa40f90">&#9670;&nbsp;</a></span>endCells()</h2>
+<a id="a884623f17418634e1cb26d4888951080"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a884623f17418634e1cb26d4888951080">&#9670;&nbsp;</a></span>endCells()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -411,7 +402,7 @@ template&lt;typename GV &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a03858.html#a2c973430beba78f11b88e7dd21e0aa34">CellIterator</a> <a class="el" href="a03858.html">Dune::VTK::ConformingVolumeIteratorFactory</a>&lt; GV &gt;::endCells </td>
+          <td class="memname"><a class="el" href="a03858.html#af34505a8d5f7385cd2a9965e95b54d97">CellIterator</a> <a class="el" href="a03858.html">Dune::VTK::NonConformingVolumeIteratorFactory</a>&lt; GV &gt;::endCells </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -426,8 +417,8 @@ template&lt;typename GV &gt; </div>
 
 </div>
 </div>
-<a id="a0c978cb21ce59845402fb2d1d4f7c0af"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0c978cb21ce59845402fb2d1d4f7c0af">&#9670;&nbsp;</a></span>endCorners()</h2>
+<a id="a92bf3f40c401aa2cd33deaf30306b059"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92bf3f40c401aa2cd33deaf30306b059">&#9670;&nbsp;</a></span>endCorners()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -438,7 +429,7 @@ template&lt;typename GV &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a03858.html#a610893d34f81ac0470b21554c133d71c">CornerIterator</a> <a class="el" href="a03858.html">Dune::VTK::ConformingVolumeIteratorFactory</a>&lt; GV &gt;::endCorners </td>
+          <td class="memname"><a class="el" href="a03858.html#aae0dac7e856d8b554e9efd9617e76095">CornerIterator</a> <a class="el" href="a03858.html">Dune::VTK::NonConformingVolumeIteratorFactory</a>&lt; GV &gt;::endCorners </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -453,8 +444,8 @@ template&lt;typename GV &gt; </div>
 
 </div>
 </div>
-<a id="aaa77f31ca31e64793e352851afa61daf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaa77f31ca31e64793e352851afa61daf">&#9670;&nbsp;</a></span>endPoints()</h2>
+<a id="ad8f23089aefabfffcf229e5848fb3248"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8f23089aefabfffcf229e5848fb3248">&#9670;&nbsp;</a></span>endPoints()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -465,7 +456,7 @@ template&lt;typename GV &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a03858.html#a8cbaec5a413791981eccc637e117e81d">PointIterator</a> <a class="el" href="a03858.html">Dune::VTK::ConformingVolumeIteratorFactory</a>&lt; GV &gt;::endPoints </td>
+          <td class="memname"><a class="el" href="a03858.html#ab1ee9e92aad4764beeeb36eb64c164eb">PointIterator</a> <a class="el" href="a03858.html">Dune::VTK::NonConformingVolumeIteratorFactory</a>&lt; GV &gt;::endPoints </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -480,8 +471,8 @@ template&lt;typename GV &gt; </div>
 
 </div>
 </div>
-<a id="acfd5e0f7db6110d3f7f2022cf473de39"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acfd5e0f7db6110d3f7f2022cf473de39">&#9670;&nbsp;</a></span>makeConnectivity()</h2>
+<a id="a6ed38e2922bae98395ce02a8e3e0d818"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ed38e2922bae98395ce02a8e3e0d818">&#9670;&nbsp;</a></span>makeConnectivity()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -492,7 +483,7 @@ template&lt;typename GV &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a03858.html#a99a0905da2e8c1823ccfb6ade7a32ad8">ConnectivityWriter</a> <a class="el" href="a03858.html">Dune::VTK::ConformingVolumeIteratorFactory</a>&lt; GV &gt;::makeConnectivity </td>
+          <td class="memname"><a class="el" href="a03858.html#a6fd19dab8eef49344e79e5f9a9c07601">ConnectivityWriter</a> <a class="el" href="a03858.html">Dune::VTK::NonConformingVolumeIteratorFactory</a>&lt; GV &gt;::makeConnectivity </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -508,8 +499,8 @@ template&lt;typename GV &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a9c6a74528c100d905040e6d92c3ddf82"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9c6a74528c100d905040e6d92c3ddf82">&#9670;&nbsp;</a></span>dimCell</h2>
+<a id="a8148bb1efae32bbfc5debdf72cb78e88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8148bb1efae32bbfc5debdf72cb78e88">&#9670;&nbsp;</a></span>dimCell</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -520,7 +511,7 @@ template&lt;typename GV &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const unsigned <a class="el" href="a03858.html">Dune::VTK::ConformingVolumeIteratorFactory</a>&lt; GV &gt;::dimCell = GV::dimension</td>
+          <td class="memname">const unsigned <a class="el" href="a03858.html">Dune::VTK::NonConformingVolumeIteratorFactory</a>&lt; GV &gt;::dimCell = GV::dimension</td>
         </tr>
       </table>
   </td>
@@ -533,7 +524,7 @@ template&lt;typename GV &gt; </div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="a00821_source.html">volumeiterators.hh</a></li>
+<li><a class="el" href="a00827_source.html">volumeiterators.hh</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

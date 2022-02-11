@@ -39,14 +39,18 @@ set(dune-grid_CXX_FLAGS_DEBUG "-g")
 set(dune-grid_CXX_FLAGS_MINSIZEREL "-Os -DNDEBUG")
 set(dune-grid_CXX_FLAGS_RELEASE "-O3 -DNDEBUG")
 set(dune-grid_CXX_FLAGS_RELWITHDEBINFO "-O2 -g -DNDEBUG")
-set(dune-grid_DEPENDS "dune-geometry (>= 2.7)")
-set(dune-grid_SUGGESTS "dune-uggrid (>=2.7)")
+set(dune-grid_DEPENDS "dune-geometry (>= 2.8)")
+set(dune-grid_SUGGESTS "dune-uggrid (>=2.8)")
 set(dune-grid_MODULE_PATH "${PACKAGE_PREFIX_DIR}/share/dune/cmake/modules")
 set(dune-grid_LIBRARIES "dunegrid")
 
 # Lines that are set by the CMake build system via the variable DUNE_CUSTOM_PKG_CONFIG_SECTION
 #Export the directory with the grid example for downstream modules
-set(DUNE_GRID_EXAMPLE_GRIDS_PATH "C:/Users/Alex/Documents/Ikarus_Dependencies/cmake-build-release/dune-grid-prefix/src/dune-grid/doc/grids/")
+if(dune-grid_INSTALLED)
+  set(DUNE_GRID_EXAMPLE_GRIDS_PATH "${PACKAGE_PREFIX_DIR}/share/doc/dune-grid/grids/")
+else()
+  set(DUNE_GRID_EXAMPLE_GRIDS_PATH "${PACKAGE_PREFIX_DIR}/doc/grids/")
+endif()
 
 
 #import the target

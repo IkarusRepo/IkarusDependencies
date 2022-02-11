@@ -101,6 +101,7 @@
 # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 # SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
+include_guard(GLOBAL)
 
 # Find LATEX and LatexMk
 find_package(LATEX)
@@ -111,9 +112,9 @@ find_file(LATEXMKRC_TEMPLATE
           latexmkrc.cmake
           HINTS ${CMAKE_MODULE_PATH}
                 ${CMAKE_CURRENT_SOURCE_DIR}
-                ${CMAKE_SOURCE_DIR}
-                ${CMAKE_SOURCE_DIR}/cmake
-                ${CMAKE_SOURCE_DIR}/cmake/modules
+                ${PROJECT_SOURCE_DIR}
+                ${PROJECT_SOURCE_DIR}/cmake
+                ${PROJECT_SOURCE_DIR}/cmake/modules
           NO_CMAKE_FIND_ROOT_PATH
           )
 
@@ -145,7 +146,7 @@ function(add_latex_document)
   if(NOT LMK_TARGET)
     # Construct a nice target name from the source file
     get_filename_component(LMK_TARGET ${LMK_SOURCE} ABSOLUTE)
-    file(RELATIVE_PATH LMK_TARGET ${CMAKE_SOURCE_DIR} ${LMK_TARGET})
+    file(RELATIVE_PATH LMK_TARGET ${PROJECT_SOURCE_DIR} ${LMK_TARGET})
     string(REPLACE "/" "_" LMK_TARGET ${LMK_TARGET})
     string(REPLACE "." "_" LMK_TARGET ${LMK_TARGET})
   endif()

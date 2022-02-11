@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: identitygrid.hh File Reference</title>
+<title>dune-grid: albertagrid.hh File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -66,64 +66,17 @@ $(function() {
 </div>
 </div><!-- top -->
 <div class="header">
-  <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">identitygrid.hh File Reference</div>  </div>
+<div class="title">albertagrid.hh File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>The IdentityGrid class.  
-<a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;string&gt;</code><br />
-<code>#include &lt;map&gt;</code><br />
-<code>#include &lt;dune/common/deprecated.hh&gt;</code><br />
-<code>#include &lt;dune/common/parallel/communication.hh&gt;</code><br />
-<code>#include &lt;<a class="el" href="a06743_source.html">dune/grid/common/capabilities.hh</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="a06797_source.html">dune/grid/common/grid.hh</a>&gt;</code><br />
-<code>#include &quot;<a class="el" href="a00593_source.html">identitygrid/identitygridgeometry.hh</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00587_source.html">identitygrid/identitygridentity.hh</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00590_source.html">identitygrid/identitygridentityseed.hh</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00602_source.html">identitygrid/identitygridintersectioniterator.hh</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00611_source.html">identitygrid/identitygridleveliterator.hh</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00608_source.html">identitygrid/identitygridleafiterator.hh</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00596_source.html">identitygrid/identitygridhierarchiciterator.hh</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00599_source.html">identitygrid/identitygridindexsets.hh</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="a00476_source.html">albertagrid/agrid.hh</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a06708_source.html">albertagrid/gridfactory.hh</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a06786_source.html">albertagrid/structuredgridfactory.hh</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a06771_source.html">albertagrid/persistentcontainer.hh</a>&quot;</code><br />
 </div>
 <p><a href="a00584_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03274.html">Dune::IdentityGridFamily&lt; dim, HostGrid &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03266.html">Dune::IdentityGrid&lt; HostGrid &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides a meta grid that is identical to its host.  <a href="a03266.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03278.html">Dune::Capabilities::hasEntity&lt; IdentityGrid&lt; HostGrid &gt;, codim &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">has entities for some codimensions as host grid  <a href="a03278.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03282.html">Dune::Capabilities::hasEntityIterator&lt; IdentityGrid&lt; HostGrid &gt;, codim &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03286.html">Dune::Capabilities::isLevelwiseConforming&lt; IdentityGrid&lt; HostGrid &gt; &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">has conforming level grids when host grid has  <a href="a03286.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03290.html">Dune::Capabilities::isLeafwiseConforming&lt; IdentityGrid&lt; HostGrid &gt; &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">has conforming leaf grids when host grid has  <a href="a03290.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:a00936"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00936.html">Dune</a></td></tr>
-<tr class="memdesc:a00936"><td class="mdescLeft">&#160;</td><td class="mdescRight">Include standard header files. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00938"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00938.html">Dune::Capabilities</a></td></tr>
-<tr class="memdesc:a00938"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains all capabilities classes. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The IdentityGrid class. </p>
-</div></div><!-- contents -->
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1

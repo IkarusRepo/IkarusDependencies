@@ -29,36 +29,6 @@
 /* does the compiler support __attribute__((unused))? */
 #cmakedefine HAS_ATTRIBUTE_UNUSED 1
 
-/* does the compiler support C++17's class template argument deduction? */
-#cmakedefine DUNE_HAVE_CXX_CLASS_TEMPLATE_ARGUMENT_DEDUCTION 1
-
-/* does the compiler support C++17's optional? */
-#cmakedefine DUNE_HAVE_CXX_OPTIONAL 1
-
-/* does the compiler support C++17's variant? */
-#cmakedefine DUNE_HAVE_CXX_VARIANT 1
-
-/* does the compiler support conditionally throwing exceptions in constexpr context? */
-#cmakedefine DUNE_SUPPORTS_CXX_THROW_IN_CONSTEXPR 1
-
-/* does the standard library provides aligned_alloc()? */
-#cmakedefine DUNE_HAVE_C_ALIGNED_ALLOC 1
-
-/* does the standard library provide <experimental/type_traits> ? */
-#cmakedefine DUNE_HAVE_HEADER_EXPERIMENTAL_TYPE_TRAITS 1
-
-/* does the standard library provide bool_constant ? */
-#cmakedefine DUNE_HAVE_CXX_BOOL_CONSTANT 1
-
-/* does the standard library provide experimental::bool_constant ? */
-#cmakedefine DUNE_HAVE_CXX_EXPERIMENTAL_BOOL_CONSTANT 1
-
-/* does the standard library provide apply() ? */
-#cmakedefine DUNE_HAVE_CXX_APPLY 1
-
-/* does the standard library provide experimental::apply() ? */
-#cmakedefine DUNE_HAVE_CXX_EXPERIMENTAL_APPLY 1
-
 /* does the standard library provide experimental::make_array() ? */
 #cmakedefine DUNE_HAVE_CXX_EXPERIMENTAL_MAKE_ARRAY 1
 
@@ -71,17 +41,20 @@
 /* Define if you have a BLAS library. */
 #cmakedefine HAVE_BLAS 1
 
-/* does the compiler support abi::__cxa_demangle */
-#cmakedefine HAVE_CXA_DEMANGLE 1
-
 /* Define if you have LAPACK library. */
 #cmakedefine HAVE_LAPACK 1
 
-/* Define to 1 if you have the <malloc.h> header file. */
-// Not used! #cmakedefine01 HAVE_MALLOC_H
-
 /* Define if you have the MPI library.  */
 #cmakedefine HAVE_MPI ENABLE_MPI
+
+/* Deactivate cxx bindings for MPI */
+#if defined(HAVE_MPI) && HAVE_MPI
+#define MPICH_SKIP_MPICXX 1
+#define OMPI_SKIP_MPICXX 1
+#define MPI_NO_CPPBIND 1
+#define MPIPP_H
+#define _MPICC_H
+#endif
 
 /* Define if you have the GNU GMP library. The value should be ENABLE_GMP
    to facilitate activating and deactivating GMP using compile flags. */
@@ -94,15 +67,6 @@
 /* Define if you have the Vc library. The value should be ENABLE_VC
    to facilitate activating and deactivating Vc using compile flags. */
 #cmakedefine HAVE_VC ENABLE_VC
-
-/* Define to 1 if you have the symbol mprotect. */
-#cmakedefine HAVE_MPROTECT 1
-
-/* Define to 1 if you have the <stdint.h> header file. */
-#cmakedefine HAVE_STDINT_H 1
-
-/* Define to 1 if you have <sys/mman.h>. */
-#cmakedefine HAVE_SYS_MMAN_H 1
 
 /* Define to 1 if you have the Threading Building Blocks (TBB) library */
 #cmakedefine HAVE_TBB 1
@@ -135,19 +99,21 @@
 
 /* end private */
 
-/* old feature support macros which were tested until 2.4, kept around for one more release */
+
+/* old feature support macros which were tested until 2.7, kept around for one more release */
 /* As these are now always supported due to the new compiler requirements, they are directly */
 /* defined without an explicit test. */
-#define HAVE_NULLPTR 1
-#define HAVE_CONSTEXPR 1
-#define HAVE_RANGE_BASED_FOR 1
-#define HAVE_NOEXCEPT_SPECIFIER 1
-#define HAVE_STD_DECLVAL 1
-#define HAVE_KEYWORD_FINAL 1
-#define MPI_2 1
-
-/* Define to 1 if the compiler properly supports testing for operator[] */
-#cmakedefine HAVE_IS_INDEXABLE_SUPPORT 1
+#define DUNE_HAVE_CXX_CLASS_TEMPLATE_ARGUMENT_DEDUCTION 1
+#define DUNE_HAVE_CXX_OPTIONAL 1
+#define DUNE_HAVE_CXX_VARIANT 1
+#define DUNE_SUPPORTS_CXX_THROW_IN_CONSTEXPR 1
+#define DUNE_HAVE_C_ALIGNED_ALLOC 1
+#define DUNE_HAVE_CXX_BOOL_CONSTANT 1
+#define DUNE_HAVE_CXX_EXPERIMENTAL_BOOL_CONSTANT 0
+#define DUNE_HAVE_HEADER_EXPERIMENTAL_TYPE_TRAITS 0
+#define DUNE_HAVE_CXX_APPLY 1
+#define DUNE_HAVE_CXX_EXPERIMENTAL_APPLY 0
+#define HAVE_IS_INDEXABLE_SUPPORT 1
 
 /* Define to ENABLE_UMFPACK if the UMFPack library is available */
 #cmakedefine HAVE_UMFPACK ENABLE_SUITESPARSE
@@ -195,18 +161,20 @@
 /* Define to 1 if METIS is available */
 #cmakedefine HAVE_METIS 1
 
+/* Define to 1 if the Scotch replacement for METIS is used. */
+#cmakedefine HAVE_SCOTCH_METIS 1
 
-/* Define to ENABLE_PARMETIS if you have the Parmetis library.
-   This is only true if MPI was found
-   by configure _and_ if the application uses the PARMETIS_CPPFLAGS */
-#cmakedefine HAVE_PARMETIS ENABLE_PARMETIS
+/* Define to 1 if you have the ParMETIS library. */
+#cmakedefine HAVE_PARMETIS 1
+
+/* Define to 1 if the PTScotch replacement for ParMETIS is used. */
+#cmakedefine HAVE_PTSCOTCH_PARMETIS 1
 
 /* Define to 1 if PT-Scotch is available */
 #cmakedefine HAVE_PTSCOTCH 1
 
-/* Include always useful headers */
-#include "FC.h"
-#define FC_FUNC FC_GLOBAL_
+/* Used to call lapack functions */
+#cmakedefine LAPACK_NEEDS_UNDERLINE
 
 /* end dune-common
    Everything below here will be overwritten

@@ -7,7 +7,6 @@
 #include <functional>
 #include <iostream>
 
-#include <dune/common/deprecated.hh>
 #include <dune/common/exceptions.hh>
 #include <dune/common/rangeutilities.hh>
 #include <dune/geometry/dimension.hh>
@@ -35,60 +34,6 @@ namespace Dune
   //
   //  Common Layout templates
   //
-
-  //! Layout template for elements
-  /**
-   * This layout template is for use in the
-   * MultipleCodimMultipleGeomTypeMapper.  It selects only elements (entities
-   * with dim=dimgrid).
-   *
-   * \tparam dimgrid The dimension of the grid.
-   *
-   * \deprecated Use \ref mcmgElementLayout() instead.
-   */
-  template<int dimgrid> struct DUNE_DEPRECATED_MSG("The MCMG layout classes have been deprecated. Pass `mcmgElementLayout()` to the constructor instead")
-  MCMGElementLayout {
-    //! test whether entities of the given geometry type should be included in
-    //! the map
-    bool contains (Dune::GeometryType gt) const { return gt.dim()==dimgrid; }
-  };
-
-  //! Layout template for vertices
-  /**
-   * This layout template is for use in the
-   * MultipleCodimMultipleGeomTypeMapper.  It selects only vertices (entities
-   * with dim=0).
-   *
-   * \tparam dimgrid The dimension of the grid.
-   *
-   * \deprecated Use \ref mcmgVertexLayout() instead.
-   */
-  template<int dim> struct DUNE_DEPRECATED_MSG("The MCMG layout classes have been deprecated. Pass `mcmgVertexLayout()` to the constructor instead")
-  MCMGVertexLayout {
-    //! test whether entities of the given geometry type should be included in
-    //! the map
-    bool contains (Dune::GeometryType gt) const { return gt.dim()==0; }
-  };
-
-  namespace Impl {
-
-    /*
-     * Dummy layout to be used as the default for
-     * `MultipleCodimMultipleGeomTypeMapper`.  It should never be used, but
-     * we need a default.
-     *
-     * This class can be removed once the `LayoutClass` template parameter
-     * of `MultipleCodimMultipleGeomTypeMapper` is removed.
-     */
-    template<int dimgrid>
-    struct MCMGFailLayout {
-      MCMGFailLayout()
-        { DUNE_THROW(Exception, "The default layout class cannot be used"); }
-      bool contains(GeometryType gt) const
-        { DUNE_THROW(Exception, "The default layout class cannot be used"); }
-    };
-
-  } /* namespace Impl */
 
   /**
    * \brief layout function for `MultipleCodimMultipleGeomTypeMapper`
@@ -171,32 +116,14 @@ namespace Dune
    *
    * In this implementation of a mapper the entity set used as domain for the map consists
    * of the entities of a subset of codimensions in the given index set. The index
-   * set may contain entities of several geometry types. This
-   * version is usually not used directly but is used to implement versions for leafwise and levelwise
-   * entity sets.
+   * set may contain entities of several geometry types.
    *
    * The geometry types to be included in the mapper are selected using a
    * layout functional (\ref MCMGLayout) that is passed to the constructor.
-   *
-   * \tparam GV     A Dune GridView type.
-   * \tparam LayoutClass (deprecated) A helper class template with a method contains(), that
-   *                returns true for all geometry types that are in the domain
-   *                of the map.  The class should be of the following shape
-     \code
-     template<int dimgrid>
-     struct LayoutClass {
-     bool contains (Dune::GeometryType gt) const {
-        // Return true if gt is in the domain of the map
-     }
-     };
-     \endcode
-   *                The MultipleCodimMultipleGeomTypeMapper will always
-   *                substitute the dimension of the grid for the template
-   *                parameter dimgrid.
    */
-  template <typename GV, template<int> class LayoutClass = Impl::MCMGFailLayout>
+  template <typename GV>
   class MultipleCodimMultipleGeomTypeMapper :
-    public Mapper<typename GV::Grid,MultipleCodimMultipleGeomTypeMapper<GV,LayoutClass>, typename GV::IndexSet::IndexType >
+    public Mapper<typename GV::Grid,MultipleCodimMultipleGeomTypeMapper<GV>, typename GV::IndexSet::IndexType >
   {
   public:
 
@@ -212,18 +139,6 @@ namespace Dune
      */
     using size_type = decltype(std::declval<typename GV::IndexSet>().size(0));
 
-    /** @brief Construct mapper from grid and one of its index sets.
-     *
-     * \param gridView A Dune GridView object.
-     * \param layout A layout object.
-     *
-     * \deprecated Use the constructor taking a \ref MCMGLayout instead.
-     */
-    MultipleCodimMultipleGeomTypeMapper(const GV& gridView, const LayoutClass<GV::dimension> layout = {})
-      DUNE_DEPRECATED_MSG("Use the constructor taking a `MCMGLayout` functional instead")
-      : MultipleCodimMultipleGeomTypeMapper(gridView, wrapLayoutClass(layout))
-    {}
-
     /**
      * \brief construct mapper from grid and layout description
      *
@@ -237,10 +152,10 @@ namespace Dune
      */
     MultipleCodimMultipleGeomTypeMapper(const GV& gridView, const MCMGLayout& layout)
       : gridView_(gridView)
-      , is(gridView_.indexSet())
+      , indexSet_(&gridView_.indexSet())
       , layout_(layout)
     {
-      update();
+      update(gridView);
     }
 
     /*!
@@ -255,7 +170,7 @@ namespace Dune
     {
       const GeometryType gt = e.type();
       assert(offset(gt) != invalidOffset);
-      return is.index(e)*blockSize(gt) + offset(gt);
+      return indexSet_->index(e)*blockSize(gt) + offset(gt);
     }
 
     /** @brief Map subentity of codim 0 entity to starting index in array for dof block
@@ -273,7 +188,7 @@ namespace Dune
         ReferenceElements<double,GV::dimension>::general(eType).type(i,codim) ;
       //GeometryType gt=ReferenceElements<double,GV::dimension>::general(e.type()).type(i,codim);
       assert(offset(gt) != invalidOffset);
-      return is.subIndex(e, i, codim)*blockSize(gt) + offset(gt);
+      return indexSet_->subIndex(e, i, codim)*blockSize(gt) + offset(gt);
     }
 
     /** @brief Return total number of entities in the entity set managed by the mapper.
@@ -313,7 +228,7 @@ namespace Dune
     template<class EntityType>
     IntegralRange<Index> indices (const EntityType& e) const
     {
-      if(!is.contains(e) || offset(e.type()) == invalidOffset)
+      if(!indexSet_->contains(e) || offset(e.type()) == invalidOffset)
         return {0,0};
       Index start = index(e);
       return {start, start+blockSize(e.type())};
@@ -354,7 +269,7 @@ namespace Dune
     template<class EntityType>
     bool contains (const EntityType& e, Index& result) const
     {
-      if(!is.contains(e) || offset(e.type()) == invalidOffset)
+      if(!indexSet_->contains(e) || offset(e.type()) == invalidOffset)
       {
         result = 0;
         return false;
@@ -379,13 +294,47 @@ namespace Dune
         ReferenceElements<double,GV::dimension>::general(eType).type(i,cc) ;
       if (offset(gt) == invalidOffset)
         return false;
-      result = is.subIndex(e, i, cc)*blockSize(gt) + offset(gt);
+      result = indexSet_->subIndex(e, i, cc)*blockSize(gt) + offset(gt);
       return true;
     }
 
-    /** @brief Recalculates map after mesh adaptation
+    /** @brief Recalculates indices after grid adaptation
+     *
+     * After grid adaptation you need to call this to update
+     * the stored gridview and recalculate the indices.
      */
+    void update (const GV& gridView)
+    {
+      gridView_ = gridView;
+      indexSet_ = &gridView_.indexSet();
+      update_();
+    }
+
+    /** @brief Recalculates indices after grid adaptation
+     *
+     * After grid adaptation you need to call this to update
+     * the stored gridview and recalculate the indices.
+     */
+    void update (GV&& gridView)
+    {
+      gridView_ = std::move(gridView);
+      indexSet_ = &gridView_.indexSet();
+      update_();
+    }
+
+    /** @brief Recalculates indices after grid adaptation
+     */
+    [[deprecated("Use update(gridView) instead! Will be removed after release 2.8.")]]
     void update ()
+    {
+      update_();
+    }
+
+    const MCMGLayout &layout () const { return layout_; }
+    const GridView &gridView () const { return gridView_; }
+
+  private:
+    void update_()
     {
       n = 0;
 
@@ -395,7 +344,7 @@ namespace Dune
       for (unsigned int codim = 0; codim <= GV::dimension; ++codim)
       {
         // walk over all geometry types in the codimension
-        for (const GeometryType& gt : is.types(codim)) {
+        for (const GeometryType& gt : indexSet_->types(codim)) {
           Index offset;
           size_t block = layout()(gt, GV::Grid::dimension);
 
@@ -403,7 +352,7 @@ namespace Dune
           // and store geometry type
           if (block) {
             offset = n;
-            n += is.size(gt) * block;
+            n += indexSet_->size(gt) * block;
             myTypes_[codim].push_back(gt);
           }
           else {
@@ -416,10 +365,6 @@ namespace Dune
       }
     }
 
-    const MCMGLayout &layout () const { return layout_; }
-    const GridView &gridView () const { return gridView_; }
-
-  private:
     Index offset(GeometryType gt) const
       { return offsets[GlobalGeometryTypeIndex::index(gt)]; }
     Index blockSize(GeometryType gt) const
@@ -430,25 +375,13 @@ namespace Dune
     // number of data elements required
     unsigned int n;
     // GridView is needed to keep the IndexSet valid
-    const GV gridView_;
-    const typename GV::IndexSet& is;
+    GV gridView_;
+    const typename GV::IndexSet* indexSet_;
     // provide an array for the offsets
     std::array<Index, GlobalGeometryTypeIndex::size(GV::dimension)> offsets;
     std::array<Index, GlobalGeometryTypeIndex::size(GV::dimension)> blocks;
     const MCMGLayout layout_;     // get layout object
     std::vector<GeometryType> myTypes_[GV::dimension+1];
-
-  protected:
-    /**
-     * \brief wrap legacy layout classes
-     */
-    static MCMGLayout wrapLayoutClass(const LayoutClass<GV::dimension>& layout)
-    {
-      /* `mutable` as the `contains()` method is not required to be const */
-      return [layout = layout](GeometryType gt, int) mutable {
-        return layout.contains(gt);
-      };
-    }
   };
 
   //////////////////////////////////////////////////////////////////////
@@ -459,31 +392,16 @@ namespace Dune
   /** @brief Multiple codim and multiple geometry type mapper for leaf entities.
 
      This mapper uses all leaf entities of a certain codimension as its entity set.
-
+     \deprecated Use MultipleCodimMultipleGeomTypeMapper instead
      \tparam G      A %Dune grid type.
-     \tparam LayoutClass (deprecated) A helper class template which determines which types of
-                 entities are mapped by this mapper.  See
-                 MultipleCodimMultipleGeomTypeMapper for how exactly this
-                 template should look.
    */
-  template <typename G, template<int> class LayoutClass = Impl::MCMGFailLayout>
-  class LeafMultipleCodimMultipleGeomTypeMapper
-    : public MultipleCodimMultipleGeomTypeMapper<typename G::LeafGridView,LayoutClass>
+  template <typename G>
+  class [[deprecated("Use MultipleCodimMultipleGeomTypeMapper instead! Will be removed after release 2.8.")]]
+  LeafMultipleCodimMultipleGeomTypeMapper
+    : public MultipleCodimMultipleGeomTypeMapper<typename G::LeafGridView>
   {
-    typedef MultipleCodimMultipleGeomTypeMapper<typename G::LeafGridView,
-        LayoutClass> Base;
+    typedef MultipleCodimMultipleGeomTypeMapper<typename G::LeafGridView> Base;
   public:
-    /** @brief The constructor
-     *
-     * @param grid A reference to a grid.
-     * @param layout A layout object
-     *
-     * \deprecated Use the constructor taking a \ref MCMGLayout instead.
-     */
-    LeafMultipleCodimMultipleGeomTypeMapper (const G& grid, const LayoutClass<G::dimension> layout = {})
-      DUNE_DEPRECATED_MSG("Use the constructor taking a `MCMGLayout` functional instead")
-      : LeafMultipleCodimMultipleGeomTypeMapper(grid, Base::wrapLayoutClass(layout))
-    {}
 
     /**
      * \brief constructor
@@ -493,38 +411,36 @@ namespace Dune
      */
     LeafMultipleCodimMultipleGeomTypeMapper (const G& grid, const MCMGLayout& layout)
       : Base(grid.leafGridView(), layout)
+      , gridPtr_(&grid)
     {}
+
+    /** @brief Recalculates indices after grid adaptation
+     *
+     * After grid adaptation you need to call this to update
+     * the stored gridview and recalculate the indices.
+     */
+    void update ()
+    {
+      Base::update(gridPtr_->leafGridView());
+    }
+
+  private:
+    const G* gridPtr_;
   };
 
   /** @brief Multiple codim and multiple geometry type mapper for entities of one level.
 
 
      This mapper uses all entities of a certain codimension on a given level as its entity set.
-
+     \deprecated Use MultipleCodimMultipleGeomTypeMapper instead
      \tparam G      A %Dune grid type.
-     \tparam LayoutClass (deprecated) A helper class template which determines which types of
-                 entities are mapped by this mapper.  See
-                 MultipleCodimMultipleGeomTypeMapper for how exactly this
-                 template should look.
    */
-  template <typename G, template<int> class LayoutClass = Impl::MCMGFailLayout>
-  class LevelMultipleCodimMultipleGeomTypeMapper
-    : public MultipleCodimMultipleGeomTypeMapper<typename G::LevelGridView,LayoutClass> {
-    typedef MultipleCodimMultipleGeomTypeMapper<typename G::LevelGridView,
-        LayoutClass> Base;
+  template <typename G>
+  class [[deprecated("Use MultipleCodimMultipleGeomTypeMapper instead! Will be removed after release 2.8.")]]
+  LevelMultipleCodimMultipleGeomTypeMapper
+    : public MultipleCodimMultipleGeomTypeMapper<typename G::LevelGridView> {
+    typedef MultipleCodimMultipleGeomTypeMapper<typename G::LevelGridView> Base;
   public:
-    /** @brief The constructor
-     *
-     * @param grid A reference to a grid.
-     * @param level A valid level of the grid.
-     * @param layout A layout object
-     *
-     * \deprecated Use the constructor taking a \ref MCMGLayout instead.
-     */
-    LevelMultipleCodimMultipleGeomTypeMapper (const G& grid, int level, const LayoutClass<G::dimension> layout = {})
-      DUNE_DEPRECATED_MSG("Use the constructor taking a `MCMGLayout` functional instead")
-      : LevelMultipleCodimMultipleGeomTypeMapper(grid, level, Base::wrapLayoutClass(layout))
-    {}
 
     /**
      * \brief constructor
@@ -535,7 +451,23 @@ namespace Dune
      */
     LevelMultipleCodimMultipleGeomTypeMapper (const G& grid, int level, const MCMGLayout& layout)
       : Base(grid.levelGridView(level),layout)
+      , gridPtr_(&grid)
+      , level_(level)
     {}
+
+    /** @brief Recalculates indices after grid adaptation
+     *
+     * After grid adaptation you need to call this to update
+     * the stored gridview and recalculate the indices.
+     */
+    void update ()
+    {
+      Base::update(gridPtr_->levelGridView(level_));
+    }
+
+  private:
+    const G* gridPtr_;
+    int level_;
   };
 
   /** @} */

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: yaspgridgeometry.hh File Reference</title>
+<title>dune-grid: torus.hh File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -68,40 +68,51 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">yaspgridgeometry.hh File Reference</div>  </div>
+<div class="title">torus.hh File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>The YaspGeometry class and its specializations.  
+<p>This file provides the infrastructure for toroidal communication in YaspGrid.  
 <a href="#details">More...</a></p>
-
+<div class="textblock"><code>#include &lt;array&gt;</code><br />
+<code>#include &lt;bitset&gt;</code><br />
+<code>#include &lt;cmath&gt;</code><br />
+<code>#include &lt;deque&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;mpi.h&gt;</code><br />
+<code>#include &lt;dune/common/binaryfunctions.hh&gt;</code><br />
+<code>#include &lt;dune/common/streamoperators.hh&gt;</code><br />
+<code>#include &lt;<a class="el" href="a00251_source.html">dune/grid/common/exceptions.hh</a>&gt;</code><br />
+<code>#include &quot;<a class="el" href="a00167_source.html">partitioning.hh</a>&quot;</code><br />
+</div>
 <p><a href="a00182_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04146.html">Dune::YaspGeometry&lt; mydim, cdim, GridImp &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The general version that handles all codimensions but 0 and dim.  <a href="a04146.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04270.html">Dune::Torus&lt; CollectiveCommunication, d &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04306.html">Dune::YaspGeometry&lt; mydim, mydim, GridImp &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">specialize for dim=dimworld, i.e. a volume element  <a href="a04306.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04310.html">Dune::YaspGeometry&lt; 0, cdim, GridImp &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">specialization for dim=0, this is a vertex  <a href="a04310.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04282.html">Dune::Torus&lt; CollectiveCommunication, d &gt;::ProcListIterator</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:a00936"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00936.html">Dune</a></td></tr>
-<tr class="memdesc:a00936"><td class="mdescLeft">&#160;</td><td class="mdescRight">Include standard header files. <br /></td></tr>
+<tr class="memitem:a00940"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00940.html">Dune</a></td></tr>
+<tr class="memdesc:a00940"><td class="mdescLeft">&#160;</td><td class="mdescRight">Include standard header files. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:adbcd9c9928bb5c66940cd3e96486373c"><td class="memTemplParams" colspan="2">template&lt;class CollectiveCommunication , int d&gt; </td></tr>
+<tr class="memitem:adbcd9c9928bb5c66940cd3e96486373c"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00940.html#adbcd9c9928bb5c66940cd3e96486373c">Dune::operator&lt;&lt;</a> (std::ostream &amp;s, const Torus&lt; CollectiveCommunication, d &gt; &amp;t)</td></tr>
+<tr class="memdesc:adbcd9c9928bb5c66940cd3e96486373c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output operator for <a class="el" href="a04270.html">Torus</a>.  <a href="a00940.html#adbcd9c9928bb5c66940cd3e96486373c">More...</a><br /></td></tr>
+<tr class="separator:adbcd9c9928bb5c66940cd3e96486373c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The YaspGeometry class and its specializations. </p>
-<p>YaspGeometry realizes the concept of the geometric part of a mesh entity.</p>
-<p>We have specializations for dim == dimworld (elements) and dim == 0 (vertices). The general version implements all other codimensions.</p>
-<p>As of September 2014, the functionality of YaspGeometry is identical to that of AxisAlignedCubeGeometry. The latter cannot be used directly due to the grid interface facade construction (it isn't templated to the GridImp). As soon as template aliases are available, this header boils down to one line. </p>
+<div class="textblock"><p>This file provides the infrastructure for toroidal communication in YaspGrid. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

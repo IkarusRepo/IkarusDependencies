@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: Visualization ToolKit (VTK)</title>
+<title>dune-grid: GridFactory</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -63,56 +63,41 @@ $(function() {
 
 <div class="header">
   <div class="summary">
-<a href="#files">Files</a> &#124;
 <a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle">
-<div class="title">Visualization ToolKit (VTK)<div class="ingroups"><a class="el" href="a00902.html">dune-grid</a> &raquo; <a class="el" href="a00924.html">I/O</a></div></div>  </div>
+<div class="title">GridFactory<div class="ingroups"><a class="el" href="a00905.html">dune-grid</a> &raquo; <a class="el" href="a00928.html">I/O</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>An interface for the creation of macro grids, for use by grid file readers etc.  
+<a href="#details">More...</a></p>
 <div class="dynheader">
-Collaboration diagram for Visualization ToolKit (VTK):</div>
+Collaboration diagram for GridFactory:</div>
 <div class="dyncontent">
 <div class="center"><img src="a00929.png" border="0" usemap="#aa00929" alt=""/></div>
 <map name="aa00929" id="aa00929">
-<area shape="rect" title=" " alt="" coords="92,5,232,45"/>
-<area shape="rect" href="a00924.html" title=" " alt="" coords="5,13,44,38"/>
+<area shape="rect" href="a00928.html" title=" " alt="" coords="5,5,44,31"/>
+<area shape="rect" title="An interface for the creation of macro grids, for use by grid file readers etc." alt="" coords="92,5,183,31"/>
 </map>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="files"></a>
-Files</h2></td></tr>
-<tr class="memitem:a00782"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00782.html">boundaryiterators.hh</a></td></tr>
-<tr class="memdesc:a00782"><td class="mdescLeft">&#160;</td><td class="mdescRight">Functions for VTK output on the skeleton. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00812"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00812.html">skeletonfunction.hh</a></td></tr>
-<tr class="memdesc:a00812"><td class="mdescLeft">&#160;</td><td class="mdescRight">Functions for VTK output on the skeleton. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03782.html">Dune::VTKFunction&lt; GridView &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A base class for grid functions with any return type and dimension.  <a href="a03782.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02014.html">Dune::GridFactory&lt; AlbertaGrid&lt; dim, dimworld &gt; &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">specialization of the generic <a class="el" href="a02754.html" title="Provide a generic factory class for unstructured grids.">GridFactory</a> for <a class="el" href="a01774.html" title="[ provides Dune::Grid ]">AlbertaGrid</a>  <a href="a02014.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03786.html">Dune::P0VTKFunction&lt; GV, V &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Take a vector and interpret it as cell data for the <a class="el" href="a03898.html" title="Writer for the ouput of grid functions in the vtk format.">VTKWriter</a>.  <a href="a03786.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02746.html">Dune::GridFactoryInterface&lt; GridType &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provide a generic factory class for unstructured grids.  <a href="a02746.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03790.html">Dune::P1VTKFunction&lt; GV, V &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Take a vector and interpret it as point data for the <a class="el" href="a03898.html" title="Writer for the ouput of grid functions in the vtk format.">VTKWriter</a>.  <a href="a03790.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02754.html">Dune::GridFactory&lt; GridType &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provide a generic factory class for unstructured grids.  <a href="a02754.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03850.html">Dune::SubsamplingVTKWriter&lt; GridView &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writer for the output of subsampled grid functions in the vtk format.  <a href="a03850.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03870.html">Dune::VTKSequenceWriter&lt; GridView &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writer for the ouput of grid functions in the vtk format.  <a href="a03870.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03874.html">Dune::SubsamplingVTKSequenceWriter&lt; GridView &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writer for the ouput of grid functions in the vtk format.  <a href="a03874.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03898.html">Dune::VTKWriter&lt; GridView &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writer for the ouput of grid functions in the vtk format.  <a href="a03898.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03994.html">Dune::GridFactory&lt; UGGrid&lt; dimworld &gt; &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specialization of the generic <a class="el" href="a02754.html" title="Provide a generic factory class for unstructured grids.">GridFactory</a> for <a class="el" href="a03962.html" title="Front-end for the grid manager of the finite element toolbox UG3.">UGGrid</a>.  <a href="a03994.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>An interface for the creation of macro grids, for use by grid file readers etc. </p>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-common
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -78,104 +78,63 @@ $(function() {
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="a00161.html">mallocallocator.hh</a>&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;cstdlib&gt;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#if !(DUNE_HAVE_C_ALIGNED_ALLOC || (_POSIX_C_SOURCE &gt;= 200112L || _XOPEN_SOURCE &gt;= 600))</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">  #error Need either aligned_alloc() or posix_memalign() to compile AlignedAllocator</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="a00428.html">   10</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="a00428.html">Dune</a></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="a00428.html">   13</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="a00428.html">Dune</a></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class </span>T, <span class="keywordtype">int</span> Alignment = -1&gt;</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="a01272.html">   24</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a01272.html">AlignedAllocator</a> : <span class="keyword">public</span> <a class="code" href="a01900.html">MallocAllocator</a>&lt;T&gt; {</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#if !DUNE_HAVE_C_ALIGNED_ALLOC</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">     * posix_memalign() on macOS has pretty draconian restrictions on the</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">     * alignments that you may ask for: It has to be</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">     * 1) a power of 2</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">     * 2) at least as large as sizeof(void*)</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">     * So here is a little constexpr function that calculates just that</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">     * (together with the correct starting value for align fed in further down).</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">static</span> constexpr <span class="keywordtype">int</span> fixAlignment(<span class="keywordtype">int</span> align)</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;      <span class="keywordflow">return</span> ((Alignment==-1) ? std::alignment_of&lt;T&gt;::value : Alignment) &gt; align</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        ? fixAlignment(align &lt;&lt; 1) : align;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    }</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">     * Non-Apple platforms just have to check whether an explicit alignment was</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">     * restricted or fall back to the default alignment of T.</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">static</span> constexpr <span class="keywordtype">int</span> fixAlignment(<span class="keywordtype">int</span> align)</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      <span class="keywordflow">return</span> (Alignment==-1) ? std::alignment_of&lt;T&gt;::value : Alignment;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    }</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="a01272.html#a57f69930a746aaeeabcb894c293a101d">   58</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="a01272.html#a57f69930a746aaeeabcb894c293a101d">pointer</a> = <span class="keyword">typename</span> <a class="code" href="a01900.html#a1602721e262656858b3238da474046b5">MallocAllocator&lt;T&gt;::pointer</a>;</div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="a01272.html#a00199059d550932fe0e96124fff8042f">   59</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="a01272.html#a00199059d550932fe0e96124fff8042f">size_type</a> = <span class="keyword">typename</span> <a class="code" href="a01900.html#a4ad7a4e3301a2a80d24203ba42b334bb">MallocAllocator&lt;T&gt;::size_type</a>;</div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="a01276.html">   60</a></span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> U&gt; <span class="keyword">struct </span><a class="code" href="a01276.html">rebind</a> {</div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="a01276.html#a54ac4737293fe076302709983b9a8920">   61</a></span>&#160;      <span class="keyword">typedef</span> <a class="code" href="a01272.html">AlignedAllocator&lt;U,Alignment&gt;</a> <a class="code" href="a01276.html#a54ac4737293fe076302709983b9a8920">other</a>;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    };</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="a01272.html#a88a3488574a3f40fc04154021a361cd3">   64</a></span>&#160;    <span class="keyword">static</span> constexpr <span class="keywordtype">int</span> <a class="code" href="a01272.html#a88a3488574a3f40fc04154021a361cd3">alignment</a> = fixAlignment(<span class="keyword">sizeof</span>(<span class="keywordtype">void</span>*));</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="a01272.html#a44f1fdb0e71c96552035684d7a913688">   67</a></span>&#160;    <a class="code" href="a01272.html#a57f69930a746aaeeabcb894c293a101d">pointer</a> <a class="code" href="a01272.html#a44f1fdb0e71c96552035684d7a913688">allocate</a>(<a class="code" href="a01272.html#a00199059d550932fe0e96124fff8042f">size_type</a> n, <span class="keyword">const</span> <span class="keywordtype">void</span>* hint = 0)</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    {</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;      <a class="code" href="a00409.html#gabedfe90a62e9dfc989b8298fec44801b">DUNE_UNUSED_PARAMETER</a>(hint);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;      <span class="keywordflow">if</span> (n &gt; this-&gt;<a class="code" href="a01900.html#ae73000f492c7b45cd0a4236577eaf70f">max_size</a>())</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">throw</span> std::bad_alloc();</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">#if !DUNE_HAVE_C_ALIGNED_ALLOC</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;      <span class="comment">/*</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment">       * Apple&#39;s standard library doesn&#39;t have aligned_alloc() - C11 is still something</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment">       * from the future in Cupertino. Luckily, they got around to finally implementing</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment">       * posix_memalign(), so let&#39;s use that instead.</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment">       */</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;      <span class="keywordtype">void</span>* ret = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;      <span class="keywordflow">if</span> (posix_memalign(&amp;ret, <a class="code" href="a01272.html#a88a3488574a3f40fc04154021a361cd3">alignment</a>, n * <span class="keyword">sizeof</span>(T)) != 0)</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordflow">throw</span> std::bad_alloc();</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;      <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><a class="code" href="a01272.html#a57f69930a746aaeeabcb894c293a101d">pointer</a><span class="keyword">&gt;</span>(ret);</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;      <span class="comment">/*</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment">       * Everybody else gets the standard treatment.</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment">       */</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;      <a class="code" href="a01272.html#a57f69930a746aaeeabcb894c293a101d">pointer</a> ret = <span class="keyword">static_cast&lt;</span><a class="code" href="a01272.html#a57f69930a746aaeeabcb894c293a101d">pointer</a><span class="keyword">&gt;</span>(aligned_alloc(<a class="code" href="a01272.html#a88a3488574a3f40fc04154021a361cd3">alignment</a>, n * <span class="keyword">sizeof</span>(T)));</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;      <span class="keywordflow">if</span> (!ret)</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordflow">throw</span> std::bad_alloc();</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;      <span class="keywordflow">return</span> ret;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    }</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  };</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;}</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// DUNE_ALIGNED_ALLOCATOR_HH</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class </span>T, <span class="keywordtype">int</span> Alignment = -1&gt;</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="a01273.html">   21</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a01273.html">AlignedAllocator</a> : <span class="keyword">public</span> <a class="code" href="a01901.html">MallocAllocator</a>&lt;T&gt; {</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">     * Check whether an explicit alignment was</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">     * restricted or fall back to the default alignment of T.</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">static</span> constexpr <span class="keywordtype">int</span> fixAlignment(<span class="keywordtype">int</span> align)</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;      <span class="keywordflow">return</span> (Alignment==-1) ? std::alignment_of&lt;T&gt;::value : Alignment;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    }</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="a01273.html#a57f69930a746aaeeabcb894c293a101d">   33</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="a01273.html#a57f69930a746aaeeabcb894c293a101d">pointer</a> = <span class="keyword">typename</span> <a class="code" href="a01901.html#a1602721e262656858b3238da474046b5">MallocAllocator&lt;T&gt;::pointer</a>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="a01273.html#a00199059d550932fe0e96124fff8042f">   34</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="a01273.html#a00199059d550932fe0e96124fff8042f">size_type</a> = <span class="keyword">typename</span> <a class="code" href="a01901.html#a4ad7a4e3301a2a80d24203ba42b334bb">MallocAllocator&lt;T&gt;::size_type</a>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="a01277.html">   35</a></span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> U&gt; <span class="keyword">struct </span><a class="code" href="a01277.html">rebind</a> {</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="a01277.html#a54ac4737293fe076302709983b9a8920">   36</a></span>&#160;      <span class="keyword">typedef</span> <a class="code" href="a01273.html">AlignedAllocator&lt;U,Alignment&gt;</a> <a class="code" href="a01277.html#a54ac4737293fe076302709983b9a8920">other</a>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    };</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="a01273.html#a88a3488574a3f40fc04154021a361cd3">   39</a></span>&#160;    <span class="keyword">static</span> constexpr <span class="keywordtype">int</span> <a class="code" href="a01273.html#a88a3488574a3f40fc04154021a361cd3">alignment</a> = fixAlignment(<span class="keyword">sizeof</span>(<span class="keywordtype">void</span>*));</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="a01273.html#a1ff63af119efc33496f6bb91519ad86d">   42</a></span>&#160;    <a class="code" href="a01273.html#a57f69930a746aaeeabcb894c293a101d">pointer</a> <a class="code" href="a01273.html#a1ff63af119efc33496f6bb91519ad86d">allocate</a>(<a class="code" href="a01273.html#a00199059d550932fe0e96124fff8042f">size_type</a> n, [[maybe_unused]] <span class="keyword">const</span> <span class="keywordtype">void</span>* hint = 0)</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;      <span class="keywordflow">if</span> (n &gt; this-&gt;<a class="code" href="a01901.html#ae73000f492c7b45cd0a4236577eaf70f">max_size</a>())</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">throw</span> std::bad_alloc();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;      <span class="comment">/*</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">       * Everybody else gets the standard treatment.</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">       */</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;      <a class="code" href="a01273.html#a57f69930a746aaeeabcb894c293a101d">pointer</a> ret = <span class="keyword">static_cast&lt;</span><a class="code" href="a01273.html#a57f69930a746aaeeabcb894c293a101d">pointer</a><span class="keyword">&gt;</span>(std::aligned_alloc(<a class="code" href="a01273.html#a88a3488574a3f40fc04154021a361cd3">alignment</a>, n * <span class="keyword">sizeof</span>(T)));</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;      <span class="keywordflow">if</span> (!ret)</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordflow">throw</span> std::bad_alloc();</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      <span class="keywordflow">return</span> ret;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    }</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  };</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// DUNE_ALIGNED_ALLOCATOR_HH</span></div>
 <div class="ttc" id="aa00161_html"><div class="ttname"><a href="a00161.html">mallocallocator.hh</a></div><div class="ttdoc">Allocators that use malloc/free.</div></div>
-<div class="ttc" id="aa00409_html_gabedfe90a62e9dfc989b8298fec44801b"><div class="ttname"><a href="a00409.html#gabedfe90a62e9dfc989b8298fec44801b">DUNE_UNUSED_PARAMETER</a></div><div class="ttdeci">#define DUNE_UNUSED_PARAMETER(parm)</div><div class="ttdoc">A macro to mark intentionally unused function parameters with.</div><div class="ttdef"><b>Definition:</b> unused.hh:25</div></div>
-<div class="ttc" id="aa00428_html"><div class="ttname"><a href="a00428.html">Dune</a></div><div class="ttdoc">Dune namespace.</div><div class="ttdef"><b>Definition:</b> alignedallocator.hh:14</div></div>
-<div class="ttc" id="aa01272_html"><div class="ttname"><a href="a01272.html">Dune::AlignedAllocator</a></div><div class="ttdoc">Allocators which guarantee alignment of the memory.</div><div class="ttdef"><b>Definition:</b> alignedallocator.hh:24</div></div>
-<div class="ttc" id="aa01272_html_a00199059d550932fe0e96124fff8042f"><div class="ttname"><a href="a01272.html#a00199059d550932fe0e96124fff8042f">Dune::AlignedAllocator::size_type</a></div><div class="ttdeci">typename MallocAllocator&lt; T &gt;::size_type size_type</div><div class="ttdef"><b>Definition:</b> alignedallocator.hh:59</div></div>
-<div class="ttc" id="aa01272_html_a44f1fdb0e71c96552035684d7a913688"><div class="ttname"><a href="a01272.html#a44f1fdb0e71c96552035684d7a913688">Dune::AlignedAllocator::allocate</a></div><div class="ttdeci">pointer allocate(size_type n, const void *hint=0)</div><div class="ttdoc">allocate n objects of type T</div><div class="ttdef"><b>Definition:</b> alignedallocator.hh:67</div></div>
-<div class="ttc" id="aa01272_html_a57f69930a746aaeeabcb894c293a101d"><div class="ttname"><a href="a01272.html#a57f69930a746aaeeabcb894c293a101d">Dune::AlignedAllocator::pointer</a></div><div class="ttdeci">typename MallocAllocator&lt; T &gt;::pointer pointer</div><div class="ttdef"><b>Definition:</b> alignedallocator.hh:58</div></div>
-<div class="ttc" id="aa01272_html_a88a3488574a3f40fc04154021a361cd3"><div class="ttname"><a href="a01272.html#a88a3488574a3f40fc04154021a361cd3">Dune::AlignedAllocator::alignment</a></div><div class="ttdeci">static constexpr int alignment</div><div class="ttdef"><b>Definition:</b> alignedallocator.hh:64</div></div>
-<div class="ttc" id="aa01276_html"><div class="ttname"><a href="a01276.html">Dune::AlignedAllocator::rebind</a></div><div class="ttdef"><b>Definition:</b> alignedallocator.hh:60</div></div>
-<div class="ttc" id="aa01276_html_a54ac4737293fe076302709983b9a8920"><div class="ttname"><a href="a01276.html#a54ac4737293fe076302709983b9a8920">Dune::AlignedAllocator::rebind::other</a></div><div class="ttdeci">AlignedAllocator&lt; U, Alignment &gt; other</div><div class="ttdef"><b>Definition:</b> alignedallocator.hh:61</div></div>
-<div class="ttc" id="aa01900_html"><div class="ttname"><a href="a01900.html">Dune::MallocAllocator</a></div><div class="ttdoc">Allocators implementation which simply calls malloc/free.</div><div class="ttdef"><b>Definition:</b> mallocallocator.hh:23</div></div>
-<div class="ttc" id="aa01900_html_a1602721e262656858b3238da474046b5"><div class="ttname"><a href="a01900.html#a1602721e262656858b3238da474046b5">Dune::MallocAllocator::pointer</a></div><div class="ttdeci">T * pointer</div><div class="ttdef"><b>Definition:</b> mallocallocator.hh:27</div></div>
-<div class="ttc" id="aa01900_html_a4ad7a4e3301a2a80d24203ba42b334bb"><div class="ttname"><a href="a01900.html#a4ad7a4e3301a2a80d24203ba42b334bb">Dune::MallocAllocator::size_type</a></div><div class="ttdeci">std::size_t size_type</div><div class="ttdef"><b>Definition:</b> mallocallocator.hh:25</div></div>
-<div class="ttc" id="aa01900_html_ae73000f492c7b45cd0a4236577eaf70f"><div class="ttname"><a href="a01900.html#ae73000f492c7b45cd0a4236577eaf70f">Dune::MallocAllocator::max_size</a></div><div class="ttdeci">size_type max_size() const noexcept</div><div class="ttdoc">max size for allocate</div><div class="ttdef"><b>Definition:</b> mallocallocator.hh:75</div></div>
+<div class="ttc" id="aa00428_html"><div class="ttname"><a href="a00428.html">Dune</a></div><div class="ttdoc">Dune namespace.</div><div class="ttdef"><b>Definition:</b> alignedallocator.hh:11</div></div>
+<div class="ttc" id="aa01273_html"><div class="ttname"><a href="a01273.html">Dune::AlignedAllocator</a></div><div class="ttdoc">Allocators which guarantee alignment of the memory.</div><div class="ttdef"><b>Definition:</b> alignedallocator.hh:21</div></div>
+<div class="ttc" id="aa01273_html_a00199059d550932fe0e96124fff8042f"><div class="ttname"><a href="a01273.html#a00199059d550932fe0e96124fff8042f">Dune::AlignedAllocator::size_type</a></div><div class="ttdeci">typename MallocAllocator&lt; T &gt;::size_type size_type</div><div class="ttdef"><b>Definition:</b> alignedallocator.hh:34</div></div>
+<div class="ttc" id="aa01273_html_a1ff63af119efc33496f6bb91519ad86d"><div class="ttname"><a href="a01273.html#a1ff63af119efc33496f6bb91519ad86d">Dune::AlignedAllocator::allocate</a></div><div class="ttdeci">pointer allocate(size_type n, [[maybe_unused]] const void *hint=0)</div><div class="ttdoc">allocate n objects of type T</div><div class="ttdef"><b>Definition:</b> alignedallocator.hh:42</div></div>
+<div class="ttc" id="aa01273_html_a57f69930a746aaeeabcb894c293a101d"><div class="ttname"><a href="a01273.html#a57f69930a746aaeeabcb894c293a101d">Dune::AlignedAllocator::pointer</a></div><div class="ttdeci">typename MallocAllocator&lt; T &gt;::pointer pointer</div><div class="ttdef"><b>Definition:</b> alignedallocator.hh:33</div></div>
+<div class="ttc" id="aa01273_html_a88a3488574a3f40fc04154021a361cd3"><div class="ttname"><a href="a01273.html#a88a3488574a3f40fc04154021a361cd3">Dune::AlignedAllocator::alignment</a></div><div class="ttdeci">static constexpr int alignment</div><div class="ttdef"><b>Definition:</b> alignedallocator.hh:39</div></div>
+<div class="ttc" id="aa01277_html"><div class="ttname"><a href="a01277.html">Dune::AlignedAllocator::rebind</a></div><div class="ttdef"><b>Definition:</b> alignedallocator.hh:35</div></div>
+<div class="ttc" id="aa01277_html_a54ac4737293fe076302709983b9a8920"><div class="ttname"><a href="a01277.html#a54ac4737293fe076302709983b9a8920">Dune::AlignedAllocator::rebind::other</a></div><div class="ttdeci">AlignedAllocator&lt; U, Alignment &gt; other</div><div class="ttdef"><b>Definition:</b> alignedallocator.hh:36</div></div>
+<div class="ttc" id="aa01901_html"><div class="ttname"><a href="a01901.html">Dune::MallocAllocator</a></div><div class="ttdoc">Allocators implementation which simply calls malloc/free.</div><div class="ttdef"><b>Definition:</b> mallocallocator.hh:22</div></div>
+<div class="ttc" id="aa01901_html_a1602721e262656858b3238da474046b5"><div class="ttname"><a href="a01901.html#a1602721e262656858b3238da474046b5">Dune::MallocAllocator::pointer</a></div><div class="ttdeci">T * pointer</div><div class="ttdef"><b>Definition:</b> mallocallocator.hh:26</div></div>
+<div class="ttc" id="aa01901_html_a4ad7a4e3301a2a80d24203ba42b334bb"><div class="ttname"><a href="a01901.html#a4ad7a4e3301a2a80d24203ba42b334bb">Dune::MallocAllocator::size_type</a></div><div class="ttdeci">std::size_t size_type</div><div class="ttdef"><b>Definition:</b> mallocallocator.hh:24</div></div>
+<div class="ttc" id="aa01901_html_ae73000f492c7b45cd0a4236577eaf70f"><div class="ttname"><a href="a01901.html#ae73000f492c7b45cd0a4236577eaf70f">Dune::MallocAllocator::max_size</a></div><div class="ttdeci">size_type max_size() const noexcept</div><div class="ttdoc">max size for allocate</div><div class="ttdef"><b>Definition:</b> mallocallocator.hh:72</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

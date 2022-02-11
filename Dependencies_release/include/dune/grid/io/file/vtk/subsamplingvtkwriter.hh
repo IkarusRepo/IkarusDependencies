@@ -82,26 +82,9 @@ namespace Dune
         , intervals(intervals_), coerceToSimplex(coerceToSimplex_)
     {
       if(intervals_.intervals() < 1) {
-        DUNE_THROW(Dune::IOError,"SubsamplingVTKWriter: Negative Subsampling " << intervals_.intervals() << " must not be used!");
+        DUNE_THROW(Dune::IOError,"SubsamplingVTKWriter: Refinement intervals must be larger than zero! (One interval means no subsampling)");
       }
     }
-    /**
-     * @brief Construct a SubsamplingVTKWriter working on a specific GridView.
-     *
-     * @param gridView         The gridView the grid functions live
-     *                         on. (E. g. a LevelGridView.)
-     * @param level_           The level for the subrefinement.
-     * @param coerceToSimplex_ Set this to true to always triangulate elements
-     *                         into simplices, even where it's not necessary
-     *                         (i.e. for hypercubes).
-     *
-     * The datamode is always nonconforming.
-     */
-    DUNE_DEPRECATED_MSG("SubsampligVTKWriter(GV,int,bool) is deprecated, use SubsamplingVTKWriter(GV,Dune::refinement{Intervals|Levels}(int),bool)")
-    explicit SubsamplingVTKWriter (const GridView &gridView,
-                                   int level_,  bool coerceToSimplex_ = false)
-        : SubsamplingVTKWriter(gridView, Dune::refinementIntervals(1<<level_), coerceToSimplex_)
-    { }
 
   private:
     GeometryType subsampledGeometryType(GeometryType geometryType)
@@ -186,7 +169,7 @@ namespace Dune
 
   protected:
     //! count the vertices, cells and corners
-    virtual void countEntities(int &nvertices, int &ncells, int &ncorners);
+    virtual void countEntities(int &nvertices_, int &ncells_, int &ncorners_);
 
     //! write cell data
     virtual void writeCellData(VTK::VTUWriter& writer);
@@ -219,18 +202,18 @@ namespace Dune
 
   //! count the vertices, cells and corners
   template <class GridView>
-  void SubsamplingVTKWriter<GridView>::countEntities(int &nvertices, int &ncells, int &ncorners)
+  void SubsamplingVTKWriter<GridView>::countEntities(int &nvertices_, int &ncells_, int &ncorners_)
   {
-    nvertices = 0;
-    ncells = 0;
-    ncorners = 0;
+    nvertices_ = 0;
+    ncells_ = 0;
+    ncorners_ = 0;
     for (CellIterator it=this->cellBegin(); it!=cellEnd(); ++it)
     {
       Refinement &refinement = buildRefinement<dim, ctype>(it->type(), subsampledGeometryType(it->type()));
 
-      ncells += refinement.nElements(intervals);
-      nvertices += refinement.nVertices(intervals);
-      ncorners += refinement.nElements(intervals) * refinement.eBegin(intervals).vertexIndices().size();
+      ncells_ += refinement.nElements(intervals);
+      nvertices_ += refinement.nVertices(intervals);
+      ncorners_ += refinement.nElements(intervals) * refinement.eBegin(intervals).vertexIndices().size();
     }
   }
 

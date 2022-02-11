@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: Dune::AlbertaGridLocalGeometryProvider&lt; Grid &gt;::Codim&lt; codim &gt; Struct Template Reference</title>
+<title>dune-grid: Dune::AlbertaGridLocalGeometryProvider&lt; Grid &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,46 +62,370 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00936.html">Dune</a></li><li class="navelem"><a class="el" href="a01986.html">AlbertaGridLocalGeometryProvider</a></li><li class="navelem"><a class="el" href="a01990.html">Codim</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00940.html">Dune</a></li><li class="navelem"><a class="el" href="a01990.html">AlbertaGridLocalGeometryProvider</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="a01987.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::AlbertaGridLocalGeometryProvider&lt; Grid &gt;::Codim&lt; codim &gt; Struct Template Reference</div>  </div>
+<div class="title">Dune::AlbertaGridLocalGeometryProvider&lt; Grid &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="a06788_source.html">dune/grid/albertagrid/geometry.hh</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a06693_source.html">dune/grid/albertagrid/geometry.hh</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01994.html">Codim</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01970.html">FaceCoordReader</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01966.html">GeoInFatherCoordReader</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a402a8cf518b7b84d52eac52400add562"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a01974.html">AlbertaGridGeometry</a>&lt; <a class="el" href="a01986.html#ac7608c20553a437b9c2969379568646d">dimension</a>-codim, <a class="el" href="a01986.html#ac7608c20553a437b9c2969379568646d">dimension</a>, <a class="el" href="a02698.html">Grid</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01990.html#a402a8cf518b7b84d52eac52400add562">LocalGeometry</a></td></tr>
-<tr class="separator:a402a8cf518b7b84d52eac52400add562"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a633b4c9fc07a2d1133f5f34391a88ca6"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a02710.html#af10850d580532530ec127817a2a28c38">Grid::ctype</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01990.html#a633b4c9fc07a2d1133f5f34391a88ca6">ctype</a></td></tr>
+<tr class="separator:a633b4c9fc07a2d1133f5f34391a88ca6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaaa64ebd6e8245beac7249e1f6bcdfdc"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a01994.html">Codim</a>&lt; 0 &gt;::LocalGeometry&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01990.html#aaaa64ebd6e8245beac7249e1f6bcdfdc">LocalElementGeometry</a></td></tr>
+<tr class="separator:aaaa64ebd6e8245beac7249e1f6bcdfdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9931d41c646df33e29e81d2a7c068d8f"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a01994.html">Codim</a>&lt; 1 &gt;::LocalGeometry&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01990.html#a9931d41c646df33e29e81d2a7c068d8f">LocalFaceGeometry</a></td></tr>
+<tr class="separator:a9931d41c646df33e29e81d2a7c068d8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:afbe12c95dbc2b3f45d0cc27dcc855e17"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a01990.html#aaaa64ebd6e8245beac7249e1f6bcdfdc">LocalElementGeometry</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01990.html#afbe12c95dbc2b3f45d0cc27dcc855e17">geometryInFather</a> (int child, const int orientation=1) const</td></tr>
+<tr class="separator:afbe12c95dbc2b3f45d0cc27dcc855e17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a081574f5b75ad58fd388c1ff2fd300b1"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a01990.html#a9931d41c646df33e29e81d2a7c068d8f">LocalFaceGeometry</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01990.html#a081574f5b75ad58fd388c1ff2fd300b1">faceGeometry</a> (int face, int twist=0) const</td></tr>
+<tr class="separator:a081574f5b75ad58fd388c1ff2fd300b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:acb81494fadab9a0ef14b5ab03d5fee5e"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a01990.html">This</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01990.html#acb81494fadab9a0ef14b5ab03d5fee5e">instance</a> ()</td></tr>
+<tr class="separator:acb81494fadab9a0ef14b5ab03d5fee5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:ac7608c20553a437b9c2969379568646d"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01990.html#ac7608c20553a437b9c2969379568646d">dimension</a> = Grid::dimension</td></tr>
+<tr class="separator:ac7608c20553a437b9c2969379568646d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadb13dc0d17ff09181745d58cd09d7e2"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01990.html#aadb13dc0d17ff09181745d58cd09d7e2">numChildren</a> = 2</td></tr>
+<tr class="separator:aadb13dc0d17ff09181745d58cd09d7e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91a7522a1c1ae7b2bdcdce18a3e8e0d7"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01990.html#a91a7522a1c1ae7b2bdcdce18a3e8e0d7">numFaces</a> = <a class="el" href="a01990.html#ac7608c20553a437b9c2969379568646d">dimension</a> + 1</td></tr>
+<tr class="separator:a91a7522a1c1ae7b2bdcdce18a3e8e0d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a714ab44c030b293549ac46e4e600d784"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01990.html#a714ab44c030b293549ac46e4e600d784">minFaceTwist</a> = <a class="el" href="a02334.html">Alberta::Twist</a>&lt; <a class="el" href="a01990.html#ac7608c20553a437b9c2969379568646d">dimension</a>, <a class="el" href="a01990.html#ac7608c20553a437b9c2969379568646d">dimension</a>-1 &gt;::minTwist</td></tr>
+<tr class="separator:a714ab44c030b293549ac46e4e600d784"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac747a88b800e083b11e7d6b4c0f781af"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01990.html#ac747a88b800e083b11e7d6b4c0f781af">maxFaceTwist</a> = <a class="el" href="a02334.html">Alberta::Twist</a>&lt; <a class="el" href="a01990.html#ac7608c20553a437b9c2969379568646d">dimension</a>, <a class="el" href="a01990.html#ac7608c20553a437b9c2969379568646d">dimension</a>-1 &gt;::maxTwist</td></tr>
+<tr class="separator:ac747a88b800e083b11e7d6b4c0f781af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33f4cfbf4280c6ac4cc4ca9db974d51f"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01990.html#a33f4cfbf4280c6ac4cc4ca9db974d51f">numFaceTwists</a> = <a class="el" href="a01990.html#ac747a88b800e083b11e7d6b4c0f781af">maxFaceTwist</a> - <a class="el" href="a01990.html#a714ab44c030b293549ac46e4e600d784">minFaceTwist</a> + 1</td></tr>
+<tr class="separator:a33f4cfbf4280c6ac4cc4ca9db974d51f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a402a8cf518b7b84d52eac52400add562"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a402a8cf518b7b84d52eac52400add562">&#9670;&nbsp;</a></span>LocalGeometry</h2>
+<a id="a633b4c9fc07a2d1133f5f34391a88ca6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a633b4c9fc07a2d1133f5f34391a88ca6">&#9670;&nbsp;</a></span>ctype</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class Grid &gt; </div>
-<div class="memtemplate">
-template&lt;int codim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="a01974.html">AlbertaGridGeometry</a>&lt; <a class="el" href="a01986.html#ac7608c20553a437b9c2969379568646d">dimension</a>-codim, <a class="el" href="a01986.html#ac7608c20553a437b9c2969379568646d">dimension</a>, <a class="el" href="a02698.html">Grid</a> &gt; <a class="el" href="a01986.html">Dune::AlbertaGridLocalGeometryProvider</a>&lt; <a class="el" href="a02698.html">Grid</a> &gt;::<a class="el" href="a01990.html">Codim</a>&lt; codim &gt;::<a class="el" href="a01990.html#a402a8cf518b7b84d52eac52400add562">LocalGeometry</a></td>
+          <td class="memname">typedef <a class="el" href="a02710.html#af10850d580532530ec127817a2a28c38">Grid::ctype</a> <a class="el" href="a01990.html">Dune::AlbertaGridLocalGeometryProvider</a>&lt; <a class="el" href="a02710.html">Grid</a> &gt;::<a class="el" href="a01990.html#a633b4c9fc07a2d1133f5f34391a88ca6">ctype</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="a06788_source.html">albertagrid/geometry.hh</a></li>
+<a id="aaaa64ebd6e8245beac7249e1f6bcdfdc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaaa64ebd6e8245beac7249e1f6bcdfdc">&#9670;&nbsp;</a></span>LocalElementGeometry</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Grid &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="a01994.html">Codim</a>&lt; 0 &gt;::LocalGeometry <a class="el" href="a01990.html">Dune::AlbertaGridLocalGeometryProvider</a>&lt; <a class="el" href="a02710.html">Grid</a> &gt;::<a class="el" href="a01990.html#aaaa64ebd6e8245beac7249e1f6bcdfdc">LocalElementGeometry</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9931d41c646df33e29e81d2a7c068d8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9931d41c646df33e29e81d2a7c068d8f">&#9670;&nbsp;</a></span>LocalFaceGeometry</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Grid &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="a01994.html">Codim</a>&lt; 1 &gt;::LocalGeometry <a class="el" href="a01990.html">Dune::AlbertaGridLocalGeometryProvider</a>&lt; <a class="el" href="a02710.html">Grid</a> &gt;::<a class="el" href="a01990.html#a9931d41c646df33e29e81d2a7c068d8f">LocalFaceGeometry</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a081574f5b75ad58fd388c1ff2fd300b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a081574f5b75ad58fd388c1ff2fd300b1">&#9670;&nbsp;</a></span>faceGeometry()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Grid &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a01990.html#a9931d41c646df33e29e81d2a7c068d8f">LocalFaceGeometry</a>&amp; <a class="el" href="a01990.html">Dune::AlbertaGridLocalGeometryProvider</a>&lt; <a class="el" href="a02710.html">Grid</a> &gt;::faceGeometry </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>face</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>twist</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afbe12c95dbc2b3f45d0cc27dcc855e17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afbe12c95dbc2b3f45d0cc27dcc855e17">&#9670;&nbsp;</a></span>geometryInFather()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Grid &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a01990.html#aaaa64ebd6e8245beac7249e1f6bcdfdc">LocalElementGeometry</a>&amp; <a class="el" href="a01990.html">Dune::AlbertaGridLocalGeometryProvider</a>&lt; <a class="el" href="a02710.html">Grid</a> &gt;::geometryInFather </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>child</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>orientation</em> = <code>1</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acb81494fadab9a0ef14b5ab03d5fee5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb81494fadab9a0ef14b5ab03d5fee5e">&#9670;&nbsp;</a></span>instance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Grid &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static const <a class="el" href="a01990.html">This</a>&amp; <a class="el" href="a01990.html">Dune::AlbertaGridLocalGeometryProvider</a>&lt; <a class="el" href="a02710.html">Grid</a> &gt;::instance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ac7608c20553a437b9c2969379568646d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7608c20553a437b9c2969379568646d">&#9670;&nbsp;</a></span>dimension</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Grid &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int <a class="el" href="a01990.html">Dune::AlbertaGridLocalGeometryProvider</a>&lt; <a class="el" href="a02710.html">Grid</a> &gt;::dimension = Grid::dimension</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac747a88b800e083b11e7d6b4c0f781af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac747a88b800e083b11e7d6b4c0f781af">&#9670;&nbsp;</a></span>maxFaceTwist</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Grid &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int <a class="el" href="a01990.html">Dune::AlbertaGridLocalGeometryProvider</a>&lt; <a class="el" href="a02710.html">Grid</a> &gt;::maxFaceTwist = <a class="el" href="a02334.html">Alberta::Twist</a>&lt; <a class="el" href="a01990.html#ac7608c20553a437b9c2969379568646d">dimension</a>, <a class="el" href="a01990.html#ac7608c20553a437b9c2969379568646d">dimension</a>-1 &gt;::maxTwist</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a714ab44c030b293549ac46e4e600d784"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a714ab44c030b293549ac46e4e600d784">&#9670;&nbsp;</a></span>minFaceTwist</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Grid &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int <a class="el" href="a01990.html">Dune::AlbertaGridLocalGeometryProvider</a>&lt; <a class="el" href="a02710.html">Grid</a> &gt;::minFaceTwist = <a class="el" href="a02334.html">Alberta::Twist</a>&lt; <a class="el" href="a01990.html#ac7608c20553a437b9c2969379568646d">dimension</a>, <a class="el" href="a01990.html#ac7608c20553a437b9c2969379568646d">dimension</a>-1 &gt;::minTwist</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aadb13dc0d17ff09181745d58cd09d7e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadb13dc0d17ff09181745d58cd09d7e2">&#9670;&nbsp;</a></span>numChildren</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Grid &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int <a class="el" href="a01990.html">Dune::AlbertaGridLocalGeometryProvider</a>&lt; <a class="el" href="a02710.html">Grid</a> &gt;::numChildren = 2</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a91a7522a1c1ae7b2bdcdce18a3e8e0d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91a7522a1c1ae7b2bdcdce18a3e8e0d7">&#9670;&nbsp;</a></span>numFaces</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Grid &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int <a class="el" href="a01990.html">Dune::AlbertaGridLocalGeometryProvider</a>&lt; <a class="el" href="a02710.html">Grid</a> &gt;::numFaces = <a class="el" href="a01990.html#ac7608c20553a437b9c2969379568646d">dimension</a> + 1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a33f4cfbf4280c6ac4cc4ca9db974d51f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33f4cfbf4280c6ac4cc4ca9db974d51f">&#9670;&nbsp;</a></span>numFaceTwists</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Grid &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int <a class="el" href="a01990.html">Dune::AlbertaGridLocalGeometryProvider</a>&lt; <a class="el" href="a02710.html">Grid</a> &gt;::numFaceTwists = <a class="el" href="a01990.html#ac747a88b800e083b11e7d6b4c0f781af">maxFaceTwist</a> - <a class="el" href="a01990.html#a714ab44c030b293549ac46e4e600d784">minFaceTwist</a> + 1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="a06693_source.html">albertagrid/geometry.hh</a></li>
+<li><a class="el" href="a00515.html">geometry.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

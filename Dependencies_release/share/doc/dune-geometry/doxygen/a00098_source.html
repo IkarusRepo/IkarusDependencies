@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-geometry
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -81,52 +81,52 @@ $(function() {
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;dune/common/fvector.hh&gt;</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;dune/common/fmatrix.hh&gt;</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;dune/common/diagonalmatrix.hh&gt;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;dune/common/unused.hh&gt;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00122.html">dune/geometry/referenceelements.hh</a>&gt;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00149.html">dune/geometry/type.hh</a>&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00125.html">dune/geometry/referenceelements.hh</a>&gt;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00152.html">dune/geometry/type.hh</a>&gt;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00177.html">Dune</a> {</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">class</span> CoordType, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> dim, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> coorddim&gt;</div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="a01025.html">   48</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a01025.html">AxisAlignedCubeGeometry</a></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00179.html">Dune</a> {</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">class</span> CoordType, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> dim, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> coorddim&gt;</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="a01028.html">   47</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a01028.html">AxisAlignedCubeGeometry</a></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="a01025.html#a3b1c72e4f4f6505ae5105e538aefa6cdaaf184d21ea700fa76e77281d2fa847e5">   55</a></span>&#160;    <span class="keyword">enum</span> {<a class="code" href="a01025.html#a3b1c72e4f4f6505ae5105e538aefa6cdaaf184d21ea700fa76e77281d2fa847e5">mydimension</a> = dim};</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="a01025.html#a93ab23a3b110e97c2bd9a3db8cf116e2a5f83a727631348d690467d52aeb6f7ec">   58</a></span>&#160;    <span class="keyword">enum</span> {<a class="code" href="a01025.html#a93ab23a3b110e97c2bd9a3db8cf116e2a5f83a727631348d690467d52aeb6f7ec">coorddimension</a> = coorddim};</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="a01025.html#a81c4e2db01fa9110b7589ddcbcba56fe">   61</a></span>&#160;    <span class="keyword">typedef</span> CoordType <a class="code" href="a01025.html#a81c4e2db01fa9110b7589ddcbcba56fe">ctype</a>;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="a01025.html#a3cc835b7d048ee36b8a82c76f7831b84">   64</a></span>&#160;    <span class="keyword">typedef</span> FieldVector&lt;ctype,dim&gt; <a class="code" href="a01025.html#a3cc835b7d048ee36b8a82c76f7831b84">LocalCoordinate</a>;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="a01025.html#a71d098bffa1d31ab450bd91720753d80">   67</a></span>&#160;    <span class="keyword">typedef</span> FieldVector&lt;ctype,coorddim&gt; <a class="code" href="a01025.html#a71d098bffa1d31ab450bd91720753d80">GlobalCoordinate</a>;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="a01025.html#a36fc1d628b0b0dd16aa01312ee5062e5">   70</a></span>&#160;    <span class="keyword">typedef</span> <a class="code" href="a01025.html#a81c4e2db01fa9110b7589ddcbcba56fe">ctype</a> <a class="code" href="a01025.html#a36fc1d628b0b0dd16aa01312ee5062e5">Volume</a>;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> std::conditional&lt;dim==coorddim,</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        DiagonalMatrix&lt;ctype,dim&gt;,</div>
-<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="a01025.html#a9ee10abff52c08e296234130478a35d6">   80</a></span>&#160;        FieldMatrix&lt;ctype,dim,coorddim&gt; &gt;<a class="code" href="a01025.html#a9f91116563201a48bf040fb3e9093bb6">::type</a> <a class="code" href="a01025.html#a9ee10abff52c08e296234130478a35d6">JacobianTransposed</a>;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> std::conditional&lt;dim==coorddim,</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        DiagonalMatrix&lt;ctype,dim&gt;,</div>
-<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="a01025.html#ad92f8fdd328edb11984837b960b0c71b">   90</a></span>&#160;        FieldMatrix&lt;ctype,coorddim,dim&gt; &gt;<a class="code" href="a01025.html#a9f91116563201a48bf040fb3e9093bb6">::type</a> <a class="code" href="a01025.html#ad92f8fdd328edb11984837b960b0c71b">JacobianInverseTransposed</a>;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="a01025.html#a0c3fe3e4049f882dc1b0f6e371bbee29">   96</a></span>&#160;    <a class="code" href="a01025.html#a0c3fe3e4049f882dc1b0f6e371bbee29">AxisAlignedCubeGeometry</a>(<span class="keyword">const</span> Dune::FieldVector&lt;ctype,coorddim&gt; lower,</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                            <span class="keyword">const</span> Dune::FieldVector&lt;ctype,coorddim&gt; upper)</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;      : lower_(lower),</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        upper_(upper),</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        axes_()</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="a01028.html#a3b1c72e4f4f6505ae5105e538aefa6cdaaf184d21ea700fa76e77281d2fa847e5">   54</a></span>&#160;    <span class="keyword">enum</span> {<a class="code" href="a01028.html#a3b1c72e4f4f6505ae5105e538aefa6cdaaf184d21ea700fa76e77281d2fa847e5">mydimension</a> = dim};</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="a01028.html#a93ab23a3b110e97c2bd9a3db8cf116e2a5f83a727631348d690467d52aeb6f7ec">   57</a></span>&#160;    <span class="keyword">enum</span> {<a class="code" href="a01028.html#a93ab23a3b110e97c2bd9a3db8cf116e2a5f83a727631348d690467d52aeb6f7ec">coorddimension</a> = coorddim};</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="a01028.html#a81c4e2db01fa9110b7589ddcbcba56fe">   60</a></span>&#160;    <span class="keyword">typedef</span> CoordType <a class="code" href="a01028.html#a81c4e2db01fa9110b7589ddcbcba56fe">ctype</a>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="a01028.html#a3cc835b7d048ee36b8a82c76f7831b84">   63</a></span>&#160;    <span class="keyword">typedef</span> FieldVector&lt;ctype,dim&gt; <a class="code" href="a01028.html#a3cc835b7d048ee36b8a82c76f7831b84">LocalCoordinate</a>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="a01028.html#a71d098bffa1d31ab450bd91720753d80">   66</a></span>&#160;    <span class="keyword">typedef</span> FieldVector&lt;ctype,coorddim&gt; <a class="code" href="a01028.html#a71d098bffa1d31ab450bd91720753d80">GlobalCoordinate</a>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="a01028.html#a36fc1d628b0b0dd16aa01312ee5062e5">   69</a></span>&#160;    <span class="keyword">typedef</span> <a class="code" href="a01028.html#a81c4e2db01fa9110b7589ddcbcba56fe">ctype</a> <a class="code" href="a01028.html#a36fc1d628b0b0dd16aa01312ee5062e5">Volume</a>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> std::conditional&lt;dim==coorddim,</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        DiagonalMatrix&lt;ctype,dim&gt;,</div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="a01028.html#a9ee10abff52c08e296234130478a35d6">   79</a></span>&#160;        FieldMatrix&lt;ctype,dim,coorddim&gt; &gt;<a class="code" href="a01028.html#a9f91116563201a48bf040fb3e9093bb6">::type</a> <a class="code" href="a01028.html#a9ee10abff52c08e296234130478a35d6">JacobianTransposed</a>;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> std::conditional&lt;dim==coorddim,</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        DiagonalMatrix&lt;ctype,dim&gt;,</div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="a01028.html#ad92f8fdd328edb11984837b960b0c71b">   89</a></span>&#160;        FieldMatrix&lt;ctype,coorddim,dim&gt; &gt;<a class="code" href="a01028.html#a9f91116563201a48bf040fb3e9093bb6">::type</a> <a class="code" href="a01028.html#ad92f8fdd328edb11984837b960b0c71b">JacobianInverseTransposed</a>;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="a01028.html#a0c3fe3e4049f882dc1b0f6e371bbee29">   95</a></span>&#160;    <a class="code" href="a01028.html#a0c3fe3e4049f882dc1b0f6e371bbee29">AxisAlignedCubeGeometry</a>(<span class="keyword">const</span> Dune::FieldVector&lt;ctype,coorddim&gt; lower,</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                            <span class="keyword">const</span> Dune::FieldVector&lt;ctype,coorddim&gt; upper)</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;      : lower_(lower),</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        upper_(upper),</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        axes_()</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    {</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;      static_assert(dim==coorddim, <span class="stringliteral">&quot;Use this constructor only if dim==coorddim!&quot;</span>);</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;      <span class="comment">// all &#39;true&#39;, but is never actually used</span></div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;      axes_ = (1&lt;&lt;coorddim)-1;</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    }</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
-<div class="line"><a name="l00113"></a><span class="lineno"><a class="line" href="a01025.html#a0ac822ada6e30c08cddc4ed4e110a63d">  113</a></span>&#160;    <a class="code" href="a01025.html#a0ac822ada6e30c08cddc4ed4e110a63d">AxisAlignedCubeGeometry</a>(<span class="keyword">const</span> Dune::FieldVector&lt;ctype,coorddim&gt; lower,</div>
+<div class="line"><a name="l00113"></a><span class="lineno"><a class="line" href="a01028.html#a0ac822ada6e30c08cddc4ed4e110a63d">  113</a></span>&#160;    <a class="code" href="a01028.html#a0ac822ada6e30c08cddc4ed4e110a63d">AxisAlignedCubeGeometry</a>(<span class="keyword">const</span> Dune::FieldVector&lt;ctype,coorddim&gt; lower,</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                            <span class="keyword">const</span> Dune::FieldVector&lt;ctype,coorddim&gt; upper,</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                            <span class="keyword">const</span> std::bitset&lt;coorddim&gt;&amp; axes)</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;      : lower_(lower),</div>
@@ -139,231 +139,222 @@ $(function() {
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;          upper_[i] = lower_[i];</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    }</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
-<div class="line"><a name="l00130"></a><span class="lineno"><a class="line" href="a01025.html#a17b0b0e087ef3f35e29895309b28db95">  130</a></span>&#160;    <a class="code" href="a01025.html#a17b0b0e087ef3f35e29895309b28db95">AxisAlignedCubeGeometry</a>(<span class="keyword">const</span> Dune::FieldVector&lt;ctype,coorddim&gt; lower)</div>
+<div class="line"><a name="l00130"></a><span class="lineno"><a class="line" href="a01028.html#a17b0b0e087ef3f35e29895309b28db95">  130</a></span>&#160;    <a class="code" href="a01028.html#a17b0b0e087ef3f35e29895309b28db95">AxisAlignedCubeGeometry</a>(<span class="keyword">const</span> Dune::FieldVector&lt;ctype,coorddim&gt; lower)</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;      : lower_(lower)</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    {}</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
-<div class="line"><a name="l00135"></a><span class="lineno"><a class="line" href="a01025.html#a61b7d92d2bf1e3c273bf9e6949d99a30">  135</a></span>&#160;    <a class="code" href="a01025.html">AxisAlignedCubeGeometry</a>&amp; <a class="code" href="a01025.html#a61b7d92d2bf1e3c273bf9e6949d99a30">operator=</a>(<span class="keyword">const</span> <a class="code" href="a01025.html">AxisAlignedCubeGeometry</a>&amp; other)</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    {</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;      lower_                     = other.lower_;</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;      upper_                     = other.upper_;</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;      axes_                      = other.axes_;</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;      <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    }</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
-<div class="line"><a name="l00144"></a><span class="lineno"><a class="line" href="a01025.html#a9f91116563201a48bf040fb3e9093bb6">  144</a></span>&#160;    <a class="code" href="a01409.html">GeometryType</a> <a class="code" href="a01025.html#a9f91116563201a48bf040fb3e9093bb6">type</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="a00167.html#ga4a393958522cde3dce5041f031899bdb">GeometryTypes::cube</a>(dim);</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    }</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; </div>
-<div class="line"><a name="l00150"></a><span class="lineno"><a class="line" href="a01025.html#af8b73bc9c38c47e185a2d0a1e0c666a7">  150</a></span>&#160;    <a class="code" href="a01025.html#a71d098bffa1d31ab450bd91720753d80">GlobalCoordinate</a> <a class="code" href="a01025.html#af8b73bc9c38c47e185a2d0a1e0c666a7">global</a>(<span class="keyword">const</span> <a class="code" href="a01025.html#a3cc835b7d048ee36b8a82c76f7831b84">LocalCoordinate</a>&amp; <a class="code" href="a01025.html#a779ee40aa6b43ea76bdca292992fede4">local</a>)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;      <a class="code" href="a01025.html#a71d098bffa1d31ab450bd91720753d80">GlobalCoordinate</a> result;</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;      <span class="keywordflow">if</span> (dim == coorddim) {        <span class="comment">// fast case</span></div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0; i&lt;coorddim; i++)</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;          result[i] = lower_[i] + <a class="code" href="a01025.html#a779ee40aa6b43ea76bdca292992fede4">local</a>[i]*(upper_[i] - lower_[i]);</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;      } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (dim == 0) {              <span class="comment">// a vertex -- the other fast case</span></div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        result = lower_;          <span class="comment">// hope for named-return-type-optimization</span></div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;      } <span class="keywordflow">else</span> {          <span class="comment">// slow case</span></div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        <span class="keywordtype">size_t</span> lc=0;</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0; i&lt;coorddim; i++)</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;          result[i] = (axes_[i])</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;                      ? lower_[i] + <a class="code" href="a01025.html#a779ee40aa6b43ea76bdca292992fede4">local</a>[lc++]*(upper_[i] - lower_[i])</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;                      : lower_[i];</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;      }</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;      <span class="keywordflow">return</span> result;</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    }</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160; </div>
-<div class="line"><a name="l00169"></a><span class="lineno"><a class="line" href="a01025.html#a779ee40aa6b43ea76bdca292992fede4">  169</a></span>&#160;    <a class="code" href="a01025.html#a3cc835b7d048ee36b8a82c76f7831b84">LocalCoordinate</a> <a class="code" href="a01025.html#a779ee40aa6b43ea76bdca292992fede4">local</a>(<span class="keyword">const</span> <a class="code" href="a01025.html#a71d098bffa1d31ab450bd91720753d80">GlobalCoordinate</a>&amp; <a class="code" href="a01025.html#af8b73bc9c38c47e185a2d0a1e0c666a7">global</a>)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;      <a class="code" href="a01025.html#a3cc835b7d048ee36b8a82c76f7831b84">LocalCoordinate</a> result;</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;      <span class="keywordflow">if</span> (dim == coorddim) {        <span class="comment">// fast case</span></div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0; i&lt;dim; i++)</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;          result[i] = (<a class="code" href="a01025.html#af8b73bc9c38c47e185a2d0a1e0c666a7">global</a>[i] - lower_[i]) / (upper_[i] - lower_[i]);</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;      } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (dim != 0) {          <span class="comment">// slow case</span></div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        <span class="keywordtype">size_t</span> lc=0;</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0; i&lt;coorddim; i++)</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;          <span class="keywordflow">if</span> (axes_[i])</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;            result[lc++] = (<a class="code" href="a01025.html#af8b73bc9c38c47e185a2d0a1e0c666a7">global</a>[i] - lower_[i]) / (upper_[i] - lower_[i]);</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;      }</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;      <span class="keywordflow">return</span> result;</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    }</div>
+<div class="line"><a name="l00135"></a><span class="lineno"><a class="line" href="a01028.html#a9f91116563201a48bf040fb3e9093bb6">  135</a></span>&#160;    <a class="code" href="a01316.html">GeometryType</a> <a class="code" href="a01028.html#a9f91116563201a48bf040fb3e9093bb6">type</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="a00169.html#ga4a393958522cde3dce5041f031899bdb">GeometryTypes::cube</a>(dim);</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    }</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
+<div class="line"><a name="l00141"></a><span class="lineno"><a class="line" href="a01028.html#af8b73bc9c38c47e185a2d0a1e0c666a7">  141</a></span>&#160;    <a class="code" href="a01028.html#a71d098bffa1d31ab450bd91720753d80">GlobalCoordinate</a> <a class="code" href="a01028.html#af8b73bc9c38c47e185a2d0a1e0c666a7">global</a>(<span class="keyword">const</span> <a class="code" href="a01028.html#a3cc835b7d048ee36b8a82c76f7831b84">LocalCoordinate</a>&amp; <a class="code" href="a01028.html#a779ee40aa6b43ea76bdca292992fede4">local</a>)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;      <a class="code" href="a01028.html#a71d098bffa1d31ab450bd91720753d80">GlobalCoordinate</a> result;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;      <span class="keywordflow">if</span> (dim == coorddim) {        <span class="comment">// fast case</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0; i&lt;coorddim; i++)</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;          result[i] = lower_[i] + <a class="code" href="a01028.html#a779ee40aa6b43ea76bdca292992fede4">local</a>[i]*(upper_[i] - lower_[i]);</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;      } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (dim == 0) {              <span class="comment">// a vertex -- the other fast case</span></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        result = lower_;          <span class="comment">// hope for named-return-type-optimization</span></div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;      } <span class="keywordflow">else</span> {          <span class="comment">// slow case</span></div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        <span class="keywordtype">size_t</span> lc=0;</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0; i&lt;coorddim; i++)</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;          result[i] = (axes_[i])</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;                      ? lower_[i] + <a class="code" href="a01028.html#a779ee40aa6b43ea76bdca292992fede4">local</a>[lc++]*(upper_[i] - lower_[i])</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;                      : lower_[i];</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;      }</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;      <span class="keywordflow">return</span> result;</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    }</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; </div>
+<div class="line"><a name="l00160"></a><span class="lineno"><a class="line" href="a01028.html#a779ee40aa6b43ea76bdca292992fede4">  160</a></span>&#160;    <a class="code" href="a01028.html#a3cc835b7d048ee36b8a82c76f7831b84">LocalCoordinate</a> <a class="code" href="a01028.html#a779ee40aa6b43ea76bdca292992fede4">local</a>(<span class="keyword">const</span> <a class="code" href="a01028.html#a71d098bffa1d31ab450bd91720753d80">GlobalCoordinate</a>&amp; <a class="code" href="a01028.html#af8b73bc9c38c47e185a2d0a1e0c666a7">global</a>)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;      <a class="code" href="a01028.html#a3cc835b7d048ee36b8a82c76f7831b84">LocalCoordinate</a> result;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;      <span class="keywordflow">if</span> (dim == coorddim) {        <span class="comment">// fast case</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0; i&lt;dim; i++)</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;          result[i] = (<a class="code" href="a01028.html#af8b73bc9c38c47e185a2d0a1e0c666a7">global</a>[i] - lower_[i]) / (upper_[i] - lower_[i]);</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;      } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (dim != 0) {          <span class="comment">// slow case</span></div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        <span class="keywordtype">size_t</span> lc=0;</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0; i&lt;coorddim; i++)</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;          <span class="keywordflow">if</span> (axes_[i])</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;            result[lc++] = (<a class="code" href="a01028.html#af8b73bc9c38c47e185a2d0a1e0c666a7">global</a>[i] - lower_[i]) / (upper_[i] - lower_[i]);</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;      }</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;      <span class="keywordflow">return</span> result;</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    }</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160; </div>
+<div class="line"><a name="l00176"></a><span class="lineno"><a class="line" href="a01028.html#a6a65bb931716d334493b488133cf43ff">  176</a></span>&#160;    <a class="code" href="a01028.html#a9ee10abff52c08e296234130478a35d6">JacobianTransposed</a> <a class="code" href="a01028.html#a6a65bb931716d334493b488133cf43ff">jacobianTransposed</a>([[maybe_unused]] <span class="keyword">const</span> <a class="code" href="a01028.html#a3cc835b7d048ee36b8a82c76f7831b84">LocalCoordinate</a>&amp; <a class="code" href="a01028.html#a779ee40aa6b43ea76bdca292992fede4">local</a>)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;      <a class="code" href="a01028.html#a9ee10abff52c08e296234130478a35d6">JacobianTransposed</a> result;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160; </div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;      <span class="comment">// Actually compute the result.  Uses different methods depending</span></div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;      <span class="comment">// on what kind of matrix JacobianTransposed is.</span></div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;      <a class="code" href="a01028.html#a6a65bb931716d334493b488133cf43ff">jacobianTransposed</a>(result);</div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160; </div>
-<div class="line"><a name="l00185"></a><span class="lineno"><a class="line" href="a01025.html#a35a162a61dc0a2e935a977b9dbb4b288">  185</a></span>&#160;    <a class="code" href="a01025.html#a9ee10abff52c08e296234130478a35d6">JacobianTransposed</a> <a class="code" href="a01025.html#a35a162a61dc0a2e935a977b9dbb4b288">jacobianTransposed</a>(DUNE_UNUSED <span class="keyword">const</span> <a class="code" href="a01025.html#a3cc835b7d048ee36b8a82c76f7831b84">LocalCoordinate</a>&amp; <a class="code" href="a01025.html#a779ee40aa6b43ea76bdca292992fede4">local</a>)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;      <a class="code" href="a01025.html#a9ee10abff52c08e296234130478a35d6">JacobianTransposed</a> result;</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160; </div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;      <span class="comment">// Actually compute the result.  Uses different methods depending</span></div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;      <span class="comment">// on what kind of matrix JacobianTransposed is.</span></div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;      <a class="code" href="a01025.html#a35a162a61dc0a2e935a977b9dbb4b288">jacobianTransposed</a>(result);</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160; </div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;      <span class="keywordflow">return</span> result;</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    }</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;      <span class="keywordflow">return</span> result;</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    }</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; </div>
+<div class="line"><a name="l00188"></a><span class="lineno"><a class="line" href="a01028.html#a4c2108e3ad9f2406c8661e1de70b0c1f">  188</a></span>&#160;    <a class="code" href="a01028.html#ad92f8fdd328edb11984837b960b0c71b">JacobianInverseTransposed</a> <a class="code" href="a01028.html#a4c2108e3ad9f2406c8661e1de70b0c1f">jacobianInverseTransposed</a>([[maybe_unused]] <span class="keyword">const</span> <a class="code" href="a01028.html#a3cc835b7d048ee36b8a82c76f7831b84">LocalCoordinate</a>&amp; <a class="code" href="a01028.html#a779ee40aa6b43ea76bdca292992fede4">local</a>)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;      <a class="code" href="a01028.html#ad92f8fdd328edb11984837b960b0c71b">JacobianInverseTransposed</a> result;</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160; </div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;      <span class="comment">// Actually compute the result.  Uses different methods depending</span></div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;      <span class="comment">// on what kind of matrix JacobianTransposed is.</span></div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;      <a class="code" href="a01028.html#a4c2108e3ad9f2406c8661e1de70b0c1f">jacobianInverseTransposed</a>(result);</div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160; </div>
-<div class="line"><a name="l00197"></a><span class="lineno"><a class="line" href="a01025.html#a76c89ca4a202b4500af4c7f9d2324e88">  197</a></span>&#160;    <a class="code" href="a01025.html#ad92f8fdd328edb11984837b960b0c71b">JacobianInverseTransposed</a> <a class="code" href="a01025.html#a76c89ca4a202b4500af4c7f9d2324e88">jacobianInverseTransposed</a>(DUNE_UNUSED <span class="keyword">const</span> <a class="code" href="a01025.html#a3cc835b7d048ee36b8a82c76f7831b84">LocalCoordinate</a>&amp; <a class="code" href="a01025.html#a779ee40aa6b43ea76bdca292992fede4">local</a>)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;      <a class="code" href="a01025.html#ad92f8fdd328edb11984837b960b0c71b">JacobianInverseTransposed</a> result;</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160; </div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;      <span class="comment">// Actually compute the result.  Uses different methods depending</span></div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;      <span class="comment">// on what kind of matrix JacobianTransposed is.</span></div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;      <a class="code" href="a01025.html#a76c89ca4a202b4500af4c7f9d2324e88">jacobianInverseTransposed</a>(result);</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160; </div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;      <span class="keywordflow">return</span> result;</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    }</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160; </div>
-<div class="line"><a name="l00211"></a><span class="lineno"><a class="line" href="a01025.html#ac83798c1d3a1339724622b985ee6f810">  211</a></span>&#160;    <a class="code" href="a01025.html#a81c4e2db01fa9110b7589ddcbcba56fe">ctype</a> <a class="code" href="a01025.html#ac83798c1d3a1339724622b985ee6f810">integrationElement</a>(DUNE_UNUSED <span class="keyword">const</span> <a class="code" href="a01025.html#a3cc835b7d048ee36b8a82c76f7831b84">LocalCoordinate</a>&amp; <a class="code" href="a01025.html#a779ee40aa6b43ea76bdca292992fede4">local</a>)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="a01025.html#a061a90cc51269ef4e8a274a5d90142d2">volume</a>();</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    }</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160; </div>
-<div class="line"><a name="l00217"></a><span class="lineno"><a class="line" href="a01025.html#ad957bd96f44fc2bdcc923816087a88a5">  217</a></span>&#160;    <a class="code" href="a01025.html#a71d098bffa1d31ab450bd91720753d80">GlobalCoordinate</a> <a class="code" href="a01025.html#ad957bd96f44fc2bdcc923816087a88a5">center</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;      <a class="code" href="a01025.html#a71d098bffa1d31ab450bd91720753d80">GlobalCoordinate</a> result;</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;      <span class="keywordflow">if</span> (dim==0)</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;        result = lower_;</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;      <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;        <span class="comment">// Since lower_==upper_ for unused coordinates, this always does the right thing</span></div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0; i&lt;coorddim; i++)</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;          result[i] = CoordType(0.5) * (lower_[i] + upper_[i]);</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;      }</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;      <span class="keywordflow">return</span> result;</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    }</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160; </div>
-<div class="line"><a name="l00231"></a><span class="lineno"><a class="line" href="a01025.html#aa0a26765c66a38cfead97e97255b62e5">  231</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="a01025.html#aa0a26765c66a38cfead97e97255b62e5">corners</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;      <span class="keywordflow">return</span> 1&lt;&lt;dim;</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    }</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160; </div>
-<div class="line"><a name="l00237"></a><span class="lineno"><a class="line" href="a01025.html#a33df6a4b1c8e398863d63aa52e920962">  237</a></span>&#160;    <a class="code" href="a01025.html#a71d098bffa1d31ab450bd91720753d80">GlobalCoordinate</a> <a class="code" href="a01025.html#a33df6a4b1c8e398863d63aa52e920962">corner</a>(<span class="keywordtype">int</span> k)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;      <a class="code" href="a01025.html#a71d098bffa1d31ab450bd91720753d80">GlobalCoordinate</a> result;</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;      <span class="keywordflow">if</span> (dim == coorddim) {         <span class="comment">// fast case</span></div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0; i&lt;coorddim; i++)</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;          result[i] = (k &amp; (1&lt;&lt;i)) ? upper_[i] : lower_[i];</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;      } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (dim == 0) {         <span class="comment">// vertex</span></div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;        result = lower_;            <span class="comment">// rely on named return-type optimization</span></div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;      } <span class="keywordflow">else</span> {                <span class="comment">// slow case</span></div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> mask = 1;</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160; </div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0; i&lt;coorddim; i++) {</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;          <span class="keywordflow">if</span> (not axes_[i])</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;            result[i] = lower_[i];</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;          <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;            result[i] = (k &amp; mask) ? upper_[i] : lower_[i];</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;            mask = (mask&lt;&lt;1);</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;          }</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;        }</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;      }</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160; </div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160; </div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;      <span class="keywordflow">return</span> result;</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    }</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160; </div>
-<div class="line"><a name="l00263"></a><span class="lineno"><a class="line" href="a01025.html#a061a90cc51269ef4e8a274a5d90142d2">  263</a></span>&#160;    <a class="code" href="a01025.html#a36fc1d628b0b0dd16aa01312ee5062e5">Volume</a> <a class="code" href="a01025.html#a061a90cc51269ef4e8a274a5d90142d2">volume</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;      <a class="code" href="a01025.html#a81c4e2db01fa9110b7589ddcbcba56fe">ctype</a> vol = 1;</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;      <span class="keywordflow">if</span> (dim == coorddim) {         <span class="comment">// fast case</span></div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0; i&lt;dim; i++)</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;          vol *= upper_[i] - lower_[i];</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;        <span class="comment">// do nothing if dim == 0</span></div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;      } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (dim != 0) {         <span class="comment">// slow case</span></div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0; i&lt;coorddim; i++)</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;          <span class="keywordflow">if</span> (axes_[i])</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;            vol *= upper_[i] - lower_[i];</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;      }</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;      <span class="keywordflow">return</span> vol;</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    }</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160; </div>
-<div class="line"><a name="l00279"></a><span class="lineno"><a class="line" href="a01025.html#af40f429805e6956c2fda18dffc481194">  279</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="a01025.html#af40f429805e6956c2fda18dffc481194">affine</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;      <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    }</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160; </div>
-<div class="line"><a name="l00284"></a><span class="lineno"><a class="line" href="a01025.html#a6f73026facea21bdf9537d4584a608eb">  284</a></span>&#160;    <span class="keyword">friend</span> <a class="code" href="a00168.html#ga3a513aa9665b89e742b799aed6a5bdc5">Dune::Transitional::ReferenceElement&lt; ctype, Dim&lt;dim&gt;</a> &gt; <a class="code" href="a01025.html#a6f73026facea21bdf9537d4584a608eb">referenceElement</a> ( <span class="keyword">const</span> <a class="code" href="a01025.html">AxisAlignedCubeGeometry</a> &amp;geometry )</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    {</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="a01013.html#a921f788e95eae7370a55c07803eee929">ReferenceElements&lt; ctype, dim &gt;::cube</a>();</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    }</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160; </div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    <span class="comment">// jacobianTransposed: fast case --&gt; diagonal matrix</span></div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a01025.html#a35a162a61dc0a2e935a977b9dbb4b288">jacobianTransposed</a> ( DiagonalMatrix&lt;ctype,dim&gt; &amp;<a class="code" href="a01025.html#a35a162a61dc0a2e935a977b9dbb4b288">jacobianTransposed</a> )<span class="keyword"> const</span></div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0; i&lt;dim; i++)</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        <a class="code" href="a01025.html#a35a162a61dc0a2e935a977b9dbb4b288">jacobianTransposed</a>.diagonal()[i] = upper_[i] - lower_[i];</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    }</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160; </div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    <span class="comment">// jacobianTransposed: slow case --&gt; dense matrix</span></div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a01025.html#a35a162a61dc0a2e935a977b9dbb4b288">jacobianTransposed</a> ( FieldMatrix&lt;ctype,dim,coorddim&gt; &amp;<a class="code" href="a01025.html#a35a162a61dc0a2e935a977b9dbb4b288">jacobianTransposed</a> )<span class="keyword"> const</span></div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;      <span class="keywordflow">if</span> (dim==0)</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;          <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160; </div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;      <span class="keywordtype">size_t</span> lc = 0;</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0; i&lt;coorddim; i++)</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;        <span class="keywordflow">if</span> (axes_[i])</div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;          <a class="code" href="a01025.html#a35a162a61dc0a2e935a977b9dbb4b288">jacobianTransposed</a>[lc++][i] = upper_[i] - lower_[i];</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    }</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160; </div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    <span class="comment">// jacobianInverseTransposed: fast case --&gt; diagonal matrix</span></div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a01025.html#a76c89ca4a202b4500af4c7f9d2324e88">jacobianInverseTransposed</a> ( DiagonalMatrix&lt;ctype,dim&gt; &amp;<a class="code" href="a01025.html#a76c89ca4a202b4500af4c7f9d2324e88">jacobianInverseTransposed</a> )<span class="keyword"> const</span></div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0; i&lt;dim; i++)</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;        <a class="code" href="a01025.html#a76c89ca4a202b4500af4c7f9d2324e88">jacobianInverseTransposed</a>.diagonal()[i] = CoordType(1.0) / (upper_[i] - lower_[i]);</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    }</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160; </div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    <span class="comment">// jacobianInverseTransposed: slow case --&gt; dense matrix</span></div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a01025.html#a76c89ca4a202b4500af4c7f9d2324e88">jacobianInverseTransposed</a> ( FieldMatrix&lt;ctype,coorddim,dim&gt; &amp;<a class="code" href="a01025.html#a76c89ca4a202b4500af4c7f9d2324e88">jacobianInverseTransposed</a> )<span class="keyword"> const</span></div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;      <span class="keywordflow">if</span> (dim==0)</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;          <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160; </div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;      <span class="keywordtype">size_t</span> lc = 0;</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0; i&lt;coorddim; i++)</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;        <span class="keywordflow">if</span> (axes_[i])</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;          <a class="code" href="a01025.html#a76c89ca4a202b4500af4c7f9d2324e88">jacobianInverseTransposed</a>[i][lc++] = CoordType(1.0) / (upper_[i] - lower_[i]);</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    }</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160; </div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    Dune::FieldVector&lt;ctype,coorddim&gt; lower_;</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160; </div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    Dune::FieldVector&lt;ctype,coorddim&gt; upper_;</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160; </div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    std::bitset&lt;coorddim&gt; axes_;</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;  };</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160; </div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;} <span class="comment">// namespace Dune</span></div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aa00122_html"><div class="ttname"><a href="a00122.html">referenceelements.hh</a></div></div>
-<div class="ttc" id="aa00149_html"><div class="ttname"><a href="a00149.html">type.hh</a></div><div class="ttdoc">A unique label for each type of element that can occur in a grid.</div></div>
-<div class="ttc" id="aa00167_html_ga4a393958522cde3dce5041f031899bdb"><div class="ttname"><a href="a00167.html#ga4a393958522cde3dce5041f031899bdb">Dune::GeometryTypes::cube</a></div><div class="ttdeci">constexpr GeometryType cube(unsigned int dim)</div><div class="ttdoc">Returns a GeometryType representing a hypercube of dimension dim.</div><div class="ttdef"><b>Definition:</b> type.hh:775</div></div>
-<div class="ttc" id="aa00168_html_ga3a513aa9665b89e742b799aed6a5bdc5"><div class="ttname"><a href="a00168.html#ga3a513aa9665b89e742b799aed6a5bdc5">Dune::Transitional::ReferenceElement</a></div><div class="ttdeci">unspecified-type ReferenceElement</div><div class="ttdoc">Returns the type of reference element for the argument types T...</div><div class="ttdef"><b>Definition:</b> referenceelements.hh:415</div></div>
-<div class="ttc" id="aa00177_html"><div class="ttname"><a href="a00177.html">Dune</a></div><div class="ttdef"><b>Definition:</b> affinegeometry.hh:19</div></div>
-<div class="ttc" id="aa01013_html_a921f788e95eae7370a55c07803eee929"><div class="ttname"><a href="a01013.html#a921f788e95eae7370a55c07803eee929">Dune::Geo::ReferenceElements::cube</a></div><div class="ttdeci">static const ReferenceElement &amp; cube()</div><div class="ttdoc">get hypercube reference elements</div><div class="ttdef"><b>Definition:</b> referenceelements.hh:208</div></div>
-<div class="ttc" id="aa01025_html"><div class="ttname"><a href="a01025.html">Dune::AxisAlignedCubeGeometry</a></div><div class="ttdoc">A geometry implementation for axis-aligned hypercubes.</div><div class="ttdef"><b>Definition:</b> axisalignedcubegeometry.hh:49</div></div>
-<div class="ttc" id="aa01025_html_a061a90cc51269ef4e8a274a5d90142d2"><div class="ttname"><a href="a01025.html#a061a90cc51269ef4e8a274a5d90142d2">Dune::AxisAlignedCubeGeometry::volume</a></div><div class="ttdeci">Volume volume() const</div><div class="ttdoc">Return the element volume.</div><div class="ttdef"><b>Definition:</b> axisalignedcubegeometry.hh:263</div></div>
-<div class="ttc" id="aa01025_html_a0ac822ada6e30c08cddc4ed4e110a63d"><div class="ttname"><a href="a01025.html#a0ac822ada6e30c08cddc4ed4e110a63d">Dune::AxisAlignedCubeGeometry::AxisAlignedCubeGeometry</a></div><div class="ttdeci">AxisAlignedCubeGeometry(const Dune::FieldVector&lt; ctype, coorddim &gt; lower, const Dune::FieldVector&lt; ctype, coorddim &gt; upper, const std::bitset&lt; coorddim &gt; &amp;axes)</div><div class="ttdoc">Constructor from a lower left and an upper right corner.</div><div class="ttdef"><b>Definition:</b> axisalignedcubegeometry.hh:113</div></div>
-<div class="ttc" id="aa01025_html_a0c3fe3e4049f882dc1b0f6e371bbee29"><div class="ttname"><a href="a01025.html#a0c3fe3e4049f882dc1b0f6e371bbee29">Dune::AxisAlignedCubeGeometry::AxisAlignedCubeGeometry</a></div><div class="ttdeci">AxisAlignedCubeGeometry(const Dune::FieldVector&lt; ctype, coorddim &gt; lower, const Dune::FieldVector&lt; ctype, coorddim &gt; upper)</div><div class="ttdoc">Constructor from a lower left and an upper right corner.</div><div class="ttdef"><b>Definition:</b> axisalignedcubegeometry.hh:96</div></div>
-<div class="ttc" id="aa01025_html_a17b0b0e087ef3f35e29895309b28db95"><div class="ttname"><a href="a01025.html#a17b0b0e087ef3f35e29895309b28db95">Dune::AxisAlignedCubeGeometry::AxisAlignedCubeGeometry</a></div><div class="ttdeci">AxisAlignedCubeGeometry(const Dune::FieldVector&lt; ctype, coorddim &gt; lower)</div><div class="ttdoc">Constructor from a single point only.</div><div class="ttdef"><b>Definition:</b> axisalignedcubegeometry.hh:130</div></div>
-<div class="ttc" id="aa01025_html_a33df6a4b1c8e398863d63aa52e920962"><div class="ttname"><a href="a01025.html#a33df6a4b1c8e398863d63aa52e920962">Dune::AxisAlignedCubeGeometry::corner</a></div><div class="ttdeci">GlobalCoordinate corner(int k) const</div><div class="ttdoc">Return world coordinates of the k-th corner of the element.</div><div class="ttdef"><b>Definition:</b> axisalignedcubegeometry.hh:237</div></div>
-<div class="ttc" id="aa01025_html_a35a162a61dc0a2e935a977b9dbb4b288"><div class="ttname"><a href="a01025.html#a35a162a61dc0a2e935a977b9dbb4b288">Dune::AxisAlignedCubeGeometry::jacobianTransposed</a></div><div class="ttdeci">JacobianTransposed jacobianTransposed(DUNE_UNUSED const LocalCoordinate &amp;local) const</div><div class="ttdoc">Jacobian transposed of the transformation from local to global coordinates.</div><div class="ttdef"><b>Definition:</b> axisalignedcubegeometry.hh:185</div></div>
-<div class="ttc" id="aa01025_html_a36fc1d628b0b0dd16aa01312ee5062e5"><div class="ttname"><a href="a01025.html#a36fc1d628b0b0dd16aa01312ee5062e5">Dune::AxisAlignedCubeGeometry::Volume</a></div><div class="ttdeci">ctype Volume</div><div class="ttdoc">Type used for volume.</div><div class="ttdef"><b>Definition:</b> axisalignedcubegeometry.hh:70</div></div>
-<div class="ttc" id="aa01025_html_a3b1c72e4f4f6505ae5105e538aefa6cdaaf184d21ea700fa76e77281d2fa847e5"><div class="ttname"><a href="a01025.html#a3b1c72e4f4f6505ae5105e538aefa6cdaaf184d21ea700fa76e77281d2fa847e5">Dune::AxisAlignedCubeGeometry::mydimension</a></div><div class="ttdeci">@ mydimension</div><div class="ttdef"><b>Definition:</b> axisalignedcubegeometry.hh:55</div></div>
-<div class="ttc" id="aa01025_html_a3cc835b7d048ee36b8a82c76f7831b84"><div class="ttname"><a href="a01025.html#a3cc835b7d048ee36b8a82c76f7831b84">Dune::AxisAlignedCubeGeometry::LocalCoordinate</a></div><div class="ttdeci">FieldVector&lt; ctype, dim &gt; LocalCoordinate</div><div class="ttdoc">Type used for a vector of element coordinates.</div><div class="ttdef"><b>Definition:</b> axisalignedcubegeometry.hh:64</div></div>
-<div class="ttc" id="aa01025_html_a61b7d92d2bf1e3c273bf9e6949d99a30"><div class="ttname"><a href="a01025.html#a61b7d92d2bf1e3c273bf9e6949d99a30">Dune::AxisAlignedCubeGeometry::operator=</a></div><div class="ttdeci">AxisAlignedCubeGeometry &amp; operator=(const AxisAlignedCubeGeometry &amp;other)</div><div class="ttdoc">Assignment operator.</div><div class="ttdef"><b>Definition:</b> axisalignedcubegeometry.hh:135</div></div>
-<div class="ttc" id="aa01025_html_a6f73026facea21bdf9537d4584a608eb"><div class="ttname"><a href="a01025.html#a6f73026facea21bdf9537d4584a608eb">Dune::AxisAlignedCubeGeometry::referenceElement</a></div><div class="ttdeci">friend Dune::Transitional::ReferenceElement&lt; ctype, Dim&lt; dim &gt; &gt; referenceElement(const AxisAlignedCubeGeometry &amp;geometry)</div><div class="ttdef"><b>Definition:</b> axisalignedcubegeometry.hh:284</div></div>
-<div class="ttc" id="aa01025_html_a71d098bffa1d31ab450bd91720753d80"><div class="ttname"><a href="a01025.html#a71d098bffa1d31ab450bd91720753d80">Dune::AxisAlignedCubeGeometry::GlobalCoordinate</a></div><div class="ttdeci">FieldVector&lt; ctype, coorddim &gt; GlobalCoordinate</div><div class="ttdoc">Type used for a vector of world coordinates.</div><div class="ttdef"><b>Definition:</b> axisalignedcubegeometry.hh:67</div></div>
-<div class="ttc" id="aa01025_html_a76c89ca4a202b4500af4c7f9d2324e88"><div class="ttname"><a href="a01025.html#a76c89ca4a202b4500af4c7f9d2324e88">Dune::AxisAlignedCubeGeometry::jacobianInverseTransposed</a></div><div class="ttdeci">JacobianInverseTransposed jacobianInverseTransposed(DUNE_UNUSED const LocalCoordinate &amp;local) const</div><div class="ttdoc">Jacobian transposed of the transformation from local to global coordinates.</div><div class="ttdef"><b>Definition:</b> axisalignedcubegeometry.hh:197</div></div>
-<div class="ttc" id="aa01025_html_a779ee40aa6b43ea76bdca292992fede4"><div class="ttname"><a href="a01025.html#a779ee40aa6b43ea76bdca292992fede4">Dune::AxisAlignedCubeGeometry::local</a></div><div class="ttdeci">LocalCoordinate local(const GlobalCoordinate &amp;global) const</div><div class="ttdoc">Map a point in global (world) coordinates to element coordinates.</div><div class="ttdef"><b>Definition:</b> axisalignedcubegeometry.hh:169</div></div>
-<div class="ttc" id="aa01025_html_a81c4e2db01fa9110b7589ddcbcba56fe"><div class="ttname"><a href="a01025.html#a81c4e2db01fa9110b7589ddcbcba56fe">Dune::AxisAlignedCubeGeometry::ctype</a></div><div class="ttdeci">CoordType ctype</div><div class="ttdoc">Type used for single coordinate coefficients.</div><div class="ttdef"><b>Definition:</b> axisalignedcubegeometry.hh:61</div></div>
-<div class="ttc" id="aa01025_html_a93ab23a3b110e97c2bd9a3db8cf116e2a5f83a727631348d690467d52aeb6f7ec"><div class="ttname"><a href="a01025.html#a93ab23a3b110e97c2bd9a3db8cf116e2a5f83a727631348d690467d52aeb6f7ec">Dune::AxisAlignedCubeGeometry::coorddimension</a></div><div class="ttdeci">@ coorddimension</div><div class="ttdef"><b>Definition:</b> axisalignedcubegeometry.hh:58</div></div>
-<div class="ttc" id="aa01025_html_a9ee10abff52c08e296234130478a35d6"><div class="ttname"><a href="a01025.html#a9ee10abff52c08e296234130478a35d6">Dune::AxisAlignedCubeGeometry::JacobianTransposed</a></div><div class="ttdeci">std::conditional&lt; dim==coorddim, DiagonalMatrix&lt; ctype, dim &gt;, FieldMatrix&lt; ctype, dim, coorddim &gt; &gt;::type JacobianTransposed</div><div class="ttdoc">Return type of jacobianTransposed.</div><div class="ttdef"><b>Definition:</b> axisalignedcubegeometry.hh:80</div></div>
-<div class="ttc" id="aa01025_html_a9f91116563201a48bf040fb3e9093bb6"><div class="ttname"><a href="a01025.html#a9f91116563201a48bf040fb3e9093bb6">Dune::AxisAlignedCubeGeometry::type</a></div><div class="ttdeci">GeometryType type() const</div><div class="ttdoc">Type of the cube. Here: a hypercube of the correct dimension.</div><div class="ttdef"><b>Definition:</b> axisalignedcubegeometry.hh:144</div></div>
-<div class="ttc" id="aa01025_html_aa0a26765c66a38cfead97e97255b62e5"><div class="ttname"><a href="a01025.html#aa0a26765c66a38cfead97e97255b62e5">Dune::AxisAlignedCubeGeometry::corners</a></div><div class="ttdeci">int corners() const</div><div class="ttdoc">Return the number of corners of the element.</div><div class="ttdef"><b>Definition:</b> axisalignedcubegeometry.hh:231</div></div>
-<div class="ttc" id="aa01025_html_ac83798c1d3a1339724622b985ee6f810"><div class="ttname"><a href="a01025.html#ac83798c1d3a1339724622b985ee6f810">Dune::AxisAlignedCubeGeometry::integrationElement</a></div><div class="ttdeci">ctype integrationElement(DUNE_UNUSED const LocalCoordinate &amp;local) const</div><div class="ttdoc">Return the integration element, i.e., the determinant term in the integral transformation formula.</div><div class="ttdef"><b>Definition:</b> axisalignedcubegeometry.hh:211</div></div>
-<div class="ttc" id="aa01025_html_ad92f8fdd328edb11984837b960b0c71b"><div class="ttname"><a href="a01025.html#ad92f8fdd328edb11984837b960b0c71b">Dune::AxisAlignedCubeGeometry::JacobianInverseTransposed</a></div><div class="ttdeci">std::conditional&lt; dim==coorddim, DiagonalMatrix&lt; ctype, dim &gt;, FieldMatrix&lt; ctype, coorddim, dim &gt; &gt;::type JacobianInverseTransposed</div><div class="ttdoc">Return type of jacobianInverseTransposed.</div><div class="ttdef"><b>Definition:</b> axisalignedcubegeometry.hh:90</div></div>
-<div class="ttc" id="aa01025_html_ad957bd96f44fc2bdcc923816087a88a5"><div class="ttname"><a href="a01025.html#ad957bd96f44fc2bdcc923816087a88a5">Dune::AxisAlignedCubeGeometry::center</a></div><div class="ttdeci">GlobalCoordinate center() const</div><div class="ttdoc">Return center of mass of the element.</div><div class="ttdef"><b>Definition:</b> axisalignedcubegeometry.hh:217</div></div>
-<div class="ttc" id="aa01025_html_af40f429805e6956c2fda18dffc481194"><div class="ttname"><a href="a01025.html#af40f429805e6956c2fda18dffc481194">Dune::AxisAlignedCubeGeometry::affine</a></div><div class="ttdeci">bool affine() const</div><div class="ttdoc">Return if the element is affine. Here: yes.</div><div class="ttdef"><b>Definition:</b> axisalignedcubegeometry.hh:279</div></div>
-<div class="ttc" id="aa01025_html_af8b73bc9c38c47e185a2d0a1e0c666a7"><div class="ttname"><a href="a01025.html#af8b73bc9c38c47e185a2d0a1e0c666a7">Dune::AxisAlignedCubeGeometry::global</a></div><div class="ttdeci">GlobalCoordinate global(const LocalCoordinate &amp;local) const</div><div class="ttdoc">Map a point in local (element) coordinates to world coordinates.</div><div class="ttdef"><b>Definition:</b> axisalignedcubegeometry.hh:150</div></div>
-<div class="ttc" id="aa01409_html"><div class="ttname"><a href="a01409.html">Dune::GeometryType</a></div><div class="ttdoc">Unique label for each type of entities that can occur in DUNE grids.</div><div class="ttdef"><b>Definition:</b> type.hh:279</div></div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;      <span class="keywordflow">return</span> result;</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    }</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; </div>
+<div class="line"><a name="l00202"></a><span class="lineno"><a class="line" href="a01028.html#aac9bc75dd06ed67d02f79a074e6ac002">  202</a></span>&#160;    <a class="code" href="a01028.html#a81c4e2db01fa9110b7589ddcbcba56fe">ctype</a> <a class="code" href="a01028.html#aac9bc75dd06ed67d02f79a074e6ac002">integrationElement</a>([[maybe_unused]] <span class="keyword">const</span> <a class="code" href="a01028.html#a3cc835b7d048ee36b8a82c76f7831b84">LocalCoordinate</a>&amp; <a class="code" href="a01028.html#a779ee40aa6b43ea76bdca292992fede4">local</a>)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="a01028.html#a061a90cc51269ef4e8a274a5d90142d2">volume</a>();</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    }</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; </div>
+<div class="line"><a name="l00208"></a><span class="lineno"><a class="line" href="a01028.html#ad957bd96f44fc2bdcc923816087a88a5">  208</a></span>&#160;    <a class="code" href="a01028.html#a71d098bffa1d31ab450bd91720753d80">GlobalCoordinate</a> <a class="code" href="a01028.html#ad957bd96f44fc2bdcc923816087a88a5">center</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;      <a class="code" href="a01028.html#a71d098bffa1d31ab450bd91720753d80">GlobalCoordinate</a> result;</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;      <span class="keywordflow">if</span> (dim==0)</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;        result = lower_;</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;      <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;        <span class="comment">// Since lower_==upper_ for unused coordinates, this always does the right thing</span></div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0; i&lt;coorddim; i++)</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;          result[i] = CoordType(0.5) * (lower_[i] + upper_[i]);</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;      }</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;      <span class="keywordflow">return</span> result;</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    }</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160; </div>
+<div class="line"><a name="l00222"></a><span class="lineno"><a class="line" href="a01028.html#aa0a26765c66a38cfead97e97255b62e5">  222</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="a01028.html#aa0a26765c66a38cfead97e97255b62e5">corners</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;      <span class="keywordflow">return</span> 1&lt;&lt;dim;</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    }</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160; </div>
+<div class="line"><a name="l00228"></a><span class="lineno"><a class="line" href="a01028.html#a33df6a4b1c8e398863d63aa52e920962">  228</a></span>&#160;    <a class="code" href="a01028.html#a71d098bffa1d31ab450bd91720753d80">GlobalCoordinate</a> <a class="code" href="a01028.html#a33df6a4b1c8e398863d63aa52e920962">corner</a>(<span class="keywordtype">int</span> k)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;      <a class="code" href="a01028.html#a71d098bffa1d31ab450bd91720753d80">GlobalCoordinate</a> result;</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;      <span class="keywordflow">if</span> (dim == coorddim) {         <span class="comment">// fast case</span></div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0; i&lt;coorddim; i++)</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;          result[i] = (k &amp; (1&lt;&lt;i)) ? upper_[i] : lower_[i];</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;      } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (dim == 0) {         <span class="comment">// vertex</span></div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;        result = lower_;            <span class="comment">// rely on named return-type optimization</span></div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;      } <span class="keywordflow">else</span> {                <span class="comment">// slow case</span></div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> mask = 1;</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160; </div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0; i&lt;coorddim; i++) {</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;          <span class="keywordflow">if</span> (not axes_[i])</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;            result[i] = lower_[i];</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;          <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;            result[i] = (k &amp; mask) ? upper_[i] : lower_[i];</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;            mask = (mask&lt;&lt;1);</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;          }</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        }</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;      }</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160; </div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160; </div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;      <span class="keywordflow">return</span> result;</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    }</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160; </div>
+<div class="line"><a name="l00254"></a><span class="lineno"><a class="line" href="a01028.html#a061a90cc51269ef4e8a274a5d90142d2">  254</a></span>&#160;    <a class="code" href="a01028.html#a36fc1d628b0b0dd16aa01312ee5062e5">Volume</a> <a class="code" href="a01028.html#a061a90cc51269ef4e8a274a5d90142d2">volume</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;      <a class="code" href="a01028.html#a81c4e2db01fa9110b7589ddcbcba56fe">ctype</a> vol = 1;</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;      <span class="keywordflow">if</span> (dim == coorddim) {         <span class="comment">// fast case</span></div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0; i&lt;dim; i++)</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;          vol *= upper_[i] - lower_[i];</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;        <span class="comment">// do nothing if dim == 0</span></div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;      } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (dim != 0) {         <span class="comment">// slow case</span></div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0; i&lt;coorddim; i++)</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;          <span class="keywordflow">if</span> (axes_[i])</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;            vol *= upper_[i] - lower_[i];</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;      }</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;      <span class="keywordflow">return</span> vol;</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    }</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160; </div>
+<div class="line"><a name="l00270"></a><span class="lineno"><a class="line" href="a01028.html#af40f429805e6956c2fda18dffc481194">  270</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="a01028.html#af40f429805e6956c2fda18dffc481194">affine</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;      <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    }</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160; </div>
+<div class="line"><a name="l00275"></a><span class="lineno"><a class="line" href="a01028.html#a600c2d892102ae155ba0b96cb6f71baa">  275</a></span>&#160;    <span class="keyword">friend</span> <a class="code" href="a00170.html#ga3a513aa9665b89e742b799aed6a5bdc5">Dune::Transitional::ReferenceElement&lt; ctype, Dim&lt;dim&gt;</a> &gt; <a class="code" href="a01028.html#a600c2d892102ae155ba0b96cb6f71baa">referenceElement</a> ( <span class="keyword">const</span> <a class="code" href="a01028.html">AxisAlignedCubeGeometry</a> &amp; <span class="comment">/* geometry */</span> )</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    {</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="a01016.html#a921f788e95eae7370a55c07803eee929">ReferenceElements&lt; ctype, dim &gt;::cube</a>();</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    }</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160; </div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    <span class="comment">// jacobianTransposed: fast case --&gt; diagonal matrix</span></div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a01028.html#a6a65bb931716d334493b488133cf43ff">jacobianTransposed</a> ( DiagonalMatrix&lt;ctype,dim&gt; &amp;<a class="code" href="a01028.html#a6a65bb931716d334493b488133cf43ff">jacobianTransposed</a> )<span class="keyword"> const</span></div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0; i&lt;dim; i++)</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;        <a class="code" href="a01028.html#a6a65bb931716d334493b488133cf43ff">jacobianTransposed</a>.diagonal()[i] = upper_[i] - lower_[i];</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    }</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160; </div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    <span class="comment">// jacobianTransposed: slow case --&gt; dense matrix</span></div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a01028.html#a6a65bb931716d334493b488133cf43ff">jacobianTransposed</a> ( FieldMatrix&lt;ctype,dim,coorddim&gt; &amp;<a class="code" href="a01028.html#a6a65bb931716d334493b488133cf43ff">jacobianTransposed</a> )<span class="keyword"> const</span></div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;      <span class="keywordflow">if</span> (dim==0)</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;          <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160; </div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;      <span class="keywordtype">size_t</span> lc = 0;</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0; i&lt;coorddim; i++)</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;        <span class="keywordflow">if</span> (axes_[i])</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;          <a class="code" href="a01028.html#a6a65bb931716d334493b488133cf43ff">jacobianTransposed</a>[lc++][i] = upper_[i] - lower_[i];</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    }</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160; </div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    <span class="comment">// jacobianInverseTransposed: fast case --&gt; diagonal matrix</span></div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a01028.html#a4c2108e3ad9f2406c8661e1de70b0c1f">jacobianInverseTransposed</a> ( DiagonalMatrix&lt;ctype,dim&gt; &amp;<a class="code" href="a01028.html#a4c2108e3ad9f2406c8661e1de70b0c1f">jacobianInverseTransposed</a> )<span class="keyword"> const</span></div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0; i&lt;dim; i++)</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;        <a class="code" href="a01028.html#a4c2108e3ad9f2406c8661e1de70b0c1f">jacobianInverseTransposed</a>.diagonal()[i] = CoordType(1.0) / (upper_[i] - lower_[i]);</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    }</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160; </div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    <span class="comment">// jacobianInverseTransposed: slow case --&gt; dense matrix</span></div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a01028.html#a4c2108e3ad9f2406c8661e1de70b0c1f">jacobianInverseTransposed</a> ( FieldMatrix&lt;ctype,coorddim,dim&gt; &amp;<a class="code" href="a01028.html#a4c2108e3ad9f2406c8661e1de70b0c1f">jacobianInverseTransposed</a> )<span class="keyword"> const</span></div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;      <span class="keywordflow">if</span> (dim==0)</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;          <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160; </div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;      <span class="keywordtype">size_t</span> lc = 0;</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i=0; i&lt;coorddim; i++)</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;        <span class="keywordflow">if</span> (axes_[i])</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;          <a class="code" href="a01028.html#a4c2108e3ad9f2406c8661e1de70b0c1f">jacobianInverseTransposed</a>[i][lc++] = CoordType(1.0) / (upper_[i] - lower_[i]);</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    }</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160; </div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    Dune::FieldVector&lt;ctype,coorddim&gt; lower_;</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160; </div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    Dune::FieldVector&lt;ctype,coorddim&gt; upper_;</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160; </div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    std::bitset&lt;coorddim&gt; axes_;</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;  };</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160; </div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;} <span class="comment">// namespace Dune</span></div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aa00125_html"><div class="ttname"><a href="a00125.html">referenceelements.hh</a></div></div>
+<div class="ttc" id="aa00152_html"><div class="ttname"><a href="a00152.html">type.hh</a></div><div class="ttdoc">A unique label for each type of element that can occur in a grid.</div></div>
+<div class="ttc" id="aa00169_html_ga4a393958522cde3dce5041f031899bdb"><div class="ttname"><a href="a00169.html#ga4a393958522cde3dce5041f031899bdb">Dune::GeometryTypes::cube</a></div><div class="ttdeci">constexpr GeometryType cube(unsigned int dim)</div><div class="ttdoc">Returns a GeometryType representing a hypercube of dimension dim.</div><div class="ttdef"><b>Definition:</b> type.hh:470</div></div>
+<div class="ttc" id="aa00170_html_ga3a513aa9665b89e742b799aed6a5bdc5"><div class="ttname"><a href="a00170.html#ga3a513aa9665b89e742b799aed6a5bdc5">Dune::Transitional::ReferenceElement</a></div><div class="ttdeci">unspecified-type ReferenceElement</div><div class="ttdoc">Returns the type of reference element for the argument types T...</div><div class="ttdef"><b>Definition:</b> referenceelements.hh:415</div></div>
+<div class="ttc" id="aa00179_html"><div class="ttname"><a href="a00179.html">Dune</a></div><div class="ttdef"><b>Definition:</b> affinegeometry.hh:19</div></div>
+<div class="ttc" id="aa01016_html_a921f788e95eae7370a55c07803eee929"><div class="ttname"><a href="a01016.html#a921f788e95eae7370a55c07803eee929">Dune::Geo::ReferenceElements::cube</a></div><div class="ttdeci">static const ReferenceElement &amp; cube()</div><div class="ttdoc">get hypercube reference elements</div><div class="ttdef"><b>Definition:</b> referenceelements.hh:208</div></div>
+<div class="ttc" id="aa01028_html"><div class="ttname"><a href="a01028.html">Dune::AxisAlignedCubeGeometry</a></div><div class="ttdoc">A geometry implementation for axis-aligned hypercubes.</div><div class="ttdef"><b>Definition:</b> axisalignedcubegeometry.hh:48</div></div>
+<div class="ttc" id="aa01028_html_a061a90cc51269ef4e8a274a5d90142d2"><div class="ttname"><a href="a01028.html#a061a90cc51269ef4e8a274a5d90142d2">Dune::AxisAlignedCubeGeometry::volume</a></div><div class="ttdeci">Volume volume() const</div><div class="ttdoc">Return the element volume.</div><div class="ttdef"><b>Definition:</b> axisalignedcubegeometry.hh:254</div></div>
+<div class="ttc" id="aa01028_html_a0ac822ada6e30c08cddc4ed4e110a63d"><div class="ttname"><a href="a01028.html#a0ac822ada6e30c08cddc4ed4e110a63d">Dune::AxisAlignedCubeGeometry::AxisAlignedCubeGeometry</a></div><div class="ttdeci">AxisAlignedCubeGeometry(const Dune::FieldVector&lt; ctype, coorddim &gt; lower, const Dune::FieldVector&lt; ctype, coorddim &gt; upper, const std::bitset&lt; coorddim &gt; &amp;axes)</div><div class="ttdoc">Constructor from a lower left and an upper right corner.</div><div class="ttdef"><b>Definition:</b> axisalignedcubegeometry.hh:113</div></div>
+<div class="ttc" id="aa01028_html_a0c3fe3e4049f882dc1b0f6e371bbee29"><div class="ttname"><a href="a01028.html#a0c3fe3e4049f882dc1b0f6e371bbee29">Dune::AxisAlignedCubeGeometry::AxisAlignedCubeGeometry</a></div><div class="ttdeci">AxisAlignedCubeGeometry(const Dune::FieldVector&lt; ctype, coorddim &gt; lower, const Dune::FieldVector&lt; ctype, coorddim &gt; upper)</div><div class="ttdoc">Constructor from a lower left and an upper right corner.</div><div class="ttdef"><b>Definition:</b> axisalignedcubegeometry.hh:95</div></div>
+<div class="ttc" id="aa01028_html_a17b0b0e087ef3f35e29895309b28db95"><div class="ttname"><a href="a01028.html#a17b0b0e087ef3f35e29895309b28db95">Dune::AxisAlignedCubeGeometry::AxisAlignedCubeGeometry</a></div><div class="ttdeci">AxisAlignedCubeGeometry(const Dune::FieldVector&lt; ctype, coorddim &gt; lower)</div><div class="ttdoc">Constructor from a single point only.</div><div class="ttdef"><b>Definition:</b> axisalignedcubegeometry.hh:130</div></div>
+<div class="ttc" id="aa01028_html_a33df6a4b1c8e398863d63aa52e920962"><div class="ttname"><a href="a01028.html#a33df6a4b1c8e398863d63aa52e920962">Dune::AxisAlignedCubeGeometry::corner</a></div><div class="ttdeci">GlobalCoordinate corner(int k) const</div><div class="ttdoc">Return world coordinates of the k-th corner of the element.</div><div class="ttdef"><b>Definition:</b> axisalignedcubegeometry.hh:228</div></div>
+<div class="ttc" id="aa01028_html_a36fc1d628b0b0dd16aa01312ee5062e5"><div class="ttname"><a href="a01028.html#a36fc1d628b0b0dd16aa01312ee5062e5">Dune::AxisAlignedCubeGeometry::Volume</a></div><div class="ttdeci">ctype Volume</div><div class="ttdoc">Type used for volume.</div><div class="ttdef"><b>Definition:</b> axisalignedcubegeometry.hh:69</div></div>
+<div class="ttc" id="aa01028_html_a3b1c72e4f4f6505ae5105e538aefa6cdaaf184d21ea700fa76e77281d2fa847e5"><div class="ttname"><a href="a01028.html#a3b1c72e4f4f6505ae5105e538aefa6cdaaf184d21ea700fa76e77281d2fa847e5">Dune::AxisAlignedCubeGeometry::mydimension</a></div><div class="ttdeci">@ mydimension</div><div class="ttdef"><b>Definition:</b> axisalignedcubegeometry.hh:54</div></div>
+<div class="ttc" id="aa01028_html_a3cc835b7d048ee36b8a82c76f7831b84"><div class="ttname"><a href="a01028.html#a3cc835b7d048ee36b8a82c76f7831b84">Dune::AxisAlignedCubeGeometry::LocalCoordinate</a></div><div class="ttdeci">FieldVector&lt; ctype, dim &gt; LocalCoordinate</div><div class="ttdoc">Type used for a vector of element coordinates.</div><div class="ttdef"><b>Definition:</b> axisalignedcubegeometry.hh:63</div></div>
+<div class="ttc" id="aa01028_html_a4c2108e3ad9f2406c8661e1de70b0c1f"><div class="ttname"><a href="a01028.html#a4c2108e3ad9f2406c8661e1de70b0c1f">Dune::AxisAlignedCubeGeometry::jacobianInverseTransposed</a></div><div class="ttdeci">JacobianInverseTransposed jacobianInverseTransposed([[maybe_unused]] const LocalCoordinate &amp;local) const</div><div class="ttdoc">Jacobian transposed of the transformation from local to global coordinates.</div><div class="ttdef"><b>Definition:</b> axisalignedcubegeometry.hh:188</div></div>
+<div class="ttc" id="aa01028_html_a600c2d892102ae155ba0b96cb6f71baa"><div class="ttname"><a href="a01028.html#a600c2d892102ae155ba0b96cb6f71baa">Dune::AxisAlignedCubeGeometry::referenceElement</a></div><div class="ttdeci">friend Dune::Transitional::ReferenceElement&lt; ctype, Dim&lt; dim &gt; &gt; referenceElement(const AxisAlignedCubeGeometry &amp;)</div><div class="ttdef"><b>Definition:</b> axisalignedcubegeometry.hh:275</div></div>
+<div class="ttc" id="aa01028_html_a6a65bb931716d334493b488133cf43ff"><div class="ttname"><a href="a01028.html#a6a65bb931716d334493b488133cf43ff">Dune::AxisAlignedCubeGeometry::jacobianTransposed</a></div><div class="ttdeci">JacobianTransposed jacobianTransposed([[maybe_unused]] const LocalCoordinate &amp;local) const</div><div class="ttdoc">Jacobian transposed of the transformation from local to global coordinates.</div><div class="ttdef"><b>Definition:</b> axisalignedcubegeometry.hh:176</div></div>
+<div class="ttc" id="aa01028_html_a71d098bffa1d31ab450bd91720753d80"><div class="ttname"><a href="a01028.html#a71d098bffa1d31ab450bd91720753d80">Dune::AxisAlignedCubeGeometry::GlobalCoordinate</a></div><div class="ttdeci">FieldVector&lt; ctype, coorddim &gt; GlobalCoordinate</div><div class="ttdoc">Type used for a vector of world coordinates.</div><div class="ttdef"><b>Definition:</b> axisalignedcubegeometry.hh:66</div></div>
+<div class="ttc" id="aa01028_html_a779ee40aa6b43ea76bdca292992fede4"><div class="ttname"><a href="a01028.html#a779ee40aa6b43ea76bdca292992fede4">Dune::AxisAlignedCubeGeometry::local</a></div><div class="ttdeci">LocalCoordinate local(const GlobalCoordinate &amp;global) const</div><div class="ttdoc">Map a point in global (world) coordinates to element coordinates.</div><div class="ttdef"><b>Definition:</b> axisalignedcubegeometry.hh:160</div></div>
+<div class="ttc" id="aa01028_html_a81c4e2db01fa9110b7589ddcbcba56fe"><div class="ttname"><a href="a01028.html#a81c4e2db01fa9110b7589ddcbcba56fe">Dune::AxisAlignedCubeGeometry::ctype</a></div><div class="ttdeci">CoordType ctype</div><div class="ttdoc">Type used for single coordinate coefficients.</div><div class="ttdef"><b>Definition:</b> axisalignedcubegeometry.hh:60</div></div>
+<div class="ttc" id="aa01028_html_a93ab23a3b110e97c2bd9a3db8cf116e2a5f83a727631348d690467d52aeb6f7ec"><div class="ttname"><a href="a01028.html#a93ab23a3b110e97c2bd9a3db8cf116e2a5f83a727631348d690467d52aeb6f7ec">Dune::AxisAlignedCubeGeometry::coorddimension</a></div><div class="ttdeci">@ coorddimension</div><div class="ttdef"><b>Definition:</b> axisalignedcubegeometry.hh:57</div></div>
+<div class="ttc" id="aa01028_html_a9ee10abff52c08e296234130478a35d6"><div class="ttname"><a href="a01028.html#a9ee10abff52c08e296234130478a35d6">Dune::AxisAlignedCubeGeometry::JacobianTransposed</a></div><div class="ttdeci">std::conditional&lt; dim==coorddim, DiagonalMatrix&lt; ctype, dim &gt;, FieldMatrix&lt; ctype, dim, coorddim &gt; &gt;::type JacobianTransposed</div><div class="ttdoc">Return type of jacobianTransposed.</div><div class="ttdef"><b>Definition:</b> axisalignedcubegeometry.hh:79</div></div>
+<div class="ttc" id="aa01028_html_a9f91116563201a48bf040fb3e9093bb6"><div class="ttname"><a href="a01028.html#a9f91116563201a48bf040fb3e9093bb6">Dune::AxisAlignedCubeGeometry::type</a></div><div class="ttdeci">GeometryType type() const</div><div class="ttdoc">Type of the cube. Here: a hypercube of the correct dimension.</div><div class="ttdef"><b>Definition:</b> axisalignedcubegeometry.hh:135</div></div>
+<div class="ttc" id="aa01028_html_aa0a26765c66a38cfead97e97255b62e5"><div class="ttname"><a href="a01028.html#aa0a26765c66a38cfead97e97255b62e5">Dune::AxisAlignedCubeGeometry::corners</a></div><div class="ttdeci">int corners() const</div><div class="ttdoc">Return the number of corners of the element.</div><div class="ttdef"><b>Definition:</b> axisalignedcubegeometry.hh:222</div></div>
+<div class="ttc" id="aa01028_html_aac9bc75dd06ed67d02f79a074e6ac002"><div class="ttname"><a href="a01028.html#aac9bc75dd06ed67d02f79a074e6ac002">Dune::AxisAlignedCubeGeometry::integrationElement</a></div><div class="ttdeci">ctype integrationElement([[maybe_unused]] const LocalCoordinate &amp;local) const</div><div class="ttdoc">Return the integration element, i.e., the determinant term in the integral transformation formula.</div><div class="ttdef"><b>Definition:</b> axisalignedcubegeometry.hh:202</div></div>
+<div class="ttc" id="aa01028_html_ad92f8fdd328edb11984837b960b0c71b"><div class="ttname"><a href="a01028.html#ad92f8fdd328edb11984837b960b0c71b">Dune::AxisAlignedCubeGeometry::JacobianInverseTransposed</a></div><div class="ttdeci">std::conditional&lt; dim==coorddim, DiagonalMatrix&lt; ctype, dim &gt;, FieldMatrix&lt; ctype, coorddim, dim &gt; &gt;::type JacobianInverseTransposed</div><div class="ttdoc">Return type of jacobianInverseTransposed.</div><div class="ttdef"><b>Definition:</b> axisalignedcubegeometry.hh:89</div></div>
+<div class="ttc" id="aa01028_html_ad957bd96f44fc2bdcc923816087a88a5"><div class="ttname"><a href="a01028.html#ad957bd96f44fc2bdcc923816087a88a5">Dune::AxisAlignedCubeGeometry::center</a></div><div class="ttdeci">GlobalCoordinate center() const</div><div class="ttdoc">Return center of mass of the element.</div><div class="ttdef"><b>Definition:</b> axisalignedcubegeometry.hh:208</div></div>
+<div class="ttc" id="aa01028_html_af40f429805e6956c2fda18dffc481194"><div class="ttname"><a href="a01028.html#af40f429805e6956c2fda18dffc481194">Dune::AxisAlignedCubeGeometry::affine</a></div><div class="ttdeci">bool affine() const</div><div class="ttdoc">Return if the element is affine. Here: yes.</div><div class="ttdef"><b>Definition:</b> axisalignedcubegeometry.hh:270</div></div>
+<div class="ttc" id="aa01028_html_af8b73bc9c38c47e185a2d0a1e0c666a7"><div class="ttname"><a href="a01028.html#af8b73bc9c38c47e185a2d0a1e0c666a7">Dune::AxisAlignedCubeGeometry::global</a></div><div class="ttdeci">GlobalCoordinate global(const LocalCoordinate &amp;local) const</div><div class="ttdoc">Map a point in local (element) coordinates to world coordinates.</div><div class="ttdef"><b>Definition:</b> axisalignedcubegeometry.hh:141</div></div>
+<div class="ttc" id="aa01316_html"><div class="ttname"><a href="a01316.html">Dune::GeometryType</a></div><div class="ttdoc">Unique label for each type of entities that can occur in DUNE grids.</div><div class="ttdef"><b>Definition:</b> type.hh:123</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

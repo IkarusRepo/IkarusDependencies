@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-common: Member List</title>
+<title>dune-common: Dune::Std::identity Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-common
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,20 +62,66 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00428.html">Dune</a></li><li class="navelem"><a class="el" href="a00453.html">Std</a></li><li class="navelem"><a class="el" href="a02840.html">bad_optional_access</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00428.html">Dune</a></li><li class="navelem"><a class="el" href="a00454.html">Std</a></li><li class="navelem"><a class="el" href="a02837.html">identity</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="a02834.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::Std::bad_optional_access Member List</div>  </div>
+<div class="title">Dune::Std::identity Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="a02840.html">Dune::Std::bad_optional_access</a>, including all inherited members.</p>
-<table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="a02840.html#af4e9a40f997f75f564a01ef0b3d318f9">bad_optional_access</a>(const std::string &amp;what)</td><td class="entry"><a class="el" href="a02840.html">Dune::Std::bad_optional_access</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
-  <tr><td class="entry"><a class="el" href="a02840.html#a6d64c1d51ac3e14afb5400898ba86257">bad_optional_access</a>(const char *what)</td><td class="entry"><a class="el" href="a02840.html">Dune::Std::bad_optional_access</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
-</table></div><!-- contents -->
+<p>A function object type whose operator() returns its argument unchanged.  
+ <a href="a02837.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="a00329_source.html">dune/common/std/functional.hh</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:ab226b954692a36104327efcf4bf7eb7d"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:ab226b954692a36104327efcf4bf7eb7d"><td class="memTemplItemLeft" align="right" valign="top">constexpr T &amp;&amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a02837.html#ab226b954692a36104327efcf4bf7eb7d">operator()</a> (T &amp;&amp;t) const noexcept</td></tr>
+<tr class="separator:ab226b954692a36104327efcf4bf7eb7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A function object type whose operator() returns its argument unchanged. </p>
+<dl class="section note"><dt>Note</dt><dd>Equivalent to: <code>return std::forward(t);</code> </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>When passing <code>r-values</code>, the result must be, at most, used for direct consumption in an outer function call </dd></dl>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="ab226b954692a36104327efcf4bf7eb7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab226b954692a36104327efcf4bf7eb7d">&#9670;&nbsp;</a></span>operator()()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr T&amp;&amp; Dune::Std::identity::operator() </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;&amp;&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li><a class="el" href="a00329_source.html">functional.hh</a></li>
+</ul>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1

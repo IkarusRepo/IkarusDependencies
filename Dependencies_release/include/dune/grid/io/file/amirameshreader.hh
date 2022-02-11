@@ -3,10 +3,11 @@
 #ifndef DUNE_AMIRAMESH_READER_HH
 #define DUNE_AMIRAMESH_READER_HH
 
+#warning Support for AmiraMesh is deprecated and will be removed after Dune 2.8.
+
 #include <memory>
 #include <string>
 
-#include <dune/common/to_unique_ptr.hh>
 #include <dune/grid/common/gridfactory.hh>
 
 #if HAVE_PSURFACE
@@ -52,7 +53,7 @@ namespace Dune {
      *    std::unique_ptr<GridType>, and std::shared_ptr<GridType>.  It is scheduled
      *    to be replaced by std::unique_ptr<GridType> eventually.
      */
-    static ToUniquePtr<GridType> read(const std::string& filename);
+    static std::unique_ptr<GridType> read(const std::string& filename);
 
     /** \brief Read a grid from file into a given grid object
      *
@@ -75,7 +76,7 @@ namespace Dune {
           std::unique_ptr<GridType>, and std::shared_ptr<GridType>.  It is scheduled
           to be replaced by std::unique_ptr<GridType> eventually.
      */
-    static ToUniquePtr<GridType> read(const std::string& filename,
+    static std::unique_ptr<GridType> read(const std::string& filename,
                           const std::shared_ptr<PSurfaceBoundary<dim-1, ctype> >& boundary);
 
   private:

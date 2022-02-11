@@ -13,7 +13,6 @@
 #include <dune/common/fvector.hh>
 #include <dune/common/fmatrix.hh>
 #include <dune/common/diagonalmatrix.hh>
-#include <dune/common/unused.hh>
 
 #include <dune/geometry/referenceelements.hh>
 #include <dune/geometry/type.hh>
@@ -99,6 +98,7 @@ namespace Dune {
         upper_(upper),
         axes_()
     {
+      static_assert(dim==coorddim, "Use this constructor only if dim==coorddim!");
       // all 'true', but is never actually used
       axes_ = (1<<coorddim)-1;
     }
@@ -130,15 +130,6 @@ namespace Dune {
     AxisAlignedCubeGeometry(const Dune::FieldVector<ctype,coorddim> lower)
       : lower_(lower)
     {}
-
-    /** \brief Assignment operator */
-    AxisAlignedCubeGeometry& operator=(const AxisAlignedCubeGeometry& other)
-    {
-      lower_                     = other.lower_;
-      upper_                     = other.upper_;
-      axes_                      = other.axes_;
-      return *this;
-    }
 
     /** \brief Type of the cube.  Here: a hypercube of the correct dimension */
     GeometryType type() const
@@ -182,7 +173,7 @@ namespace Dune {
     }
 
     /** \brief Jacobian transposed of the transformation from local to global coordinates */
-    JacobianTransposed jacobianTransposed(DUNE_UNUSED const LocalCoordinate& local) const
+    JacobianTransposed jacobianTransposed([[maybe_unused]] const LocalCoordinate& local) const
     {
       JacobianTransposed result;
 
@@ -194,7 +185,7 @@ namespace Dune {
     }
 
     /** \brief Jacobian transposed of the transformation from local to global coordinates */
-    JacobianInverseTransposed jacobianInverseTransposed(DUNE_UNUSED const LocalCoordinate& local) const
+    JacobianInverseTransposed jacobianInverseTransposed([[maybe_unused]] const LocalCoordinate& local) const
     {
       JacobianInverseTransposed result;
 
@@ -208,7 +199,7 @@ namespace Dune {
     /** \brief Return the integration element, i.e., the determinant term in the integral
                transformation formula
      */
-    ctype integrationElement(DUNE_UNUSED const LocalCoordinate& local) const
+    ctype integrationElement([[maybe_unused]] const LocalCoordinate& local) const
     {
       return volume();
     }
@@ -281,7 +272,7 @@ namespace Dune {
       return true;
     }
 
-    friend Dune::Transitional::ReferenceElement< ctype, Dim<dim> > referenceElement ( const AxisAlignedCubeGeometry &geometry )
+    friend Dune::Transitional::ReferenceElement< ctype, Dim<dim> > referenceElement ( const AxisAlignedCubeGeometry & /* geometry */ )
     {
       return ReferenceElements< ctype, dim >::cube();
     }

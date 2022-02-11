@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: Dune::TensorGridFactoryCreator&lt; YaspGrid&lt; dim, TensorProductCoordinates&lt; ctype, dim &gt; &gt; &gt; Class Template Reference</title>
+<title>dune-grid: Dune::VertexOrderByIdFactory&lt; IdSet, Index &gt;::VertexOrder&lt; dim &gt; Struct Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,128 +62,58 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00936.html">Dune</a></li><li class="navelem"><a class="el" href="a04130.html">TensorGridFactoryCreator&lt; YaspGrid&lt; dim, TensorProductCoordinates&lt; ctype, dim &gt; &gt; &gt;</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00940.html">Dune</a></li><li class="navelem"><a class="el" href="a04126.html">VertexOrderByIdFactory</a></li><li class="navelem"><a class="el" href="a04130.html">VertexOrder</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
-<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="a04127.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::TensorGridFactoryCreator&lt; YaspGrid&lt; dim, TensorProductCoordinates&lt; ctype, dim &gt; &gt; &gt; Class Template Reference</div>  </div>
+<div class="title">Dune::VertexOrderByIdFactory&lt; IdSet, Index &gt;::VertexOrder&lt; dim &gt; Struct Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="a00890_source.html">dune/grid/utility/tensorgridfactory.hh</a>&gt;</code></p>
+<p>type of vertex order object may depend on the dimension of the element  
+ <a href="a04130.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="a00896_source.html">dune/grid/utility/vertexorderfactory.hh</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:ad7202468bf0e74c9b417f5b764e948b6"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a04142.html">YaspGrid</a>&lt; dim, <a class="el" href="a04250.html">TensorProductCoordinates</a>&lt; ctype, dim &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04130.html#ad7202468bf0e74c9b417f5b764e948b6">Grid</a></td></tr>
-<tr class="separator:ad7202468bf0e74c9b417f5b764e948b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab5d18ff54ee2b9683e2cd23a5a801e8d"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a02698.html#a207a985384df3916550501a433b5cebe">Grid::CollectiveCommunication</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04130.html#ab5d18ff54ee2b9683e2cd23a5a801e8d">Comm</a></td></tr>
-<tr class="separator:ab5d18ff54ee2b9683e2cd23a5a801e8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a8b0d9160e4db31e3bd093839c6b89551"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04130.html#a8b0d9160e4db31e3bd093839c6b89551">TensorGridFactoryCreator</a> (const <a class="el" href="a04126.html">TensorGridFactory</a>&lt; <a class="el" href="a04130.html#ad7202468bf0e74c9b417f5b764e948b6">Grid</a> &gt; &amp;factory)</td></tr>
-<tr class="separator:a8b0d9160e4db31e3bd093839c6b89551"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a330c84cea6650f59d371a26feb675ed7"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="a04130.html#ad7202468bf0e74c9b417f5b764e948b6">Grid</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04130.html#a330c84cea6650f59d371a26feb675ed7">createGrid</a> (<a class="el" href="a04130.html#ab5d18ff54ee2b9683e2cd23a5a801e8d">Comm</a> comm)</td></tr>
-<tr class="separator:a330c84cea6650f59d371a26feb675ed7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a114a03e5e4ba2c7a20ecbfadf6aa10ef"><td class="memItemLeft" align="right" valign="top">typedef GeneralVertexOrder&lt; dim, Index &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04130.html#a114a03e5e4ba2c7a20ecbfadf6aa10ef">type</a></td></tr>
+<tr class="memdesc:a114a03e5e4ba2c7a20ecbfadf6aa10ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">type of vertex order object  <a href="a04130.html#a114a03e5e4ba2c7a20ecbfadf6aa10ef">More...</a><br /></td></tr>
+<tr class="separator:a114a03e5e4ba2c7a20ecbfadf6aa10ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="ab5d18ff54ee2b9683e2cd23a5a801e8d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab5d18ff54ee2b9683e2cd23a5a801e8d">&#9670;&nbsp;</a></span>Comm</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;class IdSet, class Index = std::size_t&gt;<br />
+template&lt;std::size_t dim&gt;<br />
+struct Dune::VertexOrderByIdFactory&lt; IdSet, Index &gt;::VertexOrder&lt; dim &gt;</h3>
+
+<p>type of vertex order object may depend on the dimension of the element </p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a114a03e5e4ba2c7a20ecbfadf6aa10ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a114a03e5e4ba2c7a20ecbfadf6aa10ef">&#9670;&nbsp;</a></span>type</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename ctype , int dim&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef <a class="el" href="a02698.html#a207a985384df3916550501a433b5cebe">Grid::CollectiveCommunication</a> <a class="el" href="a04122.html">Dune::TensorGridFactoryCreator</a>&lt; <a class="el" href="a04142.html">YaspGrid</a>&lt; dim, <a class="el" href="a04250.html">TensorProductCoordinates</a>&lt; ctype, dim &gt; &gt; &gt;::<a class="el" href="a04130.html#ab5d18ff54ee2b9683e2cd23a5a801e8d">Comm</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ad7202468bf0e74c9b417f5b764e948b6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad7202468bf0e74c9b417f5b764e948b6">&#9670;&nbsp;</a></span>Grid</h2>
-
-<div class="memitem">
-<div class="memproto">
+template&lt;class IdSet , class Index  = std::size_t&gt; </div>
 <div class="memtemplate">
-template&lt;typename ctype , int dim&gt; </div>
+template&lt;std::size_t dim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="a04142.html">YaspGrid</a>&lt;dim, <a class="el" href="a04250.html">TensorProductCoordinates</a>&lt;ctype, dim&gt; &gt; <a class="el" href="a04122.html">Dune::TensorGridFactoryCreator</a>&lt; <a class="el" href="a04142.html">YaspGrid</a>&lt; dim, <a class="el" href="a04250.html">TensorProductCoordinates</a>&lt; ctype, dim &gt; &gt; &gt;::<a class="el" href="a04130.html#ad7202468bf0e74c9b417f5b764e948b6">Grid</a></td>
+          <td class="memname">typedef GeneralVertexOrder&lt;dim, Index&gt; <a class="el" href="a04126.html">Dune::VertexOrderByIdFactory</a>&lt; <a class="el" href="a02706.html">IdSet</a>, Index &gt;::<a class="el" href="a04130.html">VertexOrder</a>&lt; dim &gt;::<a class="el" href="a04130.html#a114a03e5e4ba2c7a20ecbfadf6aa10ef">type</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a8b0d9160e4db31e3bd093839c6b89551"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8b0d9160e4db31e3bd093839c6b89551">&#9670;&nbsp;</a></span>TensorGridFactoryCreator()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename ctype , int dim&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a04122.html">Dune::TensorGridFactoryCreator</a>&lt; <a class="el" href="a04142.html">YaspGrid</a>&lt; dim, <a class="el" href="a04250.html">TensorProductCoordinates</a>&lt; ctype, dim &gt; &gt; &gt;::<a class="el" href="a04122.html">TensorGridFactoryCreator</a> </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a04126.html">TensorGridFactory</a>&lt; <a class="el" href="a04130.html#ad7202468bf0e74c9b417f5b764e948b6">Grid</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>factory</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>type of vertex order object </p>
 
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a330c84cea6650f59d371a26feb675ed7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a330c84cea6650f59d371a26feb675ed7">&#9670;&nbsp;</a></span>createGrid()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename ctype , int dim&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::unique_ptr&lt;<a class="el" href="a04130.html#ad7202468bf0e74c9b417f5b764e948b6">Grid</a>&gt; <a class="el" href="a04122.html">Dune::TensorGridFactoryCreator</a>&lt; <a class="el" href="a04142.html">YaspGrid</a>&lt; dim, <a class="el" href="a04250.html">TensorProductCoordinates</a>&lt; ctype, dim &gt; &gt; &gt;::createGrid </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a04130.html#ab5d18ff54ee2b9683e2cd23a5a801e8d">Comm</a>&#160;</td>
-          <td class="paramname"><em>comm</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="a00890_source.html">tensorgridfactory.hh</a></li>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li><a class="el" href="a00896_source.html">vertexorderfactory.hh</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

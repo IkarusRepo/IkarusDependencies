@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-common
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,13 +62,17 @@ $(function() {
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">Range Utilities<div class="ingroups"><a class="el" href="a00400.html">Common</a> &raquo; <a class="el" href="a00402.html">Utilities</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
 <p>Utilities for reduction like operations on ranges.  
-</p>
+<a href="#details">More...</a></p>
 <div class="dynheader">
 Collaboration diagram for Range Utilities:</div>
 <div class="dyncontent">
@@ -78,8 +82,466 @@ Collaboration diagram for Range Utilities:</div>
 <area shape="rect" href="a00402.html" title="Collection of helper classes, type traits, etc." alt="" coords="5,5,71,31"/>
 </map>
 </div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02473.html">Dune::IntegralRange&lt; T &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">dynamic integer range for use in range-based for loops  <a href="a02473.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02477.html">Dune::StaticIntegralRange&lt; T, to, from &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">static integer range for use in range-based for loops  <a href="a02477.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02481.html">Dune::ValueTransformationTag</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tag to enable value based transformations in <a class="el" href="a02509.html" title="A range transforming the values of another range on-the-fly.">TransformedRangeView</a>.  <a href="a02481.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02485.html">Dune::IteratorTransformationTag</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tag to enable iterator based transformations in <a class="el" href="a02509.html" title="A range transforming the values of another range on-the-fly.">TransformedRangeView</a>.  <a href="a02485.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02509.html">Dune::TransformedRangeView&lt; R, F, T &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A range transforming the values of another range on-the-fly.  <a href="a02509.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:gaf05bafe739a71f1e7f30780dbae4fa05"><td class="memTemplParams" colspan="2">template&lt;typename T , typename std::enable_if&lt; IsIterable&lt; T &gt;::value, int &gt;::type  = 0&gt; </td></tr>
+<tr class="memitem:gaf05bafe739a71f1e7f30780dbae4fa05"><td class="memTemplItemLeft" align="right" valign="top">T::value_type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00404.html#gaf05bafe739a71f1e7f30780dbae4fa05">Dune::max_value</a> (const T &amp;v)</td></tr>
+<tr class="memdesc:gaf05bafe739a71f1e7f30780dbae4fa05"><td class="mdescLeft">&#160;</td><td class="mdescRight">compute the maximum value over a range  <a href="a00404.html#gaf05bafe739a71f1e7f30780dbae4fa05">More...</a><br /></td></tr>
+<tr class="separator:gaf05bafe739a71f1e7f30780dbae4fa05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa56de4535eff55ba6d5e418fd26b686c"><td class="memTemplParams" colspan="2">template&lt;typename T , typename std::enable_if&lt; IsIterable&lt; T &gt;::value, int &gt;::type  = 0&gt; </td></tr>
+<tr class="memitem:gaa56de4535eff55ba6d5e418fd26b686c"><td class="memTemplItemLeft" align="right" valign="top">T::value_type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00404.html#gaa56de4535eff55ba6d5e418fd26b686c">Dune::min_value</a> (const T &amp;v)</td></tr>
+<tr class="memdesc:gaa56de4535eff55ba6d5e418fd26b686c"><td class="mdescLeft">&#160;</td><td class="mdescRight">compute the minimum value over a range  <a href="a00404.html#gaa56de4535eff55ba6d5e418fd26b686c">More...</a><br /></td></tr>
+<tr class="separator:gaa56de4535eff55ba6d5e418fd26b686c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga19dd21ff930466597df962ae58d58c57"><td class="memTemplParams" colspan="2">template&lt;typename T , typename std::enable_if&lt; IsIterable&lt; T &gt;::value, int &gt;::type  = 0&gt; </td></tr>
+<tr class="memitem:ga19dd21ff930466597df962ae58d58c57"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00404.html#ga19dd21ff930466597df962ae58d58c57">Dune::any_true</a> (const T &amp;v)</td></tr>
+<tr class="memdesc:ga19dd21ff930466597df962ae58d58c57"><td class="mdescLeft">&#160;</td><td class="mdescRight">similar to std::bitset&lt;N&gt;::any() return true, if any entries is true  <a href="a00404.html#ga19dd21ff930466597df962ae58d58c57">More...</a><br /></td></tr>
+<tr class="separator:ga19dd21ff930466597df962ae58d58c57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaca8a2450469eb41c338d8f51231fc34"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
+<tr class="memitem:gaaca8a2450469eb41c338d8f51231fc34"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00404.html#gaaca8a2450469eb41c338d8f51231fc34">Dune::any_true</a> (const std::bitset&lt; N &gt; &amp;b)</td></tr>
+<tr class="separator:gaaca8a2450469eb41c338d8f51231fc34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3f11c34177907a5c592990a5f4840e92"><td class="memTemplParams" colspan="2">template&lt;typename T , typename std::enable_if&lt; IsIterable&lt; T &gt;::value, int &gt;::type  = 0&gt; </td></tr>
+<tr class="memitem:ga3f11c34177907a5c592990a5f4840e92"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00404.html#ga3f11c34177907a5c592990a5f4840e92">Dune::all_true</a> (const T &amp;v)</td></tr>
+<tr class="memdesc:ga3f11c34177907a5c592990a5f4840e92"><td class="mdescLeft">&#160;</td><td class="mdescRight">similar to std::bitset&lt;N&gt;::all() return true, if any entries is true  <a href="a00404.html#ga3f11c34177907a5c592990a5f4840e92">More...</a><br /></td></tr>
+<tr class="separator:ga3f11c34177907a5c592990a5f4840e92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1782fbfe7b40a75fecb933f720357e54"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
+<tr class="memitem:ga1782fbfe7b40a75fecb933f720357e54"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00404.html#ga1782fbfe7b40a75fecb933f720357e54">Dune::all_true</a> (const std::bitset&lt; N &gt; &amp;b)</td></tr>
+<tr class="separator:ga1782fbfe7b40a75fecb933f720357e54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga20c2d5d24fba2015d933669de38606f9"><td class="memTemplParams" colspan="2">template&lt;class T , class U , std::enable_if_t&lt; std::is_same&lt; std::decay_t&lt; T &gt;, std::decay_t&lt; U &gt;&gt;::value, int &gt;  = 0, std::enable_if_t&lt; std::is_integral&lt; std::decay_t&lt; T &gt;&gt;::value, int &gt;  = 0&gt; </td></tr>
+<tr class="memitem:ga20c2d5d24fba2015d933669de38606f9"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="a02473.html">IntegralRange</a>&lt; std::decay_t&lt; T &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00404.html#ga20c2d5d24fba2015d933669de38606f9">Dune::range</a> (T &amp;&amp;from, U &amp;&amp;to) noexcept</td></tr>
+<tr class="memdesc:ga20c2d5d24fba2015d933669de38606f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">free standing function for setting up a range based for loop over an integer range for (auto i: range(0,10)) // 0,1,2,3,4,5,6,7,8,9 or for (auto i: range(-10,10)) // -10,-9,..,8,9 or for (auto i: range(10)) // 0,1,2,3,4,5,6,7,8,9  <a href="a00404.html#ga20c2d5d24fba2015d933669de38606f9">More...</a><br /></td></tr>
+<tr class="separator:ga20c2d5d24fba2015d933669de38606f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab64fac9d63a7009ccfa29af11ec5fc1c"><td class="memTemplParams" colspan="2">template&lt;class T , std::enable_if_t&lt; std::is_integral&lt; std::decay_t&lt; T &gt;&gt;::value, int &gt;  = 0&gt; </td></tr>
+<tr class="memitem:gab64fac9d63a7009ccfa29af11ec5fc1c"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="a02473.html">IntegralRange</a>&lt; std::decay_t&lt; T &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00404.html#gab64fac9d63a7009ccfa29af11ec5fc1c">Dune::range</a> (T &amp;&amp;to) noexcept</td></tr>
+<tr class="separator:gab64fac9d63a7009ccfa29af11ec5fc1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadd0ae414ee372842796c06cee030a78b"><td class="memTemplParams" colspan="2">template&lt;class T , T to&gt; </td></tr>
+<tr class="memitem:gadd0ae414ee372842796c06cee030a78b"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="a02477.html">StaticIntegralRange</a>&lt; T, to &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00404.html#gadd0ae414ee372842796c06cee030a78b">Dune::range</a> (std::integral_constant&lt; T, to &gt;) noexcept</td></tr>
+<tr class="separator:gadd0ae414ee372842796c06cee030a78b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae2dd8cb1fce8767381e33a5b834cf55d"><td class="memTemplParams" colspan="2">template&lt;class R , class F &gt; </td></tr>
+<tr class="memitem:gae2dd8cb1fce8767381e33a5b834cf55d"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00404.html#gae2dd8cb1fce8767381e33a5b834cf55d">Dune::transformedRangeView</a> (R &amp;&amp;<a class="el" href="a00404.html#ga9749b12765838700df3504bcae783e35">range</a>, const F &amp;f)</td></tr>
+<tr class="memdesc:gae2dd8cb1fce8767381e33a5b834cf55d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a <a class="el" href="a02509.html" title="A range transforming the values of another range on-the-fly.">TransformedRangeView</a>.  <a href="a00404.html#gae2dd8cb1fce8767381e33a5b834cf55d">More...</a><br /></td></tr>
+<tr class="separator:gae2dd8cb1fce8767381e33a5b834cf55d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaccf70716194b093e0d21e6da93c108f8"><td class="memTemplParams" colspan="2">template&lt;class R , class F &gt; </td></tr>
+<tr class="memitem:gaccf70716194b093e0d21e6da93c108f8"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00404.html#gaccf70716194b093e0d21e6da93c108f8">Dune::iteratorTransformedRangeView</a> (R &amp;&amp;<a class="el" href="a00404.html#ga9749b12765838700df3504bcae783e35">range</a>, const F &amp;f)</td></tr>
+<tr class="memdesc:gaccf70716194b093e0d21e6da93c108f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a <a class="el" href="a02509.html" title="A range transforming the values of another range on-the-fly.">TransformedRangeView</a> using an iterator transformation.  <a href="a00404.html#gaccf70716194b093e0d21e6da93c108f8">More...</a><br /></td></tr>
+<tr class="separator:gaccf70716194b093e0d21e6da93c108f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa75d4e74da1410405a33a5a62b5710e7"><td class="memTemplParams" colspan="2">template&lt;class Range &gt; </td></tr>
+<tr class="memitem:gaa75d4e74da1410405a33a5a62b5710e7"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00404.html#gaa75d4e74da1410405a33a5a62b5710e7">Dune::sparseRange</a> (Range &amp;&amp;<a class="el" href="a00404.html#ga9749b12765838700df3504bcae783e35">range</a>)</td></tr>
+<tr class="memdesc:gaa75d4e74da1410405a33a5a62b5710e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow structured-binding for-loops for sparse iterators.  <a href="a00404.html#gaa75d4e74da1410405a33a5a62b5710e7">More...</a><br /></td></tr>
+<tr class="separator:gaa75d4e74da1410405a33a5a62b5710e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ga9749b12765838700df3504bcae783e35"><td class="memTemplParams" colspan="2">template&lt;class T , T from, T to&gt; </td></tr>
+<tr class="memitem:ga9749b12765838700df3504bcae783e35"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="a02477.html">StaticIntegralRange</a>&lt; T, to, from &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00404.html#ga9749b12765838700df3504bcae783e35">Dune::range</a> (std::integral_constant&lt; T, from &gt;, std::integral_constant&lt; T, to &gt;) noexcept</td></tr>
+<tr class="separator:ga9749b12765838700df3504bcae783e35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Utilities for reduction like operations on ranges. </p>
 <p>All these reduction operations work for appropriate ranges and scalar values </p>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ga1782fbfe7b40a75fecb933f720357e54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1782fbfe7b40a75fecb933f720357e54">&#9670;&nbsp;</a></span>all_true() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Dune::all_true </td>
+          <td>(</td>
+          <td class="paramtype">const std::bitset&lt; N &gt; &amp;&#160;</td>
+          <td class="paramname"><em>b</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ga3f11c34177907a5c592990a5f4840e92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3f11c34177907a5c592990a5f4840e92">&#9670;&nbsp;</a></span>all_true() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename std::enable_if&lt; IsIterable&lt; T &gt;::value, int &gt;::type  = 0&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Dune::all_true </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>similar to std::bitset&lt;N&gt;::all() return true, if any entries is true </p>
+<p>overloads for scalar values, ranges, and std::bitset&lt;N&gt; exist </p>
+
+</div>
+</div>
+<a id="gaaca8a2450469eb41c338d8f51231fc34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaaca8a2450469eb41c338d8f51231fc34">&#9670;&nbsp;</a></span>any_true() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::size_t N&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Dune::any_true </td>
+          <td>(</td>
+          <td class="paramtype">const std::bitset&lt; N &gt; &amp;&#160;</td>
+          <td class="paramname"><em>b</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ga19dd21ff930466597df962ae58d58c57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga19dd21ff930466597df962ae58d58c57">&#9670;&nbsp;</a></span>any_true() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename std::enable_if&lt; IsIterable&lt; T &gt;::value, int &gt;::type  = 0&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Dune::any_true </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>similar to std::bitset&lt;N&gt;::any() return true, if any entries is true </p>
+<p>overloads for scalar values, ranges, and std::bitset&lt;N&gt; exist </p>
+
+</div>
+</div>
+<a id="gaccf70716194b093e0d21e6da93c108f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaccf70716194b093e0d21e6da93c108f8">&#9670;&nbsp;</a></span>iteratorTransformedRangeView()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class R , class F &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto Dune::iteratorTransformedRangeView </td>
+          <td>(</td>
+          <td class="paramtype">R &amp;&amp;&#160;</td>
+          <td class="paramname"><em>range</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const F &amp;&#160;</td>
+          <td class="paramname"><em>f</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create a <a class="el" href="a02509.html" title="A range transforming the values of another range on-the-fly.">TransformedRangeView</a> using an iterator transformation. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">range</td><td>The range to transform </td></tr>
+    <tr><td class="paramname">f</td><td>Unary function that should the applied to the entries of the range.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This behaves like a range providing <code>begin()</code> and <code>end()</code>. The iterators over this range internally iterate over the wrapped range. When dereferencing the iterator, the given transformation function is applied to the wrapped iterator on-the-fly and the result is returned. I.e, if</p><div class="fragment"><div class="line">it </div>
+</div><!-- fragment --><p> is the wrapped iterator and</p><div class="fragment"><div class="line">f </div>
+</div><!-- fragment --><p> is the transformation function, then the result of</p><div class="fragment"><div class="line">f(it) </div>
+</div><!-- fragment --><p> is returned.</p>
+<p>The transformation may either return temorary values or l-value references. In the former case the range behaves like a proxy-container. In the latter case it forwards these references allowing, e.g., to sort a subset of some container by applying a transformation to an index-range for those values.</p>
+<p>The iterators of the <a class="el" href="a02509.html" title="A range transforming the values of another range on-the-fly.">TransformedRangeView</a> have the same iterator_category as the ones of the wrapped container.</p>
+<p>If range is an r-value, then the <a class="el" href="a02509.html" title="A range transforming the values of another range on-the-fly.">TransformedRangeView</a> stores it by value, if range is an l-value, then the <a class="el" href="a02509.html" title="A range transforming the values of another range on-the-fly.">TransformedRangeView</a> stores it by reference. </p>
+
+</div>
+</div>
+<a id="gaf05bafe739a71f1e7f30780dbae4fa05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf05bafe739a71f1e7f30780dbae4fa05">&#9670;&nbsp;</a></span>max_value()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename std::enable_if&lt; IsIterable&lt; T &gt;::value, int &gt;::type  = 0&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">T::value_type Dune::max_value </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>compute the maximum value over a range </p>
+<p>overloads for scalar values, and ranges exist </p>
+
+</div>
+</div>
+<a id="gaa56de4535eff55ba6d5e418fd26b686c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa56de4535eff55ba6d5e418fd26b686c">&#9670;&nbsp;</a></span>min_value()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename std::enable_if&lt; IsIterable&lt; T &gt;::value, int &gt;::type  = 0&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">T::value_type Dune::min_value </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>compute the minimum value over a range </p>
+<p>overloads for scalar values, and ranges exist </p>
+
+</div>
+</div>
+<a id="gadd0ae414ee372842796c06cee030a78b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gadd0ae414ee372842796c06cee030a78b">&#9670;&nbsp;</a></span>range() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T , T to&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="a02477.html">StaticIntegralRange</a>&lt;T, to&gt; Dune::range </td>
+          <td>(</td>
+          <td class="paramtype">std::integral_constant&lt; T, to &gt;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ga20c2d5d24fba2015d933669de38606f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga20c2d5d24fba2015d933669de38606f9">&#9670;&nbsp;</a></span>range() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T , class U , std::enable_if_t&lt; std::is_same&lt; std::decay_t&lt; T &gt;, std::decay_t&lt; U &gt;&gt;::value, int &gt;  = 0, std::enable_if_t&lt; std::is_integral&lt; std::decay_t&lt; T &gt;&gt;::value, int &gt;  = 0&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="a02473.html">IntegralRange</a>&lt;std::decay_t&lt;T&gt; &gt; Dune::range </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;&amp;&#160;</td>
+          <td class="paramname"><em>from</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">U &amp;&amp;&#160;</td>
+          <td class="paramname"><em>to</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>free standing function for setting up a range based for loop over an integer range for (auto i: range(0,10)) // 0,1,2,3,4,5,6,7,8,9 or for (auto i: range(-10,10)) // -10,-9,..,8,9 or for (auto i: range(10)) // 0,1,2,3,4,5,6,7,8,9 </p>
+
+</div>
+</div>
+<a id="gab64fac9d63a7009ccfa29af11ec5fc1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab64fac9d63a7009ccfa29af11ec5fc1c">&#9670;&nbsp;</a></span>range() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T , std::enable_if_t&lt; std::is_integral&lt; std::decay_t&lt; T &gt;&gt;::value, int &gt;  = 0&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="a02473.html">IntegralRange</a>&lt;std::decay_t&lt;T&gt; &gt; Dune::range </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;&amp;&#160;</td>
+          <td class="paramname"><em>to</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="gaa75d4e74da1410405a33a5a62b5710e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa75d4e74da1410405a33a5a62b5710e7">&#9670;&nbsp;</a></span>sparseRange()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Range &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto Dune::sparseRange </td>
+          <td>(</td>
+          <td class="paramtype">Range &amp;&amp;&#160;</td>
+          <td class="paramname"><em>range</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Allow structured-binding for-loops for sparse iterators. </p>
+<p>Given a sparse range <code>R</code> whose iterators <code>it</code> provide (additionally to dereferencing) a method <code>it-&gt;index()</code> for accessing the index of the current entry in the sparse range, this allows to write code like </p><div class="fragment"><div class="line"><span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp;&amp; [A_i, i] : <a class="code" href="a00404.html#gaa75d4e74da1410405a33a5a62b5710e7">sparseRange</a>(R))</div>
+<div class="line">  doSomethingWithValueAndIndex(A_i, i);</div>
+<div class="ttc" id="aa00404_html_gaa75d4e74da1410405a33a5a62b5710e7"><div class="ttname"><a href="a00404.html#gaa75d4e74da1410405a33a5a62b5710e7">Dune::sparseRange</a></div><div class="ttdeci">auto sparseRange(Range &amp;&amp;range)</div><div class="ttdoc">Allow structured-binding for-loops for sparse iterators.</div><div class="ttdef"><b>Definition:</b> rangeutilities.hh:819</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a id="gae2dd8cb1fce8767381e33a5b834cf55d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae2dd8cb1fce8767381e33a5b834cf55d">&#9670;&nbsp;</a></span>transformedRangeView()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class R , class F &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto Dune::transformedRangeView </td>
+          <td>(</td>
+          <td class="paramtype">R &amp;&amp;&#160;</td>
+          <td class="paramname"><em>range</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const F &amp;&#160;</td>
+          <td class="paramname"><em>f</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create a <a class="el" href="a02509.html" title="A range transforming the values of another range on-the-fly.">TransformedRangeView</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">range</td><td>The range to transform </td></tr>
+    <tr><td class="paramname">f</td><td>Unary function that should the applied to the entries of the range.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This behaves like a range providing <code>begin()</code> and <code>end()</code>. The iterators over this range internally iterate over the wrapped range. When dereferencing the iterator, the wrapped iterator is dereferenced, the given transformation function is applied on-the-fly, and the result is returned. I.e, if</p><div class="fragment"><div class="line">it </div>
+</div><!-- fragment --><p> is the wrapped iterator and</p><div class="fragment"><div class="line">f </div>
+</div><!-- fragment --><p> is the transformation function, then the result of</p><div class="fragment"><div class="line">f(*it) </div>
+</div><!-- fragment --><p> is returned</p>
+<p>The transformation may either return temporary values or l-value references. In the former case the range behaves like a proxy-container. In the latter case it forwards these references allowing, e.g., to sort a subset of some container by applying a transformation to an index-range for those values.</p>
+<p>The iterators of the <a class="el" href="a02509.html" title="A range transforming the values of another range on-the-fly.">TransformedRangeView</a> have the same iterator_category as the ones of the wrapped container.</p>
+<p>If range is an r-value, then the <a class="el" href="a02509.html" title="A range transforming the values of another range on-the-fly.">TransformedRangeView</a> stores it by value, if range is an l-value, then the <a class="el" href="a02509.html" title="A range transforming the values of another range on-the-fly.">TransformedRangeView</a> stores it by reference. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="ga9749b12765838700df3504bcae783e35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9749b12765838700df3504bcae783e35">&#9670;&nbsp;</a></span>range</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T , T from, T to&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a02477.html">StaticIntegralRange</a>&lt;T, to&gt; Dune::range(std::integral_constant&lt; T, to &gt;) noexcept </td>
+          <td>(</td>
+          <td class="paramtype">std::integral_constant&lt; T, from &gt;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::integral_constant&lt; T, to &gt;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

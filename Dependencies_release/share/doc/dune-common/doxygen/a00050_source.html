@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-common
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -86,30 +86,30 @@ $(function() {
 <div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="a00413.html#ga7b78ef57d1b77933ab277ebe66c79d94">  116</a></span>&#160;  <span class="keyword">typedef</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="a00413.html#ga7b78ef57d1b77933ab277ebe66c79d94">DebugLevel</a>;</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  <span class="keyword">template</span> &lt;DebugLevel current, DebugLevel threshold&gt;</div>
-<div class="line"><a name="l00128"></a><span class="lineno"><a class="line" href="a01384.html">  128</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a01384.html">greater_or_equal</a> {</div>
+<div class="line"><a name="l00128"></a><span class="lineno"><a class="line" href="a01369.html">  128</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a01369.html">greater_or_equal</a> {</div>
 <div class="line"><a name="l00129"></a><span class="lineno"><a class="line" href="a00413.html#ga0133cfa4f3c689ee46d56d409bf53c10">  129</a></span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="a00413.html#ga0133cfa4f3c689ee46d56d409bf53c10">value</a> = (current &gt;= threshold);</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  };</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;  <span class="keyword">template</span> &lt;DebugLevel current, DebugLevel mask&gt;</div>
-<div class="line"><a name="l00140"></a><span class="lineno"><a class="line" href="a01388.html">  140</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a01388.html">common_bits</a> {</div>
+<div class="line"><a name="l00140"></a><span class="lineno"><a class="line" href="a01373.html">  140</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a01373.html">common_bits</a> {</div>
 <div class="line"><a name="l00141"></a><span class="lineno"><a class="line" href="a00413.html#gga2d909b8d182854d2d5d9e5d6f4452767ad6324c657abd3cf8771e77b98987500b">  141</a></span>&#160;    <span class="keyword">enum</span> {<a class="code" href="a00413.html#gga2d909b8d182854d2d5d9e5d6f4452767ad6324c657abd3cf8771e77b98987500b">value</a> = ((current &amp; <a class="code" href="a00423.html#ga739860dc7b3d5e5bffd0af618aa07f20">mask</a>)!=0) };</div>
 <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;  };</div>
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160; </div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
-<div class="line"><a name="l00146"></a><span class="lineno"><a class="line" href="a01392.html">  146</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a01392.html">DebugStreamError</a> : <span class="keyword">public</span> <a class="code" href="a01572.html">IOError</a> {};</div>
+<div class="line"><a name="l00146"></a><span class="lineno"><a class="line" href="a01377.html">  146</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a01377.html">DebugStreamError</a> : <span class="keyword">public</span> <a class="code" href="a01557.html">IOError</a> {};</div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
-<div class="line"><a name="l00148"></a><span class="lineno"><a class="line" href="a01396.html">  148</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a01396.html">StreamWrap</a> {</div>
+<div class="line"><a name="l00148"></a><span class="lineno"><a class="line" href="a01381.html">  148</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a01381.html">StreamWrap</a> {</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;  <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00150"></a><span class="lineno"><a class="line" href="a00413.html#ga06e3c89ca78a336ab9c5d2d13fbb7d86">  150</a></span>&#160;    <a class="code" href="a00413.html#ga06e3c89ca78a336ab9c5d2d13fbb7d86">StreamWrap</a>(std::ostream&amp; _out) : <a class="code" href="a00413.html#ga3eaed1d890bb1bc7ba0593b1565d5fe7">out</a>(_out) { }</div>
 <div class="line"><a name="l00151"></a><span class="lineno"><a class="line" href="a00413.html#ga3eaed1d890bb1bc7ba0593b1565d5fe7">  151</a></span>&#160;    std::ostream&amp; <a class="code" href="a00413.html#ga3eaed1d890bb1bc7ba0593b1565d5fe7">out</a>;</div>
-<div class="line"><a name="l00152"></a><span class="lineno"><a class="line" href="a00413.html#gaf0931b582e183cb17963d23d7598ae23">  152</a></span>&#160;    <a class="code" href="a01396.html">StreamWrap</a> *<a class="code" href="a00413.html#gaf0931b582e183cb17963d23d7598ae23">next</a>;</div>
+<div class="line"><a name="l00152"></a><span class="lineno"><a class="line" href="a00413.html#gaf0931b582e183cb17963d23d7598ae23">  152</a></span>&#160;    <a class="code" href="a01381.html">StreamWrap</a> *<a class="code" href="a00413.html#gaf0931b582e183cb17963d23d7598ae23">next</a>;</div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;  };</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160; </div>
-<div class="line"><a name="l00156"></a><span class="lineno"><a class="line" href="a01400.html">  156</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a01400.html">DebugStreamState</a> {</div>
+<div class="line"><a name="l00156"></a><span class="lineno"><a class="line" href="a01385.html">  156</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a01385.html">DebugStreamState</a> {</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="comment">// !!! should be protected somehow but that won&#39;t be easy</span></div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00160"></a><span class="lineno"><a class="line" href="a00413.html#ga8a430d62e0ab862fbbdf6177d64273bb">  160</a></span>&#160;    <a class="code" href="a01396.html">StreamWrap</a>* <a class="code" href="a00413.html#ga8a430d62e0ab862fbbdf6177d64273bb">current</a>;</div>
+<div class="line"><a name="l00160"></a><span class="lineno"><a class="line" href="a00413.html#ga8a430d62e0ab862fbbdf6177d64273bb">  160</a></span>&#160;    <a class="code" href="a01381.html">StreamWrap</a>* <a class="code" href="a00413.html#ga8a430d62e0ab862fbbdf6177d64273bb">current</a>;</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; </div>
 <div class="line"><a name="l00163"></a><span class="lineno"><a class="line" href="a00413.html#ga4ca51511bad76b44cdd79716fdc5ad39">  163</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="a00413.html#ga4ca51511bad76b44cdd79716fdc5ad39">_active</a>;</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
@@ -121,12 +121,12 @@ $(function() {
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;  <span class="keyword">template</span> &lt;<a class="code" href="a00413.html#ga7b78ef57d1b77933ab277ebe66c79d94">DebugLevel</a> thislevel = 1,</div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;      <a class="code" href="a00413.html#ga7b78ef57d1b77933ab277ebe66c79d94">DebugLevel</a> dlevel = 1,</div>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;      <a class="code" href="a00413.html#ga7b78ef57d1b77933ab277ebe66c79d94">DebugLevel</a> alevel = 1,</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;      <span class="keyword">template</span>&lt;DebugLevel, DebugLevel&gt; <span class="keyword">class </span>activator = <a class="code" href="a01384.html">greater_or_equal</a>&gt;</div>
-<div class="line"><a name="l00190"></a><span class="lineno"><a class="line" href="a01404.html">  190</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a01404.html">DebugStream</a> : <span class="keyword">public</span> <a class="code" href="a01400.html">DebugStreamState</a> {</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;      <span class="keyword">template</span>&lt;DebugLevel, DebugLevel&gt; <span class="keyword">class </span>activator = <a class="code" href="a01369.html">greater_or_equal</a>&gt;</div>
+<div class="line"><a name="l00190"></a><span class="lineno"><a class="line" href="a01389.html">  190</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a01389.html">DebugStream</a> : <span class="keyword">public</span> <a class="code" href="a01385.html">DebugStreamState</a> {</div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;  <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00197"></a><span class="lineno"><a class="line" href="a00413.html#ga0f2ab6645431b2552d1d7732583f3a72">  197</a></span>&#160;    <a class="code" href="a00413.html#ga0f2ab6645431b2552d1d7732583f3a72">DebugStream</a>(std::ostream&amp; out = std::cerr) {</div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;      <span class="comment">// start a new list of streams</span></div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;      <a class="code" href="a00413.html#ga8a430d62e0ab862fbbdf6177d64273bb">current</a> = <span class="keyword">new</span> <a class="code" href="a01396.html">StreamWrap</a>(out);</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;      <a class="code" href="a00413.html#ga8a430d62e0ab862fbbdf6177d64273bb">current</a> = <span class="keyword">new</span> <a class="code" href="a01381.html">StreamWrap</a>(out);</div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;      <a class="code" href="a00413.html#ga8a430d62e0ab862fbbdf6177d64273bb">current</a>-&gt;<a class="code" href="a00413.html#gaf0931b582e183cb17963d23d7598ae23">next</a> = 0;</div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160; </div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;      <span class="comment">// check if we are above the default activation level</span></div>
@@ -139,11 +139,11 @@ $(function() {
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;      <a class="code" href="a00413.html#ga654bf28c5bd8a705856cd19f4bedfa4e">_tied_streams</a> = 0;</div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    }</div>
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160; </div>
-<div class="line"><a name="l00217"></a><span class="lineno"><a class="line" href="a00413.html#gaa64698be61f444f86487e2a548ba94ac">  217</a></span>&#160;    <a class="code" href="a00413.html#gaa64698be61f444f86487e2a548ba94ac">DebugStream</a> (<a class="code" href="a01400.html">DebugStreamState</a>&amp; master,</div>
+<div class="line"><a name="l00217"></a><span class="lineno"><a class="line" href="a00413.html#gaa64698be61f444f86487e2a548ba94ac">  217</a></span>&#160;    <a class="code" href="a00413.html#gaa64698be61f444f86487e2a548ba94ac">DebugStream</a> (<a class="code" href="a01385.html">DebugStreamState</a>&amp; master,</div>
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;                 std::ostream&amp; fallback = std::cerr)</div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    {</div>
 <div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;      <span class="comment">// start a new list of streams</span></div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;      <a class="code" href="a00413.html#ga8a430d62e0ab862fbbdf6177d64273bb">current</a> = <span class="keyword">new</span> <a class="code" href="a01396.html">StreamWrap</a>(fallback);</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;      <a class="code" href="a00413.html#ga8a430d62e0ab862fbbdf6177d64273bb">current</a> = <span class="keyword">new</span> <a class="code" href="a01381.html">StreamWrap</a>(fallback);</div>
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;      <a class="code" href="a00413.html#ga8a430d62e0ab862fbbdf6177d64273bb">current</a>-&gt;<a class="code" href="a00413.html#gaf0931b582e183cb17963d23d7598ae23">next</a> = 0;</div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160; </div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;      <span class="comment">// check if we are above the default activation level</span></div>
@@ -172,14 +172,14 @@ $(function() {
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160; </div>
 <div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;      <span class="comment">// remove ostream-stack</span></div>
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;      <span class="keywordflow">while</span> (<a class="code" href="a00413.html#ga8a430d62e0ab862fbbdf6177d64273bb">current</a> != 0) {</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;        <a class="code" href="a01396.html">StreamWrap</a> *s = <a class="code" href="a00413.html#ga8a430d62e0ab862fbbdf6177d64273bb">current</a>;</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;        <a class="code" href="a01381.html">StreamWrap</a> *s = <a class="code" href="a00413.html#ga8a430d62e0ab862fbbdf6177d64273bb">current</a>;</div>
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;        <a class="code" href="a00413.html#ga8a430d62e0ab862fbbdf6177d64273bb">current</a> = <a class="code" href="a00413.html#ga8a430d62e0ab862fbbdf6177d64273bb">current</a>-&gt;<a class="code" href="a00413.html#gaf0931b582e183cb17963d23d7598ae23">next</a>;</div>
 <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;        <span class="keyword">delete</span> s;</div>
 <div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;      }</div>
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    }</div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160; </div>
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00265"></a><span class="lineno"><a class="line" href="a00413.html#ga1e6a448f92df51f7414cd4b8afeee9a5">  265</a></span>&#160;    <a class="code" href="a01404.html">DebugStream</a>&amp; <a class="code" href="a00413.html#ga1e6a448f92df51f7414cd4b8afeee9a5">operator&lt;&lt;</a>(<span class="keyword">const</span> T data) {</div>
+<div class="line"><a name="l00265"></a><span class="lineno"><a class="line" href="a00413.html#ga1e6a448f92df51f7414cd4b8afeee9a5">  265</a></span>&#160;    <a class="code" href="a01389.html">DebugStream</a>&amp; <a class="code" href="a00413.html#ga1e6a448f92df51f7414cd4b8afeee9a5">operator&lt;&lt;</a>(<span class="keyword">const</span> T data) {</div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;      <span class="comment">// remove the following code if stream wasn&#39;t compiled active</span></div>
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;      <span class="keywordflow">if</span> (activator&lt;thislevel, dlevel&gt;::value) {</div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;        <span class="keywordflow">if</span> (! <a class="code" href="a00413.html#ga82ee54f4b88fb895510ed6d4cc92c02d">_tied</a>) {</div>
@@ -194,7 +194,7 @@ $(function() {
 <div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;      <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    }</div>
 <div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160; </div>
-<div class="line"><a name="l00287"></a><span class="lineno"><a class="line" href="a00413.html#ga20a49ab839757180aaf025616f0d3093">  287</a></span>&#160;    <a class="code" href="a01404.html">DebugStream</a>&amp; <a class="code" href="a00413.html#ga20a49ab839757180aaf025616f0d3093">operator&lt;&lt;</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> data) {</div>
+<div class="line"><a name="l00287"></a><span class="lineno"><a class="line" href="a00413.html#ga20a49ab839757180aaf025616f0d3093">  287</a></span>&#160;    <a class="code" href="a01389.html">DebugStream</a>&amp; <a class="code" href="a00413.html#ga20a49ab839757180aaf025616f0d3093">operator&lt;&lt;</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> data) {</div>
 <div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;      <span class="comment">// remove the following code if stream wasn&#39;t compiled active</span></div>
 <div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;      <span class="keywordflow">if</span> (activator&lt;thislevel, dlevel&gt;::value) {</div>
 <div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;        <span class="keywordflow">if</span> (! <a class="code" href="a00413.html#ga82ee54f4b88fb895510ed6d4cc92c02d">_tied</a>) {</div>
@@ -209,7 +209,7 @@ $(function() {
 <div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;      <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    }</div>
 <div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160; </div>
-<div class="line"><a name="l00303"></a><span class="lineno"><a class="line" href="a00413.html#ga3aefb2a7c669943437210f98a44aa27e">  303</a></span>&#160;    <a class="code" href="a01404.html">DebugStream</a>&amp; <a class="code" href="a00413.html#ga3aefb2a7c669943437210f98a44aa27e">operator&lt;&lt;</a>(std::ostream&amp; (*f)(std::ostream&amp;)) {</div>
+<div class="line"><a name="l00303"></a><span class="lineno"><a class="line" href="a00413.html#ga3aefb2a7c669943437210f98a44aa27e">  303</a></span>&#160;    <a class="code" href="a01389.html">DebugStream</a>&amp; <a class="code" href="a00413.html#ga3aefb2a7c669943437210f98a44aa27e">operator&lt;&lt;</a>(std::ostream&amp; (*f)(std::ostream&amp;)) {</div>
 <div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;      <span class="keywordflow">if</span> (activator&lt;thislevel, dlevel&gt;::value) {</div>
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;        <span class="keywordflow">if</span> (! <a class="code" href="a00413.html#ga82ee54f4b88fb895510ed6d4cc92c02d">_tied</a>) {</div>
 <div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;          <span class="keywordflow">if</span> (<a class="code" href="a00413.html#ga4ca51511bad76b44cdd79716fdc5ad39">_active</a>)</div>
@@ -223,7 +223,7 @@ $(function() {
 <div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;      <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    }</div>
 <div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160; </div>
-<div class="line"><a name="l00318"></a><span class="lineno"><a class="line" href="a00413.html#ga3f2f0137b862675f9ec2c1e8efbcaa51">  318</a></span>&#160;    <a class="code" href="a01404.html">DebugStream</a>&amp; <a class="code" href="a00413.html#ga3f2f0137b862675f9ec2c1e8efbcaa51">flush</a>() {</div>
+<div class="line"><a name="l00318"></a><span class="lineno"><a class="line" href="a00413.html#ga3f2f0137b862675f9ec2c1e8efbcaa51">  318</a></span>&#160;    <a class="code" href="a01389.html">DebugStream</a>&amp; <a class="code" href="a00413.html#ga3f2f0137b862675f9ec2c1e8efbcaa51">flush</a>() {</div>
 <div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;      <span class="keywordflow">if</span> (activator&lt;thislevel, dlevel&gt;::value) {</div>
 <div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;        <span class="keywordflow">if</span> (! <a class="code" href="a00413.html#ga82ee54f4b88fb895510ed6d4cc92c02d">_tied</a>) {</div>
 <div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;          <span class="keywordflow">if</span> (<a class="code" href="a00413.html#ga4ca51511bad76b44cdd79716fdc5ad39">_active</a>)</div>
@@ -250,7 +250,7 @@ $(function() {
 <div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160; </div>
 <div class="line"><a name="l00347"></a><span class="lineno"><a class="line" href="a00413.html#ga3fcdade7b18e0d6cbd46c9e8cd051a35">  347</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a00413.html#ga3fcdade7b18e0d6cbd46c9e8cd051a35">pop</a>() {</div>
 <div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;      <span class="keywordflow">if</span> (_actstack.empty())</div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;        <a class="code" href="a00415.html#gad7fce127d6eaabe773adbc409514f21e">DUNE_THROW</a>(<a class="code" href="a01392.html">DebugStreamError</a>, <span class="stringliteral">&quot;No previous activation setting!&quot;</span>);</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;        <a class="code" href="a00415.html#gad7fce127d6eaabe773adbc409514f21e">DUNE_THROW</a>(<a class="code" href="a01377.html">DebugStreamError</a>, <span class="stringliteral">&quot;No previous activation setting!&quot;</span>);</div>
 <div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160; </div>
 <div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;      <a class="code" href="a00413.html#ga4ca51511bad76b44cdd79716fdc5ad39">_active</a> = _actstack.top();</div>
 <div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;      _actstack.pop();</div>
@@ -262,29 +262,29 @@ $(function() {
 <div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160; </div>
 <div class="line"><a name="l00369"></a><span class="lineno"><a class="line" href="a00413.html#ga27a2eade67505c3bf1c01b48731c355c">  369</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a00413.html#ga27a2eade67505c3bf1c01b48731c355c">attach</a>(std::ostream&amp; stream) {</div>
 <div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;      <span class="keywordflow">if</span> (<a class="code" href="a00413.html#ga82ee54f4b88fb895510ed6d4cc92c02d">_tied</a>)</div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;        <a class="code" href="a00415.html#gad7fce127d6eaabe773adbc409514f21e">DUNE_THROW</a>(<a class="code" href="a01392.html">DebugStreamError</a>, <span class="stringliteral">&quot;Cannot attach to a tied stream!&quot;</span>);</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;        <a class="code" href="a00415.html#gad7fce127d6eaabe773adbc409514f21e">DUNE_THROW</a>(<a class="code" href="a01377.html">DebugStreamError</a>, <span class="stringliteral">&quot;Cannot attach to a tied stream!&quot;</span>);</div>
 <div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160; </div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;      <a class="code" href="a01396.html">StreamWrap</a>* newcurr = <span class="keyword">new</span> <a class="code" href="a01396.html">StreamWrap</a>(stream);</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;      <a class="code" href="a01381.html">StreamWrap</a>* newcurr = <span class="keyword">new</span> <a class="code" href="a01381.html">StreamWrap</a>(stream);</div>
 <div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;      newcurr-&gt;<a class="code" href="a00413.html#gaf0931b582e183cb17963d23d7598ae23">next</a> = <a class="code" href="a00413.html#ga8a430d62e0ab862fbbdf6177d64273bb">current</a>;</div>
 <div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;      <a class="code" href="a00413.html#ga8a430d62e0ab862fbbdf6177d64273bb">current</a> = newcurr;</div>
 <div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;    }</div>
 <div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160; </div>
 <div class="line"><a name="l00381"></a><span class="lineno"><a class="line" href="a00413.html#ga27c3774a0fd87899ddf215dc1d3b44e9">  381</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a00413.html#ga27c3774a0fd87899ddf215dc1d3b44e9">detach</a>() {</div>
 <div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;      <span class="keywordflow">if</span> (<a class="code" href="a00413.html#ga8a430d62e0ab862fbbdf6177d64273bb">current</a>-&gt;<a class="code" href="a00413.html#gaf0931b582e183cb17963d23d7598ae23">next</a> == 0)</div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;        <a class="code" href="a00415.html#gad7fce127d6eaabe773adbc409514f21e">DUNE_THROW</a>(<a class="code" href="a01392.html">DebugStreamError</a>, <span class="stringliteral">&quot;Cannot detach initial stream!&quot;</span>);</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;        <a class="code" href="a00415.html#gad7fce127d6eaabe773adbc409514f21e">DUNE_THROW</a>(<a class="code" href="a01377.html">DebugStreamError</a>, <span class="stringliteral">&quot;Cannot detach initial stream!&quot;</span>);</div>
 <div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;      <span class="keywordflow">if</span> (<a class="code" href="a00413.html#ga82ee54f4b88fb895510ed6d4cc92c02d">_tied</a>)</div>
-<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;        <a class="code" href="a00415.html#gad7fce127d6eaabe773adbc409514f21e">DUNE_THROW</a>(<a class="code" href="a01392.html">DebugStreamError</a>, <span class="stringliteral">&quot;Cannot detach a tied stream!&quot;</span>);</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;        <a class="code" href="a00415.html#gad7fce127d6eaabe773adbc409514f21e">DUNE_THROW</a>(<a class="code" href="a01377.html">DebugStreamError</a>, <span class="stringliteral">&quot;Cannot detach a tied stream!&quot;</span>);</div>
 <div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160; </div>
-<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;      <a class="code" href="a01396.html">StreamWrap</a>* old = <a class="code" href="a00413.html#ga8a430d62e0ab862fbbdf6177d64273bb">current</a>;</div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;      <a class="code" href="a01381.html">StreamWrap</a>* old = <a class="code" href="a00413.html#ga8a430d62e0ab862fbbdf6177d64273bb">current</a>;</div>
 <div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;      <a class="code" href="a00413.html#ga8a430d62e0ab862fbbdf6177d64273bb">current</a> = <a class="code" href="a00413.html#ga8a430d62e0ab862fbbdf6177d64273bb">current</a>-&gt;<a class="code" href="a00413.html#gaf0931b582e183cb17963d23d7598ae23">next</a>;</div>
 <div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;      <span class="keyword">delete</span> old;</div>
 <div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;    }</div>
 <div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160; </div>
-<div class="line"><a name="l00395"></a><span class="lineno"><a class="line" href="a00413.html#ga6add8418613c3cfaa0ae74bbee8c1820">  395</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a00413.html#ga6add8418613c3cfaa0ae74bbee8c1820">tie</a>(<a class="code" href="a01400.html">DebugStreamState</a>&amp; to) {</div>
+<div class="line"><a name="l00395"></a><span class="lineno"><a class="line" href="a00413.html#ga6add8418613c3cfaa0ae74bbee8c1820">  395</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a00413.html#ga6add8418613c3cfaa0ae74bbee8c1820">tie</a>(<a class="code" href="a01385.html">DebugStreamState</a>&amp; to) {</div>
 <div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;      <span class="keywordflow">if</span> (to.<a class="code" href="a00413.html#ga82ee54f4b88fb895510ed6d4cc92c02d">_tied</a>)</div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;        <a class="code" href="a00415.html#gad7fce127d6eaabe773adbc409514f21e">DUNE_THROW</a>(<a class="code" href="a01392.html">DebugStreamError</a>, <span class="stringliteral">&quot;Cannot tie to an already tied stream!&quot;</span>);</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;        <a class="code" href="a00415.html#gad7fce127d6eaabe773adbc409514f21e">DUNE_THROW</a>(<a class="code" href="a01377.html">DebugStreamError</a>, <span class="stringliteral">&quot;Cannot tie to an already tied stream!&quot;</span>);</div>
 <div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;      <span class="keywordflow">if</span> (<a class="code" href="a00413.html#ga82ee54f4b88fb895510ed6d4cc92c02d">_tied</a>)</div>
-<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;        <a class="code" href="a00415.html#gad7fce127d6eaabe773adbc409514f21e">DUNE_THROW</a>(<a class="code" href="a01392.html">DebugStreamError</a>, <span class="stringliteral">&quot;Stream already tied: untie first!&quot;</span>);</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;        <a class="code" href="a00415.html#gad7fce127d6eaabe773adbc409514f21e">DUNE_THROW</a>(<a class="code" href="a01377.html">DebugStreamError</a>, <span class="stringliteral">&quot;Stream already tied: untie first!&quot;</span>);</div>
 <div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160; </div>
 <div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;      <a class="code" href="a00413.html#ga82ee54f4b88fb895510ed6d4cc92c02d">_tied</a> = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;      tiedstate = &amp;to;</div>
@@ -295,7 +295,7 @@ $(function() {
 <div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160; </div>
 <div class="line"><a name="l00411"></a><span class="lineno"><a class="line" href="a00413.html#ga17bdd177c2a2d177ee1c4646f9bd463f">  411</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a00413.html#ga17bdd177c2a2d177ee1c4646f9bd463f">untie</a>() {</div>
 <div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;      <span class="keywordflow">if</span>(! <a class="code" href="a00413.html#ga82ee54f4b88fb895510ed6d4cc92c02d">_tied</a>)</div>
-<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;        <a class="code" href="a00415.html#gad7fce127d6eaabe773adbc409514f21e">DUNE_THROW</a>(<a class="code" href="a01392.html">DebugStreamError</a>, <span class="stringliteral">&quot;Cannot untie, stream is not tied!&quot;</span>);</div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;        <a class="code" href="a00415.html#gad7fce127d6eaabe773adbc409514f21e">DUNE_THROW</a>(<a class="code" href="a01377.html">DebugStreamError</a>, <span class="stringliteral">&quot;Cannot untie, stream is not tied!&quot;</span>);</div>
 <div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160; </div>
 <div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;      tiedstate-&gt;<a class="code" href="a00413.html#ga654bf28c5bd8a705856cd19f4bedfa4e">_tied_streams</a>--;</div>
 <div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;      <a class="code" href="a00413.html#ga82ee54f4b88fb895510ed6d4cc92c02d">_tied</a> = <span class="keyword">false</span>;</div>
@@ -303,7 +303,7 @@ $(function() {
 <div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;    }</div>
 <div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160; </div>
 <div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;    <a class="code" href="a01400.html">DebugStreamState</a>* tiedstate;</div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;    <a class="code" href="a01385.html">DebugStreamState</a>* tiedstate;</div>
 <div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160; </div>
 <div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;    std::stack&lt;bool&gt; _actstack;</div>
 <div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;  };</div>
@@ -339,14 +339,14 @@ $(function() {
 <div class="ttc" id="aa00413_html_gga2d909b8d182854d2d5d9e5d6f4452767ad6324c657abd3cf8771e77b98987500b"><div class="ttname"><a href="a00413.html#gga2d909b8d182854d2d5d9e5d6f4452767ad6324c657abd3cf8771e77b98987500b">Dune::common_bits::value</a></div><div class="ttdeci">@ value</div><div class="ttdef"><b>Definition:</b> debugstream.hh:141</div></div>
 <div class="ttc" id="aa00415_html_gad7fce127d6eaabe773adbc409514f21e"><div class="ttname"><a href="a00415.html#gad7fce127d6eaabe773adbc409514f21e">DUNE_THROW</a></div><div class="ttdeci">#define DUNE_THROW(E, m)</div><div class="ttdef"><b>Definition:</b> exceptions.hh:216</div></div>
 <div class="ttc" id="aa00423_html_ga739860dc7b3d5e5bffd0af618aa07f20"><div class="ttname"><a href="a00423.html#ga739860dc7b3d5e5bffd0af618aa07f20">Dune::Simd::Overloads::mask</a></div><div class="ttdeci">Mask&lt; V &gt; mask(ADLTag&lt; 0, std::is_same&lt; V, Mask&lt; V &gt; &gt;::value &gt;, const V &amp;v)</div><div class="ttdoc">implements Simd::mask()</div><div class="ttdef"><b>Definition:</b> defaults.hh:151</div></div>
-<div class="ttc" id="aa00428_html"><div class="ttname"><a href="a00428.html">Dune</a></div><div class="ttdoc">Dune namespace.</div><div class="ttdef"><b>Definition:</b> alignedallocator.hh:14</div></div>
-<div class="ttc" id="aa01384_html"><div class="ttname"><a href="a01384.html">Dune::greater_or_equal</a></div><div class="ttdoc">Greater or equal template test.</div><div class="ttdef"><b>Definition:</b> debugstream.hh:128</div></div>
-<div class="ttc" id="aa01388_html"><div class="ttname"><a href="a01388.html">Dune::common_bits</a></div><div class="ttdoc">activate if current and mask have common bits switched on.</div><div class="ttdef"><b>Definition:</b> debugstream.hh:140</div></div>
-<div class="ttc" id="aa01392_html"><div class="ttname"><a href="a01392.html">Dune::DebugStreamError</a></div><div class="ttdoc">standard exception for the debugstream</div><div class="ttdef"><b>Definition:</b> debugstream.hh:146</div></div>
-<div class="ttc" id="aa01396_html"><div class="ttname"><a href="a01396.html">Dune::StreamWrap</a></div><div class="ttdef"><b>Definition:</b> debugstream.hh:148</div></div>
-<div class="ttc" id="aa01400_html"><div class="ttname"><a href="a01400.html">Dune::DebugStreamState</a></div><div class="ttdoc">Intermediate class to implement tie-operation of DebugStream.</div><div class="ttdef"><b>Definition:</b> debugstream.hh:156</div></div>
-<div class="ttc" id="aa01404_html"><div class="ttname"><a href="a01404.html">Dune::DebugStream</a></div><div class="ttdoc">Generic class to implement debug output streams.</div><div class="ttdef"><b>Definition:</b> debugstream.hh:190</div></div>
-<div class="ttc" id="aa01572_html"><div class="ttname"><a href="a01572.html">Dune::IOError</a></div><div class="ttdoc">Default exception class for I/O errors.</div><div class="ttdef"><b>Definition:</b> exceptions.hh:229</div></div>
+<div class="ttc" id="aa00428_html"><div class="ttname"><a href="a00428.html">Dune</a></div><div class="ttdoc">Dune namespace.</div><div class="ttdef"><b>Definition:</b> alignedallocator.hh:11</div></div>
+<div class="ttc" id="aa01369_html"><div class="ttname"><a href="a01369.html">Dune::greater_or_equal</a></div><div class="ttdoc">Greater or equal template test.</div><div class="ttdef"><b>Definition:</b> debugstream.hh:128</div></div>
+<div class="ttc" id="aa01373_html"><div class="ttname"><a href="a01373.html">Dune::common_bits</a></div><div class="ttdoc">activate if current and mask have common bits switched on.</div><div class="ttdef"><b>Definition:</b> debugstream.hh:140</div></div>
+<div class="ttc" id="aa01377_html"><div class="ttname"><a href="a01377.html">Dune::DebugStreamError</a></div><div class="ttdoc">standard exception for the debugstream</div><div class="ttdef"><b>Definition:</b> debugstream.hh:146</div></div>
+<div class="ttc" id="aa01381_html"><div class="ttname"><a href="a01381.html">Dune::StreamWrap</a></div><div class="ttdef"><b>Definition:</b> debugstream.hh:148</div></div>
+<div class="ttc" id="aa01385_html"><div class="ttname"><a href="a01385.html">Dune::DebugStreamState</a></div><div class="ttdoc">Intermediate class to implement tie-operation of DebugStream.</div><div class="ttdef"><b>Definition:</b> debugstream.hh:156</div></div>
+<div class="ttc" id="aa01389_html"><div class="ttname"><a href="a01389.html">Dune::DebugStream</a></div><div class="ttdoc">Generic class to implement debug output streams.</div><div class="ttdef"><b>Definition:</b> debugstream.hh:190</div></div>
+<div class="ttc" id="aa01557_html"><div class="ttname"><a href="a01557.html">Dune::IOError</a></div><div class="ttdoc">Default exception class for I/O errors.</div><div class="ttdef"><b>Definition:</b> exceptions.hh:229</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

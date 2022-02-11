@@ -6,7 +6,6 @@
 #include <algorithm>
 #include <dune/common/arraylist.hh>
 #include <dune/common/exceptions.hh>
-#include <dune/common/unused.hh>
 #include <iostream>
 
 #include "localindex.hh"
@@ -614,9 +613,8 @@ namespace Dune
   template<typename T>
   struct LocalIndexComparator
   {
-    static bool compare(const T& t1, const T& t2){
-      DUNE_UNUSED_PARAMETER(t1);
-      DUNE_UNUSED_PARAMETER(t2);
+    static bool compare([[maybe_unused]] const T& t1, [[maybe_unused]] const T& t2)
+    {
       return false;
     }
   };
@@ -845,13 +843,11 @@ namespace Dune
     else if(newIndices_.size()>0 || deletedEntries_)
     {
       ArrayList<IndexPair,N> tempPairs;
-      typedef typename ArrayList<IndexPair,N>::iterator iterator;
-      typedef typename ArrayList<IndexPair,N>::const_iterator const_iterator;
 
-      iterator old=localIndices_.begin();
-      iterator added=newIndices_.begin();
-      const const_iterator endold=localIndices_.end();
-      const const_iterator endadded=newIndices_.end();
+      auto old = localIndices_.begin();
+      auto added = newIndices_.begin();
+      const auto endold = localIndices_.end();
+      const auto endadded = newIndices_.end();
 
       while(old != endold && added!= endadded)
       {
@@ -1038,11 +1034,10 @@ namespace Dune
                  <<"GROUND state for renumberLocal()");
 #endif
 
-    typedef typename ArrayList<IndexPair,N>::iterator iterator;
-    const const_iterator end_ = end();
+    const auto end_ = end();
     uint32_t index=0;
 
-    for(iterator pair=begin(); pair!=end_; index++, ++pair)
+    for(auto pair=begin(); pair!=end_; index++, ++pair)
       pair->local()=index;
   }
 

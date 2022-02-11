@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: basicwriter.hh File Reference</title>
+<title>dune-grid: starcdreader.hh File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,7 +62,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_282a6d93e11c1f5367984719a29518da.html">dune-grid</a></li><li class="navelem"><a class="el" href="dir_9b356568473fb59d2a92d82c3e3163e0.html">dune</a></li><li class="navelem"><a class="el" href="dir_b835d2b10d4bb6ff2c6d149ed2a0408f.html">grid</a></li><li class="navelem"><a class="el" href="dir_5329f25137ae6799dcc39a81c0bad511.html">io</a></li><li class="navelem"><a class="el" href="dir_f2c5e3825b457d6e386f055f5a57985b.html">file</a></li><li class="navelem"><a class="el" href="dir_3be003e0b8f6e8b0da65deae885b2126.html">vtk</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_282a6d93e11c1f5367984719a29518da.html">dune-grid</a></li><li class="navelem"><a class="el" href="dir_9b356568473fb59d2a92d82c3e3163e0.html">dune</a></li><li class="navelem"><a class="el" href="dir_b835d2b10d4bb6ff2c6d149ed2a0408f.html">grid</a></li><li class="navelem"><a class="el" href="dir_5329f25137ae6799dcc39a81c0bad511.html">io</a></li><li class="navelem"><a class="el" href="dir_f2c5e3825b457d6e386f055f5a57985b.html">file</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -70,37 +70,28 @@ $(function() {
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">basicwriter.hh File Reference</div>  </div>
+<div class="title">starcdreader.hh File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;fstream&gt;</code><br />
-<code>#include &lt;iomanip&gt;</code><br />
-<code>#include &lt;iterator&gt;</code><br />
-<code>#include &lt;list&gt;</code><br />
+<div class="textblock"><code>#include &lt;dune/common/exceptions.hh&gt;</code><br />
+<code>#include &lt;dune/geometry/type.hh&gt;</code><br />
+<code>#include &lt;<a class="el" href="a06711_source.html">dune/grid/common/gridfactory.hh</a>&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;fstream&gt;</code><br />
 <code>#include &lt;memory&gt;</code><br />
-<code>#include &lt;sstream&gt;</code><br />
-<code>#include &lt;string&gt;</code><br />
-<code>#include &lt;dune/common/parallel/mpiguard.hh&gt;</code><br />
-<code>#include &lt;dune/common/path.hh&gt;</code><br />
-<code>#include &lt;dune/geometry/referenceelements.hh&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00788_source.html">dune/grid/io/file/vtk/common.hh</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00803_source.html">dune/grid/io/file/vtk/functionwriter.hh</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00809_source.html">dune/grid/io/file/vtk/pvtuwriter.hh</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00836_source.html">dune/grid/io/file/vtk/vtuwriter.hh</a>&gt;</code><br />
 </div>
 <p><a href="a00779_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03698.html">Dune::VTK::BasicWriter&lt; IteratorFactory &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03690.html">Dune::StarCDReader&lt; GridType &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">File reader for the Star-CD format.  <a href="a03690.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:a00936"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00936.html">Dune</a></td></tr>
-<tr class="memdesc:a00936"><td class="mdescLeft">&#160;</td><td class="mdescRight">Include standard header files. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00948"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00948.html">Dune::VTK</a></td></tr>
+<tr class="memitem:a00940"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00940.html">Dune</a></td></tr>
+<tr class="memdesc:a00940"><td class="mdescLeft">&#160;</td><td class="mdescRight">Include standard header files. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->

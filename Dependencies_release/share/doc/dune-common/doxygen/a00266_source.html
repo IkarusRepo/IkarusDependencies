@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-common
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -79,25 +79,25 @@ $(function() {
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00428.html">Dune</a> {</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T1, <span class="keyword">typename</span> T2&gt;</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="a02404.html">   24</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a02404.html">PromotionTraits</a></div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="a02405.html">   24</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a02405.html">PromotionTraits</a></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  {</div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="a02404.html#ab1c37fdbf101a64757e4ee551e60b1f1">   26</a></span>&#160;    <span class="keyword">typedef</span> decltype(std::declval&lt;T1&gt;()+std::declval&lt;T2&gt;()) <a class="code" href="a02404.html#ab1c37fdbf101a64757e4ee551e60b1f1">PromotedType</a>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="a02405.html#ab1c37fdbf101a64757e4ee551e60b1f1">   26</a></span>&#160;    <span class="keyword">typedef</span> decltype(std::declval&lt;T1&gt;()+std::declval&lt;T2&gt;()) <a class="code" href="a02405.html#ab1c37fdbf101a64757e4ee551e60b1f1">PromotedType</a>;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  };</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="comment">// Specialization for the case of two equal types</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="comment">// One should think that the generic template should handle this case as well.</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="comment">// However, the fvectortest.cc unit test fails without it if ENABLE_GMP is set.</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  template &lt;typename T1&gt;</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="a02408.html#ab4f6d422c0baac66e9496252327e6682">   33</a></span>&#160;  struct <a class="code" href="a02404.html">PromotionTraits</a>&lt;T1,T1&gt; { <span class="keyword">typedef</span> T1 <a class="code" href="a02408.html#ab4f6d422c0baac66e9496252327e6682">PromotedType</a>; };</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="a02409.html#ab4f6d422c0baac66e9496252327e6682">   33</a></span>&#160;  struct <a class="code" href="a02405.html">PromotionTraits</a>&lt;T1,T1&gt; { <span class="keyword">typedef</span> T1 <a class="code" href="a02409.html#ab4f6d422c0baac66e9496252327e6682">PromotedType</a>; };</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;} <span class="comment">// end namespace</span></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// DUNE_PROMOTIONTRAITS_HH</span></div>
-<div class="ttc" id="aa00428_html"><div class="ttname"><a href="a00428.html">Dune</a></div><div class="ttdoc">Dune namespace.</div><div class="ttdef"><b>Definition:</b> alignedallocator.hh:14</div></div>
-<div class="ttc" id="aa02404_html"><div class="ttname"><a href="a02404.html">Dune::PromotionTraits</a></div><div class="ttdoc">Compute type of the result of an arithmetic operation involving two different number types.</div><div class="ttdef"><b>Definition:</b> promotiontraits.hh:25</div></div>
-<div class="ttc" id="aa02404_html_ab1c37fdbf101a64757e4ee551e60b1f1"><div class="ttname"><a href="a02404.html#ab1c37fdbf101a64757e4ee551e60b1f1">Dune::PromotionTraits::PromotedType</a></div><div class="ttdeci">decltype(std::declval&lt; T1 &gt;()+std::declval&lt; T2 &gt;()) typedef PromotedType</div><div class="ttdef"><b>Definition:</b> promotiontraits.hh:26</div></div>
-<div class="ttc" id="aa02408_html_ab4f6d422c0baac66e9496252327e6682"><div class="ttname"><a href="a02408.html#ab4f6d422c0baac66e9496252327e6682">Dune::PromotionTraits&lt; T1, T1 &gt;::PromotedType</a></div><div class="ttdeci">T1 PromotedType</div><div class="ttdef"><b>Definition:</b> promotiontraits.hh:33</div></div>
+<div class="ttc" id="aa00428_html"><div class="ttname"><a href="a00428.html">Dune</a></div><div class="ttdoc">Dune namespace.</div><div class="ttdef"><b>Definition:</b> alignedallocator.hh:11</div></div>
+<div class="ttc" id="aa02405_html"><div class="ttname"><a href="a02405.html">Dune::PromotionTraits</a></div><div class="ttdoc">Compute type of the result of an arithmetic operation involving two different number types.</div><div class="ttdef"><b>Definition:</b> promotiontraits.hh:25</div></div>
+<div class="ttc" id="aa02405_html_ab1c37fdbf101a64757e4ee551e60b1f1"><div class="ttname"><a href="a02405.html#ab1c37fdbf101a64757e4ee551e60b1f1">Dune::PromotionTraits::PromotedType</a></div><div class="ttdeci">decltype(std::declval&lt; T1 &gt;()+std::declval&lt; T2 &gt;()) typedef PromotedType</div><div class="ttdef"><b>Definition:</b> promotiontraits.hh:26</div></div>
+<div class="ttc" id="aa02409_html_ab4f6d422c0baac66e9496252327e6682"><div class="ttname"><a href="a02409.html#ab4f6d422c0baac66e9496252327e6682">Dune::PromotionTraits&lt; T1, T1 &gt;::PromotedType</a></div><div class="ttdeci">T1 PromotedType</div><div class="ttdef"><b>Definition:</b> promotiontraits.hh:33</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

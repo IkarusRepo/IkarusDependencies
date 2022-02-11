@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-common
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -86,27 +86,27 @@ $(function() {
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="keyword">class </span>Exception;</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <span class="keyword">struct </span>ExceptionHook;</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="a01564.html">   92</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a01564.html">Exception</a></div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="a01549.html">   92</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a01549.html">Exception</a></div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  : <span class="keyword">public</span> std::exception</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  {</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <a class="code" href="a00415.html#ga01c6ef86d8728e10ff8b61fdca89b34f">Exception</a> ();</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a00415.html#ga63defda88a6437cc9a3dbda91346177f">message</a>(<span class="keyword">const</span> std::string &amp;msg); </div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="a00415.html#gad513d0dc7eb0ba16e634b4048409c417">what</a>() <span class="keyword">const</span> noexcept <span class="keyword">override</span>; </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="a00415.html#ga297201b53f24b1d4758c1e8fd94970bd">registerHook</a> (<a class="code" href="a01568.html">ExceptionHook</a> * hook); </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="a00415.html#ga297201b53f24b1d4758c1e8fd94970bd">registerHook</a> (<a class="code" href="a01553.html">ExceptionHook</a> * hook); </div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="a00415.html#ga4c7f953a47e9ce57ad658f553db83e8f">clearHook</a> ();                  </div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    std::string _message;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keyword">static</span> <a class="code" href="a01568.html">ExceptionHook</a> * _hook;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keyword">static</span> <a class="code" href="a01553.html">ExceptionHook</a> * _hook;</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  };</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
-<div class="line"><a name="l00171"></a><span class="lineno"><a class="line" href="a01568.html">  171</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a01568.html">ExceptionHook</a></div>
+<div class="line"><a name="l00171"></a><span class="lineno"><a class="line" href="a01553.html">  171</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a01553.html">ExceptionHook</a></div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;  {</div>
 <div class="line"><a name="l00173"></a><span class="lineno"><a class="line" href="a00415.html#gac5b2708f8a37c9a4ebb890e4a1545c1c">  173</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="a00415.html#gac5b2708f8a37c9a4ebb890e4a1545c1c">~ExceptionHook</a>() {}</div>
 <div class="line"><a name="l00174"></a><span class="lineno"><a class="line" href="a00415.html#gab7d05055167bdb067cce622f051cb551">  174</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a00415.html#gab7d05055167bdb067cce622f051cb551">operator () </a>() = 0;</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;  };</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160; </div>
-<div class="line"><a name="l00177"></a><span class="lineno"><a class="line" href="a00415.html#gae09dcfbbe07912030b1413ad5ee706c6">  177</a></span>&#160;  <span class="keyword">inline</span> std::ostream&amp; <a class="code" href="a00411.html#ga354fc36a88498193df8a295e678de95a">operator&lt;&lt;</a>(std::ostream &amp;stream, <span class="keyword">const</span> <a class="code" href="a01564.html">Exception</a> &amp;e)</div>
+<div class="line"><a name="l00177"></a><span class="lineno"><a class="line" href="a00415.html#gae09dcfbbe07912030b1413ad5ee706c6">  177</a></span>&#160;  <span class="keyword">inline</span> std::ostream&amp; <a class="code" href="a00411.html#ga354fc36a88498193df8a295e678de95a">operator&lt;&lt;</a>(std::ostream &amp;stream, <span class="keyword">const</span> <a class="code" href="a01549.html">Exception</a> &amp;e)</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;  {</div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="keywordflow">return</span> stream &lt;&lt; e.<a class="code" href="a00415.html#gad513d0dc7eb0ba16e634b4048409c417">what</a>();</div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;  }</div>
@@ -124,21 +124,21 @@ $(function() {
 <div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;<span class="preprocessor">                              th__out &lt;&lt; THROWSPEC(E) &lt;&lt; m; th__ex.message(th__out.str()); throw th__ex; \</span></div>
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;<span class="preprocessor">} while (0)</span></div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160; </div>
-<div class="line"><a name="l00229"></a><span class="lineno"><a class="line" href="a01572.html">  229</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a01572.html">IOError</a> : <span class="keyword">public</span> <a class="code" href="a01564.html">Exception</a> {};</div>
+<div class="line"><a name="l00229"></a><span class="lineno"><a class="line" href="a01557.html">  229</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a01557.html">IOError</a> : <span class="keyword">public</span> <a class="code" href="a01549.html">Exception</a> {};</div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160; </div>
-<div class="line"><a name="l00239"></a><span class="lineno"><a class="line" href="a01576.html">  239</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a01576.html">MathError</a> : <span class="keyword">public</span> <a class="code" href="a01564.html">Exception</a> {};</div>
+<div class="line"><a name="l00239"></a><span class="lineno"><a class="line" href="a01561.html">  239</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a01561.html">MathError</a> : <span class="keyword">public</span> <a class="code" href="a01549.html">Exception</a> {};</div>
 <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160; </div>
-<div class="line"><a name="l00252"></a><span class="lineno"><a class="line" href="a01580.html">  252</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a01580.html">RangeError</a> : <span class="keyword">public</span> <a class="code" href="a01564.html">Exception</a> {};</div>
+<div class="line"><a name="l00252"></a><span class="lineno"><a class="line" href="a01565.html">  252</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a01565.html">RangeError</a> : <span class="keyword">public</span> <a class="code" href="a01549.html">Exception</a> {};</div>
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160; </div>
-<div class="line"><a name="l00261"></a><span class="lineno"><a class="line" href="a01584.html">  261</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a01584.html">NotImplemented</a> : <span class="keyword">public</span> <a class="code" href="a01564.html">Exception</a> {};</div>
+<div class="line"><a name="l00261"></a><span class="lineno"><a class="line" href="a01569.html">  261</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a01569.html">NotImplemented</a> : <span class="keyword">public</span> <a class="code" href="a01549.html">Exception</a> {};</div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160; </div>
-<div class="line"><a name="l00269"></a><span class="lineno"><a class="line" href="a01588.html">  269</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a01588.html">SystemError</a> : <span class="keyword">public</span> <a class="code" href="a01564.html">Exception</a> {};</div>
+<div class="line"><a name="l00269"></a><span class="lineno"><a class="line" href="a01573.html">  269</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a01573.html">SystemError</a> : <span class="keyword">public</span> <a class="code" href="a01549.html">Exception</a> {};</div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160; </div>
-<div class="line"><a name="l00274"></a><span class="lineno"><a class="line" href="a01592.html">  274</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a01592.html">OutOfMemoryError</a> : <span class="keyword">public</span> <a class="code" href="a01588.html">SystemError</a> {};</div>
+<div class="line"><a name="l00274"></a><span class="lineno"><a class="line" href="a01577.html">  274</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a01577.html">OutOfMemoryError</a> : <span class="keyword">public</span> <a class="code" href="a01573.html">SystemError</a> {};</div>
 <div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160; </div>
-<div class="line"><a name="l00279"></a><span class="lineno"><a class="line" href="a01596.html">  279</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a01596.html">InvalidStateException</a> : <span class="keyword">public</span> <a class="code" href="a01564.html">Exception</a> {};</div>
+<div class="line"><a name="l00279"></a><span class="lineno"><a class="line" href="a01581.html">  279</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a01581.html">InvalidStateException</a> : <span class="keyword">public</span> <a class="code" href="a01549.html">Exception</a> {};</div>
 <div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160; </div>
-<div class="line"><a name="l00285"></a><span class="lineno"><a class="line" href="a01600.html">  285</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a01600.html">ParallelError</a> : <span class="keyword">public</span> <a class="code" href="a01564.html">Exception</a> {};</div>
+<div class="line"><a name="l00285"></a><span class="lineno"><a class="line" href="a01585.html">  285</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a01585.html">ParallelError</a> : <span class="keyword">public</span> <a class="code" href="a01549.html">Exception</a> {};</div>
 <div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160; </div>
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;} <span class="comment">// end namespace</span></div>
 <div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160; </div>
@@ -151,17 +151,17 @@ $(function() {
 <div class="ttc" id="aa00415_html_gab7d05055167bdb067cce622f051cb551"><div class="ttname"><a href="a00415.html#gab7d05055167bdb067cce622f051cb551">Dune::ExceptionHook::operator()</a></div><div class="ttdeci">virtual void operator()()=0</div></div>
 <div class="ttc" id="aa00415_html_gac5b2708f8a37c9a4ebb890e4a1545c1c"><div class="ttname"><a href="a00415.html#gac5b2708f8a37c9a4ebb890e4a1545c1c">Dune::ExceptionHook::~ExceptionHook</a></div><div class="ttdeci">virtual ~ExceptionHook()</div><div class="ttdef"><b>Definition:</b> exceptions.hh:173</div></div>
 <div class="ttc" id="aa00415_html_gad513d0dc7eb0ba16e634b4048409c417"><div class="ttname"><a href="a00415.html#gad513d0dc7eb0ba16e634b4048409c417">Dune::Exception::what</a></div><div class="ttdeci">const char * what() const noexcept override</div><div class="ttdoc">output internal message buffer</div><div class="ttdef"><b>Definition:</b> exceptions.cc:35</div></div>
-<div class="ttc" id="aa00428_html"><div class="ttname"><a href="a00428.html">Dune</a></div><div class="ttdoc">Dune namespace.</div><div class="ttdef"><b>Definition:</b> alignedallocator.hh:14</div></div>
-<div class="ttc" id="aa01564_html"><div class="ttname"><a href="a01564.html">Dune::Exception</a></div><div class="ttdoc">Base class for Dune-Exceptions.</div><div class="ttdef"><b>Definition:</b> exceptions.hh:94</div></div>
-<div class="ttc" id="aa01568_html"><div class="ttname"><a href="a01568.html">Dune::ExceptionHook</a></div><div class="ttdoc">Base class to add a hook to the Dune::Exception.</div><div class="ttdef"><b>Definition:</b> exceptions.hh:172</div></div>
-<div class="ttc" id="aa01572_html"><div class="ttname"><a href="a01572.html">Dune::IOError</a></div><div class="ttdoc">Default exception class for I/O errors.</div><div class="ttdef"><b>Definition:</b> exceptions.hh:229</div></div>
-<div class="ttc" id="aa01576_html"><div class="ttname"><a href="a01576.html">Dune::MathError</a></div><div class="ttdoc">Default exception class for mathematical errors.</div><div class="ttdef"><b>Definition:</b> exceptions.hh:239</div></div>
-<div class="ttc" id="aa01580_html"><div class="ttname"><a href="a01580.html">Dune::RangeError</a></div><div class="ttdoc">Default exception class for range errors.</div><div class="ttdef"><b>Definition:</b> exceptions.hh:252</div></div>
-<div class="ttc" id="aa01584_html"><div class="ttname"><a href="a01584.html">Dune::NotImplemented</a></div><div class="ttdoc">Default exception for dummy implementations.</div><div class="ttdef"><b>Definition:</b> exceptions.hh:261</div></div>
-<div class="ttc" id="aa01588_html"><div class="ttname"><a href="a01588.html">Dune::SystemError</a></div><div class="ttdoc">Default exception class for OS errors.</div><div class="ttdef"><b>Definition:</b> exceptions.hh:269</div></div>
-<div class="ttc" id="aa01592_html"><div class="ttname"><a href="a01592.html">Dune::OutOfMemoryError</a></div><div class="ttdoc">Default exception if memory allocation fails.</div><div class="ttdef"><b>Definition:</b> exceptions.hh:274</div></div>
-<div class="ttc" id="aa01596_html"><div class="ttname"><a href="a01596.html">Dune::InvalidStateException</a></div><div class="ttdoc">Default exception if a function was called while the object is not in a valid state for that function...</div><div class="ttdef"><b>Definition:</b> exceptions.hh:279</div></div>
-<div class="ttc" id="aa01600_html"><div class="ttname"><a href="a01600.html">Dune::ParallelError</a></div><div class="ttdoc">Default exception if an error in the parallel communication of the program occurred.</div><div class="ttdef"><b>Definition:</b> exceptions.hh:285</div></div>
+<div class="ttc" id="aa00428_html"><div class="ttname"><a href="a00428.html">Dune</a></div><div class="ttdoc">Dune namespace.</div><div class="ttdef"><b>Definition:</b> alignedallocator.hh:11</div></div>
+<div class="ttc" id="aa01549_html"><div class="ttname"><a href="a01549.html">Dune::Exception</a></div><div class="ttdoc">Base class for Dune-Exceptions.</div><div class="ttdef"><b>Definition:</b> exceptions.hh:94</div></div>
+<div class="ttc" id="aa01553_html"><div class="ttname"><a href="a01553.html">Dune::ExceptionHook</a></div><div class="ttdoc">Base class to add a hook to the Dune::Exception.</div><div class="ttdef"><b>Definition:</b> exceptions.hh:172</div></div>
+<div class="ttc" id="aa01557_html"><div class="ttname"><a href="a01557.html">Dune::IOError</a></div><div class="ttdoc">Default exception class for I/O errors.</div><div class="ttdef"><b>Definition:</b> exceptions.hh:229</div></div>
+<div class="ttc" id="aa01561_html"><div class="ttname"><a href="a01561.html">Dune::MathError</a></div><div class="ttdoc">Default exception class for mathematical errors.</div><div class="ttdef"><b>Definition:</b> exceptions.hh:239</div></div>
+<div class="ttc" id="aa01565_html"><div class="ttname"><a href="a01565.html">Dune::RangeError</a></div><div class="ttdoc">Default exception class for range errors.</div><div class="ttdef"><b>Definition:</b> exceptions.hh:252</div></div>
+<div class="ttc" id="aa01569_html"><div class="ttname"><a href="a01569.html">Dune::NotImplemented</a></div><div class="ttdoc">Default exception for dummy implementations.</div><div class="ttdef"><b>Definition:</b> exceptions.hh:261</div></div>
+<div class="ttc" id="aa01573_html"><div class="ttname"><a href="a01573.html">Dune::SystemError</a></div><div class="ttdoc">Default exception class for OS errors.</div><div class="ttdef"><b>Definition:</b> exceptions.hh:269</div></div>
+<div class="ttc" id="aa01577_html"><div class="ttname"><a href="a01577.html">Dune::OutOfMemoryError</a></div><div class="ttdoc">Default exception if memory allocation fails.</div><div class="ttdef"><b>Definition:</b> exceptions.hh:274</div></div>
+<div class="ttc" id="aa01581_html"><div class="ttname"><a href="a01581.html">Dune::InvalidStateException</a></div><div class="ttdoc">Default exception if a function was called while the object is not in a valid state for that function...</div><div class="ttdef"><b>Definition:</b> exceptions.hh:279</div></div>
+<div class="ttc" id="aa01585_html"><div class="ttname"><a href="a01585.html">Dune::ParallelError</a></div><div class="ttdoc">Default exception if an error in the parallel communication of the program occurred.</div><div class="ttdef"><b>Definition:</b> exceptions.hh:285</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-common
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -75,30 +75,29 @@ $(function() {
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifndef DUNE_LCM_HH</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define DUNE_LCM_HH</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00116.html">dune/common/gcd.hh</a>&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00428.html">Dune</a></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="keyword">template</span>&lt;<span class="keywordtype">long</span> m, <span class="keywordtype">long</span> n&gt;</div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="a01888.html">   29</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a01888.html">Lcm</a></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  {</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="a00400.html#gaf9226f96fce99f6a144275371dd7d1ec">   31</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="a00400.html#gaf9226f96fce99f6a144275371dd7d1ec">conceptCheck</a>()</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;      static_assert(0&lt;m, <span class="stringliteral">&quot;m must be positive!&quot;</span>);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;      static_assert(0&lt;n, <span class="stringliteral">&quot;n must be positive!&quot;</span>);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    }</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="a00400.html#gab1133a960f22504951497778c1266624">   40</a></span>&#160;    <span class="keyword">const</span> <span class="keyword">static</span> <span class="keywordtype">long</span> <a class="code" href="a00400.html#gab1133a960f22504951497778c1266624">value</a> = (m/<a class="code" href="a01804.html">Gcd&lt;m,n&gt;::value</a>)*n;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  };</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;}</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aa00116_html"><div class="ttname"><a href="a00116.html">gcd.hh</a></div><div class="ttdoc">Statically compute the greatest common divisor of two integers.</div></div>
-<div class="ttc" id="aa00400_html_gab1133a960f22504951497778c1266624"><div class="ttname"><a href="a00400.html#gab1133a960f22504951497778c1266624">Dune::Lcm::value</a></div><div class="ttdeci">static const long value</div><div class="ttdoc">The least common multiple of the template parameters m and n.</div><div class="ttdef"><b>Definition:</b> lcm.hh:40</div></div>
-<div class="ttc" id="aa00400_html_gaf9226f96fce99f6a144275371dd7d1ec"><div class="ttname"><a href="a00400.html#gaf9226f96fce99f6a144275371dd7d1ec">Dune::Lcm::conceptCheck</a></div><div class="ttdeci">static void conceptCheck()</div><div class="ttdef"><b>Definition:</b> lcm.hh:31</div></div>
-<div class="ttc" id="aa00428_html"><div class="ttname"><a href="a00428.html">Dune</a></div><div class="ttdoc">Dune namespace.</div><div class="ttdef"><b>Definition:</b> alignedallocator.hh:14</div></div>
-<div class="ttc" id="aa01804_html"><div class="ttname"><a href="a01804.html">Dune::Gcd</a></div><div class="ttdoc">Calculator of the greatest common divisor.</div><div class="ttdef"><b>Definition:</b> gcd.hh:66</div></div>
-<div class="ttc" id="aa01888_html"><div class="ttname"><a href="a01888.html">Dune::Lcm</a></div><div class="ttdoc">Calculate the least common multiple of two numbers.</div><div class="ttdef"><b>Definition:</b> lcm.hh:30</div></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#warning &quot;This header is deprecated and will be removed after release 2.8. Use std::lcm instead.&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;numeric&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00428.html">Dune</a></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="keyword">template</span>&lt;<span class="keywordtype">long</span> m, <span class="keywordtype">long</span> n&gt;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="a01889.html">   31</a></span>&#160;  <span class="keyword">struct </span>[[deprecated(&quot;Will be removed after <a class="code" href="a00428.html">Dune</a> 2.8. Use std::lcm instead.&quot;)]] <a class="code" href="a01889.html">Lcm</a></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  {</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="a00400.html#gaf9226f96fce99f6a144275371dd7d1ec">   33</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="a00400.html#gaf9226f96fce99f6a144275371dd7d1ec">conceptCheck</a>()</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;      static_assert(0&lt;m, <span class="stringliteral">&quot;m must be positive!&quot;</span>);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;      static_assert(0&lt;n, <span class="stringliteral">&quot;n must be positive!&quot;</span>);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    }</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="a00400.html#gaf8e128c2907366d7a98ebbfe697fda88">   42</a></span>&#160;    constexpr <span class="keyword">static</span> <span class="keywordtype">long</span> value = std::lcm(m,n);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  };</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aa00400_html_gaf9226f96fce99f6a144275371dd7d1ec"><div class="ttname"><a href="a00400.html#gaf9226f96fce99f6a144275371dd7d1ec">Dune::Lcm::conceptCheck</a></div><div class="ttdeci">static void conceptCheck()</div><div class="ttdef"><b>Definition:</b> lcm.hh:33</div></div>
+<div class="ttc" id="aa00428_html"><div class="ttname"><a href="a00428.html">Dune</a></div><div class="ttdoc">Dune namespace.</div><div class="ttdef"><b>Definition:</b> alignedallocator.hh:11</div></div>
+<div class="ttc" id="aa01889_html"><div class="ttname"><a href="a01889.html">Dune::Lcm</a></div><div class="ttdoc">Calculate the least common multiple of two numbers.</div><div class="ttdef"><b>Definition:</b> lcm.hh:32</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

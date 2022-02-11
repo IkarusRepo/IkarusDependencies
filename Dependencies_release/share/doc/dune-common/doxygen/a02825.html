@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-common: Member List</title>
+<title>dune-common: Dune::SLListModifyIterator&lt; T, A &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-common
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,19 +62,469 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00428.html">Dune</a></li><li class="navelem"><a class="el" href="a00453.html">Std</a></li><li class="navelem"><a class="el" href="a02828.html">identity</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00428.html">Dune</a></li><li class="navelem"><a class="el" href="a02825.html">SLListModifyIterator</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="a02822.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::Std::identity Member List</div>  </div>
+<div class="title">Dune::SLListModifyIterator&lt; T, A &gt; Class Template Reference<div class="ingroups"><a class="el" href="a00400.html">Common</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="a02828.html">Dune::Std::identity</a>, including all inherited members.</p>
-<table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="a02828.html#ab226b954692a36104327efcf4bf7eb7d">operator()</a>(T &amp;&amp;t) const noexcept</td><td class="entry"><a class="el" href="a02828.html">Dune::Std::identity</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-</table></div><!-- contents -->
+<p>A mutable iterator for the <a class="el" href="a02829.html" title="A single linked list.">SLList</a>.  
+ <a href="a02825.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="a00323_source.html">dune/common/sllist.hh</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for Dune::SLListModifyIterator&lt; T, A &gt;:</div>
+<div class="dyncontent">
+<div class="center"><img src="a02824.png" border="0" usemap="#a_dune_1_1_s_l_list_modify_iterator_3_01_t_00_01_a_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="a_dune_1_1_s_l_list_modify_iterator_3_01_t_00_01_a_01_4_inherit__map" id="a_dune_1_1_s_l_list_modify_iterator_3_01_t_00_01_a_01_4_inherit__map">
+<area shape="rect" title="A mutable iterator for the SLList." alt="" coords="13,244,187,285"/>
+<area shape="rect" href="a02825.html" title=" " alt="" coords="9,348,191,389"/>
+<area shape="rect" href="a01873.html" title=" " alt="" coords="5,139,195,195"/>
+<area shape="rect" href="a01873.html" title="Base class for stl conformant forward iterators." alt="" coords="5,5,195,47"/>
+</map>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a0f4a9ffc7f0617c74b92d9f5eb9bead5"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01873.html#a0f4a9ffc7f0617c74b92d9f5eb9bead5">iterator_category</a> = std::forward_iterator_tag</td></tr>
+<tr class="separator:a0f4a9ffc7f0617c74b92d9f5eb9bead5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab489781ace31952ffca9a4e43a2e2363"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01873.html#ab489781ace31952ffca9a4e43a2e2363">value_type</a> = typename std::remove_const&lt; T &gt;::type</td></tr>
+<tr class="separator:ab489781ace31952ffca9a4e43a2e2363"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad31ac07a5e26ff49e1d9616d4072a0fb"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01873.html#ad31ac07a5e26ff49e1d9616d4072a0fb">difference_type</a> = std::size_t</td></tr>
+<tr class="separator:ad31ac07a5e26ff49e1d9616d4072a0fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15d11ccef925779642b1637aac23bfe5"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01873.html#a15d11ccef925779642b1637aac23bfe5">pointer</a> = T *</td></tr>
+<tr class="separator:a15d11ccef925779642b1637aac23bfe5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af42be6f3deadd418c6d79818603a5bdd"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01873.html#af42be6f3deadd418c6d79818603a5bdd">reference</a> = T &amp;</td></tr>
+<tr class="separator:af42be6f3deadd418c6d79818603a5bdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9192927ea5d6bde865f36619380692ca"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a02825.html">SLListModifyIterator</a>&lt; T, A &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01873.html#a9192927ea5d6bde865f36619380692ca">DerivedType</a></td></tr>
+<tr class="memdesc:a9192927ea5d6bde865f36619380692ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type of derived iterator.  <a href="a01873.html#a9192927ea5d6bde865f36619380692ca">More...</a><br /></td></tr>
+<tr class="separator:a9192927ea5d6bde865f36619380692ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91b8956e40e1fa5395f9bc095bc69557"><td class="memItemLeft" align="right" valign="top">typedef T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01873.html#a91b8956e40e1fa5395f9bc095bc69557">Value</a></td></tr>
+<tr class="memdesc:a91b8956e40e1fa5395f9bc095bc69557"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type of value accessed through the iterator.  <a href="a01873.html#a91b8956e40e1fa5395f9bc095bc69557">More...</a><br /></td></tr>
+<tr class="separator:a91b8956e40e1fa5395f9bc095bc69557"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf8e952829c2c7c3a7635939b40c630b"><td class="memItemLeft" align="right" valign="top">typedef T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01873.html#abf8e952829c2c7c3a7635939b40c630b">Pointer</a></td></tr>
+<tr class="memdesc:abf8e952829c2c7c3a7635939b40c630b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The pointer to the Value.  <a href="a01873.html#abf8e952829c2c7c3a7635939b40c630b">More...</a><br /></td></tr>
+<tr class="separator:abf8e952829c2c7c3a7635939b40c630b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b5e403398426bad661a47efd77f3329"><td class="memItemLeft" align="right" valign="top">typedef std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01873.html#a4b5e403398426bad661a47efd77f3329">DifferenceType</a></td></tr>
+<tr class="memdesc:a4b5e403398426bad661a47efd77f3329"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type of the difference between two positions.  <a href="a01873.html#a4b5e403398426bad661a47efd77f3329">More...</a><br /></td></tr>
+<tr class="separator:a4b5e403398426bad661a47efd77f3329"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5086d138aa712956ab7334e3677e5f65"><td class="memItemLeft" align="right" valign="top">typedef T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01873.html#a5086d138aa712956ab7334e3677e5f65">Reference</a></td></tr>
+<tr class="memdesc:a5086d138aa712956ab7334e3677e5f65"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type of the reference to the values accessed.  <a href="a01873.html#a5086d138aa712956ab7334e3677e5f65">More...</a><br /></td></tr>
+<tr class="separator:a5086d138aa712956ab7334e3677e5f65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:gac1c0769352260150e71992906797c6bf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00400.html#gac1c0769352260150e71992906797c6bf">SLListModifyIterator</a> (<a class="el" href="a02817.html">SLListIterator</a>&lt; T, A &gt; beforeIterator, <a class="el" href="a02817.html">SLListIterator</a>&lt; T, A &gt; _iterator)</td></tr>
+<tr class="separator:gac1c0769352260150e71992906797c6bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae453df10198c999b8d05e7957df62a31"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00400.html#gae453df10198c999b8d05e7957df62a31">SLListModifyIterator</a> (const <a class="el" href="a02825.html">SLListModifyIterator</a>&lt; T, A &gt; &amp;other)</td></tr>
+<tr class="separator:gae453df10198c999b8d05e7957df62a31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1a786d2cd78f48907f0411e6670a077b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00400.html#ga1a786d2cd78f48907f0411e6670a077b">SLListModifyIterator</a> ()</td></tr>
+<tr class="separator:ga1a786d2cd78f48907f0411e6670a077b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0b885d79a6290ca39936ff80c6164f12"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00400.html#ga0b885d79a6290ca39936ff80c6164f12">dereference</a> () const</td></tr>
+<tr class="memdesc:ga0b885d79a6290ca39936ff80c6164f12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dereferencing function for the iterator facade.  <a href="a00400.html#ga0b885d79a6290ca39936ff80c6164f12">More...</a><br /></td></tr>
+<tr class="separator:ga0b885d79a6290ca39936ff80c6164f12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaac02bc0597c75cd4b08db18a44536c33"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00400.html#gaac02bc0597c75cd4b08db18a44536c33">equals</a> (const <a class="el" href="a02821.html">SLListConstIterator</a>&lt; T, A &gt; &amp;other) const</td></tr>
+<tr class="memdesc:gaac02bc0597c75cd4b08db18a44536c33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test whether another iterator is equal.  <a href="a00400.html#gaac02bc0597c75cd4b08db18a44536c33">More...</a><br /></td></tr>
+<tr class="separator:gaac02bc0597c75cd4b08db18a44536c33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafeb8eb61bc81005274daf39f1a31dad2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00400.html#gafeb8eb61bc81005274daf39f1a31dad2">equals</a> (const <a class="el" href="a02817.html">SLListIterator</a>&lt; T, A &gt; &amp;other) const</td></tr>
+<tr class="memdesc:gafeb8eb61bc81005274daf39f1a31dad2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test whether another iterator is equal.  <a href="a00400.html#gafeb8eb61bc81005274daf39f1a31dad2">More...</a><br /></td></tr>
+<tr class="separator:gafeb8eb61bc81005274daf39f1a31dad2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9e54256a87b83eee3428010d8e822d69"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00400.html#ga9e54256a87b83eee3428010d8e822d69">equals</a> (const <a class="el" href="a02825.html">SLListModifyIterator</a>&lt; T, A &gt; &amp;other) const</td></tr>
+<tr class="memdesc:ga9e54256a87b83eee3428010d8e822d69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test whether another iterator is equal.  <a href="a00400.html#ga9e54256a87b83eee3428010d8e822d69">More...</a><br /></td></tr>
+<tr class="separator:ga9e54256a87b83eee3428010d8e822d69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf185b8fbd19f5e6aa881f94781f97ea0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00400.html#gaf185b8fbd19f5e6aa881f94781f97ea0">increment</a> ()</td></tr>
+<tr class="memdesc:gaf185b8fbd19f5e6aa881f94781f97ea0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increment function for the iterator facade.  <a href="a00400.html#gaf185b8fbd19f5e6aa881f94781f97ea0">More...</a><br /></td></tr>
+<tr class="separator:gaf185b8fbd19f5e6aa881f94781f97ea0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab584227c678fe14379ab64bf38e90fc3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00400.html#gab584227c678fe14379ab64bf38e90fc3">insert</a> (const T &amp;v)</td></tr>
+<tr class="memdesc:gab584227c678fe14379ab64bf38e90fc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert an element at the current position.  <a href="a00400.html#gab584227c678fe14379ab64bf38e90fc3">More...</a><br /></td></tr>
+<tr class="separator:gab584227c678fe14379ab64bf38e90fc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae1aa043816f91daf4d1cc0d680b6cec0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00400.html#gae1aa043816f91daf4d1cc0d680b6cec0">remove</a> ()</td></tr>
+<tr class="memdesc:gae1aa043816f91daf4d1cc0d680b6cec0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete the entry at the current position.  <a href="a00400.html#gae1aa043816f91daf4d1cc0d680b6cec0">More...</a><br /></td></tr>
+<tr class="separator:gae1aa043816f91daf4d1cc0d680b6cec0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:addb69ce5c37bc55e5b7aa5d133e3f647"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01873.html#a5086d138aa712956ab7334e3677e5f65">Reference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01873.html#addb69ce5c37bc55e5b7aa5d133e3f647">operator*</a> () const</td></tr>
+<tr class="memdesc:addb69ce5c37bc55e5b7aa5d133e3f647"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dereferencing operator.  <a href="a01873.html#addb69ce5c37bc55e5b7aa5d133e3f647">More...</a><br /></td></tr>
+<tr class="separator:addb69ce5c37bc55e5b7aa5d133e3f647"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7652915172bfadc464e813ee73bd6013"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01873.html#abf8e952829c2c7c3a7635939b40c630b">Pointer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01873.html#a7652915172bfadc464e813ee73bd6013">operator-&gt;</a> () const</td></tr>
+<tr class="separator:a7652915172bfadc464e813ee73bd6013"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab644e9f915098aefc8a090004a8f6b2a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01873.html#a9192927ea5d6bde865f36619380692ca">DerivedType</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01873.html#ab644e9f915098aefc8a090004a8f6b2a">operator++</a> ()</td></tr>
+<tr class="memdesc:ab644e9f915098aefc8a090004a8f6b2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Preincrement operator.  <a href="a01873.html#ab644e9f915098aefc8a090004a8f6b2a">More...</a><br /></td></tr>
+<tr class="separator:ab644e9f915098aefc8a090004a8f6b2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abeab195ddd461db8d2d9e6f560ddee6d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a01873.html#a9192927ea5d6bde865f36619380692ca">DerivedType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01873.html#abeab195ddd461db8d2d9e6f560ddee6d">operator++</a> (int)</td></tr>
+<tr class="memdesc:abeab195ddd461db8d2d9e6f560ddee6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Postincrement operator.  <a href="a01873.html#abeab195ddd461db8d2d9e6f560ddee6d">More...</a><br /></td></tr>
+<tr class="separator:abeab195ddd461db8d2d9e6f560ddee6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename T, class A&gt;<br />
+class Dune::SLListModifyIterator&lt; T, A &gt;</h3>
+
+<p>A mutable iterator for the <a class="el" href="a02829.html" title="A single linked list.">SLList</a>. </p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a9192927ea5d6bde865f36619380692ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9192927ea5d6bde865f36619380692ca">&#9670;&nbsp;</a></span>DerivedType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="a02825.html">SLListModifyIterator</a>&lt; T, A &gt;  <a class="el" href="a01873.html">Dune::ForwardIteratorFacade</a>&lt; <a class="el" href="a02825.html">SLListModifyIterator</a>&lt; T, A &gt; , T , T &amp; , std::size_t  &gt;::<a class="el" href="a01873.html#a9192927ea5d6bde865f36619380692ca">DerivedType</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The type of derived iterator. </p>
+<p>The iterator has to define following functions have to be present:</p>
+<div class="fragment"><div class="line"><span class="comment">// Access the value referred to.</span></div>
+<div class="line"><a class="code" href="a01873.html#a5086d138aa712956ab7334e3677e5f65">Reference</a> <a class="code" href="a00400.html#ga0b885d79a6290ca39936ff80c6164f12">dereference</a>() <span class="keyword">const</span>;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Compare for equality with iterator j</span></div>
+<div class="line"><span class="keywordtype">bool</span> <a class="code" href="a00400.html#gaac02bc0597c75cd4b08db18a44536c33">equals</a>(j);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// position the iterator at the next element.</span></div>
+<div class="line"><span class="keywordtype">void</span> <a class="code" href="a00400.html#gaf185b8fbd19f5e6aa881f94781f97ea0">increment</a>()</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// check for equality with other iterator</span></div>
+<div class="line">bool <a class="code" href="a00400.html#gaac02bc0597c75cd4b08db18a44536c33">equals</a>(other)</div>
+<div class="ttc" id="aa00400_html_ga0b885d79a6290ca39936ff80c6164f12"><div class="ttname"><a href="a00400.html#ga0b885d79a6290ca39936ff80c6164f12">Dune::SLListModifyIterator::dereference</a></div><div class="ttdeci">T &amp; dereference() const</div><div class="ttdoc">Dereferencing function for the iterator facade.</div><div class="ttdef"><b>Definition:</b> sllist.hh:452</div></div>
+<div class="ttc" id="aa00400_html_gaac02bc0597c75cd4b08db18a44536c33"><div class="ttname"><a href="a00400.html#gaac02bc0597c75cd4b08db18a44536c33">Dune::SLListModifyIterator::equals</a></div><div class="ttdeci">bool equals(const SLListConstIterator&lt; T, A &gt; &amp;other) const</div><div class="ttdoc">Test whether another iterator is equal.</div><div class="ttdef"><b>Definition:</b> sllist.hh:462</div></div>
+<div class="ttc" id="aa00400_html_gaf185b8fbd19f5e6aa881f94781f97ea0"><div class="ttname"><a href="a00400.html#gaf185b8fbd19f5e6aa881f94781f97ea0">Dune::SLListModifyIterator::increment</a></div><div class="ttdeci">void increment()</div><div class="ttdoc">Increment function for the iterator facade.</div><div class="ttdef"><b>Definition:</b> sllist.hh:492</div></div>
+<div class="ttc" id="aa01873_html_a5086d138aa712956ab7334e3677e5f65"><div class="ttname"><a href="a01873.html#a5086d138aa712956ab7334e3677e5f65">Dune::ForwardIteratorFacade&lt; SLListModifyIterator&lt; T, A &gt;, T, T &amp;, std::size_t &gt;::Reference</a></div><div class="ttdeci">T &amp; Reference</div><div class="ttdoc">The type of the reference to the values accessed.</div><div class="ttdef"><b>Definition:</b> iteratorfacades.hh:193</div></div>
+</div><!-- fragment --><p>For an elaborate explanation see the <a href="http://www.sgi.com/tech/stl/iterator_traits.html">STL Documentation</a>! </p>
+
+</div>
+</div>
+<a id="ad31ac07a5e26ff49e1d9616d4072a0fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad31ac07a5e26ff49e1d9616d4072a0fb">&#9670;&nbsp;</a></span>difference_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="a01873.html">Dune::ForwardIteratorFacade</a>&lt; <a class="el" href="a02825.html">SLListModifyIterator</a>&lt; T, A &gt; , T , T &amp; , std::size_t  &gt;::<a class="el" href="a01873.html#ad31ac07a5e26ff49e1d9616d4072a0fb">difference_type</a> =  std::size_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4b5e403398426bad661a47efd77f3329"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b5e403398426bad661a47efd77f3329">&#9670;&nbsp;</a></span>DifferenceType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::size_t  <a class="el" href="a01873.html">Dune::ForwardIteratorFacade</a>&lt; <a class="el" href="a02825.html">SLListModifyIterator</a>&lt; T, A &gt; , T , T &amp; , std::size_t  &gt;::<a class="el" href="a01873.html#a4b5e403398426bad661a47efd77f3329">DifferenceType</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The type of the difference between two positions. </p>
+
+</div>
+</div>
+<a id="a0f4a9ffc7f0617c74b92d9f5eb9bead5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f4a9ffc7f0617c74b92d9f5eb9bead5">&#9670;&nbsp;</a></span>iterator_category</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="a01873.html">Dune::ForwardIteratorFacade</a>&lt; <a class="el" href="a02825.html">SLListModifyIterator</a>&lt; T, A &gt; , T , T &amp; , std::size_t  &gt;::<a class="el" href="a01873.html#a0f4a9ffc7f0617c74b92d9f5eb9bead5">iterator_category</a> =  std::forward_iterator_tag</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a15d11ccef925779642b1637aac23bfe5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15d11ccef925779642b1637aac23bfe5">&#9670;&nbsp;</a></span>pointer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="a01873.html">Dune::ForwardIteratorFacade</a>&lt; <a class="el" href="a02825.html">SLListModifyIterator</a>&lt; T, A &gt; , T , T &amp; , std::size_t  &gt;::<a class="el" href="a01873.html#a15d11ccef925779642b1637aac23bfe5">pointer</a> =  T *</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abf8e952829c2c7c3a7635939b40c630b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf8e952829c2c7c3a7635939b40c630b">&#9670;&nbsp;</a></span>Pointer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef T * <a class="el" href="a01873.html">Dune::ForwardIteratorFacade</a>&lt; <a class="el" href="a02825.html">SLListModifyIterator</a>&lt; T, A &gt; , T , T &amp; , std::size_t  &gt;::<a class="el" href="a01873.html#abf8e952829c2c7c3a7635939b40c630b">Pointer</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The pointer to the Value. </p>
+
+</div>
+</div>
+<a id="af42be6f3deadd418c6d79818603a5bdd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af42be6f3deadd418c6d79818603a5bdd">&#9670;&nbsp;</a></span>reference</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="a01873.html">Dune::ForwardIteratorFacade</a>&lt; <a class="el" href="a02825.html">SLListModifyIterator</a>&lt; T, A &gt; , T , T &amp; , std::size_t  &gt;::<a class="el" href="a01873.html#af42be6f3deadd418c6d79818603a5bdd">reference</a> =  T &amp;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5086d138aa712956ab7334e3677e5f65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5086d138aa712956ab7334e3677e5f65">&#9670;&nbsp;</a></span>Reference</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef T &amp;  <a class="el" href="a01873.html">Dune::ForwardIteratorFacade</a>&lt; <a class="el" href="a02825.html">SLListModifyIterator</a>&lt; T, A &gt; , T , T &amp; , std::size_t  &gt;::<a class="el" href="a01873.html#a5086d138aa712956ab7334e3677e5f65">Reference</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The type of the reference to the values accessed. </p>
+
+</div>
+</div>
+<a id="a91b8956e40e1fa5395f9bc095bc69557"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91b8956e40e1fa5395f9bc095bc69557">&#9670;&nbsp;</a></span>Value</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef T  <a class="el" href="a01873.html">Dune::ForwardIteratorFacade</a>&lt; <a class="el" href="a02825.html">SLListModifyIterator</a>&lt; T, A &gt; , T , T &amp; , std::size_t  &gt;::<a class="el" href="a01873.html#a91b8956e40e1fa5395f9bc095bc69557">Value</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The type of value accessed through the iterator. </p>
+
+</div>
+</div>
+<a id="ab489781ace31952ffca9a4e43a2e2363"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab489781ace31952ffca9a4e43a2e2363">&#9670;&nbsp;</a></span>value_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="a01873.html">Dune::ForwardIteratorFacade</a>&lt; <a class="el" href="a02825.html">SLListModifyIterator</a>&lt; T, A &gt; , T , T &amp; , std::size_t  &gt;::<a class="el" href="a01873.html#ab489781ace31952ffca9a4e43a2e2363">value_type</a> =  typename std::remove_const&lt;T &gt;::type</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="addb69ce5c37bc55e5b7aa5d133e3f647"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#addb69ce5c37bc55e5b7aa5d133e3f647">&#9670;&nbsp;</a></span>operator*()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a01873.html#a5086d138aa712956ab7334e3677e5f65">Reference</a> <a class="el" href="a01873.html">Dune::ForwardIteratorFacade</a>&lt; <a class="el" href="a02825.html">SLListModifyIterator</a>&lt; T, A &gt; , T , T &amp; , std::size_t  &gt;::operator* </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Dereferencing operator. </p>
+
+</div>
+</div>
+<a id="ab644e9f915098aefc8a090004a8f6b2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab644e9f915098aefc8a090004a8f6b2a">&#9670;&nbsp;</a></span>operator++() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a01873.html#a9192927ea5d6bde865f36619380692ca">DerivedType</a>&amp; <a class="el" href="a01873.html">Dune::ForwardIteratorFacade</a>&lt; <a class="el" href="a02825.html">SLListModifyIterator</a>&lt; T, A &gt; , T , T &amp; , std::size_t  &gt;::operator++ </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Preincrement operator. </p>
+
+</div>
+</div>
+<a id="abeab195ddd461db8d2d9e6f560ddee6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abeab195ddd461db8d2d9e6f560ddee6d">&#9670;&nbsp;</a></span>operator++() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a01873.html#a9192927ea5d6bde865f36619380692ca">DerivedType</a> <a class="el" href="a01873.html">Dune::ForwardIteratorFacade</a>&lt; <a class="el" href="a02825.html">SLListModifyIterator</a>&lt; T, A &gt; , T , T &amp; , std::size_t  &gt;::operator++ </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Postincrement operator. </p>
+
+</div>
+</div>
+<a id="a7652915172bfadc464e813ee73bd6013"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7652915172bfadc464e813ee73bd6013">&#9670;&nbsp;</a></span>operator-&gt;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a01873.html#abf8e952829c2c7c3a7635939b40c630b">Pointer</a> <a class="el" href="a01873.html">Dune::ForwardIteratorFacade</a>&lt; <a class="el" href="a02825.html">SLListModifyIterator</a>&lt; T, A &gt; , T , T &amp; , std::size_t  &gt;::operator-&gt; </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="a00323_source.html">sllist.hh</a></li>
+</ul>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1

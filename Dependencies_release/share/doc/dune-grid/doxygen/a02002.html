@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: Dune::GeometryReference&lt; Implementation &gt; Class Template Reference</title>
+<title>dune-grid: Dune::Alberta::GeometryCacheProxy&lt; dim &gt; Struct Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,156 +62,66 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00936.html">Dune</a></li><li class="navelem"><a class="el" href="a02002.html">GeometryReference</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00940.html">Dune</a></li><li class="navelem"><a class="el" href="a00941.html">Alberta</a></li><li class="navelem"><a class="el" href="a02002.html">GeometryCacheProxy</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="a01999.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::GeometryReference&lt; Implementation &gt; Class Template Reference</div>  </div>
+<div class="title">Dune::Alberta::GeometryCacheProxy&lt; dim &gt; Struct Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="a00518_source.html">dune/grid/albertagrid/geometryreference.hh</a>&gt;</code></p>
-<div class="dynheader">
-Inheritance diagram for Dune::GeometryReference&lt; Implementation &gt;:</div>
-<div class="dyncontent">
-<div class="center"><img src="a02001.png" border="0" usemap="#a_dune_1_1_geometry_reference_3_01_implementation_01_4_inherit__map" alt="Inheritance graph"/></div>
-<map name="a_dune_1_1_geometry_reference_3_01_implementation_01_4_inherit__map" id="a_dune_1_1_geometry_reference_3_01_implementation_01_4_inherit__map">
-<area shape="rect" title=" " alt="" coords="5,73,180,114"/>
-<area shape="rect" href="a02002.html" title=" " alt="" coords="380,43,593,143"/>
-<area shape="rect" href="a02006.html" title=" " alt="" coords="643,73,849,114"/>
-</map>
-</div>
+<p><code>#include &lt;<a class="el" href="a00518_source.html">dune/grid/albertagrid/geometrycache.hh</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:ae01fb3d14daf82da62d3ba86d71365b7"><td class="memItemLeft" align="right" valign="top">typedef Implementation::ctype&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02002.html#ae01fb3d14daf82da62d3ba86d71365b7">ctype</a></td></tr>
-<tr class="separator:ae01fb3d14daf82da62d3ba86d71365b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac35b0e8118cfd4da6822eec119b63043"><td class="memItemLeft" align="right" valign="top">typedef Implementation::LocalCoordinate&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02002.html#ac35b0e8118cfd4da6822eec119b63043">LocalCoordinate</a></td></tr>
-<tr class="separator:ac35b0e8118cfd4da6822eec119b63043"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f9a7cdf0056f6b220ca215583890e45"><td class="memItemLeft" align="right" valign="top">typedef Implementation::GlobalCoordinate&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02002.html#a9f9a7cdf0056f6b220ca215583890e45">GlobalCoordinate</a></td></tr>
-<tr class="separator:a9f9a7cdf0056f6b220ca215583890e45"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae2c68316d02fb1d7582528fe77bbfbc4"><td class="memItemLeft" align="right" valign="top">typedef Implementation::JacobianInverseTransposed&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02002.html#ae2c68316d02fb1d7582528fe77bbfbc4">JacobianInverseTransposed</a></td></tr>
-<tr class="separator:ae2c68316d02fb1d7582528fe77bbfbc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a54020bac15c1997bc20aec2efec94d71"><td class="memItemLeft" align="right" valign="top">typedef Implementation::JacobianTransposed&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02002.html#a54020bac15c1997bc20aec2efec94d71">JacobianTransposed</a></td></tr>
-<tr class="separator:a54020bac15c1997bc20aec2efec94d71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3baf2ddc715b683a8b195d5699034e8"><td class="memItemLeft" align="right" valign="top">typedef FieldMatrix&lt; <a class="el" href="a00941.html#a86b942cdffce80f98973c987ea6246da">Real</a>, <a class="el" href="a00941.html#acc4a01c16d41d4e3e6e5d058b86376ca">dimWorld</a>, dim &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02002.html#ac3baf2ddc715b683a8b195d5699034e8">JacobianInverseTransposed</a></td></tr>
+<tr class="separator:ac3baf2ddc715b683a8b195d5699034e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60f660a672ecb0064eb6993209967f41"><td class="memItemLeft" align="right" valign="top">typedef FieldMatrix&lt; <a class="el" href="a00941.html#a86b942cdffce80f98973c987ea6246da">Real</a>, dim, <a class="el" href="a00941.html#acc4a01c16d41d4e3e6e5d058b86376ca">dimWorld</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02002.html#a60f660a672ecb0064eb6993209967f41">JacobianTransposed</a></td></tr>
+<tr class="separator:a60f660a672ecb0064eb6993209967f41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5ca87204ee141e91f92665332216c463"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02002.html#a5ca87204ee141e91f92665332216c463">GeometryReference</a> (const Implementation &amp;<a class="el" href="a02002.html#add35eed07965bbaf7e0b788741b9901d">impl</a>)</td></tr>
-<tr class="separator:a5ca87204ee141e91f92665332216c463"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa99f8d77c51447fd51fe483309afd11"><td class="memItemLeft" align="right" valign="top">GeometryType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02002.html#afa99f8d77c51447fd51fe483309afd11">type</a> () const</td></tr>
-<tr class="separator:afa99f8d77c51447fd51fe483309afd11"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab55ee5855d1cbdc7b233718771477fe"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02002.html#aab55ee5855d1cbdc7b233718771477fe">affine</a> () const</td></tr>
-<tr class="separator:aab55ee5855d1cbdc7b233718771477fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac26574883f92698eb2abc92bdfabfa44"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02002.html#ac26574883f92698eb2abc92bdfabfa44">corners</a> () const</td></tr>
-<tr class="separator:ac26574883f92698eb2abc92bdfabfa44"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab34a190d76ec19ba1171a0e0aaed8fe9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a02002.html#a9f9a7cdf0056f6b220ca215583890e45">GlobalCoordinate</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02002.html#ab34a190d76ec19ba1171a0e0aaed8fe9">corner</a> (int i) const</td></tr>
-<tr class="separator:ab34a190d76ec19ba1171a0e0aaed8fe9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a507219a842aff95718c8d1f1436f6c0f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a02002.html#a9f9a7cdf0056f6b220ca215583890e45">GlobalCoordinate</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02002.html#a507219a842aff95718c8d1f1436f6c0f">center</a> () const</td></tr>
-<tr class="separator:a507219a842aff95718c8d1f1436f6c0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad5f02960c7caa8c10ebe3d7a1aab91f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a02002.html#a9f9a7cdf0056f6b220ca215583890e45">GlobalCoordinate</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02002.html#ad5f02960c7caa8c10ebe3d7a1aab91f4">global</a> (const <a class="el" href="a02002.html#ac35b0e8118cfd4da6822eec119b63043">LocalCoordinate</a> &amp;local) const</td></tr>
-<tr class="separator:ad5f02960c7caa8c10ebe3d7a1aab91f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0aef92a73857edafd006d6fc67f8ec7e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02002.html#a0aef92a73857edafd006d6fc67f8ec7e">LocalCoordinate</a> (const <a class="el" href="a02002.html#a9f9a7cdf0056f6b220ca215583890e45">GlobalCoordinate</a> &amp;<a class="el" href="a02002.html#ad5f02960c7caa8c10ebe3d7a1aab91f4">global</a>) const</td></tr>
-<tr class="separator:a0aef92a73857edafd006d6fc67f8ec7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18b7c05ccb5aed4f39afc618f268695a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a02002.html#ae01fb3d14daf82da62d3ba86d71365b7">ctype</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02002.html#a18b7c05ccb5aed4f39afc618f268695a">integrationElement</a> (const <a class="el" href="a02002.html#ac35b0e8118cfd4da6822eec119b63043">LocalCoordinate</a> &amp;local) const</td></tr>
-<tr class="separator:a18b7c05ccb5aed4f39afc618f268695a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ddb620ad5c82a53756cae56fd203c0a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a02002.html#ae01fb3d14daf82da62d3ba86d71365b7">ctype</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02002.html#a1ddb620ad5c82a53756cae56fd203c0a">volume</a> () const</td></tr>
-<tr class="separator:a1ddb620ad5c82a53756cae56fd203c0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb14e02426cc5f512d1252111b0344ea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a02002.html#a54020bac15c1997bc20aec2efec94d71">JacobianTransposed</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02002.html#abb14e02426cc5f512d1252111b0344ea">jacobianTransposed</a> (const <a class="el" href="a02002.html#ac35b0e8118cfd4da6822eec119b63043">LocalCoordinate</a> &amp;local) const</td></tr>
-<tr class="separator:abb14e02426cc5f512d1252111b0344ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab87473834c78e7ddbc7e11059f12e845"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a02002.html#ae2c68316d02fb1d7582528fe77bbfbc4">JacobianInverseTransposed</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02002.html#ab87473834c78e7ddbc7e11059f12e845">jacobianInverseTransposed</a> (const <a class="el" href="a02002.html#ac35b0e8118cfd4da6822eec119b63043">LocalCoordinate</a> &amp;local) const</td></tr>
-<tr class="separator:ab87473834c78e7ddbc7e11059f12e845"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add35eed07965bbaf7e0b788741b9901d"><td class="memItemLeft" align="right" valign="top">const Implementation &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02002.html#add35eed07965bbaf7e0b788741b9901d">impl</a> () const</td></tr>
-<tr class="separator:add35eed07965bbaf7e0b788741b9901d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr class="memitem:a0d690ef3c7b93c3406e9d7156bd5de3a"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02002.html#a0d690ef3c7b93c3406e9d7156bd5de3a">mydimension</a> = Implementation::mydimension</td></tr>
-<tr class="separator:a0d690ef3c7b93c3406e9d7156bd5de3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9feb9b9f244485c5b5dc3a2bf50f6023"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02002.html#a9feb9b9f244485c5b5dc3a2bf50f6023">coorddimension</a> = Implementation::coorddimension</td></tr>
-<tr class="separator:a9feb9b9f244485c5b5dc3a2bf50f6023"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1b00f2eb1e6d9a4955b34bcc7b6a280"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02002.html#ad1b00f2eb1e6d9a4955b34bcc7b6a280">GeometryCacheProxy</a> (<a class="el" href="a01998.html">GeometryCache</a>&lt; dim &gt; &amp;geometryCache, const <a class="el" href="a00482.html#a4cbe74d935d2e31c4b35398e93623f70">ALBERTA</a> EL_INFO &amp;elInfo)</td></tr>
+<tr class="separator:ad1b00f2eb1e6d9a4955b34bcc7b6a280"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28503ae4ee78acc73a607e4ba025d7e4"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00941.html#a86b942cdffce80f98973c987ea6246da">Real</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02002.html#a28503ae4ee78acc73a607e4ba025d7e4">integrationElement</a> ()</td></tr>
+<tr class="separator:a28503ae4ee78acc73a607e4ba025d7e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecb43f8867293e8c61e0bb9d9bf0cf53"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a02002.html#a60f660a672ecb0064eb6993209967f41">JacobianTransposed</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02002.html#aecb43f8867293e8c61e0bb9d9bf0cf53">jacobianTransposed</a> ()</td></tr>
+<tr class="separator:aecb43f8867293e8c61e0bb9d9bf0cf53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73d54d08fa5cf6f76c4c0ad4c8fa1470"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a02002.html#ac3baf2ddc715b683a8b195d5699034e8">JacobianInverseTransposed</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02002.html#a73d54d08fa5cf6f76c4c0ad4c8fa1470">jacobianInverseTransposed</a> ()</td></tr>
+<tr class="separator:a73d54d08fa5cf6f76c4c0ad4c8fa1470"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="ae01fb3d14daf82da62d3ba86d71365b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae01fb3d14daf82da62d3ba86d71365b7">&#9670;&nbsp;</a></span>ctype</h2>
+<a id="ac3baf2ddc715b683a8b195d5699034e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3baf2ddc715b683a8b195d5699034e8">&#9670;&nbsp;</a></span>JacobianInverseTransposed</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Implementation &gt; </div>
+template&lt;int dim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef Implementation::ctype <a class="el" href="a02002.html">Dune::GeometryReference</a>&lt; Implementation &gt;::<a class="el" href="a02002.html#ae01fb3d14daf82da62d3ba86d71365b7">ctype</a></td>
+          <td class="memname">typedef FieldMatrix&lt; <a class="el" href="a00941.html#a86b942cdffce80f98973c987ea6246da">Real</a>, <a class="el" href="a00941.html#acc4a01c16d41d4e3e6e5d058b86376ca">dimWorld</a>, dim &gt; <a class="el" href="a02002.html">Dune::Alberta::GeometryCacheProxy</a>&lt; dim &gt;::<a class="el" href="a02002.html#ac3baf2ddc715b683a8b195d5699034e8">JacobianInverseTransposed</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a9f9a7cdf0056f6b220ca215583890e45"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9f9a7cdf0056f6b220ca215583890e45">&#9670;&nbsp;</a></span>GlobalCoordinate</h2>
+<a id="a60f660a672ecb0064eb6993209967f41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60f660a672ecb0064eb6993209967f41">&#9670;&nbsp;</a></span>JacobianTransposed</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Implementation &gt; </div>
+template&lt;int dim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef Implementation::GlobalCoordinate <a class="el" href="a02002.html">Dune::GeometryReference</a>&lt; Implementation &gt;::<a class="el" href="a02002.html#a9f9a7cdf0056f6b220ca215583890e45">GlobalCoordinate</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ae2c68316d02fb1d7582528fe77bbfbc4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae2c68316d02fb1d7582528fe77bbfbc4">&#9670;&nbsp;</a></span>JacobianInverseTransposed</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class Implementation &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef Implementation::JacobianInverseTransposed <a class="el" href="a02002.html">Dune::GeometryReference</a>&lt; Implementation &gt;::<a class="el" href="a02002.html#ae2c68316d02fb1d7582528fe77bbfbc4">JacobianInverseTransposed</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a54020bac15c1997bc20aec2efec94d71"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a54020bac15c1997bc20aec2efec94d71">&#9670;&nbsp;</a></span>JacobianTransposed</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class Implementation &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef Implementation::JacobianTransposed <a class="el" href="a02002.html">Dune::GeometryReference</a>&lt; Implementation &gt;::<a class="el" href="a02002.html#a54020bac15c1997bc20aec2efec94d71">JacobianTransposed</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac35b0e8118cfd4da6822eec119b63043"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac35b0e8118cfd4da6822eec119b63043">&#9670;&nbsp;</a></span>LocalCoordinate</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class Implementation &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef Implementation::LocalCoordinate <a class="el" href="a02002.html">Dune::GeometryReference</a>&lt; Implementation &gt;::<a class="el" href="a02002.html#ac35b0e8118cfd4da6822eec119b63043">LocalCoordinate</a></td>
+          <td class="memname">typedef FieldMatrix&lt; <a class="el" href="a00941.html#a86b942cdffce80f98973c987ea6246da">Real</a>, dim, <a class="el" href="a00941.html#acc4a01c16d41d4e3e6e5d058b86376ca">dimWorld</a> &gt; <a class="el" href="a02002.html">Dune::Alberta::GeometryCacheProxy</a>&lt; dim &gt;::<a class="el" href="a02002.html#a60f660a672ecb0064eb6993209967f41">JacobianTransposed</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -219,28 +129,38 @@ template&lt;class Implementation &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a5ca87204ee141e91f92665332216c463"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5ca87204ee141e91f92665332216c463">&#9670;&nbsp;</a></span>GeometryReference()</h2>
+<a id="ad1b00f2eb1e6d9a4955b34bcc7b6a280"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1b00f2eb1e6d9a4955b34bcc7b6a280">&#9670;&nbsp;</a></span>GeometryCacheProxy()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Implementation &gt; </div>
+template&lt;int dim&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a02002.html">Dune::GeometryReference</a>&lt; Implementation &gt;::<a class="el" href="a02002.html">GeometryReference</a> </td>
+          <td class="memname"><a class="el" href="a02002.html">Dune::Alberta::GeometryCacheProxy</a>&lt; dim &gt;::<a class="el" href="a02002.html">GeometryCacheProxy</a> </td>
           <td>(</td>
-          <td class="paramtype">const Implementation &amp;&#160;</td>
-          <td class="paramname"><em>impl</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="a01998.html">GeometryCache</a>&lt; dim &gt; &amp;&#160;</td>
+          <td class="paramname"><em>geometryCache</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const <a class="el" href="a00482.html#a4cbe74d935d2e31c4b35398e93623f70">ALBERTA</a> EL_INFO &amp;&#160;</td>
+          <td class="paramname"><em>elInfo</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -248,22 +168,22 @@ template&lt;class Implementation &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="aab55ee5855d1cbdc7b233718771477fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aab55ee5855d1cbdc7b233718771477fe">&#9670;&nbsp;</a></span>affine()</h2>
+<a id="a28503ae4ee78acc73a607e4ba025d7e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28503ae4ee78acc73a607e4ba025d7e4">&#9670;&nbsp;</a></span>integrationElement()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Implementation &gt; </div>
+template&lt;int dim&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="a02002.html">Dune::GeometryReference</a>&lt; Implementation &gt;::affine </td>
+          <td class="memname">const <a class="el" href="a00941.html#a86b942cdffce80f98973c987ea6246da">Real</a>&amp; <a class="el" href="a02002.html">Dune::Alberta::GeometryCacheProxy</a>&lt; dim &gt;::integrationElement </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
   </td>
@@ -275,22 +195,22 @@ template&lt;class Implementation &gt; </div>
 
 </div>
 </div>
-<a id="a507219a842aff95718c8d1f1436f6c0f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a507219a842aff95718c8d1f1436f6c0f">&#9670;&nbsp;</a></span>center()</h2>
+<a id="a73d54d08fa5cf6f76c4c0ad4c8fa1470"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73d54d08fa5cf6f76c4c0ad4c8fa1470">&#9670;&nbsp;</a></span>jacobianInverseTransposed()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Implementation &gt; </div>
+template&lt;int dim&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a02002.html#a9f9a7cdf0056f6b220ca215583890e45">GlobalCoordinate</a> <a class="el" href="a02002.html">Dune::GeometryReference</a>&lt; Implementation &gt;::center </td>
+          <td class="memname">const <a class="el" href="a02002.html#ac3baf2ddc715b683a8b195d5699034e8">JacobianInverseTransposed</a>&amp; <a class="el" href="a02002.html">Dune::Alberta::GeometryCacheProxy</a>&lt; dim &gt;::jacobianInverseTransposed </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
   </td>
@@ -302,50 +222,22 @@ template&lt;class Implementation &gt; </div>
 
 </div>
 </div>
-<a id="ab34a190d76ec19ba1171a0e0aaed8fe9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab34a190d76ec19ba1171a0e0aaed8fe9">&#9670;&nbsp;</a></span>corner()</h2>
+<a id="aecb43f8867293e8c61e0bb9d9bf0cf53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecb43f8867293e8c61e0bb9d9bf0cf53">&#9670;&nbsp;</a></span>jacobianTransposed()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Implementation &gt; </div>
+template&lt;int dim&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a02002.html#a9f9a7cdf0056f6b220ca215583890e45">GlobalCoordinate</a> <a class="el" href="a02002.html">Dune::GeometryReference</a>&lt; Implementation &gt;::corner </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>i</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac26574883f92698eb2abc92bdfabfa44"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac26574883f92698eb2abc92bdfabfa44">&#9670;&nbsp;</a></span>corners()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class Implementation &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="a02002.html">Dune::GeometryReference</a>&lt; Implementation &gt;::corners </td>
+          <td class="memname">const <a class="el" href="a02002.html#a60f660a672ecb0064eb6993209967f41">JacobianTransposed</a>&amp; <a class="el" href="a02002.html">Dune::Alberta::GeometryCacheProxy</a>&lt; dim &gt;::jacobianTransposed </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
   </td>
@@ -357,278 +249,8 @@ template&lt;class Implementation &gt; </div>
 
 </div>
 </div>
-<a id="ad5f02960c7caa8c10ebe3d7a1aab91f4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad5f02960c7caa8c10ebe3d7a1aab91f4">&#9670;&nbsp;</a></span>global()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class Implementation &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a02002.html#a9f9a7cdf0056f6b220ca215583890e45">GlobalCoordinate</a> <a class="el" href="a02002.html">Dune::GeometryReference</a>&lt; Implementation &gt;::global </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a02002.html#ac35b0e8118cfd4da6822eec119b63043">LocalCoordinate</a> &amp;&#160;</td>
-          <td class="paramname"><em>local</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="add35eed07965bbaf7e0b788741b9901d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#add35eed07965bbaf7e0b788741b9901d">&#9670;&nbsp;</a></span>impl()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class Implementation &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const Implementation&amp; <a class="el" href="a02002.html">Dune::GeometryReference</a>&lt; Implementation &gt;::impl </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a18b7c05ccb5aed4f39afc618f268695a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a18b7c05ccb5aed4f39afc618f268695a">&#9670;&nbsp;</a></span>integrationElement()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class Implementation &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a02002.html#ae01fb3d14daf82da62d3ba86d71365b7">ctype</a> <a class="el" href="a02002.html">Dune::GeometryReference</a>&lt; Implementation &gt;::integrationElement </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a02002.html#ac35b0e8118cfd4da6822eec119b63043">LocalCoordinate</a> &amp;&#160;</td>
-          <td class="paramname"><em>local</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ab87473834c78e7ddbc7e11059f12e845"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab87473834c78e7ddbc7e11059f12e845">&#9670;&nbsp;</a></span>jacobianInverseTransposed()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class Implementation &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a02002.html#ae2c68316d02fb1d7582528fe77bbfbc4">JacobianInverseTransposed</a> <a class="el" href="a02002.html">Dune::GeometryReference</a>&lt; Implementation &gt;::jacobianInverseTransposed </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a02002.html#ac35b0e8118cfd4da6822eec119b63043">LocalCoordinate</a> &amp;&#160;</td>
-          <td class="paramname"><em>local</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="abb14e02426cc5f512d1252111b0344ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abb14e02426cc5f512d1252111b0344ea">&#9670;&nbsp;</a></span>jacobianTransposed()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class Implementation &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a02002.html#a54020bac15c1997bc20aec2efec94d71">JacobianTransposed</a> <a class="el" href="a02002.html">Dune::GeometryReference</a>&lt; Implementation &gt;::jacobianTransposed </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a02002.html#ac35b0e8118cfd4da6822eec119b63043">LocalCoordinate</a> &amp;&#160;</td>
-          <td class="paramname"><em>local</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a0aef92a73857edafd006d6fc67f8ec7e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0aef92a73857edafd006d6fc67f8ec7e">&#9670;&nbsp;</a></span>LocalCoordinate()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class Implementation &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a02002.html">Dune::GeometryReference</a>&lt; Implementation &gt;::<a class="el" href="a02002.html#ac35b0e8118cfd4da6822eec119b63043">LocalCoordinate</a> </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a02002.html#a9f9a7cdf0056f6b220ca215583890e45">GlobalCoordinate</a> &amp;&#160;</td>
-          <td class="paramname"><em>global</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="afa99f8d77c51447fd51fe483309afd11"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afa99f8d77c51447fd51fe483309afd11">&#9670;&nbsp;</a></span>type()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class Implementation &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">GeometryType <a class="el" href="a02002.html">Dune::GeometryReference</a>&lt; Implementation &gt;::type </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a1ddb620ad5c82a53756cae56fd203c0a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1ddb620ad5c82a53756cae56fd203c0a">&#9670;&nbsp;</a></span>volume()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class Implementation &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a02002.html#ae01fb3d14daf82da62d3ba86d71365b7">ctype</a> <a class="el" href="a02002.html">Dune::GeometryReference</a>&lt; Implementation &gt;::volume </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a9feb9b9f244485c5b5dc3a2bf50f6023"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9feb9b9f244485c5b5dc3a2bf50f6023">&#9670;&nbsp;</a></span>coorddimension</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class Implementation &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const int <a class="el" href="a02002.html">Dune::GeometryReference</a>&lt; Implementation &gt;::coorddimension = Implementation::coorddimension</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a0d690ef3c7b93c3406e9d7156bd5de3a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0d690ef3c7b93c3406e9d7156bd5de3a">&#9670;&nbsp;</a></span>mydimension</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class Implementation &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const int <a class="el" href="a02002.html">Dune::GeometryReference</a>&lt; Implementation &gt;::mydimension = Implementation::mydimension</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="a00518_source.html">geometryreference.hh</a></li>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li><a class="el" href="a00518_source.html">geometrycache.hh</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

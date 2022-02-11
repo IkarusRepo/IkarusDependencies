@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: dgfidentitygrid.hh File Reference</title>
+<title>dune-grid: dgfgeogrid.hh File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -70,27 +70,38 @@ $(function() {
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">dgfidentitygrid.hh File Reference</div>  </div>
+<div class="title">dgfgeogrid.hh File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;dune/common/typetraits.hh&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00584_source.html">dune/grid/identitygrid.hh</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="a06767_source.html">dune/grid/io/file/dgfparser/dgfparser.hh</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00866_source.html">dune/grid/utility/hostgridaccess.hh</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="a00587_source.html">dune/grid/geometrygrid.hh</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="a06672_source.html">dune/grid/io/file/dgfparser/dgfparser.hh</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="a06783_source.html">dune/grid/io/file/dgfparser/blocks/projection.hh</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="a00872_source.html">dune/grid/utility/hostgridaccess.hh</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="a06744_source.html">dune/grid/common/intersection.hh</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="a00755_source.html">dune/grid/io/file/dgfparser/parser.hh</a>&gt;</code><br />
 </div>
 <p><a href="a00719_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03554.html">Dune::DGFGridFactory&lt; IdentityGrid&lt; HostGrid &gt; &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03514.html">Dune::DGFCoordFunction&lt; dimD, dimR &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03558.html">Dune::DGFGridInfo&lt; IdentityGrid&lt; HostGrid &gt; &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03522.html">Dune::DGFCoordFunctionFactory&lt; HostGrid, CoordFunction, false &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03526.html">Dune::DGFCoordFunctionFactory&lt; HostGrid, CoordFunction, true &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03530.html">Dune::DGFCoordFunctionFactory&lt; HostGrid, DGFCoordFunction&lt; dimD, dimR &gt;, false &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03534.html">Dune::DGFGridFactory&lt; GeometryGrid&lt; HostGrid, CoordFunction, Allocator &gt; &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03538.html">Dune::DGFGridInfo&lt; GeometryGrid&lt; HostGrid, CoordFunction, Allocator &gt; &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:a00936"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00936.html">Dune</a></td></tr>
-<tr class="memdesc:a00936"><td class="mdescLeft">&#160;</td><td class="mdescRight">Include standard header files. <br /></td></tr>
+<tr class="memitem:a00940"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00940.html">Dune</a></td></tr>
+<tr class="memdesc:a00940"><td class="mdescLeft">&#160;</td><td class="mdescRight">Include standard header files. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->

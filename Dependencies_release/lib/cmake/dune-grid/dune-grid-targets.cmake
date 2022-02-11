@@ -54,7 +54,7 @@ endif()
 add_library(dunegrid STATIC IMPORTED)
 
 set_target_properties(dunegrid PROPERTIES
-  INTERFACE_LINK_LIBRARIES "dunegeometry;dunecommon"
+  INTERFACE_LINK_LIBRARIES "Threads::Threads;dunegeometry;dunecommon"
 )
 
 if(CMAKE_VERSION VERSION_LESS 2.8.12)

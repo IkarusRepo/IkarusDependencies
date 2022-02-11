@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: multiindex.hh Source File</title>
+<title>dune-grid: hierarchicsearch.hh Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -67,63 +67,166 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">multiindex.hh</div>  </div>
+<div class="title">hierarchicsearch.hh</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="a00869.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef DUNE_GRID_UTILITY_MULTIINDEX_HH</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define DUNE_GRID_UTILITY_MULTIINDEX_HH</span></div>
+<a href="a00869.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// vi: set et ts=4 sw=2 sts=2:</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include&lt;array&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00936.html">Dune</a></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="a00949.html">   13</a></span>&#160; <span class="keyword">namespace </span>FactoryUtilities</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; {</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  <span class="keyword">template</span>&lt;std::<span class="keywordtype">size_t</span> dim&gt;</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="a04086.html">   16</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a04086.html">MultiIndex</a> : <span class="keyword">public</span> std::array&lt;unsigned int,dim&gt;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="comment">// The range of each component</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    std::array&lt;unsigned int,dim&gt; limits_;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="a04086.html#a4cffeb330b319cf46ddde08ae07791d9">   23</a></span>&#160;    <a class="code" href="a04086.html#a4cffeb330b319cf46ddde08ae07791d9">MultiIndex</a>(<span class="keyword">const</span> std::array&lt;unsigned int,dim&gt;&amp; limits) : limits_(limits)</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    {</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;      std::fill(this-&gt;begin(), this-&gt;end(), 0);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    }</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#ifndef DUNE_GRID_HIERARCHICSEARCH_HH</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#define DUNE_GRID_HIERARCHICSEARCH_HH</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;cstddef&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;sstream&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;utility&gt;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;dune/common/classname.hh&gt;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;dune/common/exceptions.hh&gt;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;dune/common/fvector.hh&gt;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a06702.html">dune/grid/common/grid.hh</a>&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00260.html">dune/grid/common/gridenums.hh</a>&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00940.html">Dune</a></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="a04086.html#aa644e5c27cb04d515dfffe160136880c">   29</a></span>&#160;    <a class="code" href="a04086.html">MultiIndex&lt;dim&gt;</a>&amp; <a class="code" href="a04086.html#aa644e5c27cb04d515dfffe160136880c">operator++</a>()</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;      <span class="keywordflow">for</span> (std::size_t i=0; i&lt;dim; i++)</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;      {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="comment">// Augment digit</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        (*this)[i]++;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="comment">// If there is no carry-over we can stop here</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordflow">if</span> ((*<span class="keyword">this</span>)[i]&lt;limits_[i])</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;          <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class</span> Gr<span class="keywordtype">id</span>, <span class="keyword">class</span> IS&gt;</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="a04062.html">   32</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a04062.html">HierarchicSearch</a></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">enum</span> {dim=<a class="code" href="a02710.html#ad60b40e40ac87b01ad0b1f05ab4925b1a3d6a22a414566af9b4a356f760fce944">Grid::dimension</a>};</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">enum</span> {dimw=<a class="code" href="a02710.html#ab4f3c3433e4d9b46504c91b3e5c3bfb1a7829985ca62f22ec6c57c5feba1e0604">Grid::dimensionworld</a>};</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        (*this)[i] = 0;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;      }</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    }</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="a04086.html#ae541c3a596ed280cbbe18405c4525282">   46</a></span>&#160;    <span class="keywordtype">size_t</span> <a class="code" href="a04086.html#ae541c3a596ed280cbbe18405c4525282">cycle</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;      <span class="keywordtype">size_t</span> result = 1;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;      <span class="keywordflow">for</span> (std::size_t i=0; i&lt;dim; i++)</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        result *= limits_[i];</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;      <span class="keywordflow">return</span> result;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    }</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  };</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; }</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aa00936_html"><div class="ttname"><a href="a00936.html">Dune</a></div><div class="ttdoc">Include standard header files.</div><div class="ttdef"><b>Definition:</b> agrid.hh:59</div></div>
-<div class="ttc" id="aa04086_html"><div class="ttname"><a href="a04086.html">Dune::FactoryUtilities::MultiIndex</a></div><div class="ttdef"><b>Definition:</b> multiindex.hh:17</div></div>
-<div class="ttc" id="aa04086_html_a4cffeb330b319cf46ddde08ae07791d9"><div class="ttname"><a href="a04086.html#a4cffeb330b319cf46ddde08ae07791d9">Dune::FactoryUtilities::MultiIndex::MultiIndex</a></div><div class="ttdeci">MultiIndex(const std::array&lt; unsigned int, dim &gt; &amp;limits)</div><div class="ttdoc">Constructor with a given range for each digit.</div><div class="ttdef"><b>Definition:</b> multiindex.hh:23</div></div>
-<div class="ttc" id="aa04086_html_aa644e5c27cb04d515dfffe160136880c"><div class="ttname"><a href="a04086.html#aa644e5c27cb04d515dfffe160136880c">Dune::FactoryUtilities::MultiIndex::operator++</a></div><div class="ttdeci">MultiIndex&lt; dim &gt; &amp; operator++()</div><div class="ttdoc">Increment the MultiIndex.</div><div class="ttdef"><b>Definition:</b> multiindex.hh:29</div></div>
-<div class="ttc" id="aa04086_html_ae541c3a596ed280cbbe18405c4525282"><div class="ttname"><a href="a04086.html#ae541c3a596ed280cbbe18405c4525282">Dune::FactoryUtilities::MultiIndex::cycle</a></div><div class="ttdeci">size_t cycle() const</div><div class="ttdoc">Compute how many times you can call operator++ before getting to (0,...,0) again.</div><div class="ttdef"><b>Definition:</b> multiindex.hh:46</div></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="a02710.html#af10850d580532530ec127817a2a28c38">Grid::ctype</a> ct;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> Grid::template Codim&lt;0&gt;::Entity Entity;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="a02710.html#a3cb3ea05314097b76de6420d6a931830">Grid::HierarchicIterator</a> HierarchicIterator;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">static</span> std::string formatEntityInformation ( <span class="keyword">const</span> Entity &amp;e ) {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;      <span class="keyword">const</span> <span class="keyword">typename</span> <a class="code" href="a02642.html#a5e1fb35208769300c1760d11a96ea829">Entity::Geometry</a> &amp;geo = e.geometry();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;      std::ostringstream info;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      info &lt;&lt; <span class="stringliteral">&quot;level=&quot;</span> &lt;&lt; e.level() &lt;&lt; <span class="stringliteral">&quot; &quot;</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;           &lt;&lt; <span class="stringliteral">&quot;partition=&quot;</span> &lt;&lt; e.partitionType() &lt;&lt; <span class="stringliteral">&quot; &quot;</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;           &lt;&lt; <span class="stringliteral">&quot;center=(&quot;</span> &lt;&lt; geo.center() &lt;&lt; <span class="stringliteral">&quot;) &quot;</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;           &lt;&lt; <span class="stringliteral">&quot;corners=[(&quot;</span> &lt;&lt; geo.corner(0) &lt;&lt; <span class="stringliteral">&quot;)&quot;</span>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 1; i &lt; geo.corners(); ++i)</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        info &lt;&lt; <span class="stringliteral">&quot; (&quot;</span> &lt;&lt; e.geometry().corner(i) &lt;&lt; <span class="stringliteral">&quot;)&quot;</span>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;      info &lt;&lt; <span class="stringliteral">&quot;]&quot;</span>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;      <span class="keywordflow">return</span> info.str();</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    }</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    Entity hFindEntity ( <span class="keyword">const</span> Entity &amp;entity,</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                         <span class="keyword">const</span> FieldVector&lt;ct,dimw&gt;&amp; global)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;      <span class="comment">// type of element geometry</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;      <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="a02642.html#a5e1fb35208769300c1760d11a96ea829">Entity::Geometry</a> <a class="code" href="a02682.html">Geometry</a>;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;      <span class="comment">// type of local coordinate</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;      <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="a02682.html#aa9f22f897f89bc7b9e921117e81fa80b">Geometry::LocalCoordinate</a> LocalCoordinate;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">int</span> childLevel = entity.level()+1 ;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;      <span class="comment">// loop over all child Entities</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;      <span class="keyword">const</span> HierarchicIterator end = entity.hend( childLevel );</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;      <span class="keywordflow">for</span>( HierarchicIterator it = entity.hbegin( childLevel ); it != end; ++it )</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;      {</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        Entity child = *it;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <a class="code" href="a02682.html">Geometry</a> geo = child.geometry();</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        LocalCoordinate local = geo.local(global);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="a00940.html#ab0aca997f2038524be12174596d09262">referenceElement</a>( geo ).checkInside(local))</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        {</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;          <span class="comment">// return if we found the leaf, else search through the child entites</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;          <span class="keywordflow">if</span>( indexSet_.contains( child ) )</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <span class="keywordflow">return</span> child;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;          <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            <span class="keywordflow">return</span> hFindEntity( child, global );</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        }</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;      }</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;      std::ostringstream children;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;      HierarchicIterator it = entity.hbegin( childLevel );</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;      <span class="keywordflow">if</span>(it != end) {</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        children &lt;&lt; <span class="stringliteral">&quot;{&quot;</span> &lt;&lt; formatEntityInformation(*it) &lt;&lt; <span class="stringliteral">&quot;}&quot;</span>;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="keywordflow">for</span>( ++it; it != end; ++it )</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;          children &lt;&lt; <span class="stringliteral">&quot; {&quot;</span> &lt;&lt; formatEntityInformation(*it) &lt;&lt; <span class="stringliteral">&quot;}&quot;</span>;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;      }</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;      DUNE_THROW(Exception, <span class="stringliteral">&quot;{&quot;</span> &lt;&lt; className(*<span class="keyword">this</span>) &lt;&lt; <span class="stringliteral">&quot;} Unexpected &quot;</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                 <span class="stringliteral">&quot;internal Error: none of the children of the entity &quot;</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                 <span class="stringliteral">&quot;{&quot;</span> &lt;&lt; formatEntityInformation(entity) &lt;&lt; <span class="stringliteral">&quot;} contains &quot;</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                 <span class="stringliteral">&quot;coordinate (&quot;</span> &lt;&lt; global &lt;&lt; <span class="stringliteral">&quot;).  Children are: &quot;</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                 <span class="stringliteral">&quot;[&quot;</span> &lt;&lt; children.str() &lt;&lt; <span class="stringliteral">&quot;].&quot;</span>);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    }</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="a04062.html#a9460d6b947eaf92afaf9858195724061">  116</a></span>&#160;    <a class="code" href="a04062.html#a9460d6b947eaf92afaf9858195724061">HierarchicSearch</a>(<span class="keyword">const</span> <a class="code" href="a02710.html">Grid</a> &amp; g, <span class="keyword">const</span> IS &amp; is) : grid_(g), indexSet_(is) {}</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="a04062.html#a4ba4275685ccbed79c224532abce38ae">  125</a></span>&#160;    Entity <a class="code" href="a04062.html#a4ba4275685ccbed79c224532abce38ae">findEntity</a>(<span class="keyword">const</span> FieldVector&lt;ct,dimw&gt;&amp; global)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="keyword">    </span>{ <span class="keywordflow">return</span> findEntity&lt;All_Partition&gt;(global); }</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keyword">template</span>&lt;PartitionIteratorType partition&gt;</div>
+<div class="line"><a name="l00136"></a><span class="lineno"><a class="line" href="a04062.html#a518a3da13e81ec0cbcfcb8e18b23aca4">  136</a></span>&#160;    Entity <a class="code" href="a04062.html#a518a3da13e81ec0cbcfcb8e18b23aca4">findEntity</a>(<span class="keyword">const</span> FieldVector&lt;ct,dimw&gt;&amp; global)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;      <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="a02710.html#a43e36b0156d9791dce24c97af9590fae">Grid::LevelGridView</a> LevelGV;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;      <span class="keyword">const</span> LevelGV &amp;gv = grid_.<a class="code" href="a02710.html#ab6d4570643194ac96189e68c92b60220">levelGridView</a>(0);</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;      <span class="keyword">typedef</span> <span class="keyword">typename</span> LevelGV::template Codim&lt;0&gt;::template Partition&lt;partition&gt;::Iterator LevelIterator;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160; </div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;      <span class="comment">// type of element geometry</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;      <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="a02642.html#a5e1fb35208769300c1760d11a96ea829">Entity::Geometry</a> <a class="code" href="a02682.html">Geometry</a>;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;      <span class="comment">// type of local coordinate</span></div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;      <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="a02682.html#aa9f22f897f89bc7b9e921117e81fa80b">Geometry::LocalCoordinate</a> LocalCoordinate;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; </div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;      <span class="comment">// loop over macro level</span></div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;      <span class="keyword">const</span> LevelIterator end = gv.template end&lt;0, partition&gt;();</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;      <span class="keywordflow">for</span> (LevelIterator it = gv.template begin&lt;0, partition&gt;(); it != end; ++it)</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;      {</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        Entity entity = *it;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        <a class="code" href="a02682.html">Geometry</a> geo = entity.geometry();</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        LocalCoordinate local = geo.local( global );</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        <span class="keywordflow">if</span>( !<a class="code" href="a00940.html#ab0aca997f2038524be12174596d09262">referenceElement</a>( geo ).checkInside( local ) )</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;          <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160; </div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        <span class="keywordflow">if</span>( (<span class="keywordtype">int</span>(dim) != <span class="keywordtype">int</span>(dimw)) &amp;&amp; ((geo.<a class="code" href="a02682.html#a390be918f55a71294618ce7ef53de844">global</a>( local ) - global).two_norm() &gt; 1e-8) )</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;          <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        <span class="comment">// return if we found the leaf, else search through the child entites</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        <span class="keywordflow">if</span>( indexSet_.contains( entity ) )</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;          <span class="keywordflow">return</span> entity;</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;          <span class="keywordflow">return</span> hFindEntity( entity, global );</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;      }</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;      DUNE_THROW( <a class="code" href="a02674.html">GridError</a>, <span class="stringliteral">&quot;Coordinate &quot;</span> &lt;&lt; global &lt;&lt; <span class="stringliteral">&quot; is outside the grid.&quot;</span> );</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    }</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160; </div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keyword">const</span> <a class="code" href="a02710.html">Grid</a>&amp; grid_;</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <span class="keyword">const</span> IS&amp;   indexSet_;</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;  };</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160; </div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;} <span class="comment">// end namespace Dune</span></div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160; </div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// DUNE_GRID_HIERARCHICSEARCH_HH</span></div>
+<div class="ttc" id="aa00260_html"><div class="ttname"><a href="a00260.html">gridenums.hh</a></div></div>
+<div class="ttc" id="aa00940_html"><div class="ttname"><a href="a00940.html">Dune</a></div><div class="ttdoc">Include standard header files.</div><div class="ttdef"><b>Definition:</b> agrid.hh:58</div></div>
+<div class="ttc" id="aa00940_html_ab0aca997f2038524be12174596d09262"><div class="ttname"><a href="a00940.html#ab0aca997f2038524be12174596d09262">Dune::referenceElement</a></div><div class="ttdeci">auto referenceElement(const Geometry&lt; mydim, cdim, GridImp, GeometryImp &gt; &amp;geo) -&gt; decltype(referenceElement(geo, geo.impl()))</div><div class="ttdef"><b>Definition:</b> common/geometry.hh:417</div></div>
+<div class="ttc" id="aa02642_html_a5e1fb35208769300c1760d11a96ea829"><div class="ttname"><a href="a02642.html#a5e1fb35208769300c1760d11a96ea829">Dune::Entity::Geometry</a></div><div class="ttdeci">GridImp::template Codim&lt; cd &gt;::Geometry Geometry</div><div class="ttdoc">The corresponding geometry type.</div><div class="ttdef"><b>Definition:</b> common/entity.hh:98</div></div>
+<div class="ttc" id="aa02674_html"><div class="ttname"><a href="a02674.html">Dune::GridError</a></div><div class="ttdoc">Base class for exceptions in Dune grid modules.</div><div class="ttdef"><b>Definition:</b> exceptions.hh:18</div></div>
+<div class="ttc" id="aa02682_html"><div class="ttname"><a href="a02682.html">Dune::Geometry</a></div><div class="ttdoc">Wrapper class for geometries.</div><div class="ttdef"><b>Definition:</b> common/geometry.hh:67</div></div>
+<div class="ttc" id="aa02682_html_a390be918f55a71294618ce7ef53de844"><div class="ttname"><a href="a02682.html#a390be918f55a71294618ce7ef53de844">Dune::Geometry::global</a></div><div class="ttdeci">GlobalCoordinate global(const LocalCoordinate &amp;local) const</div><div class="ttdoc">Evaluate the map .</div><div class="ttdef"><b>Definition:</b> common/geometry.hh:165</div></div>
+<div class="ttc" id="aa02682_html_aa9f22f897f89bc7b9e921117e81fa80b"><div class="ttname"><a href="a02682.html#aa9f22f897f89bc7b9e921117e81fa80b">Dune::Geometry::LocalCoordinate</a></div><div class="ttdeci">FieldVector&lt; ctype, mydim &gt; LocalCoordinate</div><div class="ttdoc">type of local coordinates</div><div class="ttdef"><b>Definition:</b> common/geometry.hh:98</div></div>
+<div class="ttc" id="aa02710_html"><div class="ttname"><a href="a02710.html">Dune::Grid</a></div><div class="ttdoc">Grid abstract base class.</div><div class="ttdef"><b>Definition:</b> common/grid.hh:372</div></div>
+<div class="ttc" id="aa02710_html_a3cb3ea05314097b76de6420d6a931830"><div class="ttname"><a href="a02710.html#a3cb3ea05314097b76de6420d6a931830">Dune::Grid::HierarchicIterator</a></div><div class="ttdeci">GridFamily::Traits::HierarchicIterator HierarchicIterator</div><div class="ttdoc">A type that is a model of Dune::HierarchicIterator A type of iterator that allows to examine,...</div><div class="ttdef"><b>Definition:</b> common/grid.hh:485</div></div>
+<div class="ttc" id="aa02710_html_a43e36b0156d9791dce24c97af9590fae"><div class="ttname"><a href="a02710.html#a43e36b0156d9791dce24c97af9590fae">Dune::Grid::LevelGridView</a></div><div class="ttdeci">GridFamily::Traits::LevelGridView LevelGridView</div><div class="ttdoc">type of view for level grid</div><div class="ttdef"><b>Definition:</b> common/grid.hh:405</div></div>
+<div class="ttc" id="aa02710_html_ab4f3c3433e4d9b46504c91b3e5c3bfb1a7829985ca62f22ec6c57c5feba1e0604"><div class="ttname"><a href="a02710.html#ab4f3c3433e4d9b46504c91b3e5c3bfb1a7829985ca62f22ec6c57c5feba1e0604">Dune::Grid::dimensionworld</a></div><div class="ttdeci">@ dimensionworld</div><div class="ttdoc">The dimension of the world the grid lives in.</div><div class="ttdef"><b>Definition:</b> common/grid.hh:392</div></div>
+<div class="ttc" id="aa02710_html_ab6d4570643194ac96189e68c92b60220"><div class="ttname"><a href="a02710.html#ab6d4570643194ac96189e68c92b60220">Dune::Grid::levelGridView</a></div><div class="ttdeci">LevelGridView levelGridView(int level) const</div><div class="ttdoc">View for a grid level for All_Partition.</div><div class="ttdef"><b>Definition:</b> common/grid.hh:587</div></div>
+<div class="ttc" id="aa02710_html_ad60b40e40ac87b01ad0b1f05ab4925b1a3d6a22a414566af9b4a356f760fce944"><div class="ttname"><a href="a02710.html#ad60b40e40ac87b01ad0b1f05ab4925b1a3d6a22a414566af9b4a356f760fce944">Dune::Grid::dimension</a></div><div class="ttdeci">@ dimension</div><div class="ttdoc">The dimension of the grid.</div><div class="ttdef"><b>Definition:</b> common/grid.hh:386</div></div>
+<div class="ttc" id="aa02710_html_af10850d580532530ec127817a2a28c38"><div class="ttname"><a href="a02710.html#af10850d580532530ec127817a2a28c38">Dune::Grid::ctype</a></div><div class="ttdeci">ct ctype</div><div class="ttdoc">Define type used for coordinates in grid module.</div><div class="ttdef"><b>Definition:</b> common/grid.hh:521</div></div>
+<div class="ttc" id="aa04062_html"><div class="ttname"><a href="a04062.html">Dune::HierarchicSearch</a></div><div class="ttdoc">Search an IndexSet for an Entity containing a given point.</div><div class="ttdef"><b>Definition:</b> hierarchicsearch.hh:33</div></div>
+<div class="ttc" id="aa04062_html_a4ba4275685ccbed79c224532abce38ae"><div class="ttname"><a href="a04062.html#a4ba4275685ccbed79c224532abce38ae">Dune::HierarchicSearch::findEntity</a></div><div class="ttdeci">Entity findEntity(const FieldVector&lt; ct, dimw &gt; &amp;global) const</div><div class="ttdoc">Search the IndexSet of this HierarchicSearch for an Entity containing point global.</div><div class="ttdef"><b>Definition:</b> hierarchicsearch.hh:125</div></div>
+<div class="ttc" id="aa04062_html_a518a3da13e81ec0cbcfcb8e18b23aca4"><div class="ttname"><a href="a04062.html#a518a3da13e81ec0cbcfcb8e18b23aca4">Dune::HierarchicSearch::findEntity</a></div><div class="ttdeci">Entity findEntity(const FieldVector&lt; ct, dimw &gt; &amp;global) const</div><div class="ttdoc">Search the IndexSet of this HierarchicSearch for an Entity containing point global.</div><div class="ttdef"><b>Definition:</b> hierarchicsearch.hh:136</div></div>
+<div class="ttc" id="aa04062_html_a9460d6b947eaf92afaf9858195724061"><div class="ttname"><a href="a04062.html#a9460d6b947eaf92afaf9858195724061">Dune::HierarchicSearch::HierarchicSearch</a></div><div class="ttdeci">HierarchicSearch(const Grid &amp;g, const IS &amp;is)</div><div class="ttdoc">Construct a HierarchicSearch object from a Grid and an IndexSet.</div><div class="ttdef"><b>Definition:</b> hierarchicsearch.hh:116</div></div>
+<div class="ttc" id="aa06702_html"><div class="ttname"><a href="a06702.html">grid.hh</a></div><div class="ttdoc">Different resources needed by all grid implementations.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

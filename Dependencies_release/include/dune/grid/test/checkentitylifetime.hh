@@ -14,7 +14,6 @@
 #include <vector>
 
 #include <dune/common/exceptions.hh>
-#include <dune/common/unused.hh>
 #include <dune/grid/common/capabilities.hh>
 #include <dune/grid/common/rangegenerators.hh>
 
@@ -84,7 +83,8 @@ bool checkEntityLifetimeForCodim(GV gv, std::size_t check_element_count, Dune::C
 }
 
 template<typename GV, int codim>
-bool checkEntityLifetimeForCodim(GV gv, const std::size_t check_element_count, Dune::Codim<codim>, std::false_type)
+bool checkEntityLifetimeForCodim(GV, const std::size_t,
+                                 Dune::Codim<codim>, std::false_type)
 {
   std::cout << "SKIPPING lifetime / consistency check for missing entities, codim " << codim << std::endl;
   return false;
@@ -119,7 +119,7 @@ namespace {
   }
 
   template<typename... T>
-  void invoke(T&&... t)
+  void invoke(T&&...)
   {}
 
   template<typename GV, std::size_t... codim>
@@ -132,7 +132,7 @@ namespace {
         Dune::Codim<codim>(),
         std::integral_constant<
         bool,
-        Dune::Capabilities::hasEntity<typename GV::Grid,codim>::v
+        Dune::Capabilities::hasEntity<typename GV::Grid,codim>::v && Dune::Capabilities::hasEntityIterator<typename GV::Grid,codim>::v
         >()
         )...
       );

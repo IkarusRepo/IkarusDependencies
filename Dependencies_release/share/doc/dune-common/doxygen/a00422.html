@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-common
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -83,8 +83,8 @@ Collaboration diagram for Library Developer's Interface:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="files"></a>
 Files</h2></td></tr>
-<tr class="memitem:a04383"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04383.html">simd/interface.hh</a></td></tr>
-<tr class="memdesc:a04383"><td class="mdescLeft">&#160;</td><td class="mdescRight">User interface of the SIMD abstraction. <br /></td></tr>
+<tr class="memitem:a04328"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04328.html">simd/interface.hh</a></td></tr>
+<tr class="memdesc:a04328"><td class="mdescLeft">&#160;</td><td class="mdescRight">User interface of the SIMD abstraction. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00299"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00299.html">io.hh</a></td></tr>
 <tr class="memdesc:a00299"><td class="mdescLeft">&#160;</td><td class="mdescRight">IO interface of the SIMD abstraction. <br /></td></tr>
@@ -92,11 +92,11 @@ Files</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader">Basic interface</h2></td></tr>
 <tr class="memitem:gaf7f6f3418836afcdb2c033509fd2eb91"><td class="memTemplParams" colspan="2">template&lt;class V &gt; </td></tr>
-<tr class="memitem:gaf7f6f3418836afcdb2c033509fd2eb91"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00422.html#gaf7f6f3418836afcdb2c033509fd2eb91">Dune::Simd::Scalar</a> = typename <a class="el" href="a02556.html">Overloads::ScalarType</a>&lt; std::decay_t&lt; V &gt; &gt;::type</td></tr>
+<tr class="memitem:gaf7f6f3418836afcdb2c033509fd2eb91"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00422.html#gaf7f6f3418836afcdb2c033509fd2eb91">Dune::Simd::Scalar</a> = typename <a class="el" href="a02565.html">Overloads::ScalarType</a>&lt; std::decay_t&lt; V &gt; &gt;::type</td></tr>
 <tr class="memdesc:gaf7f6f3418836afcdb2c033509fd2eb91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Element type of some SIMD type.  <a href="a00422.html#gaf7f6f3418836afcdb2c033509fd2eb91">More...</a><br /></td></tr>
 <tr class="separator:gaf7f6f3418836afcdb2c033509fd2eb91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga8d4752fe47def6075b211544a932c709"><td class="memTemplParams" colspan="2">template&lt;class S , class V &gt; </td></tr>
-<tr class="memitem:ga8d4752fe47def6075b211544a932c709"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00422.html#ga8d4752fe47def6075b211544a932c709">Dune::Simd::Rebind</a> = typename <a class="el" href="a02560.html">Overloads::RebindType</a>&lt; std::decay_t&lt; S &gt;, std::decay_t&lt; V &gt; &gt;::type</td></tr>
+<tr class="memitem:ga8d4752fe47def6075b211544a932c709"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00422.html#ga8d4752fe47def6075b211544a932c709">Dune::Simd::Rebind</a> = typename <a class="el" href="a02569.html">Overloads::RebindType</a>&lt; std::decay_t&lt; S &gt;, std::decay_t&lt; V &gt; &gt;::type</td></tr>
 <tr class="memdesc:ga8d4752fe47def6075b211544a932c709"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct SIMD type with different scalar type.  <a href="a00422.html#ga8d4752fe47def6075b211544a932c709">More...</a><br /></td></tr>
 <tr class="separator:ga8d4752fe47def6075b211544a932c709"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac6a0cf43eb7664581bd8a6954d7ff305"><td class="memTemplParams" colspan="2">template&lt;class V &gt; </td></tr>
@@ -291,7 +291,7 @@ template&lt;class V &gt; </div>
   </table>
   </dd>
 </dl>
-<p>The mask type is kind of a SIMD vector of <code>bool</code> with the same number of lanes as <code>V</code>. It results from comparison operations between values of type <code>V</code>. It is only "kind of" a SIMD vector, because the guaranteed supported operations are extremely limited. <a class="el" href="a03024.html" title="Reverse element access.">At</a> the moment only the logical operators <code>&amp;&amp;</code>, <code>||</code> and <code>!</code> and the "bitwise" operators <code>&amp;</code>, <code>^</code> and <code>|</code> between masks are supported, and even with those operators you cannot rely on automatic broadcasting of <code>bool</code> values.</p>
+<p>The mask type is kind of a SIMD vector of <code>bool</code> with the same number of lanes as <code>V</code>. It results from comparison operations between values of type <code>V</code>. It is only "kind of" a SIMD vector, because the guaranteed supported operations are extremely limited. <a class="el" href="a02941.html" title="Reverse element access.">At</a> the moment only the logical operators <code>&amp;&amp;</code>, <code>||</code> and <code>!</code> and the "bitwise" operators <code>&amp;</code>, <code>^</code> and <code>|</code> between masks are supported, and even with those operators you cannot rely on automatic broadcasting of <code>bool</code> values.</p>
 <dl class="section note"><dt>Note</dt><dd>In particular, masks do not support comparison. As a workaround you can use <code>^</code> instead of <code>!=</code> and <code>!(m1 ^ m2)</code> instead of <code>m1 == m2</code>. (The reason why comparison is not supported is because in Vc <code>==</code> and <code>!=</code> between masks yield a single <code>bool</code> result and not a mask.)</dd></dl>
 <p>This is an alias for <code>Rebind&lt;bool, V&gt;</code>. </p>
 
@@ -306,7 +306,7 @@ template&lt;class V &gt; </div>
 template&lt;class S , class V &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="a00422.html#ga8d4752fe47def6075b211544a932c709">Dune::Simd::Rebind</a> = typedef typename <a class="el" href="a02560.html">Overloads::RebindType</a>&lt;std::decay_t&lt;S&gt;, std::decay_t&lt;V&gt; &gt;::type</td>
+          <td class="memname">using <a class="el" href="a00422.html#ga8d4752fe47def6075b211544a932c709">Dune::Simd::Rebind</a> = typedef typename <a class="el" href="a02569.html">Overloads::RebindType</a>&lt;std::decay_t&lt;S&gt;, std::decay_t&lt;V&gt; &gt;::type</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -320,8 +320,8 @@ template&lt;class S , class V &gt; </div>
   </dd>
 </dl>
 <p>The resulting type a SIMD vector of <code>S</code> with the same number of lanes as <code>V</code>. <code>const</code>, <code>volatile</code> or reference qualifiers in <code>S</code> and <code>V</code> are automatically ignored, and the result will have no such qualifiers.</p>
-<p>Implementations shall rebind to <code><a class="el" href="a02572.html">LoopSIMD</a>&lt;S, lanes&lt;V&gt;()&gt;</code> if they can't support a particular rebind natively.</p>
-<p>Implemented by <code><a class="el" href="a02560.html" title="should have a member type type">Overloads::RebindType</a></code>. </p>
+<p>Implementations shall rebind to <code><a class="el" href="a02581.html">LoopSIMD</a>&lt;S, lanes&lt;V&gt;()&gt;</code> if they can't support a particular rebind natively.</p>
+<p>Implemented by <code><a class="el" href="a02569.html" title="should have a member type type">Overloads::RebindType</a></code>. </p>
 
 </div>
 </div>
@@ -334,7 +334,7 @@ template&lt;class S , class V &gt; </div>
 template&lt;class V &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="a00422.html#gaf7f6f3418836afcdb2c033509fd2eb91">Dune::Simd::Scalar</a> = typedef typename <a class="el" href="a02556.html">Overloads::ScalarType</a>&lt;std::decay_t&lt;V&gt; &gt;::type</td>
+          <td class="memname">using <a class="el" href="a00422.html#gaf7f6f3418836afcdb2c033509fd2eb91">Dune::Simd::Scalar</a> = typedef typename <a class="el" href="a02565.html">Overloads::ScalarType</a>&lt;std::decay_t&lt;V&gt; &gt;::type</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -347,7 +347,7 @@ template&lt;class V &gt; </div>
   </dd>
 </dl>
 <p>Not all operations that access the element of a vector return (a reference to) the scalar type &ndash; some may return proxy objects instead. Use <code><a class="el" href="a00409.html#gab256c9245e4037f7f42aa453e00fd97a" title="Autonomous copy of an expression&#39;s value for use in auto type deduction.">autoCopy()</a></code> to make sure you are getting a prvalue of the scalar type.</p>
-<p>Implemented by <code><a class="el" href="a02556.html" title="should have a member type type">Overloads::ScalarType</a></code>. </p>
+<p>Implemented by <code><a class="el" href="a02565.html" title="should have a member type type">Overloads::ScalarType</a></code>. </p>
 
 </div>
 </div>
@@ -698,7 +698,7 @@ template&lt;class V &gt; </div>
   </table>
   </dd>
 </dl>
-<p>Implemented by <code><a class="el" href="a02564.html" title="should be derived from a Dune::index_constant">Overloads::LaneCount</a></code>. </p>
+<p>Implemented by <code><a class="el" href="a02573.html" title="should be derived from a Dune::index_constant">Overloads::LaneCount</a></code>. </p>
 
 </div>
 </div>

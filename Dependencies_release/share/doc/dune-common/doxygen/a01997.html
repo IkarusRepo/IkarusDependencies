@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-common: Member List</title>
+<title>dune-common: Dune::BufferedCommunicator Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-common
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,27 +62,381 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00428.html">Dune</a></li><li class="navelem"><a class="el" href="a02000.html">BufferedCommunicator</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00428.html">Dune</a></li><li class="navelem"><a class="el" href="a01997.html">BufferedCommunicator</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="a01994.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::BufferedCommunicator Member List</div>  </div>
+<div class="title">Dune::BufferedCommunicator Class Reference<div class="ingroups"><a class="el" href="a00400.html">Common</a> &raquo; <a class="el" href="a00418.html">Parallel Communication</a> &raquo; <a class="el" href="a00419.html">Parallel Computing based on Indexsets</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="a02000.html">Dune::BufferedCommunicator</a>, including all inherited members.</p>
-<table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="a02000.html#ae96294473aa3ceff07fbed9d85650146">backward</a>(Data &amp;source, const Data &amp;dest)</td><td class="entry"><a class="el" href="a02000.html">Dune::BufferedCommunicator</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="a02000.html#a17b330cca5a0da2048a985c250dd2193">backward</a>(Data &amp;data)</td><td class="entry"><a class="el" href="a02000.html">Dune::BufferedCommunicator</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a02000.html#a1f300848507ebf916d81c4408ddc1822">BufferedCommunicator</a>()</td><td class="entry"><a class="el" href="a02000.html">Dune::BufferedCommunicator</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="a02000.html#abdfc7d3f1a575c48c9a0b3475f8ba01d">build</a>(const Interface &amp;interface)</td><td class="entry"><a class="el" href="a02000.html">Dune::BufferedCommunicator</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a02000.html#aeab99a5db0cf455c6b05fb281a638776">build</a>(const Data &amp;source, const Data &amp;target, const Interface &amp;interface)</td><td class="entry"><a class="el" href="a02000.html">Dune::BufferedCommunicator</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="a02000.html#a4f86bb99c54f3bd2e46181853a562ac7">forward</a>(const Data &amp;source, Data &amp;dest)</td><td class="entry"><a class="el" href="a02000.html">Dune::BufferedCommunicator</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a02000.html#aeb716a11bebea8a36d04685c67102ca3">forward</a>(Data &amp;data)</td><td class="entry"><a class="el" href="a02000.html">Dune::BufferedCommunicator</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="a02000.html#a97bf4eb3eb500a82c40e789028fe6f8f">free</a>()</td><td class="entry"><a class="el" href="a02000.html">Dune::BufferedCommunicator</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a02000.html#a2a56315145fce81c6dc8b76dc435889b">~BufferedCommunicator</a>()</td><td class="entry"><a class="el" href="a02000.html">Dune::BufferedCommunicator</a></td><td class="entry"></td></tr>
-</table></div><!-- contents -->
+<p>A communicator that uses buffers to gather and scatter the data to be send or received.  
+ <a href="a01997.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="a00182_source.html">dune/common/parallel/communicator.hh</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a1f300848507ebf916d81c4408ddc1822"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01997.html#a1f300848507ebf916d81c4408ddc1822">BufferedCommunicator</a> ()</td></tr>
+<tr class="memdesc:a1f300848507ebf916d81c4408ddc1822"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="a01997.html#a1f300848507ebf916d81c4408ddc1822">More...</a><br /></td></tr>
+<tr class="separator:a1f300848507ebf916d81c4408ddc1822"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abdfc7d3f1a575c48c9a0b3475f8ba01d"><td class="memTemplParams" colspan="2">template&lt;class Data , class Interface &gt; </td></tr>
+<tr class="memitem:abdfc7d3f1a575c48c9a0b3475f8ba01d"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt; std::is_same&lt; <a class="el" href="a01965.html">SizeOne</a>, typename <a class="el" href="a01973.html">CommPolicy</a>&lt; Data &gt;::IndexedTypeFlag &gt;::value, void &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a01997.html#abdfc7d3f1a575c48c9a0b3475f8ba01d">build</a> (const <a class="el" href="a02121.html">Interface</a> &amp;interface)</td></tr>
+<tr class="memdesc:abdfc7d3f1a575c48c9a0b3475f8ba01d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build the buffers and information for the communication process.  <a href="a01997.html#abdfc7d3f1a575c48c9a0b3475f8ba01d">More...</a><br /></td></tr>
+<tr class="separator:abdfc7d3f1a575c48c9a0b3475f8ba01d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeab99a5db0cf455c6b05fb281a638776"><td class="memTemplParams" colspan="2">template&lt;class Data , class Interface &gt; </td></tr>
+<tr class="memitem:aeab99a5db0cf455c6b05fb281a638776"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a01997.html#aeab99a5db0cf455c6b05fb281a638776">build</a> (const Data &amp;source, const Data &amp;target, const <a class="el" href="a02121.html">Interface</a> &amp;interface)</td></tr>
+<tr class="memdesc:aeab99a5db0cf455c6b05fb281a638776"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build the buffers and information for the communication process.  <a href="a01997.html#aeab99a5db0cf455c6b05fb281a638776">More...</a><br /></td></tr>
+<tr class="separator:aeab99a5db0cf455c6b05fb281a638776"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f86bb99c54f3bd2e46181853a562ac7"><td class="memTemplParams" colspan="2">template&lt;class GatherScatter , class Data &gt; </td></tr>
+<tr class="memitem:a4f86bb99c54f3bd2e46181853a562ac7"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a01997.html#a4f86bb99c54f3bd2e46181853a562ac7">forward</a> (const Data &amp;source, Data &amp;dest)</td></tr>
+<tr class="memdesc:a4f86bb99c54f3bd2e46181853a562ac7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send from source to target.  <a href="a01997.html#a4f86bb99c54f3bd2e46181853a562ac7">More...</a><br /></td></tr>
+<tr class="separator:a4f86bb99c54f3bd2e46181853a562ac7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae96294473aa3ceff07fbed9d85650146"><td class="memTemplParams" colspan="2">template&lt;class GatherScatter , class Data &gt; </td></tr>
+<tr class="memitem:ae96294473aa3ceff07fbed9d85650146"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a01997.html#ae96294473aa3ceff07fbed9d85650146">backward</a> (Data &amp;source, const Data &amp;dest)</td></tr>
+<tr class="memdesc:ae96294473aa3ceff07fbed9d85650146"><td class="mdescLeft">&#160;</td><td class="mdescRight">Communicate in the reverse direction, i.e. send from target to source.  <a href="a01997.html#ae96294473aa3ceff07fbed9d85650146">More...</a><br /></td></tr>
+<tr class="separator:ae96294473aa3ceff07fbed9d85650146"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb716a11bebea8a36d04685c67102ca3"><td class="memTemplParams" colspan="2">template&lt;class GatherScatter , class Data &gt; </td></tr>
+<tr class="memitem:aeb716a11bebea8a36d04685c67102ca3"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a01997.html#aeb716a11bebea8a36d04685c67102ca3">forward</a> (Data &amp;data)</td></tr>
+<tr class="memdesc:aeb716a11bebea8a36d04685c67102ca3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forward send where target and source are the same.  <a href="a01997.html#aeb716a11bebea8a36d04685c67102ca3">More...</a><br /></td></tr>
+<tr class="separator:aeb716a11bebea8a36d04685c67102ca3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17b330cca5a0da2048a985c250dd2193"><td class="memTemplParams" colspan="2">template&lt;class GatherScatter , class Data &gt; </td></tr>
+<tr class="memitem:a17b330cca5a0da2048a985c250dd2193"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a01997.html#a17b330cca5a0da2048a985c250dd2193">backward</a> (Data &amp;data)</td></tr>
+<tr class="memdesc:a17b330cca5a0da2048a985c250dd2193"><td class="mdescLeft">&#160;</td><td class="mdescRight">Backward send where target and source are the same.  <a href="a01997.html#a17b330cca5a0da2048a985c250dd2193">More...</a><br /></td></tr>
+<tr class="separator:a17b330cca5a0da2048a985c250dd2193"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97bf4eb3eb500a82c40e789028fe6f8f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01997.html#a97bf4eb3eb500a82c40e789028fe6f8f">free</a> ()</td></tr>
+<tr class="memdesc:a97bf4eb3eb500a82c40e789028fe6f8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Free the allocated memory (i.e. buffers and message information.  <a href="a01997.html#a97bf4eb3eb500a82c40e789028fe6f8f">More...</a><br /></td></tr>
+<tr class="separator:a97bf4eb3eb500a82c40e789028fe6f8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a56315145fce81c6dc8b76dc435889b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01997.html#a2a56315145fce81c6dc8b76dc435889b">~BufferedCommunicator</a> ()</td></tr>
+<tr class="memdesc:a2a56315145fce81c6dc8b76dc435889b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="a01997.html#a2a56315145fce81c6dc8b76dc435889b">More...</a><br /></td></tr>
+<tr class="separator:a2a56315145fce81c6dc8b76dc435889b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A communicator that uses buffers to gather and scatter the data to be send or received. </p>
+<p>Before the data is sent it is copied to a consecutive buffer and then that buffer is sent. The data is received in another buffer and then copied to the actual position. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a1f300848507ebf916d81c4408ddc1822"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f300848507ebf916d81c4408ddc1822">&#9670;&nbsp;</a></span>BufferedCommunicator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Dune::BufferedCommunicator::BufferedCommunicator </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor. </p>
+
+</div>
+</div>
+<a id="a2a56315145fce81c6dc8b76dc435889b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a56315145fce81c6dc8b76dc435889b">&#9670;&nbsp;</a></span>~BufferedCommunicator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Dune::BufferedCommunicator::~BufferedCommunicator </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Destructor. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a17b330cca5a0da2048a985c250dd2193"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17b330cca5a0da2048a985c250dd2193">&#9670;&nbsp;</a></span>backward() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class GatherScatter , class Data &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void Dune::BufferedCommunicator::backward </td>
+          <td>(</td>
+          <td class="paramtype">Data &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Backward send where target and source are the same. </p>
+<p>The template parameter GatherScatter has to have a static method </p><div class="fragment"><div class="line"><span class="comment">// Gather the data at index index of data</span></div>
+<div class="line"><span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">typename</span> <a class="code" href="a01973.html#a2cda5e943599178476fac79e207b365b">CommPolicy&lt;Data&gt;::IndexedType</a>&gt;&amp; gather(Data&amp; data, <span class="keywordtype">int</span> index);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Scatter the value at a index of data</span></div>
+<div class="line"><span class="keyword">static</span> <span class="keywordtype">void</span> scatter(Data&amp; data, <span class="keyword">typename</span> <a class="code" href="a01973.html#a2cda5e943599178476fac79e207b365b">CommPolicy&lt;Data&gt;::IndexedType</a>&gt; value,</div>
+<div class="line">                    <span class="keywordtype">int</span> index);</div>
+<div class="ttc" id="aa01973_html_a2cda5e943599178476fac79e207b365b"><div class="ttname"><a href="a01973.html#a2cda5e943599178476fac79e207b365b">Dune::CommPolicy::IndexedType</a></div><div class="ttdeci">V::value_type IndexedType</div><div class="ttdoc">The type we get at each index with operator[].</div><div class="ttdef"><b>Definition:</b> communicator.hh:145</div></div>
+</div><!-- fragment --><p> in the case where <a class="el" href="a01973.html#a82711a42e162a721414c8d9737a8ee0c" title="Whether the indexed type has variable size or there is always one value at each index.">CommPolicy&lt;Data&gt;::IndexedTypeFlag</a> is <a class="el" href="a01965.html" title="Flag for marking indexed data structures where data at each index is of the same size.">SizeOne</a> and</p>
+<div class="fragment"><div class="line"><span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">typename</span> <a class="code" href="a01973.html#a2cda5e943599178476fac79e207b365b">CommPolicy&lt;Data&gt;::IndexedType</a>&gt; gather(Data&amp; data, <span class="keywordtype">int</span> index, <span class="keywordtype">int</span> subindex);</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">static</span> <span class="keywordtype">void</span> scatter(Data&amp; data, <span class="keyword">typename</span> <a class="code" href="a01973.html#a2cda5e943599178476fac79e207b365b">CommPolicy&lt;Data&gt;::IndexedType</a>&gt; value,</div>
+<div class="line">                    <span class="keywordtype">int</span> index, <span class="keywordtype">int</span> subindex);</div>
+</div><!-- fragment --><p> in the case where <a class="el" href="a01973.html#a82711a42e162a721414c8d9737a8ee0c" title="Whether the indexed type has variable size or there is always one value at each index.">CommPolicy&lt;Data&gt;::IndexedTypeFlag</a> is <a class="el" href="a01969.html" title="Flag for marking indexed data structures where the data at each index may be a variable multiple of a...">VariableSize</a>. Here subindex is the subindex of the block at index. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Source and target of the communication. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae96294473aa3ceff07fbed9d85650146"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae96294473aa3ceff07fbed9d85650146">&#9670;&nbsp;</a></span>backward() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class GatherScatter , class Data &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void Dune::BufferedCommunicator::backward </td>
+          <td>(</td>
+          <td class="paramtype">Data &amp;&#160;</td>
+          <td class="paramname"><em>source</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Data &amp;&#160;</td>
+          <td class="paramname"><em>dest</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Communicate in the reverse direction, i.e. send from target to source. </p>
+<p>The template parameter GatherScatter (e.g. CopyGatherScatter) has to have a static method </p><div class="fragment"><div class="line"><span class="comment">// Gather the data at index index of data</span></div>
+<div class="line"><span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">typename</span> <a class="code" href="a01973.html#a2cda5e943599178476fac79e207b365b">CommPolicy&lt;Data&gt;::IndexedType</a>&gt;&amp; gather(Data&amp; data, <span class="keywordtype">int</span> index);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Scatter the value at a index of data</span></div>
+<div class="line"><span class="keyword">static</span> <span class="keywordtype">void</span> scatter(Data&amp; data, <span class="keyword">typename</span> <a class="code" href="a01973.html#a2cda5e943599178476fac79e207b365b">CommPolicy&lt;Data&gt;::IndexedType</a>&gt; value,</div>
+<div class="line">                    <span class="keywordtype">int</span> index);</div>
+</div><!-- fragment --><p> in the case where <a class="el" href="a01973.html#a82711a42e162a721414c8d9737a8ee0c" title="Whether the indexed type has variable size or there is always one value at each index.">CommPolicy&lt;Data&gt;::IndexedTypeFlag</a> is <a class="el" href="a01965.html" title="Flag for marking indexed data structures where data at each index is of the same size.">SizeOne</a> and</p>
+<div class="fragment"><div class="line"><span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">typename</span> <a class="code" href="a01973.html#a2cda5e943599178476fac79e207b365b">CommPolicy&lt;Data&gt;::IndexedType</a>&gt; gather(Data&amp; data, <span class="keywordtype">int</span> index, <span class="keywordtype">int</span> subindex);</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">static</span> <span class="keywordtype">void</span> scatter(Data&amp; data, <span class="keyword">typename</span> <a class="code" href="a01973.html#a2cda5e943599178476fac79e207b365b">CommPolicy&lt;Data&gt;::IndexedType</a>&gt; value,</div>
+<div class="line">                    <span class="keywordtype">int</span> index, <span class="keywordtype">int</span> subindex);</div>
+</div><!-- fragment --><p> in the case where <a class="el" href="a01973.html#a82711a42e162a721414c8d9737a8ee0c" title="Whether the indexed type has variable size or there is always one value at each index.">CommPolicy&lt;Data&gt;::IndexedTypeFlag</a> is <a class="el" href="a01969.html" title="Flag for marking indexed data structures where the data at each index may be a variable multiple of a...">VariableSize</a>. Here subindex is the subindex of the block at index. </p><dl class="section warning"><dt>Warning</dt><dd>The source and target data have to have the same layout as the ones given to the build function in case of variable size values at the indices. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dest</td><td>The values will be copied from here to the send buffers. </td></tr>
+    <tr><td class="paramname">source</td><td>The received values will be copied to here. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aeab99a5db0cf455c6b05fb281a638776"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeab99a5db0cf455c6b05fb281a638776">&#9670;&nbsp;</a></span>build() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Data , class Interface &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void Dune::BufferedCommunicator::build </td>
+          <td>(</td>
+          <td class="paramtype">const Data &amp;&#160;</td>
+          <td class="paramname"><em>source</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Data &amp;&#160;</td>
+          <td class="paramname"><em>target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a02121.html">Interface</a> &amp;&#160;</td>
+          <td class="paramname"><em>interface</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Build the buffers and information for the communication process. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">source</td><td>The source in a forward send. The values will be copied from here to the send buffers. </td></tr>
+    <tr><td class="paramname">target</td><td>The target in a forward send. The received values will be copied to here. </td></tr>
+    <tr><td class="paramname">interface</td><td>The interface that defines what indices are to be communicated. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abdfc7d3f1a575c48c9a0b3475f8ba01d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abdfc7d3f1a575c48c9a0b3475f8ba01d">&#9670;&nbsp;</a></span>build() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Data , class Interface &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::enable_if&lt;std::is_same&lt;<a class="el" href="a01965.html">SizeOne</a>,typename <a class="el" href="a01973.html">CommPolicy</a>&lt;Data&gt;::IndexedTypeFlag&gt;::value, void&gt;::type Dune::BufferedCommunicator::build </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a02121.html">Interface</a> &amp;&#160;</td>
+          <td class="paramname"><em>interface</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Build the buffers and information for the communication process. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">interface</td><td>The interface that defines what indices are to be communicated. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4f86bb99c54f3bd2e46181853a562ac7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f86bb99c54f3bd2e46181853a562ac7">&#9670;&nbsp;</a></span>forward() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class GatherScatter , class Data &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void Dune::BufferedCommunicator::forward </td>
+          <td>(</td>
+          <td class="paramtype">const Data &amp;&#160;</td>
+          <td class="paramname"><em>source</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Data &amp;&#160;</td>
+          <td class="paramname"><em>dest</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send from source to target. </p>
+<p>The template parameter GatherScatter (e.g. CopyGatherScatter) has to have a static method </p><div class="fragment"><div class="line"><span class="comment">// Gather the data at index index of data</span></div>
+<div class="line"><span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">typename</span> <a class="code" href="a01973.html#a2cda5e943599178476fac79e207b365b">CommPolicy&lt;Data&gt;::IndexedType</a>&gt;&amp; gather(Data&amp; data, <span class="keywordtype">int</span> index);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Scatter the value at a index of data</span></div>
+<div class="line"><span class="keyword">static</span> <span class="keywordtype">void</span> scatter(Data&amp; data, <span class="keyword">typename</span> <a class="code" href="a01973.html#a2cda5e943599178476fac79e207b365b">CommPolicy&lt;Data&gt;::IndexedType</a>&gt; value,</div>
+<div class="line">                    <span class="keywordtype">int</span> index);</div>
+</div><!-- fragment --><p> in the case where <a class="el" href="a01973.html#a82711a42e162a721414c8d9737a8ee0c" title="Whether the indexed type has variable size or there is always one value at each index.">CommPolicy&lt;Data&gt;::IndexedTypeFlag</a> is <a class="el" href="a01965.html" title="Flag for marking indexed data structures where data at each index is of the same size.">SizeOne</a> and</p>
+<div class="fragment"><div class="line"><span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">typename</span> <a class="code" href="a01973.html#a2cda5e943599178476fac79e207b365b">CommPolicy&lt;Data&gt;::IndexedType</a>&gt; gather(Data&amp; data, <span class="keywordtype">int</span> index, <span class="keywordtype">int</span> subindex);</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">static</span> <span class="keywordtype">void</span> scatter(Data&amp; data, <span class="keyword">typename</span> <a class="code" href="a01973.html#a2cda5e943599178476fac79e207b365b">CommPolicy&lt;Data&gt;::IndexedType</a>&gt; value,</div>
+<div class="line">                    <span class="keywordtype">int</span> index, <span class="keywordtype">int</span> subindex);</div>
+</div><!-- fragment --><p> in the case where <a class="el" href="a01973.html#a82711a42e162a721414c8d9737a8ee0c" title="Whether the indexed type has variable size or there is always one value at each index.">CommPolicy&lt;Data&gt;::IndexedTypeFlag</a> is <a class="el" href="a01969.html" title="Flag for marking indexed data structures where the data at each index may be a variable multiple of a...">VariableSize</a>. Here subindex is the subindex of the block at index. </p><dl class="section warning"><dt>Warning</dt><dd>The source and target data have to have the same layout as the ones given to the build function in case of variable size values at the indices. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">source</td><td>The values will be copied from here to the send buffers. </td></tr>
+    <tr><td class="paramname">dest</td><td>The received values will be copied to here. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aeb716a11bebea8a36d04685c67102ca3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb716a11bebea8a36d04685c67102ca3">&#9670;&nbsp;</a></span>forward() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class GatherScatter , class Data &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void Dune::BufferedCommunicator::forward </td>
+          <td>(</td>
+          <td class="paramtype">Data &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Forward send where target and source are the same. </p>
+<p>The template parameter GatherScatter has to have a static method </p><div class="fragment"><div class="line"><span class="comment">// Gather the data at index index of data</span></div>
+<div class="line"><span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">typename</span> <a class="code" href="a01973.html#a2cda5e943599178476fac79e207b365b">CommPolicy&lt;Data&gt;::IndexedType</a>&gt;&amp; gather(Data&amp; data, <span class="keywordtype">int</span> index);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Scatter the value at a index of data</span></div>
+<div class="line"><span class="keyword">static</span> <span class="keywordtype">void</span> scatter(Data&amp; data, <span class="keyword">typename</span> <a class="code" href="a01973.html#a2cda5e943599178476fac79e207b365b">CommPolicy&lt;Data&gt;::IndexedType</a>&gt; value,</div>
+<div class="line">                    <span class="keywordtype">int</span> index);</div>
+</div><!-- fragment --><p> in the case where <a class="el" href="a01973.html#a82711a42e162a721414c8d9737a8ee0c" title="Whether the indexed type has variable size or there is always one value at each index.">CommPolicy&lt;Data&gt;::IndexedTypeFlag</a> is <a class="el" href="a01965.html" title="Flag for marking indexed data structures where data at each index is of the same size.">SizeOne</a> and</p>
+<div class="fragment"><div class="line"><span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">typename</span> <a class="code" href="a01973.html#a2cda5e943599178476fac79e207b365b">CommPolicy&lt;Data&gt;::IndexedType</a>&gt; gather(Data&amp; data, <span class="keywordtype">int</span> index, <span class="keywordtype">int</span> subindex);</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">static</span> <span class="keywordtype">void</span> scatter(Data&amp; data, <span class="keyword">typename</span> <a class="code" href="a01973.html#a2cda5e943599178476fac79e207b365b">CommPolicy&lt;Data&gt;::IndexedType</a>&gt; value,</div>
+<div class="line">                    <span class="keywordtype">int</span> index, <span class="keywordtype">int</span> subindex);</div>
+</div><!-- fragment --><p> in the case where <a class="el" href="a01973.html#a82711a42e162a721414c8d9737a8ee0c" title="Whether the indexed type has variable size or there is always one value at each index.">CommPolicy&lt;Data&gt;::IndexedTypeFlag</a> is <a class="el" href="a01969.html" title="Flag for marking indexed data structures where the data at each index may be a variable multiple of a...">VariableSize</a>. Here subindex is the subindex of the block at index. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Source and target of the communication. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a97bf4eb3eb500a82c40e789028fe6f8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97bf4eb3eb500a82c40e789028fe6f8f">&#9670;&nbsp;</a></span>free()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Dune::BufferedCommunicator::free </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Free the allocated memory (i.e. buffers and message information. </p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="a00182_source.html">communicator.hh</a></li>
+</ul>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1

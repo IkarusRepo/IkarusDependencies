@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-geometry: generalvertexorder.hh File Reference</title>
+<title>dune-geometry: dimension.hh File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-geometry
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -68,43 +68,28 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">generalvertexorder.hh File Reference</div>  </div>
+<div class="title">dimension.hh File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;algorithm&gt;</code><br />
-<code>#include &lt;cassert&gt;</code><br />
-<code>#include &lt;cstddef&gt;</code><br />
-<code>#include &lt;iterator&gt;</code><br />
-<code>#include &lt;vector&gt;</code><br />
-<code>#include &lt;dune/common/iteratorfacades.hh&gt;</code><br />
-<code>#include &quot;<a class="el" href="a00149_source.html">type.hh</a>&quot;</code><br />
-<code>#include &lt;<a class="el" href="a00122_source.html">dune/geometry/referenceelements.hh</a>&gt;</code><br />
+<div class="textblock"><code>#include &lt;type_traits&gt;</code><br />
 </div>
 <p><a href="a00104_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01037.html">Dune::GeneralVertexOrder&lt; dim, Index_ &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class providing information on the ordering of vertices.  <a href="a01037.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01084.html">Dune::Dim&lt; dim &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Static tag representing a dimension.  <a href="a01084.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01041.html">Dune::GeneralVertexOrder&lt; dim, Index_ &gt;::iterator</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterate over the vertex indices of some sub-entity.  <a href="a01041.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01088.html">Dune::Codim&lt; codim &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Static tag representing a codimension.  <a href="a01088.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:a00177"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00177.html">Dune</a></td></tr>
+<tr class="memitem:a00179"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00179.html">Dune</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a77eece3229d82b929dcf4cde0cb2a855"><td class="memTemplParams" colspan="2">template&lt;class InIterator , class OutIterator &gt; </td></tr>
-<tr class="memitem:a77eece3229d82b929dcf4cde0cb2a855"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00177.html#a77eece3229d82b929dcf4cde0cb2a855">Dune::reduceOrder</a> (const InIterator &amp;inBegin, const InIterator &amp;inEnd, OutIterator outIt)</td></tr>
-<tr class="memdesc:a77eece3229d82b929dcf4cde0cb2a855"><td class="mdescLeft">&#160;</td><td class="mdescRight">Algorithm to reduce vertex order information.  <a href="a00177.html#a77eece3229d82b929dcf4cde0cb2a855">More...</a><br /></td></tr>
-<tr class="separator:a77eece3229d82b929dcf4cde0cb2a855"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->

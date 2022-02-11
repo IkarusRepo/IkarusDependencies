@@ -17,8 +17,10 @@
 #include <dune/common/float_cmp.hh>
 #include <dune/common/stdstreams.hh>
 #include <dune/geometry/referenceelements.hh>
+#include <dune/geometry/type.hh>
 #include <dune/grid/common/gridinfo.hh>
 #include <dune/grid/common/capabilities.hh>
+#include <dune/grid/common/rangegenerators.hh>
 
 #include "staticcheck.hh"
 #include "checkindexset.hh"
@@ -66,9 +68,8 @@ struct subIndexCheck
 {
 
   template<typename E>
-  void checkEntitySeedRecovery( const Grid& g, const E& e )
+  void checkEntitySeedRecovery([[maybe_unused]] const Grid& g, const E& e)
   {
-    DUNE_UNUSED_PARAMETER(g);
     typedef typename Grid::template Codim< E::codimension >::EntitySeed EntitySeed;
     EntitySeed seed = e.seed();
 
@@ -85,13 +86,24 @@ struct subIndexCheck
 
     checkEntitySeedRecovery(g,e);
 
-    typedef typename Grid::template Codim< cd >::Entity SubEntity;
-    const int imax = e.subEntities(cd);
-    for( int i = 0; i < imax; ++i )
+    // check subEntity range size
+    if( subEntities(e, Dune::Codim<cd>{}).size() != e.subEntities(cd) )
+    {
+      std::cerr << "Error: Number of subentities in range "
+                << "does not match the number of subentities of the element." << std::endl;
+      assert( false );
+    }
+
+    // We use the both a range-based for loop and an index counter for testing purposes here.
+    // In regular code you will often only need the subIndex in which case an index loop
+    // is more convenient, or you only need the actual sub-entities in which
+    // case the range-based for loop might be more readable.
+    std::size_t subIndex = 0;
+    for (const auto& se : subEntities(e, Dune::Codim<cd>{}))
     {
       // check construction of entities
-      SubEntity se( e.template subEntity< cd >( i ) );
-      assert( se == e.template subEntity< cd >( i ) );
+      [[maybe_unused]] auto seCopy = se;
+      assert( seCopy == se );
 
       checkEntitySeedRecovery(g,se);
 
@@ -110,20 +122,21 @@ struct subIndexCheck
         std::cerr << "Error: Level index set does not contain all subentities." << std::endl;
         assert( false );
       }
-      if( levelIndexSet.index( se ) != levelIndexSet.subIndex( e, i, cd ) )
+      if( levelIndexSet.index( se ) != levelIndexSet.subIndex( e, subIndex, cd ) )
       {
         int id_e = levelIndexSet.index( e );
         int id_e_i = levelIndexSet.index( se );
-        int subid_e_i = levelIndexSet.subIndex( e, i, cd );
-        std::cerr << "Error: levelIndexSet.index( *(e.template subEntity< cd >( i ) ) ) "
-                  << "!= levelIndexSet.subIndex( e, i, cd )  "
-                  << "[with cd=" << cd << ", i=" << i << "]" << std::endl;
+        int subid_e_i = levelIndexSet.subIndex( e, subIndex, cd );
+        std::cerr << "Error: levelIndexSet.index( *(e.template subEntity< cd >( subIndex ) ) ) "
+                  << "!= levelIndexSet.subIndex( e, subIndex, cd )  "
+                  << "[with cd=" << cd << ", subIndex=" << subIndex << "]" << std::endl;
         std::cerr << "       ... index( e ) = " << id_e << std::endl;
-        std::cerr << "       ... index( e.subEntity< cd >( i ) ) = " << id_e_i << std::endl;
-        std::cerr << "       ... subIndex( e, i, cd ) = " << subid_e_i << std::endl;
+        std::cerr << "       ... index( e.subEntity< cd >( subIndex ) ) = " << id_e_i << std::endl;
+        std::cerr << "       ... subIndex( e, subIndex, cd ) = " << subid_e_i << std::endl;
         assert( false );
       }
 
+      ++subIndex;
     }
 
     subIndexCheck< cd-1, Grid, Entity, Dune::Capabilities::hasEntity< Grid, cd-1 >::v > sick( g, e );
@@ -135,7 +148,7 @@ struct subIndexCheck
 template <class Grid, class Entity, bool doCheck>
 struct subIndexCheck<-1, Grid, Entity, doCheck>
 {
-  subIndexCheck (const Grid & g, const Entity & e)
+  subIndexCheck (const Grid & /* g */, const Entity & /* e */)
   {
     return;
   }
@@ -284,7 +297,7 @@ void assertNeighbor (Grid &g)
 
   typedef typename Grid::template Codim<0>::LevelIterator LevelIterator;
   enum { dim = Grid::dimension };
-  //typedef typename Grid::ctype ct DUNE_UNUSED;
+  // [[maybe_unused]] typedef typename Grid::ctype ct;
 
   typedef typename Grid::GlobalIdSet GlobalIdSet;
   const GlobalIdSet & globalid = g.globalIdSet();
@@ -293,10 +306,10 @@ void assertNeighbor (Grid &g)
 
   GridView gridView = g.levelGridView( 0 );
 
-  LevelIterator e = g.levelGridView(0).template begin<0>();
+  LevelIterator eit = g.levelGridView(0).template begin<0>();
   const LevelIterator eend = g.levelGridView(0).template end<0>();
 
-  LevelIterator next = e;
+  LevelIterator next = eit;
   if (next != eend)
   {
     ++next;
@@ -325,9 +338,9 @@ void assertNeighbor (Grid &g)
     }
 
     // iterate over level
-    for (; e != eend; ++e)
+    for (; eit != eend; ++eit)
     {
-      const Entity &entity = *e;
+      const Entity &entity = *eit;
 
       const bool isGhost = (entity.partitionType() == Dune::GhostEntity);
 
@@ -361,7 +374,7 @@ void assertNeighbor (Grid &g)
         const Intersection& is = *it;
 
         // check intersection copy ctor
-        Intersection DUNE_UNUSED is2 = is;
+        [[maybe_unused]] Intersection is2 = is;
 
         // numbering
         const int numberInSelf = is.indexInInside();
@@ -421,11 +434,11 @@ void assertNeighbor (Grid &g)
 
           // numbering
           const int indexInOutside = it->indexInOutside();
-          const int numFaces = outside.subEntities(1);
-          if( (indexInOutside < 0) || (indexInOutside >= numFaces) )
+          const int outNumFaces = outside.subEntities(1);
+          if( (indexInOutside < 0) || (indexInOutside >= outNumFaces) )
           {
             std :: cout << "Error: Invalid indexInOutside: " << indexInOutside
-                        << " (should be between 0 and " << (numFaces-1) << ")"
+                        << " (should be between 0 and " << (outNumFaces-1) << ")"
                         << std :: endl;
             assert( false );
           }
@@ -438,12 +451,12 @@ void assertNeighbor (Grid &g)
 
             typedef typename Grid::template Codim< 0 >
             ::template Partition< pitype >::LevelIterator
-            LevelIterator;
+            LevelIteratorI;
 
             const int level = entity.level();
             bool foundNeighbor = false;
-            LevelIterator nit = g.levelGridView(level).template begin< 0, pitype >();
-            const LevelIterator nend = g.levelGridView(level).template end< 0, pitype > ();
+            LevelIteratorI nit = g.levelGridView(level).template begin< 0, pitype >();
+            const LevelIteratorI nend = g.levelGridView(level).template end< 0, pitype > ();
             for( ; nit != nend; ++nit )
             {
               if( nit->partitionType() != Dune::InteriorEntity )
@@ -519,7 +532,7 @@ template <bool checkMark , class Grid>
 void iterate(Grid &g)
 {
   typedef typename Grid::template Codim<0>::LevelIterator LevelIterator;
-  //typedef typename Grid::HierarchicIterator HierarchicIterator DUNE_UNUSED;
+  //[[maybe_unused]] typedef typename Grid::HierarchicIterator HierarchicIterator;
   typedef typename Grid::template Codim<0>::Geometry Geometry;
   int maxLevel = g.maxLevel();
   LevelIterator it = g.levelGridView(maxLevel).template begin<0>();

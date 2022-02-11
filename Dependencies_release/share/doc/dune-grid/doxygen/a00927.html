@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: DGF grid parameter for different grids</title>
+<title>dune-grid: AlbertaGrid</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -65,26 +65,44 @@ $(function() {
   <div class="summary">
 <a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle">
-<div class="title">DGF grid parameter for different grids<div class="ingroups"><a class="el" href="a00902.html">dune-grid</a> &raquo; <a class="el" href="a00924.html">I/O</a> &raquo; <a class="el" href="a00926.html">The Dune Grid Format (DGF)</a></div></div>  </div>
+<div class="title">AlbertaGrid<div class="ingroups"><a class="el" href="a00905.html">dune-grid</a> &raquo; <a class="el" href="a00921.html">Grid Implementations</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="dynheader">
-Collaboration diagram for DGF grid parameter for different grids:</div>
+Collaboration diagram for AlbertaGrid:</div>
 <div class="dyncontent">
 <div class="center"><img src="a00927.png" border="0" usemap="#aa00927" alt=""/></div>
 <map name="aa00927" id="aa00927">
-<area shape="rect" title=" " alt="" coords="204,5,340,45"/>
-<area shape="rect" href="a00926.html" title="Classes for reading a macrogrid file in the dune macrogrid format (dgf)" alt="" coords="5,5,156,45"/>
+<area shape="rect" href="a00921.html" title="A list of the different Implementations of the Dune Grid Interface." alt="" coords="5,5,151,31"/>
+<area shape="rect" title=" " alt="" coords="303,5,389,31"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03398.html">Dune::dgf::GridParameterBlock</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Common <a class="el" href="a02698.html" title="Grid abstract base class.">Grid</a> parameters.  <a href="a03398.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01794.html">Dune::Capabilities::hasSingleGeometryType&lt; AlbertaGrid&lt; dim, dimworld &gt; &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a01774.html" title="[ provides Dune::Grid ]">AlbertaGrid</a> has only one geometry type for codim 0 entities.  <a href="a01794.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03586.html">Dune::dgf::YaspGridParameterBlock</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a02698.html" title="Grid abstract base class.">Grid</a> parameters for <a class="el" href="a04142.html" title="[ provides Dune::Grid ]">YaspGrid</a>.  <a href="a03586.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01798.html">Dune::Capabilities::hasEntity&lt; AlbertaGrid&lt; dim, dimworld &gt;, codim &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a01774.html" title="[ provides Dune::Grid ]">AlbertaGrid</a> has entities for all codimensions.  <a href="a01798.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01802.html">Dune::Capabilities::hasEntityIterator&lt; AlbertaGrid&lt; dim, dimworld &gt;, codim &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a01774.html" title="[ provides Dune::Grid ]">AlbertaGrid</a> can iterate over all codimensions.  <a href="a01802.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01806.html">Dune::Capabilities::isLevelwiseConforming&lt; AlbertaGrid&lt; dim, dimworld &gt; &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a01774.html" title="[ provides Dune::Grid ]">AlbertaGrid</a> is not levelwise conforming (since it uses bisection)  <a href="a01806.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01810.html">Dune::Capabilities::isLeafwiseConforming&lt; AlbertaGrid&lt; dim, dimworld &gt; &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a01774.html" title="[ provides Dune::Grid ]">AlbertaGrid</a> is leafwise conforming.  <a href="a01810.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01814.html">Dune::Capabilities::hasBackupRestoreFacilities&lt; AlbertaGrid&lt; dim, dimworld &gt; &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a01774.html" title="[ provides Dune::Grid ]">AlbertaGrid</a> has backup and restore facilities.  <a href="a01814.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01774.html">Dune::AlbertaGrid&lt; dim, dimworld &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">[<em> provides <a class="el" href="a02710.html">Dune::Grid</a> </em>]  <a href="a01774.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02438.html">Dune::AlbertaMarkerVector&lt; dim, dimworld &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">marker assigning subentities to one element containing them  <a href="a02438.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>

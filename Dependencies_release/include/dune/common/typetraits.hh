@@ -8,8 +8,6 @@
 #include <utility>
 #include <vector>
 
-#include <dune/common/deprecated.hh>
-
 namespace Dune
 {
 
@@ -18,12 +16,7 @@ namespace Dune
     ///
     /**
      * @internal
-     * @brief Helper to make void_t work with gcc versions prior to gcc 5.0.
-     *
-     * This was not a compiler bug, but an accidental omission in the C++11 standard (see N3911, CWG issue 1558).
-     * It is not clearly specified what happens
-     * with unused template arguments in template aliases. The developers of GCC decided to ignore them, thus making void_t equivalent to void.
-     * With gcc 5.0 this was changed and the voider-hack is no longer needed.
+     * @brief Helper to make void_t work with gcc versions prior to gcc 5.0 and some clang versions.
      */
     template <class...>
     struct voider
@@ -32,9 +25,14 @@ namespace Dune
     };
   }
 
-  //! Is void for all valid input types (see N3911). The workhorse for C++11 SFINAE-techniques.
+  //! Is void for all valid input types. The workhorse for C++11 SFINAE-techniques.
   /**
    * \ingroup CxxUtilities
+   *
+   * Note, since c++17 there is also `std::void_t` that should be preferred. But, due to an issue
+   * in the c++ standard, see CWG issue #1980. "Equivalent but not functionally-equivalent redeclarations",
+   * and a corresponding failure in some clang compilers, this tool is left here as a workaround.
+   * Use it if you want to specialize multiple classes using `void_t`.
    */
   template <class... Types>
   using void_t = typename Impl::voider<Types...>::type;
@@ -123,10 +121,7 @@ namespace Dune
      type of T is known, that is, until Traits<T> is instantiated.
    */
   template<typename T>
-  struct AlwaysFalse {
-    //! always a false value
-    static const bool value = false;
-  };
+  struct AlwaysFalse : public std::false_type {};
 
   /**
      \brief template which always yields a true value
@@ -136,10 +131,46 @@ namespace Dune
      \note This class exists mostly for consistency with AlwaysFalse.
    */
   template<typename T>
-  struct AlwaysTrue {
-    //! always a true value
-    static const bool value = true;
-  };
+  struct AlwaysTrue : public std::true_type {};
+
+  /**
+   * \brief Check if a type is callable with ()-operator and given arguments
+   * \ingroup CxxUtilities
+   *
+   * \tparam D Function descriptor
+   * \tparam R Return value type
+   *
+   * If `D = F(Args...)` this checks if F can be called with an
+   * argument list of type `Args...`, and if the return value can
+   * be converted to R. If R is `void`, any return type is accepted.
+   *
+   * The result is encoded by deriving from
+   * either `std::true_type` or `std::false_type`
+   *
+   * If D is not of the form `F(Args...)` this class is not defined.
+   *
+   * \note This differs from `std::invocable_r` in the way that only
+   *       `FunctionObject` types are allowed here while `std::invocable_r`
+   *       also accepts pointers to member functions and pointers
+   *       to data members (i.e. more general `Callable` types)
+   * \note See https://en.cppreference.com/w/cpp/named_req/FunctionObject
+   *       for the description of the named requirement `FunctionObject`
+   *       and https://en.cppreference.com/w/cpp/named_req/Callable
+   *       for `Callable`.
+   */
+  template<typename D, typename R = void>
+  struct IsCallable;
+
+  /**
+   * \brief Check if a type is callable with ()-operator and given arguments
+   * \ingroup CxxUtilities
+   */
+  template<typename R, typename F, typename... Args>
+  struct IsCallable<F(Args...), R>
+  : public std::bool_constant<
+      std::is_invocable_r_v<R, F, Args...>
+        && !std::is_member_pointer_v<std::decay_t<F>>
+    > {};
 
   //! \brief Whether this type acts as a scalar in the context of
   //!        (hierarchically blocked) containers
@@ -190,17 +221,6 @@ namespace Dune
 
 #endif // DOXYGEN
 
-  //! \brief Whether this type has a value of NaN.
-  //! \deprecated has_nan is deprecated, use `Dune::HasNaN` instead
-  /**
-   * Internally, this is just a forward to `std::is_floating_point<T>`.
-   */
-  template <typename T>
-  struct DUNE_DEPRECATED_MSG("Has been renamed to 'HasNaN'.") has_nan
-    : HasNaN<T> {};
-
-#if defined(DOXYGEN) or HAVE_IS_INDEXABLE_SUPPORT
-
 #ifndef DOXYGEN
 
   namespace Impl {
@@ -228,99 +248,6 @@ namespace Dune
   struct IsIndexable
     : public Impl::IsIndexable<T,I>
   {};
-
-#else // defined(DOXYGEN) or HAVE_IS_INDEXABLE_SUPPORT
-
-
-  // okay, here follows a mess of compiler bug workarounds...
-  // GCC 4.4 dies if we try to subscript a simple type like int and
-  // both GCC 4.4 and 4.5 don't like using arbitrary types as subscripts
-  // for macros.
-  // So we make sure to only ever attempt the SFINAE for operator[] for
-  // class types, and to make sure the compiler doesn't become overly eager
-  // we have to do some lazy evaluation tricks with nested templates and
-  // stuff.
-  // Let's get rid of GCC 4.4 ASAP!
-
-
-  namespace Impl {
-
-    // simple wrapper template to support the lazy evaluation required
-    // in _is_indexable
-    template<typename T>
-    struct _lazy
-    {
-      template<typename U>
-      struct evaluate
-      {
-        typedef T type;
-      };
-    };
-
-    // default version, gets picked if SFINAE fails
-    template<typename T, typename = int>
-    struct IsIndexable
-      : public std::false_type
-    {};
-
-    // version for types supporting the subscript operation
-    template<typename T>
-    struct IsIndexable<T,decltype(std::declval<T>()[0],0)>
-      : public std::true_type
-    {};
-
-    // helper struct for delaying the evaluation until we are sure
-    // that T is a class (i.e. until we are outside std::conditional
-    // below)
-    struct _check_for_index_operator
-    {
-
-      template<typename T>
-      struct evaluate
-        : public IsIndexable<T>
-      {};
-
-    };
-
-  }
-
-  // The rationale here is as follows:
-  // 1) If we have an array, we assume we can index into it. That isn't
-  //    true if I isn't an integral type, but that's why we have the static assertion
-  //    in the body - we could of course try and check whether I is integral, but I
-  //    can't be arsed and want to provide a motivation to switch to a newer compiler...
-  // 2) If we have a class, we use SFINAE to check for operator[]
-  // 3) Otherwise, we assume that T does not support indexing
-  //
-  // In order to make sure that the compiler doesn't accidentally try the SFINAE evaluation
-  // on an array or a scalar, we have to resort to lazy evaluation.
-  template<typename T, typename I = std::size_t>
-  struct IsIndexable
-    : public std::conditional<
-               std::is_array<T>::value,
-               Impl::_lazy<std::true_type>,
-               typename std::conditional<
-                 std::is_class<T>::value,
-                 Impl::_check_for_index_operator,
-                 Impl::_lazy<std::false_type>
-                 >::type
-               >::type::template evaluate<T>::type
-  {
-    static_assert(std::is_same<I,std::size_t>::value,"Your compiler is broken and does not support checking for arbitrary index types");
-  };
-
-
-#endif // defined(DOXYGEN) or HAVE_IS_INDEXABLE_SUPPORT
-
-  //! Type trait to determine whether an instance of T has an operator[](I), i.e. whether it can be indexed with an index of type I.
-  //! \deprecated is_indexable is deprecated, use `Dune::IsIndexable` instead
-  /**
-   * \warning Not all compilers support testing for arbitrary index types. In particular, there
-   *          are problems with GCC 4.4 and 4.5.
-   */
-  template<typename T, typename I = std::size_t>
-  struct DUNE_DEPRECATED_MSG("Has been renamed to 'IsIndexable'.") is_indexable
-    : public IsIndexable<T,I> {};
 
 #ifndef DOXYGEN
 
@@ -359,14 +286,6 @@ namespace Dune
     : public std::true_type
   {};
 #endif
-
-  /**
-     \brief typetrait to check that a class has begin() and end() members
-     \deprecated is_range is deprecated, use `Dune::IsIterable` instead
-   */
-  template<typename T, typename = void>
-  struct DUNE_DEPRECATED_MSG("Has been renamed to 'IsIterable'.") is_range
-    : public IsIterable<T> {};
 
 #ifndef DOXYGEN
   // this is just a forward declaration

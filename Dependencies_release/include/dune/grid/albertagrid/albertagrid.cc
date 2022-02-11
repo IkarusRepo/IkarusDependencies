@@ -359,7 +359,7 @@ namespace Dune
       bool consistent = true;
       for( int codim = 0; codim <= dimension; ++codim )
       {
-        if( leafIndexSet_->size( codim ) == mesh_.size( codim ) )
+        if( int(leafIndexSet_->size( codim )) == mesh_.size( codim ) )
           continue;
         std::cerr << "Incorrect size of leaf index set for codimension "
                   << codim << "!" << std::endl;
@@ -565,22 +565,6 @@ namespace Dune
       if( levelIndexVec_[ level ] )
         levelIndexVec_[ level ]->update( lbegin< 0 >( level ), lend< 0 >( level ) );
     }
-  }
-
-
-  template< int dim, int dimworld >
-  inline bool AlbertaGrid< dim, dimworld >
-  ::writeGridXdr ( const std::string &filename, ctype time ) const
-  {
-    return writeGrid( filename, time );
-  }
-
-
-  template< int dim, int dimworld >
-  inline bool AlbertaGrid< dim, dimworld >
-  ::readGridXdr ( const std::string &filename, ctype &time )
-  {
-    return readGrid( filename, time );
   }
 
 

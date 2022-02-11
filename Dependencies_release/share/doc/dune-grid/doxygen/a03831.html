@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,20 +62,30 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00936.html">Dune</a></li><li class="navelem"><a class="el" href="a00948.html">VTK</a></li><li class="navelem"><a class="el" href="a03834.html">SkeletonFunctionInterface</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00940.html">Dune</a></li><li class="navelem"><a class="el" href="a00951.html">VTK</a></li><li class="navelem"><a class="el" href="a03834.html">SkeletonFunctionWriter</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">Dune::VTK::SkeletonFunctionInterface&lt; GV, RF &gt; Member List</div>  </div>
+<div class="title">Dune::VTK::SkeletonFunctionWriter&lt; Func &gt; Member List</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="a03834.html">Dune::VTK::SkeletonFunctionInterface&lt; GV, RF &gt;</a>, including all inherited members.</p>
+<p>This is the complete list of members for <a class="el" href="a03834.html">Dune::VTK::SkeletonFunctionWriter&lt; Func &gt;</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="a03834.html#a152c7c8590640e5b14e101396dac729f">dimRange</a>() const</td><td class="entry"><a class="el" href="a03834.html">Dune::VTK::SkeletonFunctionInterface&lt; GV, RF &gt;</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="a03834.html#ac08e8510473ca8be2433231dfc549491">evaluate</a>(const typename Traits::Cell &amp;c, const typename Traits::Domain &amp;xl, typename Traits::Range &amp;result) const</td><td class="entry"><a class="el" href="a03834.html">Dune::VTK::SkeletonFunctionInterface&lt; GV, RF &gt;</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a03834.html#ab152b0b186bd68359f7d1e886525ddc7">Traits</a> typedef</td><td class="entry"><a class="el" href="a03834.html">Dune::VTK::SkeletonFunctionInterface&lt; GV, RF &gt;</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a03834.html#a9d71da72a53911f599d49431e8a6dbb3">addArray</a>(PVTUWriter &amp;writer)</td><td class="entry"><a class="el" href="a03834.html">Dune::VTK::SkeletonFunctionWriter&lt; Func &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="a03834.html#aa18690886f804223f66777be7ccc36fb">beginWrite</a>(VTUWriter &amp;writer, std::size_t nitems)</td><td class="entry"><a class="el" href="a03834.html">Dune::VTK::SkeletonFunctionWriter&lt; Func &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a03790.html#a4cd0e1ac0e27b4c9a4d780a4e8ac4378">Cell</a> typedef</td><td class="entry"><a class="el" href="a03790.html">Dune::VTK::FunctionWriterBase&lt; Func::Traits::Cell &gt;</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="a03790.html#a9ff85ac0d90a8192dc9517b18b313d98">Domain</a> typedef</td><td class="entry"><a class="el" href="a03790.html">Dune::VTK::FunctionWriterBase&lt; Func::Traits::Cell &gt;</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a03834.html#ae40f2a42c081e10d34e4f0724d5799e7">endWrite</a>()</td><td class="entry"><a class="el" href="a03834.html">Dune::VTK::SkeletonFunctionWriter&lt; Func &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="a03834.html#a0ec3a91d83c7db6d353398b59aa405b7">name</a>() const</td><td class="entry"><a class="el" href="a03834.html">Dune::VTK::SkeletonFunctionWriter&lt; Func &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a03834.html#aefe076f6207396c3816cbb3d051bd7c9">ncomps</a>() const</td><td class="entry"><a class="el" href="a03834.html">Dune::VTK::SkeletonFunctionWriter&lt; Func &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="a03834.html#ad37c6517c4b5b541fd50455860eb548a">SkeletonFunctionWriter</a>(const std::shared_ptr&lt; const Func &gt; &amp;func_, const std::string &amp;name, unsigned dimR_, VTK::Precision prec=VTK::Precision::float32)</td><td class="entry"><a class="el" href="a03834.html">Dune::VTK::SkeletonFunctionWriter&lt; Func &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a03834.html#a462a70c8b67d05da7af04ba8c4eeb5bf">SkeletonFunctionWriter</a>(const std::shared_ptr&lt; const Func &gt; &amp;func_, const std::string &amp;name, VTK::Precision prec=VTK::Precision::float32)</td><td class="entry"><a class="el" href="a03834.html">Dune::VTK::SkeletonFunctionWriter&lt; Func &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="a03834.html#a9f3193ac7f4209cac6572d5f31a9146f">write</a>(const typename Func::Traits::Cell &amp;cell, const typename Func::Traits::Domain &amp;xl)</td><td class="entry"><a class="el" href="a03834.html">Dune::VTK::SkeletonFunctionWriter&lt; Func &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a03790.html#a3464d52ef71da99329b4654c2d00694d">FunctionWriterBase&lt; Func::Traits::Cell &gt;::write</a>(const Cell &amp;, const Domain &amp;)</td><td class="entry"><a class="el" href="a03790.html">Dune::VTK::FunctionWriterBase&lt; Func::Traits::Cell &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="a03790.html#aeea6449e895e5ae35b371bd3fda5e7d3">FunctionWriterBase&lt; Func::Traits::Cell &gt;::write</a>(const Cell &amp;cell, unsigned cornerIndex)</td><td class="entry"><a class="el" href="a03790.html">Dune::VTK::FunctionWriterBase&lt; Func::Traits::Cell &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a03790.html#ac8250002b167a403f41100c634f19eb2">~FunctionWriterBase</a>()</td><td class="entry"><a class="el" href="a03790.html">Dune::VTK::FunctionWriterBase&lt; Func::Traits::Cell &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

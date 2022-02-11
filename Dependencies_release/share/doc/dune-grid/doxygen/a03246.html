@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: Dune::GeoGrid::PartitionIteratorFilter&lt; codim, All_Partition, Grid &gt; Struct Template Reference</title>
+<title>dune-grid: Dune::GeoGrid::Iterator&lt; HostGridView, codim, pitype, G, true &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,123 +62,193 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00936.html">Dune</a></li><li class="navelem"><a class="el" href="a00942.html">GeoGrid</a></li><li class="navelem"><a class="el" href="a03246.html">PartitionIteratorFilter&lt; codim, All_Partition, Grid &gt;</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00940.html">Dune</a></li><li class="navelem"><a class="el" href="a00945.html">GeoGrid</a></li><li class="navelem"><a class="el" href="a03246.html">Iterator&lt; HostGridView, codim, pitype, G, true &gt;</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="a03243.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::GeoGrid::PartitionIteratorFilter&lt; codim, All_Partition, Grid &gt; Struct Template Reference</div>  </div>
+<div class="title">Dune::GeoGrid::Iterator&lt; HostGridView, codim, pitype, G, true &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="a00461_source.html">dune/grid/geometrygrid/iterator.hh</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00467_source.html">dune/grid/geometrygrid/iterator.hh</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a58393b9182102e5b744f26e0ce982372"><td class="memItemLeft" align="right" valign="top">typedef std::remove_const&lt; <a class="el" href="a02698.html">Grid</a> &gt;::type::ctype&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03246.html#a58393b9182102e5b744f26e0ce982372">ctype</a></td></tr>
-<tr class="separator:a58393b9182102e5b744f26e0ce982372"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2a773e7120c85fd42baf9c2fe7d2cba"><td class="memItemLeft" align="right" valign="top">typedef std::remove_const&lt; <a class="el" href="a02698.html">Grid</a> &gt;::type::Traits::template Codim&lt; 0 &gt;::<a class="el" href="a03082.html">Entity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03246.html#ac2a773e7120c85fd42baf9c2fe7d2cba">Element</a></td></tr>
-<tr class="separator:ac2a773e7120c85fd42baf9c2fe7d2cba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ad79c0a6bafc19c472842030ee990ab"><td class="memItemLeft" align="right" valign="top">typedef Transitional::ReferenceElement&lt; <a class="el" href="a03246.html#a58393b9182102e5b744f26e0ce982372">ctype</a>, Dim&lt; <a class="el" href="a03246.html#a7807a4c12006818ea0ae1bb558c2e33d">dimension</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03246.html#a7ad79c0a6bafc19c472842030ee990ab">RefElement</a></td></tr>
-<tr class="separator:a7ad79c0a6bafc19c472842030ee990ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b266242c36149384398e17e208d5f68"><td class="memItemLeft" align="right" valign="top">typedef Traits::Grid&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03246.html#a0b266242c36149384398e17e208d5f68">Grid</a></td></tr>
+<tr class="separator:a0b266242c36149384398e17e208d5f68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23cfd587b96650c3d93efc0957c35d09"><td class="memItemLeft" align="right" valign="top">typedef Traits::template Codim&lt; <a class="el" href="a03246.html#a68bbcab00b8f50044f697fdd89f05e6c">codimension</a> &gt;::<a class="el" href="a03246.html#a23cfd587b96650c3d93efc0957c35d09">Entity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03246.html#a23cfd587b96650c3d93efc0957c35d09">Entity</a></td></tr>
+<tr class="separator:a23cfd587b96650c3d93efc0957c35d09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:ace2c89f79775194ad6ada19542701952"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03246.html#ace2c89f79775194ad6ada19542701952">Iterator</a> ()</td></tr>
+<tr class="separator:ace2c89f79775194ad6ada19542701952"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e58f684ff887da1794ca4f8b9b4cdd9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03246.html#a9e58f684ff887da1794ca4f8b9b4cdd9">Iterator</a> (const <a class="el" href="a03246.html#a0b266242c36149384398e17e208d5f68">Grid</a> &amp;<a class="el" href="a03246.html#a54579a5586c01786621b1190a2980f67">grid</a>, HostElementIterator hostElementIterator, HostElementIterator hostEnd, const HostIndexSet &amp;hostIndexSet)</td></tr>
+<tr class="separator:a9e58f684ff887da1794ca4f8b9b4cdd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a228d4a0f490ee55ae50314963366e028"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03246.html#a228d4a0f490ee55ae50314963366e028">increment</a> ()</td></tr>
+<tr class="separator:a228d4a0f490ee55ae50314963366e028"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9886498250a959c9b28ba566cb531dc7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03246.html#a9886498250a959c9b28ba566cb531dc7">equals</a> (const <a class="el" href="a03210.html">Iterator</a> &amp;rhs) const</td></tr>
+<tr class="separator:a9886498250a959c9b28ba566cb531dc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99d47c5b6f525f737cfe2870606d07af"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a03246.html#a23cfd587b96650c3d93efc0957c35d09">Entity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03246.html#a99d47c5b6f525f737cfe2870606d07af">dereference</a> () const</td></tr>
+<tr class="separator:a99d47c5b6f525f737cfe2870606d07af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a139eb250f302cbe1bb1b2b3898c0f0d0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03246.html#a139eb250f302cbe1bb1b2b3898c0f0d0">level</a> () const</td></tr>
+<tr class="separator:a139eb250f302cbe1bb1b2b3898c0f0d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54579a5586c01786621b1190a2980f67"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a03246.html#a0b266242c36149384398e17e208d5f68">Grid</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03246.html#a54579a5586c01786621b1190a2980f67">grid</a> () const</td></tr>
+<tr class="separator:a54579a5586c01786621b1190a2980f67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a03adff4e8792a178ae5f184b3afb4730"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03246.html#a03adff4e8792a178ae5f184b3afb4730">apply</a> (const <a class="el" href="a03246.html#a7ad79c0a6bafc19c472842030ee990ab">RefElement</a> &amp;refElement, const <a class="el" href="a03246.html#ac2a773e7120c85fd42baf9c2fe7d2cba">Element</a> &amp;element, int subEntity)</td></tr>
-<tr class="separator:a03adff4e8792a178ae5f184b3afb4730"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a972ca4a8816598939e5801149bd556"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a03210.html">Iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03246.html#a8a972ca4a8816598939e5801149bd556">begin</a> (const <a class="el" href="a03246.html#a0b266242c36149384398e17e208d5f68">Grid</a> &amp;<a class="el" href="a03246.html#a54579a5586c01786621b1190a2980f67">grid</a>, const HostGridView &amp;hostGridView)</td></tr>
+<tr class="separator:a8a972ca4a8816598939e5801149bd556"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82818b83c5d36fdde3c5ab841a3ea2b8"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a03210.html">Iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03246.html#a82818b83c5d36fdde3c5ab841a3ea2b8">end</a> (const <a class="el" href="a03246.html#a0b266242c36149384398e17e208d5f68">Grid</a> &amp;<a class="el" href="a03246.html#a54579a5586c01786621b1190a2980f67">grid</a>, const HostGridView &amp;hostGridView)</td></tr>
+<tr class="separator:a82818b83c5d36fdde3c5ab841a3ea2b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a7807a4c12006818ea0ae1bb558c2e33d"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03246.html#a7807a4c12006818ea0ae1bb558c2e33d">dimension</a> = std::remove_const&lt; <a class="el" href="a02698.html">Grid</a> &gt;::type::dimension</td></tr>
-<tr class="separator:a7807a4c12006818ea0ae1bb558c2e33d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a24d523f321d3d54bb20a08f13ea79011"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03246.html#a24d523f321d3d54bb20a08f13ea79011">codimension</a> = codim</td></tr>
-<tr class="separator:a24d523f321d3d54bb20a08f13ea79011"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acb4d5ab1b098c77223358f6b4510d2ab"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00904.html#gaa5b9e8102d7f70f3f4178182629d98b6">PartitionIteratorType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03246.html#acb4d5ab1b098c77223358f6b4510d2ab">Element_Partition</a> = <a class="el" href="a00904.html#ggaa5b9e8102d7f70f3f4178182629d98b6a3026c69cd558fe3687c11f45966905e9">All_Partition</a></td></tr>
-<tr class="separator:acb4d5ab1b098c77223358f6b4510d2ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68bbcab00b8f50044f697fdd89f05e6c"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03246.html#a68bbcab00b8f50044f697fdd89f05e6c">codimension</a> = codim</td></tr>
+<tr class="separator:a68bbcab00b8f50044f697fdd89f05e6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a58393b9182102e5b744f26e0ce982372"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a58393b9182102e5b744f26e0ce982372">&#9670;&nbsp;</a></span>ctype</h2>
+<a id="a23cfd587b96650c3d93efc0957c35d09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23cfd587b96650c3d93efc0957c35d09">&#9670;&nbsp;</a></span>Entity</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int codim, class Grid &gt; </div>
+template&lt;class HostGridView , int codim, PartitionIteratorType pitype, class G &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef std::remove_const&lt; <a class="el" href="a02698.html">Grid</a> &gt;::type::ctype <a class="el" href="a03226.html">Dune::GeoGrid::PartitionIteratorFilter</a>&lt; codim, <a class="el" href="a00904.html#ggaa5b9e8102d7f70f3f4178182629d98b6a3026c69cd558fe3687c11f45966905e9">All_Partition</a>, <a class="el" href="a02698.html">Grid</a> &gt;::<a class="el" href="a03246.html#a58393b9182102e5b744f26e0ce982372">ctype</a></td>
+          <td class="memname">typedef Traits::template Codim&lt; <a class="el" href="a03246.html#a68bbcab00b8f50044f697fdd89f05e6c">codimension</a> &gt;::<a class="el" href="a03246.html#a23cfd587b96650c3d93efc0957c35d09">Entity</a> <a class="el" href="a03210.html">Dune::GeoGrid::Iterator</a>&lt; HostGridView, codim, pitype, G, true &gt;::<a class="el" href="a03246.html#a23cfd587b96650c3d93efc0957c35d09">Entity</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="ac2a773e7120c85fd42baf9c2fe7d2cba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac2a773e7120c85fd42baf9c2fe7d2cba">&#9670;&nbsp;</a></span>Element</h2>
+<a id="a0b266242c36149384398e17e208d5f68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b266242c36149384398e17e208d5f68">&#9670;&nbsp;</a></span>Grid</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int codim, class Grid &gt; </div>
+template&lt;class HostGridView , int codim, PartitionIteratorType pitype, class G &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef std::remove_const&lt; <a class="el" href="a02698.html">Grid</a> &gt;::type::Traits::template Codim&lt; 0 &gt;::<a class="el" href="a03082.html">Entity</a> <a class="el" href="a03226.html">Dune::GeoGrid::PartitionIteratorFilter</a>&lt; codim, <a class="el" href="a00904.html#ggaa5b9e8102d7f70f3f4178182629d98b6a3026c69cd558fe3687c11f45966905e9">All_Partition</a>, <a class="el" href="a02698.html">Grid</a> &gt;::<a class="el" href="a03246.html#ac2a773e7120c85fd42baf9c2fe7d2cba">Element</a></td>
+          <td class="memname">typedef Traits::Grid <a class="el" href="a03210.html">Dune::GeoGrid::Iterator</a>&lt; HostGridView, codim, pitype, G, true &gt;::<a class="el" href="a03246.html#a0b266242c36149384398e17e208d5f68">Grid</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a7ad79c0a6bafc19c472842030ee990ab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7ad79c0a6bafc19c472842030ee990ab">&#9670;&nbsp;</a></span>RefElement</h2>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ace2c89f79775194ad6ada19542701952"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace2c89f79775194ad6ada19542701952">&#9670;&nbsp;</a></span>Iterator() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int codim, class Grid &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef Transitional::ReferenceElement&lt; <a class="el" href="a03246.html#a58393b9182102e5b744f26e0ce982372">ctype</a>, Dim&lt;<a class="el" href="a03246.html#a7807a4c12006818ea0ae1bb558c2e33d">dimension</a>&gt; &gt; <a class="el" href="a03226.html">Dune::GeoGrid::PartitionIteratorFilter</a>&lt; codim, <a class="el" href="a00904.html#ggaa5b9e8102d7f70f3f4178182629d98b6a3026c69cd558fe3687c11f45966905e9">All_Partition</a>, <a class="el" href="a02698.html">Grid</a> &gt;::<a class="el" href="a03246.html#a7ad79c0a6bafc19c472842030ee990ab">RefElement</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a03adff4e8792a178ae5f184b3afb4730"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a03adff4e8792a178ae5f184b3afb4730">&#9670;&nbsp;</a></span>apply()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int codim, class Grid &gt; </div>
+template&lt;class HostGridView , int codim, PartitionIteratorType pitype, class G &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static bool <a class="el" href="a03226.html">Dune::GeoGrid::PartitionIteratorFilter</a>&lt; codim, <a class="el" href="a00904.html#ggaa5b9e8102d7f70f3f4178182629d98b6a3026c69cd558fe3687c11f45966905e9">All_Partition</a>, <a class="el" href="a02698.html">Grid</a> &gt;::apply </td>
+          <td class="memname"><a class="el" href="a03210.html">Dune::GeoGrid::Iterator</a>&lt; HostGridView, codim, pitype, G, true &gt;::<a class="el" href="a03210.html">Iterator</a> </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a03246.html#a7ad79c0a6bafc19c472842030ee990ab">RefElement</a> &amp;&#160;</td>
-          <td class="paramname"><em>refElement</em>, </td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9e58f684ff887da1794ca4f8b9b4cdd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e58f684ff887da1794ca4f8b9b4cdd9">&#9670;&nbsp;</a></span>Iterator() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class HostGridView , int codim, PartitionIteratorType pitype, class G &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a03210.html">Dune::GeoGrid::Iterator</a>&lt; HostGridView, codim, pitype, G, true &gt;::<a class="el" href="a03210.html">Iterator</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a03246.html#a0b266242c36149384398e17e208d5f68">Grid</a> &amp;&#160;</td>
+          <td class="paramname"><em>grid</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="a03246.html#ac2a773e7120c85fd42baf9c2fe7d2cba">Element</a> &amp;&#160;</td>
-          <td class="paramname"><em>element</em>, </td>
+          <td class="paramtype">HostElementIterator&lt; HostGridView, codim, pitype, G, true &gt;&#160;</td>
+          <td class="paramname"><em>hostElementIterator</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>subEntity</em>&#160;</td>
+          <td class="paramtype">HostElementIterator&lt; HostGridView, codim, pitype, G, true &gt;&#160;</td>
+          <td class="paramname"><em>hostEnd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const HostIndexSet &amp;&#160;</td>
+          <td class="paramname"><em>hostIndexSet</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a8a972ca4a8816598939e5801149bd556"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a972ca4a8816598939e5801149bd556">&#9670;&nbsp;</a></span>begin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class HostGridView , int codim, PartitionIteratorType pitype, class G &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="a03210.html">Iterator</a> <a class="el" href="a03210.html">Dune::GeoGrid::Iterator</a>&lt; HostGridView, codim, pitype, G, true &gt;::begin </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a03246.html#a0b266242c36149384398e17e208d5f68">Grid</a> &amp;&#160;</td>
+          <td class="paramname"><em>grid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const HostGridView &amp;&#160;</td>
+          <td class="paramname"><em>hostGridView</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -195,20 +265,194 @@ template&lt;int codim, class Grid &gt; </div>
 
 </div>
 </div>
+<a id="a99d47c5b6f525f737cfe2870606d07af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99d47c5b6f525f737cfe2870606d07af">&#9670;&nbsp;</a></span>dereference()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class HostGridView , int codim, PartitionIteratorType pitype, class G &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a03246.html#a23cfd587b96650c3d93efc0957c35d09">Entity</a> <a class="el" href="a03210.html">Dune::GeoGrid::Iterator</a>&lt; HostGridView, codim, pitype, G, true &gt;::dereference </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a82818b83c5d36fdde3c5ab841a3ea2b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82818b83c5d36fdde3c5ab841a3ea2b8">&#9670;&nbsp;</a></span>end()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class HostGridView , int codim, PartitionIteratorType pitype, class G &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="a03210.html">Iterator</a> <a class="el" href="a03210.html">Dune::GeoGrid::Iterator</a>&lt; HostGridView, codim, pitype, G, true &gt;::end </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a03246.html#a0b266242c36149384398e17e208d5f68">Grid</a> &amp;&#160;</td>
+          <td class="paramname"><em>grid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const HostGridView &amp;&#160;</td>
+          <td class="paramname"><em>hostGridView</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9886498250a959c9b28ba566cb531dc7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9886498250a959c9b28ba566cb531dc7">&#9670;&nbsp;</a></span>equals()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class HostGridView , int codim, PartitionIteratorType pitype, class G &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="a03210.html">Dune::GeoGrid::Iterator</a>&lt; HostGridView, codim, pitype, G, true &gt;::equals </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a03210.html">Iterator</a>&lt; HostGridView, codim, pitype, G, true &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a54579a5586c01786621b1190a2980f67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54579a5586c01786621b1190a2980f67">&#9670;&nbsp;</a></span>grid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class HostGridView , int codim, PartitionIteratorType pitype, class G &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a03246.html#a0b266242c36149384398e17e208d5f68">Grid</a>&amp; <a class="el" href="a03210.html">Dune::GeoGrid::Iterator</a>&lt; HostGridView, codim, pitype, G, true &gt;::grid </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a228d4a0f490ee55ae50314963366e028"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a228d4a0f490ee55ae50314963366e028">&#9670;&nbsp;</a></span>increment()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class HostGridView , int codim, PartitionIteratorType pitype, class G &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="a03210.html">Dune::GeoGrid::Iterator</a>&lt; HostGridView, codim, pitype, G, true &gt;::increment </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a139eb250f302cbe1bb1b2b3898c0f0d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a139eb250f302cbe1bb1b2b3898c0f0d0">&#9670;&nbsp;</a></span>level()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class HostGridView , int codim, PartitionIteratorType pitype, class G &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="a03210.html">Dune::GeoGrid::Iterator</a>&lt; HostGridView, codim, pitype, G, true &gt;::level </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a24d523f321d3d54bb20a08f13ea79011"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a24d523f321d3d54bb20a08f13ea79011">&#9670;&nbsp;</a></span>codimension</h2>
+<a id="a68bbcab00b8f50044f697fdd89f05e6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68bbcab00b8f50044f697fdd89f05e6c">&#9670;&nbsp;</a></span>codimension</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int codim, class Grid &gt; </div>
+template&lt;class HostGridView , int codim, PartitionIteratorType pitype, class G &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const int <a class="el" href="a03226.html">Dune::GeoGrid::PartitionIteratorFilter</a>&lt; codim, <a class="el" href="a00904.html#ggaa5b9e8102d7f70f3f4178182629d98b6a3026c69cd558fe3687c11f45966905e9">All_Partition</a>, <a class="el" href="a02698.html">Grid</a> &gt;::codimension = codim</td>
+          <td class="memname">const int <a class="el" href="a03210.html">Dune::GeoGrid::Iterator</a>&lt; HostGridView, codim, pitype, G, true &gt;::codimension = codim</td>
         </tr>
       </table>
   </td>
@@ -220,56 +464,8 @@ template&lt;int codim, class Grid &gt; </div>
 
 </div>
 </div>
-<a id="a7807a4c12006818ea0ae1bb558c2e33d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7807a4c12006818ea0ae1bb558c2e33d">&#9670;&nbsp;</a></span>dimension</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int codim, class Grid &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const int <a class="el" href="a03226.html">Dune::GeoGrid::PartitionIteratorFilter</a>&lt; codim, <a class="el" href="a00904.html#ggaa5b9e8102d7f70f3f4178182629d98b6a3026c69cd558fe3687c11f45966905e9">All_Partition</a>, <a class="el" href="a02698.html">Grid</a> &gt;::dimension = std::remove_const&lt; <a class="el" href="a02698.html">Grid</a> &gt;::type::dimension</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="acb4d5ab1b098c77223358f6b4510d2ab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acb4d5ab1b098c77223358f6b4510d2ab">&#9670;&nbsp;</a></span>Element_Partition</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int codim, class Grid &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a00904.html#gaa5b9e8102d7f70f3f4178182629d98b6">PartitionIteratorType</a> <a class="el" href="a03226.html">Dune::GeoGrid::PartitionIteratorFilter</a>&lt; codim, <a class="el" href="a00904.html#ggaa5b9e8102d7f70f3f4178182629d98b6a3026c69cd558fe3687c11f45966905e9">All_Partition</a>, <a class="el" href="a02698.html">Grid</a> &gt;::Element_Partition = <a class="el" href="a00904.html#ggaa5b9e8102d7f70f3f4178182629d98b6a3026c69cd558fe3687c11f45966905e9">All_Partition</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="a00461_source.html">iterator.hh</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="a00467_source.html">iterator.hh</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

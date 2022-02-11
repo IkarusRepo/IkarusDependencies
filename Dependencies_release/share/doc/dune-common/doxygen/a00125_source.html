@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-common
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -89,12 +89,12 @@ $(function() {
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="a01852.html">   37</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a01852.html">hash</a></div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="a01853.html">   37</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a01853.html">hash</a></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  {</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="a01852.html#ae27633febd753959d3b8ab013e8bb4a7">   41</a></span>&#160;    std::size_t <a class="code" href="a01852.html#ae27633febd753959d3b8ab013e8bb4a7">operator()</a>(<span class="keyword">const</span> T&amp; t)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="a01853.html#ae27633febd753959d3b8ab013e8bb4a7">   41</a></span>&#160;    std::size_t <a class="code" href="a01853.html#ae27633febd753959d3b8ab013e8bb4a7">operator()</a>(<span class="keyword">const</span> T&amp; t)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="a01852.html">hash</a>(t);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="a01853.html">hash</a>(t);</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    }</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  };</div>
@@ -244,7 +244,7 @@ $(function() {
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;      <span class="comment">// has very bad hash distribution properties if you apply it to lists of very small numbers,</span></div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;      <span class="comment">// an application that is frequent in PDELab&#39;s ordering framework.</span></div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160; </div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;      <a class="code" href="a01852.html">Dune::hash&lt;T&gt;</a> hasher;</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;      <a class="code" href="a01853.html">Dune::hash&lt;T&gt;</a> hasher;</div>
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;      <span class="keyword">const</span> typeof_size_t kMul = 0x9ddfea08eb382d69ULL;</div>
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;      typeof_size_t h = hasher(arg);</div>
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;      typeof_size_t a = (seed ^ h) * kMul;</div>
@@ -275,7 +275,7 @@ $(function() {
 <div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;      <span class="comment">// mixed bits as that is apparently more efficient on IA-32. The constants used below are again</span></div>
 <div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;      <span class="comment">// taken from CityHash, in particular from the file referenced above.</span></div>
 <div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160; </div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;      <a class="code" href="a01852.html">Dune::hash&lt;T&gt;</a> hasher;</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;      <a class="code" href="a01853.html">Dune::hash&lt;T&gt;</a> hasher;</div>
 <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;      <span class="keyword">const</span> typeof_size_t c1 = 0xcc9e2d51;</div>
 <div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;      <span class="keyword">const</span> typeof_size_t c2 = 0x1b873593;</div>
 <div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;      <span class="keyword">const</span> typeof_size_t c3 = 0xe6546b64;</div>
@@ -325,11 +325,11 @@ $(function() {
 <div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160; </div>
 <div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// DUNE_COMMON_HASH_HH</span></div>
 <div class="ttc" id="aa00383_html"><div class="ttname"><a href="a00383.html">typetraits.hh</a></div><div class="ttdoc">Traits for type conversions and type information.</div></div>
-<div class="ttc" id="aa00428_html"><div class="ttname"><a href="a00428.html">Dune</a></div><div class="ttdoc">Dune namespace.</div><div class="ttdef"><b>Definition:</b> alignedallocator.hh:14</div></div>
+<div class="ttc" id="aa00428_html"><div class="ttname"><a href="a00428.html">Dune</a></div><div class="ttdoc">Dune namespace.</div><div class="ttdef"><b>Definition:</b> alignedallocator.hh:11</div></div>
 <div class="ttc" id="aa00428_html_a6e45658b7c63f546c3c0897608d9d23d"><div class="ttname"><a href="a00428.html#a6e45658b7c63f546c3c0897608d9d23d">Dune::hash_range</a></div><div class="ttdeci">std::size_t hash_range(It first, It last)</div><div class="ttdoc">Hashes all elements in the range [first,last) and returns the combined hash.</div><div class="ttdef"><b>Definition:</b> hash.hh:320</div></div>
 <div class="ttc" id="aa00428_html_aa4f0199c109bde1698fb5279a414d01a"><div class="ttname"><a href="a00428.html#aa4f0199c109bde1698fb5279a414d01a">Dune::hash_combine</a></div><div class="ttdeci">void hash_combine(std::size_t &amp;seed, const T &amp;arg)</div><div class="ttdoc">Calculates the hash value of arg and combines it in-place with seed.</div><div class="ttdef"><b>Definition:</b> hash.hh:305</div></div>
-<div class="ttc" id="aa01852_html"><div class="ttname"><a href="a01852.html">Dune::hash</a></div><div class="ttdoc">Functor for hashing objects of type T.</div><div class="ttdef"><b>Definition:</b> hash.hh:38</div></div>
-<div class="ttc" id="aa01852_html_ae27633febd753959d3b8ab013e8bb4a7"><div class="ttname"><a href="a01852.html#ae27633febd753959d3b8ab013e8bb4a7">Dune::hash::operator()</a></div><div class="ttdeci">std::size_t operator()(const T &amp;t) const</div><div class="ttdoc">Calculates the hash of t.</div><div class="ttdef"><b>Definition:</b> hash.hh:41</div></div>
+<div class="ttc" id="aa01853_html"><div class="ttname"><a href="a01853.html">Dune::hash</a></div><div class="ttdoc">Functor for hashing objects of type T.</div><div class="ttdef"><b>Definition:</b> hash.hh:38</div></div>
+<div class="ttc" id="aa01853_html_ae27633febd753959d3b8ab013e8bb4a7"><div class="ttname"><a href="a01853.html#ae27633febd753959d3b8ab013e8bb4a7">Dune::hash::operator()</a></div><div class="ttdeci">std::size_t operator()(const T &amp;t) const</div><div class="ttdoc">Calculates the hash of t.</div><div class="ttdef"><b>Definition:</b> hash.hh:41</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

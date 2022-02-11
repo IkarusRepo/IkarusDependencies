@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: persistentcontainermap.hh Source File</title>
+<title>dune-grid: parmetisgridpartitioner.hh Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -67,324 +67,211 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">persistentcontainermap.hh</div>  </div>
+<div class="title">parmetisgridpartitioner.hh</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="a00878.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*-</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// vi: set et ts=4 sw=2 sts=2:</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifndef DUNE_PERSISTENTCONTAINERMAP_HH</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define DUNE_PERSISTENTCONTAINERMAP_HH</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;cassert&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;dune/common/hybridutilities.hh&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;dune/common/std/utility.hh&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;dune/common/typetraits.hh&gt;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a06743.html">dune/grid/common/capabilities.hh</a>&gt;</span></div>
+<a href="a00878.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef DUNE_GRID_UTILITY_PARMETISGRIDPARTITIONER_HH</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define DUNE_GRID_UTILITY_PARMETISGRIDPARTITIONER_HH</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;dune/common/parallel/mpihelper.hh&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;dune/common/exceptions.hh&gt;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00936.html">Dune</a></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  <span class="comment">// PersistentContainerMap</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  <span class="comment">// ----------------------</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;dune/geometry/referenceelements.hh&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00860.html">dune/grid/utility/globalindexset.hh</a>&gt;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00302.html">dune/grid/common/mcmgmapper.hh</a>&gt;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00308.html">dune/grid/common/rangegenerators.hh</a>&gt;</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <span class="keyword">template</span>&lt; <span class="keyword">class</span> G, <span class="keyword">class</span> IdSet, <span class="keyword">class</span> Map &gt;</div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="a04102.html">   22</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a04102.html">PersistentContainerMap</a></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  {</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">typedef</span> <a class="code" href="a04102.html">PersistentContainerMap&lt; G, IdSet, Map &gt;</a> <a class="code" href="a04102.html">This</a>;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">class</span> reference, <span class="keyword">class</span> iterator &gt;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">class </span><a class="code" href="a04106.html">IteratorWrapper</a>;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="a04102.html#a148f33f791c8776236f44c201760514a">   31</a></span>&#160;    <span class="keyword">typedef</span> G <a class="code" href="a04102.html#a148f33f791c8776236f44c201760514a">Grid</a>;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="a04102.html#a7eb9fff073201cc24a722d05428234a7">   33</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> Map::mapped_type <a class="code" href="a04102.html#a7eb9fff073201cc24a722d05428234a7">Value</a>;</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="a04102.html#abc1712ee3dcef8daa2dc4ca4de121153">   34</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> Map::size_type <a class="code" href="a04102.html#abc1712ee3dcef8daa2dc4ca4de121153">Size</a>;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="a04102.html#a2df91a67aa69c25eeba45e6ccd5b094e">   36</a></span>&#160;    <span class="keyword">typedef</span> <a class="code" href="a04106.html">IteratorWrapper&lt; const Value, typename Map::const_iterator &gt;</a> <a class="code" href="a04102.html#a2df91a67aa69c25eeba45e6ccd5b094e">ConstIterator</a>;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="a04102.html#ae1c558bf3354c0a569df33b18e929be0">   37</a></span>&#160;    <span class="keyword">typedef</span> <a class="code" href="a04106.html">IteratorWrapper&lt; Value, typename Map::iterator &gt;</a> <a class="code" href="a04102.html#ae1c558bf3354c0a569df33b18e929be0">Iterator</a>;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="a04102.html#aa9ffcdacd9649307488024e18e22ae30">   39</a></span>&#160;    <a class="code" href="a04102.html#aa9ffcdacd9649307488024e18e22ae30">PersistentContainerMap</a> ( <span class="keyword">const</span> <a class="code" href="a04102.html#a148f33f791c8776236f44c201760514a">Grid</a> &amp;<a class="code" href="a04102.html#af1e915ee313dfae32af8b8aefc17b706">grid</a>, <span class="keywordtype">int</span> codim, <span class="keyword">const</span> <a class="code" href="a02694.html">IdSet</a> &amp;<a class="code" href="a04102.html#ae19e81d7bab91c4f508af75a0ee82141">idSet</a>, <span class="keyword">const</span> <a class="code" href="a04102.html#a7eb9fff073201cc24a722d05428234a7">Value</a> &amp;value )</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;      : <a class="code" href="a04102.html#a38e954fcf8d20bf56a4474db517ed1c0">grid_</a>( &amp;<a class="code" href="a04102.html#af1e915ee313dfae32af8b8aefc17b706">grid</a> ),</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <a class="code" href="a04102.html#a2e3e7b47ac387c01a2cc86f8dbe5b135">codim_</a>( codim ),</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <a class="code" href="a04102.html#ae7bcde9dff8cbb05329d403655dba350">idSet_</a>( &amp;<a class="code" href="a04102.html#ae19e81d7bab91c4f508af75a0ee82141">idSet</a> ),</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <a class="code" href="a04102.html#aca083ceb2ad50d0934e5812268e309ec">data_</a>()</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;      <a class="code" href="a04102.html#a48d6ac1ae8d5abea6288539acb2d9461">resize</a>( value );</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    }</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">class</span> Entity &gt;</div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="a04102.html#a92ee5df0af9cbf8d4d022c776752bddc">   49</a></span>&#160;    <span class="keyword">const</span> <a class="code" href="a04102.html#a7eb9fff073201cc24a722d05428234a7">Value</a> &amp;<a class="code" href="a04102.html#a92ee5df0af9cbf8d4d022c776752bddc">operator[] </a>( <span class="keyword">const</span> <a class="code" href="a02630.html">Entity</a> &amp;entity )<span class="keyword"> const</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;      assert( <a class="code" href="a02630.html#aaa6c6e1d981fce9dbe550666f7a97800a0ce22137a3853646973cf5cd16c87868">Entity::codimension</a> == <a class="code" href="a04102.html#a3bdfe5c4c1feda7f2b3255d0f2001577">codimension</a>() );</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      <span class="keyword">typename</span> Map::const_iterator pos = <a class="code" href="a04102.html#aca083ceb2ad50d0934e5812268e309ec">data_</a>.find( <a class="code" href="a04102.html#ae19e81d7bab91c4f508af75a0ee82141">idSet</a>().<span class="keywordtype">id</span>( entity ) );</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;      assert( pos != <a class="code" href="a04102.html#aca083ceb2ad50d0934e5812268e309ec">data_</a>.end() );</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      <span class="keywordflow">return</span> pos-&gt;second;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    }</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">class</span> Entity &gt;</div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="a04102.html#ace193d0c6c9f10fe3463171d42c96a2a">   58</a></span>&#160;    <a class="code" href="a04102.html#a7eb9fff073201cc24a722d05428234a7">Value</a> &amp;<a class="code" href="a04102.html#a92ee5df0af9cbf8d4d022c776752bddc">operator[] </a>( <span class="keyword">const</span> <a class="code" href="a02630.html">Entity</a> &amp;entity )</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    {</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;      assert( <a class="code" href="a02630.html#aaa6c6e1d981fce9dbe550666f7a97800a0ce22137a3853646973cf5cd16c87868">Entity::codimension</a> == <a class="code" href="a04102.html#a3bdfe5c4c1feda7f2b3255d0f2001577">codimension</a>() );</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;      <span class="keyword">typename</span> Map::iterator pos = <a class="code" href="a04102.html#aca083ceb2ad50d0934e5812268e309ec">data_</a>.find( <a class="code" href="a04102.html#ae19e81d7bab91c4f508af75a0ee82141">idSet</a>().<span class="keywordtype">id</span>( entity ) );</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;      assert( pos != <a class="code" href="a04102.html#aca083ceb2ad50d0934e5812268e309ec">data_</a>.end() );</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;      <span class="keywordflow">return</span> pos-&gt;second;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    }</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">class</span> Entity &gt;</div>
-<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="a04102.html#a1481b442dfa1b7d1a52d369770ae96f0">   67</a></span>&#160;    <span class="keyword">const</span> <a class="code" href="a04102.html#a7eb9fff073201cc24a722d05428234a7">Value</a> &amp;<a class="code" href="a04102.html#a1481b442dfa1b7d1a52d369770ae96f0">operator() </a>( <span class="keyword">const</span> <a class="code" href="a02630.html">Entity</a> &amp;entity, <span class="keywordtype">int</span> subEntity )<span class="keyword"> const</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;      <span class="keyword">typename</span> Map::const_iterator pos = <a class="code" href="a04102.html#aca083ceb2ad50d0934e5812268e309ec">data_</a>.find( <a class="code" href="a04102.html#ae19e81d7bab91c4f508af75a0ee82141">idSet</a>().subId( entity, subEntity, <a class="code" href="a04102.html#a3bdfe5c4c1feda7f2b3255d0f2001577">codimension</a>() ) );</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;      assert( pos != <a class="code" href="a04102.html#aca083ceb2ad50d0934e5812268e309ec">data_</a>.end() );</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;      <span class="keywordflow">return</span> pos-&gt;second;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    }</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">class</span> Entity &gt;</div>
-<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="a04102.html#a59da4933d4dac339d8d93d00b5320b7f">   75</a></span>&#160;    <a class="code" href="a04102.html#a7eb9fff073201cc24a722d05428234a7">Value</a> &amp;<a class="code" href="a04102.html#a1481b442dfa1b7d1a52d369770ae96f0">operator() </a>( <span class="keyword">const</span> <a class="code" href="a02630.html">Entity</a> &amp;entity, <span class="keywordtype">int</span> subEntity )</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    {</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;      <span class="keyword">typename</span> Map::iterator pos = <a class="code" href="a04102.html#aca083ceb2ad50d0934e5812268e309ec">data_</a>.find( <a class="code" href="a04102.html#ae19e81d7bab91c4f508af75a0ee82141">idSet</a>().subId( entity, subEntity, <a class="code" href="a04102.html#a3bdfe5c4c1feda7f2b3255d0f2001577">codimension</a>() ) );</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;      assert( pos != <a class="code" href="a04102.html#aca083ceb2ad50d0934e5812268e309ec">data_</a>.end() );</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;      <span class="keywordflow">return</span> pos-&gt;second;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    }</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="a04102.html#ae0242509604b29711bad1a2747f05ead">   82</a></span>&#160;    <a class="code" href="a04102.html#abc1712ee3dcef8daa2dc4ca4de121153">Size</a> <a class="code" href="a04102.html#ae0242509604b29711bad1a2747f05ead">size</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="a04102.html#aca083ceb2ad50d0934e5812268e309ec">data_</a>.size(); }</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="a04102.html#a48d6ac1ae8d5abea6288539acb2d9461">   84</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a04102.html#a48d6ac1ae8d5abea6288539acb2d9461">resize</a> ( <span class="keyword">const</span> <a class="code" href="a04102.html#a7eb9fff073201cc24a722d05428234a7">Value</a> &amp;value = <a class="code" href="a04102.html#a7eb9fff073201cc24a722d05428234a7">Value</a>() )</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    {</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;      Hybrid::forEach( Std::make_index_sequence&lt; Grid::dimension+1 &gt;{},</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        [ &amp; ]( <span class="keyword">auto</span> i ){ <span class="keywordflow">if</span>( i == this-&gt;<a class="code" href="a04102.html#a3bdfe5c4c1feda7f2b3255d0f2001577">codimension</a>() ) this-&gt;<span class="keyword">template</span> resize&lt; i &gt;( value ); } );</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    }</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="a04102.html#af896d65b2d42450f0f2ddea606ffae66">   90</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a04102.html#af896d65b2d42450f0f2ddea606ffae66">shrinkToFit</a> () {}</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#if HAVE_PARMETIS</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;parmetis.h&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">// only enable for ParMETIS because the implementation uses functions that</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">// are not emulated by scotch</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#ifdef PARMETIS_MAJOR_VERSION</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00940.html">Dune</a></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class</span> Gr<span class="keywordtype">id</span>View&gt;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="keyword">struct </span>ParMetisGridPartitioner {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="comment">// define index type as provided by ParMETIS</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#if PARMETIS_MAJOR_VERSION &gt; 3</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">typedef</span> idx_t idx_type;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    typedef ::real_t real_type;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">typedef</span> <span class="keywordtype">int</span> idx_type;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">typedef</span> <span class="keywordtype">float</span> real_type;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// PARMETIS_MAJOR_VERSION &gt; 3</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">enum</span> {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;      dimension = <a class="code" href="a00910.html#gga5c76b0a0ed3fdcf2bd9ab2bbb2df0847a7170531f3c1c62b7904410099cf37a37">GridView::dimension</a></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    };</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keyword">static</span> std::vector&lt;unsigned&gt; partition(<span class="keyword">const</span> GridView&amp; gv, <span class="keyword">const</span> Dune::MPIHelper&amp; mpihelper) {</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">unsigned</span> numElements = gv.size(0);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;      std::vector&lt;unsigned&gt; part(numElements);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;      <span class="comment">// Setup parameters for ParMETIS</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;      idx_type wgtflag = 0;                                  <span class="comment">// we don&#39;t use weights</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;      idx_type numflag = 0;                                  <span class="comment">// we are using C-style arrays</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;      idx_type ncon = 1;                                     <span class="comment">// number of balance constraints</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;      idx_type ncommonnodes = 2;                             <span class="comment">// number of nodes elements must have in common to be considered adjacent to each other</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;      idx_type options[4] = {0, 0, 0, 0};                    <span class="comment">// use default values for random seed, output and coupling</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;      idx_type edgecut;                                      <span class="comment">// will store number of edges cut by partition</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;      idx_type nparts = mpihelper.size();                    <span class="comment">// number of parts equals number of processes</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;      std::vector&lt;real_type&gt; tpwgts(ncon*nparts, 1./nparts); <span class="comment">// load per subdomain and weight (same load on every process)</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;      std::vector&lt;real_type&gt; ubvec(ncon, 1.05);              <span class="comment">// weight tolerance (same weight tolerance for every weight there is)</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;      <span class="comment">// The difference elmdist[i+1] - elmdist[i] is the number of nodes that are on process i</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;      std::vector&lt;idx_type&gt; elmdist(nparts+1);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;      elmdist[0] = 0;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;      std::fill(elmdist.begin()+1, elmdist.end(), gv.size(0)); <span class="comment">// all elements are on process zero</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;      <span class="comment">// Create and fill arrays &quot;eptr&quot;, where eptr[i] is the number of vertices that belong to the i-th element, and</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;      <span class="comment">// &quot;eind&quot; contains the vertex-numbers of the i-the element in eind[eptr[i]] to eind[eptr[i+1]-1]</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;      std::vector&lt;idx_type&gt; eptr, eind;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;      <span class="keywordtype">int</span> numVertices = 0;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;      eptr.push_back(numVertices);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;      <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; element : elements(gv, <a class="code" href="a00944.html#af39b89b2239cd60e67d1a45de71213e0">Partitions::interior</a>)) {</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">size_t</span> curNumVertices = referenceElement&lt;double, dimension&gt;(element.type()).size(dimension);</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="a04102.html#a086b7677af48f8286c7f62b6eb286aa2">   92</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a04102.html#a086b7677af48f8286c7f62b6eb286aa2">fill</a> ( <span class="keyword">const</span> <a class="code" href="a04102.html#a7eb9fff073201cc24a722d05428234a7">Value</a> &amp;value ) { std::fill( <a class="code" href="a04102.html#a53d6067277588335e00fcbd51e0c7527">begin</a>(), <a class="code" href="a04102.html#ac65153f0ec87128eee577d1ce2870cad">end</a>(), value ); }</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
-<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="a04102.html#a0738f061eb60675341496d78003c53de">   94</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a04102.html#a0738f061eb60675341496d78003c53de">swap</a> ( <a class="code" href="a04102.html">This</a> &amp;other )</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    {</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;      std::swap( <a class="code" href="a04102.html#a38e954fcf8d20bf56a4474db517ed1c0">grid_</a>, other.<a class="code" href="a04102.html#a38e954fcf8d20bf56a4474db517ed1c0">grid_</a> );</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;      std::swap( <a class="code" href="a04102.html#a2e3e7b47ac387c01a2cc86f8dbe5b135">codim_</a>, other.<a class="code" href="a04102.html#a2e3e7b47ac387c01a2cc86f8dbe5b135">codim_</a> );</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;      std::swap( <a class="code" href="a04102.html#ae7bcde9dff8cbb05329d403655dba350">idSet_</a>, other.<a class="code" href="a04102.html#ae7bcde9dff8cbb05329d403655dba350">idSet_</a> );</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;      std::swap( <a class="code" href="a04102.html#aca083ceb2ad50d0934e5812268e309ec">data_</a>, other.<a class="code" href="a04102.html#aca083ceb2ad50d0934e5812268e309ec">data_</a> );</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    }</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
-<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="a04102.html#a53d6067277588335e00fcbd51e0c7527">  102</a></span>&#160;    <a class="code" href="a04102.html#a2df91a67aa69c25eeba45e6ccd5b094e">ConstIterator</a> <a class="code" href="a04102.html#a53d6067277588335e00fcbd51e0c7527">begin</a> () <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="a04102.html#ab1c6a44c7cd716a8c008b512d3ee4bff">  103</a></span>&#160;    <a class="code" href="a04102.html#ae1c558bf3354c0a569df33b18e929be0">Iterator</a> <a class="code" href="a04102.html#ab1c6a44c7cd716a8c008b512d3ee4bff">begin</a> ();</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
-<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="a04102.html#ac65153f0ec87128eee577d1ce2870cad">  105</a></span>&#160;    <a class="code" href="a04102.html#a2df91a67aa69c25eeba45e6ccd5b094e">ConstIterator</a> <a class="code" href="a04102.html#ac65153f0ec87128eee577d1ce2870cad">end</a> () <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="a04102.html#a7fba8c9161bc460d9b4580ff5f839241">  106</a></span>&#160;    <a class="code" href="a04102.html#ae1c558bf3354c0a569df33b18e929be0">Iterator</a> <a class="code" href="a04102.html#a7fba8c9161bc460d9b4580ff5f839241">end</a> ();</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="a04102.html#a3bdfe5c4c1feda7f2b3255d0f2001577">  108</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="a04102.html#a3bdfe5c4c1feda7f2b3255d0f2001577">codimension</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="a04102.html#a2e3e7b47ac387c01a2cc86f8dbe5b135">codim_</a>; }</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        numVertices += curNumVertices;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        eptr.push_back(numVertices);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> k = 0; k &lt; curNumVertices; ++k)</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;          eind.push_back(gv.indexSet().subIndex(element, k, dimension));</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;      }</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;      <span class="comment">// Partition mesh using ParMETIS</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;      <span class="keywordflow">if</span> (0 == mpihelper.rank()) {</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        MPI_Comm comm = Dune::MPIHelper::getLocalCommunicator();</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="preprocessor">#if PARMETIS_MAJOR_VERSION &gt;= 4</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">int</span> OK =</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        ParMETIS_V3_PartMeshKway(elmdist.data(), eptr.data(), eind.data(), NULL, &amp;wgtflag, &amp;numflag,</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                                 &amp;ncon, &amp;ncommonnodes, &amp;nparts, tpwgts.data(), ubvec.data(),</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                                 options, &amp;edgecut, <span class="keyword">reinterpret_cast&lt;</span>idx_type*<span class="keyword">&gt;</span>(part.data()), &amp;comm);</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="a04102.html#af1e915ee313dfae32af8b8aefc17b706">  111</a></span>&#160;    <span class="keyword">const</span> <a class="code" href="a04102.html#a148f33f791c8776236f44c201760514a">Grid</a> &amp;<a class="code" href="a04102.html#af1e915ee313dfae32af8b8aefc17b706">grid</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> *<a class="code" href="a04102.html#a38e954fcf8d20bf56a4474db517ed1c0">grid_</a>; }</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keyword">template</span>&lt; <span class="keywordtype">int</span> codim &gt;</div>
-<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="a04102.html#a260501921dad94dfa64068161653763c">  114</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a04102.html#a260501921dad94dfa64068161653763c">resize</a> ( <span class="keyword">const</span> <a class="code" href="a04102.html#a7eb9fff073201cc24a722d05428234a7">Value</a> &amp;value );</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="preprocessor">#if PARMETIS_MAJOR_VERSION &gt;= 4</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="keywordflow">if</span> (OK != METIS_OK)</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;          DUNE_THROW(Dune::Exception, <span class="stringliteral">&quot;ParMETIS returned an error code.&quot;</span>);</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;      }</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keyword">template</span>&lt; <span class="keywordtype">int</span> codim &gt;</div>
-<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="a04102.html#af1ca1e8959d340fc94b8a6e18f5965b4">  117</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a04102.html#af1ca1e8959d340fc94b8a6e18f5965b4">migrateLevel</a> ( <span class="keywordtype">int</span> level, <span class="keyword">const</span> <a class="code" href="a04102.html#a7eb9fff073201cc24a722d05428234a7">Value</a> &amp;value, Map &amp;data,</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                        std::integral_constant&lt; bool, true &gt; );</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keyword">template</span>&lt; <span class="keywordtype">int</span> codim &gt;</div>
-<div class="line"><a name="l00121"></a><span class="lineno"><a class="line" href="a04102.html#a04136bd8ff36001fdba173734a871e23">  121</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a04102.html#a04136bd8ff36001fdba173734a871e23">migrateLevel</a> ( <span class="keywordtype">int</span> level, <span class="keyword">const</span> <a class="code" href="a04102.html#a7eb9fff073201cc24a722d05428234a7">Value</a> &amp;value, Map &amp;data,</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                        std::integral_constant&lt; bool, false &gt; );</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
-<div class="line"><a name="l00124"></a><span class="lineno"><a class="line" href="a04102.html#a607a55fd4ac473b7c3f1f89a25a4785c">  124</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="a04102.html#a607a55fd4ac473b7c3f1f89a25a4785c">migrateEntry</a> ( <span class="keyword">const</span> <span class="keyword">typename</span> <a class="code" href="a02694.html#a7da8f5ba2179b1896017b5b1016d6011">IdSet::IdType</a> &amp;<span class="keywordtype">id</span>, <span class="keyword">const</span> <a class="code" href="a04102.html#a7eb9fff073201cc24a722d05428234a7">Value</a> &amp;value,</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                               Map &amp;oldData, Map &amp;newData );</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
-<div class="line"><a name="l00127"></a><span class="lineno"><a class="line" href="a04102.html#ae19e81d7bab91c4f508af75a0ee82141">  127</a></span>&#160;    <span class="keyword">const</span> <a class="code" href="a02694.html">IdSet</a> &amp;<a class="code" href="a04102.html#ae19e81d7bab91c4f508af75a0ee82141">idSet</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> *<a class="code" href="a04102.html#ae7bcde9dff8cbb05329d403655dba350">idSet_</a>; }</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
-<div class="line"><a name="l00129"></a><span class="lineno"><a class="line" href="a04102.html#a38e954fcf8d20bf56a4474db517ed1c0">  129</a></span>&#160;    <span class="keyword">const</span> <a class="code" href="a04102.html#a148f33f791c8776236f44c201760514a">Grid</a> *<a class="code" href="a04102.html#a38e954fcf8d20bf56a4474db517ed1c0">grid_</a>;</div>
-<div class="line"><a name="l00130"></a><span class="lineno"><a class="line" href="a04102.html#a2e3e7b47ac387c01a2cc86f8dbe5b135">  130</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="a04102.html#a2e3e7b47ac387c01a2cc86f8dbe5b135">codim_</a>;</div>
-<div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="a04102.html#ae7bcde9dff8cbb05329d403655dba350">  131</a></span>&#160;    <span class="keyword">const</span> <a class="code" href="a02694.html">IdSet</a> *<a class="code" href="a04102.html#ae7bcde9dff8cbb05329d403655dba350">idSet_</a>;</div>
-<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="a04102.html#aca083ceb2ad50d0934e5812268e309ec">  132</a></span>&#160;    Map <a class="code" href="a04102.html#aca083ceb2ad50d0934e5812268e309ec">data_</a>;</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;  };</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;      <span class="keywordflow">return</span> part;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    }</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keyword">static</span> std::vector&lt;unsigned&gt; repartition(<span class="keyword">const</span> GridView&amp; gv, <span class="keyword">const</span> Dune::MPIHelper&amp; mpihelper, real_type itr = 1000) {</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;      <span class="comment">// Create global index map</span></div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;      GlobalIndexSet&lt;GridView&gt; globalIndex(gv,0);</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;  <span class="comment">// PersistentContainerMap::IteratorWrapper</span></div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;  <span class="comment">// ---------------------------------------</span></div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;      <span class="keywordtype">int</span> numElements = std::distance(gv.template begin&lt;0, Interior_Partition&gt;(),</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;                                                 gv.template end&lt;0, Interior_Partition&gt;());</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;      std::vector&lt;unsigned&gt; interiorPart(numElements);</div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;  <span class="keyword">template</span>&lt; <span class="keyword">class</span> G, <span class="keyword">class</span> IdSet, <span class="keyword">class</span> Map &gt;</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;  <span class="keyword">template</span>&lt; <span class="keyword">class</span> value, <span class="keyword">class</span> iterator &gt;</div>
-<div class="line"><a name="l00142"></a><span class="lineno"><a class="line" href="a04106.html">  142</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a04106.html">PersistentContainerMap&lt; G, IdSet, Map &gt;::IteratorWrapper</a></div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    : <span class="keyword">public</span> iterator</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;  {</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="keyword">typedef</span> <a class="code" href="a04106.html">IteratorWrapper&lt; const value, typename Map::const_iterator &gt;</a> <a class="code" href="a04106.html">ConstWrapper</a>;</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00148"></a><span class="lineno"><a class="line" href="a04106.html#a47f48f9584efdbe0b5d2682e2d6abb5e">  148</a></span>&#160;    <a class="code" href="a04106.html#a47f48f9584efdbe0b5d2682e2d6abb5e">IteratorWrapper</a> ( <span class="keyword">const</span> iterator &amp;it ) : it_( it ) {}</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;      <span class="comment">// Setup parameters for ParMETIS</span></div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;      idx_type wgtflag = 0;                                  <span class="comment">// we don&#39;t use weights</span></div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;      idx_type numflag = 0;                                  <span class="comment">// we are using C-style arrays</span></div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;      idx_type ncon = 1;                                     <span class="comment">// number of balance constraints</span></div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;      idx_type options[4] = {0, 0, 0, 0};                    <span class="comment">// use default values for random seed, output and coupling</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;      idx_type edgecut;                                      <span class="comment">// will store number of edges cut by partition</span></div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;      idx_type nparts = mpihelper.size();                    <span class="comment">// number of parts equals number of processes</span></div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;      std::vector&lt;real_type&gt; tpwgts(ncon*nparts, 1./nparts); <span class="comment">// load per subdomain and weight (same load on every process)</span></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;      std::vector&lt;real_type&gt; ubvec(ncon, 1.05);              <span class="comment">// weight tolerance (same weight tolerance for every weight there is)</span></div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
-<div class="line"><a name="l00150"></a><span class="lineno"><a class="line" href="a04106.html#af379949206cbc85ec2a2d4db0c8825ba">  150</a></span>&#160;    <span class="keyword">operator</span> <a class="code" href="a04106.html">ConstWrapper</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="a04106.html">ConstWrapper</a>( it_ ); }</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;      MPI_Comm comm = Dune::MPIHelper::getCommunicator();</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160; </div>
-<div class="line"><a name="l00152"></a><span class="lineno"><a class="line" href="a04106.html#a4a05af20ba2967050e0555fb8c641909">  152</a></span>&#160;    value &amp;operator* () { <span class="keywordflow">return</span> it_-&gt;second; }</div>
-<div class="line"><a name="l00153"></a><span class="lineno"><a class="line" href="a04106.html#a66d1368ec1048449f7f8b3f803c3d77f">  153</a></span>&#160;    value *operator-&gt; () { <span class="keywordflow">return</span> &amp;(it_-&gt;second); }</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160; </div>
-<div class="line"><a name="l00155"></a><span class="lineno"><a class="line" href="a04106.html#a7fd7202e6b62d7a0ce001c38a89539ee">  155</a></span>&#160;    <span class="keywordtype">bool</span> operator== ( <span class="keyword">const</span> <a class="code" href="a04106.html">IteratorWrapper</a> &amp;other )<span class="keyword"> const </span>{ <span class="keywordflow">return</span> (it_ == other.it_); }</div>
-<div class="line"><a name="l00156"></a><span class="lineno"><a class="line" href="a04106.html#aa9743c4d3e47da23461adaf02dcce22d">  156</a></span>&#160;    <span class="keywordtype">bool</span> operator!= ( <span class="keyword">const</span> <a class="code" href="a04106.html">IteratorWrapper</a> &amp;other )<span class="keyword"> const </span>{ <span class="keywordflow">return</span> (it_ != other.it_); }</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;      <span class="comment">// Make the number of interior elements of each processor available to all processors</span></div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;      std::vector&lt;int&gt; offset(gv.comm().size());</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;      std::fill(offset.begin(), offset.end(), 0);</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;      gv.comm().template allgather&lt;int&gt;(&amp;numElements, 1, offset.data());</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; </div>
-<div class="line"><a name="l00158"></a><span class="lineno"><a class="line" href="a04106.html#a6033051a17f8b584c209afd53c6045d4">  158</a></span>&#160;    <a class="code" href="a04106.html">IteratorWrapper</a> &amp;operator++ () { ++it_; <span class="keywordflow">return</span> *<span class="keyword">this</span>; }</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160; </div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    iterator it_;</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;  };</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;      <span class="comment">// The difference vtxdist[i+1] - vtxdist[i] is the number of elements that are on process i</span></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;      std::vector&lt;idx_type&gt; vtxdist(gv.comm().size()+1);</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;      vtxdist[0] = 0;</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; </div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i=1; i&lt;vtxdist.size(); ++i)</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        vtxdist[i] = vtxdist[i-1] + offset[i-1];</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; </div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; </div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;  <span class="comment">// Implementation of PersistentContainerMap</span></div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;  <span class="comment">// ----------------------------------------</span></div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;  <span class="keyword">template</span>&lt; <span class="keyword">class</span> G, <span class="keyword">class</span> IdSet, <span class="keyword">class</span> Map &gt;</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;  <span class="keyword">inline</span> <span class="keyword">typename</span> <a class="code" href="a04106.html">PersistentContainerMap&lt; G, IdSet, Map &gt;::ConstIterator</a></div>
-<div class="line"><a name="l00172"></a><span class="lineno"><a class="line" href="a04102.html#a53d6067277588335e00fcbd51e0c7527">  172</a></span>&#160;  <a class="code" href="a04102.html#a53d6067277588335e00fcbd51e0c7527">PersistentContainerMap&lt; G, IdSet, Map &gt;::begin</a> ()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span class="keyword">  </span>{</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="a04106.html">ConstIterator</a>( data_.begin() );</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;  }</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160; </div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;  <span class="keyword">template</span>&lt; <span class="keyword">class</span> G, <span class="keyword">class</span> IdSet, <span class="keyword">class</span> Map &gt;</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;  <span class="keyword">inline</span> <span class="keyword">typename</span> <a class="code" href="a04106.html">PersistentContainerMap&lt; G, IdSet, Map &gt;::Iterator</a></div>
-<div class="line"><a name="l00179"></a><span class="lineno"><a class="line" href="a04102.html#ab1c6a44c7cd716a8c008b512d3ee4bff">  179</a></span>&#160;  <a class="code" href="a04102.html#a53d6067277588335e00fcbd51e0c7527">PersistentContainerMap&lt; G, IdSet, Map &gt;::begin</a> ()</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;  {</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="a04106.html">Iterator</a>( data_.begin() );</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;  }</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160; </div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; </div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;  <span class="keyword">template</span>&lt; <span class="keyword">class</span> G, <span class="keyword">class</span> IdSet, <span class="keyword">class</span> Map &gt;</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;  <span class="keyword">inline</span> <span class="keyword">typename</span> <a class="code" href="a04106.html">PersistentContainerMap&lt; G, IdSet, Map &gt;::ConstIterator</a></div>
-<div class="line"><a name="l00187"></a><span class="lineno"><a class="line" href="a04102.html#ac65153f0ec87128eee577d1ce2870cad">  187</a></span>&#160;  <a class="code" href="a04102.html#ac65153f0ec87128eee577d1ce2870cad">PersistentContainerMap&lt; G, IdSet, Map &gt;::end</a> ()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="keyword">  </span>{</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="a04106.html">ConstIterator</a>( data_.end() );</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;  }</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160; </div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;  <span class="keyword">template</span>&lt; <span class="keyword">class</span> G, <span class="keyword">class</span> IdSet, <span class="keyword">class</span> Map &gt;</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;  <span class="keyword">inline</span> <span class="keyword">typename</span> <a class="code" href="a04106.html">PersistentContainerMap&lt; G, IdSet, Map &gt;::Iterator</a></div>
-<div class="line"><a name="l00194"></a><span class="lineno"><a class="line" href="a04102.html#a7fba8c9161bc460d9b4580ff5f839241">  194</a></span>&#160;  <a class="code" href="a04102.html#ac65153f0ec87128eee577d1ce2870cad">PersistentContainerMap&lt; G, IdSet, Map &gt;::end</a> ()</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;  {</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="a04106.html">Iterator</a>( data_.end() );</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;  }</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; </div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160; </div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;  <span class="keyword">template</span>&lt; <span class="keyword">class</span> G, <span class="keyword">class</span> IdSet, <span class="keyword">class</span> Map &gt;</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;  <span class="keyword">template</span>&lt; <span class="keywordtype">int</span> codim &gt;</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;  <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="a04102.html#a48d6ac1ae8d5abea6288539acb2d9461">PersistentContainerMap&lt; G, IdSet, Map &gt;::resize</a> ( <span class="keyword">const</span> Value &amp;value )</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;  {</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    std::integral_constant&lt; bool, Capabilities::hasEntity&lt; Grid, codim &gt;::v &gt; hasEntity;</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    assert( codim == codimension() );</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; </div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    <span class="comment">// create empty map and swap it with current map (no need to copy twice)</span></div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    Map data;</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    std::swap( data, data_ );</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160; </div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    <span class="comment">// copy all data from old map into new one (adding new entries, if necessary)</span></div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> maxLevel = grid().maxLevel();</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    <span class="keywordflow">for</span> ( <span class="keywordtype">int</span> level = 0; level &lt;= maxLevel; ++level )</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;      migrateLevel&lt; codim &gt;( level, value, data, hasEntity );</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;  }</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160; </div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160; </div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;  <span class="keyword">template</span>&lt; <span class="keyword">class</span> G, <span class="keyword">class</span> IdSet, <span class="keyword">class</span> Map &gt;</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;  <span class="keyword">template</span>&lt; <span class="keywordtype">int</span> codim &gt;</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;  <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="a04102.html#af1ca1e8959d340fc94b8a6e18f5965b4">PersistentContainerMap&lt; G, IdSet, Map &gt;</a></div>
-<div class="line"><a name="l00221"></a><span class="lineno"><a class="line" href="a04102.html#af1ca1e8959d340fc94b8a6e18f5965b4">  221</a></span>&#160;<a class="code" href="a04102.html#af1ca1e8959d340fc94b8a6e18f5965b4">  ::migrateLevel</a> ( <span class="keywordtype">int</span> level, <span class="keyword">const</span> <a class="code" href="a04102.html#a7eb9fff073201cc24a722d05428234a7">Value</a> &amp;value, Map &amp;data,</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;                   std::integral_constant&lt; bool, true &gt; )</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;  {</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="a02698.html#a43e36b0156d9791dce24c97af9590fae">Grid::LevelGridView</a> LevelView;</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> LevelView::template Codim&lt; codim &gt;::Iterator LevelIterator;</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160; </div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    <span class="keyword">const</span> LevelView levelView = grid().levelGridView( level );</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <span class="keyword">const</span> LevelIterator end = levelView.template end&lt; codim &gt;();</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <span class="keywordflow">for</span>( LevelIterator it = levelView.template begin&lt; codim &gt;(); it != end; ++it )</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;      migrateEntry( idSet().<span class="keywordtype">id</span>( *it ), value, data, data_ );</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;  }</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160; </div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160; </div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;  <span class="keyword">template</span>&lt; <span class="keyword">class</span> G, <span class="keyword">class</span> IdSet, <span class="keyword">class</span> Map &gt;</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;  <span class="keyword">template</span>&lt; <span class="keywordtype">int</span> codim &gt;</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;  <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="a04102.html#af1ca1e8959d340fc94b8a6e18f5965b4">PersistentContainerMap&lt; G, IdSet, Map &gt;</a></div>
-<div class="line"><a name="l00237"></a><span class="lineno"><a class="line" href="a04102.html#a04136bd8ff36001fdba173734a871e23">  237</a></span>&#160;<a class="code" href="a04102.html#af1ca1e8959d340fc94b8a6e18f5965b4">  ::migrateLevel</a> ( <span class="keywordtype">int</span> level, <span class="keyword">const</span> <a class="code" href="a04102.html#a7eb9fff073201cc24a722d05428234a7">Value</a> &amp;value, Map &amp;data,</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;                   std::integral_constant&lt; bool, false &gt; )</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;  {</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="a02698.html#a43e36b0156d9791dce24c97af9590fae">Grid::LevelGridView</a> LevelView;</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> LevelView::template Codim&lt; 0 &gt;::Iterator LevelIterator;</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160; </div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    <span class="keyword">const</span> LevelView levelView = grid().levelGridView( level );</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    <span class="keyword">const</span> LevelIterator end = levelView.template end&lt; 0 &gt;();</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    <span class="keywordflow">for</span>( LevelIterator it = levelView.template begin&lt; 0 &gt;(); it != end; ++it )</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    {</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;      <span class="keyword">const</span> <span class="keyword">typename</span> LevelIterator::Entity &amp;entity = *it;</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">int</span> subEntities = entity.subEntities( codim );</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;      <span class="keywordflow">for</span>( <span class="keywordtype">int</span> i = 0; i &lt; subEntities; ++i )</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;        migrateEntry( idSet().subId( entity, i, codim ), value, data, data_ );</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    }</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;  }</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160; </div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160; </div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;  <span class="keyword">template</span>&lt; <span class="keyword">class</span> G, <span class="keyword">class</span> IdSet, <span class="keyword">class</span> Map &gt;</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;  <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="a04102.html#a607a55fd4ac473b7c3f1f89a25a4785c">PersistentContainerMap&lt; G, IdSet, Map &gt;</a></div>
-<div class="line"><a name="l00257"></a><span class="lineno"><a class="line" href="a04102.html#a607a55fd4ac473b7c3f1f89a25a4785c">  257</a></span>&#160;<a class="code" href="a04102.html#a607a55fd4ac473b7c3f1f89a25a4785c">  ::migrateEntry</a> ( <span class="keyword">const</span> <span class="keyword">typename</span> <a class="code" href="a02694.html#a7da8f5ba2179b1896017b5b1016d6011">IdSet::IdType</a> &amp;<span class="keywordtype">id</span>, <span class="keyword">const</span> <a class="code" href="a04102.html#a7eb9fff073201cc24a722d05428234a7">Value</a> &amp;value,</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;                   Map &amp;oldData, Map &amp;newData )</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;  {</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    <span class="comment">// insert entry for id</span></div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    <span class="keyword">const</span> std::pair&lt; typename Map::iterator, bool &gt; inserted</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;      = newData.insert( std::make_pair( <span class="keywordtype">id</span>, value ) );</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160; </div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    <span class="comment">// if entry did not exist previously, copy data</span></div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    <span class="keywordflow">if</span>( inserted.second )</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    {</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;      <span class="keyword">const</span> <span class="keyword">typename</span> Map::iterator pos = oldData.find( <span class="keywordtype">id</span> );</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;      <span class="keywordflow">if</span>( pos != oldData.end() )</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;      {</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;        inserted.first-&gt;second = pos-&gt;second;</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;        oldData.erase( pos );</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;      }</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    }</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;  }</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160; </div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;} <span class="comment">// namespace Dune</span></div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160; </div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// #ifndef DUNE_PERSISTENTCONTAINERMAP_HH</span></div>
-<div class="ttc" id="aa00936_html"><div class="ttname"><a href="a00936.html">Dune</a></div><div class="ttdoc">Include standard header files.</div><div class="ttdef"><b>Definition:</b> agrid.hh:59</div></div>
-<div class="ttc" id="aa02630_html"><div class="ttname"><a href="a02630.html">Dune::Entity</a></div><div class="ttdoc">Wrapper class for entities.</div><div class="ttdef"><b>Definition:</b> common/entity.hh:64</div></div>
-<div class="ttc" id="aa02630_html_aaa6c6e1d981fce9dbe550666f7a97800a0ce22137a3853646973cf5cd16c87868"><div class="ttname"><a href="a02630.html#aaa6c6e1d981fce9dbe550666f7a97800a0ce22137a3853646973cf5cd16c87868">Dune::Entity::codimension</a></div><div class="ttdeci">@ codimension</div><div class="ttdoc">Know your own codimension.</div><div class="ttdef"><b>Definition:</b> common/entity.hh:105</div></div>
-<div class="ttc" id="aa02694_html"><div class="ttname"><a href="a02694.html">Dune::IdSet</a></div><div class="ttdoc">Id Set Interface.</div><div class="ttdef"><b>Definition:</b> indexidset.hh:441</div></div>
-<div class="ttc" id="aa02694_html_a7da8f5ba2179b1896017b5b1016d6011"><div class="ttname"><a href="a02694.html#a7da8f5ba2179b1896017b5b1016d6011">Dune::IdSet::IdType</a></div><div class="ttdeci">IdTypeImp IdType</div><div class="ttdoc">Type used to represent an id.</div><div class="ttdef"><b>Definition:</b> indexidset.hh:444</div></div>
-<div class="ttc" id="aa02698_html_a43e36b0156d9791dce24c97af9590fae"><div class="ttname"><a href="a02698.html#a43e36b0156d9791dce24c97af9590fae">Dune::Grid::LevelGridView</a></div><div class="ttdeci">GridFamily::Traits::LevelGridView LevelGridView</div><div class="ttdoc">type of view for level grid</div><div class="ttdef"><b>Definition:</b> common/grid.hh:406</div></div>
-<div class="ttc" id="aa04102_html"><div class="ttname"><a href="a04102.html">Dune::PersistentContainerMap</a></div><div class="ttdoc">map-based implementation of the PersistentContainer</div><div class="ttdef"><b>Definition:</b> persistentcontainermap.hh:23</div></div>
-<div class="ttc" id="aa04102_html_a04136bd8ff36001fdba173734a871e23"><div class="ttname"><a href="a04102.html#a04136bd8ff36001fdba173734a871e23">Dune::PersistentContainerMap::migrateLevel</a></div><div class="ttdeci">void migrateLevel(int level, const Value &amp;value, Map &amp;data, std::integral_constant&lt; bool, false &gt;)</div><div class="ttdef"><b>Definition:</b> persistentcontainermap.hh:237</div></div>
-<div class="ttc" id="aa04102_html_a0738f061eb60675341496d78003c53de"><div class="ttname"><a href="a04102.html#a0738f061eb60675341496d78003c53de">Dune::PersistentContainerMap::swap</a></div><div class="ttdeci">void swap(This &amp;other)</div><div class="ttdef"><b>Definition:</b> persistentcontainermap.hh:94</div></div>
-<div class="ttc" id="aa04102_html_a086b7677af48f8286c7f62b6eb286aa2"><div class="ttname"><a href="a04102.html#a086b7677af48f8286c7f62b6eb286aa2">Dune::PersistentContainerMap::fill</a></div><div class="ttdeci">void fill(const Value &amp;value)</div><div class="ttdef"><b>Definition:</b> persistentcontainermap.hh:92</div></div>
-<div class="ttc" id="aa04102_html_a1481b442dfa1b7d1a52d369770ae96f0"><div class="ttname"><a href="a04102.html#a1481b442dfa1b7d1a52d369770ae96f0">Dune::PersistentContainerMap::operator()</a></div><div class="ttdeci">const Value &amp; operator()(const Entity &amp;entity, int subEntity) const</div><div class="ttdef"><b>Definition:</b> persistentcontainermap.hh:67</div></div>
-<div class="ttc" id="aa04102_html_a148f33f791c8776236f44c201760514a"><div class="ttname"><a href="a04102.html#a148f33f791c8776236f44c201760514a">Dune::PersistentContainerMap::Grid</a></div><div class="ttdeci">G Grid</div><div class="ttdef"><b>Definition:</b> persistentcontainermap.hh:28</div></div>
-<div class="ttc" id="aa04102_html_a260501921dad94dfa64068161653763c"><div class="ttname"><a href="a04102.html#a260501921dad94dfa64068161653763c">Dune::PersistentContainerMap::resize</a></div><div class="ttdeci">void resize(const Value &amp;value)</div></div>
-<div class="ttc" id="aa04102_html_a2df91a67aa69c25eeba45e6ccd5b094e"><div class="ttname"><a href="a04102.html#a2df91a67aa69c25eeba45e6ccd5b094e">Dune::PersistentContainerMap::ConstIterator</a></div><div class="ttdeci">IteratorWrapper&lt; const Value, typename Map::const_iterator &gt; ConstIterator</div><div class="ttdef"><b>Definition:</b> persistentcontainermap.hh:36</div></div>
-<div class="ttc" id="aa04102_html_a2e3e7b47ac387c01a2cc86f8dbe5b135"><div class="ttname"><a href="a04102.html#a2e3e7b47ac387c01a2cc86f8dbe5b135">Dune::PersistentContainerMap::codim_</a></div><div class="ttdeci">int codim_</div><div class="ttdef"><b>Definition:</b> persistentcontainermap.hh:130</div></div>
-<div class="ttc" id="aa04102_html_a38e954fcf8d20bf56a4474db517ed1c0"><div class="ttname"><a href="a04102.html#a38e954fcf8d20bf56a4474db517ed1c0">Dune::PersistentContainerMap::grid_</a></div><div class="ttdeci">const Grid * grid_</div><div class="ttdef"><b>Definition:</b> persistentcontainermap.hh:129</div></div>
-<div class="ttc" id="aa04102_html_a3bdfe5c4c1feda7f2b3255d0f2001577"><div class="ttname"><a href="a04102.html#a3bdfe5c4c1feda7f2b3255d0f2001577">Dune::PersistentContainerMap::codimension</a></div><div class="ttdeci">int codimension() const</div><div class="ttdef"><b>Definition:</b> persistentcontainermap.hh:108</div></div>
-<div class="ttc" id="aa04102_html_a48d6ac1ae8d5abea6288539acb2d9461"><div class="ttname"><a href="a04102.html#a48d6ac1ae8d5abea6288539acb2d9461">Dune::PersistentContainerMap::resize</a></div><div class="ttdeci">void resize(const Value &amp;value=Value())</div><div class="ttdef"><b>Definition:</b> persistentcontainermap.hh:84</div></div>
-<div class="ttc" id="aa04102_html_a53d6067277588335e00fcbd51e0c7527"><div class="ttname"><a href="a04102.html#a53d6067277588335e00fcbd51e0c7527">Dune::PersistentContainerMap::begin</a></div><div class="ttdeci">ConstIterator begin() const</div><div class="ttdef"><b>Definition:</b> persistentcontainermap.hh:172</div></div>
-<div class="ttc" id="aa04102_html_a607a55fd4ac473b7c3f1f89a25a4785c"><div class="ttname"><a href="a04102.html#a607a55fd4ac473b7c3f1f89a25a4785c">Dune::PersistentContainerMap::migrateEntry</a></div><div class="ttdeci">static void migrateEntry(const typename IdSet::IdType &amp;id, const Value &amp;value, Map &amp;oldData, Map &amp;newData)</div><div class="ttdef"><b>Definition:</b> persistentcontainermap.hh:257</div></div>
-<div class="ttc" id="aa04102_html_a7eb9fff073201cc24a722d05428234a7"><div class="ttname"><a href="a04102.html#a7eb9fff073201cc24a722d05428234a7">Dune::PersistentContainerMap::Value</a></div><div class="ttdeci">Map::mapped_type Value</div><div class="ttdef"><b>Definition:</b> persistentcontainermap.hh:33</div></div>
-<div class="ttc" id="aa04102_html_a7fba8c9161bc460d9b4580ff5f839241"><div class="ttname"><a href="a04102.html#a7fba8c9161bc460d9b4580ff5f839241">Dune::PersistentContainerMap::end</a></div><div class="ttdeci">Iterator end()</div><div class="ttdef"><b>Definition:</b> persistentcontainermap.hh:194</div></div>
-<div class="ttc" id="aa04102_html_a92ee5df0af9cbf8d4d022c776752bddc"><div class="ttname"><a href="a04102.html#a92ee5df0af9cbf8d4d022c776752bddc">Dune::PersistentContainerMap::operator[]</a></div><div class="ttdeci">const Value &amp; operator[](const Entity &amp;entity) const</div><div class="ttdef"><b>Definition:</b> persistentcontainermap.hh:49</div></div>
-<div class="ttc" id="aa04102_html_aa9ffcdacd9649307488024e18e22ae30"><div class="ttname"><a href="a04102.html#aa9ffcdacd9649307488024e18e22ae30">Dune::PersistentContainerMap::PersistentContainerMap</a></div><div class="ttdeci">PersistentContainerMap(const Grid &amp;grid, int codim, const IdSet &amp;idSet, const Value &amp;value)</div><div class="ttdef"><b>Definition:</b> persistentcontainermap.hh:39</div></div>
-<div class="ttc" id="aa04102_html_ab1c6a44c7cd716a8c008b512d3ee4bff"><div class="ttname"><a href="a04102.html#ab1c6a44c7cd716a8c008b512d3ee4bff">Dune::PersistentContainerMap::begin</a></div><div class="ttdeci">Iterator begin()</div><div class="ttdef"><b>Definition:</b> persistentcontainermap.hh:179</div></div>
-<div class="ttc" id="aa04102_html_abc1712ee3dcef8daa2dc4ca4de121153"><div class="ttname"><a href="a04102.html#abc1712ee3dcef8daa2dc4ca4de121153">Dune::PersistentContainerMap::Size</a></div><div class="ttdeci">Map::size_type Size</div><div class="ttdef"><b>Definition:</b> persistentcontainermap.hh:34</div></div>
-<div class="ttc" id="aa04102_html_ac65153f0ec87128eee577d1ce2870cad"><div class="ttname"><a href="a04102.html#ac65153f0ec87128eee577d1ce2870cad">Dune::PersistentContainerMap::end</a></div><div class="ttdeci">ConstIterator end() const</div><div class="ttdef"><b>Definition:</b> persistentcontainermap.hh:187</div></div>
-<div class="ttc" id="aa04102_html_aca083ceb2ad50d0934e5812268e309ec"><div class="ttname"><a href="a04102.html#aca083ceb2ad50d0934e5812268e309ec">Dune::PersistentContainerMap::data_</a></div><div class="ttdeci">Map data_</div><div class="ttdef"><b>Definition:</b> persistentcontainermap.hh:132</div></div>
-<div class="ttc" id="aa04102_html_ae0242509604b29711bad1a2747f05ead"><div class="ttname"><a href="a04102.html#ae0242509604b29711bad1a2747f05ead">Dune::PersistentContainerMap::size</a></div><div class="ttdeci">Size size() const</div><div class="ttdef"><b>Definition:</b> persistentcontainermap.hh:82</div></div>
-<div class="ttc" id="aa04102_html_ae19e81d7bab91c4f508af75a0ee82141"><div class="ttname"><a href="a04102.html#ae19e81d7bab91c4f508af75a0ee82141">Dune::PersistentContainerMap::idSet</a></div><div class="ttdeci">const IdSet &amp; idSet() const</div><div class="ttdef"><b>Definition:</b> persistentcontainermap.hh:127</div></div>
-<div class="ttc" id="aa04102_html_ae1c558bf3354c0a569df33b18e929be0"><div class="ttname"><a href="a04102.html#ae1c558bf3354c0a569df33b18e929be0">Dune::PersistentContainerMap::Iterator</a></div><div class="ttdeci">IteratorWrapper&lt; Value, typename Map::iterator &gt; Iterator</div><div class="ttdef"><b>Definition:</b> persistentcontainermap.hh:37</div></div>
-<div class="ttc" id="aa04102_html_ae7bcde9dff8cbb05329d403655dba350"><div class="ttname"><a href="a04102.html#ae7bcde9dff8cbb05329d403655dba350">Dune::PersistentContainerMap::idSet_</a></div><div class="ttdeci">const IdSet * idSet_</div><div class="ttdef"><b>Definition:</b> persistentcontainermap.hh:131</div></div>
-<div class="ttc" id="aa04102_html_af1ca1e8959d340fc94b8a6e18f5965b4"><div class="ttname"><a href="a04102.html#af1ca1e8959d340fc94b8a6e18f5965b4">Dune::PersistentContainerMap::migrateLevel</a></div><div class="ttdeci">void migrateLevel(int level, const Value &amp;value, Map &amp;data, std::integral_constant&lt; bool, true &gt;)</div><div class="ttdef"><b>Definition:</b> persistentcontainermap.hh:221</div></div>
-<div class="ttc" id="aa04102_html_af1e915ee313dfae32af8b8aefc17b706"><div class="ttname"><a href="a04102.html#af1e915ee313dfae32af8b8aefc17b706">Dune::PersistentContainerMap::grid</a></div><div class="ttdeci">const Grid &amp; grid() const</div><div class="ttdef"><b>Definition:</b> persistentcontainermap.hh:111</div></div>
-<div class="ttc" id="aa04102_html_af896d65b2d42450f0f2ddea606ffae66"><div class="ttname"><a href="a04102.html#af896d65b2d42450f0f2ddea606ffae66">Dune::PersistentContainerMap::shrinkToFit</a></div><div class="ttdeci">void shrinkToFit()</div><div class="ttdef"><b>Definition:</b> persistentcontainermap.hh:90</div></div>
-<div class="ttc" id="aa04106_html"><div class="ttname"><a href="a04106.html">Dune::PersistentContainerMap::IteratorWrapper</a></div><div class="ttdef"><b>Definition:</b> persistentcontainermap.hh:144</div></div>
-<div class="ttc" id="aa04106_html_a47f48f9584efdbe0b5d2682e2d6abb5e"><div class="ttname"><a href="a04106.html#a47f48f9584efdbe0b5d2682e2d6abb5e">Dune::PersistentContainerMap::IteratorWrapper::IteratorWrapper</a></div><div class="ttdeci">IteratorWrapper(const iterator &amp;it)</div><div class="ttdef"><b>Definition:</b> persistentcontainermap.hh:148</div></div>
-<div class="ttc" id="aa06743_html"><div class="ttname"><a href="a06743.html">capabilities.hh</a></div><div class="ttdoc">A set of traits classes to store static information about grid implementation.</div></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;      <span class="comment">// Set up element adjacency lists</span></div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;      std::vector&lt;idx_type&gt; xadj, adjncy;</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;      xadj.push_back(0);</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160; </div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;      <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; element : elements(gv, <a class="code" href="a00944.html#af39b89b2239cd60e67d1a45de71213e0">Partitions::interior</a>)) {</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        <span class="keywordtype">size_t</span> numNeighbors = 0;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160; </div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; in : intersections(gv, element)) {</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;          <span class="keywordflow">if</span> (in.neighbor()) {</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;            adjncy.push_back(globalIndex.index(in.outside()));</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160; </div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;            ++numNeighbors;</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;          }</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        }</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160; </div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        xadj.push_back(xadj.back() + numNeighbors);</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;      }</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160; </div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="preprocessor">#if PARMETIS_MAJOR_VERSION &gt;= 4</span></div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">int</span> OK =</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        ParMETIS_V3_AdaptiveRepart(vtxdist.data(), xadj.data(), adjncy.data(), NULL, NULL, NULL,</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;                                   &amp;wgtflag, &amp;numflag, &amp;ncon, &amp;nparts, tpwgts.data(), ubvec.data(),</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;                                   &amp;itr, options, &amp;edgecut, <span class="keyword">reinterpret_cast&lt;</span>idx_type*<span class="keyword">&gt;</span>(interiorPart.data()), &amp;comm);</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160; </div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="preprocessor">#if PARMETIS_MAJOR_VERSION &gt;= 4</span></div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;      <span class="keywordflow">if</span> (OK != METIS_OK)</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        DUNE_THROW(Dune::Exception, <span class="stringliteral">&quot;ParMETIS returned error code &quot;</span> &lt;&lt; OK);</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160; </div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;      <span class="comment">// At this point, interiorPart contains a target rank for each interior element, and they are sorted</span></div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;      <span class="comment">// by the order in which the grid view traverses them.  Now we need to do two things:</span></div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;      <span class="comment">// a) Add additional dummy entries for the ghost elements</span></div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;      <span class="comment">// b) Use the element index for the actual ordering.  Since there may be different types of elements,</span></div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;      <span class="comment">//    we cannot use the index set directly, but have to go through a Mapper.</span></div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160; </div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;      <span class="keyword">typedef</span> MultipleCodimMultipleGeomTypeMapper&lt;GridView&gt; ElementMapper;</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;      ElementMapper elementMapper(gv, <a class="code" href="a00920.html#ga3f08c3fdd04f64bac3140926732b4b30">mcmgElementLayout</a>());</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160; </div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;      std::vector&lt;unsigned int&gt; part(gv.size(0));</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;      std::fill(part.begin(), part.end(), 0);</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;      <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> c = 0;</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;      <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; element : elements(gv, <a class="code" href="a00944.html#af39b89b2239cd60e67d1a45de71213e0">Partitions::interior</a>))</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        part[elementMapper.index(element)] = interiorPart[c++];</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160; </div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;      <span class="keywordflow">return</span> part;</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    }</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;  };</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160; </div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;}  <span class="comment">// namespace Dune</span></div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160; </div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;<span class="preprocessor">#else </span><span class="comment">// PARMETIS_MAJOR_VERSION</span></div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;<span class="preprocessor">#warning &quot;You seem to be using the ParMETIS emulation layer of scotch, which does not work with this file.&quot;</span></div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160; </div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;<span class="preprocessor">#else </span><span class="comment">// HAVE_PARMETIS</span></div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;<span class="preprocessor">#warning &quot;PARMETIS was not found, please check your configuration&quot;</span></div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160; </div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// DUNE_GRID_UTILITY_PARMETISGRIDPARTITIONER_HH</span></div>
+<div class="ttc" id="aa00302_html"><div class="ttname"><a href="a00302.html">mcmgmapper.hh</a></div><div class="ttdoc">Mapper for multiple codim and multiple geometry types.</div></div>
+<div class="ttc" id="aa00308_html"><div class="ttname"><a href="a00308.html">rangegenerators.hh</a></div></div>
+<div class="ttc" id="aa00860_html"><div class="ttname"><a href="a00860.html">globalindexset.hh</a></div><div class="ttdoc">Provides a globally unique index for all entities of a distributed Dune grid.</div></div>
+<div class="ttc" id="aa00910_html_gga5c76b0a0ed3fdcf2bd9ab2bbb2df0847a7170531f3c1c62b7904410099cf37a37"><div class="ttname"><a href="a00910.html#gga5c76b0a0ed3fdcf2bd9ab2bbb2df0847a7170531f3c1c62b7904410099cf37a37">Dune::GridView::dimension</a></div><div class="ttdeci">@ dimension</div><div class="ttdoc">The dimension of the grid.</div><div class="ttdef"><b>Definition:</b> common/gridview.hh:130</div></div>
+<div class="ttc" id="aa00920_html_ga3f08c3fdd04f64bac3140926732b4b30"><div class="ttname"><a href="a00920.html#ga3f08c3fdd04f64bac3140926732b4b30">Dune::mcmgElementLayout</a></div><div class="ttdeci">MCMGLayout mcmgElementLayout()</div><div class="ttdoc">layout for elements (codim-0 entities)</div><div class="ttdef"><b>Definition:</b> mcmgmapper.hh:95</div></div>
+<div class="ttc" id="aa00940_html"><div class="ttname"><a href="a00940.html">Dune</a></div><div class="ttdoc">Include standard header files.</div><div class="ttdef"><b>Definition:</b> agrid.hh:58</div></div>
+<div class="ttc" id="aa00944_html_af39b89b2239cd60e67d1a45de71213e0"><div class="ttname"><a href="a00944.html#af39b89b2239cd60e67d1a45de71213e0">Dune::Partitions::interior</a></div><div class="ttdeci">constexpr Interior interior</div><div class="ttdoc">PartitionSet for the interior partition.</div><div class="ttdef"><b>Definition:</b> partitionset.hh:270</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

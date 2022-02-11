@@ -1,8 +1,8 @@
 // -*- tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*-
 // vi: set et ts=4 sw=2 sts=2:
 
-#ifndef DUNE_GRID_INTERSECTION_HH
-#define DUNE_GRID_INTERSECTION_HH
+#ifndef DUNE_GRID_COMMON_INTERSECTION_HH
+#define DUNE_GRID_COMMON_INTERSECTION_HH
 
 #include <dune/grid/common/grid.hh>
 
@@ -200,18 +200,6 @@ namespace Dune
 
     /** \brief Codim 1 geometry returned by geometryInInside() and geometryInOutside() */
     typedef typename GridImp::template Codim<1>::LocalGeometry LocalGeometry;
-
-    /** @brief Export codim of intersection (always 1)
-     * \deprecated This number is deprecated, because it is always 1 anyway.
-     */
-    enum DUNE_DEPRECATED_MSG("Deprecated: codimensions of an intersection are always 1!") { codimension=1 /*!< codim of intersection in grid */ };
-
-    /** @brief Export grid dimension
-     * \deprecated This number is deprecated:  First, it doesn't really give any information
-     * about the intersection itself.  Secondly: the fact the Intersection::dimension is
-     * NOT the dimension of the intersection confused too many people.
-     */
-    enum DUNE_DEPRECATED_MSG("Deprecated: get this dimension from the grid itself, or from an element!") { dimension=GridImp::dimension /*!< grid dimension */ };
 
     //! @brief Export dimension of the intersection
     enum { mydimension=GridImp::dimension-1 /*!< intersection's dimension */ };
@@ -535,4 +523,4 @@ namespace Dune
 
 } // namespace Dune
 
-#endif // DUNE_GRID_INTERSECTION_HH
+#endif // DUNE_GRID_COMMON_INTERSECTION_HH

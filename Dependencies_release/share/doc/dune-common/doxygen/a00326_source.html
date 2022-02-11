@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-common
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -75,52 +75,20 @@ $(function() {
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifndef DUNE_COMMON_STD_APPLY_HH</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define DUNE_COMMON_STD_APPLY_HH</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#if DUNE_HAVE_CXX_APPLY</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">  #include &lt;tuple&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#elif DUNE_HAVE_CXX_EXPERIMENTAL_APPLY</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">  #include &lt;experimental/tuple&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">  #include &lt;cstddef&gt;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">  #include &lt;utility&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">  #include &lt;tuple&gt;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00374.html">dune/common/tupleutility.hh</a>&gt;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00428.html">Dune</a></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="a00453.html">   22</a></span>&#160;  <span class="keyword">namespace </span>Std</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  {</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#if DUNE_HAVE_CXX_APPLY</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">using</span> <a class="code" href="a00409.html#ga3a2d0075fff7c0af1ab00a7f252c2f9c">std::apply</a>;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#elif DUNE_HAVE_CXX_EXPERIMENTAL_APPLY</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">using</span> <a class="code" href="a00409.html#ga3a2d0075fff7c0af1ab00a7f252c2f9c">std::experimental::apply</a>;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> F, <span class="keyword">class</span> ArgTuple&gt;</div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="a00409.html#ga3a2d0075fff7c0af1ab00a7f252c2f9c">   46</a></span>&#160;    decltype(<span class="keyword">auto</span>) <a class="code" href="a00409.html#ga3a2d0075fff7c0af1ab00a7f252c2f9c">apply</a>(F&amp;&amp; f, ArgTuple&amp;&amp; args)</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    {</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;      <span class="keyword">auto</span> indices = std::make_index_sequence&lt;std::tuple_size&lt;std::decay_t&lt;ArgTuple&gt;&gt;::value&gt;();</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="a00406.html#gaeeffbe0f382283c9a2314a3947e54be9">applyPartial</a>(std::forward&lt;F&gt;(f), std::forward&lt;ArgTuple&gt;(args), indices);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    }</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  } <span class="comment">// namespace Std</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;} <span class="comment">// namespace Dune</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// #ifndef DUNE_COMMON_STD_APPLY_HH</span></div>
-<div class="ttc" id="aa00374_html"><div class="ttname"><a href="a00374.html">tupleutility.hh</a></div><div class="ttdoc">Contains utility classes which can be used with std::tuple.</div></div>
-<div class="ttc" id="aa00406_html_gaeeffbe0f382283c9a2314a3947e54be9"><div class="ttname"><a href="a00406.html#gaeeffbe0f382283c9a2314a3947e54be9">Dune::applyPartial</a></div><div class="ttdeci">decltype(auto) applyPartial(F &amp;&amp;f, ArgTuple &amp;&amp;args, std::integer_sequence&lt; I, i... &gt;)</div><div class="ttdoc">Apply function with arguments from a given tuple.</div><div class="ttdef"><b>Definition:</b> tupleutility.hh:40</div></div>
-<div class="ttc" id="aa00409_html_ga3a2d0075fff7c0af1ab00a7f252c2f9c"><div class="ttname"><a href="a00409.html#ga3a2d0075fff7c0af1ab00a7f252c2f9c">Dune::Std::apply</a></div><div class="ttdeci">decltype(auto) apply(F &amp;&amp;f, ArgTuple &amp;&amp;args)</div><div class="ttdoc">Apply function with arguments given as tuple.</div><div class="ttdef"><b>Definition:</b> apply.hh:46</div></div>
-<div class="ttc" id="aa00428_html"><div class="ttname"><a href="a00428.html">Dune</a></div><div class="ttdoc">Dune namespace.</div><div class="ttdef"><b>Definition:</b> alignedallocator.hh:14</div></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;tuple&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00428.html">Dune</a></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="a00454.html">   10</a></span>&#160;  <span class="keyword">namespace </span>Std</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">using</span> std::apply;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  } <span class="comment">// namespace Std</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;} <span class="comment">// namespace Dune</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// #ifndef DUNE_COMMON_STD_APPLY_HH</span></div>
+<div class="ttc" id="aa00428_html"><div class="ttname"><a href="a00428.html">Dune</a></div><div class="ttdoc">Dune namespace.</div><div class="ttdef"><b>Definition:</b> alignedallocator.hh:11</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

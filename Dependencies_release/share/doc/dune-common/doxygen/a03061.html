@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-common: Member List</title>
+<title>dune-common: Dune::IsInteroperable&lt; T1, T2 &gt; Struct Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-common
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,21 +62,60 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00428.html">Dune</a></li><li class="navelem"><a class="el" href="a03064.html">ReduceTuple</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00428.html">Dune</a></li><li class="navelem"><a class="el" href="a03061.html">IsInteroperable</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
+<a href="a03058.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::ReduceTuple&lt; F, Tuple, Seed, N &gt; Member List</div>  </div>
+<div class="title">Dune::IsInteroperable&lt; T1, T2 &gt; Struct Template Reference<div class="ingroups"><a class="el" href="a00400.html">Common</a> &raquo; <a class="el" href="a00402.html">Utilities</a> &raquo; <a class="el" href="a00409.html">C++ utilities and backports</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="a03064.html">Dune::ReduceTuple&lt; F, Tuple, Seed, N &gt;</a>, including all inherited members.</p>
-<table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="a00406.html#ga65dd729f95b540d3ad4d8b510d19a69d">Accumulated</a> typedef</td><td class="entry"><a class="el" href="a03064.html">Dune::ReduceTuple&lt; F, Tuple, Seed, N &gt;</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="a00406.html#ga7be50b03070a878f2d6dd778443b2234">type</a> typedef</td><td class="entry"><a class="el" href="a03064.html">Dune::ReduceTuple&lt; F, Tuple, Seed, N &gt;</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a00406.html#ga780338238a75b8c437baf30e7bde9002">Value</a> typedef</td><td class="entry"><a class="el" href="a03064.html">Dune::ReduceTuple&lt; F, Tuple, Seed, N &gt;</a></td><td class="entry"></td></tr>
-</table></div><!-- contents -->
+<p>Checks whether two types are interoperable.  
+ <a href="a03061.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="a00383_source.html">dune/common/typetraits.hh</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a1d5879320ced080d6a596c3b793fffd9"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="a03061.html#a1d5879320ced080d6a596c3b793fffd9abedf2295a77ab82bfde1edd918bb595d">value</a> = std::is_convertible&lt;T1,T2&gt;::value || std::is_convertible&lt;T2,T1&gt;::value
+ }</td></tr>
+<tr class="separator:a1d5879320ced080d6a596c3b793fffd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;class T1, class T2&gt;<br />
+struct Dune::IsInteroperable&lt; T1, T2 &gt;</h3>
+
+<p>Checks whether two types are interoperable. </p>
+<p>Two types are interoperable if conversions in either directions exists. </p>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="a1d5879320ced080d6a596c3b793fffd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d5879320ced080d6a596c3b793fffd9">&#9670;&nbsp;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T1 , class T2 &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a1d5879320ced080d6a596c3b793fffd9abedf2295a77ab82bfde1edd918bb595d"></a>value&#160;</td><td class="fielddoc"><p>True if either a conversion from T1 to T2 or vice versa exists. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li><a class="el" href="a00383_source.html">typetraits.hh</a></li>
+</ul>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1

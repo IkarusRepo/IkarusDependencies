@@ -7,7 +7,7 @@
 #include <dune/common/typetraits.hh>
 #include <dune/common/typeutilities.hh>
 
-#if DUNE_HAVE_HEADER_EXPERIMENTAL_TYPE_TRAITS
+#if __has_include(<experimental/type_traits>)
 #include <experimental/type_traits>
 #endif
 
@@ -33,7 +33,7 @@ namespace Std
   /** \class to_false_type
    *
    *  \brief template mapping a type to <tt>std::false_type</tt>
-   *
+   *  \deprecated Use Dune::AlwaysFalse (from dune/common/typetraits.hh) instead
    *  \tparam T Some type
    *
    *  Suppose you have a template class. You want to document the required
@@ -76,7 +76,7 @@ namespace Std
    * \ingroup CxxUtilities
    */
   template< typename T >
-  struct to_false_type : public std::false_type {};
+  struct [[deprecated("Will be removed after release 2.8. Use Dune::AlwaysFalse (from dune/common/typetraits.hh)")]] to_false_type : public std::false_type {};
 
 
 
@@ -86,7 +86,7 @@ namespace Std
   /** \class to_true_type
    *
    *  \brief template mapping a type to <tt>std::true_type</tt>
-   *
+   *  \deprecated Use Dune::AlwaysFalse (from dune/common/typetraits.hh) instead
    *  \tparam T Some type
    *
    *  \note This class exists mostly for consistency with to_false_type.
@@ -94,30 +94,12 @@ namespace Std
    * \ingroup CxxUtilities
    */
   template< typename T >
-  struct to_true_type : public std::true_type {};
+  struct [[deprecated("Will be removed after release 2.8. Use Dune::AlwaysTrue (from dune/common/typetraits.hh)")]] to_true_type : public std::true_type {};
 
 
-#if DUNE_HAVE_CXX_BOOL_CONSTANT
-
-    using std::bool_constant;
-
-#elif DUNE_HAVE_CXX_EXPERIMENTAL_BOOL_CONSTANT
-
-    using std::experimental::bool_constant;
-
-#else
-
-    /**
-     *  \brief A template alias for std::integral_constant<bool, value>
-     *
-     *  \tparam value Boolean value to encode as std::integral_constant<bool, value>
-     *
-     * \ingroup CxxUtilities
-     */
-    template <bool value>
-    using bool_constant = std::integral_constant<bool, value>;
-
-#endif
+  /// A helper alias template std::bool_constant imported into the namespace Dune::Std
+  /// \deprecated Use the `std::bool_constant` directly.
+  using std::bool_constant;
 
 
   namespace Impl {
@@ -127,7 +109,7 @@ namespace Std
     // result_of_t is not defined and this overload is disabled.
     template<class R, class F, class... Args,
       std::enable_if_t<
-        std::is_same<void_t<std::result_of_t<F(Args...)>>, R>::value
+        std::is_same<std::void_t<std::result_of_t<F(Args...)>>, R>::value
       , int> = 0>
     std::true_type is_callable_helper(PriorityTag<2>)
     { return {}; }
@@ -152,6 +134,7 @@ namespace Std
 
   /**
    * \brief Traits class to check if function is callable
+   * \deprecated Use std::is_invocable from <type_traits>
    *
    * \tparam D Function descriptor
    * \tparam R Return value
@@ -172,6 +155,7 @@ namespace Std
 
   /**
    * \brief Traits class to check if function is callable
+   * \deprecated Use std::is_invocable from <type_traits>
    *
    * \tparam D Function descriptor
    * \tparam R Return value
@@ -188,13 +172,14 @@ namespace Std
    * \ingroup CxxUtilities
    */
   template <class F, class... Args, class R>
-  struct is_callable< F(Args...), R> :
+  struct [[deprecated("Use std::is_invocable from <type_traits>. Will be removed after release 2.8")]] is_callable< F(Args...), R> :
       decltype(Impl::is_callable_helper<R, F, Args...>(PriorityTag<42>()))
   {};
 
 
   /**
    * \brief Traits class to check if function is invocable
+   * \deprecated Use std::is_invocable from <type_traits>
    *
    * \tparam F    Function to check
    * \tparam Args Function arguments to check
@@ -207,12 +192,13 @@ namespace Std
    * \ingroup CxxUtilities
    */
   template <class F, class... Args>
-  struct is_invocable :
+  struct [[deprecated("Use std::is_invocable from <type_traits>. Will be removed after release 2.8")]] is_invocable :
       decltype(Impl::is_callable_helper<void, F, Args...>(PriorityTag<42>()))
   {};
 
   /**
    * \brief Traits class to check if function is invocable and the return type is compatible
+   * \deprecated Use std::is_invocable_r from <type_traits>
    *
    * \tparam R    Desired result type
    * \tparam F    Function to check
@@ -227,7 +213,7 @@ namespace Std
    * \ingroup CxxUtilities
    */
   template <class R, class F, class... Args>
-  struct is_invocable_r :
+  struct [[deprecated("Use std::is_invocable_r from <type_traits>. Will be removed after release 2.8")]] is_invocable_r :
       decltype(Impl::is_callable_helper<R, F, Args...>(PriorityTag<42>()))
   {};
 
@@ -264,7 +250,7 @@ namespace Std
 
     // specialization of detector that matches if Op<Args...> can be instantiated
     template<typename Default, template<typename...> class Op, typename... Args>
-    struct detector<Default, void_t<Op<Args...>>, Op, Args...>
+    struct detector<Default, std::void_t<Op<Args...>>, Op, Args...>
     {
       using value_t = std::true_type;
       using type = Op<Args...>;
@@ -442,23 +428,9 @@ namespace Std
    * \ingroup CxxUtilities
    **/
   template< class... B >
-  struct conjunction;
-
-  template<>
-  struct conjunction<>
-    : std::true_type
+  struct [[deprecated("Will be removed after release 2.8. Use std::conjuction instead.")]] conjunction
+    : std::conjunction<B...>
   {};
-
-  template< class B >
-  struct conjunction< B >
-    : B
-  {};
-
-  template< class B1, class... Bn >
-  struct conjunction< B1, Bn... >
-    : std::conditional_t< static_cast< bool >( B1::value ), conjunction< Bn... >, B1 >
-  {};
-
 
 
   // disjunction
@@ -472,22 +444,10 @@ namespace Std
    * \ingroup CxxUtilities
    **/
   template< class... B >
-  struct disjunction;
-
-  template<>
-  struct disjunction<>
-    : std::false_type
+  struct [[deprecated("Will be removed after release 2.8. Use std::disjunction instead.")]] disjunction
+    : std::disjunction<B...>
   {};
 
-  template< class B >
-  struct disjunction< B >
-    : B
-  {};
-
-  template< class B1, class... Bn >
-  struct disjunction< B1, Bn... >
-    : std::conditional_t< static_cast< bool >( B1::value ), B1, disjunction< Bn... > >
-  {};
 
   // negation
   // --------
@@ -500,7 +460,8 @@ namespace Std
    * \ingroup CxxUtilities
    **/
   template<class B>
-  struct negation : public bool_constant<!static_cast<bool>(B::value)>
+  struct [[deprecated("Will be removed after release 2.8. Use std::negation instead.")]] negation
+    : std::negation<B>
   {};
 
 } // namespace Std

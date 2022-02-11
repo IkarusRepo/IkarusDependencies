@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,7 +62,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00936.html">Dune</a></li><li class="navelem"><a class="el" href="a03690.html">StarCDReader</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00940.html">Dune</a></li><li class="navelem"><a class="el" href="a03690.html">StarCDReader</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -70,20 +70,20 @@ $(function() {
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="a03687.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::StarCDReader&lt; GridType &gt; Class Template Reference<div class="ingroups"><a class="el" href="a00902.html">dune-grid</a> &raquo; <a class="el" href="a00924.html">I/O</a> &raquo; <a class="el" href="a00932.html">StarCD</a></div></div>  </div>
+<div class="title">Dune::StarCDReader&lt; GridType &gt; Class Template Reference<div class="ingroups"><a class="el" href="a00905.html">dune-grid</a> &raquo; <a class="el" href="a00928.html">I/O</a> &raquo; <a class="el" href="a00936.html">StarCD</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
 <p>File reader for the Star-CD format.  
  <a href="a03690.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00773_source.html">dune/grid/io/file/starcdreader.hh</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00779_source.html">dune/grid/io/file/starcdreader.hh</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a119094330be41a11e8782eaaf3ff9e24"><td class="memItemLeft" align="right" valign="top">static ToUniquePtr&lt; GridType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03690.html#a119094330be41a11e8782eaaf3ff9e24">read</a> (const std::string &amp;fileName, bool verbose=true)</td></tr>
-<tr class="memdesc:a119094330be41a11e8782eaaf3ff9e24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read grid from a Star-CD file.  <a href="a03690.html#a119094330be41a11e8782eaaf3ff9e24">More...</a><br /></td></tr>
-<tr class="separator:a119094330be41a11e8782eaaf3ff9e24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac1885e502f76440edb18a2194b28ed1"><td class="memItemLeft" align="right" valign="top">static std::unique_ptr&lt; GridType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03690.html#aac1885e502f76440edb18a2194b28ed1">read</a> (const std::string &amp;fileName, bool verbose=true)</td></tr>
+<tr class="memdesc:aac1885e502f76440edb18a2194b28ed1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read grid from a Star-CD file.  <a href="a03690.html#aac1885e502f76440edb18a2194b28ed1">More...</a><br /></td></tr>
+<tr class="separator:aac1885e502f76440edb18a2194b28ed1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;class GridType&gt;<br />
@@ -103,8 +103,8 @@ class Dune::StarCDReader&lt; GridType &gt;</h3>
 <p>This reader only supports three-dimensional grids.</p>
 <p>Currently no boundary element data is passed to <em>grid</em>. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a119094330be41a11e8782eaaf3ff9e24"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a119094330be41a11e8782eaaf3ff9e24">&#9670;&nbsp;</a></span>read()</h2>
+<a id="aac1885e502f76440edb18a2194b28ed1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac1885e502f76440edb18a2194b28ed1">&#9670;&nbsp;</a></span>read()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -115,7 +115,7 @@ template&lt;class GridType &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static ToUniquePtr&lt;GridType&gt; <a class="el" href="a03690.html">Dune::StarCDReader</a>&lt; GridType &gt;::read </td>
+          <td class="memname">static std::unique_ptr&lt;GridType&gt; <a class="el" href="a03690.html">Dune::StarCDReader</a>&lt; GridType &gt;::read </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>fileName</em>, </td>
@@ -148,12 +148,12 @@ template&lt;class GridType &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The return type is a special pointer type that casts into GridType*, std::unique_ptr&lt;GridType&gt;, and std::shared_ptr&lt;GridType&gt;. It is scheduled to be replaced by std::unique_ptr&lt;GridType&gt; eventually. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The return type is a special pointer type that casts into std::unique_ptr&lt;GridType&gt;, and std::shared_ptr&lt;GridType&gt;. It is scheduled to be replaced by std::unique_ptr&lt;GridType&gt; eventually. </dd></dl>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="a00773_source.html">starcdreader.hh</a></li>
+<li><a class="el" href="a00779_source.html">starcdreader.hh</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

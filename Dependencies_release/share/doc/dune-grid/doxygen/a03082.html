@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: Dune::GeoGrid::Entity&lt; codim, dim, Grid &gt; Class Template Reference</title>
+<title>dune-grid: Dune::GeoGrid::EntityBase&lt; codim, Grid, false &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,7 +62,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00936.html">Dune</a></li><li class="navelem"><a class="el" href="a00942.html">GeoGrid</a></li><li class="navelem"><a class="el" href="a03082.html">Entity</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00940.html">Dune</a></li><li class="navelem"><a class="el" href="a00945.html">GeoGrid</a></li><li class="navelem"><a class="el" href="a03082.html">EntityBase&lt; codim, Grid, false &gt;</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -71,141 +71,255 @@ $(function() {
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="a03079.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::GeoGrid::Entity&lt; codim, dim, Grid &gt; Class Template Reference<div class="ingroups"><a class="el" href="a00902.html">dune-grid</a> &raquo; <a class="el" href="a00917.html">Grid Implementations</a> &raquo; <a class="el" href="a00918.html">GeometryGrid</a></div></div>  </div>
+<div class="title">Dune::GeoGrid::EntityBase&lt; codim, Grid, false &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>DUNE-conform implementation of the entity.  
+<p> 
  <a href="a03082.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a06776_source.html">dune/grid/geometrygrid/entity.hh</a>&gt;</code></p>
-<div class="dynheader">
-Inheritance diagram for Dune::GeoGrid::Entity&lt; codim, dim, Grid &gt;:</div>
-<div class="dyncontent">
-<div class="center"><img src="a03081.png" border="0" usemap="#a_dune_1_1_geo_grid_1_1_entity_3_01codim_00_01dim_00_01_grid_01_4_inherit__map" alt="Inheritance graph"/></div>
-<map name="a_dune_1_1_geo_grid_1_1_entity_3_01codim_00_01dim_00_01_grid_01_4_inherit__map" id="a_dune_1_1_geo_grid_1_1_entity_3_01codim_00_01dim_00_01_grid_01_4_inherit__map">
-<area shape="rect" title="DUNE&#45;conform implementation of the entity." alt="" coords="20,95,171,136"/>
-<area shape="rect" href="a03078.html" title="actual implementation of the entity" alt="" coords="5,5,185,47"/>
-</map>
-</div>
+<p><code>#include &lt;<a class="el" href="a06681_source.html">dune/grid/geometrygrid/entity.hh</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a40e41743efe77ce12a59a10d5fc9a778"><td class="memItemLeft" align="right" valign="top">typedef Base::HostEntity&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03082.html#a40e41743efe77ce12a59a10d5fc9a778">HostEntity</a></td></tr>
-<tr class="separator:a40e41743efe77ce12a59a10d5fc9a778"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a50de39244a8160792197f6a65b3eb4b2"><td class="memItemLeft" align="right" valign="top">typedef Base::HostElement&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03082.html#a50de39244a8160792197f6a65b3eb4b2">HostElement</a></td></tr>
-<tr class="separator:a50de39244a8160792197f6a65b3eb4b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab186979a1c7d8841d1160bf739e3346c"><td class="memItemLeft" align="right" valign="top">typedef Base::GeometryImpl&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03082.html#ab186979a1c7d8841d1160bf739e3346c">GeometryImpl</a></td></tr>
-<tr class="separator:ab186979a1c7d8841d1160bf739e3346c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae163d984f0d9007a4493a7e80191b663"><td class="memItemLeft" align="right" valign="top">typedef Base::EntitySeed&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03082.html#ae163d984f0d9007a4493a7e80191b663">EntitySeed</a></td></tr>
-<tr class="separator:ae163d984f0d9007a4493a7e80191b663"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7494d3ab5cafe14d043be58639435d88"><td class="memItemLeft" align="right" valign="top">typedef Traits::template Codim&lt; codim &gt;::<a class="el" href="a03082.html#a7494d3ab5cafe14d043be58639435d88">GeometryImpl</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03082.html#a7494d3ab5cafe14d043be58639435d88">GeometryImpl</a></td></tr>
+<tr class="separator:a7494d3ab5cafe14d043be58639435d88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6f78f999d200f12c18b7614b381d62ad"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03082.html#a6f78f999d200f12c18b7614b381d62ad">Entity</a> ()</td></tr>
-<tr class="separator:a6f78f999d200f12c18b7614b381d62ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1454eac7696ab1c6ecf00290e7e826ae"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03082.html#a1454eac7696ab1c6ecf00290e7e826ae">Entity</a> (const <a class="el" href="a02698.html">Grid</a> &amp;grid, const <a class="el" href="a03082.html#ae163d984f0d9007a4493a7e80191b663">EntitySeed</a> &amp;seed)</td></tr>
-<tr class="separator:a1454eac7696ab1c6ecf00290e7e826ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b373ec6b4396d51871aa678d1528dac"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03082.html#a3b373ec6b4396d51871aa678d1528dac">Entity</a> (const <a class="el" href="a02698.html">Grid</a> &amp;grid, const <a class="el" href="a03082.html#a40e41743efe77ce12a59a10d5fc9a778">HostEntity</a> &amp;hostEntity)</td></tr>
-<tr class="separator:a3b373ec6b4396d51871aa678d1528dac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3e08c3a7a38e0974def925e298ef6e0e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03082.html#a3e08c3a7a38e0974def925e298ef6e0e">Entity</a> (const <a class="el" href="a02698.html">Grid</a> &amp;grid, <a class="el" href="a03082.html#a40e41743efe77ce12a59a10d5fc9a778">HostEntity</a> &amp;&amp;hostEntity)</td></tr>
-<tr class="separator:a3e08c3a7a38e0974def925e298ef6e0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aebd35e72a11bdb8321f6d97bb3b1ff59"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03082.html#aebd35e72a11bdb8321f6d97bb3b1ff59">Entity</a> (const <a class="el" href="a02698.html">Grid</a> &amp;grid, const <a class="el" href="a03082.html#a50de39244a8160792197f6a65b3eb4b2">HostElement</a> &amp;hostEntity, int i)</td></tr>
-<tr class="separator:aebd35e72a11bdb8321f6d97bb3b1ff59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bf019aae906d12334d3af40b653479b"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a03066.html">EntityBase</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03082.html#a8bf019aae906d12334d3af40b653479b">operator=</a> (const <a class="el" href="a03066.html">EntityBase</a> &amp;other)</td></tr>
+<tr class="separator:a8bf019aae906d12334d3af40b653479b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2a7b1c95b373013621019f247888f71"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a03066.html">EntityBase</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03082.html#ae2a7b1c95b373013621019f247888f71">operator=</a> (<a class="el" href="a03066.html">EntityBase</a> &amp;&amp;other)</td></tr>
+<tr class="separator:ae2a7b1c95b373013621019f247888f71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a086b382cd1d3c803b8eb1e8b9e2fdb1e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03082.html#a086b382cd1d3c803b8eb1e8b9e2fdb1e">equals</a> (const <a class="el" href="a03066.html">EntityBase</a> &amp;other) const</td></tr>
+<tr class="memdesc:a086b382cd1d3c803b8eb1e8b9e2fdb1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">compare two entities  <a href="a03082.html#a086b382cd1d3c803b8eb1e8b9e2fdb1e">More...</a><br /></td></tr>
+<tr class="separator:a086b382cd1d3c803b8eb1e8b9e2fdb1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader">Types Required by DUNE</h2></td></tr>
+<tr class="memitem:a3bfba787dc6f3d6615f4520271391a12"><td class="memItemLeft" align="right" valign="top">typedef Traits::ctype&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03082.html#a3bfba787dc6f3d6615f4520271391a12">ctype</a></td></tr>
+<tr class="memdesc:a3bfba787dc6f3d6615f4520271391a12"><td class="mdescLeft">&#160;</td><td class="mdescRight">coordinate type of the grid  <a href="a03082.html#a3bfba787dc6f3d6615f4520271391a12">More...</a><br /></td></tr>
+<tr class="separator:a3bfba787dc6f3d6615f4520271391a12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fe17424b2b68ae254fd859d23ce5790"><td class="memItemLeft" align="right" valign="top">typedef Traits::template Codim&lt; <a class="el" href="a03082.html#aeb17feeef6ed2e9bc2a52109343507c3">codimension</a> &gt;::<a class="el" href="a03082.html#a4fe17424b2b68ae254fd859d23ce5790">Geometry</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03082.html#a4fe17424b2b68ae254fd859d23ce5790">Geometry</a></td></tr>
+<tr class="memdesc:a4fe17424b2b68ae254fd859d23ce5790"><td class="mdescLeft">&#160;</td><td class="mdescRight">type of corresponding geometry  <a href="a03082.html#a4fe17424b2b68ae254fd859d23ce5790">More...</a><br /></td></tr>
+<tr class="separator:a4fe17424b2b68ae254fd859d23ce5790"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader">Host Types</h2></td></tr>
+<tr class="memitem:a2e0a101ac57ca1a683a323c78088147c"><td class="memItemLeft" align="right" valign="top">typedef HostGrid::template Codim&lt; <a class="el" href="a03082.html#aeb17feeef6ed2e9bc2a52109343507c3">codimension</a> &gt;::<a class="el" href="a03070.html">Entity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03082.html#a2e0a101ac57ca1a683a323c78088147c">HostEntity</a></td></tr>
+<tr class="memdesc:a2e0a101ac57ca1a683a323c78088147c"><td class="mdescLeft">&#160;</td><td class="mdescRight">type of corresponding host entity  <a href="a03082.html#a2e0a101ac57ca1a683a323c78088147c">More...</a><br /></td></tr>
+<tr class="separator:a2e0a101ac57ca1a683a323c78088147c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a033e469342a61e4778606407bf0a9c8f"><td class="memItemLeft" align="right" valign="top">typedef Traits::template Codim&lt; <a class="el" href="a03082.html#aeb17feeef6ed2e9bc2a52109343507c3">codimension</a> &gt;::<a class="el" href="a03082.html#a033e469342a61e4778606407bf0a9c8f">EntitySeed</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03082.html#a033e469342a61e4778606407bf0a9c8f">EntitySeed</a></td></tr>
+<tr class="memdesc:a033e469342a61e4778606407bf0a9c8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">type of corresponding entity seed  <a href="a03082.html#a033e469342a61e4778606407bf0a9c8f">More...</a><br /></td></tr>
+<tr class="separator:a033e469342a61e4778606407bf0a9c8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5190fba193aeb6a869c4fb85fe1af594"><td class="memItemLeft" align="right" valign="top">typedef HostGrid::template Codim&lt; 0 &gt;::<a class="el" href="a03070.html">Entity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03082.html#a5190fba193aeb6a869c4fb85fe1af594">HostElement</a></td></tr>
+<tr class="memdesc:a5190fba193aeb6a869c4fb85fe1af594"><td class="mdescLeft">&#160;</td><td class="mdescRight">type of host elements, i.e., of host entities of codimension 0  <a href="a03082.html#a5190fba193aeb6a869c4fb85fe1af594">More...</a><br /></td></tr>
+<tr class="separator:a5190fba193aeb6a869c4fb85fe1af594"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader">Attributes</h2></td></tr>
+<tr class="memitem:aeb17feeef6ed2e9bc2a52109343507c3"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03082.html#aeb17feeef6ed2e9bc2a52109343507c3">codimension</a> = codim</td></tr>
+<tr class="memdesc:aeb17feeef6ed2e9bc2a52109343507c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">codimensioon of the entity  <a href="a03082.html#aeb17feeef6ed2e9bc2a52109343507c3">More...</a><br /></td></tr>
+<tr class="separator:aeb17feeef6ed2e9bc2a52109343507c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ca6e33cbe5d29b7c9f8c5da5fb3b077"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03082.html#a3ca6e33cbe5d29b7c9f8c5da5fb3b077">dimension</a> = Traits::dimension</td></tr>
+<tr class="memdesc:a3ca6e33cbe5d29b7c9f8c5da5fb3b077"><td class="mdescLeft">&#160;</td><td class="mdescRight">dimension of the grid  <a href="a03082.html#a3ca6e33cbe5d29b7c9f8c5da5fb3b077">More...</a><br /></td></tr>
+<tr class="separator:a3ca6e33cbe5d29b7c9f8c5da5fb3b077"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a984268ba7296b56d0c68c3a30fb4aa0e"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03082.html#a984268ba7296b56d0c68c3a30fb4aa0e">mydimension</a> = <a class="el" href="a03082.html#a3ca6e33cbe5d29b7c9f8c5da5fb3b077">dimension</a> - <a class="el" href="a03082.html#aeb17feeef6ed2e9bc2a52109343507c3">codimension</a></td></tr>
+<tr class="memdesc:a984268ba7296b56d0c68c3a30fb4aa0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">dimension of the entity  <a href="a03082.html#a984268ba7296b56d0c68c3a30fb4aa0e">More...</a><br /></td></tr>
+<tr class="separator:a984268ba7296b56d0c68c3a30fb4aa0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae719cb22cee9007bd7e9f39a85af155d"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03082.html#ae719cb22cee9007bd7e9f39a85af155d">dimensionworld</a> = Traits::dimensionworld</td></tr>
+<tr class="memdesc:ae719cb22cee9007bd7e9f39a85af155d"><td class="mdescLeft">&#160;</td><td class="mdescRight">dimension of the world  <a href="a03082.html#ae719cb22cee9007bd7e9f39a85af155d">More...</a><br /></td></tr>
+<tr class="separator:ae719cb22cee9007bd7e9f39a85af155d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47964c26b9e033ff974590a48efa00a1"><td class="memItemLeft" align="right" valign="top">static const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03082.html#a47964c26b9e033ff974590a48efa00a1">fake</a> = false</td></tr>
+<tr class="memdesc:a47964c26b9e033ff974590a48efa00a1"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>true</b>, if the entity is faked, i.e., if there is no corresponding host entity  <a href="a03082.html#a47964c26b9e033ff974590a48efa00a1">More...</a><br /></td></tr>
+<tr class="separator:a47964c26b9e033ff974590a48efa00a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader">Construction, Initialization and Destruction</h2></td></tr>
+<tr class="memitem:a386177b9e744f5f27599ead73aacab54"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03082.html#a386177b9e744f5f27599ead73aacab54">EntityBase</a> ()</td></tr>
+<tr class="separator:a386177b9e744f5f27599ead73aacab54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade8605ca3364650fc004cd2b0d16822e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03082.html#ade8605ca3364650fc004cd2b0d16822e">EntityBase</a> (const <a class="el" href="a02710.html">Grid</a> &amp;<a class="el" href="a03082.html#a38101c007d9180e2f4985f67d6e706b4">grid</a>, const <a class="el" href="a03082.html#a033e469342a61e4778606407bf0a9c8f">EntitySeed</a> &amp;<a class="el" href="a03082.html#a583aa6985cdcb953a552e71963d5946c">seed</a>)</td></tr>
+<tr class="separator:ade8605ca3364650fc004cd2b0d16822e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06a12f08d46758b3efb7fb46c53956ec"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03082.html#a06a12f08d46758b3efb7fb46c53956ec">EntityBase</a> (const <a class="el" href="a02710.html">Grid</a> &amp;<a class="el" href="a03082.html#a38101c007d9180e2f4985f67d6e706b4">grid</a>, const <a class="el" href="a03082.html#a5190fba193aeb6a869c4fb85fe1af594">HostElement</a> &amp;hostElement, int i)</td></tr>
+<tr class="separator:a06a12f08d46758b3efb7fb46c53956ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74ba97a9ea05f238a29a4a9436a2fc22"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03082.html#a74ba97a9ea05f238a29a4a9436a2fc22">EntityBase</a> (const <a class="el" href="a03082.html#a7494d3ab5cafe14d043be58639435d88">GeometryImpl</a> &amp;geo, const <a class="el" href="a03082.html#a2e0a101ac57ca1a683a323c78088147c">HostEntity</a> &amp;<a class="el" href="a03082.html#adef57c09beded7447c67a32f5b0a01b3">hostEntity</a>)</td></tr>
+<tr class="separator:a74ba97a9ea05f238a29a4a9436a2fc22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bb3ddcdd6e40c282261b411df7d3b11"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03082.html#a4bb3ddcdd6e40c282261b411df7d3b11">EntityBase</a> (const <a class="el" href="a03082.html#a7494d3ab5cafe14d043be58639435d88">GeometryImpl</a> &amp;geo, <a class="el" href="a03082.html#a2e0a101ac57ca1a683a323c78088147c">HostEntity</a> &amp;&amp;<a class="el" href="a03082.html#adef57c09beded7447c67a32f5b0a01b3">hostEntity</a>)</td></tr>
+<tr class="separator:a4bb3ddcdd6e40c282261b411df7d3b11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5a4f09df8b39df940c06ba9a40784f3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03082.html#ac5a4f09df8b39df940c06ba9a40784f3">EntityBase</a> (const <a class="el" href="a02710.html">Grid</a> &amp;<a class="el" href="a03082.html#a38101c007d9180e2f4985f67d6e706b4">grid</a>, const <a class="el" href="a03082.html#a2e0a101ac57ca1a683a323c78088147c">HostEntity</a> &amp;<a class="el" href="a03082.html#adef57c09beded7447c67a32f5b0a01b3">hostEntity</a>)</td></tr>
+<tr class="separator:ac5a4f09df8b39df940c06ba9a40784f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a3bc3cc14b9f55aaa0cf949c623605e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03082.html#a0a3bc3cc14b9f55aaa0cf949c623605e">EntityBase</a> (const <a class="el" href="a02710.html">Grid</a> &amp;<a class="el" href="a03082.html#a38101c007d9180e2f4985f67d6e706b4">grid</a>, <a class="el" href="a03082.html#a2e0a101ac57ca1a683a323c78088147c">HostEntity</a> &amp;&amp;<a class="el" href="a03082.html#adef57c09beded7447c67a32f5b0a01b3">hostEntity</a>)</td></tr>
+<tr class="separator:a0a3bc3cc14b9f55aaa0cf949c623605e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0a7ccbf9e7997ba15e9c09fb97663bb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03082.html#ac0a7ccbf9e7997ba15e9c09fb97663bb">EntityBase</a> (const <a class="el" href="a03066.html">EntityBase</a> &amp;other)</td></tr>
+<tr class="separator:ac0a7ccbf9e7997ba15e9c09fb97663bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ad0c1136a55c2262e82e5712a9c29c6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03082.html#a1ad0c1136a55c2262e82e5712a9c29c6">EntityBase</a> (<a class="el" href="a03066.html">EntityBase</a> &amp;&amp;other)</td></tr>
+<tr class="separator:a1ad0c1136a55c2262e82e5712a9c29c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader">Methods Shared by Entities of All Codimensions</h2></td></tr>
+<tr class="memitem:a0296037e224a1880bd066dc7f5ede1aa"><td class="memItemLeft" align="right" valign="top">GeometryType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03082.html#a0296037e224a1880bd066dc7f5ede1aa">type</a> () const</td></tr>
+<tr class="memdesc:a0296037e224a1880bd066dc7f5ede1aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">obtain the name of the corresponding reference element  <a href="a03082.html#a0296037e224a1880bd066dc7f5ede1aa">More...</a><br /></td></tr>
+<tr class="separator:a0296037e224a1880bd066dc7f5ede1aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5b383e2f299ed7442b5b22f26f4e29e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03082.html#ae5b383e2f299ed7442b5b22f26f4e29e">level</a> () const</td></tr>
+<tr class="memdesc:ae5b383e2f299ed7442b5b22f26f4e29e"><td class="mdescLeft">&#160;</td><td class="mdescRight">obtain the level of this entity  <a href="a03082.html#ae5b383e2f299ed7442b5b22f26f4e29e">More...</a><br /></td></tr>
+<tr class="separator:ae5b383e2f299ed7442b5b22f26f4e29e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae330461a789a2029a4a0d62b47cccde0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00908.html#gabd89b77709db1d9e56bb17cd0aa44c3d">PartitionType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03082.html#ae330461a789a2029a4a0d62b47cccde0">partitionType</a> () const</td></tr>
+<tr class="memdesc:ae330461a789a2029a4a0d62b47cccde0"><td class="mdescLeft">&#160;</td><td class="mdescRight">obtain the partition type of this entity  <a href="a03082.html#ae330461a789a2029a4a0d62b47cccde0">More...</a><br /></td></tr>
+<tr class="separator:ae330461a789a2029a4a0d62b47cccde0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a549ad9833c91984e06dae1a59a5a537f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a03082.html#a4fe17424b2b68ae254fd859d23ce5790">Geometry</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03082.html#a549ad9833c91984e06dae1a59a5a537f">geometry</a> () const</td></tr>
+<tr class="separator:a549ad9833c91984e06dae1a59a5a537f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a449760f93dd35b9fa2fa95f3b3b268cc"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03082.html#a449760f93dd35b9fa2fa95f3b3b268cc">subEntities</a> (unsigned int cc) const</td></tr>
+<tr class="separator:a449760f93dd35b9fa2fa95f3b3b268cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a583aa6985cdcb953a552e71963d5946c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a03082.html#a033e469342a61e4778606407bf0a9c8f">EntitySeed</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03082.html#a583aa6985cdcb953a552e71963d5946c">seed</a> () const</td></tr>
+<tr class="memdesc:a583aa6985cdcb953a552e71963d5946c"><td class="mdescLeft">&#160;</td><td class="mdescRight">return <a class="el" href="a03094.html">EntitySeed</a> of host grid entity  <a href="a03082.html#a583aa6985cdcb953a552e71963d5946c">More...</a><br /></td></tr>
+<tr class="separator:a583aa6985cdcb953a552e71963d5946c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader">Methods Supporting the Grid Implementation</h2></td></tr>
+<tr class="memitem:a38101c007d9180e2f4985f67d6e706b4"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a02710.html">Grid</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03082.html#a38101c007d9180e2f4985f67d6e706b4">grid</a> () const</td></tr>
+<tr class="separator:a38101c007d9180e2f4985f67d6e706b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adef57c09beded7447c67a32f5b0a01b3"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a03082.html#a2e0a101ac57ca1a683a323c78088147c">HostEntity</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03082.html#adef57c09beded7447c67a32f5b0a01b3">hostEntity</a> () const</td></tr>
+<tr class="separator:adef57c09beded7447c67a32f5b0a01b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57dc773313dfa22f61be327172b931b4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03082.html#a57dc773313dfa22f61be327172b931b4">initialize</a> (const <a class="el" href="a03082.html#a2e0a101ac57ca1a683a323c78088147c">HostEntity</a> &amp;<a class="el" href="a03082.html#adef57c09beded7447c67a32f5b0a01b3">hostEntity</a>)</td></tr>
+<tr class="memdesc:a57dc773313dfa22f61be327172b931b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">initiliaze an entity  <a href="a03082.html#a57dc773313dfa22f61be327172b931b4">More...</a><br /></td></tr>
+<tr class="separator:a57dc773313dfa22f61be327172b931b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf4373ae4dafaf9f8e1c1bbfafa03318"><td class="memTemplParams" colspan="2">template&lt;class HostIndexSet &gt; </td></tr>
+<tr class="memitem:acf4373ae4dafaf9f8e1c1bbfafa03318"><td class="memTemplItemLeft" align="right" valign="top">HostIndexSet::IndexType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a03082.html#acf4373ae4dafaf9f8e1c1bbfafa03318">index</a> (const HostIndexSet &amp;indexSet) const</td></tr>
+<tr class="memdesc:acf4373ae4dafaf9f8e1c1bbfafa03318"><td class="mdescLeft">&#160;</td><td class="mdescRight">obtain the entity's index from a host <a class="el" href="a03202.html">IndexSet</a>  <a href="a03082.html#acf4373ae4dafaf9f8e1c1bbfafa03318">More...</a><br /></td></tr>
+<tr class="separator:acf4373ae4dafaf9f8e1c1bbfafa03318"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6f42f83d1bdf29db6cd076467c546cf"><td class="memTemplParams" colspan="2">template&lt;class HostIndexSet &gt; </td></tr>
+<tr class="memitem:ae6f42f83d1bdf29db6cd076467c546cf"><td class="memTemplItemLeft" align="right" valign="top">HostIndexSet::IndexType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a03082.html#ae6f42f83d1bdf29db6cd076467c546cf">subIndex</a> (const HostIndexSet &amp;indexSet, int i, unsigned int cd) const</td></tr>
+<tr class="memdesc:ae6f42f83d1bdf29db6cd076467c546cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">obtain the index of a subentity from a host <a class="el" href="a03202.html">IndexSet</a>  <a href="a03082.html#ae6f42f83d1bdf29db6cd076467c546cf">More...</a><br /></td></tr>
+<tr class="separator:ae6f42f83d1bdf29db6cd076467c546cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecb9d1e3006ab9b118f37186b46192f5"><td class="memTemplParams" colspan="2">template&lt;class HostIndexSet &gt; </td></tr>
+<tr class="memitem:aecb9d1e3006ab9b118f37186b46192f5"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a03082.html#aecb9d1e3006ab9b118f37186b46192f5">isContained</a> (const HostIndexSet &amp;indexSet) const</td></tr>
+<tr class="memdesc:aecb9d1e3006ab9b118f37186b46192f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">check whether the entity is contained in a host index set  <a href="a03082.html#aecb9d1e3006ab9b118f37186b46192f5">More...</a><br /></td></tr>
+<tr class="separator:aecb9d1e3006ab9b118f37186b46192f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a597cbd963eb560a2abfb00885b531378"><td class="memTemplParams" colspan="2">template&lt;class HostIdSet &gt; </td></tr>
+<tr class="memitem:a597cbd963eb560a2abfb00885b531378"><td class="memTemplItemLeft" align="right" valign="top">HostIdSet::IdType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a03082.html#a597cbd963eb560a2abfb00885b531378">id</a> (const HostIdSet &amp;idSet) const</td></tr>
+<tr class="memdesc:a597cbd963eb560a2abfb00885b531378"><td class="mdescLeft">&#160;</td><td class="mdescRight">obtain the entity's id from a host <a class="el" href="a03198.html">IdSet</a>  <a href="a03082.html#a597cbd963eb560a2abfb00885b531378">More...</a><br /></td></tr>
+<tr class="separator:a597cbd963eb560a2abfb00885b531378"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;int codim, int dim, class Grid&gt;<br />
-class Dune::GeoGrid::Entity&lt; codim, dim, Grid &gt;</h3>
+<div class="textblock"><h3>template&lt;int codim, class Grid&gt;<br />
+class Dune::GeoGrid::EntityBase&lt; codim, Grid, false &gt;</h3>
 
-<p>DUNE-conform implementation of the entity. </p>
-<p>This class merely changes the template parameters of the entity to make DUNE happy. The actual implementation of the entity can be found in <a class="el" href="a03078.html" title="actual implementation of the entity">EntityBase</a>.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">codim</td><td>codimension of the entity </td></tr>
-    <tr><td class="paramname">dim</td><td>dimension of the <a class="el" href="a02698.html" title="Grid abstract base class.">Grid</a> (redundant information) </td></tr>
-    <tr><td class="paramname"><a class="el" href="a02698.html" title="Grid abstract base class.">Grid</a></td><td><a class="el" href="a03074.html" title="grid wrapper replacing the geometries">GeometryGrid</a>, this entity belongs to </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>This specialization implements the case, where the host grid provides the entity for this codimension, i.e., <em>fake</em> = <b>false</b>. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="ae163d984f0d9007a4493a7e80191b663"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae163d984f0d9007a4493a7e80191b663">&#9670;&nbsp;</a></span>EntitySeed</h2>
+<a id="a3bfba787dc6f3d6615f4520271391a12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bfba787dc6f3d6615f4520271391a12">&#9670;&nbsp;</a></span>ctype</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int codim, int dim, class Grid &gt; </div>
+template&lt;int codim, class Grid &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef Base::EntitySeed <a class="el" href="a03082.html">Dune::GeoGrid::Entity</a>&lt; codim, dim, <a class="el" href="a02698.html">Grid</a> &gt;::<a class="el" href="a03082.html#ae163d984f0d9007a4493a7e80191b663">EntitySeed</a></td>
+          <td class="memname">typedef Traits::ctype <a class="el" href="a03066.html">Dune::GeoGrid::EntityBase</a>&lt; codim, <a class="el" href="a02710.html">Grid</a>, false &gt;::<a class="el" href="a03082.html#a3bfba787dc6f3d6615f4520271391a12">ctype</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>coordinate type of the grid </p>
+
+</div>
+</div>
+<a id="a033e469342a61e4778606407bf0a9c8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a033e469342a61e4778606407bf0a9c8f">&#9670;&nbsp;</a></span>EntitySeed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int codim, class Grid &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Traits::template Codim&lt; <a class="el" href="a03082.html#aeb17feeef6ed2e9bc2a52109343507c3">codimension</a> &gt;::<a class="el" href="a03082.html#a033e469342a61e4778606407bf0a9c8f">EntitySeed</a> <a class="el" href="a03066.html">Dune::GeoGrid::EntityBase</a>&lt; codim, <a class="el" href="a02710.html">Grid</a>, false &gt;::<a class="el" href="a03082.html#a033e469342a61e4778606407bf0a9c8f">EntitySeed</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>type of corresponding entity seed </p>
+
+</div>
+</div>
+<a id="a4fe17424b2b68ae254fd859d23ce5790"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fe17424b2b68ae254fd859d23ce5790">&#9670;&nbsp;</a></span>Geometry</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int codim, class Grid &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Traits::template Codim&lt; <a class="el" href="a03082.html#aeb17feeef6ed2e9bc2a52109343507c3">codimension</a> &gt;::<a class="el" href="a03082.html#a4fe17424b2b68ae254fd859d23ce5790">Geometry</a> <a class="el" href="a03066.html">Dune::GeoGrid::EntityBase</a>&lt; codim, <a class="el" href="a02710.html">Grid</a>, false &gt;::<a class="el" href="a03082.html#a4fe17424b2b68ae254fd859d23ce5790">Geometry</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>type of corresponding geometry </p>
+
+</div>
+</div>
+<a id="a7494d3ab5cafe14d043be58639435d88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7494d3ab5cafe14d043be58639435d88">&#9670;&nbsp;</a></span>GeometryImpl</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int codim, class Grid &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Traits::template Codim&lt; codim &gt;::<a class="el" href="a03082.html#a7494d3ab5cafe14d043be58639435d88">GeometryImpl</a> <a class="el" href="a03066.html">Dune::GeoGrid::EntityBase</a>&lt; codim, <a class="el" href="a02710.html">Grid</a>, false &gt;::<a class="el" href="a03082.html#a7494d3ab5cafe14d043be58639435d88">GeometryImpl</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="ab186979a1c7d8841d1160bf739e3346c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab186979a1c7d8841d1160bf739e3346c">&#9670;&nbsp;</a></span>GeometryImpl</h2>
+<a id="a5190fba193aeb6a869c4fb85fe1af594"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5190fba193aeb6a869c4fb85fe1af594">&#9670;&nbsp;</a></span>HostElement</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int codim, int dim, class Grid &gt; </div>
+template&lt;int codim, class Grid &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef Base::GeometryImpl <a class="el" href="a03082.html">Dune::GeoGrid::Entity</a>&lt; codim, dim, <a class="el" href="a02698.html">Grid</a> &gt;::<a class="el" href="a03082.html#ab186979a1c7d8841d1160bf739e3346c">GeometryImpl</a></td>
+          <td class="memname">typedef HostGrid::template Codim&lt; 0 &gt;::<a class="el" href="a03070.html">Entity</a> <a class="el" href="a03066.html">Dune::GeoGrid::EntityBase</a>&lt; codim, <a class="el" href="a02710.html">Grid</a>, false &gt;::<a class="el" href="a03082.html#a5190fba193aeb6a869c4fb85fe1af594">HostElement</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>type of host elements, i.e., of host entities of codimension 0 </p>
+
 </div>
 </div>
-<a id="a50de39244a8160792197f6a65b3eb4b2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a50de39244a8160792197f6a65b3eb4b2">&#9670;&nbsp;</a></span>HostElement</h2>
+<a id="a2e0a101ac57ca1a683a323c78088147c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e0a101ac57ca1a683a323c78088147c">&#9670;&nbsp;</a></span>HostEntity</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int codim, int dim, class Grid &gt; </div>
+template&lt;int codim, class Grid &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef Base::HostElement <a class="el" href="a03082.html">Dune::GeoGrid::Entity</a>&lt; codim, dim, <a class="el" href="a02698.html">Grid</a> &gt;::<a class="el" href="a03082.html#a50de39244a8160792197f6a65b3eb4b2">HostElement</a></td>
+          <td class="memname">typedef HostGrid::template Codim&lt; <a class="el" href="a03082.html#aeb17feeef6ed2e9bc2a52109343507c3">codimension</a> &gt;::<a class="el" href="a03070.html">Entity</a> <a class="el" href="a03066.html">Dune::GeoGrid::EntityBase</a>&lt; codim, <a class="el" href="a02710.html">Grid</a>, false &gt;::<a class="el" href="a03082.html#a2e0a101ac57ca1a683a323c78088147c">HostEntity</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="a40e41743efe77ce12a59a10d5fc9a778"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a40e41743efe77ce12a59a10d5fc9a778">&#9670;&nbsp;</a></span>HostEntity</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int codim, int dim, class Grid &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef Base::HostEntity <a class="el" href="a03082.html">Dune::GeoGrid::Entity</a>&lt; codim, dim, <a class="el" href="a02698.html">Grid</a> &gt;::<a class="el" href="a03082.html#a40e41743efe77ce12a59a10d5fc9a778">HostEntity</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>type of corresponding host entity </p>
 
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a6f78f999d200f12c18b7614b381d62ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6f78f999d200f12c18b7614b381d62ad">&#9670;&nbsp;</a></span>Entity() <span class="overload">[1/5]</span></h2>
+<a id="a386177b9e744f5f27599ead73aacab54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a386177b9e744f5f27599ead73aacab54">&#9670;&nbsp;</a></span>EntityBase() <span class="overload">[1/9]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int codim, int dim, class Grid &gt; </div>
+template&lt;int codim, class Grid &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a03082.html">Dune::GeoGrid::Entity</a>&lt; codim, dim, <a class="el" href="a02698.html">Grid</a> &gt;::<a class="el" href="a03082.html">Entity</a> </td>
+          <td class="memname"><a class="el" href="a03066.html">Dune::GeoGrid::EntityBase</a>&lt; codim, <a class="el" href="a02710.html">Grid</a>, false &gt;::<a class="el" href="a03066.html">EntityBase</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -220,27 +334,27 @@ template&lt;int codim, int dim, class Grid &gt; </div>
 
 </div>
 </div>
-<a id="a1454eac7696ab1c6ecf00290e7e826ae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1454eac7696ab1c6ecf00290e7e826ae">&#9670;&nbsp;</a></span>Entity() <span class="overload">[2/5]</span></h2>
+<a id="ade8605ca3364650fc004cd2b0d16822e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade8605ca3364650fc004cd2b0d16822e">&#9670;&nbsp;</a></span>EntityBase() <span class="overload">[2/9]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int codim, int dim, class Grid &gt; </div>
+template&lt;int codim, class Grid &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a03082.html">Dune::GeoGrid::Entity</a>&lt; codim, dim, <a class="el" href="a02698.html">Grid</a> &gt;::<a class="el" href="a03082.html">Entity</a> </td>
+          <td class="memname"><a class="el" href="a03066.html">Dune::GeoGrid::EntityBase</a>&lt; codim, <a class="el" href="a02710.html">Grid</a>, false &gt;::<a class="el" href="a03066.html">EntityBase</a> </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a02698.html">Grid</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="a02710.html">Grid</a> &amp;&#160;</td>
           <td class="paramname"><em>grid</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="a03082.html#ae163d984f0d9007a4493a7e80191b663">EntitySeed</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="a03082.html#a033e469342a61e4778606407bf0a9c8f">EntitySeed</a> &amp;&#160;</td>
           <td class="paramname"><em>seed</em>&#160;</td>
         </tr>
         <tr>
@@ -258,104 +372,28 @@ template&lt;int codim, int dim, class Grid &gt; </div>
 
 </div>
 </div>
-<a id="a3b373ec6b4396d51871aa678d1528dac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3b373ec6b4396d51871aa678d1528dac">&#9670;&nbsp;</a></span>Entity() <span class="overload">[3/5]</span></h2>
+<a id="a06a12f08d46758b3efb7fb46c53956ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06a12f08d46758b3efb7fb46c53956ec">&#9670;&nbsp;</a></span>EntityBase() <span class="overload">[3/9]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int codim, int dim, class Grid &gt; </div>
+template&lt;int codim, class Grid &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a03082.html">Dune::GeoGrid::Entity</a>&lt; codim, dim, <a class="el" href="a02698.html">Grid</a> &gt;::<a class="el" href="a03082.html">Entity</a> </td>
+          <td class="memname"><a class="el" href="a03066.html">Dune::GeoGrid::EntityBase</a>&lt; codim, <a class="el" href="a02710.html">Grid</a>, false &gt;::<a class="el" href="a03066.html">EntityBase</a> </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a02698.html">Grid</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="a02710.html">Grid</a> &amp;&#160;</td>
           <td class="paramname"><em>grid</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="a03082.html#a40e41743efe77ce12a59a10d5fc9a778">HostEntity</a>&lt; codim, dim, <a class="el" href="a02698.html">Grid</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>hostEntity</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a3e08c3a7a38e0974def925e298ef6e0e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3e08c3a7a38e0974def925e298ef6e0e">&#9670;&nbsp;</a></span>Entity() <span class="overload">[4/5]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int codim, int dim, class Grid &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a03082.html">Dune::GeoGrid::Entity</a>&lt; codim, dim, <a class="el" href="a02698.html">Grid</a> &gt;::<a class="el" href="a03082.html">Entity</a> </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a02698.html">Grid</a> &amp;&#160;</td>
-          <td class="paramname"><em>grid</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a03082.html#a40e41743efe77ce12a59a10d5fc9a778">HostEntity</a>&lt; codim, dim, <a class="el" href="a02698.html">Grid</a> &gt; &amp;&amp;&#160;</td>
-          <td class="paramname"><em>hostEntity</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aebd35e72a11bdb8321f6d97bb3b1ff59"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aebd35e72a11bdb8321f6d97bb3b1ff59">&#9670;&nbsp;</a></span>Entity() <span class="overload">[5/5]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int codim, int dim, class Grid &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a03082.html">Dune::GeoGrid::Entity</a>&lt; codim, dim, <a class="el" href="a02698.html">Grid</a> &gt;::<a class="el" href="a03082.html">Entity</a> </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a02698.html">Grid</a> &amp;&#160;</td>
-          <td class="paramname"><em>grid</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a03082.html#a50de39244a8160792197f6a65b3eb4b2">HostElement</a> &amp;&#160;</td>
-          <td class="paramname"><em>hostEntity</em>, </td>
+          <td class="paramtype">const <a class="el" href="a03082.html#a5190fba193aeb6a869c4fb85fe1af594">HostElement</a> &amp;&#160;</td>
+          <td class="paramname"><em>hostElement</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -378,8 +416,844 @@ template&lt;int codim, int dim, class Grid &gt; </div>
 
 </div>
 </div>
+<a id="a74ba97a9ea05f238a29a4a9436a2fc22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74ba97a9ea05f238a29a4a9436a2fc22">&#9670;&nbsp;</a></span>EntityBase() <span class="overload">[4/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int codim, class Grid &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a03066.html">Dune::GeoGrid::EntityBase</a>&lt; codim, <a class="el" href="a02710.html">Grid</a>, false &gt;::<a class="el" href="a03066.html">EntityBase</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a03082.html#a7494d3ab5cafe14d043be58639435d88">GeometryImpl</a> &amp;&#160;</td>
+          <td class="paramname"><em>geo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a03082.html#a2e0a101ac57ca1a683a323c78088147c">HostEntity</a> &amp;&#160;</td>
+          <td class="paramname"><em>hostEntity</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4bb3ddcdd6e40c282261b411df7d3b11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4bb3ddcdd6e40c282261b411df7d3b11">&#9670;&nbsp;</a></span>EntityBase() <span class="overload">[5/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int codim, class Grid &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a03066.html">Dune::GeoGrid::EntityBase</a>&lt; codim, <a class="el" href="a02710.html">Grid</a>, false &gt;::<a class="el" href="a03066.html">EntityBase</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a03082.html#a7494d3ab5cafe14d043be58639435d88">GeometryImpl</a> &amp;&#160;</td>
+          <td class="paramname"><em>geo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a03082.html#a2e0a101ac57ca1a683a323c78088147c">HostEntity</a> &amp;&amp;&#160;</td>
+          <td class="paramname"><em>hostEntity</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac5a4f09df8b39df940c06ba9a40784f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5a4f09df8b39df940c06ba9a40784f3">&#9670;&nbsp;</a></span>EntityBase() <span class="overload">[6/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int codim, class Grid &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a03066.html">Dune::GeoGrid::EntityBase</a>&lt; codim, <a class="el" href="a02710.html">Grid</a>, false &gt;::<a class="el" href="a03066.html">EntityBase</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a02710.html">Grid</a> &amp;&#160;</td>
+          <td class="paramname"><em>grid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a03082.html#a2e0a101ac57ca1a683a323c78088147c">HostEntity</a> &amp;&#160;</td>
+          <td class="paramname"><em>hostEntity</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0a3bc3cc14b9f55aaa0cf949c623605e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a3bc3cc14b9f55aaa0cf949c623605e">&#9670;&nbsp;</a></span>EntityBase() <span class="overload">[7/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int codim, class Grid &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a03066.html">Dune::GeoGrid::EntityBase</a>&lt; codim, <a class="el" href="a02710.html">Grid</a>, false &gt;::<a class="el" href="a03066.html">EntityBase</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a02710.html">Grid</a> &amp;&#160;</td>
+          <td class="paramname"><em>grid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a03082.html#a2e0a101ac57ca1a683a323c78088147c">HostEntity</a> &amp;&amp;&#160;</td>
+          <td class="paramname"><em>hostEntity</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac0a7ccbf9e7997ba15e9c09fb97663bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0a7ccbf9e7997ba15e9c09fb97663bb">&#9670;&nbsp;</a></span>EntityBase() <span class="overload">[8/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int codim, class Grid &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a03066.html">Dune::GeoGrid::EntityBase</a>&lt; codim, <a class="el" href="a02710.html">Grid</a>, false &gt;::<a class="el" href="a03066.html">EntityBase</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a03066.html">EntityBase</a>&lt; codim, <a class="el" href="a02710.html">Grid</a>, false &gt; &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1ad0c1136a55c2262e82e5712a9c29c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ad0c1136a55c2262e82e5712a9c29c6">&#9670;&nbsp;</a></span>EntityBase() <span class="overload">[9/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int codim, class Grid &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a03066.html">Dune::GeoGrid::EntityBase</a>&lt; codim, <a class="el" href="a02710.html">Grid</a>, false &gt;::<a class="el" href="a03066.html">EntityBase</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a03066.html">EntityBase</a>&lt; codim, <a class="el" href="a02710.html">Grid</a>, false &gt; &amp;&amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a086b382cd1d3c803b8eb1e8b9e2fdb1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a086b382cd1d3c803b8eb1e8b9e2fdb1e">&#9670;&nbsp;</a></span>equals()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int codim, class Grid &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="a03066.html">Dune::GeoGrid::EntityBase</a>&lt; codim, <a class="el" href="a02710.html">Grid</a>, false &gt;::equals </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a03066.html">EntityBase</a>&lt; codim, <a class="el" href="a02710.html">Grid</a>, false &gt; &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>compare two entities </p>
+
+</div>
+</div>
+<a id="a549ad9833c91984e06dae1a59a5a537f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a549ad9833c91984e06dae1a59a5a537f">&#9670;&nbsp;</a></span>geometry()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int codim, class Grid &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a03082.html#a4fe17424b2b68ae254fd859d23ce5790">Geometry</a> <a class="el" href="a03066.html">Dune::GeoGrid::EntityBase</a>&lt; codim, <a class="el" href="a02710.html">Grid</a>, false &gt;::geometry </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>obtain the geometry of this entity</p>
+<p>Each DUNE entity encapsulates a geometry object, representing the map from the reference element to world coordinates. Wrapping the geometry is the main objective of the <a class="el" href="a03062.html" title="grid wrapper replacing the geometries">GeometryGrid</a>.</p>
+<p>The <a class="el" href="a03062.html" title="grid wrapper replacing the geometries">GeometryGrid</a> provides geometries of order 1, obtained by interpolation of its corners <img class="formulaInl" alt="$y_i$" src="form_63.png"/>. There corners are calculated from the corners <img class="formulaInl" alt="$x_i$" src="form_64.png"/> of the host geometry through the <a class="el" href="a03062.html" title="grid wrapper replacing the geometries">GeometryGrid</a>'s coordinate function <img class="formulaInl" alt="$c$" src="form_65.png"/>, i.e., <img class="formulaInl" alt="$y_i = c( x_i )$" src="form_66.png"/>.</p>
+<dl class="section return"><dt>Returns</dt><dd>a const reference to the geometry </dd></dl>
+
+</div>
+</div>
+<a id="a38101c007d9180e2f4985f67d6e706b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38101c007d9180e2f4985f67d6e706b4">&#9670;&nbsp;</a></span>grid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int codim, class Grid &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a02710.html">Grid</a>&amp; <a class="el" href="a03066.html">Dune::GeoGrid::EntityBase</a>&lt; codim, <a class="el" href="a02710.html">Grid</a>, false &gt;::grid </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adef57c09beded7447c67a32f5b0a01b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adef57c09beded7447c67a32f5b0a01b3">&#9670;&nbsp;</a></span>hostEntity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int codim, class Grid &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a03082.html#a2e0a101ac57ca1a683a323c78088147c">HostEntity</a>&amp; <a class="el" href="a03066.html">Dune::GeoGrid::EntityBase</a>&lt; codim, <a class="el" href="a02710.html">Grid</a>, false &gt;::hostEntity </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a597cbd963eb560a2abfb00885b531378"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a597cbd963eb560a2abfb00885b531378">&#9670;&nbsp;</a></span>id()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int codim, class Grid &gt; </div>
+<div class="memtemplate">
+template&lt;class HostIdSet &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">HostIdSet::IdType <a class="el" href="a03066.html">Dune::GeoGrid::EntityBase</a>&lt; codim, <a class="el" href="a02710.html">Grid</a>, false &gt;::id </td>
+          <td>(</td>
+          <td class="paramtype">const HostIdSet &amp;&#160;</td>
+          <td class="paramname"><em>idSet</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>obtain the entity's id from a host <a class="el" href="a03198.html">IdSet</a> </p>
+
+</div>
+</div>
+<a id="acf4373ae4dafaf9f8e1c1bbfafa03318"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf4373ae4dafaf9f8e1c1bbfafa03318">&#9670;&nbsp;</a></span>index()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int codim, class Grid &gt; </div>
+<div class="memtemplate">
+template&lt;class HostIndexSet &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">HostIndexSet::IndexType <a class="el" href="a03066.html">Dune::GeoGrid::EntityBase</a>&lt; codim, <a class="el" href="a02710.html">Grid</a>, false &gt;::index </td>
+          <td>(</td>
+          <td class="paramtype">const HostIndexSet &amp;&#160;</td>
+          <td class="paramname"><em>indexSet</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>obtain the entity's index from a host <a class="el" href="a03202.html">IndexSet</a> </p>
+
+</div>
+</div>
+<a id="a57dc773313dfa22f61be327172b931b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57dc773313dfa22f61be327172b931b4">&#9670;&nbsp;</a></span>initialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int codim, class Grid &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="a03066.html">Dune::GeoGrid::EntityBase</a>&lt; codim, <a class="el" href="a02710.html">Grid</a>, false &gt;::initialize </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a03082.html#a2e0a101ac57ca1a683a323c78088147c">HostEntity</a> &amp;&#160;</td>
+          <td class="paramname"><em>hostEntity</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>initiliaze an entity </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">hostEntity</td><td>reference to the host entity </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aecb9d1e3006ab9b118f37186b46192f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecb9d1e3006ab9b118f37186b46192f5">&#9670;&nbsp;</a></span>isContained()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int codim, class Grid &gt; </div>
+<div class="memtemplate">
+template&lt;class HostIndexSet &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="a03066.html">Dune::GeoGrid::EntityBase</a>&lt; codim, <a class="el" href="a02710.html">Grid</a>, false &gt;::isContained </td>
+          <td>(</td>
+          <td class="paramtype">const HostIndexSet &amp;&#160;</td>
+          <td class="paramname"><em>indexSet</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>check whether the entity is contained in a host index set </p>
+
+</div>
+</div>
+<a id="ae5b383e2f299ed7442b5b22f26f4e29e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5b383e2f299ed7442b5b22f26f4e29e">&#9670;&nbsp;</a></span>level()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int codim, class Grid &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="a03066.html">Dune::GeoGrid::EntityBase</a>&lt; codim, <a class="el" href="a02710.html">Grid</a>, false &gt;::level </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>obtain the level of this entity </p>
+
+</div>
+</div>
+<a id="a8bf019aae906d12334d3af40b653479b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bf019aae906d12334d3af40b653479b">&#9670;&nbsp;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int codim, class Grid &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a03066.html">EntityBase</a>&amp; <a class="el" href="a03066.html">Dune::GeoGrid::EntityBase</a>&lt; codim, <a class="el" href="a02710.html">Grid</a>, false &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a03066.html">EntityBase</a>&lt; codim, <a class="el" href="a02710.html">Grid</a>, false &gt; &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae2a7b1c95b373013621019f247888f71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2a7b1c95b373013621019f247888f71">&#9670;&nbsp;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int codim, class Grid &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a03066.html">EntityBase</a>&amp; <a class="el" href="a03066.html">Dune::GeoGrid::EntityBase</a>&lt; codim, <a class="el" href="a02710.html">Grid</a>, false &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a03066.html">EntityBase</a>&lt; codim, <a class="el" href="a02710.html">Grid</a>, false &gt; &amp;&amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae330461a789a2029a4a0d62b47cccde0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae330461a789a2029a4a0d62b47cccde0">&#9670;&nbsp;</a></span>partitionType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int codim, class Grid &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00908.html#gabd89b77709db1d9e56bb17cd0aa44c3d">PartitionType</a> <a class="el" href="a03066.html">Dune::GeoGrid::EntityBase</a>&lt; codim, <a class="el" href="a02710.html">Grid</a>, false &gt;::partitionType </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>obtain the partition type of this entity </p>
+
+</div>
+</div>
+<a id="a583aa6985cdcb953a552e71963d5946c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a583aa6985cdcb953a552e71963d5946c">&#9670;&nbsp;</a></span>seed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int codim, class Grid &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a03082.html#a033e469342a61e4778606407bf0a9c8f">EntitySeed</a> <a class="el" href="a03066.html">Dune::GeoGrid::EntityBase</a>&lt; codim, <a class="el" href="a02710.html">Grid</a>, false &gt;::seed </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>return <a class="el" href="a03094.html">EntitySeed</a> of host grid entity </p>
+
+</div>
+</div>
+<a id="a449760f93dd35b9fa2fa95f3b3b268cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a449760f93dd35b9fa2fa95f3b3b268cc">&#9670;&nbsp;</a></span>subEntities()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int codim, class Grid &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int <a class="el" href="a03066.html">Dune::GeoGrid::EntityBase</a>&lt; codim, <a class="el" href="a02710.html">Grid</a>, false &gt;::subEntities </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>cc</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae6f42f83d1bdf29db6cd076467c546cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6f42f83d1bdf29db6cd076467c546cf">&#9670;&nbsp;</a></span>subIndex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int codim, class Grid &gt; </div>
+<div class="memtemplate">
+template&lt;class HostIndexSet &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">HostIndexSet::IndexType <a class="el" href="a03066.html">Dune::GeoGrid::EntityBase</a>&lt; codim, <a class="el" href="a02710.html">Grid</a>, false &gt;::subIndex </td>
+          <td>(</td>
+          <td class="paramtype">const HostIndexSet &amp;&#160;</td>
+          <td class="paramname"><em>indexSet</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>cd</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>obtain the index of a subentity from a host <a class="el" href="a03202.html">IndexSet</a> </p>
+
+</div>
+</div>
+<a id="a0296037e224a1880bd066dc7f5ede1aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0296037e224a1880bd066dc7f5ede1aa">&#9670;&nbsp;</a></span>type()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int codim, class Grid &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GeometryType <a class="el" href="a03066.html">Dune::GeoGrid::EntityBase</a>&lt; codim, <a class="el" href="a02710.html">Grid</a>, false &gt;::type </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>obtain the name of the corresponding reference element </p>
+<p>This type can be used to access the DUNE reference element. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="aeb17feeef6ed2e9bc2a52109343507c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb17feeef6ed2e9bc2a52109343507c3">&#9670;&nbsp;</a></span>codimension</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int codim, class Grid &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int <a class="el" href="a03066.html">Dune::GeoGrid::EntityBase</a>&lt; codim, <a class="el" href="a02710.html">Grid</a>, false &gt;::codimension = codim</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>codimensioon of the entity </p>
+
+</div>
+</div>
+<a id="a3ca6e33cbe5d29b7c9f8c5da5fb3b077"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ca6e33cbe5d29b7c9f8c5da5fb3b077">&#9670;&nbsp;</a></span>dimension</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int codim, class Grid &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int <a class="el" href="a03066.html">Dune::GeoGrid::EntityBase</a>&lt; codim, <a class="el" href="a02710.html">Grid</a>, false &gt;::dimension = Traits::dimension</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>dimension of the grid </p>
+
+</div>
+</div>
+<a id="ae719cb22cee9007bd7e9f39a85af155d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae719cb22cee9007bd7e9f39a85af155d">&#9670;&nbsp;</a></span>dimensionworld</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int codim, class Grid &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int <a class="el" href="a03066.html">Dune::GeoGrid::EntityBase</a>&lt; codim, <a class="el" href="a02710.html">Grid</a>, false &gt;::dimensionworld = Traits::dimensionworld</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>dimension of the world </p>
+
+</div>
+</div>
+<a id="a47964c26b9e033ff974590a48efa00a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47964c26b9e033ff974590a48efa00a1">&#9670;&nbsp;</a></span>fake</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int codim, class Grid &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool <a class="el" href="a03066.html">Dune::GeoGrid::EntityBase</a>&lt; codim, <a class="el" href="a02710.html">Grid</a>, false &gt;::fake = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><b>true</b>, if the entity is faked, i.e., if there is no corresponding host entity </p>
+
+</div>
+</div>
+<a id="a984268ba7296b56d0c68c3a30fb4aa0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a984268ba7296b56d0c68c3a30fb4aa0e">&#9670;&nbsp;</a></span>mydimension</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int codim, class Grid &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int <a class="el" href="a03066.html">Dune::GeoGrid::EntityBase</a>&lt; codim, <a class="el" href="a02710.html">Grid</a>, false &gt;::mydimension = <a class="el" href="a03082.html#a3ca6e33cbe5d29b7c9f8c5da5fb3b077">dimension</a> - <a class="el" href="a03082.html#aeb17feeef6ed2e9bc2a52109343507c3">codimension</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>dimension of the entity </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="a06776_source.html">geometrygrid/entity.hh</a></li>
+<li><a class="el" href="a06681_source.html">geometrygrid/entity.hh</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

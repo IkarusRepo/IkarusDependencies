@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-common: Member List</title>
+<title>dune-common: Dune::ExceptionHook Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-common
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,20 +62,97 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00428.html">Dune</a></li><li class="navelem"><a class="el" href="a01556.html">NegateSet</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00428.html">Dune</a></li><li class="navelem"><a class="el" href="a01553.html">ExceptionHook</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="a01550.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::NegateSet&lt; S &gt; Member List</div>  </div>
+<div class="title">Dune::ExceptionHook Struct Reference<span class="mlabels"><span class="mlabel">abstract</span></span><div class="ingroups"><a class="el" href="a00400.html">Common</a> &raquo; <a class="el" href="a00415.html">Exception handling</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="a01556.html">Dune::NegateSet&lt; S &gt;</a>, including all inherited members.</p>
-<table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="a01556.html#a7c3f23caf1e655c169d032f15c660d63">contains</a>(const Type &amp;item)</td><td class="entry"><a class="el" href="a01556.html">Dune::NegateSet&lt; S &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
-  <tr><td class="entry"><a class="el" href="a01556.html#a627e2719804a05a0169b0ccb94369eb5">Type</a> typedef</td><td class="entry"><a class="el" href="a01556.html">Dune::NegateSet&lt; S &gt;</a></td><td class="entry"></td></tr>
-</table></div><!-- contents -->
+<p>Base class to add a hook to the <a class="el" href="a01549.html" title="Base class for Dune-Exceptions.">Dune::Exception</a>.  
+ <a href="a01553.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="a00086_source.html">dune/common/exceptions.hh</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:gac5b2708f8a37c9a4ebb890e4a1545c1c"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#gac5b2708f8a37c9a4ebb890e4a1545c1c">~ExceptionHook</a> ()</td></tr>
+<tr class="separator:gac5b2708f8a37c9a4ebb890e4a1545c1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab7d05055167bdb067cce622f051cb551"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#gab7d05055167bdb067cce622f051cb551">operator()</a> ()=0</td></tr>
+<tr class="separator:gab7d05055167bdb067cce622f051cb551"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Base class to add a hook to the <a class="el" href="a01549.html" title="Base class for Dune-Exceptions.">Dune::Exception</a>. </p>
+<p>The user can add a functor which should be called before a <a class="el" href="a01549.html" title="Base class for Dune-Exceptions.">Dune::Exception</a> is emitted.</p>
+<p>Example: attach a debugger to the process, if an exception is thrown </p><div class="fragment"><div class="line"><span class="keyword">struct </span>ExceptionHookDebugger : <span class="keyword">public</span> <a class="code" href="a01553.html">Dune::ExceptionHook</a></div>
+<div class="line">{</div>
+<div class="line"> <span class="keywordtype">char</span> * process_;</div>
+<div class="line"> <span class="keywordtype">char</span> * debugger_;</div>
+<div class="line"> ExceptionHookDebugger (<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> ** argv, std::string debugger)</div>
+<div class="line"> {</div>
+<div class="line">     process_ = strdup(argv[0]);</div>
+<div class="line">     debugger_ = strdup(debugger.c_str());</div>
+<div class="line"> }</div>
+<div class="line"> <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a00415.html#gab7d05055167bdb067cce622f051cb551">operator () </a>()</div>
+<div class="line"> {</div>
+<div class="line">     pid_t pid = getpid();</div>
+<div class="line">     pid_t cpid;</div>
+<div class="line">     cpid = fork();</div>
+<div class="line">     <span class="keywordflow">if</span> (cpid == 0) <span class="comment">// child</span></div>
+<div class="line">     {</div>
+<div class="line">         <span class="keywordtype">char</span> * argv[4];</div>
+<div class="line">         argv[0] = debugger_;</div>
+<div class="line">         argv[1] = process_;</div>
+<div class="line">         argv[2] = <span class="keyword">new</span> <span class="keywordtype">char</span>[12];</div>
+<div class="line">         snprintf(argv[2], 12, <span class="stringliteral">&quot;%i&quot;</span>, <span class="keywordtype">int</span>(pid));</div>
+<div class="line">         argv[3] = 0;</div>
+<div class="line">         <span class="comment">// execute debugger</span></div>
+<div class="line">         std::cout &lt;&lt; process_ &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">         std::cout &lt;&lt; argv[0] &lt;&lt; <span class="stringliteral">&quot; &quot;</span></div>
+<div class="line">                   &lt;&lt; argv[1] &lt;&lt; <span class="stringliteral">&quot; &quot;</span></div>
+<div class="line">                   &lt;&lt; argv[2] &lt;&lt; std::endl;</div>
+<div class="line">         execv(argv[0], argv);</div>
+<div class="line">     }</div>
+<div class="line">     <span class="keywordflow">else</span> <span class="comment">// parent</span></div>
+<div class="line">     {</div>
+<div class="line">         <span class="comment">// send application to sleep</span></div>
+<div class="line">         kill(pid, SIGSTOP);</div>
+<div class="line">     }</div>
+<div class="line"> }</div>
+<div class="line">};</div>
+<div class="ttc" id="aa00415_html_gab7d05055167bdb067cce622f051cb551"><div class="ttname"><a href="a00415.html#gab7d05055167bdb067cce622f051cb551">Dune::ExceptionHook::operator()</a></div><div class="ttdeci">virtual void operator()()=0</div></div>
+<div class="ttc" id="aa01553_html"><div class="ttname"><a href="a01553.html">Dune::ExceptionHook</a></div><div class="ttdoc">Base class to add a hook to the Dune::Exception.</div><div class="ttdef"><b>Definition:</b> exceptions.hh:172</div></div>
+</div><!-- fragment --><p>This hook is registered via a static method of <a class="el" href="a01549.html" title="Base class for Dune-Exceptions.">Dune::Exception</a>: </p><div class="fragment"><div class="line"><span class="keywordtype">int</span> <a class="code" href="a00173.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>** argv) {</div>
+<div class="line"> <a class="code" href="a02181.html">Dune::MPIHelper</a> &amp; mpihelper = <a class="code" href="a02181.html#ae2f69b1380c8a6c270dc30a4a79167b5">Dune::MPIHelper::instance</a>(argc,argv);</div>
+<div class="line"> ExceptionHookDebugger debugger(argc, argv, <span class="stringliteral">&quot;/usr/bin/ddd&quot;</span>);</div>
+<div class="line"> <a class="code" href="a00415.html#ga297201b53f24b1d4758c1e8fd94970bd">Dune::Exception::registerHook</a>(&amp; debugger);</div>
+<div class="line"> <span class="keywordflow">try</span></div>
+<div class="line"> {</div>
+<div class="line">     ...</div>
+<div class="line"> }</div>
+<div class="line"> <span class="keywordflow">catch</span> (std::string &amp; s) {</div>
+<div class="line">     std::cout &lt;&lt; mpihelper.<a class="code" href="a02181.html#a80816db762402ae74393abc7b05cf62c">rank</a>() &lt;&lt; <span class="stringliteral">&quot;: ERROR: &quot;</span> &lt;&lt; s &lt;&lt; std::endl;</div>
+<div class="line"> }</div>
+<div class="line"> <span class="keywordflow">catch</span> (<a class="code" href="a01549.html">Dune::Exception</a> &amp; e) {</div>
+<div class="line">     std::cout &lt;&lt; mpihelper.<a class="code" href="a02181.html#a80816db762402ae74393abc7b05cf62c">rank</a>() &lt;&lt; <span class="stringliteral">&quot;: DUNE ERROR: &quot;</span> &lt;&lt; e.<a class="code" href="a00415.html#gad513d0dc7eb0ba16e634b4048409c417">what</a>() &lt;&lt; std::endl;</div>
+<div class="line"> }</div>
+<div class="line">}</div>
+<div class="ttc" id="aa00173_html_a3c04138a5bfe5d72780bb7e82a18e627"><div class="ttname"><a href="a00173.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a></div><div class="ttdeci">int main(int argc, char **argv)</div><div class="ttdef"><b>Definition:</b> mpi_collective_benchmark.cc:291</div></div>
+<div class="ttc" id="aa00415_html_ga297201b53f24b1d4758c1e8fd94970bd"><div class="ttname"><a href="a00415.html#ga297201b53f24b1d4758c1e8fd94970bd">Dune::Exception::registerHook</a></div><div class="ttdeci">static void registerHook(ExceptionHook *hook)</div><div class="ttdoc">add a functor which is called before a Dune::Exception is emitted (see Dune::ExceptionHook)</div><div class="ttdef"><b>Definition:</b> exceptions.cc:20</div></div>
+<div class="ttc" id="aa00415_html_gad513d0dc7eb0ba16e634b4048409c417"><div class="ttname"><a href="a00415.html#gad513d0dc7eb0ba16e634b4048409c417">Dune::Exception::what</a></div><div class="ttdeci">const char * what() const noexcept override</div><div class="ttdoc">output internal message buffer</div><div class="ttdef"><b>Definition:</b> exceptions.cc:35</div></div>
+<div class="ttc" id="aa01549_html"><div class="ttname"><a href="a01549.html">Dune::Exception</a></div><div class="ttdoc">Base class for Dune-Exceptions.</div><div class="ttdef"><b>Definition:</b> exceptions.hh:94</div></div>
+<div class="ttc" id="aa02181_html"><div class="ttname"><a href="a02181.html">Dune::MPIHelper</a></div><div class="ttdoc">A real mpi helper.</div><div class="ttdef"><b>Definition:</b> mpihelper.hh:175</div></div>
+<div class="ttc" id="aa02181_html_a80816db762402ae74393abc7b05cf62c"><div class="ttname"><a href="a02181.html#a80816db762402ae74393abc7b05cf62c">Dune::MPIHelper::rank</a></div><div class="ttdeci">int rank() const</div><div class="ttdoc">return rank of process</div><div class="ttdef"><b>Definition:</b> mpihelper.hh:262</div></div>
+<div class="ttc" id="aa02181_html_ae2f69b1380c8a6c270dc30a4a79167b5"><div class="ttname"><a href="a02181.html#ae2f69b1380c8a6c270dc30a4a79167b5">Dune::MPIHelper::instance</a></div><div class="ttdeci">static DUNE_EXPORT MPIHelper &amp; instance()</div><div class="ttdef"><b>Definition:</b> mpihelper.hh:252</div></div>
+</div><!-- fragment --> </div><hr/>The documentation for this struct was generated from the following file:<ul>
+<li><a class="el" href="a00086_source.html">exceptions.hh</a></li>
+</ul>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1

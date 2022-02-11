@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-common
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -83,64 +83,93 @@ $(function() {
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;gmpxx.h&gt;</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00383.html">dune/common/typetraits.hh</a>&gt;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00428.html">Dune</a></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="keyword">template</span>&lt; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> precision &gt;</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="a01844.html">   28</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a01844.html">GMPField</a></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    : <span class="keyword">public</span> mpf_class</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">typedef</span> mpf_class Base;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="a01844.html#a1c98f1cff0e1a4f47f21c8da20ab3d7a">   35</a></span>&#160;    <a class="code" href="a01844.html#a1c98f1cff0e1a4f47f21c8da20ab3d7a">GMPField</a> ()</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;      : Base(0,precision)</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    {}</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="a01844.html#a638036e0a8202b2b10a7ab75f2971abd">   42</a></span>&#160;    <a class="code" href="a01844.html#a638036e0a8202b2b10a7ab75f2971abd">GMPField</a> ( <span class="keyword">const</span> <span class="keywordtype">char</span>* str )</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      : Base(str,precision)</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    {}</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="a01844.html#a2dba914e372f4ebaf7723700e70b895d">   49</a></span>&#160;    <a class="code" href="a01844.html#a2dba914e372f4ebaf7723700e70b895d">GMPField</a> ( <span class="keyword">const</span> std::string&amp; str )</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;      : Base(str,precision)</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    {}</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">class </span>T,</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;              <span class="keyword">typename</span> EnableIf = <span class="keyword">typename</span> std::enable_if&lt;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                std::is_convertible&lt;T, mpf_class&gt;::value&gt;::type</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;              &gt;</div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="a01844.html#a04962d934cef35d60d59a9bd3142e22d">   59</a></span>&#160;    <a class="code" href="a01844.html#a04962d934cef35d60d59a9bd3142e22d">GMPField</a> ( <span class="keyword">const</span> T &amp;v )</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;      : Base( v,precision )</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    {}</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="comment">// type conversion operators</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="a01844.html#ac68f8e4c99a27750b3543f180882ac84">   64</a></span>&#160;    <span class="keyword">operator</span> double ()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;      <span class="keywordflow">return</span> this-&gt;get_d();</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    }</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  };</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <span class="keyword">template</span> &lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> precision&gt;</div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="a01848.html">   72</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a03160.html">IsNumber</a>&lt;<a class="code" href="a01844.html">GMPField</a>&lt;precision&gt;&gt;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    : <span class="keyword">public</span> std::integral_constant&lt;bool, true&gt; {</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  };</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;}</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// HAVE_GMP</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// #ifndef DUNE_GMPFIELD_HH</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00266.html">dune/common/promotiontraits.hh</a>&gt;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00383.html">dune/common/typetraits.hh</a>&gt;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00428.html">Dune</a></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="keyword">template</span>&lt; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> precision &gt;</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="a01829.html">   29</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a01829.html">GMPField</a></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    : <span class="keyword">public</span> mpf_class</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">typedef</span> mpf_class Base;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="a01829.html#a1c98f1cff0e1a4f47f21c8da20ab3d7a">   36</a></span>&#160;    <a class="code" href="a01829.html#a1c98f1cff0e1a4f47f21c8da20ab3d7a">GMPField</a> ()</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;      : Base(0,precision)</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    {}</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="a01829.html#a638036e0a8202b2b10a7ab75f2971abd">   43</a></span>&#160;    <a class="code" href="a01829.html#a638036e0a8202b2b10a7ab75f2971abd">GMPField</a> ( <span class="keyword">const</span> <span class="keywordtype">char</span>* str )</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;      : Base(str,precision)</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    {}</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="a01829.html#a2dba914e372f4ebaf7723700e70b895d">   50</a></span>&#160;    <a class="code" href="a01829.html#a2dba914e372f4ebaf7723700e70b895d">GMPField</a> ( <span class="keyword">const</span> std::string&amp; str )</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;      : Base(str,precision)</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    {}</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">class </span>T,</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;              <span class="keyword">typename</span> EnableIf = <span class="keyword">typename</span> std::enable_if&lt;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                std::is_convertible&lt;T, mpf_class&gt;::value&gt;::type</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;              &gt;</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="a01829.html#a04962d934cef35d60d59a9bd3142e22d">   60</a></span>&#160;    <a class="code" href="a01829.html#a04962d934cef35d60d59a9bd3142e22d">GMPField</a> ( <span class="keyword">const</span> T &amp;v )</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;      : Base( v,precision )</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    {}</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="comment">// type conversion operators</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="a01829.html#ac68f8e4c99a27750b3543f180882ac84">   65</a></span>&#160;    <span class="keyword">operator</span> double ()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;      <span class="keywordflow">return</span> this-&gt;get_d();</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  };</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="keyword">template</span> &lt;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> precision&gt;</div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="a01833.html">   73</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a03085.html">IsNumber</a>&lt;<a class="code" href="a01829.html">GMPField</a>&lt;precision&gt;&gt;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    : <span class="keyword">public</span> std::integral_constant&lt;bool, true&gt; {</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  };</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  <span class="keyword">template</span>&lt; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> precision1, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> precision2 &gt;</div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="a01837.html">   78</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a02405.html">PromotionTraits</a>&lt;<a class="code" href="a01829.html">GMPField</a>&lt;precision1&gt;, <a class="code" href="a01829.html">GMPField</a>&lt;precision2&gt;&gt;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  {</div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="a01837.html#af814fa56640f9019d2b096b3aa365e0e">   80</a></span>&#160;    <span class="keyword">typedef</span> <a class="code" href="a01829.html">GMPField</a>&lt;(precision1 &gt; precision2 ? precision1 : precision2)&gt; <a class="code" href="a01829.html">PromotedType</a>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  };</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  <span class="keyword">template</span>&lt; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> precision &gt;</div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="a01841.html">   84</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a02405.html">PromotionTraits</a>&lt;<a class="code" href="a01829.html">GMPField</a>&lt;precision&gt;,<a class="code" href="a01829.html">GMPField</a>&lt;precision&gt;&gt;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  {</div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="a01841.html#aeda98e0b61d7a6958bdd1f1ba93dfd79">   86</a></span>&#160;    <span class="keyword">typedef</span> <a class="code" href="a01829.html">GMPField&lt;precision&gt;</a> <a class="code" href="a01841.html#aeda98e0b61d7a6958bdd1f1ba93dfd79">PromotedType</a>;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  };</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  <span class="keyword">template</span>&lt; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> precision, <span class="keyword">class</span> T &gt;</div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="a01845.html">   90</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a02405.html">PromotionTraits</a>&lt;<a class="code" href="a01829.html">GMPField</a>&lt;precision&gt;, T&gt;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  {</div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="a01845.html#ab29744d04f497ab356bb62f42d77c866">   92</a></span>&#160;    <span class="keyword">typedef</span> <a class="code" href="a01829.html">GMPField&lt;precision&gt;</a> <a class="code" href="a01845.html#ab29744d04f497ab356bb62f42d77c866">PromotedType</a>;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  };</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  <span class="keyword">template</span>&lt; <span class="keyword">class</span> T, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> precision &gt;</div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="a01849.html">   96</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a02405.html">PromotionTraits</a>&lt;T, <a class="code" href="a01829.html">GMPField</a>&lt;precision&gt;&gt;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  {</div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="a01849.html#af819792396739bc1bdf908b5741ae9bd">   98</a></span>&#160;    <span class="keyword">typedef</span> <a class="code" href="a01829.html">GMPField&lt;precision&gt;</a> <a class="code" href="a01849.html#af819792396739bc1bdf908b5741ae9bd">PromotedType</a>;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  };</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;}</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// HAVE_GMP</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// #ifndef DUNE_GMPFIELD_HH</span></div>
+<div class="ttc" id="aa00266_html"><div class="ttname"><a href="a00266.html">promotiontraits.hh</a></div><div class="ttdoc">Compute type of the result of an arithmetic operation involving two different number types.</div></div>
 <div class="ttc" id="aa00383_html"><div class="ttname"><a href="a00383.html">typetraits.hh</a></div><div class="ttdoc">Traits for type conversions and type information.</div></div>
-<div class="ttc" id="aa00428_html"><div class="ttname"><a href="a00428.html">Dune</a></div><div class="ttdoc">Dune namespace.</div><div class="ttdef"><b>Definition:</b> alignedallocator.hh:14</div></div>
-<div class="ttc" id="aa01844_html"><div class="ttname"><a href="a01844.html">Dune::GMPField</a></div><div class="ttdoc">Number class for high precision floating point number using the GMP library mpf_class implementation.</div><div class="ttdef"><b>Definition:</b> gmpfield.hh:30</div></div>
-<div class="ttc" id="aa01844_html_a04962d934cef35d60d59a9bd3142e22d"><div class="ttname"><a href="a01844.html#a04962d934cef35d60d59a9bd3142e22d">Dune::GMPField::GMPField</a></div><div class="ttdeci">GMPField(const T &amp;v)</div><div class="ttdoc">initialize from a compatible scalar type</div><div class="ttdef"><b>Definition:</b> gmpfield.hh:59</div></div>
-<div class="ttc" id="aa01844_html_a1c98f1cff0e1a4f47f21c8da20ab3d7a"><div class="ttname"><a href="a01844.html#a1c98f1cff0e1a4f47f21c8da20ab3d7a">Dune::GMPField::GMPField</a></div><div class="ttdeci">GMPField()</div><div class="ttdef"><b>Definition:</b> gmpfield.hh:35</div></div>
-<div class="ttc" id="aa01844_html_a2dba914e372f4ebaf7723700e70b895d"><div class="ttname"><a href="a01844.html#a2dba914e372f4ebaf7723700e70b895d">Dune::GMPField::GMPField</a></div><div class="ttdeci">GMPField(const std::string &amp;str)</div><div class="ttdoc">initialize from a string</div><div class="ttdef"><b>Definition:</b> gmpfield.hh:49</div></div>
-<div class="ttc" id="aa01844_html_a638036e0a8202b2b10a7ab75f2971abd"><div class="ttname"><a href="a01844.html#a638036e0a8202b2b10a7ab75f2971abd">Dune::GMPField::GMPField</a></div><div class="ttdeci">GMPField(const char *str)</div><div class="ttdoc">initialize from a string</div><div class="ttdef"><b>Definition:</b> gmpfield.hh:42</div></div>
-<div class="ttc" id="aa03160_html"><div class="ttname"><a href="a03160.html">Dune::IsNumber</a></div><div class="ttdoc">Whether this type acts as a scalar in the context of (hierarchically blocked) containers.</div><div class="ttdef"><b>Definition:</b> typetraits.hh:163</div></div>
+<div class="ttc" id="aa00428_html"><div class="ttname"><a href="a00428.html">Dune</a></div><div class="ttdoc">Dune namespace.</div><div class="ttdef"><b>Definition:</b> alignedallocator.hh:11</div></div>
+<div class="ttc" id="aa01829_html"><div class="ttname"><a href="a01829.html">Dune::GMPField</a></div><div class="ttdoc">Number class for high precision floating point number using the GMP library mpf_class implementation.</div><div class="ttdef"><b>Definition:</b> gmpfield.hh:31</div></div>
+<div class="ttc" id="aa01829_html_a04962d934cef35d60d59a9bd3142e22d"><div class="ttname"><a href="a01829.html#a04962d934cef35d60d59a9bd3142e22d">Dune::GMPField::GMPField</a></div><div class="ttdeci">GMPField(const T &amp;v)</div><div class="ttdoc">initialize from a compatible scalar type</div><div class="ttdef"><b>Definition:</b> gmpfield.hh:60</div></div>
+<div class="ttc" id="aa01829_html_a1c98f1cff0e1a4f47f21c8da20ab3d7a"><div class="ttname"><a href="a01829.html#a1c98f1cff0e1a4f47f21c8da20ab3d7a">Dune::GMPField::GMPField</a></div><div class="ttdeci">GMPField()</div><div class="ttdef"><b>Definition:</b> gmpfield.hh:36</div></div>
+<div class="ttc" id="aa01829_html_a2dba914e372f4ebaf7723700e70b895d"><div class="ttname"><a href="a01829.html#a2dba914e372f4ebaf7723700e70b895d">Dune::GMPField::GMPField</a></div><div class="ttdeci">GMPField(const std::string &amp;str)</div><div class="ttdoc">initialize from a string</div><div class="ttdef"><b>Definition:</b> gmpfield.hh:50</div></div>
+<div class="ttc" id="aa01829_html_a638036e0a8202b2b10a7ab75f2971abd"><div class="ttname"><a href="a01829.html#a638036e0a8202b2b10a7ab75f2971abd">Dune::GMPField::GMPField</a></div><div class="ttdeci">GMPField(const char *str)</div><div class="ttdoc">initialize from a string</div><div class="ttdef"><b>Definition:</b> gmpfield.hh:43</div></div>
+<div class="ttc" id="aa01841_html_aeda98e0b61d7a6958bdd1f1ba93dfd79"><div class="ttname"><a href="a01841.html#aeda98e0b61d7a6958bdd1f1ba93dfd79">Dune::PromotionTraits&lt; GMPField&lt; precision &gt;, GMPField&lt; precision &gt; &gt;::PromotedType</a></div><div class="ttdeci">GMPField&lt; precision &gt; PromotedType</div><div class="ttdef"><b>Definition:</b> gmpfield.hh:86</div></div>
+<div class="ttc" id="aa01845_html_ab29744d04f497ab356bb62f42d77c866"><div class="ttname"><a href="a01845.html#ab29744d04f497ab356bb62f42d77c866">Dune::PromotionTraits&lt; GMPField&lt; precision &gt;, T &gt;::PromotedType</a></div><div class="ttdeci">GMPField&lt; precision &gt; PromotedType</div><div class="ttdef"><b>Definition:</b> gmpfield.hh:92</div></div>
+<div class="ttc" id="aa01849_html_af819792396739bc1bdf908b5741ae9bd"><div class="ttname"><a href="a01849.html#af819792396739bc1bdf908b5741ae9bd">Dune::PromotionTraits&lt; T, GMPField&lt; precision &gt; &gt;::PromotedType</a></div><div class="ttdeci">GMPField&lt; precision &gt; PromotedType</div><div class="ttdef"><b>Definition:</b> gmpfield.hh:98</div></div>
+<div class="ttc" id="aa02405_html"><div class="ttname"><a href="a02405.html">Dune::PromotionTraits</a></div><div class="ttdoc">Compute type of the result of an arithmetic operation involving two different number types.</div><div class="ttdef"><b>Definition:</b> promotiontraits.hh:25</div></div>
+<div class="ttc" id="aa03085_html"><div class="ttname"><a href="a03085.html">Dune::IsNumber</a></div><div class="ttdoc">Whether this type acts as a scalar in the context of (hierarchically blocked) containers.</div><div class="ttdef"><b>Definition:</b> typetraits.hh:194</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

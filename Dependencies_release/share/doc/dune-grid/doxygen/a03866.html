@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: Dune::VTK::ConformingVolumeWriter&lt; GV &gt; Class Template Reference</title>
+<title>dune-grid: Dune::VTKSequenceWriter&lt; GridView &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,485 +62,101 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00936.html">Dune</a></li><li class="navelem"><a class="el" href="a00948.html">VTK</a></li><li class="navelem"><a class="el" href="a03866.html">ConformingVolumeWriter</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00940.html">Dune</a></li><li class="navelem"><a class="el" href="a03866.html">VTKSequenceWriter</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
-<a href="#pro-methods">Protected Member Functions</a> &#124;
-<a href="#pro-static-methods">Static Protected Member Functions</a> &#124;
 <a href="a03863.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::VTK::ConformingVolumeWriter&lt; GV &gt; Class Template Reference</div>  </div>
+<div class="title">Dune::VTKSequenceWriter&lt; GridView &gt; Class Template Reference<div class="ingroups"><a class="el" href="a00905.html">dune-grid</a> &raquo; <a class="el" href="a00928.html">I/O</a> &raquo; <a class="el" href="a00933.html">Visualization ToolKit (VTK)</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="a00824_source.html">dune/grid/io/file/vtk/volumewriter.hh</a>&gt;</code></p>
+<p>Writer for the ouput of grid functions in the vtk format.  
+ <a href="a03866.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="a00833_source.html">dune/grid/io/file/vtk/vtksequencewriter.hh</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for Dune::VTK::ConformingVolumeWriter&lt; GV &gt;:</div>
+Inheritance diagram for Dune::VTKSequenceWriter&lt; GridView &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="a03865.png" border="0" usemap="#a_dune_1_1_v_t_k_1_1_conforming_volume_writer_3_01_g_v_01_4_inherit__map" alt="Inheritance graph"/></div>
-<map name="a_dune_1_1_v_t_k_1_1_conforming_volume_writer_3_01_g_v_01_4_inherit__map" id="a_dune_1_1_v_t_k_1_1_conforming_volume_writer_3_01_g_v_01_4_inherit__map">
-<area shape="rect" title=" " alt="" coords="656,43,859,84"/>
-<area shape="rect" href="a03858.html" title=" " alt="" coords="392,5,595,47"/>
-<area shape="rect" href="a03698.html" title=" " alt="" coords="380,71,607,127"/>
-<area shape="rect" href="a03698.html" title=" " alt="" coords="5,79,167,120"/>
+<div class="center"><img src="a03865.png" border="0" usemap="#a_dune_1_1_v_t_k_sequence_writer_3_01_grid_view_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="a_dune_1_1_v_t_k_sequence_writer_3_01_grid_view_01_4_inherit__map" id="a_dune_1_1_v_t_k_sequence_writer_3_01_grid_view_01_4_inherit__map">
+<area shape="rect" title="Writer for the ouput of grid functions in the vtk format." alt="" coords="20,95,199,136"/>
+<area shape="rect" href="a03870.html" title="Base class to write pvd&#45;files which contains a list of all collected vtk&#45;files." alt="" coords="5,5,213,47"/>
 </map>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:ae84c764e8048ea23bc53438af8e27323"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a03782.html">Dune::VTKFunction</a>&lt; GV &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03866.html#ae84c764e8048ea23bc53438af8e27323">VTKFunction</a></td></tr>
-<tr class="separator:ae84c764e8048ea23bc53438af8e27323"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35c2635e9d297340db8eaa89b5042863"><td class="memItemLeft" align="right" valign="top">typedef std::shared_ptr&lt; <a class="el" href="a03866.html#ae84c764e8048ea23bc53438af8e27323">VTKFunction</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03866.html#a35c2635e9d297340db8eaa89b5042863">VTKFunctionPtr</a></td></tr>
-<tr class="separator:a35c2635e9d297340db8eaa89b5042863"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae6215cf619aa91c50ea484dd97ac727f"><td class="memItemLeft" align="right" valign="top">typedef GV::template Codim&lt; 0 &gt;::<a class="el" href="a02630.html">Entity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#ae6215cf619aa91c50ea484dd97ac727f">Cell</a></td></tr>
-<tr class="separator:ae6215cf619aa91c50ea484dd97ac727f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c973430beba78f11b88e7dd21e0aa34"><td class="memItemLeft" align="right" valign="top">typedef GV::template Codim&lt; 0 &gt;::template Partition&lt; <a class="el" href="a00904.html#ggaa5b9e8102d7f70f3f4178182629d98b6a8da384ab42a2918b7cf88220328cff19">InteriorBorder_Partition</a> &gt;::Iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#a2c973430beba78f11b88e7dd21e0aa34">CellIterator</a></td></tr>
-<tr class="separator:a2c973430beba78f11b88e7dd21e0aa34"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69c1e7e99c32cc2d86fff8519526a9f9"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a03742.html">VTK::Corner</a>&lt; <a class="el" href="a03858.html#ae6215cf619aa91c50ea484dd97ac727f">Cell</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#a69c1e7e99c32cc2d86fff8519526a9f9">Corner</a></td></tr>
-<tr class="separator:a69c1e7e99c32cc2d86fff8519526a9f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a610893d34f81ac0470b21554c133d71c"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a03746.html">VTK::CornerIterator</a>&lt; <a class="el" href="a03858.html#a2c973430beba78f11b88e7dd21e0aa34">CellIterator</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#a610893d34f81ac0470b21554c133d71c">CornerIterator</a></td></tr>
-<tr class="separator:a610893d34f81ac0470b21554c133d71c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abacbecdfa7ef99ffa859d1976522761f"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a03742.html">VTK::Corner</a>&lt; <a class="el" href="a03858.html#ae6215cf619aa91c50ea484dd97ac727f">Cell</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#abacbecdfa7ef99ffa859d1976522761f">Point</a></td></tr>
-<tr class="separator:abacbecdfa7ef99ffa859d1976522761f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8cbaec5a413791981eccc637e117e81d"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a03822.html">VTK::PointIterator</a>&lt; <a class="el" href="a03858.html#a2c973430beba78f11b88e7dd21e0aa34">CellIterator</a>, typename GV::IndexSet &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#a8cbaec5a413791981eccc637e117e81d">PointIterator</a></td></tr>
-<tr class="separator:a8cbaec5a413791981eccc637e117e81d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99a0905da2e8c1823ccfb6ade7a32ad8"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a03806.html">ConformingConnectivityWriter</a>&lt; <a class="el" href="a03858.html">ConformingVolumeIteratorFactory</a>&lt; GV &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#a99a0905da2e8c1823ccfb6ade7a32ad8">ConnectivityWriter</a></td></tr>
-<tr class="separator:a99a0905da2e8c1823ccfb6ade7a32ad8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8592288ba202cb1ae54b90b3221da2e"><td class="memItemLeft" align="right" valign="top">typedef GV::CollectiveCommunication&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#ac8592288ba202cb1ae54b90b3221da2e">CollectiveCommunication</a></td></tr>
-<tr class="separator:ac8592288ba202cb1ae54b90b3221da2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad36d9935215389eea1fd32991cdc4a88"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a03794.html">FunctionWriterBase</a>&lt; <a class="el" href="a03858.html#ae6215cf619aa91c50ea484dd97ac727f">Cell</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03698.html#ad36d9935215389eea1fd32991cdc4a88">FunctionWriter</a></td></tr>
-<tr class="separator:ad36d9935215389eea1fd32991cdc4a88"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac21d8bb82097b318f6a0c413244c62dd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03866.html#ac21d8bb82097b318f6a0c413244c62dd">ConformingVolumeWriter</a> (const GV &amp;gv_)</td></tr>
-<tr class="separator:ac21d8bb82097b318f6a0c413244c62dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c0f8373a157b8d3cdcdcb179824a46d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03866.html#a3c0f8373a157b8d3cdcdcb179824a46d">addCellData</a> (const <a class="el" href="a03866.html#a35c2635e9d297340db8eaa89b5042863">VTKFunctionPtr</a> &amp;p)</td></tr>
-<tr class="separator:a3c0f8373a157b8d3cdcdcb179824a46d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a519535bd21e783c6c2cf646da2e7612e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03866.html#a519535bd21e783c6c2cf646da2e7612e">addCellData</a> (<a class="el" href="a03866.html#ae84c764e8048ea23bc53438af8e27323">VTKFunction</a> *p)</td></tr>
-<tr class="separator:a519535bd21e783c6c2cf646da2e7612e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa205f51063c30a3783bd6f6db5944951"><td class="memTemplParams" colspan="2">template&lt;typename V &gt; </td></tr>
-<tr class="memitem:aa205f51063c30a3783bd6f6db5944951"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a03866.html#aa205f51063c30a3783bd6f6db5944951">addCellData</a> (const V &amp;v, const std::string &amp;name, int ncomps=1)</td></tr>
-<tr class="separator:aa205f51063c30a3783bd6f6db5944951"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3cd148eb9712adbe57d7c636ed2b8551"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03866.html#a3cd148eb9712adbe57d7c636ed2b8551">addVertexData</a> (const <a class="el" href="a03866.html#a35c2635e9d297340db8eaa89b5042863">VTKFunctionPtr</a> &amp;p)</td></tr>
-<tr class="separator:a3cd148eb9712adbe57d7c636ed2b8551"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7be6aa13f47b9a0fc8c3ab1a394d182c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03866.html#a7be6aa13f47b9a0fc8c3ab1a394d182c">addVertexData</a> (<a class="el" href="a03866.html#ae84c764e8048ea23bc53438af8e27323">VTKFunction</a> *p)</td></tr>
-<tr class="separator:a7be6aa13f47b9a0fc8c3ab1a394d182c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6778a40c8f60e891c23ac6fbb1a26124"><td class="memTemplParams" colspan="2">template&lt;typename V &gt; </td></tr>
-<tr class="memitem:a6778a40c8f60e891c23ac6fbb1a26124"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a03866.html#a6778a40c8f60e891c23ac6fbb1a26124">addVertexData</a> (const V &amp;v, const std::string &amp;name, int ncomps=1)</td></tr>
-<tr class="separator:a6778a40c8f60e891c23ac6fbb1a26124"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd27a72bc7c69f92b6f72efcc5a0869a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03866.html#afd27a72bc7c69f92b6f72efcc5a0869a">addPointData</a> (const std::shared_ptr&lt; <a class="el" href="a03698.html#ad36d9935215389eea1fd32991cdc4a88">FunctionWriter</a> &gt; &amp;writer)</td></tr>
-<tr class="separator:afd27a72bc7c69f92b6f72efcc5a0869a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0e33d61befa77ee84e37f2f0f8951ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a03858.html#a2c973430beba78f11b88e7dd21e0aa34">CellIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#ae0e33d61befa77ee84e37f2f0f8951ff">beginCells</a> () const</td></tr>
-<tr class="separator:ae0e33d61befa77ee84e37f2f0f8951ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a72933dc1a25db46a6fdb9e474fa40f90"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a03858.html#a2c973430beba78f11b88e7dd21e0aa34">CellIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#a72933dc1a25db46a6fdb9e474fa40f90">endCells</a> () const</td></tr>
-<tr class="separator:a72933dc1a25db46a6fdb9e474fa40f90"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9aff567af22a6812aa8e242e1650f5d9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a03858.html#a610893d34f81ac0470b21554c133d71c">CornerIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#a9aff567af22a6812aa8e242e1650f5d9">beginCorners</a> () const</td></tr>
-<tr class="separator:a9aff567af22a6812aa8e242e1650f5d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c978cb21ce59845402fb2d1d4f7c0af"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a03858.html#a610893d34f81ac0470b21554c133d71c">CornerIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#a0c978cb21ce59845402fb2d1d4f7c0af">endCorners</a> () const</td></tr>
-<tr class="separator:a0c978cb21ce59845402fb2d1d4f7c0af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae9825228b36b518fa8a86c89557fda6d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a03858.html#a8cbaec5a413791981eccc637e117e81d">PointIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#ae9825228b36b518fa8a86c89557fda6d">beginPoints</a> () const</td></tr>
-<tr class="separator:ae9825228b36b518fa8a86c89557fda6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa77f31ca31e64793e352851afa61daf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a03858.html#a8cbaec5a413791981eccc637e117e81d">PointIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#aaa77f31ca31e64793e352851afa61daf">endPoints</a> () const</td></tr>
-<tr class="separator:aaa77f31ca31e64793e352851afa61daf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acfd5e0f7db6110d3f7f2022cf473de39"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a03858.html#a99a0905da2e8c1823ccfb6ade7a32ad8">ConnectivityWriter</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#acfd5e0f7db6110d3f7f2022cf473de39">makeConnectivity</a> () const</td></tr>
-<tr class="separator:acfd5e0f7db6110d3f7f2022cf473de39"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac61848001e2bafa379d0925715cee482"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a03858.html#ac8592288ba202cb1ae54b90b3221da2e">CollectiveCommunication</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#ac61848001e2bafa379d0925715cee482">comm</a> () const</td></tr>
-<tr class="separator:ac61848001e2bafa379d0925715cee482"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4e391b5f3f1058ad1fc96d4e50f66b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03698.html#af4e391b5f3f1058ad1fc96d4e50f66b1">addCellData</a> (const std::shared_ptr&lt; <a class="el" href="a03698.html#ad36d9935215389eea1fd32991cdc4a88">FunctionWriter</a> &gt; &amp;writer)</td></tr>
-<tr class="separator:af4e391b5f3f1058ad1fc96d4e50f66b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd27a72bc7c69f92b6f72efcc5a0869a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03698.html#afd27a72bc7c69f92b6f72efcc5a0869a">addPointData</a> (const std::shared_ptr&lt; <a class="el" href="a03698.html#ad36d9935215389eea1fd32991cdc4a88">FunctionWriter</a> &gt; &amp;writer)</td></tr>
-<tr class="separator:afd27a72bc7c69f92b6f72efcc5a0869a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a895c78454f07359bc12553b73421426e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03698.html#a895c78454f07359bc12553b73421426e">clear</a> ()</td></tr>
-<tr class="separator:a895c78454f07359bc12553b73421426e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aedf4d1e27b282df9cb1c44bb46abc2a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03698.html#aedf4d1e27b282df9cb1c44bb46abc2a0">writePiece</a> (const std::string &amp;filename, <a class="el" href="a00948.html#a256815237356e8c99c97e7debb1dabf8">OutputType</a> outputType)</td></tr>
-<tr class="separator:aedf4d1e27b282df9cb1c44bb46abc2a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58b0cf56bd71a1462b9370af1b194361"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03698.html#a58b0cf56bd71a1462b9370af1b194361">writeCollection</a> (const std::string name, const std::string &amp;piecename, const std::string &amp;piecepath)</td></tr>
-<tr class="memdesc:a58b0cf56bd71a1462b9370af1b194361"><td class="mdescLeft">&#160;</td><td class="mdescRight">write header file in parallel case to stream  <a href="a03698.html#a58b0cf56bd71a1462b9370af1b194361">More...</a><br /></td></tr>
-<tr class="separator:a58b0cf56bd71a1462b9370af1b194361"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9e1789744821b09e22c8fcce67d2f03"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03698.html#af9e1789744821b09e22c8fcce67d2f03">getParallelPieceName</a> (const std::string &amp;name, const std::string &amp;path, int rank) const</td></tr>
-<tr class="memdesc:af9e1789744821b09e22c8fcce67d2f03"><td class="mdescLeft">&#160;</td><td class="mdescRight">return name of a parallel piece file  <a href="a03698.html#af9e1789744821b09e22c8fcce67d2f03">More...</a><br /></td></tr>
-<tr class="separator:af9e1789744821b09e22c8fcce67d2f03"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9cd727cb23e3cb0cc75140b87bff0fc0"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03698.html#a9cd727cb23e3cb0cc75140b87bff0fc0">getParallelHeaderName</a> (const std::string &amp;name, const std::string &amp;path) const</td></tr>
-<tr class="memdesc:a9cd727cb23e3cb0cc75140b87bff0fc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">return name of a parallel header file  <a href="a03698.html#a9cd727cb23e3cb0cc75140b87bff0fc0">More...</a><br /></td></tr>
-<tr class="separator:a9cd727cb23e3cb0cc75140b87bff0fc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d280097305c7e5ec746ee7932fc8710"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03698.html#a3d280097305c7e5ec746ee7932fc8710">getSerialPieceName</a> (const std::string &amp;name, const std::string &amp;path) const</td></tr>
-<tr class="memdesc:a3d280097305c7e5ec746ee7932fc8710"><td class="mdescLeft">&#160;</td><td class="mdescRight">return name of a serial piece file  <a href="a03698.html#a3d280097305c7e5ec746ee7932fc8710">More...</a><br /></td></tr>
-<tr class="separator:a3d280097305c7e5ec746ee7932fc8710"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75860317a0f1e9dfbedd870b68485093"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03698.html#a75860317a0f1e9dfbedd870b68485093">pwrite</a> (const std::string &amp;name, const std::string &amp;path, const std::string &amp;extendpath, <a class="el" href="a00948.html#a256815237356e8c99c97e7debb1dabf8">OutputType</a> outputType)</td></tr>
-<tr class="memdesc:a75860317a0f1e9dfbedd870b68485093"><td class="mdescLeft">&#160;</td><td class="mdescRight">write output; interface might change later  <a href="a03698.html#a75860317a0f1e9dfbedd870b68485093">More...</a><br /></td></tr>
-<tr class="separator:a75860317a0f1e9dfbedd870b68485093"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afbc864f3b73fbb8a1e196e00831d5966"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03698.html#afbc864f3b73fbb8a1e196e00831d5966">write</a> (const std::string &amp;name, <a class="el" href="a00948.html#a256815237356e8c99c97e7debb1dabf8">OutputType</a> outputType)</td></tr>
-<tr class="memdesc:afbc864f3b73fbb8a1e196e00831d5966"><td class="mdescLeft">&#160;</td><td class="mdescRight">write output (interface might change later)  <a href="a03698.html#afbc864f3b73fbb8a1e196e00831d5966">More...</a><br /></td></tr>
-<tr class="separator:afbc864f3b73fbb8a1e196e00831d5966"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr class="memitem:a9c6a74528c100d905040e6d92c3ddf82"><td class="memItemLeft" align="right" valign="top">static const unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03858.html#a9c6a74528c100d905040e6d92c3ddf82">dimCell</a> = GV::dimension</td></tr>
-<tr class="separator:a9c6a74528c100d905040e6d92c3ddf82"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:a9082d2d165e818242e1176a06d1f9622"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03698.html#a9082d2d165e818242e1176a06d1f9622">writeCellFunction</a> (<a class="el" href="a03934.html">VTUWriter</a> &amp;vtuWriter, <a class="el" href="a03698.html#ad36d9935215389eea1fd32991cdc4a88">FunctionWriter</a> &amp;functionWriter, unsigned ncells) const</td></tr>
-<tr class="separator:a9082d2d165e818242e1176a06d1f9622"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add2df4842048164321d57609a15f337d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03698.html#add2df4842048164321d57609a15f337d">writePointFunction</a> (<a class="el" href="a03934.html">VTUWriter</a> &amp;vtuWriter, <a class="el" href="a03698.html#ad36d9935215389eea1fd32991cdc4a88">FunctionWriter</a> &amp;functionWriter, unsigned npoints) const</td></tr>
-<tr class="separator:add2df4842048164321d57609a15f337d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91f4353fe0a4de25a06d0dda41b97303"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03698.html#a91f4353fe0a4de25a06d0dda41b97303">writeCornerFunction</a> (<a class="el" href="a03934.html">VTUWriter</a> &amp;vtuWriter, <a class="el" href="a03698.html#ad36d9935215389eea1fd32991cdc4a88">FunctionWriter</a> &amp;functionWriter, unsigned ncorners) const</td></tr>
-<tr class="separator:a91f4353fe0a4de25a06d0dda41b97303"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0cfe911f621230115e3657820ee8fd7a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03698.html#a0cfe911f621230115e3657820ee8fd7a">writeCellData</a> (<a class="el" href="a03934.html">VTUWriter</a> &amp;vtuWriter, unsigned ncells) const</td></tr>
-<tr class="separator:a0cfe911f621230115e3657820ee8fd7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaec05e424a6657f4d8d4843364a05444"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03698.html#aaec05e424a6657f4d8d4843364a05444">writePointData</a> (<a class="el" href="a03934.html">VTUWriter</a> &amp;vtuWriter, unsigned npoints) const</td></tr>
-<tr class="separator:aaec05e424a6657f4d8d4843364a05444"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6bb905e9ec13e2452ed1647a6e79eccf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03698.html#a6bb905e9ec13e2452ed1647a6e79eccf">writeGrid</a> (<a class="el" href="a03934.html">VTUWriter</a> &amp;vtuWriter, unsigned ncells, unsigned npoints, unsigned ncorners)</td></tr>
-<tr class="separator:a6bb905e9ec13e2452ed1647a6e79eccf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7335b24fa49e1d792db7e2132cf436a9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03698.html#a7335b24fa49e1d792db7e2132cf436a9">writeAll</a> (<a class="el" href="a03934.html">VTUWriter</a> &amp;vtuWriter, unsigned ncells, unsigned npoints, unsigned ncorners)</td></tr>
-<tr class="separator:a7335b24fa49e1d792db7e2132cf436a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-methods"></a>
-Static Protected Member Functions</h2></td></tr>
-<tr class="memitem:af9ba4cc56e221c73e03f98c4701adcae"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03698.html#af9ba4cc56e221c73e03f98c4701adcae">getFirstScalar</a> (const WriterList &amp;data)</td></tr>
-<tr class="separator:af9ba4cc56e221c73e03f98c4701adcae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9cd3194e22933f9bee6af141da6ceec"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03698.html#ac9cd3194e22933f9bee6af141da6ceec">getFirstVector</a> (const WriterList &amp;data)</td></tr>
-<tr class="separator:ac9cd3194e22933f9bee6af141da6ceec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad39612067ab624b45eea75dd04732e88"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03866.html#ad39612067ab624b45eea75dd04732e88">VTKSequenceWriter</a> (std::shared_ptr&lt; <a class="el" href="a03890.html">VTKWriter</a>&lt; <a class="el" href="a02758.html">GridView</a> &gt; &gt; <a class="el" href="a03870.html#ac6ea362b3697861791a86ece1a4619a3">vtkWriter</a>, const std::string &amp;name)</td></tr>
+<tr class="memdesc:ad39612067ab624b45eea75dd04732e88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor with a given <a class="el" href="a03890.html" title="Writer for the ouput of grid functions in the vtk format.">VTKWriter</a> or <a class="el" href="a03846.html" title="Writer for the output of subsampled grid functions in the vtk format.">SubsamplingVTKWriter</a>.  <a href="a03866.html#ad39612067ab624b45eea75dd04732e88">More...</a><br /></td></tr>
+<tr class="separator:ad39612067ab624b45eea75dd04732e88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57619c6237719240bbf7b3b737bd624f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03866.html#a57619c6237719240bbf7b3b737bd624f">VTKSequenceWriter</a> (std::shared_ptr&lt; <a class="el" href="a03890.html">VTKWriter</a>&lt; <a class="el" href="a02758.html">GridView</a> &gt; &gt; <a class="el" href="a03870.html#ac6ea362b3697861791a86ece1a4619a3">vtkWriter</a>, const std::string &amp;name, const std::string &amp;path, const std::string &amp;extendpath)</td></tr>
+<tr class="memdesc:a57619c6237719240bbf7b3b737bd624f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor with a given <a class="el" href="a03890.html" title="Writer for the ouput of grid functions in the vtk format.">VTKWriter</a> or <a class="el" href="a03846.html" title="Writer for the output of subsampled grid functions in the vtk format.">SubsamplingVTKWriter</a>.  <a href="a03866.html#a57619c6237719240bbf7b3b737bd624f">More...</a><br /></td></tr>
+<tr class="separator:a57619c6237719240bbf7b3b737bd624f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:addc39a56ff51d13b49b03e09aa298603"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03866.html#addc39a56ff51d13b49b03e09aa298603">VTKSequenceWriter</a> (const <a class="el" href="a02758.html">GridView</a> &amp;gridView, const std::string &amp;name, const std::string &amp;path, const std::string &amp;extendpath, <a class="el" href="a00951.html#a4e39cac1185c9bce3ad9f4e72bd36312">VTK::DataMode</a> dm=<a class="el" href="a00951.html#a4e39cac1185c9bce3ad9f4e72bd36312a293015461843c4dee42c41191a82f60d">VTK::conforming</a>)</td></tr>
+<tr class="memdesc:addc39a56ff51d13b49b03e09aa298603"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor creating its own <a class="el" href="a03890.html" title="Writer for the ouput of grid functions in the vtk format.">VTKWriter</a> object.  <a href="a03866.html#addc39a56ff51d13b49b03e09aa298603">More...</a><br /></td></tr>
+<tr class="separator:addc39a56ff51d13b49b03e09aa298603"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6ea362b3697861791a86ece1a4619a3"><td class="memItemLeft" align="right" valign="top">const std::shared_ptr&lt; <a class="el" href="a03890.html">VTKWriter</a>&lt; <a class="el" href="a02758.html">GridView</a> &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03870.html#ac6ea362b3697861791a86ece1a4619a3">vtkWriter</a> () const</td></tr>
+<tr class="separator:ac6ea362b3697861791a86ece1a4619a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae17d4ef4e3e9e1efb85c06642599b56a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03870.html#ae17d4ef4e3e9e1efb85c06642599b56a">addCellData</a> (const std::shared_ptr&lt; const typename <a class="el" href="a03890.html">VTKWriter</a>&lt; <a class="el" href="a02758.html">GridView</a> &gt;::<a class="el" href="a03778.html">VTKFunction</a> &gt; &amp;p)</td></tr>
+<tr class="memdesc:ae17d4ef4e3e9e1efb85c06642599b56a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a field of cell data to the <a class="el" href="a00951.html">VTK</a> file.  <a href="a03870.html#ae17d4ef4e3e9e1efb85c06642599b56a">More...</a><br /></td></tr>
+<tr class="separator:ae17d4ef4e3e9e1efb85c06642599b56a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69a250ed69c701cb39ce1a05130b6696"><td class="memTemplParams" colspan="2">template&lt;class V &gt; </td></tr>
+<tr class="memitem:a69a250ed69c701cb39ce1a05130b6696"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a03870.html#a69a250ed69c701cb39ce1a05130b6696">addCellData</a> (const V &amp;v, const std::string &amp;name, int ncomps=1)</td></tr>
+<tr class="memdesc:a69a250ed69c701cb39ce1a05130b6696"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a field of cell data to the <a class="el" href="a00951.html">VTK</a> file.  <a href="a03870.html#a69a250ed69c701cb39ce1a05130b6696">More...</a><br /></td></tr>
+<tr class="separator:a69a250ed69c701cb39ce1a05130b6696"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30d25862cc38db51f4b17928ee15e7da"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03870.html#a30d25862cc38db51f4b17928ee15e7da">addVertexData</a> (const std::shared_ptr&lt; const typename <a class="el" href="a03890.html">VTKWriter</a>&lt; <a class="el" href="a02758.html">GridView</a> &gt;::<a class="el" href="a03778.html">VTKFunction</a> &gt; &amp;p)</td></tr>
+<tr class="memdesc:a30d25862cc38db51f4b17928ee15e7da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a field of vertex data to the <a class="el" href="a00951.html">VTK</a> file.  <a href="a03870.html#a30d25862cc38db51f4b17928ee15e7da">More...</a><br /></td></tr>
+<tr class="separator:a30d25862cc38db51f4b17928ee15e7da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02b87a4b40d3ea8936068c71fe1b7cce"><td class="memTemplParams" colspan="2">template&lt;class V &gt; </td></tr>
+<tr class="memitem:a02b87a4b40d3ea8936068c71fe1b7cce"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a03870.html#a02b87a4b40d3ea8936068c71fe1b7cce">addVertexData</a> (const V &amp;v, const std::string &amp;name, int ncomps=1)</td></tr>
+<tr class="memdesc:a02b87a4b40d3ea8936068c71fe1b7cce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a field of vertex data to the <a class="el" href="a00951.html">VTK</a> file.  <a href="a03870.html#a02b87a4b40d3ea8936068c71fe1b7cce">More...</a><br /></td></tr>
+<tr class="separator:a02b87a4b40d3ea8936068c71fe1b7cce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2dbb46447969815b263ddc5561e7c1e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03870.html#a2dbb46447969815b263ddc5561e7c1e6">write</a> (double time, <a class="el" href="a00951.html#a256815237356e8c99c97e7debb1dabf8">VTK::OutputType</a> type=<a class="el" href="a00951.html#a256815237356e8c99c97e7debb1dabf8a21edb20202b6eaae84d2a13937efda27">VTK::ascii</a>)</td></tr>
+<tr class="memdesc:a2dbb46447969815b263ddc5561e7c1e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes <a class="el" href="a00951.html">VTK</a> data for the given time,.  <a href="a03870.html#a2dbb46447969815b263ddc5561e7c1e6">More...</a><br /></td></tr>
+<tr class="separator:a2dbb46447969815b263ddc5561e7c1e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef98392a871f1cf1548770fcf4d9445c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03870.html#aef98392a871f1cf1548770fcf4d9445c">clear</a> ()</td></tr>
+<tr class="memdesc:aef98392a871f1cf1548770fcf4d9445c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears all <a class="el" href="a00951.html">VTK</a> data added to the <a class="el" href="a00951.html">VTK</a> writer.  <a href="a03870.html#aef98392a871f1cf1548770fcf4d9445c">More...</a><br /></td></tr>
+<tr class="separator:aef98392a871f1cf1548770fcf4d9445c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3f7e2e7f479d20df34cba54ac2341fd"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; double &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03870.html#ae3f7e2e7f479d20df34cba54ac2341fd">getTimeSteps</a> () const</td></tr>
+<tr class="memdesc:ae3f7e2e7f479d20df34cba54ac2341fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve the current list of time steps.  <a href="a03870.html#ae3f7e2e7f479d20df34cba54ac2341fd">More...</a><br /></td></tr>
+<tr class="separator:ae3f7e2e7f479d20df34cba54ac2341fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6eebaeceb002b1cb47b910634d531ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03870.html#ae6eebaeceb002b1cb47b910634d531ad">setTimeSteps</a> (const std::vector&lt; double &gt; &amp;timesteps)</td></tr>
+<tr class="memdesc:ae6eebaeceb002b1cb47b910634d531ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the current list of time steps.  <a href="a03870.html#ae6eebaeceb002b1cb47b910634d531ad">More...</a><br /></td></tr>
+<tr class="separator:ae6eebaeceb002b1cb47b910634d531ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="ae6215cf619aa91c50ea484dd97ac727f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae6215cf619aa91c50ea484dd97ac727f">&#9670;&nbsp;</a></span>Cell</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;class GridView&gt;<br />
+class Dune::VTKSequenceWriter&lt; GridView &gt;</h3>
+
+<p>Writer for the ouput of grid functions in the vtk format. </p>
+<p>Writes arbitrary grid functions (living on cells or vertices of a grid) to a file suitable for easy visualization with <a href="http://www.vtk.org/">The Visualization Toolkit (VTK)</a>. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ad39612067ab624b45eea75dd04732e88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad39612067ab624b45eea75dd04732e88">&#9670;&nbsp;</a></span>VTKSequenceWriter() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename GV &gt; </div>
+template&lt;class GridView &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">typedef GV::template Codim&lt;0&gt;::<a class="el" href="a02630.html">Entity</a> <a class="el" href="a03858.html">Dune::VTK::ConformingVolumeIteratorFactory</a>&lt; GV &gt;::<a class="el" href="a03858.html#ae6215cf619aa91c50ea484dd97ac727f">Cell</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a2c973430beba78f11b88e7dd21e0aa34"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2c973430beba78f11b88e7dd21e0aa34">&#9670;&nbsp;</a></span>CellIterator</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename GV &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef GV::template Codim&lt;0&gt;:: template Partition&lt;<a class="el" href="a00904.html#ggaa5b9e8102d7f70f3f4178182629d98b6a8da384ab42a2918b7cf88220328cff19">InteriorBorder_Partition</a>&gt;::Iterator <a class="el" href="a03858.html">Dune::VTK::ConformingVolumeIteratorFactory</a>&lt; GV &gt;::<a class="el" href="a03858.html#a2c973430beba78f11b88e7dd21e0aa34">CellIterator</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac8592288ba202cb1ae54b90b3221da2e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac8592288ba202cb1ae54b90b3221da2e">&#9670;&nbsp;</a></span>CollectiveCommunication</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename GV &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef GV::CollectiveCommunication <a class="el" href="a03858.html">Dune::VTK::ConformingVolumeIteratorFactory</a>&lt; GV &gt;::<a class="el" href="a03858.html#ac8592288ba202cb1ae54b90b3221da2e">CollectiveCommunication</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a99a0905da2e8c1823ccfb6ade7a32ad8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a99a0905da2e8c1823ccfb6ade7a32ad8">&#9670;&nbsp;</a></span>ConnectivityWriter</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename GV &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef <a class="el" href="a03806.html">ConformingConnectivityWriter</a>&lt;<a class="el" href="a03858.html">ConformingVolumeIteratorFactory</a>&lt;GV&gt; &gt; <a class="el" href="a03858.html">Dune::VTK::ConformingVolumeIteratorFactory</a>&lt; GV &gt;::<a class="el" href="a03858.html#a99a0905da2e8c1823ccfb6ade7a32ad8">ConnectivityWriter</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a69c1e7e99c32cc2d86fff8519526a9f9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a69c1e7e99c32cc2d86fff8519526a9f9">&#9670;&nbsp;</a></span>Corner</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename GV &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef <a class="el" href="a03742.html">VTK::Corner</a>&lt;<a class="el" href="a03858.html#ae6215cf619aa91c50ea484dd97ac727f">Cell</a>&gt; <a class="el" href="a03858.html">Dune::VTK::ConformingVolumeIteratorFactory</a>&lt; GV &gt;::<a class="el" href="a03858.html#a69c1e7e99c32cc2d86fff8519526a9f9">Corner</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a610893d34f81ac0470b21554c133d71c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a610893d34f81ac0470b21554c133d71c">&#9670;&nbsp;</a></span>CornerIterator</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename GV &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef <a class="el" href="a03746.html">VTK::CornerIterator</a>&lt;<a class="el" href="a03858.html#a2c973430beba78f11b88e7dd21e0aa34">CellIterator</a>&gt; <a class="el" href="a03858.html">Dune::VTK::ConformingVolumeIteratorFactory</a>&lt; GV &gt;::<a class="el" href="a03858.html#a610893d34f81ac0470b21554c133d71c">CornerIterator</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ad36d9935215389eea1fd32991cdc4a88"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad36d9935215389eea1fd32991cdc4a88">&#9670;&nbsp;</a></span>FunctionWriter</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef <a class="el" href="a03794.html">FunctionWriterBase</a>&lt;<a class="el" href="a03858.html#ae6215cf619aa91c50ea484dd97ac727f">Cell</a>&gt; <a class="el" href="a03698.html">Dune::VTK::BasicWriter</a>&lt; <a class="el" href="a03858.html">ConformingVolumeIteratorFactory</a>&lt; GV &gt;  &gt;::<a class="el" href="a03698.html#ad36d9935215389eea1fd32991cdc4a88">FunctionWriter</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="abacbecdfa7ef99ffa859d1976522761f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abacbecdfa7ef99ffa859d1976522761f">&#9670;&nbsp;</a></span>Point</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename GV &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef <a class="el" href="a03742.html">VTK::Corner</a>&lt;<a class="el" href="a03858.html#ae6215cf619aa91c50ea484dd97ac727f">Cell</a>&gt; <a class="el" href="a03858.html">Dune::VTK::ConformingVolumeIteratorFactory</a>&lt; GV &gt;::<a class="el" href="a03858.html#abacbecdfa7ef99ffa859d1976522761f">Point</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a8cbaec5a413791981eccc637e117e81d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8cbaec5a413791981eccc637e117e81d">&#9670;&nbsp;</a></span>PointIterator</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename GV &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef <a class="el" href="a03822.html">VTK::PointIterator</a>&lt;<a class="el" href="a03858.html#a2c973430beba78f11b88e7dd21e0aa34">CellIterator</a>, typename GV::IndexSet&gt; <a class="el" href="a03858.html">Dune::VTK::ConformingVolumeIteratorFactory</a>&lt; GV &gt;::<a class="el" href="a03858.html#a8cbaec5a413791981eccc637e117e81d">PointIterator</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ae84c764e8048ea23bc53438af8e27323"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae84c764e8048ea23bc53438af8e27323">&#9670;&nbsp;</a></span>VTKFunction</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename GV &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef <a class="el" href="a03782.html">Dune::VTKFunction</a>&lt; GV &gt; <a class="el" href="a03866.html">Dune::VTK::ConformingVolumeWriter</a>&lt; GV &gt;::<a class="el" href="a03866.html#ae84c764e8048ea23bc53438af8e27323">VTKFunction</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a35c2635e9d297340db8eaa89b5042863"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a35c2635e9d297340db8eaa89b5042863">&#9670;&nbsp;</a></span>VTKFunctionPtr</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename GV &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef std::shared_ptr&lt;<a class="el" href="a03866.html#ae84c764e8048ea23bc53438af8e27323">VTKFunction</a>&gt; <a class="el" href="a03866.html">Dune::VTK::ConformingVolumeWriter</a>&lt; GV &gt;::<a class="el" href="a03866.html#a35c2635e9d297340db8eaa89b5042863">VTKFunctionPtr</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ac21d8bb82097b318f6a0c413244c62dd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac21d8bb82097b318f6a0c413244c62dd">&#9670;&nbsp;</a></span>ConformingVolumeWriter()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename GV &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a03866.html">Dune::VTK::ConformingVolumeWriter</a>&lt; GV &gt;::<a class="el" href="a03866.html">ConformingVolumeWriter</a> </td>
+          <td class="memname"><a class="el" href="a03866.html">Dune::VTKSequenceWriter</a>&lt; <a class="el" href="a02758.html">GridView</a> &gt;::<a class="el" href="a03866.html">VTKSequenceWriter</a> </td>
           <td>(</td>
-          <td class="paramtype">const GV &amp;&#160;</td>
-          <td class="paramname"><em>gv_</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="af4e391b5f3f1058ad1fc96d4e50f66b1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af4e391b5f3f1058ad1fc96d4e50f66b1">&#9670;&nbsp;</a></span>addCellData() <span class="overload">[1/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a03698.html">Dune::VTK::BasicWriter</a>&lt; <a class="el" href="a03858.html">ConformingVolumeIteratorFactory</a>&lt; GV &gt;  &gt;::addCellData </td>
-          <td>(</td>
-          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="a03698.html#ad36d9935215389eea1fd32991cdc4a88">FunctionWriter</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>writer</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aa205f51063c30a3783bd6f6db5944951"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa205f51063c30a3783bd6f6db5944951">&#9670;&nbsp;</a></span>addCellData() <span class="overload">[2/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename GV &gt; </div>
-<div class="memtemplate">
-template&lt;typename V &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a03866.html">Dune::VTK::ConformingVolumeWriter</a>&lt; GV &gt;::addCellData </td>
-          <td>(</td>
-          <td class="paramtype">const V &amp;&#160;</td>
-          <td class="paramname"><em>v</em>, </td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="a03890.html">VTKWriter</a>&lt; <a class="el" href="a02758.html">GridView</a> &gt; &gt;&#160;</td>
+          <td class="paramname"><em>vtkWriter</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>ncomps</em> = <code>1</code>&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -555,539 +171,37 @@ template&lt;typename V &gt; </div>
 </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="a3c0f8373a157b8d3cdcdcb179824a46d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3c0f8373a157b8d3cdcdcb179824a46d">&#9670;&nbsp;</a></span>addCellData() <span class="overload">[3/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename GV &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a03866.html">Dune::VTK::ConformingVolumeWriter</a>&lt; GV &gt;::addCellData </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a03866.html#a35c2635e9d297340db8eaa89b5042863">VTKFunctionPtr</a> &amp;&#160;</td>
-          <td class="paramname"><em>p</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a519535bd21e783c6c2cf646da2e7612e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a519535bd21e783c6c2cf646da2e7612e">&#9670;&nbsp;</a></span>addCellData() <span class="overload">[4/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename GV &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a03866.html">Dune::VTK::ConformingVolumeWriter</a>&lt; GV &gt;::addCellData </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a03866.html#ae84c764e8048ea23bc53438af8e27323">VTKFunction</a> *&#160;</td>
-          <td class="paramname"><em>p</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="afd27a72bc7c69f92b6f72efcc5a0869a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afd27a72bc7c69f92b6f72efcc5a0869a">&#9670;&nbsp;</a></span>addPointData() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a03698.html">Dune::VTK::BasicWriter</a>&lt; <a class="el" href="a03858.html">ConformingVolumeIteratorFactory</a>&lt; GV &gt;  &gt;::addPointData </td>
-          <td>(</td>
-          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="a03698.html#ad36d9935215389eea1fd32991cdc4a88">FunctionWriter</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>writer</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="afd27a72bc7c69f92b6f72efcc5a0869a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afd27a72bc7c69f92b6f72efcc5a0869a">&#9670;&nbsp;</a></span>addPointData() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename GV &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a03698.html">Dune::VTK::BasicWriter</a>&lt; IteratorFactory &gt;::addPointData</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a6778a40c8f60e891c23ac6fbb1a26124"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6778a40c8f60e891c23ac6fbb1a26124">&#9670;&nbsp;</a></span>addVertexData() <span class="overload">[1/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename GV &gt; </div>
-<div class="memtemplate">
-template&lt;typename V &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a03866.html">Dune::VTK::ConformingVolumeWriter</a>&lt; GV &gt;::addVertexData </td>
-          <td>(</td>
-          <td class="paramtype">const V &amp;&#160;</td>
-          <td class="paramname"><em>v</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>ncomps</em> = <code>1</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a3cd148eb9712adbe57d7c636ed2b8551"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3cd148eb9712adbe57d7c636ed2b8551">&#9670;&nbsp;</a></span>addVertexData() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename GV &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a03866.html">Dune::VTK::ConformingVolumeWriter</a>&lt; GV &gt;::addVertexData </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a03866.html#a35c2635e9d297340db8eaa89b5042863">VTKFunctionPtr</a> &amp;&#160;</td>
-          <td class="paramname"><em>p</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a7be6aa13f47b9a0fc8c3ab1a394d182c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7be6aa13f47b9a0fc8c3ab1a394d182c">&#9670;&nbsp;</a></span>addVertexData() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename GV &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a03866.html">Dune::VTK::ConformingVolumeWriter</a>&lt; GV &gt;::addVertexData </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a03866.html#ae84c764e8048ea23bc53438af8e27323">VTKFunction</a> *&#160;</td>
-          <td class="paramname"><em>p</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ae0e33d61befa77ee84e37f2f0f8951ff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae0e33d61befa77ee84e37f2f0f8951ff">&#9670;&nbsp;</a></span>beginCells()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename GV &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a03858.html#a2c973430beba78f11b88e7dd21e0aa34">CellIterator</a> <a class="el" href="a03858.html">Dune::VTK::ConformingVolumeIteratorFactory</a>&lt; GV &gt;::beginCells </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a9aff567af22a6812aa8e242e1650f5d9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9aff567af22a6812aa8e242e1650f5d9">&#9670;&nbsp;</a></span>beginCorners()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename GV &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a03858.html#a610893d34f81ac0470b21554c133d71c">CornerIterator</a> <a class="el" href="a03858.html">Dune::VTK::ConformingVolumeIteratorFactory</a>&lt; GV &gt;::beginCorners </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ae9825228b36b518fa8a86c89557fda6d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae9825228b36b518fa8a86c89557fda6d">&#9670;&nbsp;</a></span>beginPoints()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename GV &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a03858.html#a8cbaec5a413791981eccc637e117e81d">PointIterator</a> <a class="el" href="a03858.html">Dune::VTK::ConformingVolumeIteratorFactory</a>&lt; GV &gt;::beginPoints </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a895c78454f07359bc12553b73421426e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a895c78454f07359bc12553b73421426e">&#9670;&nbsp;</a></span>clear()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a03698.html">Dune::VTK::BasicWriter</a>&lt; <a class="el" href="a03858.html">ConformingVolumeIteratorFactory</a>&lt; GV &gt;  &gt;::clear </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac61848001e2bafa379d0925715cee482"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac61848001e2bafa379d0925715cee482">&#9670;&nbsp;</a></span>comm()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename GV &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a03858.html#ac8592288ba202cb1ae54b90b3221da2e">CollectiveCommunication</a>&amp; <a class="el" href="a03858.html">Dune::VTK::ConformingVolumeIteratorFactory</a>&lt; GV &gt;::comm </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a72933dc1a25db46a6fdb9e474fa40f90"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a72933dc1a25db46a6fdb9e474fa40f90">&#9670;&nbsp;</a></span>endCells()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename GV &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a03858.html#a2c973430beba78f11b88e7dd21e0aa34">CellIterator</a> <a class="el" href="a03858.html">Dune::VTK::ConformingVolumeIteratorFactory</a>&lt; GV &gt;::endCells </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a0c978cb21ce59845402fb2d1d4f7c0af"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0c978cb21ce59845402fb2d1d4f7c0af">&#9670;&nbsp;</a></span>endCorners()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename GV &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a03858.html#a610893d34f81ac0470b21554c133d71c">CornerIterator</a> <a class="el" href="a03858.html">Dune::VTK::ConformingVolumeIteratorFactory</a>&lt; GV &gt;::endCorners </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aaa77f31ca31e64793e352851afa61daf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaa77f31ca31e64793e352851afa61daf">&#9670;&nbsp;</a></span>endPoints()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename GV &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a03858.html#a8cbaec5a413791981eccc637e117e81d">PointIterator</a> <a class="el" href="a03858.html">Dune::VTK::ConformingVolumeIteratorFactory</a>&lt; GV &gt;::endPoints </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="af9ba4cc56e221c73e03f98c4701adcae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af9ba4cc56e221c73e03f98c4701adcae">&#9670;&nbsp;</a></span>getFirstScalar()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static std::string <a class="el" href="a03698.html">Dune::VTK::BasicWriter</a>&lt; <a class="el" href="a03858.html">ConformingVolumeIteratorFactory</a>&lt; GV &gt;  &gt;::getFirstScalar </td>
-          <td>(</td>
-          <td class="paramtype">const WriterList &amp;&#160;</td>
-          <td class="paramname"><em>data</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac9cd3194e22933f9bee6af141da6ceec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac9cd3194e22933f9bee6af141da6ceec">&#9670;&nbsp;</a></span>getFirstVector()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static std::string <a class="el" href="a03698.html">Dune::VTK::BasicWriter</a>&lt; <a class="el" href="a03858.html">ConformingVolumeIteratorFactory</a>&lt; GV &gt;  &gt;::getFirstVector </td>
-          <td>(</td>
-          <td class="paramtype">const WriterList &amp;&#160;</td>
-          <td class="paramname"><em>data</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a9cd727cb23e3cb0cc75140b87bff0fc0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9cd727cb23e3cb0cc75140b87bff0fc0">&#9670;&nbsp;</a></span>getParallelHeaderName()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string <a class="el" href="a03698.html">Dune::VTK::BasicWriter</a>&lt; <a class="el" href="a03858.html">ConformingVolumeIteratorFactory</a>&lt; GV &gt;  &gt;::getParallelHeaderName </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>path</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>return name of a parallel header file </p>
+<p>Constructor with a given <a class="el" href="a03890.html" title="Writer for the ouput of grid functions in the vtk format.">VTKWriter</a> or <a class="el" href="a03846.html" title="Writer for the output of subsampled grid functions in the vtk format.">SubsamplingVTKWriter</a>. </p>
+<p>At each time step, the <a class="el" href="a03866.html" title="Writer for the ouput of grid functions in the vtk format.">VTKSequenceWriter</a> writes the grid and data currently attached to the vtkWriter object. All calls to the addCellData and addVertexData methods of the <a class="el" href="a03866.html" title="Writer for the ouput of grid functions in the vtk format.">VTKSequenceWriter</a> class are forwarded to the vtkWriter, but we propose that you call the corresponding methods on the vtkWriter directly.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">name</td><td>Base name of the <a class="el" href="a00948.html">VTK</a> output. This should be without any directory parts and without a filename extension. </td></tr>
-    <tr><td class="paramname">path</td><td>Directory part of the resulting header name. May be empty, in which case the resulting name will not have a directory part. If non-empty, may or may not have a trailing '/'. If a trailing slash is missing, one is appended implicitly. </td></tr>
+    <tr><td class="paramname">name</td><td>Base name of the output files. This should not contain any directory part and not filename extensions. It will be used both for each processes piece as well as the parallel collection file. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="af9e1789744821b09e22c8fcce67d2f03"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af9e1789744821b09e22c8fcce67d2f03">&#9670;&nbsp;</a></span>getParallelPieceName()</h2>
+<a id="a57619c6237719240bbf7b3b737bd624f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57619c6237719240bbf7b3b737bd624f">&#9670;&nbsp;</a></span>VTKSequenceWriter() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;class GridView &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::string <a class="el" href="a03698.html">Dune::VTK::BasicWriter</a>&lt; <a class="el" href="a03858.html">ConformingVolumeIteratorFactory</a>&lt; GV &gt;  &gt;::getParallelPieceName </td>
+          <td class="memname"><a class="el" href="a03866.html">Dune::VTKSequenceWriter</a>&lt; <a class="el" href="a02758.html">GridView</a> &gt;::<a class="el" href="a03866.html">VTKSequenceWriter</a> </td>
           <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="a03890.html">VTKWriter</a>&lt; <a class="el" href="a02758.html">GridView</a> &gt; &gt;&#160;</td>
+          <td class="paramname"><em>vtkWriter</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>name</em>, </td>
         </tr>
@@ -1100,119 +214,55 @@ template&lt;typename GV &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>rank</em>&#160;</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>extendpath</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td> const</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>return name of a parallel piece file </p>
+<p>Constructor with a given <a class="el" href="a03890.html" title="Writer for the ouput of grid functions in the vtk format.">VTKWriter</a> or <a class="el" href="a03846.html" title="Writer for the output of subsampled grid functions in the vtk format.">SubsamplingVTKWriter</a>. </p>
+<p>At each time step, the <a class="el" href="a03866.html" title="Writer for the ouput of grid functions in the vtk format.">VTKSequenceWriter</a> writes the grid and data currently attached to the vtkWriter object. All calls to the addCellData and addVertexData methods of the <a class="el" href="a03866.html" title="Writer for the ouput of grid functions in the vtk format.">VTKSequenceWriter</a> class are forwarded to the vtkWriter, but we propose that you call the corresponding methods on the vtkWriter directly.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">name</td><td>Base name of the <a class="el" href="a00948.html">VTK</a> output. This should be without any directory parts and without a filename extension. </td></tr>
-    <tr><td class="paramname">path</td><td>Directory part of the resulting piece name. May be empty, in which case the resulting name will not have a directory part. If non-empty, may or may not have a trailing '/'. If a trailing slash is missing, one is appended implicitly. </td></tr>
-    <tr><td class="paramname">rank</td><td>Rank of the process to generate a piece name for. </td></tr>
+    <tr><td class="paramname">name</td><td>Base name of the output files. This should not contain any directory part and not filename extensions. It will be used both for each processes piece as well as the parallel collection file. </td></tr>
+    <tr><td class="paramname">path</td><td>Directory where to put the parallel collection (.pvtu/.pvtp) files. If it is relative, it is taken relative to the current directory. </td></tr>
+    <tr><td class="paramname">extendpath</td><td>Directory where to put the piece files (.vtu/.vtp) of this process. If it is relative, it is taken relative to the directory denoted by path. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a3d280097305c7e5ec746ee7932fc8710"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3d280097305c7e5ec746ee7932fc8710">&#9670;&nbsp;</a></span>getSerialPieceName()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string <a class="el" href="a03698.html">Dune::VTK::BasicWriter</a>&lt; <a class="el" href="a03858.html">ConformingVolumeIteratorFactory</a>&lt; GV &gt;  &gt;::getSerialPieceName </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>path</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>return name of a serial piece file </p>
-<p>This is similar to getParallelPieceName, but skips the prefixes for commSize ("s####:") and commRank ("p####:").</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">name</td><td>Base name of the <a class="el" href="a00948.html">VTK</a> output. This should be without any directory parts and without a filename extension. </td></tr>
-    <tr><td class="paramname">path</td><td>Directory part of the resulting piece name. May be empty, in which case the resulting name will not have a directory part. If non-empty, may or may not have a trailing '/'. If a trailing slash is missing, one is appended implicitly. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="acfd5e0f7db6110d3f7f2022cf473de39"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acfd5e0f7db6110d3f7f2022cf473de39">&#9670;&nbsp;</a></span>makeConnectivity()</h2>
+<a id="addc39a56ff51d13b49b03e09aa298603"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#addc39a56ff51d13b49b03e09aa298603">&#9670;&nbsp;</a></span>VTKSequenceWriter() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename GV &gt; </div>
+template&lt;class GridView &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a03858.html#a99a0905da2e8c1823ccfb6ade7a32ad8">ConnectivityWriter</a> <a class="el" href="a03858.html">Dune::VTK::ConformingVolumeIteratorFactory</a>&lt; GV &gt;::makeConnectivity </td>
+          <td class="memname"><a class="el" href="a03866.html">Dune::VTKSequenceWriter</a>&lt; <a class="el" href="a02758.html">GridView</a> &gt;::<a class="el" href="a03866.html">VTKSequenceWriter</a> </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype">const <a class="el" href="a02758.html">GridView</a> &amp;&#160;</td>
+          <td class="paramname"><em>gridView</em>, </td>
         </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a75860317a0f1e9dfbedd870b68485093"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a75860317a0f1e9dfbedd870b68485093">&#9670;&nbsp;</a></span>pwrite()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
         <tr>
-          <td class="memname">std::string <a class="el" href="a03698.html">Dune::VTK::BasicWriter</a>&lt; <a class="el" href="a03858.html">ConformingVolumeIteratorFactory</a>&lt; GV &gt;  &gt;::pwrite </td>
-          <td>(</td>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>name</em>, </td>
         </tr>
@@ -1231,8 +281,8 @@ template&lt;typename GV &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00948.html#a256815237356e8c99c97e7debb1dabf8">OutputType</a>&#160;</td>
-          <td class="paramname"><em>outputType</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="a00951.html#a4e39cac1185c9bce3ad9f4e72bd36312">VTK::DataMode</a>&#160;</td>
+          <td class="paramname"><em>dm</em> = <code><a class="el" href="a00951.html#a4e39cac1185c9bce3ad9f4e72bd36312a293015461843c4dee42c41191a82f60d">VTK::conforming</a></code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1242,489 +292,355 @@ template&lt;typename GV &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>write output; interface might change later </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">name</td><td>Base name of the output files. This should not contain any directory part and not filename extensions. It will be used both for each processes piece as well as the parallel collection file. </td></tr>
-    <tr><td class="paramname">path</td><td>Directory where to put the parallel collection (.pvtu/.pvtp) file. If it is relative, it is taken realtive to the current directory. </td></tr>
-    <tr><td class="paramname">extendpath</td><td>Directory where to put the piece file (.vtu/.vtp) of this process. If it is relative, it is taken relative to the directory denoted by path. </td></tr>
-    <tr><td class="paramname">outputType</td><td>How to encode the data in the file.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>Currently, extendpath may not be absolute unless path is absolute, because that would require the value of the current directory.</dd></dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">NotImplemented</td><td>Extendpath is absolute but path is relative. </td></tr>
-    <tr><td class="paramname">IOError</td><td>Failed to open a file. </td></tr>
-    <tr><td class="paramname">MPIGuardError</td><td>An exception was thrown during this method in one of the other processes. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Constructor creating its own <a class="el" href="a03890.html" title="Writer for the ouput of grid functions in the vtk format.">VTKWriter</a> object. </p>
+<p>At each time step, the <a class="el" href="a03866.html" title="Writer for the ouput of grid functions in the vtk format.">VTKSequenceWriter</a> writes the grid and data currently attached to the vtkWriter object. All calls to the addCellData and addVertexData methods of the <a class="el" href="a03866.html" title="Writer for the ouput of grid functions in the vtk format.">VTKSequenceWriter</a> class are forwarded to the vtkWriter. </p>
 
 </div>
 </div>
-<a id="afbc864f3b73fbb8a1e196e00831d5966"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afbc864f3b73fbb8a1e196e00831d5966">&#9670;&nbsp;</a></span>write()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string <a class="el" href="a03698.html">Dune::VTK::BasicWriter</a>&lt; <a class="el" href="a03858.html">ConformingVolumeIteratorFactory</a>&lt; GV &gt;  &gt;::write </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00948.html#a256815237356e8c99c97e7debb1dabf8">OutputType</a>&#160;</td>
-          <td class="paramname"><em>outputType</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>write output (interface might change later) </p>
-<p>This method can be used in parallel as well as in serial programs. For serial runs (commSize=1) it chooses other names without the "s####:p####:" prefix for the .vtu/.vtp files and omits writing of the .pvtu/pvtp file however. For parallel runs (commSize &gt; 1) it is the same as a call to <a class="el" href="a03698.html#a75860317a0f1e9dfbedd870b68485093" title="write output; interface might change later">pwrite()</a> with path="" and extendpath="".</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">name</td><td>Base name of the output files. This should not contain any directory part and no filename extensions. </td></tr>
-    <tr><td class="paramname">outputType</td><td>How to encode the data in the file. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a7335b24fa49e1d792db7e2132cf436a9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7335b24fa49e1d792db7e2132cf436a9">&#9670;&nbsp;</a></span>writeAll()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a03698.html">Dune::VTK::BasicWriter</a>&lt; <a class="el" href="a03858.html">ConformingVolumeIteratorFactory</a>&lt; GV &gt;  &gt;::writeAll </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a03934.html">VTUWriter</a> &amp;&#160;</td>
-          <td class="paramname"><em>vtuWriter</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned&#160;</td>
-          <td class="paramname"><em>ncells</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned&#160;</td>
-          <td class="paramname"><em>npoints</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned&#160;</td>
-          <td class="paramname"><em>ncorners</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a0cfe911f621230115e3657820ee8fd7a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0cfe911f621230115e3657820ee8fd7a">&#9670;&nbsp;</a></span>writeCellData()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a03698.html">Dune::VTK::BasicWriter</a>&lt; <a class="el" href="a03858.html">ConformingVolumeIteratorFactory</a>&lt; GV &gt;  &gt;::writeCellData </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a03934.html">VTUWriter</a> &amp;&#160;</td>
-          <td class="paramname"><em>vtuWriter</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned&#160;</td>
-          <td class="paramname"><em>ncells</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a9082d2d165e818242e1176a06d1f9622"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9082d2d165e818242e1176a06d1f9622">&#9670;&nbsp;</a></span>writeCellFunction()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a03698.html">Dune::VTK::BasicWriter</a>&lt; <a class="el" href="a03858.html">ConformingVolumeIteratorFactory</a>&lt; GV &gt;  &gt;::writeCellFunction </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a03934.html">VTUWriter</a> &amp;&#160;</td>
-          <td class="paramname"><em>vtuWriter</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a03698.html#ad36d9935215389eea1fd32991cdc4a88">FunctionWriter</a> &amp;&#160;</td>
-          <td class="paramname"><em>functionWriter</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned&#160;</td>
-          <td class="paramname"><em>ncells</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a58b0cf56bd71a1462b9370af1b194361"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a58b0cf56bd71a1462b9370af1b194361">&#9670;&nbsp;</a></span>writeCollection()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a03698.html">Dune::VTK::BasicWriter</a>&lt; <a class="el" href="a03858.html">ConformingVolumeIteratorFactory</a>&lt; GV &gt;  &gt;::writeCollection </td>
-          <td>(</td>
-          <td class="paramtype">const std::string&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>piecename</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>piecepath</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>write header file in parallel case to stream </p>
-<p>Writes a .pvtu/.pvtp file for a collection of concurrently written .vtu/.vtp files.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">name</td><td>Name of file to write contents to,</td></tr>
-    <tr><td class="paramname">piecename</td><td>Base name of the pieces. Should not contain a directory part or filename extension. </td></tr>
-    <tr><td class="paramname">piecepath</td><td>Directory part of the pieces. Since paraview does not support absolute paths in parallel collection files, this should be a path relative to the directory the collection file resides in. A trailing '/' is optional, and an empty value "" is equivalent to the value "." except it will look nicer in the collection file. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a91f4353fe0a4de25a06d0dda41b97303"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a91f4353fe0a4de25a06d0dda41b97303">&#9670;&nbsp;</a></span>writeCornerFunction()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a03698.html">Dune::VTK::BasicWriter</a>&lt; <a class="el" href="a03858.html">ConformingVolumeIteratorFactory</a>&lt; GV &gt;  &gt;::writeCornerFunction </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a03934.html">VTUWriter</a> &amp;&#160;</td>
-          <td class="paramname"><em>vtuWriter</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a03698.html#ad36d9935215389eea1fd32991cdc4a88">FunctionWriter</a> &amp;&#160;</td>
-          <td class="paramname"><em>functionWriter</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned&#160;</td>
-          <td class="paramname"><em>ncorners</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a6bb905e9ec13e2452ed1647a6e79eccf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6bb905e9ec13e2452ed1647a6e79eccf">&#9670;&nbsp;</a></span>writeGrid()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a03698.html">Dune::VTK::BasicWriter</a>&lt; <a class="el" href="a03858.html">ConformingVolumeIteratorFactory</a>&lt; GV &gt;  &gt;::writeGrid </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a03934.html">VTUWriter</a> &amp;&#160;</td>
-          <td class="paramname"><em>vtuWriter</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned&#160;</td>
-          <td class="paramname"><em>ncells</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned&#160;</td>
-          <td class="paramname"><em>npoints</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned&#160;</td>
-          <td class="paramname"><em>ncorners</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aedf4d1e27b282df9cb1c44bb46abc2a0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aedf4d1e27b282df9cb1c44bb46abc2a0">&#9670;&nbsp;</a></span>writePiece()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a03698.html">Dune::VTK::BasicWriter</a>&lt; <a class="el" href="a03858.html">ConformingVolumeIteratorFactory</a>&lt; GV &gt;  &gt;::writePiece </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>filename</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00948.html#a256815237356e8c99c97e7debb1dabf8">OutputType</a>&#160;</td>
-          <td class="paramname"><em>outputType</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aaec05e424a6657f4d8d4843364a05444"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaec05e424a6657f4d8d4843364a05444">&#9670;&nbsp;</a></span>writePointData()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a03698.html">Dune::VTK::BasicWriter</a>&lt; <a class="el" href="a03858.html">ConformingVolumeIteratorFactory</a>&lt; GV &gt;  &gt;::writePointData </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a03934.html">VTUWriter</a> &amp;&#160;</td>
-          <td class="paramname"><em>vtuWriter</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned&#160;</td>
-          <td class="paramname"><em>npoints</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="add2df4842048164321d57609a15f337d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#add2df4842048164321d57609a15f337d">&#9670;&nbsp;</a></span>writePointFunction()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a03698.html">Dune::VTK::BasicWriter</a>&lt; <a class="el" href="a03858.html">ConformingVolumeIteratorFactory</a>&lt; GV &gt;  &gt;::writePointFunction </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a03934.html">VTUWriter</a> &amp;&#160;</td>
-          <td class="paramname"><em>vtuWriter</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a03698.html#ad36d9935215389eea1fd32991cdc4a88">FunctionWriter</a> &amp;&#160;</td>
-          <td class="paramname"><em>functionWriter</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned&#160;</td>
-          <td class="paramname"><em>npoints</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a9c6a74528c100d905040e6d92c3ddf82"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9c6a74528c100d905040e6d92c3ddf82">&#9670;&nbsp;</a></span>dimCell</h2>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ae17d4ef4e3e9e1efb85c06642599b56a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae17d4ef4e3e9e1efb85c06642599b56a">&#9670;&nbsp;</a></span>addCellData() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename GV &gt; </div>
+template&lt;class GridView &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const unsigned <a class="el" href="a03858.html">Dune::VTK::ConformingVolumeIteratorFactory</a>&lt; GV &gt;::dimCell = GV::dimension</td>
+          <td class="memname">void <a class="el" href="a03870.html">Dune::VTKSequenceWriterBase</a>&lt; <a class="el" href="a02758.html">GridView</a> &gt;::addCellData </td>
+          <td>(</td>
+          <td class="paramtype">const std::shared_ptr&lt; const typename <a class="el" href="a03890.html">VTKWriter</a>&lt; <a class="el" href="a02758.html">GridView</a> &gt;::<a class="el" href="a03778.html">VTKFunction</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
+<p>Adds a field of cell data to the <a class="el" href="a00951.html">VTK</a> file. </p>
+
+</div>
+</div>
+<a id="a69a250ed69c701cb39ce1a05130b6696"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69a250ed69c701cb39ce1a05130b6696">&#9670;&nbsp;</a></span>addCellData() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class GridView &gt; </div>
+<div class="memtemplate">
+template&lt;class V &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="a03870.html">Dune::VTKSequenceWriterBase</a>&lt; <a class="el" href="a02758.html">GridView</a> &gt;::addCellData </td>
+          <td>(</td>
+          <td class="paramtype">const V &amp;&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ncomps</em> = <code>1</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Adds a field of cell data to the <a class="el" href="a00951.html">VTK</a> file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>The container with the values of the grid function for each cell </td></tr>
+    <tr><td class="paramname">name</td><td>A name to identify the grid function </td></tr>
+    <tr><td class="paramname">ncomps</td><td>Number of components (default is 1) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a30d25862cc38db51f4b17928ee15e7da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30d25862cc38db51f4b17928ee15e7da">&#9670;&nbsp;</a></span>addVertexData() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class GridView &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="a03870.html">Dune::VTKSequenceWriterBase</a>&lt; <a class="el" href="a02758.html">GridView</a> &gt;::addVertexData </td>
+          <td>(</td>
+          <td class="paramtype">const std::shared_ptr&lt; const typename <a class="el" href="a03890.html">VTKWriter</a>&lt; <a class="el" href="a02758.html">GridView</a> &gt;::<a class="el" href="a03778.html">VTKFunction</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Adds a field of vertex data to the <a class="el" href="a00951.html">VTK</a> file. </p>
+
+</div>
+</div>
+<a id="a02b87a4b40d3ea8936068c71fe1b7cce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02b87a4b40d3ea8936068c71fe1b7cce">&#9670;&nbsp;</a></span>addVertexData() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class GridView &gt; </div>
+<div class="memtemplate">
+template&lt;class V &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="a03870.html">Dune::VTKSequenceWriterBase</a>&lt; <a class="el" href="a02758.html">GridView</a> &gt;::addVertexData </td>
+          <td>(</td>
+          <td class="paramtype">const V &amp;&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ncomps</em> = <code>1</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Adds a field of vertex data to the <a class="el" href="a00951.html">VTK</a> file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>The container with the values of the grid function for each vertex </td></tr>
+    <tr><td class="paramname">name</td><td>A name to identify the grid function </td></tr>
+    <tr><td class="paramname">ncomps</td><td>Number of components (default is 1) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aef98392a871f1cf1548770fcf4d9445c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef98392a871f1cf1548770fcf4d9445c">&#9670;&nbsp;</a></span>clear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class GridView &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="a03870.html">Dune::VTKSequenceWriterBase</a>&lt; <a class="el" href="a02758.html">GridView</a> &gt;::clear </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Clears all <a class="el" href="a00951.html">VTK</a> data added to the <a class="el" href="a00951.html">VTK</a> writer. </p>
+
+</div>
+</div>
+<a id="ae3f7e2e7f479d20df34cba54ac2341fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3f7e2e7f479d20df34cba54ac2341fd">&#9670;&nbsp;</a></span>getTimeSteps()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class GridView &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt;double&gt;&amp; <a class="el" href="a03870.html">Dune::VTKSequenceWriterBase</a>&lt; <a class="el" href="a02758.html">GridView</a> &gt;::getTimeSteps </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retrieve the current list of time steps. </p>
+
+</div>
+</div>
+<a id="ae6eebaeceb002b1cb47b910634d531ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6eebaeceb002b1cb47b910634d531ad">&#9670;&nbsp;</a></span>setTimeSteps()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class GridView &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="a03870.html">Dune::VTKSequenceWriterBase</a>&lt; <a class="el" href="a02758.html">GridView</a> &gt;::setTimeSteps </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>timesteps</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set the current list of time steps. </p>
+<dl class="section note"><dt>Note</dt><dd>This makes it possible to serialize the sequence writers state. Can be used to continue writing a <a class="el" href="a00951.html">VTK</a> sequence after a restart of the program. </dd></dl>
+
+</div>
+</div>
+<a id="ac6ea362b3697861791a86ece1a4619a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6ea362b3697861791a86ece1a4619a3">&#9670;&nbsp;</a></span>vtkWriter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class GridView &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::shared_ptr&lt; <a class="el" href="a03890.html">VTKWriter</a>&lt;<a class="el" href="a02758.html">GridView</a>&gt; &gt;&amp; <a class="el" href="a03870.html">Dune::VTKSequenceWriterBase</a>&lt; <a class="el" href="a02758.html">GridView</a> &gt;::vtkWriter </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>accessor for the underlying <a class="el" href="a03890.html" title="Writer for the ouput of grid functions in the vtk format.">VTKWriter</a> instance </p>
+
+</div>
+</div>
+<a id="a2dbb46447969815b263ddc5561e7c1e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2dbb46447969815b263ddc5561e7c1e6">&#9670;&nbsp;</a></span>write()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class GridView &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="a03870.html">Dune::VTKSequenceWriterBase</a>&lt; <a class="el" href="a02758.html">GridView</a> &gt;::write </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>time</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00951.html#a256815237356e8c99c97e7debb1dabf8">VTK::OutputType</a>&#160;</td>
+          <td class="paramname"><em>type</em> = <code><a class="el" href="a00951.html#a256815237356e8c99c97e7debb1dabf8a21edb20202b6eaae84d2a13937efda27">VTK::ascii</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Writes <a class="el" href="a00951.html">VTK</a> data for the given time,. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">time</td><td>The time(step) for the data to be written. </td></tr>
+    <tr><td class="paramname">type</td><td><a class="el" href="a00951.html">VTK</a> output type. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="a00824_source.html">volumewriter.hh</a></li>
+<li><a class="el" href="a00833_source.html">vtksequencewriter.hh</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

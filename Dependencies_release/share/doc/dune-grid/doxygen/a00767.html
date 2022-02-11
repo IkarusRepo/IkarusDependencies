@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: gnuplot.hh File Reference</title>
+<title>dune-grid: gmshwriter.hh File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -70,44 +70,35 @@ $(function() {
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">gnuplot.hh File Reference</div>  </div>
+<div class="title">gmshwriter.hh File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Provides gnuplot output for 1D Grids.  
-<a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;vector&gt;</code><br />
-<code>#include &lt;string&gt;</code><br />
+<div class="textblock"><code>#include &lt;fstream&gt;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;fstream&gt;</code><br />
-<code>#include &lt;dune/common/fvector.hh&gt;</code><br />
-<code>#include &lt;<a class="el" href="a06797_source.html">dune/grid/common/grid.hh</a>&gt;</code><br />
-<code>#include &quot;<a class="el" href="a00764.html">gnuplot/gnuplot.cc</a>&quot;</code><br />
+<code>#include &lt;iomanip&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;dune/common/exceptions.hh&gt;</code><br />
+<code>#include &lt;dune/geometry/type.hh&gt;</code><br />
+<code>#include &lt;dune/geometry/referenceelements.hh&gt;</code><br />
+<code>#include &lt;<a class="el" href="a06702_source.html">dune/grid/common/grid.hh</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="a00302_source.html">dune/grid/common/mcmgmapper.hh</a>&gt;</code><br />
 </div>
 <p><a href="a00767_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03670.html">Dune::GnuplotWriter&lt; GridView &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writer for 1D grids in gnuplot format.  <a href="a03670.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03674.html">Dune::LeafGnuplotWriter&lt; G &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a03670.html" title="Writer for 1D grids in gnuplot format.">GnuplotWriter</a> on the leaf grid.  <a href="a03674.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03678.html">Dune::LevelGnuplotWriter&lt; G &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a03670.html" title="Writer for 1D grids in gnuplot format.">GnuplotWriter</a> on a given level grid.  <a href="a03678.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03666.html">Dune::GmshWriter&lt; GridView &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write Gmsh mesh file.  <a href="a03666.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:a00936"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00936.html">Dune</a></td></tr>
-<tr class="memdesc:a00936"><td class="mdescLeft">&#160;</td><td class="mdescRight">Include standard header files. <br /></td></tr>
+<tr class="memitem:a00940"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00940.html">Dune</a></td></tr>
+<tr class="memdesc:a00940"><td class="mdescLeft">&#160;</td><td class="mdescRight">Include standard header files. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Provides gnuplot output for 1D Grids. </p>
-<dl class="section author"><dt>Author</dt><dd>Christian Engwer </dd></dl>
-</div></div><!-- contents -->
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1

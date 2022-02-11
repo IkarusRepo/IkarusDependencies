@@ -80,7 +80,9 @@ namespace Dune {
     enum Enum {
       /** \brief Gauss-Legendre rules (default)
       *
-      *  -1D: Gauss-Jacobi rule with parameters \f$\alpha = \beta =0 \f$
+      *  -1D: Gauss-Jacobi rule with parameters \f$\alpha = \beta =0 \f$, i.e. for integrals with a constant weight function.
+      *       The quadrature points do not include interval endpoints.
+      *       Polynomials of order 2n - 1 can be integrated exactly.
       *  -higher dimension: For the 2D/3D case efficient rules for certain geometries may be used if available.
       *                     Higher dimensional quadrature rules are constructed via \p TensorProductQuadratureRule.
       *                     In this case the 1D rules eventually need higher order to compensate occuring weight functions(i.e. simplices).
@@ -101,7 +103,7 @@ namespace Dune {
       */
       GaussJacobi_2_0 = 2,
 
-      /** \brief Gauss-Legendre rules with \f$\alpha =n\f$.
+      /** \brief Gauss-Legendre rules with \f$\alpha =n\f$
       *
       *  -1D: Gauss-Jacobi rule with parameters \f$\alpha = n,\ \beta =0 \f$
       *  -higher dimension: For the 2D/3D case efficient rules for certain geometries may be used if available.
@@ -113,7 +115,31 @@ namespace Dune {
       *   \note For details please use the book "Approximate Calculation of Multiple Integrals" by A.H. Stroud published in 1971.
       */
       GaussJacobi_n_0 = 3,
+
+      /** \brief Gauss-Lobatto rules
+       *
+       * 1D: Gauss-Lobatto rules for a constant weight function.
+       * These are optimal rules under the constraint that both interval endpoints are quadrature points.
+       * Polynomials of order 2n - 3 can be integrated exactly.
+       */
       GaussLobatto = 4,
+
+      /** \brief Gauss-Radau rules including the left endpoint
+       *
+       * 1D: Gauss-Radau rules for a constant weight function.
+       * These are optimal rules under the constraint that the left endpoint of the integration interval is a quadrature point.
+       * Polynomials of order 2n - 2 can be integrated exactly.
+       */
+      GaussRadauLeft = 5,
+
+      /** \brief Gauss-Radau rules including the right endpoint
+       *
+       * 1D: Gauss-Radau rules for a constant weight function.
+       * These are optimal rules under the constraint that the right endpoint of the integration interval is a quadrature point.
+       * Polynomials of order 2n - 2 can be integrated exactly.
+       * The right Gauss-Radau rules are the just the mirrored left Gauss-Radau rules.
+       */
+      GaussRadauRight = 6,
       size
     };
   }
@@ -256,459 +282,37 @@ namespace Dune {
       return instance()._rule(t,p,qt);
     }
 
-    DUNE_NO_DEPRECATED_BEGIN
     //! @copydoc rule
     static const QuadratureRule& rule(const GeometryType::BasicType t, int p, QuadratureType::Enum qt=QuadratureType::GaussLegendre)
     {
       GeometryType gt(t,dim);
       return instance()._rule(gt,p,qt);
     }
-    DUNE_NO_DEPRECATED_END
   };
 
 } // end namespace Dune
 
+#define DUNE_INCLUDING_IMPLEMENTATION
+
+// 0d rules
 #include "quadraturerules/pointquadrature.hh"
-
-namespace Dune {
-
-  //! \internal Helper template for the initialization of the quadrature rules
-  template<typename ct, bool fundamental = std::numeric_limits<ct>::is_specialized>
-  struct GaussQuadratureInitHelper;
-  template<typename ct>
-  struct GaussQuadratureInitHelper<ct, true> {
-    static void init(int p,
-                     std::vector< FieldVector<ct, 1> > & _points,
-                     std::vector< ct > & _weight,
-                     int & delivered_order);
-  };
-  template<typename ct>
-  struct GaussQuadratureInitHelper<ct, false> {
-    static void init(int p,
-                     std::vector< FieldVector<ct, 1> > & _points,
-                     std::vector< ct > & _weight,
-                     int & delivered_order);
-  };
-
-  //! \brief Gauss quadrature rule in 1D
-  template<typename ct>
-  class GaussQuadratureRule1D :
-    public QuadratureRule<ct,1>
-  {
-  public:
-    // compile time parameters
-    enum { dim=1 };
-    enum { highest_order=61 };
-
-    ~GaussQuadratureRule1D(){}
-  private:
-    friend class QuadratureRuleFactory<ct,dim>;
-    GaussQuadratureRule1D (int p)
-      : QuadratureRule<ct,1>(GeometryTypes::line)
-    {
-      //! set up quadrature of given order in d dimensions
-      std::vector< FieldVector<ct, dim> > _points;
-      std::vector< ct > _weight;
-
-      GaussQuadratureInitHelper<ct>::init
-        (p, _points, _weight, this->delivered_order);
-
-      assert(_points.size() == _weight.size());
-      for (size_t i = 0; i < _points.size(); i++)
-        this->push_back(QuadraturePoint<ct,dim>(_points[i], _weight[i]));
-    }
-  };
-
-  extern template GaussQuadratureRule1D<float>::GaussQuadratureRule1D(int);
-  extern template GaussQuadratureRule1D<double>::GaussQuadratureRule1D(int);
-
-} // namespace Dune
-
-#define DUNE_INCLUDING_IMPLEMENTATION
-#include "quadraturerules/gauss_imp.hh"
-
-namespace Dune {
-
-  //! \internal Helper template for the initialization of the quadrature rules
-  template<typename ct,
-      bool fundamental = std::numeric_limits<ct>::is_specialized>
-  struct Jacobi1QuadratureInitHelper;
-  template<typename ct>
-  struct Jacobi1QuadratureInitHelper<ct, true> {
-    static void init(int p,
-                     std::vector< FieldVector<ct, 1> > & _points,
-                     std::vector< ct > & _weight,
-                     int & delivered_order);
-  };
-  template<typename ct>
-  struct Jacobi1QuadratureInitHelper<ct, false> {
-    static void init(int p,
-                     std::vector< FieldVector<ct, 1> > & _points,
-                     std::vector< ct > & _weight,
-                     int & delivered_order);
-  };
-
-  /** \brief Jacobi-Gauss quadrature for alpha=1, beta=0
-      \ingroup Quadrature
-   */
-  template<typename ct>
-  class Jacobi1QuadratureRule1D :
-    public QuadratureRule<ct,1>
-  {
-  public:
-    /** \brief The space dimension */
-    enum { dim=1 };
-
-    /** \brief The highest quadrature order available */
-    enum { highest_order=61 };
-
-    ~Jacobi1QuadratureRule1D(){}
-  private:
-    friend class QuadratureRuleFactory<ct,dim>;
-    Jacobi1QuadratureRule1D (int p)
-      : QuadratureRule<ct,1>(GeometryTypes::line)
-    {
-      //! set up quadrature of given order in d dimensions
-      std::vector< FieldVector<ct, dim> > _points;
-      std::vector< ct > _weight;
-
-      int deliveredOrder_;
-
-      Jacobi1QuadratureInitHelper<ct>::init
-        (p, _points, _weight, deliveredOrder_);
-      this->delivered_order = deliveredOrder_;
-      assert(_points.size() == _weight.size());
-      for (size_t i = 0; i < _points.size(); i++)
-        this->push_back(QuadraturePoint<ct,dim>(_points[i], _weight[i]));
-    }
-  };
-
-#ifndef DOXYGEN
-  extern template Jacobi1QuadratureRule1D<float>::Jacobi1QuadratureRule1D(int);
-  extern template Jacobi1QuadratureRule1D<double>::Jacobi1QuadratureRule1D(int);
-#endif // !DOXYGEN
-
-} // namespace Dune
-
-#define DUNE_INCLUDING_IMPLEMENTATION
-#include "quadraturerules/jacobi_1_0_imp.hh"
-
-namespace Dune {
-
-  //! \internal Helper template for the initialization of the quadrature rules
-  template<typename ct,
-      bool fundamental = std::numeric_limits<ct>::is_specialized>
-  struct Jacobi2QuadratureInitHelper;
-  template<typename ct>
-  struct Jacobi2QuadratureInitHelper<ct, true> {
-    static void init(int p,
-                     std::vector< FieldVector<ct, 1> > & _points,
-                     std::vector< ct > & _weight,
-                     int & delivered_order);
-  };
-  template<typename ct>
-  struct Jacobi2QuadratureInitHelper<ct, false> {
-    static void init(int p,
-                     std::vector< FieldVector<ct, 1> > & _points,
-                     std::vector< ct > & _weight,
-                     int & delivered_order);
-  };
-
-  /** \brief Jacobi-Gauss quadrature for alpha=2, beta=0
-      \ingroup Quadrature
-   */
-  template<typename ct>
-  class Jacobi2QuadratureRule1D :
-    public QuadratureRule<ct,1>
-  {
-  public:
-    /** \brief The space dimension */
-    enum { dim=1 };
-
-    /** \brief The highest quadrature order available */
-    enum { highest_order=61 };
-
-    ~Jacobi2QuadratureRule1D(){}
-  private:
-    friend class QuadratureRuleFactory<ct,dim>;
-    Jacobi2QuadratureRule1D (int p)
-      : QuadratureRule<ct,1>(GeometryTypes::line)
-    {
-      //! set up quadrature of given order in d dimensions
-      std::vector< FieldVector<ct, dim> > _points;
-      std::vector< ct > _weight;
-
-      int deliveredOrder_;
-
-      Jacobi2QuadratureInitHelper<ct>::init
-        (p, _points, _weight, deliveredOrder_);
-
-      this->delivered_order = deliveredOrder_;
-      assert(_points.size() == _weight.size());
-      for (size_t i = 0; i < _points.size(); i++)
-        this->push_back(QuadraturePoint<ct,dim>(_points[i], _weight[i]));
-    }
-  };
-
-#ifndef DOXYGEN
-  extern template Jacobi2QuadratureRule1D<float>::Jacobi2QuadratureRule1D(int);
-  extern template Jacobi2QuadratureRule1D<double>::Jacobi2QuadratureRule1D(int);
-#endif // !DOXYGEN
-
-} // namespace Dune
-
-#define DUNE_INCLUDING_IMPLEMENTATION
-#include "quadraturerules/jacobi_2_0_imp.hh"
-
-namespace Dune {
-
-  //! \internal Helper template for the initialization of the quadrature rules
-  template<typename ct,
-      bool fundamental = std::numeric_limits<ct>::is_specialized>
-  struct GaussLobattoQuadratureInitHelper;
-  template<typename ct>
-  struct GaussLobattoQuadratureInitHelper<ct, true> {
-    static void init(int p,
-                     std::vector< FieldVector<ct, 1> > & _points,
-                     std::vector< ct > & _weight,
-                     int & delivered_order);
-  };
-  template<typename ct>
-  struct GaussLobattoQuadratureInitHelper<ct, false> {
-    static void init(int p,
-                     std::vector< FieldVector<ct, 1> > & _points,
-                     std::vector< ct > & _weight,
-                     int & delivered_order);
-  };
-
-  /** \brief Jacobi-Gauss quadrature for alpha=2, beta=0
-      \ingroup Quadrature
-   */
-  template<typename ct>
-  class GaussLobattoQuadratureRule1D :
-    public QuadratureRule<ct,1>
-  {
-  public:
-    /** \brief The space dimension */
-    enum { dim=1 };
-
-    /** \brief The highest quadrature order available */
-    enum { highest_order=31 };
-
-    ~GaussLobattoQuadratureRule1D(){}
-  private:
-    friend class QuadratureRuleFactory<ct,dim>;
-    GaussLobattoQuadratureRule1D (int p)
-      : QuadratureRule<ct,1>(GeometryTypes::line)
-    {
-      //! set up quadrature of given order in d dimensions
-      std::vector< FieldVector<ct, dim> > _points;
-      std::vector< ct > _weight;
-
-      int deliveredOrder_;
-
-      GaussLobattoQuadratureInitHelper<ct>::init
-        (p, _points, _weight, deliveredOrder_);
-
-      this->delivered_order = deliveredOrder_;
-      assert(_points.size() == _weight.size());
-      for (size_t i = 0; i < _points.size(); i++)
-        this->push_back(QuadraturePoint<ct,dim>(_points[i], _weight[i]));
-    }
-  };
-
-#ifndef DOXYGEN
-  extern template GaussLobattoQuadratureRule1D<float>::GaussLobattoQuadratureRule1D(int);
-  extern template GaussLobattoQuadratureRule1D<double>::GaussLobattoQuadratureRule1D(int);
-#endif // !DOXYGEN
-
-} // namespace Dune
-
-#define DUNE_INCLUDING_IMPLEMENTATION
-#include "quadraturerules/gausslobatto_imp.hh"
-
+// 1d rules
+#include "quadraturerules/gausslobattoquadrature.hh"
+#include "quadraturerules/gaussquadrature.hh"
+#include "quadraturerules/gaussradauleftquadrature.hh"
+#include "quadraturerules/gaussradaurightquadrature.hh"
+#include "quadraturerules/jacobi1quadrature.hh"
+#include "quadraturerules/jacobi2quadrature.hh"
+#include "quadraturerules/jacobiNquadrature.hh"
+// 3d rules
+#include "quadraturerules/prismquadrature.hh"
+// general rules
+#include "quadraturerules/simplexquadrature.hh"
 #include "quadraturerules/tensorproductquadrature.hh"
 
-#include "quadraturerules/simplexquadrature.hh"
+#undef DUNE_INCLUDING_IMPLEMENTATION
 
 namespace Dune {
-
-  /***********************************
-   * quadrature for Prism
-   **********************************/
-
-  /** \todo Please doc me! */
-  template<int dim>
-  class PrismQuadraturePoints;
-
-  /** \todo Please doc me! */
-  template<>
-  class PrismQuadraturePoints<3>
-  {
-  public:
-    enum { MAXP=6};
-    enum { highest_order=2 };
-
-    //! initialize quadrature points on the interval for all orders
-    PrismQuadraturePoints ()
-    {
-      int m = 0;
-      O[m] = 0;
-
-      // polynom degree 0  ???
-      m = 6;
-      G[m][0][0] = 0.0;
-      G[m][0][1] = 0.0;
-      G[m][0][2] = 0.0;
-
-      G[m][1][0] = 1.0;
-      G[m][1][1] = 0.0;
-      G[m][1][2] = 0.0;
-
-      G[m][2][0] = 0.0;
-      G[m][2][1] = 1.0;
-      G[m][2][2] = 0.0;
-
-      G[m][3][0] = 0.0;
-      G[m][3][1] = 0.0;
-      G[m][3][2] = 1.0;
-
-      G[m][4][0] = 1.0;
-      G[m][4][1] = 0.0;
-      G[m][4][2] = 1.0;
-
-      G[m][5][0] = 0.0;
-      G[m][5][1] = 0.1;
-      G[m][5][2] = 1.0;
-
-      W[m][0] = 0.16666666666666666 / 2.0;
-      W[m][1] = 0.16666666666666666 / 2.0;
-      W[m][2] = 0.16666666666666666 / 2.0;
-      W[m][3] = 0.16666666666666666 / 2.0;
-      W[m][4] = 0.16666666666666666 / 2.0;
-      W[m][5] = 0.16666666666666666 / 2.0;
-
-      O[m] = 0;  // verify ????????
-
-
-      // polynom degree 2  ???
-      m = 6;
-      G[m][0][0] =0.66666666666666666 ;
-      G[m][0][1] =0.16666666666666666 ;
-      G[m][0][2] =0.211324865405187 ;
-
-      G[m][1][0] = 0.16666666666666666;
-      G[m][1][1] =0.66666666666666666 ;
-      G[m][1][2] = 0.211324865405187;
-
-      G[m][2][0] = 0.16666666666666666;
-      G[m][2][1] = 0.16666666666666666;
-      G[m][2][2] = 0.211324865405187;
-
-      G[m][3][0] = 0.66666666666666666;
-      G[m][3][1] = 0.16666666666666666;
-      G[m][3][2] = 0.788675134594813;
-
-      G[m][4][0] = 0.16666666666666666;
-      G[m][4][1] = 0.66666666666666666;
-      G[m][4][2] = 0.788675134594813;
-
-      G[m][5][0] = 0.16666666666666666;
-      G[m][5][1] = 0.16666666666666666;
-      G[m][5][2] = 0.788675134594813;
-
-      W[m][0] = 0.16666666666666666 / 2.0;
-      W[m][1] = 0.16666666666666666 / 2.0;
-      W[m][2] = 0.16666666666666666 / 2.0;
-      W[m][3] = 0.16666666666666666 / 2.0;
-      W[m][4] = 0.16666666666666666 / 2.0;
-      W[m][5] = 0.16666666666666666 / 2.0;
-
-      O[m] = 2;  // verify ????????
-
-    }
-
-    /** \todo Please doc me! */
-    FieldVector<double, 3> point(int m, int i)
-    {
-      return G[m][i];
-    }
-
-    /** \todo Please doc me! */
-    double weight (int m, int i)
-    {
-      return W[m][i];
-    }
-
-    /** \todo Please doc me! */
-    int order (int m)
-    {
-      return O[m];
-    }
-
-  private:
-    FieldVector<double, 3> G[MAXP+1][MAXP]; //positions
-
-    double W[MAXP+1][MAXP];     // weights associated with points
-    int O[MAXP+1];              // order of the rule
-  };
-
-
-  /** \brief Singleton holding the Prism Quadrature points
-     \ingroup Quadrature
-   */
-  template<int dim>
-  struct PrismQuadraturePointsSingleton {
-    static PrismQuadraturePoints<3> prqp;
-  };
-
-  /** \brief Singleton holding the Prism Quadrature points
-     \ingroup Quadrature
-   */
-  template<>
-  struct PrismQuadraturePointsSingleton<3> {
-    static PrismQuadraturePoints<3> prqp;
-  };
-
-  /** \brief Quadrature rules for prisms
-      \ingroup Quadrature
-   */
-  template<typename ct, int dim>
-  class PrismQuadratureRule;
-
-  /** \brief Quadrature rules for prisms
-      \ingroup Quadrature
-   */
-  template<typename ct>
-  class PrismQuadratureRule<ct,3> : public QuadratureRule<ct,3>
-  {
-  public:
-
-    /** \brief The space dimension */
-    enum { d = 3 };
-
-    /** \brief The highest quadrature order available */
-    enum { highest_order = 2 };
-
-    ~PrismQuadratureRule(){}
-  private:
-    friend class QuadratureRuleFactory<ct,d>;
-    PrismQuadratureRule(int p) : QuadratureRule<ct,3>(GeometryTypes::prism)
-    {
-      int m=6;
-      this->delivered_order = PrismQuadraturePointsSingleton<3>::prqp.order(m);
-      for(int i=0; i<m; ++i)
-      {
-        FieldVector<ct,3> local;
-        for (int k=0; k<d; k++)
-          local[k] = PrismQuadraturePointsSingleton<3>::prqp.point(m,i)[k];
-        double weight =
-          PrismQuadraturePointsSingleton<3>::prqp.weight(m,i);
-        // put in container
-        this->push_back(QuadraturePoint<ct,d>(local,weight));
-      }
-    }
-  };
 
   /** \brief Factory class for creation of quadrature rules,
       depending on GeometryType, order and QuadratureType.
@@ -735,7 +339,7 @@ namespace Dune {
   private:
     enum { dim = 0 };
     friend class QuadratureRules<ctype, dim>;
-    static unsigned maxOrder(const GeometryType &t, QuadratureType::Enum qt)
+    static unsigned maxOrder(const GeometryType &t, QuadratureType::Enum)
     {
       if (t.isVertex())
       {
@@ -743,7 +347,7 @@ namespace Dune {
       }
       DUNE_THROW(Exception, "Unknown GeometryType");
     }
-    static QuadratureRule<ctype, dim> rule(const GeometryType& t, int p, QuadratureType::Enum qt)
+    static QuadratureRule<ctype, dim> rule(const GeometryType& t, int , QuadratureType::Enum)
     {
       if (t.isVertex())
       {
@@ -773,6 +377,10 @@ namespace Dune {
           return GaussLobattoQuadratureRule1D<ctype>::highest_order;
         case QuadratureType::GaussJacobi_n_0 :
           return JacobiNQuadratureRule1D<ctype>::maxOrder();
+        case QuadratureType::GaussRadauLeft :
+          return GaussRadauLeftQuadratureRule1D<ctype>::highest_order;
+        case QuadratureType::GaussRadauRight :
+          return GaussRadauRightQuadratureRule1D<ctype>::highest_order;
         default :
           DUNE_THROW(Exception, "Unknown QuadratureType");
         }
@@ -794,6 +402,10 @@ namespace Dune {
           return GaussLobattoQuadratureRule1D<ctype>(p);
         case QuadratureType::GaussJacobi_n_0 :
           return JacobiNQuadratureRule1D<ctype>(p);
+        case QuadratureType::GaussRadauLeft :
+          return GaussRadauLeftQuadratureRule1D<ctype>(p);
+        case QuadratureType::GaussRadauRight :
+          return GaussRadauRightQuadratureRule1D<ctype>(p);
         default :
           DUNE_THROW(Exception, "Unknown QuadratureType");
         }
@@ -863,6 +475,19 @@ namespace Dune {
       return TensorProductQuadratureRule<ctype,dim>(t.id(), p, qt);
     }
   };
+
+#ifndef DUNE_NO_EXTERN_QUADRATURERULES
+  extern template class GaussLobattoQuadratureRule<double, 1>;
+  extern template class GaussQuadratureRule<double, 1>;
+  extern template class GaussRadauLeftQuadratureRule<double, 1>;
+  extern template class GaussRadauRightQuadratureRule<double, 1>;
+  extern template class Jacobi1QuadratureRule<double, 1>;
+  extern template class Jacobi2QuadratureRule<double, 1>;
+  extern template class JacobiNQuadratureRule<double, 1>;
+  extern template class PrismQuadratureRule<double, 3>;
+  extern template class SimplexQuadratureRule<double, 2>;
+  extern template class SimplexQuadratureRule<double, 3>;
+#endif // !DUNE_NO_EXTERN_QUADRATURERULES
 
 } // end namespace
 

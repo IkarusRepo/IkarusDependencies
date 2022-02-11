@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: Dune::DGFCoordFunction&lt; dimD, dimR &gt; Class Template Reference</title>
+<title>dune-grid: Dune::DGFCoordFunctionFactory&lt; HostGrid, CoordFunction, false &gt; Struct Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,373 +62,66 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00936.html">Dune</a></li><li class="navelem"><a class="el" href="a03522.html">DGFCoordFunction</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00940.html">Dune</a></li><li class="navelem"><a class="el" href="a03522.html">DGFCoordFunctionFactory&lt; HostGrid, CoordFunction, false &gt;</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
-<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="a03519.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::DGFCoordFunction&lt; dimD, dimR &gt; Class Template Reference</div>  </div>
+<div class="title">Dune::DGFCoordFunctionFactory&lt; HostGrid, CoordFunction, false &gt; Struct Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="a00713_source.html">dune/grid/io/file/dgfparser/dgfgeogrid.hh</a>&gt;</code></p>
-<div class="dynheader">
-Inheritance diagram for Dune::DGFCoordFunction&lt; dimD, dimR &gt;:</div>
-<div class="dyncontent">
-<div class="center"><img src="a03521.png" border="0" usemap="#a_dune_1_1_d_g_f_coord_function_3_01dim_d_00_01dim_r_01_4_inherit__map" alt="Inheritance graph"/></div>
-<map name="a_dune_1_1_d_g_f_coord_function_3_01dim_d_00_01dim_r_01_4_inherit__map" id="a_dune_1_1_d_g_f_coord_function_3_01dim_d_00_01dim_r_01_4_inherit__map">
-<area shape="rect" title=" " alt="" coords="983,15,1153,57"/>
-<area shape="rect" href="a02994.html" title=" " alt="" coords="667,8,933,64"/>
-<area shape="rect" href="a03002.html" title="Interface class for using an analytical function to define the geometry of a Dune::GeometryGrid...." alt="" coords="5,5,207,61"/>
-<area shape="rect" href="a02994.html" title="Derive an implementation of an analytical coordinate function from this class." alt="" coords="256,45,457,86"/>
-</map>
-</div>
+<p><code>#include &lt;<a class="el" href="a00719_source.html">dune/grid/io/file/dgfparser/dgfgeogrid.hh</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:a79970c86718dcd312a43d89761134223"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a02994.html#ac81f877ef526268294ad9b203003b9ea">Base::DomainVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03522.html#a79970c86718dcd312a43d89761134223">DomainVector</a></td></tr>
-<tr class="separator:a79970c86718dcd312a43d89761134223"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd70826c37eaac3fbefb3913b8e2aa95"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a02994.html#a2329d2798bb307ce6532b7b112503c2a">Base::RangeVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03522.html#afd70826c37eaac3fbefb3913b8e2aa95">RangeVector</a></td></tr>
-<tr class="separator:afd70826c37eaac3fbefb3913b8e2aa95"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab73e43f943b9da4f478448b5fdd7adeb"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a03502.html">dgf::ProjectionBlock::Expression</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03522.html#ab73e43f943b9da4f478448b5fdd7adeb">Expression</a></td></tr>
-<tr class="separator:ab73e43f943b9da4f478448b5fdd7adeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad96ae2fcf63b5e46c518f4ed9d7b26d8"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a03002.html">This</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03002.html#ad96ae2fcf63b5e46c518f4ed9d7b26d8">Interface</a></td></tr>
-<tr class="separator:ad96ae2fcf63b5e46c518f4ed9d7b26d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13fea70cdccbb417a843fb6fa78217ab"><td class="memItemLeft" align="right" valign="top">typedef Impl&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03002.html#a13fea70cdccbb417a843fb6fa78217ab">Implementation</a></td></tr>
-<tr class="separator:a13fea70cdccbb417a843fb6fa78217ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f0e02b54e869045ce1f290bd162cfc6"><td class="memItemLeft" align="right" valign="top">typedef ct&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03002.html#a8f0e02b54e869045ce1f290bd162cfc6">ctype</a></td></tr>
-<tr class="memdesc:a8f0e02b54e869045ce1f290bd162cfc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">field type of the coordinate vector  <a href="a03002.html#a8f0e02b54e869045ce1f290bd162cfc6">More...</a><br /></td></tr>
-<tr class="separator:a8f0e02b54e869045ce1f290bd162cfc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:acdbde602b104099d9a6f248b4b221b59"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03522.html#acdbde602b104099d9a6f248b4b221b59">DGFCoordFunction</a> (const <a class="el" href="a03522.html#ab73e43f943b9da4f478448b5fdd7adeb">Expression</a> *expression)</td></tr>
-<tr class="separator:acdbde602b104099d9a6f248b4b221b59"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa7676cca3b5b4e676e726608e1c9c8e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03522.html#aa7676cca3b5b4e676e726608e1c9c8e1">evaluate</a> (const <a class="el" href="a03002.html#afb0c564b6295875be9a2bb400ad706e3">DomainVector</a> &amp;x, <a class="el" href="a03002.html#a4acd7dbafafb7a12af38801276304a72">RangeVector</a> &amp;y) const</td></tr>
-<tr class="separator:aa7676cca3b5b4e676e726608e1c9c8e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr class="memitem:ac04a2b995fc7c139adad7d6fc70440ba"><td class="memItemLeft" align="right" valign="top">static const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03002.html#ac04a2b995fc7c139adad7d6fc70440ba">dimDomain</a> = dimD</td></tr>
-<tr class="memdesc:ac04a2b995fc7c139adad7d6fc70440ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">dimension of the range vector (dimensionworld of host grid)  <a href="a03002.html#ac04a2b995fc7c139adad7d6fc70440ba">More...</a><br /></td></tr>
-<tr class="separator:ac04a2b995fc7c139adad7d6fc70440ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a87269153d990dce43bd18b230b04bfec"><td class="memItemLeft" align="right" valign="top">static const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03002.html#a87269153d990dce43bd18b230b04bfec">dimRange</a> = dimR</td></tr>
-<tr class="memdesc:a87269153d990dce43bd18b230b04bfec"><td class="mdescLeft">&#160;</td><td class="mdescRight">dimension of the range vector  <a href="a03002.html#a87269153d990dce43bd18b230b04bfec">More...</a><br /></td></tr>
-<tr class="separator:a87269153d990dce43bd18b230b04bfec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:accc5661b1d67cd4013f2b3e049ea28c5"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a03002.html#a13fea70cdccbb417a843fb6fa78217ab">Implementation</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03002.html#accc5661b1d67cd4013f2b3e049ea28c5">asImp</a> () const</td></tr>
-<tr class="separator:accc5661b1d67cd4013f2b3e049ea28c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae4a380dc001f33d44dee6a3203a76ad1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a03002.html#a13fea70cdccbb417a843fb6fa78217ab">Implementation</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03002.html#ae4a380dc001f33d44dee6a3203a76ad1">asImp</a> ()</td></tr>
-<tr class="separator:ae4a380dc001f33d44dee6a3203a76ad1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:acfea00a1640b66785f649b048e77b60a"><td class="memItemLeft" align="right" valign="top">static CoordFunction *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03522.html#acfea00a1640b66785f649b048e77b60a">create</a> (std::istream &amp;, const HostGrid &amp;)</td></tr>
+<tr class="separator:acfea00a1640b66785f649b048e77b60a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a8f0e02b54e869045ce1f290bd162cfc6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8f0e02b54e869045ce1f290bd162cfc6">&#9670;&nbsp;</a></span>ctype</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class ct , unsigned int dimD, unsigned int dimR, class Impl &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef ct <a class="el" href="a03002.html">Dune::AnalyticalCoordFunctionInterface</a>&lt; ct, dimD, dimR, Impl &gt;::<a class="el" href="a03002.html#a8f0e02b54e869045ce1f290bd162cfc6">ctype</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>field type of the coordinate vector </p>
-
-</div>
-</div>
-<a id="a79970c86718dcd312a43d89761134223"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a79970c86718dcd312a43d89761134223">&#9670;&nbsp;</a></span>DomainVector</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int dimD, int dimR&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef <a class="el" href="a02994.html#ac81f877ef526268294ad9b203003b9ea">Base::DomainVector</a> <a class="el" href="a03522.html">Dune::DGFCoordFunction</a>&lt; dimD, dimR &gt;::<a class="el" href="a03002.html#afb0c564b6295875be9a2bb400ad706e3">DomainVector</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ab73e43f943b9da4f478448b5fdd7adeb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab73e43f943b9da4f478448b5fdd7adeb">&#9670;&nbsp;</a></span>Expression</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int dimD, int dimR&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef <a class="el" href="a03502.html">dgf::ProjectionBlock::Expression</a> <a class="el" href="a03522.html">Dune::DGFCoordFunction</a>&lt; dimD, dimR &gt;::<a class="el" href="a03522.html#ab73e43f943b9da4f478448b5fdd7adeb">Expression</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a13fea70cdccbb417a843fb6fa78217ab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a13fea70cdccbb417a843fb6fa78217ab">&#9670;&nbsp;</a></span>Implementation</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class ct , unsigned int dimD, unsigned int dimR, class Impl &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef Impl <a class="el" href="a03002.html">Dune::AnalyticalCoordFunctionInterface</a>&lt; ct, dimD, dimR, Impl &gt;::<a class="el" href="a03002.html#a13fea70cdccbb417a843fb6fa78217ab">Implementation</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ad96ae2fcf63b5e46c518f4ed9d7b26d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad96ae2fcf63b5e46c518f4ed9d7b26d8">&#9670;&nbsp;</a></span>Interface</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class ct , unsigned int dimD, unsigned int dimR, class Impl &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef <a class="el" href="a03002.html">This</a> <a class="el" href="a03002.html">Dune::AnalyticalCoordFunctionInterface</a>&lt; ct, dimD, dimR, Impl &gt;::<a class="el" href="a03002.html#ad96ae2fcf63b5e46c518f4ed9d7b26d8">Interface</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="afd70826c37eaac3fbefb3913b8e2aa95"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afd70826c37eaac3fbefb3913b8e2aa95">&#9670;&nbsp;</a></span>RangeVector</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int dimD, int dimR&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef <a class="el" href="a02994.html#a2329d2798bb307ce6532b7b112503c2a">Base::RangeVector</a> <a class="el" href="a03522.html">Dune::DGFCoordFunction</a>&lt; dimD, dimR &gt;::<a class="el" href="a03002.html#a4acd7dbafafb7a12af38801276304a72">RangeVector</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="acdbde602b104099d9a6f248b4b221b59"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acdbde602b104099d9a6f248b4b221b59">&#9670;&nbsp;</a></span>DGFCoordFunction()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int dimD, int dimR&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a03522.html">Dune::DGFCoordFunction</a>&lt; dimD, dimR &gt;::<a class="el" href="a03522.html">DGFCoordFunction</a> </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a03522.html#ab73e43f943b9da4f478448b5fdd7adeb">Expression</a> *&#160;</td>
-          <td class="paramname"><em>expression</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ae4a380dc001f33d44dee6a3203a76ad1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae4a380dc001f33d44dee6a3203a76ad1">&#9670;&nbsp;</a></span>asImp() <span class="overload">[1/2]</span></h2>
+<a id="acfea00a1640b66785f649b048e77b60a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acfea00a1640b66785f649b048e77b60a">&#9670;&nbsp;</a></span>create()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class ct , unsigned int dimD, unsigned int dimR, class Impl &gt; </div>
+template&lt;class HostGrid , class CoordFunction &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a03002.html#a13fea70cdccbb417a843fb6fa78217ab">Implementation</a>&amp; <a class="el" href="a03002.html">Dune::AnalyticalCoordFunctionInterface</a>&lt; ct, dimD, dimR, Impl &gt;::asImp </td>
+          <td class="memname">static CoordFunction* <a class="el" href="a03518.html">Dune::DGFCoordFunctionFactory</a>&lt; HostGrid, CoordFunction, false &gt;::create </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="accc5661b1d67cd4013f2b3e049ea28c5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#accc5661b1d67cd4013f2b3e049ea28c5">&#9670;&nbsp;</a></span>asImp() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class ct , unsigned int dimD, unsigned int dimR, class Impl &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a03002.html#a13fea70cdccbb417a843fb6fa78217ab">Implementation</a>&amp; <a class="el" href="a03002.html">Dune::AnalyticalCoordFunctionInterface</a>&lt; ct, dimD, dimR, Impl &gt;::asImp </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aa7676cca3b5b4e676e726608e1c9c8e1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa7676cca3b5b4e676e726608e1c9c8e1">&#9670;&nbsp;</a></span>evaluate()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int dimD, int dimR&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a03522.html">Dune::DGFCoordFunction</a>&lt; dimD, dimR &gt;::evaluate </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a03002.html#afb0c564b6295875be9a2bb400ad706e3">DomainVector</a> &amp;&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
+          <td class="paramtype">std::istream &amp;&#160;</td>
+          <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a03002.html#a4acd7dbafafb7a12af38801276304a72">RangeVector</a> &amp;&#160;</td>
-          <td class="paramname"><em>y</em>&#160;</td>
+          <td class="paramtype">const HostGrid &amp;&#160;</td>
+          <td class="paramname">&#160;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td> const</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="ac04a2b995fc7c139adad7d6fc70440ba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac04a2b995fc7c139adad7d6fc70440ba">&#9670;&nbsp;</a></span>dimDomain</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class ct , unsigned int dimD, unsigned int dimR, class Impl &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const unsigned int <a class="el" href="a03002.html">Dune::AnalyticalCoordFunctionInterface</a>&lt; ct, dimD, dimR, Impl &gt;::dimDomain = dimD</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>dimension of the range vector (dimensionworld of host grid) </p>
-
-</div>
-</div>
-<a id="a87269153d990dce43bd18b230b04bfec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a87269153d990dce43bd18b230b04bfec">&#9670;&nbsp;</a></span>dimRange</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class ct , unsigned int dimD, unsigned int dimR, class Impl &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const unsigned int <a class="el" href="a03002.html">Dune::AnalyticalCoordFunctionInterface</a>&lt; ct, dimD, dimR, Impl &gt;::dimRange = dimR</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>dimension of the range vector </p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="a00713_source.html">dgfgeogrid.hh</a></li>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li><a class="el" href="a00719_source.html">dgfgeogrid.hh</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

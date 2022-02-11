@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: cube.hh Source File</title>
+<title>dune-grid: boundaryseg.hh Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -67,77 +67,103 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">cube.hh</div>  </div>
+<div class="title">boundaryseg.hh</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="a00650.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*-</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// vi: set et ts=4 sw=2 sts=2:</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifndef DUNE_DGF_CUBEBLOCK_HH</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define DUNE_DGF_CUBEBLOCK_HH</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifndef DUNE_DGF_BOUNDARYSEGBLOCK_HH</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define DUNE_DGF_BOUNDARYSEGBLOCK_HH</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;cassert&gt;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00632.html">dune/grid/io/file/dgfparser/blocks/basic.hh</a>&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00936.html">Dune</a></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00755.html">dune/grid/io/file/dgfparser/parser.hh</a>&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00638.html">dune/grid/io/file/dgfparser/blocks/basic.hh</a>&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  <span class="keyword">namespace </span>dgf</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  {</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00940.html">Dune</a></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="a03386.html">   19</a></span>&#160;    <span class="keyword">class </span><a class="code" href="a03386.html">CubeBlock</a></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;      : <span class="keyword">public</span> <a class="code" href="a03366.html">BasicBlock</a></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;      <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> nofvtx;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;      <span class="keywordtype">int</span> dimgrid;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;      <span class="keywordtype">bool</span> goodline;        <span class="comment">// active line describes a vertex</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;      std :: vector&lt; unsigned int &gt; map; <span class="comment">// active vertex</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;      <span class="keywordtype">int</span> nofparams;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;      <span class="keywordtype">int</span> vtxoffset;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;      <a class="code" href="a03386.html#ae2c1ef9698b308ea87eb191e2c581902">CubeBlock</a> ( std :: istream &amp;in, <span class="keywordtype">int</span> pnofvtx, <span class="keywordtype">int</span> pvtxoffset, <span class="keywordtype">int</span> &amp;pdimgrid );</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  <span class="keyword">namespace </span>dgf</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  {</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="a03374.html">   21</a></span>&#160;    <span class="keyword">class </span><a class="code" href="a03374.html">BoundarySegBlock</a></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;      : <span class="keyword">public</span> <a class="code" href="a03358.html">BasicBlock</a></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;      <span class="keywordtype">int</span> dimworld;                    <span class="comment">// the dimension of the vertices (is given  from user)</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;      <span class="keywordtype">bool</span> goodline;                   <span class="comment">// active line describes a vertex</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;      std :: vector&lt; unsigned int &gt; p; <span class="comment">// active vertex</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;      <span class="keywordtype">int</span> bndid;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;      <span class="keyword">typedef</span> <a class="code" href="a03626.html#afa9bc1f519c309d951d1955cbce7ea7f">DGFBoundaryParameter::type</a> BoundaryParameter;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;      BoundaryParameter parameter;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;      <span class="keywordtype">bool</span> simplexgrid;</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;      <span class="keywordtype">int</span> <a class="code" href="a03386.html#a145365577efce39962cbf87e902fe61d">get</a> ( std :: vector&lt; std :: vector&lt; unsigned int&gt; &gt; &amp;simplex,</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                std :: vector&lt; std :: vector&lt; double &gt; &gt; &amp;params,</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                <span class="keywordtype">int</span> &amp;nofp );</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="a03374.html#acb028c46b1194cd0c378696861541bb2">   33</a></span>&#160;      <span class="keyword">typedef</span> <a class="code" href="a03598.html">DGFEntityKey&lt; unsigned int&gt;</a> <a class="code" href="a03374.html#acb028c46b1194cd0c378696861541bb2">EntityKey</a>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="a03374.html#ab599318717430314e32eb4a1fd162904">   34</a></span>&#160;      <span class="keyword">typedef</span> std::pair &lt; int, BoundaryParameter &gt; <a class="code" href="a03374.html#ab599318717430314e32eb4a1fd162904">BndParam</a>;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;      <span class="comment">// some information</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="a03386.html#a7a6df3359736b63d44e9b14d046fd67f">   37</a></span>&#160;      <span class="keywordtype">bool</span> <a class="code" href="a03386.html#a7a6df3359736b63d44e9b14d046fd67f">ok</a> ()</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;      {</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordflow">return</span> goodline;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;      }</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="a03386.html#a4b8b4a59fa2869a0495f0e9579492914">   42</a></span>&#160;      <span class="keywordtype">int</span> <a class="code" href="a03386.html#a4b8b4a59fa2869a0495f0e9579492914">nofsimplex</a> ()</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      {</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="a03366.html#a3c6d8bcf4fab8a69d092241a49825ba7">noflines</a>();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;      }</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;      <span class="comment">// get the dimension of the grid</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;      <span class="keywordtype">int</span> getDimGrid ();</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;      <span class="comment">// get next simplex</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;      <span class="keywordtype">bool</span> next ( std :: vector&lt; unsigned int &gt; &amp;simplex,</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                  std :: vector&lt; double &gt; &amp;param );</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    };</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  } <span class="comment">// end namespace dgf</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;} <span class="comment">// end namespace Dune</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;      <span class="comment">// initialize vertex block and get first vertex</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;      <a class="code" href="a03374.html#ac3da837c85b5aa9bbb24e130b6ee3a1e">BoundarySegBlock</a> ( std :: istream &amp;in, <span class="keywordtype">int</span> pnofvtx,</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                         <span class="keywordtype">int</span> pdimworld, <span class="keywordtype">bool</span> psimplexgrid );</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;      <span class="comment">// some information</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;      <span class="keywordtype">int</span> <a class="code" href="a03374.html#a4ce343f4fe2efae532a8a48fae09cf01">get</a>( std :: map&lt; EntityKey, BndParam &gt; &amp; facemap,</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;               <span class="keywordtype">bool</span> fixedsize,</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;               <span class="keywordtype">int</span> vtxoffset</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;               );</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="a03374.html#a0e111c9a960299c9ed9fe94601244021">   46</a></span>&#160;      <span class="keywordtype">bool</span> <a class="code" href="a03374.html#a0e111c9a960299c9ed9fe94601244021">ok</a>()</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;      {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordflow">return</span> goodline;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;      }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="a03374.html#ade45334299b02d12f0b7a6c125ffd9c6">   51</a></span>&#160;      <span class="keywordtype">int</span> <a class="code" href="a03374.html#ade45334299b02d12f0b7a6c125ffd9c6">nofbound</a>()</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      {</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="a03358.html#a3c6d8bcf4fab8a69d092241a49825ba7">noflines</a>();</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      }</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      <span class="keywordtype">bool</span> next();</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aa00632_html"><div class="ttname"><a href="a00632.html">basic.hh</a></div></div>
-<div class="ttc" id="aa00936_html"><div class="ttname"><a href="a00936.html">Dune</a></div><div class="ttdoc">Include standard header files.</div><div class="ttdef"><b>Definition:</b> agrid.hh:59</div></div>
-<div class="ttc" id="aa03366_html"><div class="ttname"><a href="a03366.html">Dune::dgf::BasicBlock</a></div><div class="ttdef"><b>Definition:</b> basic.hh:29</div></div>
-<div class="ttc" id="aa03366_html_a3c6d8bcf4fab8a69d092241a49825ba7"><div class="ttname"><a href="a03366.html#a3c6d8bcf4fab8a69d092241a49825ba7">Dune::dgf::BasicBlock::noflines</a></div><div class="ttdeci">int &amp; noflines()</div><div class="ttdef"><b>Definition:</b> basic.hh:85</div></div>
-<div class="ttc" id="aa03386_html"><div class="ttname"><a href="a03386.html">Dune::dgf::CubeBlock</a></div><div class="ttdef"><b>Definition:</b> cube.hh:21</div></div>
-<div class="ttc" id="aa03386_html_a145365577efce39962cbf87e902fe61d"><div class="ttname"><a href="a03386.html#a145365577efce39962cbf87e902fe61d">Dune::dgf::CubeBlock::get</a></div><div class="ttdeci">int get(std ::vector&lt; std ::vector&lt; unsigned int &gt; &gt; &amp;simplex, std ::vector&lt; std ::vector&lt; double &gt; &gt; &amp;params, int &amp;nofp)</div><div class="ttdef"><b>Definition:</b> cube.cc:101</div></div>
-<div class="ttc" id="aa03386_html_a4b8b4a59fa2869a0495f0e9579492914"><div class="ttname"><a href="a03386.html#a4b8b4a59fa2869a0495f0e9579492914">Dune::dgf::CubeBlock::nofsimplex</a></div><div class="ttdeci">int nofsimplex()</div><div class="ttdef"><b>Definition:</b> cube.hh:42</div></div>
-<div class="ttc" id="aa03386_html_a7a6df3359736b63d44e9b14d046fd67f"><div class="ttname"><a href="a03386.html#a7a6df3359736b63d44e9b14d046fd67f">Dune::dgf::CubeBlock::ok</a></div><div class="ttdeci">bool ok()</div><div class="ttdef"><b>Definition:</b> cube.hh:37</div></div>
-<div class="ttc" id="aa03386_html_ae2c1ef9698b308ea87eb191e2c581902"><div class="ttname"><a href="a03386.html#ae2c1ef9698b308ea87eb191e2c581902">Dune::dgf::CubeBlock::CubeBlock</a></div><div class="ttdeci">CubeBlock(std ::istream &amp;in, int pnofvtx, int pvtxoffset, int &amp;pdimgrid)</div><div class="ttdef"><b>Definition:</b> cube.cc:17</div></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;      <span class="comment">// get coordinates of active vertex</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;      <span class="keywordtype">int</span> operator[] (<span class="keywordtype">int</span> i)</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;      {</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        assert(<a class="code" href="a03374.html#a0e111c9a960299c9ed9fe94601244021">ok</a>());</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        assert(<a class="code" href="a03358.html#ad073ac8f1535c23df5cfbc3dd7228f79">linenumber</a>()&gt;=0);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        assert(0&lt;=i &amp;&amp; i&lt;dimworld+1);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordflow">return</span> p[i];</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;      }</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;      <span class="keywordtype">int</span> size()</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;      {</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordflow">return</span> p.size();</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;      }</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    };</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  } <span class="comment">// end namespace dgf</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;} <span class="comment">// end namespace Dune</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aa00638_html"><div class="ttname"><a href="a00638.html">basic.hh</a></div></div>
+<div class="ttc" id="aa00755_html"><div class="ttname"><a href="a00755.html">parser.hh</a></div></div>
+<div class="ttc" id="aa00940_html"><div class="ttname"><a href="a00940.html">Dune</a></div><div class="ttdoc">Include standard header files.</div><div class="ttdef"><b>Definition:</b> agrid.hh:58</div></div>
+<div class="ttc" id="aa03358_html"><div class="ttname"><a href="a03358.html">Dune::dgf::BasicBlock</a></div><div class="ttdef"><b>Definition:</b> basic.hh:29</div></div>
+<div class="ttc" id="aa03358_html_a3c6d8bcf4fab8a69d092241a49825ba7"><div class="ttname"><a href="a03358.html#a3c6d8bcf4fab8a69d092241a49825ba7">Dune::dgf::BasicBlock::noflines</a></div><div class="ttdeci">int &amp; noflines()</div><div class="ttdef"><b>Definition:</b> basic.hh:85</div></div>
+<div class="ttc" id="aa03358_html_ad073ac8f1535c23df5cfbc3dd7228f79"><div class="ttname"><a href="a03358.html#ad073ac8f1535c23df5cfbc3dd7228f79">Dune::dgf::BasicBlock::linenumber</a></div><div class="ttdeci">int linenumber()</div><div class="ttdef"><b>Definition:</b> basic.hh:90</div></div>
+<div class="ttc" id="aa03374_html"><div class="ttname"><a href="a03374.html">Dune::dgf::BoundarySegBlock</a></div><div class="ttdef"><b>Definition:</b> boundaryseg.hh:23</div></div>
+<div class="ttc" id="aa03374_html_a0e111c9a960299c9ed9fe94601244021"><div class="ttname"><a href="a03374.html#a0e111c9a960299c9ed9fe94601244021">Dune::dgf::BoundarySegBlock::ok</a></div><div class="ttdeci">bool ok()</div><div class="ttdef"><b>Definition:</b> boundaryseg.hh:46</div></div>
+<div class="ttc" id="aa03374_html_a4ce343f4fe2efae532a8a48fae09cf01"><div class="ttname"><a href="a03374.html#a4ce343f4fe2efae532a8a48fae09cf01">Dune::dgf::BoundarySegBlock::get</a></div><div class="ttdeci">int get(std ::map&lt; EntityKey, BndParam &gt; &amp;facemap, bool fixedsize, int vtxoffset)</div><div class="ttdef"><b>Definition:</b> boundaryseg.cc:33</div></div>
+<div class="ttc" id="aa03374_html_ab599318717430314e32eb4a1fd162904"><div class="ttname"><a href="a03374.html#ab599318717430314e32eb4a1fd162904">Dune::dgf::BoundarySegBlock::BndParam</a></div><div class="ttdeci">std::pair&lt; int, BoundaryParameter &gt; BndParam</div><div class="ttdef"><b>Definition:</b> boundaryseg.hh:34</div></div>
+<div class="ttc" id="aa03374_html_ac3da837c85b5aa9bbb24e130b6ee3a1e"><div class="ttname"><a href="a03374.html#ac3da837c85b5aa9bbb24e130b6ee3a1e">Dune::dgf::BoundarySegBlock::BoundarySegBlock</a></div><div class="ttdeci">BoundarySegBlock(std ::istream &amp;in, int pnofvtx, int pdimworld, bool psimplexgrid)</div><div class="ttdef"><b>Definition:</b> boundaryseg.cc:16</div></div>
+<div class="ttc" id="aa03374_html_acb028c46b1194cd0c378696861541bb2"><div class="ttname"><a href="a03374.html#acb028c46b1194cd0c378696861541bb2">Dune::dgf::BoundarySegBlock::EntityKey</a></div><div class="ttdeci">DGFEntityKey&lt; unsigned int &gt; EntityKey</div><div class="ttdef"><b>Definition:</b> boundaryseg.hh:33</div></div>
+<div class="ttc" id="aa03374_html_ade45334299b02d12f0b7a6c125ffd9c6"><div class="ttname"><a href="a03374.html#ade45334299b02d12f0b7a6c125ffd9c6">Dune::dgf::BoundarySegBlock::nofbound</a></div><div class="ttdeci">int nofbound()</div><div class="ttdef"><b>Definition:</b> boundaryseg.hh:51</div></div>
+<div class="ttc" id="aa03598_html"><div class="ttname"><a href="a03598.html">Dune::DGFEntityKey&lt; unsigned int &gt;</a></div></div>
+<div class="ttc" id="aa03626_html_afa9bc1f519c309d951d1955cbce7ea7f"><div class="ttname"><a href="a03626.html#afa9bc1f519c309d951d1955cbce7ea7f">Dune::DGFBoundaryParameter::type</a></div><div class="ttdeci">std::string type</div><div class="ttdoc">type of additional boundary parameters</div><div class="ttdef"><b>Definition:</b> parser.hh:23</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

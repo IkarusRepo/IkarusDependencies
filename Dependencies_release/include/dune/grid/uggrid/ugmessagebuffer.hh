@@ -134,15 +134,15 @@ namespace Dune {
       // want only the highest-level copy, because otherwise gather will be called
       // more than once for that edge (interpreted as a leaf grid edge).  Therefore
       // we need a tigher criterion.
-      if (gridDim-codim==1)
+      if constexpr (gridDim-codim==1)
       {
         if (isLeaf)
         {
           // isLeaf is true, i.e. we either are a top-level leaf oder or a copy of one.
           // If we are are lower-level copy then both of our end nodes have children,
           // and these two children are connected.
-          auto nodeA = ((typename Dune::UG_NS<gridDim>::Edge*)ugEP)->links[0].nbnode;
-          auto nodeB = ((typename Dune::UG_NS<gridDim>::Edge*)ugEP)->links[1].nbnode;
+          auto nodeA = ugEP->links[0].nbnode;
+          auto nodeB = ugEP->links[1].nbnode;
 
           if (nodeA->son && nodeB->son && UG_NS<gridDim>::GetEdge(nodeA->son, nodeB->son))
             isLeaf = false;
@@ -172,14 +172,22 @@ namespace Dune {
       // iterate over all entities, find the maximum size for
       // the current rank
       std::size_t maxSize = 0;
-      for (const auto& element : elements(gv, Dune::Partitions::all))
+      if constexpr (codim==gridDim || codim==0)
       {
-        int numberOfSubentities = element.subEntities(codim);
-        for (int k = 0; k < numberOfSubentities; k++)
+        for (const auto& entity : entities(gv, Codim<codim>(), Dune::Partitions::all))
+          maxSize = std::max(maxSize, duneDataHandle_->size(entity));
+      }
+      else
+      {
+        for (const auto& element : elements(gv, Dune::Partitions::all))
         {
-          const auto subEntity = element.template subEntity<codim>(k);
+          int numberOfSubentities = element.subEntities(codim);
+          for (int k = 0; k < numberOfSubentities; k++)
+          {
+            const auto subEntity = element.template subEntity<codim>(k);
 
-          maxSize = std::max(maxSize, duneDataHandle_->size(subEntity));
+            maxSize = std::max(maxSize, duneDataHandle_->size(subEntity));
+          }
         }
       }
 

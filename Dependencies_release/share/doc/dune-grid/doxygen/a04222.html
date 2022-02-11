@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: Dune::Capabilities::isLeafwiseConforming&lt; YaspGrid&lt; dim, Coordinates &gt; &gt; Struct Template Reference</title>
+<title>dune-grid: Dune::MaybeHaveOrigin&lt; Dune::EquidistantOffsetCoordinates&lt; ctype, dim &gt; &gt; Struct Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,52 +62,176 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00936.html">Dune</a></li><li class="navelem"><a class="el" href="a00938.html">Capabilities</a></li><li class="navelem"><a class="el" href="a04222.html">isLeafwiseConforming&lt; YaspGrid&lt; dim, Coordinates &gt; &gt;</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00940.html">Dune</a></li><li class="navelem"><a class="el" href="a04222.html">MaybeHaveOrigin&lt; Dune::EquidistantOffsetCoordinates&lt; ctype, dim &gt; &gt;</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="a04219.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::Capabilities::isLeafwiseConforming&lt; YaspGrid&lt; dim, Coordinates &gt; &gt; Struct Template Reference<div class="ingroups"><a class="el" href="a00902.html">dune-grid</a> &raquo; <a class="el" href="a00917.html">Grid Implementations</a> &raquo; <a class="el" href="a00922.html">YaspGrid</a></div></div>  </div>
+<div class="title">Dune::MaybeHaveOrigin&lt; Dune::EquidistantOffsetCoordinates&lt; ctype, dim &gt; &gt; Struct Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="a04142.html" title="[ provides Dune::Grid ]">YaspGrid</a> is leafwise conforming.  
- <a href="a04222.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="a00896_source.html">dune/grid/yaspgrid.hh</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a06642_source.html">dune/grid/yaspgrid/backuprestore.hh</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr class="memitem:aedcc64a7a23a62355f655e6918820466"><td class="memItemLeft" align="right" valign="top">static const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04222.html#aedcc64a7a23a62355f655e6918820466">v</a> = true</td></tr>
-<tr class="separator:aedcc64a7a23a62355f655e6918820466"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:aff06be118288b71654ae3a8c3d6972d3"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a04238.html">Dune::EquidistantOffsetCoordinates</a>&lt; ctype, dim &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04222.html#aff06be118288b71654ae3a8c3d6972d3">Coordinates</a></td></tr>
+<tr class="separator:aff06be118288b71654ae3a8c3d6972d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a7bdcdae3aa2fbc266117adcd64dbed47"><td class="memTemplParams" colspan="2">template&lt;class S &gt; </td></tr>
+<tr class="memitem:a7bdcdae3aa2fbc266117adcd64dbed47"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a04222.html#a7bdcdae3aa2fbc266117adcd64dbed47">writeOrigin</a> (S &amp;s, const <a class="el" href="a04222.html#aff06be118288b71654ae3a8c3d6972d3">Coordinates</a> &amp;coord)</td></tr>
+<tr class="separator:a7bdcdae3aa2fbc266117adcd64dbed47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac79ba8cdaa84991184156b0ad0affb81"><td class="memTemplParams" colspan="2">template&lt;class S &gt; </td></tr>
+<tr class="memitem:ac79ba8cdaa84991184156b0ad0affb81"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a04222.html#ac79ba8cdaa84991184156b0ad0affb81">readOrigin</a> (S &amp;s, Dune::FieldVector&lt; ctype, dim &gt; &amp;coord)</td></tr>
+<tr class="separator:ac79ba8cdaa84991184156b0ad0affb81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7955f6333df81767e84f2a385e63815c"><td class="memTemplParams" colspan="2">template&lt;typename... A&gt; </td></tr>
+<tr class="memitem:a7955f6333df81767e84f2a385e63815c"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="a04134.html">Dune::YaspGrid</a>&lt; Coordinates::dimension, <a class="el" href="a04222.html#aff06be118288b71654ae3a8c3d6972d3">Coordinates</a> &gt; *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a04222.html#a7955f6333df81767e84f2a385e63815c">createGrid</a> (const Dune::FieldVector&lt; typename <a class="el" href="a04238.html#ab503bb21ce09618a8e9f3f922ac31942">Coordinates::ctype</a>, Coordinates::dimension &gt; &amp;lowerleft, const Dune::FieldVector&lt; typename <a class="el" href="a04238.html#ab503bb21ce09618a8e9f3f922ac31942">Coordinates::ctype</a>, Coordinates::dimension &gt; &amp;extension, A... args)</td></tr>
+<tr class="separator:a7955f6333df81767e84f2a385e63815c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;int dim, class Coordinates&gt;<br />
-struct Dune::Capabilities::isLeafwiseConforming&lt; YaspGrid&lt; dim, Coordinates &gt; &gt;</h3>
-
-<p><a class="el" href="a04142.html" title="[ provides Dune::Grid ]">YaspGrid</a> is leafwise conforming. </p>
-</div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="aedcc64a7a23a62355f655e6918820466"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aedcc64a7a23a62355f655e6918820466">&#9670;&nbsp;</a></span>v</h2>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="aff06be118288b71654ae3a8c3d6972d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff06be118288b71654ae3a8c3d6972d3">&#9670;&nbsp;</a></span>Coordinates</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, class Coordinates &gt; </div>
+template&lt;class ctype , int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="a04238.html">Dune::EquidistantOffsetCoordinates</a>&lt;ctype, dim&gt; <a class="el" href="a04218.html">Dune::MaybeHaveOrigin</a>&lt; <a class="el" href="a04238.html">Dune::EquidistantOffsetCoordinates</a>&lt; ctype, dim &gt; &gt;::<a class="el" href="a04222.html#aff06be118288b71654ae3a8c3d6972d3">Coordinates</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a7955f6333df81767e84f2a385e63815c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7955f6333df81767e84f2a385e63815c">&#9670;&nbsp;</a></span>createGrid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class ctype , int dim&gt; </div>
+<div class="memtemplate">
+template&lt;typename... A&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const bool <a class="el" href="a02514.html">Dune::Capabilities::isLeafwiseConforming</a>&lt; <a class="el" href="a04142.html">YaspGrid</a>&lt; dim, Coordinates &gt; &gt;::v = true</td>
+          <td class="memname">static <a class="el" href="a04134.html">Dune::YaspGrid</a>&lt;Coordinates::dimension,<a class="el" href="a04222.html#aff06be118288b71654ae3a8c3d6972d3">Coordinates</a>&gt;* <a class="el" href="a04218.html">Dune::MaybeHaveOrigin</a>&lt; <a class="el" href="a04238.html">Dune::EquidistantOffsetCoordinates</a>&lt; ctype, dim &gt; &gt;::createGrid </td>
+          <td>(</td>
+          <td class="paramtype">const Dune::FieldVector&lt; typename <a class="el" href="a04238.html#ab503bb21ce09618a8e9f3f922ac31942">Coordinates::ctype</a>, Coordinates::dimension &gt; &amp;&#160;</td>
+          <td class="paramname"><em>lowerleft</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Dune::FieldVector&lt; typename <a class="el" href="a04238.html#ab503bb21ce09618a8e9f3f922ac31942">Coordinates::ctype</a>, Coordinates::dimension &gt; &amp;&#160;</td>
+          <td class="paramname"><em>extension</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">A...&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac79ba8cdaa84991184156b0ad0affb81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac79ba8cdaa84991184156b0ad0affb81">&#9670;&nbsp;</a></span>readOrigin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class ctype , int dim&gt; </div>
+<div class="memtemplate">
+template&lt;class S &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void <a class="el" href="a04218.html">Dune::MaybeHaveOrigin</a>&lt; <a class="el" href="a04238.html">Dune::EquidistantOffsetCoordinates</a>&lt; ctype, dim &gt; &gt;::readOrigin </td>
+          <td>(</td>
+          <td class="paramtype">S &amp;&#160;</td>
+          <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Dune::FieldVector&lt; ctype, dim &gt; &amp;&#160;</td>
+          <td class="paramname"><em>coord</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7bdcdae3aa2fbc266117adcd64dbed47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7bdcdae3aa2fbc266117adcd64dbed47">&#9670;&nbsp;</a></span>writeOrigin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class ctype , int dim&gt; </div>
+<div class="memtemplate">
+template&lt;class S &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void <a class="el" href="a04218.html">Dune::MaybeHaveOrigin</a>&lt; <a class="el" href="a04238.html">Dune::EquidistantOffsetCoordinates</a>&lt; ctype, dim &gt; &gt;::writeOrigin </td>
+          <td>(</td>
+          <td class="paramtype">S &amp;&#160;</td>
+          <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a04222.html#aff06be118288b71654ae3a8c3d6972d3">Coordinates</a> &amp;&#160;</td>
+          <td class="paramname"><em>coord</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -115,7 +239,7 @@ template&lt;int dim, class Coordinates &gt; </div>
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="a00896_source.html">yaspgrid.hh</a></li>
+<li><a class="el" href="a06642_source.html">yaspgrid/backuprestore.hh</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

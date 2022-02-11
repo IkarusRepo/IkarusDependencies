@@ -10,9 +10,10 @@
 #include <memory>
 #include <vector>
 
+#include <dune/common/deprecated.hh>
+#define DUNE_FUNCTION_HH_SILENCE_DEPRECATION
 #include <dune/common/function.hh>
 #include <dune/common/fvector.hh>
-#include <dune/common/to_unique_ptr.hh>
 #include <dune/common/parallel/mpihelper.hh>
 
 #include <dune/geometry/type.hh>
@@ -107,6 +108,7 @@ namespace Dune
     virtual void insertElement(const GeometryType& type,
                                const std::vector<unsigned int>& vertices) = 0;
 
+    DUNE_NO_DEPRECATED_BEGIN
     /** \brief Insert a parametrized element into the coarse grid
         \param type The GeometryType of the new element
         \param vertices The vertices of the new element, using the DUNE numbering
@@ -114,12 +116,53 @@ namespace Dune
 
         Make sure the inserted element is not inverted (this holds even
         for simplices).  There are grids that can't handle inverted elements.
+
+        \deprecated [After Dune 2.7] VirtualFunction is deprecated, use the
+                    overload taking a std::function instead
      */
-    virtual void insertElement(const GeometryType& type,
-                               const std::vector<unsigned int>& vertices,
-                               const std::shared_ptr<VirtualFunction<FieldVector<ctype,dimension>,FieldVector<ctype,dimworld> > >& elementParametrization)
+    [[deprecated("[After Dune 2.7]: VirtualFunction is deprecated, use the "
+                 "overload taking a std::function instead")]]
+    virtual void
+    insertElement([[maybe_unused]] const GeometryType& type,
+                  [[maybe_unused]] const std::vector<unsigned int>& vertices,
+                  [[maybe_unused]] const std::shared_ptr<VirtualFunction<
+                                         FieldVector<ctype,dimension>,
+                                         FieldVector<ctype,dimworld>
+                         > >& elementParametrization)
     {
       DUNE_THROW(GridError, "This grid does not support parametrized elements!");
+    }
+    DUNE_NO_DEPRECATED_END
+
+    /** \brief Insert a parametrized element into the coarse grid
+
+        \param type                   The GeometryType of the new element
+        \param vertices               The vertices of the new element, using
+                                      the DUNE numbering
+        \param elementParametrization A function prescribing the shape of this
+                                      element
+
+        Make sure the inserted element is not inverted (this holds even for
+        simplices).  There are grids that can't handle inverted elements.
+     */
+    virtual void
+    insertElement(const GeometryType& type,
+                  const std::vector<unsigned int>& vertices,
+                  std::function<FieldVector<ctype,dimworld>
+                                  (FieldVector<ctype,dimension>)>
+                       elementParametrization)
+    {
+      // note: this forward to the overload taking a Virtual function during
+      // the deprecation period, once that is over it should the throwing of
+      // the exception should be moved here directly
+      using Domain = FieldVector<ctype,dimension>;
+      using Range = FieldVector<ctype,dimworld>;
+      DUNE_NO_DEPRECATED_BEGIN
+      auto f =
+        makeVirtualFunction<Domain, Range>(std::move(elementParametrization));
+      insertElement(type, vertices,
+                    std::make_unique<decltype(f)>(std::move(f)));
+      DUNE_NO_DEPRECATED_END
     }
 
     /** \brief insert a boundary segment
@@ -144,8 +187,8 @@ namespace Dune
      *  \param[in]  vertices         the indices of the vertices of the segment
      *  \param[in]  boundarySegment  user defined implementation of the boundary segment's geometry
      */
-    virtual void insertBoundarySegment(const std::vector<unsigned int>& vertices,
-                                       const std::shared_ptr<BoundarySegment<dimension,dimworld> >& boundarySegment)
+    virtual void insertBoundarySegment([[maybe_unused]] const std::vector<unsigned int>& vertices,
+                                       [[maybe_unused]] const std::shared_ptr<BoundarySegment<dimension,dimworld> >& boundarySegment)
     {
       DUNE_THROW(GridError, "This grid does not support parametrized boundary segments!");
     }
@@ -154,7 +197,7 @@ namespace Dune
 
        The receiver takes responsibility of the memory allocated for the grid
      */
-    virtual ToUniquePtr<GridType> createGrid() = 0;
+    virtual std::unique_ptr<GridType> createGrid() = 0;
 
     /** \brief obtain an element's insertion index
      *
@@ -172,7 +215,7 @@ namespace Dune
      *  \returns insertion index of the entity
      */
     virtual unsigned int
-    insertionIndex ( const typename Codim< 0 >::Entity &entity ) const
+    insertionIndex ( [[maybe_unused]] const typename Codim< 0 >::Entity &entity ) const
     {
       DUNE_THROW( NotImplemented, "insertion indices have not yet been implemented." );
     }
@@ -193,7 +236,7 @@ namespace Dune
      *  \returns insertion index of the entity
      */
     virtual unsigned int
-    insertionIndex ( const typename Codim< dimension >::Entity &entity ) const
+    insertionIndex ( [[maybe_unused]] const typename Codim< dimension >::Entity &entity ) const
     {
       DUNE_THROW( NotImplemented, "insertion indices have not yet been implemented." );
     }
@@ -218,7 +261,7 @@ namespace Dune
      *        (see also wasInserted).
      */
     virtual unsigned int
-    insertionIndex ( const typename GridType::LeafIntersection &intersection ) const
+    insertionIndex ( [[maybe_unused]] const typename GridType::LeafIntersection &intersection ) const
     {
       DUNE_THROW( NotImplemented, "insertion indices have not yet been implemented." );
     }
@@ -238,7 +281,7 @@ namespace Dune
      *  \returns \b true, if the intersection was inserted
      */
     virtual bool
-    wasInserted ( const typename GridType::LeafIntersection &intersection ) const
+    wasInserted ( [[maybe_unused]] const typename GridType::LeafIntersection &intersection ) const
     {
       DUNE_THROW( NotImplemented, "insertion indices have not yet been implemented." );
     }
@@ -287,7 +330,7 @@ namespace Dune
     }
 
     /** \brief Insert a vertex into the coarse grid */
-    virtual void insertVertex(const FieldVector<ctype,dimworld>& pos) {
+    virtual void insertVertex([[maybe_unused]] const FieldVector<ctype,dimworld>& pos) {
       DUNE_THROW(GridError, "There is no grid factory for this grid type!");
     }
 
@@ -298,8 +341,8 @@ namespace Dune
         Make sure the inserted element is not inverted (this holds even
         for simplices).  There are grids that can't handle inverted tets.
      */
-    virtual void insertElement(const GeometryType& type,
-                               const std::vector<unsigned int>& vertices) {
+    virtual void insertElement([[maybe_unused]] const GeometryType& type,
+                               [[maybe_unused]] const std::vector<unsigned int>& vertices) {
       DUNE_THROW(GridError, "There is no grid factory for this grid type!");
     }
 
@@ -316,7 +359,7 @@ namespace Dune
      *
      *  \param[in]  vertices  the indices of the vertices of the segment
      */
-    virtual void insertBoundarySegment(const std::vector<unsigned int>& vertices) {
+    virtual void insertBoundarySegment([[maybe_unused]] const std::vector<unsigned int>& vertices) {
       DUNE_THROW(GridError, "There is no grid factory for this grid type!");
     }
 
@@ -324,7 +367,7 @@ namespace Dune
 
        The receiver takes responsibility of the memory allocated for the grid
      */
-    virtual ToUniquePtr<GridType> createGrid() {
+    virtual std::unique_ptr<GridType> createGrid() {
       DUNE_THROW(GridError, "There is no grid factory for this grid type!");
     }
 

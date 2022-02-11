@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: functionwriter.hh Source File</title>
+<title>dune-grid: dataarraywriter.hh Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -67,391 +67,468 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">functionwriter.hh</div>  </div>
+<div class="title">dataarraywriter.hh</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="a00803.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*-</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// vi: set et ts=4 sw=2 sts=2:</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#ifndef DUNE_GRID_IO_FILE_VTK_FUNCTIONWRITER_HH</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#define DUNE_GRID_IO_FILE_VTK_FUNCTIONWRITER_HH</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#ifndef DUNE_GRID_IO_FILE_VTK_DATAARRAYWRITER_HH</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#define DUNE_GRID_IO_FILE_VTK_DATAARRAYWRITER_HH</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;cstddef&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;cstdint&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;typeinfo&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;dune/common/exceptions.hh&gt;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;dune/common/fvector.hh&gt;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;dune/geometry/referenceelements.hh&gt;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00788.html">dune/grid/io/file/vtk/common.hh</a>&gt;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00797.html">dune/grid/io/file/vtk/dataarraywriter.hh</a>&gt;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00809.html">dune/grid/io/file/vtk/pvtuwriter.hh</a>&gt;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00836.html">dune/grid/io/file/vtk/vtuwriter.hh</a>&gt;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00936.html">Dune</a></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="keyword">namespace </span>VTK {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Cell_&gt;</div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="a03794.html">   32</a></span>&#160;    <span class="keyword">class </span><a class="code" href="a03794.html">FunctionWriterBase</a> {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;      <span class="keyword">typedef</span> <span class="keyword">typename</span> Cell_::Geometry::ctype DF;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;      <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> mydim = Cell_::mydimension;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;      <span class="keyword">typedef</span> ReferenceElements&lt;DF, mydim&gt; Refelems;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;iomanip&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;cstdint&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;cmath&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;dune/common/exceptions.hh&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;dune/common/indent.hh&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00821.html">dune/grid/io/file/vtk/streams.hh</a>&gt;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00794.html">dune/grid/io/file/vtk/common.hh</a>&gt;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00940.html">Dune</a></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keyword">namespace </span>VTK {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="a03794.html#a9ff85ac0d90a8192dc9517b18b313d98">   38</a></span>&#160;      <span class="keyword">typedef</span> FieldVector&lt;DF, mydim&gt; <a class="code" href="a03794.html#a9ff85ac0d90a8192dc9517b18b313d98">Domain</a>;</div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="a03794.html#a4cd0e1ac0e27b4c9a4d780a4e8ac4378">   39</a></span>&#160;      <span class="keyword">typedef</span> Cell_ <a class="code" href="a03794.html#a4cd0e1ac0e27b4c9a4d780a4e8ac4378">Cell</a>;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="a03794.html#a2a71a4df6451e8e04d12fd055823cd52">   42</a></span>&#160;      <span class="keyword">virtual</span> std::string <a class="code" href="a03794.html#a2a71a4df6451e8e04d12fd055823cd52">name</a>() <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="a03794.html#a2c82fb698b632857354c2e18ff27e2d5">   45</a></span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">unsigned</span> <a class="code" href="a03794.html#a2c82fb698b632857354c2e18ff27e2d5">ncomps</a>() <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="a03794.html#a5e6a900bae82a20cb5b646e6cf68792a">   48</a></span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a03794.html#a5e6a900bae82a20cb5b646e6cf68792a">addArray</a>(<a class="code" href="a03826.html">PVTUWriter</a>&amp; writer) = 0;</div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="a03794.html#ab9b501e9c303ac5679016b437d1ce04b">   50</a></span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="a03794.html#ab9b501e9c303ac5679016b437d1ce04b">beginWrite</a>(<a class="code" href="a03934.html">VTUWriter</a>&amp; writer, std::size_t nitems) = 0;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="a03794.html#a3be3644244f91bc9fd672e0ee09bc1ba">   57</a></span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a03794.html#a3be3644244f91bc9fd672e0ee09bc1ba">write</a>(<span class="keyword">const</span> <a class="code" href="a03794.html#a4cd0e1ac0e27b4c9a4d780a4e8ac4378">Cell</a>&amp; cell, <span class="keyword">const</span> <a class="code" href="a03794.html#a9ff85ac0d90a8192dc9517b18b313d98">Domain</a>&amp; xl) {</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        DUNE_THROW(NotImplemented, <span class="stringliteral">&quot;FunctionWriterBase::write(const Cell&amp;, &quot;</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                   <span class="stringliteral">&quot;const Domain&amp;): Either the derived class &quot;</span> &lt;&lt;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                   <span class="keyword">typeid</span>(*this).name() &lt;&lt; <span class="stringliteral">&quot; failed to implement this method &quot;</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                   <span class="stringliteral">&quot;or this method is not meant to be called on the derived &quot;</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                   <span class="stringliteral">&quot;class and was called in error.&quot;</span>);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;      }</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="a03794.html#aeea6449e895e5ae35b371bd3fda5e7d3">   69</a></span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a03794.html#aeea6449e895e5ae35b371bd3fda5e7d3">write</a>(<span class="keyword">const</span> <a class="code" href="a03794.html#a4cd0e1ac0e27b4c9a4d780a4e8ac4378">Cell</a>&amp; cell, <span class="keywordtype">unsigned</span> cornerIndex) {</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <a class="code" href="a03794.html#a3be3644244f91bc9fd672e0ee09bc1ba">write</a>(cell,</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;              Refelems::general(cell.type()).position(cornerIndex, mydim));</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;      }</div>
-<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="a03794.html#a82b6eec66060ef5c8638a01ecbaac035">   74</a></span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a03794.html#a82b6eec66060ef5c8638a01ecbaac035">endWrite</a>() = 0;</div>
-<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="a03794.html#ac8250002b167a403f41100c634f19eb2">   76</a></span>&#160;      <span class="keyword">virtual</span> <a class="code" href="a03794.html#ac8250002b167a403f41100c634f19eb2">~FunctionWriterBase</a>() {}</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    };</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="comment">//</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="comment">//  A Generic Function writer for VTKFunctions</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="comment">//</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Func&gt;</div>
-<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="a03798.html">   86</a></span>&#160;    <span class="keyword">class </span><a class="code" href="a03798.html">VTKFunctionWriter</a></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;      : <span class="keyword">public</span> <a class="code" href="a03794.html">FunctionWriterBase</a>&lt;typename Func::Entity&gt;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    {</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;      <span class="keyword">typedef</span> <a class="code" href="a03794.html">FunctionWriterBase&lt;typename Func::Entity&gt;</a> <a class="code" href="a03794.html">Base</a>;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;      std::shared_ptr&lt;const Func&gt; func;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;      <a class="code" href="a00948.html#a1a23264dcb4d2ffc9b85507ffa2741af">VTK::Precision</a> precision_;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;      std::shared_ptr&lt;DataArrayWriter&gt; arraywriter;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="a03798.html#a03d18f45377bb57cf9ea86394dfd43ec">   95</a></span>&#160;        <a class="code" href="a03798.html#a03d18f45377bb57cf9ea86394dfd43ec">VTKFunctionWriter</a>(<span class="keyword">const</span> std::shared_ptr&lt;const Func&gt;&amp; func_,</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                          <a class="code" href="a00948.html#a1a23264dcb4d2ffc9b85507ffa2741af">VTK::Precision</a> prec = <a class="code" href="a00948.html#a1a23264dcb4d2ffc9b85507ffa2741afad33ec2b0bbea6d471a4706cea030e1e3">VTK::Precision::float32</a>)</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        : func(func_), precision_(prec)</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;      { }</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
-<div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="a03798.html#a55ef89f548858bb9e4c8e001abee382d">  101</a></span>&#160;      <span class="keyword">virtual</span> std::string <a class="code" href="a03798.html#a55ef89f548858bb9e4c8e001abee382d">name</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> func-&gt;name(); }</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="a03746.html">   53</a></span>&#160;    <span class="keyword">class </span><a class="code" href="a03746.html">DataArrayWriter</a></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="a03746.html#a305cf8e4c5161e22709982e8ff1bc3ff">   61</a></span>&#160;      <a class="code" href="a03746.html#a305cf8e4c5161e22709982e8ff1bc3ff">DataArrayWriter</a>(<a class="code" href="a00951.html#a1a23264dcb4d2ffc9b85507ffa2741af">Precision</a> _prec)</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;      : prec(_prec)</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;      {}</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;      <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="a03746.html#a2e8b577eecbdb43390f5ff0e6eb804ea">   67</a></span>&#160;      <span class="keywordtype">void</span> <a class="code" href="a03746.html#a2e8b577eecbdb43390f5ff0e6eb804ea">write</a>(T data)</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;      {</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">switch</span>(prec)</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        {</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;          <span class="keywordflow">case</span> <a class="code" href="a00951.html#a1a23264dcb4d2ffc9b85507ffa2741afad33ec2b0bbea6d471a4706cea030e1e3">Precision::float32</a>:</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            writeFloat32(data); <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;          <span class="keywordflow">case</span> <a class="code" href="a00951.html#a1a23264dcb4d2ffc9b85507ffa2741afafb7fa22ede616c04c68a7663d0f81e92">Precision::float64</a>:</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            writeFloat64(data); <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;          <span class="keywordflow">case</span> <a class="code" href="a00951.html#a1a23264dcb4d2ffc9b85507ffa2741afa3de84ad0700f2a1571f633d399e1900e">Precision::uint32</a>:</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            writeUInt32(data); <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;          <span class="keywordflow">case</span> <a class="code" href="a00951.html#a1a23264dcb4d2ffc9b85507ffa2741afa5f423e669d0a8f4ab7c4c3e6da27161a">Precision::uint8</a>:</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            writeUInt8(data); <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;          <span class="keywordflow">case</span> <a class="code" href="a00951.html#a1a23264dcb4d2ffc9b85507ffa2741afa0241adbbd83925f051b694d40f02747f">Precision::int32</a>:</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            writeInt32(data); <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;          <span class="keywordflow">default</span>:</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            DUNE_THROW(Dune::NotImplemented, <span class="stringliteral">&quot;Unknown precision type&quot;</span>);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        }</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;      }</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="a03746.html#abf42e76c4b1f7c214239f3fb745eb297">   87</a></span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="a03746.html#abf42e76c4b1f7c214239f3fb745eb297">writeIsNoop</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="a03746.html#ad81eacbcf2466eabe6d0e52de4d199ce">   89</a></span>&#160;      <span class="keyword">virtual</span> <a class="code" href="a03746.html#ad81eacbcf2466eabe6d0e52de4d199ce">~DataArrayWriter</a> () {}</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">void</span> writeFloat32 (<span class="keywordtype">float</span> data) = 0;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">void</span> writeFloat64 (<span class="keywordtype">double</span> data) = 0;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">void</span> writeInt32 (std::int32_t data) = 0;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">void</span> writeUInt8 (std::uint8_t data) = 0;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">void</span> writeUInt32 (std::uint32_t data) = 0;</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
-<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="a03798.html#a698445b13855c0debb594ae6c8251fb6">  104</a></span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">unsigned</span> <a class="code" href="a03798.html#a698445b13855c0debb594ae6c8251fb6">ncomps</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="keywordflow">if</span>(func-&gt;ncomps() == 2) <span class="keywordflow">return</span> 3;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">return</span> func-&gt;ncomps();</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;      }</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
-<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="a03798.html#aaf8900f37a333a9a9e7c74dab41d7cfe">  110</a></span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a03798.html#aaf8900f37a333a9a9e7c74dab41d7cfe">addArray</a>(<a class="code" href="a03826.html">PVTUWriter</a>&amp; writer) {</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        writer.<a class="code" href="a03826.html#a3df4501fbc4a7bcd5e8cbfee7d93bcb5">addArray</a>(<a class="code" href="a03798.html#a55ef89f548858bb9e4c8e001abee382d">name</a>(), <a class="code" href="a03798.html#a698445b13855c0debb594ae6c8251fb6">ncomps</a>(), precision_);</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;      }</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
-<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="a03798.html#a8d4600ea2a287defaa9eaea91ab90611">  115</a></span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="a03798.html#a8d4600ea2a287defaa9eaea91ab90611">beginWrite</a>(<a class="code" href="a03934.html">VTUWriter</a>&amp; writer, std::size_t nitems) {</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        arraywriter.reset(writer.<a class="code" href="a03934.html#ac9d0f0756010ba60ef7f2c7319f6839f">makeArrayWriter</a>(<a class="code" href="a03798.html#a55ef89f548858bb9e4c8e001abee382d">name</a>(), <a class="code" href="a03798.html#a698445b13855c0debb594ae6c8251fb6">ncomps</a>(),</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                                                 nitems, precision_));</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <span class="keywordflow">return</span> !arraywriter-&gt;writeIsNoop();</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;      }</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
-<div class="line"><a name="l00122"></a><span class="lineno"><a class="line" href="a03798.html#ab8132892c59fa669babed25b802f56a3">  122</a></span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a03798.html#ab8132892c59fa669babed25b802f56a3">write</a>(<span class="keyword">const</span> <span class="keyword">typename</span> <a class="code" href="a03794.html#a4cd0e1ac0e27b4c9a4d780a4e8ac4378">Base::Cell</a>&amp; cell,</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                         <span class="keyword">const</span> <span class="keyword">typename</span> <a class="code" href="a03794.html#a9ff85ac0d90a8192dc9517b18b313d98">Base::Domain</a>&amp; xl) {</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> d = 0; d &lt; func-&gt;ncomps(); ++d)</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;          arraywriter-&gt;write(func-&gt;evaluate(d, cell, xl));</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> d = func-&gt;ncomps(); d &lt; <a class="code" href="a03798.html#a698445b13855c0debb594ae6c8251fb6">ncomps</a>(); ++d)</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;          arraywriter-&gt;write(0);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;      <a class="code" href="a00951.html#a1a23264dcb4d2ffc9b85507ffa2741af">Precision</a> prec;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    };</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="a03750.html">  107</a></span>&#160;    <span class="keyword">class </span><a class="code" href="a03750.html">AsciiDataArrayWriter</a> : <span class="keyword">public</span> <a class="code" href="a03746.html">DataArrayWriter</a></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    {</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="a03750.html#aacd16bd7f1b0c582f986e60caf9b5851">  119</a></span>&#160;      <a class="code" href="a03750.html#aacd16bd7f1b0c582f986e60caf9b5851">AsciiDataArrayWriter</a>(std::ostream&amp; theStream, std::string name,</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                           <span class="keywordtype">int</span> ncomps, <span class="keyword">const</span> Indent&amp; indent_, <a class="code" href="a00951.html#a1a23264dcb4d2ffc9b85507ffa2741af">Precision</a> prec_)</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        : <a class="code" href="a03746.html">DataArrayWriter</a>(prec_), s(theStream), counter(0), numPerLine(12), indent(indent_)</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;      {</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        s &lt;&lt; indent &lt;&lt; <span class="stringliteral">&quot;&lt;DataArray type=\&quot;&quot;</span> &lt;&lt; <a class="code" href="a00951.html#a48c0538f36588dc8d46cdd54163cdcd1">toString</a>(prec_) &lt;&lt; <span class="stringliteral">&quot;\&quot; &quot;</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;          &lt;&lt; <span class="stringliteral">&quot;Name=\&quot;&quot;</span> &lt;&lt; name &lt;&lt; <span class="stringliteral">&quot;\&quot; &quot;</span>;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        s &lt;&lt; <span class="stringliteral">&quot;NumberOfComponents=\&quot;&quot;</span> &lt;&lt; ncomps &lt;&lt; <span class="stringliteral">&quot;\&quot; &quot;</span>;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        s &lt;&lt; <span class="stringliteral">&quot;format=\&quot;ascii\&quot;&gt;\n&quot;</span>;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        ++indent;</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;      }</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
-<div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="a03798.html#ae56babd9e5c8f8bd47971061973cd179">  131</a></span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a03798.html#ae56babd9e5c8f8bd47971061973cd179">endWrite</a>() {</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        arraywriter.reset();</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;      }</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    };</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <span class="comment">//</span></div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="comment">//  Writers for the grid information</span></div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <span class="comment">//</span></div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Cell&gt;</div>
-<div class="line"><a name="l00143"></a><span class="lineno"><a class="line" href="a03802.html">  143</a></span>&#160;    <span class="keyword">class </span><a class="code" href="a03802.html">CoordinatesWriter</a></div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;      : <span class="keyword">public</span> <a class="code" href="a03794.html">FunctionWriterBase</a>&lt;Cell&gt;</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    {</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;      <span class="keyword">typedef</span> <a class="code" href="a03794.html">FunctionWriterBase&lt;Cell&gt;</a> <a class="code" href="a03794.html">Base</a>;</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;      <a class="code" href="a00948.html#a1a23264dcb4d2ffc9b85507ffa2741af">VTK::Precision</a> precision_;</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;      std::shared_ptr&lt;DataArrayWriter&gt; arraywriter;</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00152"></a><span class="lineno"><a class="line" href="a03802.html#af8cdcfaf81eef80acedacfd7e24ddc96">  152</a></span>&#160;      <span class="keyword">explicit</span> <a class="code" href="a03802.html#af8cdcfaf81eef80acedacfd7e24ddc96">CoordinatesWriter</a>(<a class="code" href="a00948.html#a1a23264dcb4d2ffc9b85507ffa2741af">VTK::Precision</a> prec = <a class="code" href="a00948.html#a1a23264dcb4d2ffc9b85507ffa2741afad33ec2b0bbea6d471a4706cea030e1e3">VTK::Precision::float32</a>)</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;      : precision_(prec)</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;      {}</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
-<div class="line"><a name="l00157"></a><span class="lineno"><a class="line" href="a03802.html#a3a2b1242861a103cd27c465f7343077f">  157</a></span>&#160;      <span class="keyword">virtual</span> std::string <a class="code" href="a03802.html#a3a2b1242861a103cd27c465f7343077f">name</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;Coordinates&quot;</span>; }</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; </div>
-<div class="line"><a name="l00160"></a><span class="lineno"><a class="line" href="a03802.html#ac44993e7e34a2df46336439eb194c391">  160</a></span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">unsigned</span> <a class="code" href="a03802.html#ac44993e7e34a2df46336439eb194c391">ncomps</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> 3; }</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; </div>
-<div class="line"><a name="l00163"></a><span class="lineno"><a class="line" href="a03802.html#ad7e33a5f6d0f8a719543aaf3dbf80378">  163</a></span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a03802.html#ad7e33a5f6d0f8a719543aaf3dbf80378">addArray</a>(<a class="code" href="a03826.html">PVTUWriter</a>&amp; writer) {</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        writer.<a class="code" href="a03826.html#a3df4501fbc4a7bcd5e8cbfee7d93bcb5">addArray</a>(<a class="code" href="a03802.html#a3a2b1242861a103cd27c465f7343077f">name</a>(), <a class="code" href="a03802.html#ac44993e7e34a2df46336439eb194c391">ncomps</a>(), precision_);</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;      }</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; </div>
-<div class="line"><a name="l00168"></a><span class="lineno"><a class="line" href="a03802.html#ad9198b9a3600086f12279c03c3dc9a4c">  168</a></span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="a03802.html#ad9198b9a3600086f12279c03c3dc9a4c">beginWrite</a>(<a class="code" href="a03934.html">VTUWriter</a>&amp; writer, std::size_t nitems) {</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        arraywriter.reset(writer.<a class="code" href="a03934.html#ac9d0f0756010ba60ef7f2c7319f6839f">makeArrayWriter</a>(<a class="code" href="a03802.html#a3a2b1242861a103cd27c465f7343077f">name</a>(), <a class="code" href="a03802.html#ac44993e7e34a2df46336439eb194c391">ncomps</a>(),</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;                                                 nitems, precision_));</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        <span class="keywordflow">return</span> !arraywriter-&gt;writeIsNoop();</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;      }</div>
-<div class="line"><a name="l00174"></a><span class="lineno"><a class="line" href="a03802.html#a289b55233ec75a9e6f7a814c8877dbea">  174</a></span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a03802.html#a289b55233ec75a9e6f7a814c8877dbea">write</a>(<span class="keyword">const</span> <span class="keyword">typename</span> <a class="code" href="a03794.html#a4cd0e1ac0e27b4c9a4d780a4e8ac4378">Base::Cell</a>&amp; cell,</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                         <span class="keyword">const</span> <span class="keyword">typename</span> <a class="code" href="a03794.html#a9ff85ac0d90a8192dc9517b18b313d98">Base::Domain</a>&amp; xl) {</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        FieldVector&lt;typename Base::Cell::Geometry::ctype, Base::Cell::Geometry::coorddimension&gt; xg</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;          = cell.geometry().global(xl);</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> d = 0; d &lt; 3 &amp;&amp; d &lt; Base::Cell::Geometry::coorddimension; ++d)</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;          arraywriter-&gt;write(xg[d]);</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> d = Base::Cell::Geometry::coorddimension; d &lt; 3; ++d)</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;          arraywriter-&gt;write(0);</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;      }</div>
-<div class="line"><a name="l00184"></a><span class="lineno"><a class="line" href="a03802.html#a9095ca624a7b293b6c6e50eb9d4c1e8d">  184</a></span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a03802.html#a9095ca624a7b293b6c6e50eb9d4c1e8d">endWrite</a>() {</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        arraywriter.reset();</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;      }</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    };</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160; </div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> IteratorFactory&gt;</div>
-<div class="line"><a name="l00191"></a><span class="lineno"><a class="line" href="a03806.html">  191</a></span>&#160;    <span class="keyword">class </span><a class="code" href="a03806.html">ConformingConnectivityWriter</a></div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;      : <span class="keyword">public</span> <a class="code" href="a03794.html">FunctionWriterBase</a>&lt;typename IteratorFactory::Cell&gt;</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    {</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;      <span class="keyword">typedef</span> <a class="code" href="a03794.html">FunctionWriterBase&lt;typename IteratorFactory::Cell&gt;</a> <a class="code" href="a03794.html">Base</a>;</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;      <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> mydim = Base::Cell::mydimension;</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160; </div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;      <span class="keyword">const</span> IteratorFactory&amp; factory;</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;      std::shared_ptr&lt;DataArrayWriter&gt; arraywriter;</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;      std::vector&lt;unsigned&gt; pointIndices;</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160; </div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00203"></a><span class="lineno"><a class="line" href="a03806.html#a8623578ea5fd9bb46c26eba884d35dbf">  203</a></span>&#160;      <a class="code" href="a03806.html#a8623578ea5fd9bb46c26eba884d35dbf">ConformingConnectivityWriter</a>(<span class="keyword">const</span> IteratorFactory&amp; factory_)</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        : factory(factory_)</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;      { }</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; </div>
-<div class="line"><a name="l00208"></a><span class="lineno"><a class="line" href="a03806.html#a623513374b76079800744af9711843b5">  208</a></span>&#160;      <span class="keyword">virtual</span> std::string <a class="code" href="a03806.html#a623513374b76079800744af9711843b5">name</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;connectivity&quot;</span>; }</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160; </div>
-<div class="line"><a name="l00211"></a><span class="lineno"><a class="line" href="a03806.html#aa1c12fd2377b5548b12d7f4ec57dcb0f">  211</a></span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">unsigned</span> <a class="code" href="a03806.html#aa1c12fd2377b5548b12d7f4ec57dcb0f">ncomps</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> 1; }</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160; </div>
-<div class="line"><a name="l00214"></a><span class="lineno"><a class="line" href="a03806.html#a291c34be859fe64449605931203c912b">  214</a></span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a03806.html#a291c34be859fe64449605931203c912b">addArray</a>(<a class="code" href="a03826.html">PVTUWriter</a>&amp; writer) {</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        writer.<a class="code" href="a03826.html#a3df4501fbc4a7bcd5e8cbfee7d93bcb5">addArray</a>(<a class="code" href="a03806.html#a623513374b76079800744af9711843b5">name</a>(), <a class="code" href="a03806.html#aa1c12fd2377b5548b12d7f4ec57dcb0f">ncomps</a>(), <a class="code" href="a00948.html#a1a23264dcb4d2ffc9b85507ffa2741afa0241adbbd83925f051b694d40f02747f">Precision::int32</a>);</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;      }</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160; </div>
-<div class="line"><a name="l00219"></a><span class="lineno"><a class="line" href="a03806.html#ab9383cd58a7f57df6e911f448da93640">  219</a></span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="a03806.html#ab9383cd58a7f57df6e911f448da93640">beginWrite</a>(<a class="code" href="a03934.html">VTUWriter</a>&amp; writer, std::size_t nitems) {</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;        arraywriter.reset(writer.<a class="code" href="a03934.html#ac9d0f0756010ba60ef7f2c7319f6839f">makeArrayWriter</a>(<a class="code" href="a03806.html#a623513374b76079800744af9711843b5">name</a>(), <a class="code" href="a03806.html#aa1c12fd2377b5548b12d7f4ec57dcb0f">ncomps</a>(),</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;                                                 nitems, <a class="code" href="a00948.html#a1a23264dcb4d2ffc9b85507ffa2741afa0241adbbd83925f051b694d40f02747f">Precision::int32</a>));</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        <span class="keywordflow">if</span>(arraywriter-&gt;writeIsNoop())</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;          <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="a03750.html#a74e6867699319865f3e161fe6a020fc1">  131</a></span>&#160;      <a class="code" href="a03750.html#a74e6867699319865f3e161fe6a020fc1">~AsciiDataArrayWriter</a> ()</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;      {</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        <span class="keywordflow">if</span> (counter%numPerLine!=0) s &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        --indent;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        s &lt;&lt; indent &lt;&lt; <span class="stringliteral">&quot;&lt;/DataArray&gt;\n&quot;</span>;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;      }</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;      <span class="keywordtype">void</span> writeFloat64 (<span class="keywordtype">double</span> data) <span class="keyword">final</span></div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;      { write_float(data); }</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;      <span class="keywordtype">void</span> writeFloat32 (<span class="keywordtype">float</span> data) <span class="keyword">final</span></div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;      { write_float(data); }</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;      <span class="keywordtype">void</span> writeInt32 (std::int32_t data) <span class="keyword">final</span></div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;      { write_(data); }</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;      <span class="keywordtype">void</span> writeUInt32 (std::uint32_t data) <span class="keyword">final</span></div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;      { write_(data); }</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;      <span class="keywordtype">void</span> writeUInt8 (std::uint8_t data) <span class="keyword">final</span></div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;      { write_(data); }</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160; </div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;      <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;      <span class="keywordtype">void</span> write_(T data)</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;      {</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="a03718.html#a31530afed1b4223e23de914d87ed5197">PrintType&lt;T&gt;::Type</a> PT;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        <span class="keywordflow">if</span>(counter%numPerLine==0) s &lt;&lt; indent;</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        <span class="keywordflow">else</span> s &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> original_precision = std::cout.precision();</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        s &lt;&lt; std::setprecision(std::numeric_limits&lt;PT&gt;::digits10) &lt;&lt; (PT) data;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        std::cout.precision(original_precision);</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        counter++;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        <span class="keywordflow">if</span> (counter%numPerLine==0) s &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;      }</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160; </div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;      <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;      <span class="keywordtype">void</span> write_float(T data)</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;      {</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="a03718.html#a31530afed1b4223e23de914d87ed5197">PrintType&lt;T&gt;::Type</a> PT;</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        <span class="keywordflow">if</span>(counter%numPerLine==0) s &lt;&lt; indent;</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        <span class="keywordflow">else</span> s &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        PT out_data = (PT) data;</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        <span class="keywordflow">if</span> (std::fpclassify(out_data) == FP_SUBNORMAL)</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        {</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;          <span class="comment">// truncate denormalized data to 0 to avoid Paraview segfaults on macOS</span></div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;          out_data = 0;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        }</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> original_precision = std::cout.precision();</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        s &lt;&lt; std::setprecision(std::numeric_limits&lt;PT&gt;::digits10) &lt;&lt; out_data;</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        std::cout.precision(original_precision);</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        counter++;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        <span class="keywordflow">if</span> (counter%numPerLine==0) s &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;      }</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; </div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;      std::ostream&amp; s;</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;      <span class="keywordtype">int</span> counter;</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;      <span class="keywordtype">int</span> numPerLine;</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;      Indent indent;</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    };</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160; </div>
+<div class="line"><a name="l00194"></a><span class="lineno"><a class="line" href="a03754.html">  194</a></span>&#160;    <span class="keyword">class </span><a class="code" href="a03754.html">BinaryDataArrayWriter</a> : <span class="keyword">public</span> <a class="code" href="a03746.html">DataArrayWriter</a></div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    {</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; </div>
+<div class="line"><a name="l00208"></a><span class="lineno"><a class="line" href="a03754.html#aa4f1a9636c2c82dc3544e0f899269297">  208</a></span>&#160;      <a class="code" href="a03754.html#aa4f1a9636c2c82dc3544e0f899269297">BinaryDataArrayWriter</a>(std::ostream&amp; theStream, std::string name,</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;                            <span class="keywordtype">int</span> ncomps, <span class="keywordtype">int</span> nitems, <span class="keyword">const</span> Indent&amp; indent_, <a class="code" href="a00951.html#a1a23264dcb4d2ffc9b85507ffa2741af">Precision</a> prec_)</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;        : <a class="code" href="a03746.html">DataArrayWriter</a>(prec_), s(theStream), b64(theStream), indent(indent_)</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;      {</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;        s &lt;&lt; indent &lt;&lt; <span class="stringliteral">&quot;&lt;DataArray type=\&quot;&quot;</span> &lt;&lt; <a class="code" href="a00951.html#a48c0538f36588dc8d46cdd54163cdcd1">toString</a>(prec_) &lt;&lt; <span class="stringliteral">&quot;\&quot; &quot;</span></div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;          &lt;&lt; <span class="stringliteral">&quot;Name=\&quot;&quot;</span> &lt;&lt; name &lt;&lt; <span class="stringliteral">&quot;\&quot; &quot;</span>;</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;        s &lt;&lt; <span class="stringliteral">&quot;NumberOfComponents=\&quot;&quot;</span> &lt;&lt; ncomps &lt;&lt; <span class="stringliteral">&quot;\&quot; &quot;</span>;</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        s &lt;&lt; <span class="stringliteral">&quot;format=\&quot;binary\&quot;&gt;\n&quot;</span>;</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160; </div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;        <span class="comment">// write indentation for the data chunk</span></div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;        s &lt;&lt; indent+1;</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;        <span class="comment">// store size, needs to be exactly 32 bit</span></div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;        std::uint32_t size = ncomps*nitems*<a class="code" href="a00951.html#a559af2a4ab217c95a0b9738920cf9391">typeSize</a>(prec_);</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;        b64.<a class="code" href="a03838.html#a24ec170183dc09a2c46c4765e77f1248">write</a>(size);</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        b64.<a class="code" href="a03838.html#a48aab0178aad2e1fa1b85dac76f899a9">flush</a>();</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;      }</div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160; </div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;        pointIndices.resize(factory.indexSet().size(mydim));</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;        <span class="keyword">const</span> <span class="keyword">typename</span> IteratorFactory::PointIterator&amp; pend =</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;          factory.endPoints();</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;        <span class="keyword">typename</span> IteratorFactory::PointIterator pit = factory.beginPoints();</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;        <span class="keywordtype">unsigned</span> counter = 0;</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        <span class="keywordflow">while</span>(pit != pend) {</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;          pointIndices[factory.indexSet().subIndex</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;                         (pit-&gt;cell(), pit-&gt;duneIndex(), mydim)] = counter;</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;          ++counter;</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;          ++pit;</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;        }</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;      }</div>
-<div class="line"><a name="l00240"></a><span class="lineno"><a class="line" href="a03806.html#a6c35a45441b7fd67efe13de5b041f448">  240</a></span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a03806.html#a6c35a45441b7fd67efe13de5b041f448">write</a>(<span class="keyword">const</span> <span class="keyword">typename</span> <a class="code" href="a03794.html#a4cd0e1ac0e27b4c9a4d780a4e8ac4378">Base::Cell</a>&amp; cell, <span class="keywordtype">unsigned</span> cornerIndex)</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;      {</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;        <span class="comment">// if pointIndices is empty, we&#39;re in writeIsNoop mode</span></div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;        <span class="keywordflow">if</span>(pointIndices.size() == 0)</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;          <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;        arraywriter-&gt;write(pointIndices[factory.indexSet().subIndex</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;                                          (cell, cornerIndex, mydim)]);</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;      }</div>
-<div class="line"><a name="l00249"></a><span class="lineno"><a class="line" href="a03806.html#ae122255cfbf97e9d7657ace7d500e5b6">  249</a></span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a03806.html#ae122255cfbf97e9d7657ace7d500e5b6">endWrite</a>() {</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;        arraywriter.reset();</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;        pointIndices.clear();</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;      }</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    };</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160; </div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Cell&gt;</div>
-<div class="line"><a name="l00257"></a><span class="lineno"><a class="line" href="a03810.html">  257</a></span>&#160;    <span class="keyword">class </span><a class="code" href="a03810.html">NonConformingConnectivityWriter</a></div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;      : <span class="keyword">public</span> <a class="code" href="a03794.html">FunctionWriterBase</a>&lt;Cell&gt;</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    {</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;      std::shared_ptr&lt;DataArrayWriter&gt; arraywriter;</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;      <span class="keywordtype">unsigned</span> counter;</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160; </div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00265"></a><span class="lineno"><a class="line" href="a03810.html#a74243130ed14766d079126c0fdbe4d10">  265</a></span>&#160;      <span class="keyword">virtual</span> std::string <a class="code" href="a03810.html#a74243130ed14766d079126c0fdbe4d10">name</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;connectivity&quot;</span>; }</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160; </div>
-<div class="line"><a name="l00268"></a><span class="lineno"><a class="line" href="a03810.html#a6254f172506bf9eb8a5249617eb45f7e">  268</a></span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">unsigned</span> <a class="code" href="a03810.html#a6254f172506bf9eb8a5249617eb45f7e">ncomps</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> 1; }</div>
+<div class="line"><a name="l00226"></a><span class="lineno"><a class="line" href="a03754.html#a53e82d8440c8a871c7ead54ee189a3fc">  226</a></span>&#160;      <a class="code" href="a03754.html#a53e82d8440c8a871c7ead54ee189a3fc">~BinaryDataArrayWriter</a> ()</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;      {</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;        b64.<a class="code" href="a03838.html#a48aab0178aad2e1fa1b85dac76f899a9">flush</a>();</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;        <span class="comment">// append newline to written data</span></div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;        s &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        s &lt;&lt; indent &lt;&lt; <span class="stringliteral">&quot;&lt;/DataArray&gt;\n&quot;</span>;</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;        s.flush();</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;      }</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160; </div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;      <span class="keywordtype">void</span> writeFloat64 (<span class="keywordtype">double</span> data) <span class="keyword">final</span></div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;      { write_(data); }</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;      <span class="keywordtype">void</span> writeFloat32 (<span class="keywordtype">float</span> data) <span class="keyword">final</span></div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;      { write_(data); }</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;      <span class="keywordtype">void</span> writeInt32 (std::int32_t data) <span class="keyword">final</span></div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;      { write_(data); }</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;      <span class="keywordtype">void</span> writeUInt32 (std::uint32_t data) <span class="keyword">final</span></div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;      { write_(data); }</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;      <span class="keywordtype">void</span> writeUInt8 (std::uint8_t data) <span class="keyword">final</span></div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;      { write_(data); }</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160; </div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;      <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;      <span class="keywordtype">void</span> write_(T data)</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;      {</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;        b64.<a class="code" href="a03838.html#a24ec170183dc09a2c46c4765e77f1248">write</a>(data);</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;      }</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160; </div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;      std::ostream&amp; s;</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;      Base64Stream b64;</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;      <span class="keyword">const</span> Indent&amp; indent;</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    };</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160; </div>
+<div class="line"><a name="l00265"></a><span class="lineno"><a class="line" href="a03758.html">  265</a></span>&#160;    <span class="keyword">class </span><a class="code" href="a03758.html">AppendedRawDataArrayWriter</a> : <span class="keyword">public</span> <a class="code" href="a03746.html">DataArrayWriter</a></div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    {</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160; </div>
-<div class="line"><a name="l00271"></a><span class="lineno"><a class="line" href="a03810.html#a92349a12f297e35bf74909df4761e874">  271</a></span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a03810.html#a92349a12f297e35bf74909df4761e874">addArray</a>(<a class="code" href="a03826.html">PVTUWriter</a>&amp; writer) {</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;        writer.<a class="code" href="a03826.html#a3df4501fbc4a7bcd5e8cbfee7d93bcb5">addArray</a>(<a class="code" href="a03810.html#a74243130ed14766d079126c0fdbe4d10">name</a>(), <a class="code" href="a03810.html#a6254f172506bf9eb8a5249617eb45f7e">ncomps</a>(), <a class="code" href="a00948.html#a1a23264dcb4d2ffc9b85507ffa2741afa0241adbbd83925f051b694d40f02747f">Precision::int32</a>);</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;      }</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160; </div>
-<div class="line"><a name="l00276"></a><span class="lineno"><a class="line" href="a03810.html#aad6f635be4aceda6eae7d282f383643d">  276</a></span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="a03810.html#aad6f635be4aceda6eae7d282f383643d">beginWrite</a>(<a class="code" href="a03934.html">VTUWriter</a>&amp; writer, std::size_t nitems) {</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;        arraywriter.reset(writer.<a class="code" href="a03934.html#ac9d0f0756010ba60ef7f2c7319f6839f">makeArrayWriter</a>(<a class="code" href="a03810.html#a74243130ed14766d079126c0fdbe4d10">name</a>(), <a class="code" href="a03810.html#a6254f172506bf9eb8a5249617eb45f7e">ncomps</a>(),</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;                                                 nitems, <a class="code" href="a00948.html#a1a23264dcb4d2ffc9b85507ffa2741afa0241adbbd83925f051b694d40f02747f">Precision::int32</a>));</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;        counter = 0;</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;        <span class="keywordflow">return</span> !arraywriter-&gt;writeIsNoop();</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;      }</div>
-<div class="line"><a name="l00283"></a><span class="lineno"><a class="line" href="a03810.html#a96540309a5d5a105bc435c401d49ecda">  283</a></span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a03810.html#a96540309a5d5a105bc435c401d49ecda">write</a>(<span class="keyword">const</span> <a class="code" href="a03794.html#a4cd0e1ac0e27b4c9a4d780a4e8ac4378">Cell</a>&amp; cell, <span class="keywordtype">unsigned</span> cornerIndex)</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;      {</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;        arraywriter-&gt;write(counter);</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        ++counter;</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;      }</div>
-<div class="line"><a name="l00289"></a><span class="lineno"><a class="line" href="a03810.html#ab15d3e45b27d262bcae661265562f7ff">  289</a></span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a03810.html#ab15d3e45b27d262bcae661265562f7ff">endWrite</a>() {</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;        arraywriter.reset();</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;      }</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    };</div>
+<div class="line"><a name="l00281"></a><span class="lineno"><a class="line" href="a03758.html#a09b1cd7c7d8fefd31ad85e614262d9e9">  281</a></span>&#160;      <a class="code" href="a03758.html#a09b1cd7c7d8fefd31ad85e614262d9e9">AppendedRawDataArrayWriter</a>(std::ostream&amp; s, std::string name,</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;                                 <span class="keywordtype">int</span> ncomps, <span class="keywordtype">unsigned</span> nitems, <span class="keywordtype">unsigned</span>&amp; offset,</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;                                 <span class="keyword">const</span> Indent&amp; indent, <a class="code" href="a00951.html#a1a23264dcb4d2ffc9b85507ffa2741af">Precision</a> prec_)</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;      : <a class="code" href="a03746.html">DataArrayWriter</a>(prec_)</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;      {</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        s &lt;&lt; indent &lt;&lt; <span class="stringliteral">&quot;&lt;DataArray type=\&quot;&quot;</span> &lt;&lt; <a class="code" href="a00951.html#a48c0538f36588dc8d46cdd54163cdcd1">toString</a>(prec_) &lt;&lt; <span class="stringliteral">&quot;\&quot; &quot;</span></div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;          &lt;&lt; <span class="stringliteral">&quot;Name=\&quot;&quot;</span> &lt;&lt; name &lt;&lt; <span class="stringliteral">&quot;\&quot; &quot;</span>;</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;        s &lt;&lt; <span class="stringliteral">&quot;NumberOfComponents=\&quot;&quot;</span> &lt;&lt; ncomps &lt;&lt; <span class="stringliteral">&quot;\&quot; &quot;</span>;</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;        s &lt;&lt; <span class="stringliteral">&quot;format=\&quot;appended\&quot; offset=\&quot;&quot;</span>&lt;&lt; offset &lt;&lt; <span class="stringliteral">&quot;\&quot; /&gt;\n&quot;</span>;</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;        offset += 4; <span class="comment">// header</span></div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;        offset += ncomps*nitems*<a class="code" href="a00951.html#a559af2a4ab217c95a0b9738920cf9391">typeSize</a>(prec_);</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;      }</div>
 <div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160; </div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Cell&gt;</div>
-<div class="line"><a name="l00296"></a><span class="lineno"><a class="line" href="a03814.html">  296</a></span>&#160;    <span class="keyword">class </span><a class="code" href="a03814.html">OffsetsWriter</a></div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;      : <span class="keyword">public</span> <a class="code" href="a03794.html">FunctionWriterBase</a>&lt;Cell&gt;</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    {</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;      <span class="keyword">typedef</span> <a class="code" href="a03794.html">FunctionWriterBase&lt;Cell&gt;</a> <a class="code" href="a03794.html">Base</a>;</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160; </div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;      std::shared_ptr&lt;DataArrayWriter&gt; arraywriter;</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;      <span class="keywordtype">unsigned</span> offset;</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160; </div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00306"></a><span class="lineno"><a class="line" href="a03814.html#ab387bfd7d292ca4fccb3fadf4dc69738">  306</a></span>&#160;      <span class="keyword">virtual</span> std::string <a class="code" href="a03814.html#ab387bfd7d292ca4fccb3fadf4dc69738">name</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;offsets&quot;</span>; }</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160; </div>
-<div class="line"><a name="l00309"></a><span class="lineno"><a class="line" href="a03814.html#ae0d65ea4d0db7425c7841cfe1a39b8c0">  309</a></span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">unsigned</span> <a class="code" href="a03814.html#ae0d65ea4d0db7425c7841cfe1a39b8c0">ncomps</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> 1; }</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160; </div>
-<div class="line"><a name="l00312"></a><span class="lineno"><a class="line" href="a03814.html#a57422e8e365e1df55c01b983ee41693f">  312</a></span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a03814.html#a57422e8e365e1df55c01b983ee41693f">addArray</a>(<a class="code" href="a03826.html">PVTUWriter</a>&amp; writer) {</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;        writer.<a class="code" href="a03826.html#a3df4501fbc4a7bcd5e8cbfee7d93bcb5">addArray</a>(<a class="code" href="a03814.html#ab387bfd7d292ca4fccb3fadf4dc69738">name</a>(), <a class="code" href="a03814.html#ae0d65ea4d0db7425c7841cfe1a39b8c0">ncomps</a>(), <a class="code" href="a00948.html#a1a23264dcb4d2ffc9b85507ffa2741afa0241adbbd83925f051b694d40f02747f">Precision::int32</a>);</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;      }</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160; </div>
-<div class="line"><a name="l00317"></a><span class="lineno"><a class="line" href="a03814.html#ad956bd323510ab119b344615be3ed348">  317</a></span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="a03814.html#ad956bd323510ab119b344615be3ed348">beginWrite</a>(<a class="code" href="a03934.html">VTUWriter</a>&amp; writer, std::size_t nitems) {</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;        arraywriter.reset(writer.<a class="code" href="a03934.html#ac9d0f0756010ba60ef7f2c7319f6839f">makeArrayWriter</a>(<a class="code" href="a03814.html#ab387bfd7d292ca4fccb3fadf4dc69738">name</a>(), <a class="code" href="a03814.html#ae0d65ea4d0db7425c7841cfe1a39b8c0">ncomps</a>(),</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;                                                 nitems, <a class="code" href="a00948.html#a1a23264dcb4d2ffc9b85507ffa2741afa0241adbbd83925f051b694d40f02747f">Precision::int32</a>));</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;        offset = 0;</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;        <span class="keywordflow">return</span> !arraywriter-&gt;writeIsNoop();</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;      }</div>
-<div class="line"><a name="l00324"></a><span class="lineno"><a class="line" href="a03814.html#ad2052408f0667f34bfea62ed79aafa2d">  324</a></span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a03814.html#ad2052408f0667f34bfea62ed79aafa2d">write</a>(<span class="keyword">const</span> <a class="code" href="a03794.html#a4cd0e1ac0e27b4c9a4d780a4e8ac4378">Cell</a>&amp; cell, <span class="keyword">const</span> <span class="keyword">typename</span> <a class="code" href="a03794.html#a9ff85ac0d90a8192dc9517b18b313d98">Base::Domain</a>&amp;) {</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;        offset += cell.geometry().corners();</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;        arraywriter-&gt;write(offset);</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;      }</div>
-<div class="line"><a name="l00329"></a><span class="lineno"><a class="line" href="a03814.html#a862864ac5773321ba55db4418cc4aed5">  329</a></span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a03814.html#a862864ac5773321ba55db4418cc4aed5">endWrite</a>() {</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;        arraywriter.reset();</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;      }</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    };</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160; </div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Cell&gt;</div>
-<div class="line"><a name="l00336"></a><span class="lineno"><a class="line" href="a03818.html">  336</a></span>&#160;    <span class="keyword">class </span><a class="code" href="a03818.html">TypesWriter</a></div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;      : <span class="keyword">public</span> <a class="code" href="a03794.html">FunctionWriterBase</a>&lt;Cell&gt;</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    {</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;      <span class="keyword">typedef</span> <a class="code" href="a03794.html">FunctionWriterBase&lt;Cell&gt;</a> <a class="code" href="a03794.html">Base</a>;</div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160; </div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;      std::shared_ptr&lt;DataArrayWriter&gt; arraywriter;</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160; </div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00345"></a><span class="lineno"><a class="line" href="a03818.html#a8bc4033ef85cfacdcc1473e5fcc3efda">  345</a></span>&#160;      <span class="keyword">virtual</span> std::string <a class="code" href="a03818.html#a8bc4033ef85cfacdcc1473e5fcc3efda">name</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;types&quot;</span>; }</div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160; </div>
-<div class="line"><a name="l00348"></a><span class="lineno"><a class="line" href="a03818.html#a37ce9419b50321db77d550d515ea528b">  348</a></span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">unsigned</span> <a class="code" href="a03818.html#a37ce9419b50321db77d550d515ea528b">ncomps</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> 1; }</div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160; </div>
-<div class="line"><a name="l00351"></a><span class="lineno"><a class="line" href="a03818.html#a9647b397a6ea90a173aeb04235592b62">  351</a></span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a03818.html#a9647b397a6ea90a173aeb04235592b62">addArray</a>(<a class="code" href="a03826.html">PVTUWriter</a>&amp; writer) {</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;        writer.<a class="code" href="a03826.html#a3df4501fbc4a7bcd5e8cbfee7d93bcb5">addArray</a>(<a class="code" href="a03818.html#a8bc4033ef85cfacdcc1473e5fcc3efda">name</a>(), <a class="code" href="a03818.html#a37ce9419b50321db77d550d515ea528b">ncomps</a>(), <a class="code" href="a00948.html#a1a23264dcb4d2ffc9b85507ffa2741afa5f423e669d0a8f4ab7c4c3e6da27161a">Precision::uint8</a>);</div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;      }</div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160; </div>
-<div class="line"><a name="l00356"></a><span class="lineno"><a class="line" href="a03818.html#a6442561038046b67262f7391e8b42d8f">  356</a></span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="a03818.html#a6442561038046b67262f7391e8b42d8f">beginWrite</a>(<a class="code" href="a03934.html">VTUWriter</a>&amp; writer, std::size_t nitems) {</div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;        arraywriter.reset(writer.<a class="code" href="a03934.html#ac9d0f0756010ba60ef7f2c7319f6839f">makeArrayWriter</a></div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;                            ( <a class="code" href="a03818.html#a8bc4033ef85cfacdcc1473e5fcc3efda">name</a>(), <a class="code" href="a03818.html#a37ce9419b50321db77d550d515ea528b">ncomps</a>(), nitems, <a class="code" href="a00948.html#a1a23264dcb4d2ffc9b85507ffa2741afa5f423e669d0a8f4ab7c4c3e6da27161a">Precision::uint8</a>));</div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;        <span class="keywordflow">return</span> !arraywriter-&gt;writeIsNoop();</div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;      }</div>
-<div class="line"><a name="l00362"></a><span class="lineno"><a class="line" href="a03818.html#a95d823f94f52ab7cfdea0c9b59db355f">  362</a></span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a03818.html#a95d823f94f52ab7cfdea0c9b59db355f">write</a>(<span class="keyword">const</span> <a class="code" href="a03794.html#a4cd0e1ac0e27b4c9a4d780a4e8ac4378">Cell</a>&amp; cell, <span class="keyword">const</span> <span class="keyword">typename</span> <a class="code" href="a03794.html#a9ff85ac0d90a8192dc9517b18b313d98">Base::Domain</a>&amp;) {</div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;        arraywriter-&gt;write(<a class="code" href="a00948.html#a61dcce1ca0a60b52e4021bcd09db1dad">geometryType</a>(cell.type()));</div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;      }</div>
-<div class="line"><a name="l00366"></a><span class="lineno"><a class="line" href="a03818.html#af560d62829f5a279ab8fe1ebf58a04c1">  366</a></span>&#160;      <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a03818.html#af560d62829f5a279ab8fe1ebf58a04c1">endWrite</a>() {</div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;        arraywriter.reset();</div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;      }</div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;    };</div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160; </div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;  } <span class="comment">// namespace VTK</span></div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160; </div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160; </div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;} <span class="comment">// namespace Dune</span></div>
+<div class="line"><a name="l00295"></a><span class="lineno"><a class="line" href="a03758.html#abcc2ad817baf0d566d6d93419926f9a2">  295</a></span>&#160;      <span class="keywordtype">bool</span> <a class="code" href="a03758.html#abcc2ad817baf0d566d6d93419926f9a2">writeIsNoop</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="keyword">true</span>; }</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160; </div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;      <span class="keywordtype">void</span> writeFloat64 (<span class="keywordtype">double</span>) <span class="keyword">final</span> {}</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;      <span class="keywordtype">void</span> writeFloat32 (<span class="keywordtype">float</span>) <span class="keyword">final</span> {}</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;      <span class="keywordtype">void</span> writeInt32 (std::int32_t) <span class="keyword">final</span> {}</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;      <span class="keywordtype">void</span> writeUInt32 (std::uint32_t) <span class="keyword">final</span> {}</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;      <span class="keywordtype">void</span> writeUInt8 (std::uint8_t) <span class="keyword">final</span> {}</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    };</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160; </div>
+<div class="line"><a name="l00307"></a><span class="lineno"><a class="line" href="a03762.html">  307</a></span>&#160;    <span class="keyword">class </span><a class="code" href="a03762.html">AppendedBase64DataArrayWriter</a> : <span class="keyword">public</span> <a class="code" href="a03746.html">DataArrayWriter</a></div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    {</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160; </div>
+<div class="line"><a name="l00323"></a><span class="lineno"><a class="line" href="a03762.html#a82d8fff3298fe41a8fe8f7ccc376ef68">  323</a></span>&#160;      <a class="code" href="a03762.html#a82d8fff3298fe41a8fe8f7ccc376ef68">AppendedBase64DataArrayWriter</a>(std::ostream&amp; s, std::string name,</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;                                    <span class="keywordtype">int</span> ncomps, <span class="keywordtype">unsigned</span> nitems,</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;                                    <span class="keywordtype">unsigned</span>&amp; offset, <span class="keyword">const</span> Indent&amp; indent, <a class="code" href="a00951.html#a1a23264dcb4d2ffc9b85507ffa2741af">Precision</a> prec_)</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;      : <a class="code" href="a03746.html">DataArrayWriter</a>(prec_)</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;      {</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;        s &lt;&lt; indent &lt;&lt; <span class="stringliteral">&quot;&lt;DataArray type=\&quot;&quot;</span> &lt;&lt; <a class="code" href="a00951.html#a48c0538f36588dc8d46cdd54163cdcd1">toString</a>(prec_) &lt;&lt; <span class="stringliteral">&quot;\&quot; &quot;</span></div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;          &lt;&lt; <span class="stringliteral">&quot;Name=\&quot;&quot;</span> &lt;&lt; name &lt;&lt; <span class="stringliteral">&quot;\&quot; &quot;</span>;</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;        s &lt;&lt; <span class="stringliteral">&quot;NumberOfComponents=\&quot;&quot;</span> &lt;&lt; ncomps &lt;&lt; <span class="stringliteral">&quot;\&quot; &quot;</span>;</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;        s &lt;&lt; <span class="stringliteral">&quot;format=\&quot;appended\&quot; offset=\&quot;&quot;</span>&lt;&lt; offset &lt;&lt; <span class="stringliteral">&quot;\&quot; /&gt;\n&quot;</span>;</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;        offset += 8; <span class="comment">// header</span></div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;        std::size_t bytes = ncomps*nitems*<a class="code" href="a00951.html#a559af2a4ab217c95a0b9738920cf9391">typeSize</a>(prec_);</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;        offset += bytes/3*4;</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;        <span class="keywordflow">if</span>(bytes%3 != 0)</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;          offset += 4;</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;      }</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160; </div>
+<div class="line"><a name="l00340"></a><span class="lineno"><a class="line" href="a03762.html#a922446c88f779a7af752b7192655bcbc">  340</a></span>&#160;      <span class="keywordtype">bool</span> <a class="code" href="a03762.html#a922446c88f779a7af752b7192655bcbc">writeIsNoop</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="keyword">true</span>; }</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160; </div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;      <span class="keywordtype">void</span> writeFloat64 (<span class="keywordtype">double</span>) <span class="keyword">final</span> {}</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;      <span class="keywordtype">void</span> writeFloat32 (<span class="keywordtype">float</span>) <span class="keyword">final</span> {}</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;      <span class="keywordtype">void</span> writeInt32 (std::int32_t) <span class="keyword">final</span> {}</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;      <span class="keywordtype">void</span> writeUInt32 (std::uint32_t) <span class="keyword">final</span> {}</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;      <span class="keywordtype">void</span> writeUInt8 (std::uint8_t) <span class="keyword">final</span> {}</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;    };</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160; </div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;    <span class="comment">//  Naked ArrayWriters for the appended section</span></div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160; </div>
+<div class="line"><a name="l00357"></a><span class="lineno"><a class="line" href="a03766.html">  357</a></span>&#160;    <span class="keyword">class </span><a class="code" href="a03766.html">NakedBase64DataArrayWriter</a> : <span class="keyword">public</span> <a class="code" href="a03746.html">DataArrayWriter</a></div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;    {</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160; </div>
+<div class="line"><a name="l00367"></a><span class="lineno"><a class="line" href="a03766.html#adf1f7dd294eebd27c026fbf8b30acada">  367</a></span>&#160;      <a class="code" href="a03766.html#adf1f7dd294eebd27c026fbf8b30acada">NakedBase64DataArrayWriter</a>(std::ostream&amp; theStream, <span class="keywordtype">int</span> ncomps,</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;                                 <span class="keywordtype">int</span> nitems, <a class="code" href="a00951.html#a1a23264dcb4d2ffc9b85507ffa2741af">Precision</a> prec_)</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;        : <a class="code" href="a03746.html">DataArrayWriter</a>(prec_), b64(theStream)</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;      {</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;        <span class="comment">// store size</span></div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;        std::uint32_t size = ncomps*nitems*<a class="code" href="a00951.html#a559af2a4ab217c95a0b9738920cf9391">typeSize</a>(prec_);</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;        b64.<a class="code" href="a03838.html#a24ec170183dc09a2c46c4765e77f1248">write</a>(size);</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;        b64.<a class="code" href="a03838.html#a48aab0178aad2e1fa1b85dac76f899a9">flush</a>();</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;      }</div>
 <div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160; </div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// DUNE_GRID_IO_FILE_VTK_FUNCTIONWRITER_HH</span></div>
-<div class="ttc" id="aa00788_html"><div class="ttname"><a href="a00788.html">common.hh</a></div><div class="ttdoc">Common stuff for the VTKWriter.</div></div>
-<div class="ttc" id="aa00797_html"><div class="ttname"><a href="a00797.html">dataarraywriter.hh</a></div><div class="ttdoc">Data array writers for the VTKWriter.</div></div>
-<div class="ttc" id="aa00809_html"><div class="ttname"><a href="a00809.html">pvtuwriter.hh</a></div></div>
-<div class="ttc" id="aa00836_html"><div class="ttname"><a href="a00836.html">vtuwriter.hh</a></div></div>
-<div class="ttc" id="aa00936_html"><div class="ttname"><a href="a00936.html">Dune</a></div><div class="ttdoc">Include standard header files.</div><div class="ttdef"><b>Definition:</b> agrid.hh:59</div></div>
-<div class="ttc" id="aa00948_html_a1a23264dcb4d2ffc9b85507ffa2741af"><div class="ttname"><a href="a00948.html#a1a23264dcb4d2ffc9b85507ffa2741af">Dune::VTK::Precision</a></div><div class="ttdeci">Precision</div><div class="ttdoc">which precision to use when writing out data to vtk files</div><div class="ttdef"><b>Definition:</b> common.hh:319</div></div>
-<div class="ttc" id="aa00948_html_a1a23264dcb4d2ffc9b85507ffa2741afa0241adbbd83925f051b694d40f02747f"><div class="ttname"><a href="a00948.html#a1a23264dcb4d2ffc9b85507ffa2741afa0241adbbd83925f051b694d40f02747f">Dune::VTK::Precision::int32</a></div><div class="ttdeci">@ int32</div></div>
-<div class="ttc" id="aa00948_html_a1a23264dcb4d2ffc9b85507ffa2741afa5f423e669d0a8f4ab7c4c3e6da27161a"><div class="ttname"><a href="a00948.html#a1a23264dcb4d2ffc9b85507ffa2741afa5f423e669d0a8f4ab7c4c3e6da27161a">Dune::VTK::Precision::uint8</a></div><div class="ttdeci">@ uint8</div></div>
-<div class="ttc" id="aa00948_html_a1a23264dcb4d2ffc9b85507ffa2741afad33ec2b0bbea6d471a4706cea030e1e3"><div class="ttname"><a href="a00948.html#a1a23264dcb4d2ffc9b85507ffa2741afad33ec2b0bbea6d471a4706cea030e1e3">Dune::VTK::Precision::float32</a></div><div class="ttdeci">@ float32</div></div>
-<div class="ttc" id="aa00948_html_a61dcce1ca0a60b52e4021bcd09db1dad"><div class="ttname"><a href="a00948.html#a61dcce1ca0a60b52e4021bcd09db1dad">Dune::VTK::geometryType</a></div><div class="ttdeci">GeometryType geometryType(const Dune::GeometryType &amp;t)</div><div class="ttdoc">mapping from GeometryType to VTKGeometryType</div><div class="ttdef"><b>Definition:</b> common.hh:199</div></div>
-<div class="ttc" id="aa03794_html"><div class="ttname"><a href="a03794.html">Dune::VTK::FunctionWriterBase</a></div><div class="ttdoc">Base class for function writers.</div><div class="ttdef"><b>Definition:</b> functionwriter.hh:32</div></div>
-<div class="ttc" id="aa03794_html_a2a71a4df6451e8e04d12fd055823cd52"><div class="ttname"><a href="a03794.html#a2a71a4df6451e8e04d12fd055823cd52">Dune::VTK::FunctionWriterBase::name</a></div><div class="ttdeci">virtual std::string name() const =0</div><div class="ttdoc">return name</div></div>
-<div class="ttc" id="aa03794_html_a2c82fb698b632857354c2e18ff27e2d5"><div class="ttname"><a href="a03794.html#a2c82fb698b632857354c2e18ff27e2d5">Dune::VTK::FunctionWriterBase::ncomps</a></div><div class="ttdeci">virtual unsigned ncomps() const =0</div><div class="ttdoc">return number of components of the vector</div></div>
-<div class="ttc" id="aa03794_html_a3be3644244f91bc9fd672e0ee09bc1ba"><div class="ttname"><a href="a03794.html#a3be3644244f91bc9fd672e0ee09bc1ba">Dune::VTK::FunctionWriterBase::write</a></div><div class="ttdeci">virtual void write(const Cell &amp;cell, const Domain &amp;xl)</div><div class="ttdoc">write at the given position</div><div class="ttdef"><b>Definition:</b> functionwriter.hh:57</div></div>
-<div class="ttc" id="aa03794_html_a4cd0e1ac0e27b4c9a4d780a4e8ac4378"><div class="ttname"><a href="a03794.html#a4cd0e1ac0e27b4c9a4d780a4e8ac4378">Dune::VTK::FunctionWriterBase::Cell</a></div><div class="ttdeci">Cell_ Cell</div><div class="ttdef"><b>Definition:</b> functionwriter.hh:39</div></div>
-<div class="ttc" id="aa03794_html_a5e6a900bae82a20cb5b646e6cf68792a"><div class="ttname"><a href="a03794.html#a5e6a900bae82a20cb5b646e6cf68792a">Dune::VTK::FunctionWriterBase::addArray</a></div><div class="ttdeci">virtual void addArray(PVTUWriter &amp;writer)=0</div><div class="ttdoc">add this field to the given parallel writer</div></div>
-<div class="ttc" id="aa03794_html_a82b6eec66060ef5c8638a01ecbaac035"><div class="ttname"><a href="a03794.html#a82b6eec66060ef5c8638a01ecbaac035">Dune::VTK::FunctionWriterBase::endWrite</a></div><div class="ttdeci">virtual void endWrite()=0</div><div class="ttdoc">signal end of writing</div></div>
-<div class="ttc" id="aa03794_html_a9ff85ac0d90a8192dc9517b18b313d98"><div class="ttname"><a href="a03794.html#a9ff85ac0d90a8192dc9517b18b313d98">Dune::VTK::FunctionWriterBase::Domain</a></div><div class="ttdeci">FieldVector&lt; DF, mydim &gt; Domain</div><div class="ttdef"><b>Definition:</b> functionwriter.hh:38</div></div>
-<div class="ttc" id="aa03794_html_ab9b501e9c303ac5679016b437d1ce04b"><div class="ttname"><a href="a03794.html#ab9b501e9c303ac5679016b437d1ce04b">Dune::VTK::FunctionWriterBase::beginWrite</a></div><div class="ttdeci">virtual bool beginWrite(VTUWriter &amp;writer, std::size_t nitems)=0</div><div class="ttdoc">start writing with the given writer</div></div>
-<div class="ttc" id="aa03794_html_ac8250002b167a403f41100c634f19eb2"><div class="ttname"><a href="a03794.html#ac8250002b167a403f41100c634f19eb2">Dune::VTK::FunctionWriterBase::~FunctionWriterBase</a></div><div class="ttdeci">virtual ~FunctionWriterBase()</div><div class="ttdoc">destructor</div><div class="ttdef"><b>Definition:</b> functionwriter.hh:76</div></div>
-<div class="ttc" id="aa03794_html_aeea6449e895e5ae35b371bd3fda5e7d3"><div class="ttname"><a href="a03794.html#aeea6449e895e5ae35b371bd3fda5e7d3">Dune::VTK::FunctionWriterBase::write</a></div><div class="ttdeci">virtual void write(const Cell &amp;cell, unsigned cornerIndex)</div><div class="ttdoc">write at the given corner</div><div class="ttdef"><b>Definition:</b> functionwriter.hh:69</div></div>
-<div class="ttc" id="aa03798_html"><div class="ttname"><a href="a03798.html">Dune::VTK::VTKFunctionWriter</a></div><div class="ttdoc">Base class for function writers.</div><div class="ttdef"><b>Definition:</b> functionwriter.hh:88</div></div>
-<div class="ttc" id="aa03798_html_a03d18f45377bb57cf9ea86394dfd43ec"><div class="ttname"><a href="a03798.html#a03d18f45377bb57cf9ea86394dfd43ec">Dune::VTK::VTKFunctionWriter::VTKFunctionWriter</a></div><div class="ttdeci">VTKFunctionWriter(const std::shared_ptr&lt; const Func &gt; &amp;func_, VTK::Precision prec=VTK::Precision::float32)</div><div class="ttdef"><b>Definition:</b> functionwriter.hh:95</div></div>
-<div class="ttc" id="aa03798_html_a55ef89f548858bb9e4c8e001abee382d"><div class="ttname"><a href="a03798.html#a55ef89f548858bb9e4c8e001abee382d">Dune::VTK::VTKFunctionWriter::name</a></div><div class="ttdeci">virtual std::string name() const</div><div class="ttdoc">return name</div><div class="ttdef"><b>Definition:</b> functionwriter.hh:101</div></div>
-<div class="ttc" id="aa03798_html_a698445b13855c0debb594ae6c8251fb6"><div class="ttname"><a href="a03798.html#a698445b13855c0debb594ae6c8251fb6">Dune::VTK::VTKFunctionWriter::ncomps</a></div><div class="ttdeci">virtual unsigned ncomps() const</div><div class="ttdoc">return number of components of the vector</div><div class="ttdef"><b>Definition:</b> functionwriter.hh:104</div></div>
-<div class="ttc" id="aa03798_html_a8d4600ea2a287defaa9eaea91ab90611"><div class="ttname"><a href="a03798.html#a8d4600ea2a287defaa9eaea91ab90611">Dune::VTK::VTKFunctionWriter::beginWrite</a></div><div class="ttdeci">virtual bool beginWrite(VTUWriter &amp;writer, std::size_t nitems)</div><div class="ttdoc">start writing with the given writer</div><div class="ttdef"><b>Definition:</b> functionwriter.hh:115</div></div>
-<div class="ttc" id="aa03798_html_aaf8900f37a333a9a9e7c74dab41d7cfe"><div class="ttname"><a href="a03798.html#aaf8900f37a333a9a9e7c74dab41d7cfe">Dune::VTK::VTKFunctionWriter::addArray</a></div><div class="ttdeci">virtual void addArray(PVTUWriter &amp;writer)</div><div class="ttdoc">add this field to the given parallel writer</div><div class="ttdef"><b>Definition:</b> functionwriter.hh:110</div></div>
-<div class="ttc" id="aa03798_html_ab8132892c59fa669babed25b802f56a3"><div class="ttname"><a href="a03798.html#ab8132892c59fa669babed25b802f56a3">Dune::VTK::VTKFunctionWriter::write</a></div><div class="ttdeci">virtual void write(const typename Base::Cell &amp;cell, const typename Base::Domain &amp;xl)</div><div class="ttdoc">write at the given position</div><div class="ttdef"><b>Definition:</b> functionwriter.hh:122</div></div>
-<div class="ttc" id="aa03798_html_ae56babd9e5c8f8bd47971061973cd179"><div class="ttname"><a href="a03798.html#ae56babd9e5c8f8bd47971061973cd179">Dune::VTK::VTKFunctionWriter::endWrite</a></div><div class="ttdeci">virtual void endWrite()</div><div class="ttdoc">signal end of writing</div><div class="ttdef"><b>Definition:</b> functionwriter.hh:131</div></div>
-<div class="ttc" id="aa03802_html"><div class="ttname"><a href="a03802.html">Dune::VTK::CoordinatesWriter</a></div><div class="ttdoc">writer for the Coordinates array</div><div class="ttdef"><b>Definition:</b> functionwriter.hh:145</div></div>
-<div class="ttc" id="aa03802_html_a289b55233ec75a9e6f7a814c8877dbea"><div class="ttname"><a href="a03802.html#a289b55233ec75a9e6f7a814c8877dbea">Dune::VTK::CoordinatesWriter::write</a></div><div class="ttdeci">virtual void write(const typename Base::Cell &amp;cell, const typename Base::Domain &amp;xl)</div><div class="ttdoc">write at the given position</div><div class="ttdef"><b>Definition:</b> functionwriter.hh:174</div></div>
-<div class="ttc" id="aa03802_html_a3a2b1242861a103cd27c465f7343077f"><div class="ttname"><a href="a03802.html#a3a2b1242861a103cd27c465f7343077f">Dune::VTK::CoordinatesWriter::name</a></div><div class="ttdeci">virtual std::string name() const</div><div class="ttdoc">return name</div><div class="ttdef"><b>Definition:</b> functionwriter.hh:157</div></div>
-<div class="ttc" id="aa03802_html_a9095ca624a7b293b6c6e50eb9d4c1e8d"><div class="ttname"><a href="a03802.html#a9095ca624a7b293b6c6e50eb9d4c1e8d">Dune::VTK::CoordinatesWriter::endWrite</a></div><div class="ttdeci">virtual void endWrite()</div><div class="ttdoc">signal end of writing</div><div class="ttdef"><b>Definition:</b> functionwriter.hh:184</div></div>
-<div class="ttc" id="aa03802_html_ac44993e7e34a2df46336439eb194c391"><div class="ttname"><a href="a03802.html#ac44993e7e34a2df46336439eb194c391">Dune::VTK::CoordinatesWriter::ncomps</a></div><div class="ttdeci">virtual unsigned ncomps() const</div><div class="ttdoc">return number of components of the vector</div><div class="ttdef"><b>Definition:</b> functionwriter.hh:160</div></div>
-<div class="ttc" id="aa03802_html_ad7e33a5f6d0f8a719543aaf3dbf80378"><div class="ttname"><a href="a03802.html#ad7e33a5f6d0f8a719543aaf3dbf80378">Dune::VTK::CoordinatesWriter::addArray</a></div><div class="ttdeci">virtual void addArray(PVTUWriter &amp;writer)</div><div class="ttdoc">add this field to the given parallel writer</div><div class="ttdef"><b>Definition:</b> functionwriter.hh:163</div></div>
-<div class="ttc" id="aa03802_html_ad9198b9a3600086f12279c03c3dc9a4c"><div class="ttname"><a href="a03802.html#ad9198b9a3600086f12279c03c3dc9a4c">Dune::VTK::CoordinatesWriter::beginWrite</a></div><div class="ttdeci">virtual bool beginWrite(VTUWriter &amp;writer, std::size_t nitems)</div><div class="ttdoc">start writing with the given writer</div><div class="ttdef"><b>Definition:</b> functionwriter.hh:168</div></div>
-<div class="ttc" id="aa03802_html_af8cdcfaf81eef80acedacfd7e24ddc96"><div class="ttname"><a href="a03802.html#af8cdcfaf81eef80acedacfd7e24ddc96">Dune::VTK::CoordinatesWriter::CoordinatesWriter</a></div><div class="ttdeci">CoordinatesWriter(VTK::Precision prec=VTK::Precision::float32)</div><div class="ttdef"><b>Definition:</b> functionwriter.hh:152</div></div>
-<div class="ttc" id="aa03806_html"><div class="ttname"><a href="a03806.html">Dune::VTK::ConformingConnectivityWriter</a></div><div class="ttdoc">writer for the connectivity array in conforming mode</div><div class="ttdef"><b>Definition:</b> functionwriter.hh:193</div></div>
-<div class="ttc" id="aa03806_html_a291c34be859fe64449605931203c912b"><div class="ttname"><a href="a03806.html#a291c34be859fe64449605931203c912b">Dune::VTK::ConformingConnectivityWriter::addArray</a></div><div class="ttdeci">virtual void addArray(PVTUWriter &amp;writer)</div><div class="ttdoc">add this field to the given parallel writer</div><div class="ttdef"><b>Definition:</b> functionwriter.hh:214</div></div>
-<div class="ttc" id="aa03806_html_a623513374b76079800744af9711843b5"><div class="ttname"><a href="a03806.html#a623513374b76079800744af9711843b5">Dune::VTK::ConformingConnectivityWriter::name</a></div><div class="ttdeci">virtual std::string name() const</div><div class="ttdoc">return name</div><div class="ttdef"><b>Definition:</b> functionwriter.hh:208</div></div>
-<div class="ttc" id="aa03806_html_a6c35a45441b7fd67efe13de5b041f448"><div class="ttname"><a href="a03806.html#a6c35a45441b7fd67efe13de5b041f448">Dune::VTK::ConformingConnectivityWriter::write</a></div><div class="ttdeci">virtual void write(const typename Base::Cell &amp;cell, unsigned cornerIndex)</div><div class="ttdoc">write at the given corner</div><div class="ttdef"><b>Definition:</b> functionwriter.hh:240</div></div>
-<div class="ttc" id="aa03806_html_a8623578ea5fd9bb46c26eba884d35dbf"><div class="ttname"><a href="a03806.html#a8623578ea5fd9bb46c26eba884d35dbf">Dune::VTK::ConformingConnectivityWriter::ConformingConnectivityWriter</a></div><div class="ttdeci">ConformingConnectivityWriter(const IteratorFactory &amp;factory_)</div><div class="ttdoc">create a writer with the given iteratorfactory</div><div class="ttdef"><b>Definition:</b> functionwriter.hh:203</div></div>
-<div class="ttc" id="aa03806_html_aa1c12fd2377b5548b12d7f4ec57dcb0f"><div class="ttname"><a href="a03806.html#aa1c12fd2377b5548b12d7f4ec57dcb0f">Dune::VTK::ConformingConnectivityWriter::ncomps</a></div><div class="ttdeci">virtual unsigned ncomps() const</div><div class="ttdoc">return number of components of the vector</div><div class="ttdef"><b>Definition:</b> functionwriter.hh:211</div></div>
-<div class="ttc" id="aa03806_html_ab9383cd58a7f57df6e911f448da93640"><div class="ttname"><a href="a03806.html#ab9383cd58a7f57df6e911f448da93640">Dune::VTK::ConformingConnectivityWriter::beginWrite</a></div><div class="ttdeci">virtual bool beginWrite(VTUWriter &amp;writer, std::size_t nitems)</div><div class="ttdoc">start writing with the given writer</div><div class="ttdef"><b>Definition:</b> functionwriter.hh:219</div></div>
-<div class="ttc" id="aa03806_html_ae122255cfbf97e9d7657ace7d500e5b6"><div class="ttname"><a href="a03806.html#ae122255cfbf97e9d7657ace7d500e5b6">Dune::VTK::ConformingConnectivityWriter::endWrite</a></div><div class="ttdeci">virtual void endWrite()</div><div class="ttdoc">signal end of writing</div><div class="ttdef"><b>Definition:</b> functionwriter.hh:249</div></div>
-<div class="ttc" id="aa03810_html"><div class="ttname"><a href="a03810.html">Dune::VTK::NonConformingConnectivityWriter</a></div><div class="ttdoc">writer for the connectivity array in nonconforming mode</div><div class="ttdef"><b>Definition:</b> functionwriter.hh:259</div></div>
-<div class="ttc" id="aa03810_html_a6254f172506bf9eb8a5249617eb45f7e"><div class="ttname"><a href="a03810.html#a6254f172506bf9eb8a5249617eb45f7e">Dune::VTK::NonConformingConnectivityWriter::ncomps</a></div><div class="ttdeci">virtual unsigned ncomps() const</div><div class="ttdoc">return number of components of the vector</div><div class="ttdef"><b>Definition:</b> functionwriter.hh:268</div></div>
-<div class="ttc" id="aa03810_html_a74243130ed14766d079126c0fdbe4d10"><div class="ttname"><a href="a03810.html#a74243130ed14766d079126c0fdbe4d10">Dune::VTK::NonConformingConnectivityWriter::name</a></div><div class="ttdeci">virtual std::string name() const</div><div class="ttdoc">return name</div><div class="ttdef"><b>Definition:</b> functionwriter.hh:265</div></div>
-<div class="ttc" id="aa03810_html_a92349a12f297e35bf74909df4761e874"><div class="ttname"><a href="a03810.html#a92349a12f297e35bf74909df4761e874">Dune::VTK::NonConformingConnectivityWriter::addArray</a></div><div class="ttdeci">virtual void addArray(PVTUWriter &amp;writer)</div><div class="ttdoc">add this field to the given parallel writer</div><div class="ttdef"><b>Definition:</b> functionwriter.hh:271</div></div>
-<div class="ttc" id="aa03810_html_a96540309a5d5a105bc435c401d49ecda"><div class="ttname"><a href="a03810.html#a96540309a5d5a105bc435c401d49ecda">Dune::VTK::NonConformingConnectivityWriter::write</a></div><div class="ttdeci">virtual void write(const Cell &amp;cell, unsigned cornerIndex)</div><div class="ttdoc">write at the given corner</div><div class="ttdef"><b>Definition:</b> functionwriter.hh:283</div></div>
-<div class="ttc" id="aa03810_html_aad6f635be4aceda6eae7d282f383643d"><div class="ttname"><a href="a03810.html#aad6f635be4aceda6eae7d282f383643d">Dune::VTK::NonConformingConnectivityWriter::beginWrite</a></div><div class="ttdeci">virtual bool beginWrite(VTUWriter &amp;writer, std::size_t nitems)</div><div class="ttdoc">start writing with the given writer</div><div class="ttdef"><b>Definition:</b> functionwriter.hh:276</div></div>
-<div class="ttc" id="aa03810_html_ab15d3e45b27d262bcae661265562f7ff"><div class="ttname"><a href="a03810.html#ab15d3e45b27d262bcae661265562f7ff">Dune::VTK::NonConformingConnectivityWriter::endWrite</a></div><div class="ttdeci">virtual void endWrite()</div><div class="ttdoc">signal end of writing</div><div class="ttdef"><b>Definition:</b> functionwriter.hh:289</div></div>
-<div class="ttc" id="aa03814_html"><div class="ttname"><a href="a03814.html">Dune::VTK::OffsetsWriter</a></div><div class="ttdoc">writer for the offsets array</div><div class="ttdef"><b>Definition:</b> functionwriter.hh:298</div></div>
-<div class="ttc" id="aa03814_html_a57422e8e365e1df55c01b983ee41693f"><div class="ttname"><a href="a03814.html#a57422e8e365e1df55c01b983ee41693f">Dune::VTK::OffsetsWriter::addArray</a></div><div class="ttdeci">virtual void addArray(PVTUWriter &amp;writer)</div><div class="ttdoc">add this field to the given parallel writer</div><div class="ttdef"><b>Definition:</b> functionwriter.hh:312</div></div>
-<div class="ttc" id="aa03814_html_a862864ac5773321ba55db4418cc4aed5"><div class="ttname"><a href="a03814.html#a862864ac5773321ba55db4418cc4aed5">Dune::VTK::OffsetsWriter::endWrite</a></div><div class="ttdeci">virtual void endWrite()</div><div class="ttdoc">signal end of writing</div><div class="ttdef"><b>Definition:</b> functionwriter.hh:329</div></div>
-<div class="ttc" id="aa03814_html_ab387bfd7d292ca4fccb3fadf4dc69738"><div class="ttname"><a href="a03814.html#ab387bfd7d292ca4fccb3fadf4dc69738">Dune::VTK::OffsetsWriter::name</a></div><div class="ttdeci">virtual std::string name() const</div><div class="ttdoc">return name</div><div class="ttdef"><b>Definition:</b> functionwriter.hh:306</div></div>
-<div class="ttc" id="aa03814_html_ad2052408f0667f34bfea62ed79aafa2d"><div class="ttname"><a href="a03814.html#ad2052408f0667f34bfea62ed79aafa2d">Dune::VTK::OffsetsWriter::write</a></div><div class="ttdeci">virtual void write(const Cell &amp;cell, const typename Base::Domain &amp;)</div><div class="ttdoc">write at the given position</div><div class="ttdef"><b>Definition:</b> functionwriter.hh:324</div></div>
-<div class="ttc" id="aa03814_html_ad956bd323510ab119b344615be3ed348"><div class="ttname"><a href="a03814.html#ad956bd323510ab119b344615be3ed348">Dune::VTK::OffsetsWriter::beginWrite</a></div><div class="ttdeci">virtual bool beginWrite(VTUWriter &amp;writer, std::size_t nitems)</div><div class="ttdoc">start writing with the given writer</div><div class="ttdef"><b>Definition:</b> functionwriter.hh:317</div></div>
-<div class="ttc" id="aa03814_html_ae0d65ea4d0db7425c7841cfe1a39b8c0"><div class="ttname"><a href="a03814.html#ae0d65ea4d0db7425c7841cfe1a39b8c0">Dune::VTK::OffsetsWriter::ncomps</a></div><div class="ttdeci">virtual unsigned ncomps() const</div><div class="ttdoc">return number of components of the vector</div><div class="ttdef"><b>Definition:</b> functionwriter.hh:309</div></div>
-<div class="ttc" id="aa03818_html"><div class="ttname"><a href="a03818.html">Dune::VTK::TypesWriter</a></div><div class="ttdoc">writer for the types array</div><div class="ttdef"><b>Definition:</b> functionwriter.hh:338</div></div>
-<div class="ttc" id="aa03818_html_a37ce9419b50321db77d550d515ea528b"><div class="ttname"><a href="a03818.html#a37ce9419b50321db77d550d515ea528b">Dune::VTK::TypesWriter::ncomps</a></div><div class="ttdeci">virtual unsigned ncomps() const</div><div class="ttdoc">return number of components of the vector</div><div class="ttdef"><b>Definition:</b> functionwriter.hh:348</div></div>
-<div class="ttc" id="aa03818_html_a6442561038046b67262f7391e8b42d8f"><div class="ttname"><a href="a03818.html#a6442561038046b67262f7391e8b42d8f">Dune::VTK::TypesWriter::beginWrite</a></div><div class="ttdeci">virtual bool beginWrite(VTUWriter &amp;writer, std::size_t nitems)</div><div class="ttdoc">start writing with the given writer</div><div class="ttdef"><b>Definition:</b> functionwriter.hh:356</div></div>
-<div class="ttc" id="aa03818_html_a8bc4033ef85cfacdcc1473e5fcc3efda"><div class="ttname"><a href="a03818.html#a8bc4033ef85cfacdcc1473e5fcc3efda">Dune::VTK::TypesWriter::name</a></div><div class="ttdeci">virtual std::string name() const</div><div class="ttdoc">return name</div><div class="ttdef"><b>Definition:</b> functionwriter.hh:345</div></div>
-<div class="ttc" id="aa03818_html_a95d823f94f52ab7cfdea0c9b59db355f"><div class="ttname"><a href="a03818.html#a95d823f94f52ab7cfdea0c9b59db355f">Dune::VTK::TypesWriter::write</a></div><div class="ttdeci">virtual void write(const Cell &amp;cell, const typename Base::Domain &amp;)</div><div class="ttdoc">write at the given position</div><div class="ttdef"><b>Definition:</b> functionwriter.hh:362</div></div>
-<div class="ttc" id="aa03818_html_a9647b397a6ea90a173aeb04235592b62"><div class="ttname"><a href="a03818.html#a9647b397a6ea90a173aeb04235592b62">Dune::VTK::TypesWriter::addArray</a></div><div class="ttdeci">virtual void addArray(PVTUWriter &amp;writer)</div><div class="ttdoc">add this field to the given parallel writer</div><div class="ttdef"><b>Definition:</b> functionwriter.hh:351</div></div>
-<div class="ttc" id="aa03818_html_af560d62829f5a279ab8fe1ebf58a04c1"><div class="ttname"><a href="a03818.html#af560d62829f5a279ab8fe1ebf58a04c1">Dune::VTK::TypesWriter::endWrite</a></div><div class="ttdeci">virtual void endWrite()</div><div class="ttdoc">signal end of writing</div><div class="ttdef"><b>Definition:</b> functionwriter.hh:366</div></div>
-<div class="ttc" id="aa03826_html"><div class="ttname"><a href="a03826.html">Dune::VTK::PVTUWriter</a></div><div class="ttdoc">Dump a .vtu/.vtp files contents to a stream.</div><div class="ttdef"><b>Definition:</b> pvtuwriter.hh:60</div></div>
-<div class="ttc" id="aa03826_html_a3df4501fbc4a7bcd5e8cbfee7d93bcb5"><div class="ttname"><a href="a03826.html#a3df4501fbc4a7bcd5e8cbfee7d93bcb5">Dune::VTK::PVTUWriter::addArray</a></div><div class="ttdeci">void addArray(const std::string &amp;name, unsigned ncomps, Precision prec)</div><div class="ttdoc">Add an array to the output file.</div><div class="ttdef"><b>Definition:</b> pvtuwriter.hh:205</div></div>
-<div class="ttc" id="aa03934_html"><div class="ttname"><a href="a03934.html">Dune::VTK::VTUWriter</a></div><div class="ttdoc">Dump a .vtu/.vtp files contents to a stream.</div><div class="ttdef"><b>Definition:</b> vtuwriter.hh:96</div></div>
-<div class="ttc" id="aa03934_html_ac9d0f0756010ba60ef7f2c7319f6839f"><div class="ttname"><a href="a03934.html#ac9d0f0756010ba60ef7f2c7319f6839f">Dune::VTK::VTUWriter::makeArrayWriter</a></div><div class="ttdeci">DataArrayWriter * makeArrayWriter(const std::string &amp;name, unsigned ncomps, unsigned nitems, Precision prec)</div><div class="ttdoc">acquire a DataArrayWriter</div><div class="ttdef"><b>Definition:</b> vtuwriter.hh:378</div></div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;      <span class="keywordtype">void</span> writeFloat64 (<span class="keywordtype">double</span> data) <span class="keyword">final</span></div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;      { write_(data); }</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;      <span class="keywordtype">void</span> writeFloat32 (<span class="keywordtype">float</span> data) <span class="keyword">final</span></div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;      { write_(data); }</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;      <span class="keywordtype">void</span> writeInt32 (std::int32_t data) <span class="keyword">final</span></div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;      { write_(data); }</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;      <span class="keywordtype">void</span> writeUInt32 (std::uint32_t data) <span class="keyword">final</span></div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;      { write_(data); }</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;      <span class="keywordtype">void</span> writeUInt8 (std::uint8_t data) <span class="keyword">final</span></div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;      { write_(data); }</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160; </div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;      <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;      <span class="keywordtype">void</span> write_(T data)</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;      {</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;          b64.<a class="code" href="a03838.html#a24ec170183dc09a2c46c4765e77f1248">write</a>(data);</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;      }</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160; </div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;      Base64Stream b64;</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;    };</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160; </div>
+<div class="line"><a name="l00405"></a><span class="lineno"><a class="line" href="a03770.html">  405</a></span>&#160;    <span class="keyword">class </span><a class="code" href="a03770.html">NakedRawDataArrayWriter</a> : <span class="keyword">public</span> <a class="code" href="a03746.html">DataArrayWriter</a></div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;    {</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;      <a class="code" href="a03842.html">RawStream</a> s;</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160; </div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160; </div>
+<div class="line"><a name="l00417"></a><span class="lineno"><a class="line" href="a03770.html#acdab87440db3ab588becaea74296b19c">  417</a></span>&#160;      <a class="code" href="a03770.html#acdab87440db3ab588becaea74296b19c">NakedRawDataArrayWriter</a>(std::ostream&amp; theStream, <span class="keywordtype">int</span> ncomps,</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;                              <span class="keywordtype">int</span> nitems, <a class="code" href="a00951.html#a1a23264dcb4d2ffc9b85507ffa2741af">Precision</a> prec_)</div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;        : <a class="code" href="a03746.html">DataArrayWriter</a>(prec_), s(theStream)</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;      {</div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;        s.<a class="code" href="a03842.html#adf41844c46341d33726479291c162a5f">write</a>((<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>)(ncomps*nitems*<a class="code" href="a00951.html#a559af2a4ab217c95a0b9738920cf9391">typeSize</a>(prec_)));</div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;      }</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160; </div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;      <span class="keywordtype">void</span> writeFloat64 (<span class="keywordtype">double</span> data) <span class="keyword">final</span></div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;      { write_(data); }</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;      <span class="keywordtype">void</span> writeFloat32 (<span class="keywordtype">float</span> data) <span class="keyword">final</span></div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;      { write_(data); }</div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;      <span class="keywordtype">void</span> writeInt32 (std::int32_t data) <span class="keyword">final</span></div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;      { write_(data); }</div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;      <span class="keywordtype">void</span> writeUInt32 (std::uint32_t data) <span class="keyword">final</span></div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;      { write_(data); }</div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;      <span class="keywordtype">void</span> writeUInt8 (std::uint8_t data) <span class="keyword">final</span></div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;      { write_(data); }</div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160; </div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;      <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;      <span class="keywordtype">void</span> write_(T data)</div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;      {</div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;        s.<a class="code" href="a03842.html#adf41844c46341d33726479291c162a5f">write</a>(data);</div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;      }</div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;    };</div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160; </div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;    <span class="comment">//  Factory</span></div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160; </div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160; </div>
+<div class="line"><a name="l00460"></a><span class="lineno"><a class="line" href="a03774.html">  460</a></span>&#160;    <span class="keyword">class </span><a class="code" href="a03774.html">DataArrayWriterFactory</a> {</div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;      <span class="keyword">enum</span> Phase { main, appended };</div>
+<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160; </div>
+<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;      <a class="code" href="a00951.html#a256815237356e8c99c97e7debb1dabf8">OutputType</a> type;</div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;      std::ostream&amp; stream;</div>
+<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;      <span class="keywordtype">unsigned</span> offset;</div>
+<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;      Phase phase;</div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160; </div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160; </div>
+<div class="line"><a name="l00480"></a><span class="lineno"><a class="line" href="a03774.html#aa7718fac4cb8560f2bdb208b5f9f398b">  480</a></span>&#160;      <span class="keyword">inline</span> <a class="code" href="a03774.html#aa7718fac4cb8560f2bdb208b5f9f398b">DataArrayWriterFactory</a>(<a class="code" href="a00951.html#a256815237356e8c99c97e7debb1dabf8">OutputType</a> type_, std::ostream&amp; stream_)</div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;        : type(type_), stream(stream_), offset(0), phase(main)</div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;      { }</div>
+<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160; </div>
+<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160; </div>
+<div class="line"><a name="l00495"></a><span class="lineno"><a class="line" href="a03774.html#a2bd8db9e8cf963f8d7bc5a3953332c24">  495</a></span>&#160;      <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="a03774.html#a2bd8db9e8cf963f8d7bc5a3953332c24">beginAppended</a>() {</div>
+<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;        phase = appended;</div>
+<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;        <span class="keywordflow">switch</span>(type) {</div>
+<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="a00951.html#a256815237356e8c99c97e7debb1dabf8a21edb20202b6eaae84d2a13937efda27">ascii</a> :          <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="a00951.html#a256815237356e8c99c97e7debb1dabf8ac373bd09607ef8537181b4cd476db211">base64</a> :         <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="a00951.html#a256815237356e8c99c97e7debb1dabf8a8d9882e8146514d4b8e3b1e69239aaf5">appendedraw</a> :    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="a00951.html#a256815237356e8c99c97e7debb1dabf8ab582a7ce6102d5a4f413d930d44f2a25">appendedbase64</a> : <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;        }</div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;        DUNE_THROW(IOError, <span class="stringliteral">&quot;Dune::VTK::DataArrayWriter: unsupported &quot;</span></div>
+<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;                   <span class="stringliteral">&quot;OutputType &quot;</span> &lt;&lt; type);</div>
+<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;      }</div>
+<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160; </div>
+<div class="line"><a name="l00508"></a><span class="lineno"><a class="line" href="a03774.html#ae4f593583797da807474db85f3dd057d">  508</a></span>&#160;      <span class="keyword">const</span> std::string&amp; <a class="code" href="a03774.html#ae4f593583797da807474db85f3dd057d">appendedEncoding</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> std::string rawString = <span class="stringliteral">&quot;raw&quot;</span>;</div>
+<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> std::string base64String = <span class="stringliteral">&quot;base64&quot;</span>;</div>
+<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160; </div>
+<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;        <span class="keywordflow">switch</span>(type) {</div>
+<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="a00951.html#a256815237356e8c99c97e7debb1dabf8a21edb20202b6eaae84d2a13937efda27">ascii</a> :</div>
+<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="a00951.html#a256815237356e8c99c97e7debb1dabf8ac373bd09607ef8537181b4cd476db211">base64</a> :</div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;          DUNE_THROW(IOError, <span class="stringliteral">&quot;DataArrayWriterFactory::appendedEncoding(): No &quot;</span></div>
+<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;                     <span class="stringliteral">&quot;appended encoding for OutputType &quot;</span> &lt;&lt; type);</div>
+<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="a00951.html#a256815237356e8c99c97e7debb1dabf8a8d9882e8146514d4b8e3b1e69239aaf5">appendedraw</a> :    <span class="keywordflow">return</span> rawString;</div>
+<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;        <span class="keywordflow">case</span> <a class="code" href="a00951.html#a256815237356e8c99c97e7debb1dabf8ab582a7ce6102d5a4f413d930d44f2a25">appendedbase64</a> : <span class="keywordflow">return</span> base64String;</div>
+<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;        }</div>
+<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;        DUNE_THROW(IOError, <span class="stringliteral">&quot;DataArrayWriterFactory::appendedEncoding(): &quot;</span></div>
+<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;                   <span class="stringliteral">&quot;unsupported OutputType &quot;</span> &lt;&lt; type);</div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;      }</div>
+<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160; </div>
+<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160; </div>
+<div class="line"><a name="l00539"></a><span class="lineno"><a class="line" href="a03774.html#a966c473c45839d2383934e23a30d81e3">  539</a></span>&#160;      <a class="code" href="a03746.html">DataArrayWriter</a>* <a class="code" href="a03774.html#a966c473c45839d2383934e23a30d81e3">make</a>(<span class="keyword">const</span> std::string&amp; name, <span class="keywordtype">unsigned</span> ncomps,</div>
+<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;                            <span class="keywordtype">unsigned</span> nitems, <span class="keyword">const</span> Indent&amp; indent,</div>
+<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;                            <a class="code" href="a00951.html#a1a23264dcb4d2ffc9b85507ffa2741af">Precision</a> prec)</div>
+<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;      {</div>
+<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;        <span class="keywordflow">switch</span>(phase) {</div>
+<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;        <span class="keywordflow">case</span> main :</div>
+<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;          <span class="keywordflow">switch</span>(type) {</div>
+<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;          <span class="keywordflow">case</span> <a class="code" href="a00951.html#a256815237356e8c99c97e7debb1dabf8a21edb20202b6eaae84d2a13937efda27">ascii</a> :</div>
+<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="a03750.html">AsciiDataArrayWriter</a>(stream, name, ncomps, indent, prec);</div>
+<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;          <span class="keywordflow">case</span> <a class="code" href="a00951.html#a256815237356e8c99c97e7debb1dabf8ac373bd09607ef8537181b4cd476db211">base64</a> :</div>
+<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="a03754.html">BinaryDataArrayWriter</a>(stream, name, ncomps, nitems,</div>
+<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;                                             indent, prec);</div>
+<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;          <span class="keywordflow">case</span> <a class="code" href="a00951.html#a256815237356e8c99c97e7debb1dabf8a8d9882e8146514d4b8e3b1e69239aaf5">appendedraw</a> :</div>
+<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="a03758.html">AppendedRawDataArrayWriter</a>(stream, name, ncomps,</div>
+<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;                                                  nitems, offset, indent, prec);</div>
+<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;          <span class="keywordflow">case</span> <a class="code" href="a00951.html#a256815237356e8c99c97e7debb1dabf8ab582a7ce6102d5a4f413d930d44f2a25">appendedbase64</a> :</div>
+<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="a03762.html">AppendedBase64DataArrayWriter</a>(stream, name, ncomps,</div>
+<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;                                                     nitems, offset,</div>
+<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;                                                     indent, prec);</div>
+<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;          }</div>
+<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;          <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;        <span class="keywordflow">case</span> appended :</div>
+<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;          <span class="keywordflow">switch</span>(type) {</div>
+<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;          <span class="keywordflow">case</span> <a class="code" href="a00951.html#a256815237356e8c99c97e7debb1dabf8a21edb20202b6eaae84d2a13937efda27">ascii</a> :</div>
+<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;          <span class="keywordflow">case</span> <a class="code" href="a00951.html#a256815237356e8c99c97e7debb1dabf8ac373bd09607ef8537181b4cd476db211">base64</a> :</div>
+<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;            <span class="keywordflow">break</span>; <span class="comment">// invlid in appended mode</span></div>
+<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;          <span class="keywordflow">case</span> <a class="code" href="a00951.html#a256815237356e8c99c97e7debb1dabf8a8d9882e8146514d4b8e3b1e69239aaf5">appendedraw</a> :</div>
+<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="a03770.html">NakedRawDataArrayWriter</a>(stream, ncomps, nitems, prec);</div>
+<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;          <span class="keywordflow">case</span> <a class="code" href="a00951.html#a256815237356e8c99c97e7debb1dabf8ab582a7ce6102d5a4f413d930d44f2a25">appendedbase64</a> :</div>
+<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="a03766.html">NakedBase64DataArrayWriter</a>(stream, ncomps, nitems, prec);</div>
+<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;          }</div>
+<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;          <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;        }</div>
+<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;        DUNE_THROW(IOError, <span class="stringliteral">&quot;Dune::VTK::DataArrayWriter: unsupported &quot;</span></div>
+<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;                   <span class="stringliteral">&quot;OutputType &quot;</span> &lt;&lt; type &lt;&lt; <span class="stringliteral">&quot; in phase &quot;</span> &lt;&lt; phase);</div>
+<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;      }</div>
+<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;    };</div>
+<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160; </div>
+<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;  } <span class="comment">// namespace VTK</span></div>
+<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160; </div>
+<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160; </div>
+<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;} <span class="comment">// namespace Dune</span></div>
+<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160; </div>
+<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// DUNE_GRID_IO_FILE_VTK_DATAARRAYWRITER_HH</span></div>
+<div class="ttc" id="aa00794_html"><div class="ttname"><a href="a00794.html">common.hh</a></div><div class="ttdoc">Common stuff for the VTKWriter.</div></div>
+<div class="ttc" id="aa00821_html"><div class="ttname"><a href="a00821.html">streams.hh</a></div></div>
+<div class="ttc" id="aa00940_html"><div class="ttname"><a href="a00940.html">Dune</a></div><div class="ttdoc">Include standard header files.</div><div class="ttdef"><b>Definition:</b> agrid.hh:58</div></div>
+<div class="ttc" id="aa00951_html_a1a23264dcb4d2ffc9b85507ffa2741af"><div class="ttname"><a href="a00951.html#a1a23264dcb4d2ffc9b85507ffa2741af">Dune::VTK::Precision</a></div><div class="ttdeci">Precision</div><div class="ttdoc">which precision to use when writing out data to vtk files</div><div class="ttdef"><b>Definition:</b> common.hh:269</div></div>
+<div class="ttc" id="aa00951_html_a1a23264dcb4d2ffc9b85507ffa2741afa0241adbbd83925f051b694d40f02747f"><div class="ttname"><a href="a00951.html#a1a23264dcb4d2ffc9b85507ffa2741afa0241adbbd83925f051b694d40f02747f">Dune::VTK::Precision::int32</a></div><div class="ttdeci">@ int32</div></div>
+<div class="ttc" id="aa00951_html_a1a23264dcb4d2ffc9b85507ffa2741afa3de84ad0700f2a1571f633d399e1900e"><div class="ttname"><a href="a00951.html#a1a23264dcb4d2ffc9b85507ffa2741afa3de84ad0700f2a1571f633d399e1900e">Dune::VTK::Precision::uint32</a></div><div class="ttdeci">@ uint32</div></div>
+<div class="ttc" id="aa00951_html_a1a23264dcb4d2ffc9b85507ffa2741afa5f423e669d0a8f4ab7c4c3e6da27161a"><div class="ttname"><a href="a00951.html#a1a23264dcb4d2ffc9b85507ffa2741afa5f423e669d0a8f4ab7c4c3e6da27161a">Dune::VTK::Precision::uint8</a></div><div class="ttdeci">@ uint8</div></div>
+<div class="ttc" id="aa00951_html_a1a23264dcb4d2ffc9b85507ffa2741afad33ec2b0bbea6d471a4706cea030e1e3"><div class="ttname"><a href="a00951.html#a1a23264dcb4d2ffc9b85507ffa2741afad33ec2b0bbea6d471a4706cea030e1e3">Dune::VTK::Precision::float32</a></div><div class="ttdeci">@ float32</div></div>
+<div class="ttc" id="aa00951_html_a1a23264dcb4d2ffc9b85507ffa2741afafb7fa22ede616c04c68a7663d0f81e92"><div class="ttname"><a href="a00951.html#a1a23264dcb4d2ffc9b85507ffa2741afafb7fa22ede616c04c68a7663d0f81e92">Dune::VTK::Precision::float64</a></div><div class="ttdeci">@ float64</div></div>
+<div class="ttc" id="aa00951_html_a256815237356e8c99c97e7debb1dabf8"><div class="ttname"><a href="a00951.html#a256815237356e8c99c97e7debb1dabf8">Dune::VTK::OutputType</a></div><div class="ttdeci">OutputType</div><div class="ttdoc">How the bulk data should be stored in the file.</div><div class="ttdef"><b>Definition:</b> common.hh:41</div></div>
+<div class="ttc" id="aa00951_html_a256815237356e8c99c97e7debb1dabf8a21edb20202b6eaae84d2a13937efda27"><div class="ttname"><a href="a00951.html#a256815237356e8c99c97e7debb1dabf8a21edb20202b6eaae84d2a13937efda27">Dune::VTK::ascii</a></div><div class="ttdeci">@ ascii</div><div class="ttdoc">Output to the file is in ascii.</div><div class="ttdef"><b>Definition:</b> common.hh:43</div></div>
+<div class="ttc" id="aa00951_html_a256815237356e8c99c97e7debb1dabf8a8d9882e8146514d4b8e3b1e69239aaf5"><div class="ttname"><a href="a00951.html#a256815237356e8c99c97e7debb1dabf8a8d9882e8146514d4b8e3b1e69239aaf5">Dune::VTK::appendedraw</a></div><div class="ttdeci">@ appendedraw</div><div class="ttdoc">Output is to the file is appended raw binary.</div><div class="ttdef"><b>Definition:</b> common.hh:47</div></div>
+<div class="ttc" id="aa00951_html_a256815237356e8c99c97e7debb1dabf8ab582a7ce6102d5a4f413d930d44f2a25"><div class="ttname"><a href="a00951.html#a256815237356e8c99c97e7debb1dabf8ab582a7ce6102d5a4f413d930d44f2a25">Dune::VTK::appendedbase64</a></div><div class="ttdeci">@ appendedbase64</div><div class="ttdoc">Output is to the file is appended base64 binary.</div><div class="ttdef"><b>Definition:</b> common.hh:49</div></div>
+<div class="ttc" id="aa00951_html_a256815237356e8c99c97e7debb1dabf8ac373bd09607ef8537181b4cd476db211"><div class="ttname"><a href="a00951.html#a256815237356e8c99c97e7debb1dabf8ac373bd09607ef8537181b4cd476db211">Dune::VTK::base64</a></div><div class="ttdeci">@ base64</div><div class="ttdoc">Output to the file is inline base64 binary.</div><div class="ttdef"><b>Definition:</b> common.hh:45</div></div>
+<div class="ttc" id="aa00951_html_a48c0538f36588dc8d46cdd54163cdcd1"><div class="ttname"><a href="a00951.html#a48c0538f36588dc8d46cdd54163cdcd1">Dune::VTK::toString</a></div><div class="ttdeci">std::string toString(Precision p)</div><div class="ttdoc">map precision to VTK type name</div><div class="ttdef"><b>Definition:</b> common.hh:278</div></div>
+<div class="ttc" id="aa00951_html_a559af2a4ab217c95a0b9738920cf9391"><div class="ttname"><a href="a00951.html#a559af2a4ab217c95a0b9738920cf9391">Dune::VTK::typeSize</a></div><div class="ttdeci">std::size_t typeSize(Precision p)</div><div class="ttdoc">map precision to byte size</div><div class="ttdef"><b>Definition:</b> common.hh:298</div></div>
+<div class="ttc" id="aa03718_html_a31530afed1b4223e23de914d87ed5197"><div class="ttname"><a href="a03718.html#a31530afed1b4223e23de914d87ed5197">Dune::VTK::PrintType::Type</a></div><div class="ttdeci">T Type</div><div class="ttdoc">type to convert T to before putting it into a stream with &lt;&lt;</div><div class="ttdef"><b>Definition:</b> common.hh:95</div></div>
+<div class="ttc" id="aa03746_html"><div class="ttname"><a href="a03746.html">Dune::VTK::DataArrayWriter</a></div><div class="ttdoc">base class for data array writers</div><div class="ttdef"><b>Definition:</b> dataarraywriter.hh:54</div></div>
+<div class="ttc" id="aa03746_html_a2e8b577eecbdb43390f5ff0e6eb804ea"><div class="ttname"><a href="a03746.html#a2e8b577eecbdb43390f5ff0e6eb804ea">Dune::VTK::DataArrayWriter::write</a></div><div class="ttdeci">void write(T data)</div><div class="ttdoc">write one element of data</div><div class="ttdef"><b>Definition:</b> dataarraywriter.hh:67</div></div>
+<div class="ttc" id="aa03746_html_a305cf8e4c5161e22709982e8ff1bc3ff"><div class="ttname"><a href="a03746.html#a305cf8e4c5161e22709982e8ff1bc3ff">Dune::VTK::DataArrayWriter::DataArrayWriter</a></div><div class="ttdeci">DataArrayWriter(Precision _prec)</div><div class="ttdoc">construct a data array writer</div><div class="ttdef"><b>Definition:</b> dataarraywriter.hh:61</div></div>
+<div class="ttc" id="aa03746_html_abf42e76c4b1f7c214239f3fb745eb297"><div class="ttname"><a href="a03746.html#abf42e76c4b1f7c214239f3fb745eb297">Dune::VTK::DataArrayWriter::writeIsNoop</a></div><div class="ttdeci">virtual bool writeIsNoop() const</div><div class="ttdoc">whether calls to write may be skipped</div><div class="ttdef"><b>Definition:</b> dataarraywriter.hh:87</div></div>
+<div class="ttc" id="aa03746_html_ad81eacbcf2466eabe6d0e52de4d199ce"><div class="ttname"><a href="a03746.html#ad81eacbcf2466eabe6d0e52de4d199ce">Dune::VTK::DataArrayWriter::~DataArrayWriter</a></div><div class="ttdeci">virtual ~DataArrayWriter()</div><div class="ttdoc">virtual destructor</div><div class="ttdef"><b>Definition:</b> dataarraywriter.hh:89</div></div>
+<div class="ttc" id="aa03750_html"><div class="ttname"><a href="a03750.html">Dune::VTK::AsciiDataArrayWriter</a></div><div class="ttdoc">a streaming writer for data array tags, uses ASCII inline format</div><div class="ttdef"><b>Definition:</b> dataarraywriter.hh:108</div></div>
+<div class="ttc" id="aa03750_html_a74e6867699319865f3e161fe6a020fc1"><div class="ttname"><a href="a03750.html#a74e6867699319865f3e161fe6a020fc1">Dune::VTK::AsciiDataArrayWriter::~AsciiDataArrayWriter</a></div><div class="ttdeci">~AsciiDataArrayWriter()</div><div class="ttdoc">finish output; writes end tag</div><div class="ttdef"><b>Definition:</b> dataarraywriter.hh:131</div></div>
+<div class="ttc" id="aa03750_html_aacd16bd7f1b0c582f986e60caf9b5851"><div class="ttname"><a href="a03750.html#aacd16bd7f1b0c582f986e60caf9b5851">Dune::VTK::AsciiDataArrayWriter::AsciiDataArrayWriter</a></div><div class="ttdeci">AsciiDataArrayWriter(std::ostream &amp;theStream, std::string name, int ncomps, const Indent &amp;indent_, Precision prec_)</div><div class="ttdoc">make a new data array writer</div><div class="ttdef"><b>Definition:</b> dataarraywriter.hh:119</div></div>
+<div class="ttc" id="aa03754_html"><div class="ttname"><a href="a03754.html">Dune::VTK::BinaryDataArrayWriter</a></div><div class="ttdoc">a streaming writer for data array tags, uses binary inline format</div><div class="ttdef"><b>Definition:</b> dataarraywriter.hh:195</div></div>
+<div class="ttc" id="aa03754_html_a53e82d8440c8a871c7ead54ee189a3fc"><div class="ttname"><a href="a03754.html#a53e82d8440c8a871c7ead54ee189a3fc">Dune::VTK::BinaryDataArrayWriter::~BinaryDataArrayWriter</a></div><div class="ttdeci">~BinaryDataArrayWriter()</div><div class="ttdoc">finish output; writes end tag</div><div class="ttdef"><b>Definition:</b> dataarraywriter.hh:226</div></div>
+<div class="ttc" id="aa03754_html_aa4f1a9636c2c82dc3544e0f899269297"><div class="ttname"><a href="a03754.html#aa4f1a9636c2c82dc3544e0f899269297">Dune::VTK::BinaryDataArrayWriter::BinaryDataArrayWriter</a></div><div class="ttdeci">BinaryDataArrayWriter(std::ostream &amp;theStream, std::string name, int ncomps, int nitems, const Indent &amp;indent_, Precision prec_)</div><div class="ttdoc">make a new data array writer</div><div class="ttdef"><b>Definition:</b> dataarraywriter.hh:208</div></div>
+<div class="ttc" id="aa03758_html"><div class="ttname"><a href="a03758.html">Dune::VTK::AppendedRawDataArrayWriter</a></div><div class="ttdoc">a streaming writer for data array tags, uses appended raw format</div><div class="ttdef"><b>Definition:</b> dataarraywriter.hh:266</div></div>
+<div class="ttc" id="aa03758_html_a09b1cd7c7d8fefd31ad85e614262d9e9"><div class="ttname"><a href="a03758.html#a09b1cd7c7d8fefd31ad85e614262d9e9">Dune::VTK::AppendedRawDataArrayWriter::AppendedRawDataArrayWriter</a></div><div class="ttdeci">AppendedRawDataArrayWriter(std::ostream &amp;s, std::string name, int ncomps, unsigned nitems, unsigned &amp;offset, const Indent &amp;indent, Precision prec_)</div><div class="ttdoc">make a new data array writer</div><div class="ttdef"><b>Definition:</b> dataarraywriter.hh:281</div></div>
+<div class="ttc" id="aa03758_html_abcc2ad817baf0d566d6d93419926f9a2"><div class="ttname"><a href="a03758.html#abcc2ad817baf0d566d6d93419926f9a2">Dune::VTK::AppendedRawDataArrayWriter::writeIsNoop</a></div><div class="ttdeci">bool writeIsNoop() const</div><div class="ttdoc">whether calls to write may be skipped</div><div class="ttdef"><b>Definition:</b> dataarraywriter.hh:295</div></div>
+<div class="ttc" id="aa03762_html"><div class="ttname"><a href="a03762.html">Dune::VTK::AppendedBase64DataArrayWriter</a></div><div class="ttdoc">a streaming writer for data array tags, uses appended base64 format</div><div class="ttdef"><b>Definition:</b> dataarraywriter.hh:308</div></div>
+<div class="ttc" id="aa03762_html_a82d8fff3298fe41a8fe8f7ccc376ef68"><div class="ttname"><a href="a03762.html#a82d8fff3298fe41a8fe8f7ccc376ef68">Dune::VTK::AppendedBase64DataArrayWriter::AppendedBase64DataArrayWriter</a></div><div class="ttdeci">AppendedBase64DataArrayWriter(std::ostream &amp;s, std::string name, int ncomps, unsigned nitems, unsigned &amp;offset, const Indent &amp;indent, Precision prec_)</div><div class="ttdoc">make a new data array writer</div><div class="ttdef"><b>Definition:</b> dataarraywriter.hh:323</div></div>
+<div class="ttc" id="aa03762_html_a922446c88f779a7af752b7192655bcbc"><div class="ttname"><a href="a03762.html#a922446c88f779a7af752b7192655bcbc">Dune::VTK::AppendedBase64DataArrayWriter::writeIsNoop</a></div><div class="ttdeci">bool writeIsNoop() const</div><div class="ttdoc">whether calls to write may be skipped</div><div class="ttdef"><b>Definition:</b> dataarraywriter.hh:340</div></div>
+<div class="ttc" id="aa03766_html"><div class="ttname"><a href="a03766.html">Dune::VTK::NakedBase64DataArrayWriter</a></div><div class="ttdoc">a streaming writer for appended data array tags, uses base64 format</div><div class="ttdef"><b>Definition:</b> dataarraywriter.hh:358</div></div>
+<div class="ttc" id="aa03766_html_adf1f7dd294eebd27c026fbf8b30acada"><div class="ttname"><a href="a03766.html#adf1f7dd294eebd27c026fbf8b30acada">Dune::VTK::NakedBase64DataArrayWriter::NakedBase64DataArrayWriter</a></div><div class="ttdeci">NakedBase64DataArrayWriter(std::ostream &amp;theStream, int ncomps, int nitems, Precision prec_)</div><div class="ttdoc">make a new data array writer</div><div class="ttdef"><b>Definition:</b> dataarraywriter.hh:367</div></div>
+<div class="ttc" id="aa03770_html"><div class="ttname"><a href="a03770.html">Dune::VTK::NakedRawDataArrayWriter</a></div><div class="ttdoc">a streaming writer for appended data arrays, uses raw format</div><div class="ttdef"><b>Definition:</b> dataarraywriter.hh:406</div></div>
+<div class="ttc" id="aa03770_html_acdab87440db3ab588becaea74296b19c"><div class="ttname"><a href="a03770.html#acdab87440db3ab588becaea74296b19c">Dune::VTK::NakedRawDataArrayWriter::NakedRawDataArrayWriter</a></div><div class="ttdeci">NakedRawDataArrayWriter(std::ostream &amp;theStream, int ncomps, int nitems, Precision prec_)</div><div class="ttdoc">make a new data array writer</div><div class="ttdef"><b>Definition:</b> dataarraywriter.hh:417</div></div>
+<div class="ttc" id="aa03774_html"><div class="ttname"><a href="a03774.html">Dune::VTK::DataArrayWriterFactory</a></div><div class="ttdoc">a factory for DataArrayWriters</div><div class="ttdef"><b>Definition:</b> dataarraywriter.hh:460</div></div>
+<div class="ttc" id="aa03774_html_a2bd8db9e8cf963f8d7bc5a3953332c24"><div class="ttname"><a href="a03774.html#a2bd8db9e8cf963f8d7bc5a3953332c24">Dune::VTK::DataArrayWriterFactory::beginAppended</a></div><div class="ttdeci">bool beginAppended()</div><div class="ttdoc">signal start of the appended section</div><div class="ttdef"><b>Definition:</b> dataarraywriter.hh:495</div></div>
+<div class="ttc" id="aa03774_html_a966c473c45839d2383934e23a30d81e3"><div class="ttname"><a href="a03774.html#a966c473c45839d2383934e23a30d81e3">Dune::VTK::DataArrayWriterFactory::make</a></div><div class="ttdeci">DataArrayWriter * make(const std::string &amp;name, unsigned ncomps, unsigned nitems, const Indent &amp;indent, Precision prec)</div><div class="ttdoc">create a DataArrayWriter</div><div class="ttdef"><b>Definition:</b> dataarraywriter.hh:539</div></div>
+<div class="ttc" id="aa03774_html_aa7718fac4cb8560f2bdb208b5f9f398b"><div class="ttname"><a href="a03774.html#aa7718fac4cb8560f2bdb208b5f9f398b">Dune::VTK::DataArrayWriterFactory::DataArrayWriterFactory</a></div><div class="ttdeci">DataArrayWriterFactory(OutputType type_, std::ostream &amp;stream_)</div><div class="ttdoc">create a DataArrayWriterFactory</div><div class="ttdef"><b>Definition:</b> dataarraywriter.hh:480</div></div>
+<div class="ttc" id="aa03774_html_ae4f593583797da807474db85f3dd057d"><div class="ttname"><a href="a03774.html#ae4f593583797da807474db85f3dd057d">Dune::VTK::DataArrayWriterFactory::appendedEncoding</a></div><div class="ttdeci">const std::string &amp; appendedEncoding() const</div><div class="ttdoc">query encoding string for appended data</div><div class="ttdef"><b>Definition:</b> dataarraywriter.hh:508</div></div>
+<div class="ttc" id="aa03838_html_a24ec170183dc09a2c46c4765e77f1248"><div class="ttname"><a href="a03838.html#a24ec170183dc09a2c46c4765e77f1248">Dune::Base64Stream::write</a></div><div class="ttdeci">void write(X &amp;data)</div><div class="ttdoc">encode a data item</div><div class="ttdef"><b>Definition:</b> streams.hh:40</div></div>
+<div class="ttc" id="aa03838_html_a48aab0178aad2e1fa1b85dac76f899a9"><div class="ttname"><a href="a03838.html#a48aab0178aad2e1fa1b85dac76f899a9">Dune::Base64Stream::flush</a></div><div class="ttdeci">void flush()</div><div class="ttdoc">flush the current unwritten data to the stream.</div><div class="ttdef"><b>Definition:</b> streams.hh:62</div></div>
+<div class="ttc" id="aa03842_html"><div class="ttname"><a href="a03842.html">Dune::RawStream</a></div><div class="ttdoc">write out data in binary</div><div class="ttdef"><b>Definition:</b> streams.hh:82</div></div>
+<div class="ttc" id="aa03842_html_adf41844c46341d33726479291c162a5f"><div class="ttname"><a href="a03842.html#adf41844c46341d33726479291c162a5f">Dune::RawStream::write</a></div><div class="ttdeci">void write(T data)</div><div class="ttdoc">write data to stream</div><div class="ttdef"><b>Definition:</b> streams.hh:91</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

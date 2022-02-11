@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: Dune::Capabilities::isLeafwiseConforming&lt; OneDGrid &gt; Struct Reference</title>
+<title>dune-grid: Dune::UGGrid&lt; dim &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,33 +62,1141 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00936.html">Dune</a></li><li class="navelem"><a class="el" href="a00938.html">Capabilities</a></li><li class="navelem"><a class="el" href="a03962.html">isLeafwiseConforming&lt; OneDGrid &gt;</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00940.html">Dune</a></li><li class="navelem"><a class="el" href="a03962.html">UGGrid</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="a03959.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::Capabilities::isLeafwiseConforming&lt; OneDGrid &gt; Struct Reference<div class="ingroups"><a class="el" href="a00902.html">dune-grid</a> &raquo; <a class="el" href="a00917.html">Grid Implementations</a> &raquo; <a class="el" href="a00920.html">OneDGrid</a></div></div>  </div>
+<div class="title">Dune::UGGrid&lt; dim &gt; Class Template Reference<div class="ingroups"><a class="el" href="a00905.html">dune-grid</a> &raquo; <a class="el" href="a00921.html">Grid Implementations</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="a03942.html" title="One-dimensional adaptive grid.">OneDGrid</a> is leafwise conforming.  
+<p>Front-end for the grid manager of the finite element toolbox UG3.  
  <a href="a03962.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00842_source.html">dune/grid/onedgrid.hh</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00851_source.html">dune/grid/uggrid.hh</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for Dune::UGGrid&lt; dim &gt;:</div>
+<div class="dyncontent">
+<div class="center"><img src="a03961.png" border="0" usemap="#a_dune_1_1_u_g_grid_3_01dim_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="a_dune_1_1_u_g_grid_3_01dim_01_4_inherit__map" id="a_dune_1_1_u_g_grid_3_01dim_01_4_inherit__map">
+<area shape="rect" title="Front&#45;end for the grid manager of the finite element toolbox UG3." alt="" coords="912,20,1060,47"/>
+<area shape="rect" href="a03962.html" title=" " alt="" coords="1188,20,1367,47"/>
+<area shape="rect" href="a02678.html" title=" " alt="" coords="643,5,863,61"/>
+<area shape="rect" href="a02710.html" title="Grid abstract base class." alt="" coords="5,15,185,57"/>
+<area shape="rect" href="a02678.html" title=" " alt="" coords="235,45,451,86"/>
+</map>
+</div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr class="memitem:a95069c571e0d054c945b1f8ac9ca7c27"><td class="memItemLeft" align="right" valign="top">static const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03962.html#a95069c571e0d054c945b1f8ac9ca7c27">v</a> = true</td></tr>
-<tr class="separator:a95069c571e0d054c945b1f8ac9ca7c27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a48808ef15d505b05d6e8133a81a4aaa0"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a03958.html">UGGridFamily</a>&lt; dim &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03962.html#a48808ef15d505b05d6e8133a81a4aaa0">GridFamily</a></td></tr>
+<tr class="memdesc:a48808ef15d505b05d6e8133a81a4aaa0"><td class="mdescLeft">&#160;</td><td class="mdescRight">type of the used GridFamily for this grid  <a href="a03962.html#a48808ef15d505b05d6e8133a81a4aaa0">More...</a><br /></td></tr>
+<tr class="separator:a48808ef15d505b05d6e8133a81a4aaa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bc00513d660384b4fe3ad2dc3afd380"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a03958.html">UGGridFamily</a>&lt; dim &gt;::<a class="el" href="a03962.html#a3bc00513d660384b4fe3ad2dc3afd380">Traits</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03962.html#a3bc00513d660384b4fe3ad2dc3afd380">Traits</a></td></tr>
+<tr class="separator:a3bc00513d660384b4fe3ad2dc3afd380"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bcdb7069f49ac6cade41e3a23d5f50c"><td class="memItemLeft" align="right" valign="top">typedef UG::DOUBLE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03962.html#a8bcdb7069f49ac6cade41e3a23d5f50c">ctype</a></td></tr>
+<tr class="memdesc:a8bcdb7069f49ac6cade41e3a23d5f50c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type used to store coordinates.  <a href="a03962.html#a8bcdb7069f49ac6cade41e3a23d5f50c">More...</a><br /></td></tr>
+<tr class="separator:a8bcdb7069f49ac6cade41e3a23d5f50c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad51545e1ddb567381bb64f63074ec918"><td class="memItemLeft" align="right" valign="top">typedef unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03962.html#ad51545e1ddb567381bb64f63074ec918">Rank</a></td></tr>
+<tr class="memdesc:ad51545e1ddb567381bb64f63074ec918"><td class="mdescLeft">&#160;</td><td class="mdescRight">The type used for process ranks.  <a href="a03962.html#ad51545e1ddb567381bb64f63074ec918">More...</a><br /></td></tr>
+<tr class="separator:ad51545e1ddb567381bb64f63074ec918"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Exported constants</div></td></tr>
+<tr class="memitem:ad60b40e40ac87b01ad0b1f05ab4925b1"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="a02710.html#ad60b40e40ac87b01ad0b1f05ab4925b1a3d6a22a414566af9b4a356f760fce944">dimension</a> =dim
+ }</td></tr>
+<tr class="memdesc:ad60b40e40ac87b01ad0b1f05ab4925b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constant that exports the template parameter dim.  <a href="a02710.html#ad60b40e40ac87b01ad0b1f05ab4925b1">More...</a><br /></td></tr>
+<tr class="separator:ad60b40e40ac87b01ad0b1f05ab4925b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4f3c3433e4d9b46504c91b3e5c3bfb1"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="a02710.html#ab4f3c3433e4d9b46504c91b3e5c3bfb1a7829985ca62f22ec6c57c5feba1e0604">dimensionworld</a> =dimworld
+ }</td></tr>
+<tr class="memdesc:ab4f3c3433e4d9b46504c91b3e5c3bfb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constant that exports the template parameter dimworld.  <a href="a02710.html#ab4f3c3433e4d9b46504c91b3e5c3bfb1">More...</a><br /></td></tr>
+<tr class="separator:ab4f3c3433e4d9b46504c91b3e5c3bfb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Exported types</div></td></tr>
+<tr class="memitem:ac6cc7c5deb4a5f9be193ad538386e129"><td class="memItemLeft" align="right" valign="top">typedef GridFamily::Traits::LeafGridView&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02710.html#ac6cc7c5deb4a5f9be193ad538386e129">LeafGridView</a></td></tr>
+<tr class="memdesc:ac6cc7c5deb4a5f9be193ad538386e129"><td class="mdescLeft">&#160;</td><td class="mdescRight">type of view for leaf grid  <a href="a02710.html#ac6cc7c5deb4a5f9be193ad538386e129">More...</a><br /></td></tr>
+<tr class="separator:ac6cc7c5deb4a5f9be193ad538386e129"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43e36b0156d9791dce24c97af9590fae"><td class="memItemLeft" align="right" valign="top">typedef GridFamily::Traits::LevelGridView&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02710.html#a43e36b0156d9791dce24c97af9590fae">LevelGridView</a></td></tr>
+<tr class="memdesc:a43e36b0156d9791dce24c97af9590fae"><td class="mdescLeft">&#160;</td><td class="mdescRight">type of view for level grid  <a href="a02710.html#a43e36b0156d9791dce24c97af9590fae">More...</a><br /></td></tr>
+<tr class="separator:a43e36b0156d9791dce24c97af9590fae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45739c02b5a9029551508f4a434b2c9e"><td class="memItemLeft" align="right" valign="top">typedef GridFamily::Traits::LeafIntersection&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02710.html#a45739c02b5a9029551508f4a434b2c9e">LeafIntersection</a></td></tr>
+<tr class="memdesc:a45739c02b5a9029551508f4a434b2c9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">A type that is a model of <a class="el" href="a01842.html" title="Intersection of a mesh entity of codimension 0 (&quot;element&quot;) with a &quot;neighboring&quot; element or with the d...">Dune::Intersection</a>, an intersections of two codimension 1 of two codimension 0 entities in the leaf view.  <a href="a02710.html#a45739c02b5a9029551508f4a434b2c9e">More...</a><br /></td></tr>
+<tr class="separator:a45739c02b5a9029551508f4a434b2c9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7f95858ca7788d75fab631504f85632"><td class="memItemLeft" align="right" valign="top">typedef GridFamily::Traits::LevelIntersection&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02710.html#aa7f95858ca7788d75fab631504f85632">LevelIntersection</a></td></tr>
+<tr class="memdesc:aa7f95858ca7788d75fab631504f85632"><td class="mdescLeft">&#160;</td><td class="mdescRight">A type that is a model of <a class="el" href="a01842.html" title="Intersection of a mesh entity of codimension 0 (&quot;element&quot;) with a &quot;neighboring&quot; element or with the d...">Dune::Intersection</a>, an intersections of two codimension 1 of two codimension 0 entities in a level view.  <a href="a02710.html#aa7f95858ca7788d75fab631504f85632">More...</a><br /></td></tr>
+<tr class="separator:aa7f95858ca7788d75fab631504f85632"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12fe2d3b85009e0d5a7d6f5af54f4671"><td class="memItemLeft" align="right" valign="top">typedef GridFamily::Traits::LeafIntersectionIterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02710.html#a12fe2d3b85009e0d5a7d6f5af54f4671">LeafIntersectionIterator</a></td></tr>
+<tr class="memdesc:a12fe2d3b85009e0d5a7d6f5af54f4671"><td class="mdescLeft">&#160;</td><td class="mdescRight">A type that is a model of <a class="el" href="a02698.html" title="Mesh entities of codimension 0 (&quot;elements&quot;) allow to visit all intersections with &quot;neighboring&quot; eleme...">Dune::IntersectionIterator</a> which is an iterator that allows to examine, but not to modify, the intersections of codimension 1 of an leaf element (entity of codimension 0) with other leaf elements.  <a href="a02710.html#a12fe2d3b85009e0d5a7d6f5af54f4671">More...</a><br /></td></tr>
+<tr class="separator:a12fe2d3b85009e0d5a7d6f5af54f4671"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54c44d26eaedf4a7d07f8b60ecd9e68c"><td class="memItemLeft" align="right" valign="top">typedef GridFamily::Traits::LevelIntersectionIterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02710.html#a54c44d26eaedf4a7d07f8b60ecd9e68c">LevelIntersectionIterator</a></td></tr>
+<tr class="memdesc:a54c44d26eaedf4a7d07f8b60ecd9e68c"><td class="mdescLeft">&#160;</td><td class="mdescRight">A type that is a model of <a class="el" href="a02698.html" title="Mesh entities of codimension 0 (&quot;elements&quot;) allow to visit all intersections with &quot;neighboring&quot; eleme...">Dune::IntersectionIterator</a> which is an iterator that allows to examine, but not to modify, the intersections of codimension 1 of an element (entity of codimension 0) with other elements on the same level.  <a href="a02710.html#a54c44d26eaedf4a7d07f8b60ecd9e68c">More...</a><br /></td></tr>
+<tr class="separator:a54c44d26eaedf4a7d07f8b60ecd9e68c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cb3ea05314097b76de6420d6a931830"><td class="memItemLeft" align="right" valign="top">typedef GridFamily::Traits::HierarchicIterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02710.html#a3cb3ea05314097b76de6420d6a931830">HierarchicIterator</a></td></tr>
+<tr class="memdesc:a3cb3ea05314097b76de6420d6a931830"><td class="mdescLeft">&#160;</td><td class="mdescRight">A type that is a model of Dune::HierarchicIterator A type of iterator that allows to examine, but not to modify, entities of codimension 0 that result from refinement of an entity of codimension 0.  <a href="a02710.html#a3cb3ea05314097b76de6420d6a931830">More...</a><br /></td></tr>
+<tr class="separator:a3cb3ea05314097b76de6420d6a931830"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15ae95ae6345d8796c4d02e7cc6759e2"><td class="memItemLeft" align="right" valign="top">typedef GridFamily::Traits::LevelIndexSet&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02710.html#a15ae95ae6345d8796c4d02e7cc6759e2">LevelIndexSet</a></td></tr>
+<tr class="memdesc:a15ae95ae6345d8796c4d02e7cc6759e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">A type that is a model of <a class="el" href="a02702.html" title="Index Set Interface base class.">Dune::IndexSet</a> which provides a consecutive, but non persistent, numbering for entities on a grid level.  <a href="a02710.html#a15ae95ae6345d8796c4d02e7cc6759e2">More...</a><br /></td></tr>
+<tr class="separator:a15ae95ae6345d8796c4d02e7cc6759e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c32cd2b2a4426f124fffcb45aedd653"><td class="memItemLeft" align="right" valign="top">typedef GridFamily::Traits::LeafIndexSet&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02710.html#a8c32cd2b2a4426f124fffcb45aedd653">LeafIndexSet</a></td></tr>
+<tr class="memdesc:a8c32cd2b2a4426f124fffcb45aedd653"><td class="mdescLeft">&#160;</td><td class="mdescRight">A type that is a model of <a class="el" href="a02702.html" title="Index Set Interface base class.">Dune::IndexSet</a> which provides a consecutive, but non persistent, numbering for entities in the leaf grid.  <a href="a02710.html#a8c32cd2b2a4426f124fffcb45aedd653">More...</a><br /></td></tr>
+<tr class="separator:a8c32cd2b2a4426f124fffcb45aedd653"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57a9c8a29d1af5611593ac5c57c600f3"><td class="memItemLeft" align="right" valign="top">typedef GridFamily::Traits::GlobalIdSet&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02710.html#a57a9c8a29d1af5611593ac5c57c600f3">GlobalIdSet</a></td></tr>
+<tr class="memdesc:a57a9c8a29d1af5611593ac5c57c600f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">A type that is a model of <a class="el" href="a02706.html" title="Id Set Interface.">Dune::IdSet</a> which provides a unique and persistent numbering for all entities in the grid. The numbering is unique over all processes over which the grid is partitioned. The numbering is not necessarily consecutive.  <a href="a02710.html#a57a9c8a29d1af5611593ac5c57c600f3">More...</a><br /></td></tr>
+<tr class="separator:a57a9c8a29d1af5611593ac5c57c600f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0dc537d9da8ca9f954885f79b54c38f4"><td class="memItemLeft" align="right" valign="top">typedef GridFamily::Traits::LocalIdSet&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02710.html#a0dc537d9da8ca9f954885f79b54c38f4">LocalIdSet</a></td></tr>
+<tr class="memdesc:a0dc537d9da8ca9f954885f79b54c38f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">A type that is a model of <a class="el" href="a02706.html" title="Id Set Interface.">Dune::IdSet</a> which provides a unique and persistent numbering for all entities in the grid. The numbering is only unique in a single process and it is not necessarily consecutive.  <a href="a02710.html#a0dc537d9da8ca9f954885f79b54c38f4">More...</a><br /></td></tr>
+<tr class="separator:a0dc537d9da8ca9f954885f79b54c38f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a207a985384df3916550501a433b5cebe"><td class="memItemLeft" align="right" valign="top">typedef GridFamily::Traits::CollectiveCommunication&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02710.html#a207a985384df3916550501a433b5cebe">CollectiveCommunication</a></td></tr>
+<tr class="memdesc:a207a985384df3916550501a433b5cebe"><td class="mdescLeft">&#160;</td><td class="mdescRight">A type that is a model of Dune::CollectiveCommunication. It provides a portable way for collective communication on the set of processes used by the grid.  <a href="a02710.html#a207a985384df3916550501a433b5cebe">More...</a><br /></td></tr>
+<tr class="separator:a207a985384df3916550501a433b5cebe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a651016ab341e358553c3dfb3229cb807"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03962.html#a651016ab341e358553c3dfb3229cb807">UGGrid</a> (<a class="el" href="a00940.html#aca0e244f2315c2955492bfa4c7804ae7">UGCollectiveCommunication</a> <a class="el" href="a03962.html#a37825baf26ae140c430d041c16373da2">comm</a>={})</td></tr>
+<tr class="memdesc:a651016ab341e358553c3dfb3229cb807"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="a03962.html#a651016ab341e358553c3dfb3229cb807">More...</a><br /></td></tr>
+<tr class="separator:a651016ab341e358553c3dfb3229cb807"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a305af6450899bdd43419ef212fb35b5f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03962.html#a305af6450899bdd43419ef212fb35b5f">~UGGrid</a> () noexcept(false)</td></tr>
+<tr class="memdesc:a305af6450899bdd43419ef212fb35b5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="a03962.html#a305af6450899bdd43419ef212fb35b5f">More...</a><br /></td></tr>
+<tr class="separator:a305af6450899bdd43419ef212fb35b5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6553576487aa7154457458212f706966"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03962.html#a6553576487aa7154457458212f706966">maxLevel</a> () const</td></tr>
+<tr class="separator:a6553576487aa7154457458212f706966"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf0b78a530c63b580e9cb7a07de0ec3c"><td class="memTemplParams" colspan="2">template&lt;typename Seed &gt; </td></tr>
+<tr class="memitem:acf0b78a530c63b580e9cb7a07de0ec3c"><td class="memTemplItemLeft" align="right" valign="top">Traits::template <a class="el" href="a02714.html">Codim</a>&lt; Seed::codimension &gt;::<a class="el" href="a02642.html">Entity</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a03962.html#acf0b78a530c63b580e9cb7a07de0ec3c">entity</a> (const Seed &amp;seed) const</td></tr>
+<tr class="memdesc:acf0b78a530c63b580e9cb7a07de0ec3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an <a class="el" href="a02642.html" title="Wrapper class for entities.">Entity</a> from an <a class="el" href="a02670.html" title="Store a reference to an entity with a minimal memory footprint.">EntitySeed</a>.  <a href="a03962.html#acf0b78a530c63b580e9cb7a07de0ec3c">More...</a><br /></td></tr>
+<tr class="separator:acf0b78a530c63b580e9cb7a07de0ec3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89046c4cc09829eaee8d51b49fb14119"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03962.html#a89046c4cc09829eaee8d51b49fb14119">size</a> (int level, int codim) const</td></tr>
+<tr class="memdesc:a89046c4cc09829eaee8d51b49fb14119"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of grid entities per level and codim.  <a href="a03962.html#a89046c4cc09829eaee8d51b49fb14119">More...</a><br /></td></tr>
+<tr class="separator:a89046c4cc09829eaee8d51b49fb14119"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af81affe8030a89c00421c364048092f5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03962.html#af81affe8030a89c00421c364048092f5">size</a> (int codim) const</td></tr>
+<tr class="memdesc:af81affe8030a89c00421c364048092f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of leaf entities per codim in this process  <a href="a03962.html#af81affe8030a89c00421c364048092f5">More...</a><br /></td></tr>
+<tr class="separator:af81affe8030a89c00421c364048092f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76c44817265abda97ea3974189b15b92"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03962.html#a76c44817265abda97ea3974189b15b92">size</a> (int level, GeometryType type) const</td></tr>
+<tr class="memdesc:a76c44817265abda97ea3974189b15b92"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of entities per level and geometry type in this process  <a href="a03962.html#a76c44817265abda97ea3974189b15b92">More...</a><br /></td></tr>
+<tr class="separator:a76c44817265abda97ea3974189b15b92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7aaba2d05ac23bdea19133c7267dbb6d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03962.html#a7aaba2d05ac23bdea19133c7267dbb6d">size</a> (GeometryType type) const</td></tr>
+<tr class="memdesc:a7aaba2d05ac23bdea19133c7267dbb6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of leaf entities per geometry type in this process  <a href="a03962.html#a7aaba2d05ac23bdea19133c7267dbb6d">More...</a><br /></td></tr>
+<tr class="separator:a7aaba2d05ac23bdea19133c7267dbb6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ec74a5640c8db1560df605038c9261f"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03962.html#a0ec74a5640c8db1560df605038c9261f">numBoundarySegments</a> () const</td></tr>
+<tr class="memdesc:a0ec74a5640c8db1560df605038c9261f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the number of boundary segments.  <a href="a03962.html#a0ec74a5640c8db1560df605038c9261f">More...</a><br /></td></tr>
+<tr class="separator:a0ec74a5640c8db1560df605038c9261f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73d512fef588584e05fb695649a10bb7"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a02722.html#a76c94cf691e5617a0af9fc60b74d9388">Traits::GlobalIdSet</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03962.html#a73d512fef588584e05fb695649a10bb7">globalIdSet</a> () const</td></tr>
+<tr class="memdesc:a73d512fef588584e05fb695649a10bb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access to the GlobalIdSet.  <a href="a03962.html#a73d512fef588584e05fb695649a10bb7">More...</a><br /></td></tr>
+<tr class="separator:a73d512fef588584e05fb695649a10bb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9425c79c76b691542100de06b0604091"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a02722.html#a37104ec797c35e9e5dc4bb7c6a479f2a">Traits::LocalIdSet</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03962.html#a9425c79c76b691542100de06b0604091">localIdSet</a> () const</td></tr>
+<tr class="memdesc:a9425c79c76b691542100de06b0604091"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access to the LocalIdSet.  <a href="a03962.html#a9425c79c76b691542100de06b0604091">More...</a><br /></td></tr>
+<tr class="separator:a9425c79c76b691542100de06b0604091"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6dfa171ce16aeb31ae41d53f8b654dd"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a02722.html#ab15b45c5173652546755e1e3864ac15e">Traits::LevelIndexSet</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03962.html#aa6dfa171ce16aeb31ae41d53f8b654dd">levelIndexSet</a> (int level) const</td></tr>
+<tr class="memdesc:aa6dfa171ce16aeb31ae41d53f8b654dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access to the LevelIndexSets.  <a href="a03962.html#aa6dfa171ce16aeb31ae41d53f8b654dd">More...</a><br /></td></tr>
+<tr class="separator:aa6dfa171ce16aeb31ae41d53f8b654dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2e5e55414372de3e3026fa6fd4c30d3"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a02722.html#a85635f7b49ec753178ad1bae923df174">Traits::LeafIndexSet</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03962.html#ad2e5e55414372de3e3026fa6fd4c30d3">leafIndexSet</a> () const</td></tr>
+<tr class="memdesc:ad2e5e55414372de3e3026fa6fd4c30d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access to the LeafIndexSet.  <a href="a03962.html#ad2e5e55414372de3e3026fa6fd4c30d3">More...</a><br /></td></tr>
+<tr class="separator:ad2e5e55414372de3e3026fa6fd4c30d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3ad6ba7e3493b5edbf8904fc69fee6e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a02722.html#ab23e2c62533b253a9972635b28f0a98d">Traits::LevelGridView</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02678.html#ae3ad6ba7e3493b5edbf8904fc69fee6e">levelGridView</a> (int level) const</td></tr>
+<tr class="memdesc:ae3ad6ba7e3493b5edbf8904fc69fee6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">View for a grid level for All_Partition.  <a href="a02678.html#ae3ad6ba7e3493b5edbf8904fc69fee6e">More...</a><br /></td></tr>
+<tr class="separator:ae3ad6ba7e3493b5edbf8904fc69fee6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc04e686c0482d3f5ac7fdaac8b56c62"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a02722.html#a561e8f97ab25a9fa54f14dc7ce4137ac">Traits::LeafGridView</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02678.html#adc04e686c0482d3f5ac7fdaac8b56c62">leafGridView</a> () const</td></tr>
+<tr class="memdesc:adc04e686c0482d3f5ac7fdaac8b56c62"><td class="mdescLeft">&#160;</td><td class="mdescRight">View for the leaf grid for All_Partition.  <a href="a02678.html#adc04e686c0482d3f5ac7fdaac8b56c62">More...</a><br /></td></tr>
+<tr class="separator:adc04e686c0482d3f5ac7fdaac8b56c62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3976f2a34c52a445f18068a203de4745"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02678.html#a3976f2a34c52a445f18068a203de4745">mark</a> (int refCount, const typename <a class="el" href="a03962.html#a3bc00513d660384b4fe3ad2dc3afd380">Traits</a> ::template <a class="el" href="a02714.html">Codim</a>&lt; 0 &gt;::<a class="el" href="a02642.html">Entity</a> &amp;e)</td></tr>
+<tr class="memdesc:a3976f2a34c52a445f18068a203de4745"><td class="mdescLeft">&#160;</td><td class="mdescRight">Marks an entity to be refined/coarsened in a subsequent adapt.  <a href="a02678.html#a3976f2a34c52a445f18068a203de4745">More...</a><br /></td></tr>
+<tr class="separator:a3976f2a34c52a445f18068a203de4745"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0ed8cbb63b8740a5e7b1a112eebe5af"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02678.html#ae0ed8cbb63b8740a5e7b1a112eebe5af">loadBalance</a> ()</td></tr>
+<tr class="memdesc:ae0ed8cbb63b8740a5e7b1a112eebe5af"><td class="mdescLeft">&#160;</td><td class="mdescRight">default implementation of load balance does nothing and returns false  <a href="a02678.html#ae0ed8cbb63b8740a5e7b1a112eebe5af">More...</a><br /></td></tr>
+<tr class="separator:ae0ed8cbb63b8740a5e7b1a112eebe5af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c83dd556fff769d3d26631f1b58d641"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02678.html#a4c83dd556fff769d3d26631f1b58d641">loadBalance</a> ([[maybe_unused]] DataHandle &amp;data)</td></tr>
+<tr class="memdesc:a4c83dd556fff769d3d26631f1b58d641"><td class="mdescLeft">&#160;</td><td class="mdescRight">default implementation of load balance does nothing and returns false  <a href="a02678.html#a4c83dd556fff769d3d26631f1b58d641">More...</a><br /></td></tr>
+<tr class="separator:a4c83dd556fff769d3d26631f1b58d641"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Adaptivity and grid refinement</div></td></tr>
+<tr class="memitem:a724b2f84bf6e59409a8fa663310929a4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02710.html#a724b2f84bf6e59409a8fa663310929a4">mark</a> (int refCount, const typename <a class="el" href="a02714.html">Codim</a>&lt; 0 &gt;::<a class="el" href="a02642.html">Entity</a> &amp;e)</td></tr>
+<tr class="memdesc:a724b2f84bf6e59409a8fa663310929a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Marks an entity to be refined/coarsened in a subsequent adapt.  <a href="a02710.html#a724b2f84bf6e59409a8fa663310929a4">More...</a><br /></td></tr>
+<tr class="separator:a724b2f84bf6e59409a8fa663310929a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa37b82d0326ee5a9997d6b4bf301c5c3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02710.html#aa37b82d0326ee5a9997d6b4bf301c5c3">getMark</a> (const typename <a class="el" href="a02714.html">Codim</a>&lt; 0 &gt;::<a class="el" href="a02642.html">Entity</a> &amp;e) const</td></tr>
+<tr class="memdesc:aa37b82d0326ee5a9997d6b4bf301c5c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns adaptation mark for given entity  <a href="a02710.html#aa37b82d0326ee5a9997d6b4bf301c5c3">More...</a><br /></td></tr>
+<tr class="separator:aa37b82d0326ee5a9997d6b4bf301c5c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader">Grid Refinement Methods</h2></td></tr>
+<tr class="memitem:a77f385a0019e340ffe3ecd7509bbc3fb"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03962.html#a77f385a0019e340ffe3ecd7509bbc3fb">RefinementType</a> { <a class="el" href="a03962.html#a77f385a0019e340ffe3ecd7509bbc3fbae06c5d78b1b104ce8c12bc065fc0ede2">LOCAL</a>
+, <a class="el" href="a03962.html#a77f385a0019e340ffe3ecd7509bbc3fba27d7f8aa313fd4d8bde04746370b9a74">COPY</a>
+ }</td></tr>
+<tr class="memdesc:a77f385a0019e340ffe3ecd7509bbc3fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">The different forms of grid refinement that UG supports.  <a href="a03962.html#a77f385a0019e340ffe3ecd7509bbc3fb">More...</a><br /></td></tr>
+<tr class="separator:a77f385a0019e340ffe3ecd7509bbc3fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0b21dc1efd8553d4fa4ff9c6ee20c08"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03962.html#ae0b21dc1efd8553d4fa4ff9c6ee20c08">ClosureType</a> { <a class="el" href="a03962.html#ae0b21dc1efd8553d4fa4ff9c6ee20c08a291003834b7f001bf74eb7bb0da6d5ab">GREEN</a>
+, <a class="el" href="a03962.html#ae0b21dc1efd8553d4fa4ff9c6ee20c08ab36a704df45a683f4f7d4cb5e473649c">NONE</a>
+ }</td></tr>
+<tr class="memdesc:ae0b21dc1efd8553d4fa4ff9c6ee20c08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decide whether to add a green closure to locally refined grid sections or not.  <a href="a03962.html#ae0b21dc1efd8553d4fa4ff9c6ee20c08">More...</a><br /></td></tr>
+<tr class="separator:ae0b21dc1efd8553d4fa4ff9c6ee20c08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16d060aa72b5369d9098eac2b206083f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03962.html#a16d060aa72b5369d9098eac2b206083f">mark</a> (int refCount, const typename Traits::template <a class="el" href="a02714.html">Codim</a>&lt; 0 &gt;::<a class="el" href="a02642.html">Entity</a> &amp;e)</td></tr>
+<tr class="memdesc:a16d060aa72b5369d9098eac2b206083f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mark element for refinement.  <a href="a03962.html#a16d060aa72b5369d9098eac2b206083f">More...</a><br /></td></tr>
+<tr class="separator:a16d060aa72b5369d9098eac2b206083f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e8cd0ca4d1f2f21d44d32431443a41f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03962.html#a5e8cd0ca4d1f2f21d44d32431443a41f">mark</a> (const typename Traits::template <a class="el" href="a02714.html">Codim</a>&lt; 0 &gt;::<a class="el" href="a02642.html">Entity</a> &amp;e, typename UG_NS&lt; dim &gt;::RefinementRule rule, int side=0)</td></tr>
+<tr class="memdesc:a5e8cd0ca4d1f2f21d44d32431443a41f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mark method accepting a UG refinement rule.  <a href="a03962.html#a5e8cd0ca4d1f2f21d44d32431443a41f">More...</a><br /></td></tr>
+<tr class="separator:a5e8cd0ca4d1f2f21d44d32431443a41f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14f1b61a413dbf35fff0b337e8f75856"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03962.html#a14f1b61a413dbf35fff0b337e8f75856">getMark</a> (const typename Traits::template <a class="el" href="a02714.html">Codim</a>&lt; 0 &gt;::<a class="el" href="a02642.html">Entity</a> &amp;e) const</td></tr>
+<tr class="memdesc:a14f1b61a413dbf35fff0b337e8f75856"><td class="mdescLeft">&#160;</td><td class="mdescRight">Query whether element is marked for refinement.  <a href="a03962.html#a14f1b61a413dbf35fff0b337e8f75856">More...</a><br /></td></tr>
+<tr class="separator:a14f1b61a413dbf35fff0b337e8f75856"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8049428931bf4e04a2d18fdcdff3b70"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03962.html#ad8049428931bf4e04a2d18fdcdff3b70">preAdapt</a> ()</td></tr>
+<tr class="memdesc:ad8049428931bf4e04a2d18fdcdff3b70"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns true, if some elements might be coarsend during grid adaption, here always returns true  <a href="a03962.html#ad8049428931bf4e04a2d18fdcdff3b70">More...</a><br /></td></tr>
+<tr class="separator:ad8049428931bf4e04a2d18fdcdff3b70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3fe65d750889dc3e875dcc8b3981f0c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03962.html#aa3fe65d750889dc3e875dcc8b3981f0c">adapt</a> ()</td></tr>
+<tr class="memdesc:aa3fe65d750889dc3e875dcc8b3981f0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Triggers the grid refinement process.  <a href="a03962.html#aa3fe65d750889dc3e875dcc8b3981f0c">More...</a><br /></td></tr>
+<tr class="separator:aa3fe65d750889dc3e875dcc8b3981f0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0baec872b4bbe8132eb62fe10d5219e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03962.html#a0baec872b4bbe8132eb62fe10d5219e6">postAdapt</a> ()</td></tr>
+<tr class="memdesc:a0baec872b4bbe8132eb62fe10d5219e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clean up refinement markers.  <a href="a03962.html#a0baec872b4bbe8132eb62fe10d5219e6">More...</a><br /></td></tr>
+<tr class="separator:a0baec872b4bbe8132eb62fe10d5219e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7d6404bfd07bf3735b971e0f0f57ef6"><td class="memTemplParams" colspan="2">template&lt;class DataHandle &gt; </td></tr>
+<tr class="memitem:ac7d6404bfd07bf3735b971e0f0f57ef6"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a03962.html#ac7d6404bfd07bf3735b971e0f0f57ef6">loadBalance</a> (DataHandle &amp;dataHandle)</td></tr>
+<tr class="memdesc:ac7d6404bfd07bf3735b971e0f0f57ef6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Distributes the grid and some data over the available nodes in a distributed machine.  <a href="a03962.html#ac7d6404bfd07bf3735b971e0f0f57ef6">More...</a><br /></td></tr>
+<tr class="separator:ac7d6404bfd07bf3735b971e0f0f57ef6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e1318c2479ecef40a1bcee8a04222f2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03962.html#a1e1318c2479ecef40a1bcee8a04222f2">loadBalance</a> (int minlevel=0)</td></tr>
+<tr class="memdesc:a1e1318c2479ecef40a1bcee8a04222f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Distributes this grid over the available nodes in a distributed machine.  <a href="a03962.html#a1e1318c2479ecef40a1bcee8a04222f2">More...</a><br /></td></tr>
+<tr class="separator:a1e1318c2479ecef40a1bcee8a04222f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56357ecba8bf60a498a1e02ff42057e7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03962.html#a56357ecba8bf60a498a1e02ff42057e7">loadBalance</a> (const std::vector&lt; <a class="el" href="a03962.html#ad51545e1ddb567381bb64f63074ec918">Rank</a> &gt; &amp;targetProcessors, unsigned int fromLevel)</td></tr>
+<tr class="memdesc:a56357ecba8bf60a498a1e02ff42057e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Distribute this grid over a distributed machine.  <a href="a03962.html#a56357ecba8bf60a498a1e02ff42057e7">More...</a><br /></td></tr>
+<tr class="separator:a56357ecba8bf60a498a1e02ff42057e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f5f67f8bc720ef58e54818c49d3347f"><td class="memTemplParams" colspan="2">template&lt;class DataHandle &gt; </td></tr>
+<tr class="memitem:a3f5f67f8bc720ef58e54818c49d3347f"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a03962.html#a3f5f67f8bc720ef58e54818c49d3347f">loadBalance</a> (const std::vector&lt; <a class="el" href="a03962.html#ad51545e1ddb567381bb64f63074ec918">Rank</a> &gt; &amp;targetProcessors, unsigned int fromLevel, DataHandle &amp;dataHandle)</td></tr>
+<tr class="memdesc:a3f5f67f8bc720ef58e54818c49d3347f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Distributes the grid over the processes of a parallel machine, and sends data along with it.  <a href="a03962.html#a3f5f67f8bc720ef58e54818c49d3347f">More...</a><br /></td></tr>
+<tr class="separator:a3f5f67f8bc720ef58e54818c49d3347f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37825baf26ae140c430d041c16373da2"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00940.html#aca0e244f2315c2955492bfa4c7804ae7">UGCollectiveCommunication</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03962.html#a37825baf26ae140c430d041c16373da2">comm</a> () const</td></tr>
+<tr class="separator:a37825baf26ae140c430d041c16373da2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44a31bb7c16ced87b8fea42382e2b18d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03962.html#a44a31bb7c16ced87b8fea42382e2b18d">getChildrenOfSubface</a> (const typename Traits::template <a class="el" href="a02714.html">Codim</a>&lt; 0 &gt;::<a class="el" href="a02642.html">Entity</a> &amp;e, int elementSide, int maxl, std::vector&lt; typename Traits::template <a class="el" href="a02714.html">Codim</a>&lt; 0 &gt;::<a class="el" href="a02642.html">Entity</a> &gt; &amp;childElements, std::vector&lt; unsigned char &gt; &amp;childElementSides) const</td></tr>
+<tr class="memdesc:a44a31bb7c16ced87b8fea42382e2b18d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rudimentary substitute for a hierarchic iterator on faces.  <a href="a03962.html#a44a31bb7c16ced87b8fea42382e2b18d">More...</a><br /></td></tr>
+<tr class="separator:a44a31bb7c16ced87b8fea42382e2b18d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f6da85df8d4df8d3c8c19f5fe2d74b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03962.html#a0f6da85df8d4df8d3c8c19f5fe2d74b1">setRefinementType</a> (<a class="el" href="a03962.html#a77f385a0019e340ffe3ecd7509bbc3fb">RefinementType</a> type)</td></tr>
+<tr class="memdesc:a0f6da85df8d4df8d3c8c19f5fe2d74b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the type of grid refinement.  <a href="a03962.html#a0f6da85df8d4df8d3c8c19f5fe2d74b1">More...</a><br /></td></tr>
+<tr class="separator:a0f6da85df8d4df8d3c8c19f5fe2d74b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c1309f835cd9698ddb42fa8bf0ac25c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03962.html#a6c1309f835cd9698ddb42fa8bf0ac25c">setClosureType</a> (<a class="el" href="a03962.html#ae0b21dc1efd8553d4fa4ff9c6ee20c08">ClosureType</a> type)</td></tr>
+<tr class="memdesc:a6c1309f835cd9698ddb42fa8bf0ac25c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the type of grid refinement closure.  <a href="a03962.html#a6c1309f835cd9698ddb42fa8bf0ac25c">More...</a><br /></td></tr>
+<tr class="separator:a6c1309f835cd9698ddb42fa8bf0ac25c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c76941abe2dd74c3102c1875391a752"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03962.html#a7c76941abe2dd74c3102c1875391a752">setPosition</a> (const typename Traits::template <a class="el" href="a02714.html">Codim</a>&lt; dim &gt;::<a class="el" href="a02642.html">Entity</a> &amp;e, const FieldVector&lt; double, dim &gt; &amp;pos)</td></tr>
+<tr class="memdesc:a7c76941abe2dd74c3102c1875391a752"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a vertex to a new position.  <a href="a03962.html#a7c76941abe2dd74c3102c1875391a752">More...</a><br /></td></tr>
+<tr class="separator:a7c76941abe2dd74c3102c1875391a752"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8a86eb51c3aba71eee7650d90898835"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03962.html#ad8a86eb51c3aba71eee7650d90898835">globalRefine</a> (int n)</td></tr>
+<tr class="memdesc:ad8a86eb51c3aba71eee7650d90898835"><td class="mdescLeft">&#160;</td><td class="mdescRight">Does uniform refinement.  <a href="a03962.html#ad8a86eb51c3aba71eee7650d90898835">More...</a><br /></td></tr>
+<tr class="separator:ad8a86eb51c3aba71eee7650d90898835"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad69f609c92677774cfe477e68e9da5de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03962.html#ad69f609c92677774cfe477e68e9da5de">saveState</a> (const std::string &amp;filename) const</td></tr>
+<tr class="memdesc:ad69f609c92677774cfe477e68e9da5de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Save entire grid hierarchy to disk.  <a href="a03962.html#ad69f609c92677774cfe477e68e9da5de">More...</a><br /></td></tr>
+<tr class="separator:ad69f609c92677774cfe477e68e9da5de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0aafcb31c706f319fc6c3e5252a1950"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03962.html#ac0aafcb31c706f319fc6c3e5252a1950">loadState</a> (const std::string &amp;filename)</td></tr>
+<tr class="memdesc:ac0aafcb31c706f319fc6c3e5252a1950"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read entire grid hierarchy from disk.  <a href="a03962.html#ac0aafcb31c706f319fc6c3e5252a1950">More...</a><br /></td></tr>
+<tr class="separator:ac0aafcb31c706f319fc6c3e5252a1950"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader">Parallel data distribution and communication</h2></td></tr>
+<tr class="memitem:aa793697a7fd34f091718974c719041cf"><td class="memTemplParams" colspan="2">template&lt;class EntitySeed &gt; </td></tr>
+<tr class="memitem:aa793697a7fd34f091718974c719041cf"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="a02714.html">Codim</a>&lt; <a class="el" href="a02670.html">EntitySeed</a> ::codimension &gt;::<a class="el" href="a02642.html">Entity</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a02710.html#aa793697a7fd34f091718974c719041cf">entity</a> (const <a class="el" href="a02670.html">EntitySeed</a> &amp;seed) const</td></tr>
+<tr class="memdesc:aa793697a7fd34f091718974c719041cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">obtain <a class="el" href="a02642.html" title="Wrapper class for entities.">Entity</a> from <a class="el" href="a02670.html" title="Store a reference to an entity with a minimal memory footprint.">EntitySeed</a>.  <a href="a02710.html#aa793697a7fd34f091718974c719041cf">More...</a><br /></td></tr>
+<tr class="separator:aa793697a7fd34f091718974c719041cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af57ab2babe7fc1b3311888586abcdfc2"><td class="memItemLeft" align="right" valign="top">GridImp &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02710.html#af57ab2babe7fc1b3311888586abcdfc2">asImp</a> ()</td></tr>
+<tr class="memdesc:af57ab2babe7fc1b3311888586abcdfc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Barton-Nackman trick.  <a href="a02710.html#af57ab2babe7fc1b3311888586abcdfc2">More...</a><br /></td></tr>
+<tr class="separator:af57ab2babe7fc1b3311888586abcdfc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b73ea50148a770c757339ded8e7c654"><td class="memItemLeft" align="right" valign="top">const GridImp &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02710.html#a3b73ea50148a770c757339ded8e7c654">asImp</a> () const</td></tr>
+<tr class="memdesc:a3b73ea50148a770c757339ded8e7c654"><td class="mdescLeft">&#160;</td><td class="mdescRight">Barton-Nackman trick.  <a href="a02710.html#a3b73ea50148a770c757339ded8e7c654">More...</a><br /></td></tr>
+<tr class="separator:a3b73ea50148a770c757339ded8e7c654"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="a03942.html" title="One-dimensional adaptive grid.">OneDGrid</a> is leafwise conforming. </p>
-</div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="a95069c571e0d054c945b1f8ac9ca7c27"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a95069c571e0d054c945b1f8ac9ca7c27">&#9670;&nbsp;</a></span>v</h2>
+<div class="textblock"><h3>template&lt;int dim&gt;<br />
+class Dune::UGGrid&lt; dim &gt;</h3>
+
+<p>Front-end for the grid manager of the finite element toolbox UG3. </p>
+<p>This is the implementation of the grid interface using the UG3 grid management system. It is best described in this <a href="https://doi.org/10.1007/s007910050003">paper</a>. To our knowledge, the original code is not available anymore, but the relevant parts have been forked into the Dune module dune-uggrid, available from <a href="https://www.dune-project.org/modules/dune-uggrid"></a>.</p>
+<p><a class="el" href="a03962.html" title="Front-end for the grid manager of the finite element toolbox UG3.">UGGrid</a> provides conforming grids in two and three space dimensions. The grids can be mixed, i.e. 2d grids can contain triangles and quadrilaterals and 3d grids can contain tetrahedra and hexahedra and also pyramids and prisms. The grid refinement rules are very flexible. Local adaptive red/green refinement is the default, but a special method in the <a class="el" href="a03962.html" title="Front-end for the grid manager of the finite element toolbox UG3.">UGGrid</a> class allows you to directly access a number of anisotropic refinements rules. Last but not least, the UG grid manager is completely parallelized, and you can use boundaries parametrized by either analytical expressions or high-resolution piecewise linear surfaces.</p>
+<p>In your Dune application, you can instantiate objects of the type UGGrid&lt;2&gt; or UGGrid&lt;3&gt;. You can have more than one, if you choose. It is even possible to have 2d and 3d grids at the same time, even though the original UG system never intended to support this!</p>
+<p>See the documentation for the factory class <a class="el" href="a02754.html" title="Provide a generic factory class for unstructured grids.">GridFactory</a>&lt;<a class="el" href="a03962.html">UGGrid&lt;dimworld&gt;</a> &gt; to learn how to create <a class="el" href="a03962.html" title="Front-end for the grid manager of the finite element toolbox UG3.">UGGrid</a> objects. </p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a207a985384df3916550501a433b5cebe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a207a985384df3916550501a433b5cebe">&#9670;&nbsp;</a></span>CollectiveCommunication</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, int dimworld, class ct , class GridFamily &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef GridFamily::Traits::CollectiveCommunication <a class="el" href="a02710.html">Dune::Grid</a>&lt; dim, dimworld, ct, <a class="el" href="a03962.html#a48808ef15d505b05d6e8133a81a4aaa0">GridFamily</a> &gt;::<a class="el" href="a02710.html#a207a985384df3916550501a433b5cebe">CollectiveCommunication</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A type that is a model of Dune::CollectiveCommunication. It provides a portable way for collective communication on the set of processes used by the grid. </p>
+
+</div>
+</div>
+<a id="a8bcdb7069f49ac6cade41e3a23d5f50c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bcdb7069f49ac6cade41e3a23d5f50c">&#9670;&nbsp;</a></span>ctype</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef UG::DOUBLE <a class="el" href="a03962.html">Dune::UGGrid</a>&lt; dim &gt;::<a class="el" href="a02710.html#af10850d580532530ec127817a2a28c38">ctype</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The type used to store coordinates. </p>
+
+</div>
+</div>
+<a id="a57a9c8a29d1af5611593ac5c57c600f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57a9c8a29d1af5611593ac5c57c600f3">&#9670;&nbsp;</a></span>GlobalIdSet</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, int dimworld, class ct , class GridFamily &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef GridFamily::Traits::GlobalIdSet <a class="el" href="a02710.html">Dune::Grid</a>&lt; dim, dimworld, ct, <a class="el" href="a03962.html#a48808ef15d505b05d6e8133a81a4aaa0">GridFamily</a> &gt;::<a class="el" href="a02710.html#a57a9c8a29d1af5611593ac5c57c600f3">GlobalIdSet</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A type that is a model of <a class="el" href="a02706.html" title="Id Set Interface.">Dune::IdSet</a> which provides a unique and persistent numbering for all entities in the grid. The numbering is unique over all processes over which the grid is partitioned. The numbering is not necessarily consecutive. </p>
+
+</div>
+</div>
+<a id="a48808ef15d505b05d6e8133a81a4aaa0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48808ef15d505b05d6e8133a81a4aaa0">&#9670;&nbsp;</a></span>GridFamily</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="a03958.html">UGGridFamily</a>&lt;dim&gt; <a class="el" href="a03962.html">Dune::UGGrid</a>&lt; dim &gt;::<a class="el" href="a03962.html#a48808ef15d505b05d6e8133a81a4aaa0">GridFamily</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>type of the used GridFamily for this grid </p>
+
+</div>
+</div>
+<a id="a3cb3ea05314097b76de6420d6a931830"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3cb3ea05314097b76de6420d6a931830">&#9670;&nbsp;</a></span>HierarchicIterator</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, int dimworld, class ct , class GridFamily &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef GridFamily::Traits::HierarchicIterator <a class="el" href="a02710.html">Dune::Grid</a>&lt; dim, dimworld, ct, <a class="el" href="a03962.html#a48808ef15d505b05d6e8133a81a4aaa0">GridFamily</a> &gt;::<a class="el" href="a02710.html#a3cb3ea05314097b76de6420d6a931830">HierarchicIterator</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A type that is a model of Dune::HierarchicIterator A type of iterator that allows to examine, but not to modify, entities of codimension 0 that result from refinement of an entity of codimension 0. </p>
+
+</div>
+</div>
+<a id="ac6cc7c5deb4a5f9be193ad538386e129"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6cc7c5deb4a5f9be193ad538386e129">&#9670;&nbsp;</a></span>LeafGridView</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, int dimworld, class ct , class GridFamily &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef GridFamily::Traits::LeafGridView <a class="el" href="a02710.html">Dune::Grid</a>&lt; dim, dimworld, ct, <a class="el" href="a03962.html#a48808ef15d505b05d6e8133a81a4aaa0">GridFamily</a> &gt;::<a class="el" href="a02710.html#ac6cc7c5deb4a5f9be193ad538386e129">LeafGridView</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>type of view for leaf grid </p>
+
+</div>
+</div>
+<a id="a8c32cd2b2a4426f124fffcb45aedd653"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c32cd2b2a4426f124fffcb45aedd653">&#9670;&nbsp;</a></span>LeafIndexSet</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, int dimworld, class ct , class GridFamily &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef GridFamily::Traits::LeafIndexSet <a class="el" href="a02710.html">Dune::Grid</a>&lt; dim, dimworld, ct, <a class="el" href="a03962.html#a48808ef15d505b05d6e8133a81a4aaa0">GridFamily</a> &gt;::<a class="el" href="a02710.html#a8c32cd2b2a4426f124fffcb45aedd653">LeafIndexSet</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A type that is a model of <a class="el" href="a02702.html" title="Index Set Interface base class.">Dune::IndexSet</a> which provides a consecutive, but non persistent, numbering for entities in the leaf grid. </p>
+
+</div>
+</div>
+<a id="a45739c02b5a9029551508f4a434b2c9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45739c02b5a9029551508f4a434b2c9e">&#9670;&nbsp;</a></span>LeafIntersection</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, int dimworld, class ct , class GridFamily &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef GridFamily::Traits::LeafIntersection <a class="el" href="a02710.html">Dune::Grid</a>&lt; dim, dimworld, ct, <a class="el" href="a03962.html#a48808ef15d505b05d6e8133a81a4aaa0">GridFamily</a> &gt;::<a class="el" href="a02710.html#a45739c02b5a9029551508f4a434b2c9e">LeafIntersection</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A type that is a model of <a class="el" href="a01842.html" title="Intersection of a mesh entity of codimension 0 (&quot;element&quot;) with a &quot;neighboring&quot; element or with the d...">Dune::Intersection</a>, an intersections of two codimension 1 of two codimension 0 entities in the leaf view. </p>
+
+</div>
+</div>
+<a id="a12fe2d3b85009e0d5a7d6f5af54f4671"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12fe2d3b85009e0d5a7d6f5af54f4671">&#9670;&nbsp;</a></span>LeafIntersectionIterator</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, int dimworld, class ct , class GridFamily &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef GridFamily::Traits::LeafIntersectionIterator <a class="el" href="a02710.html">Dune::Grid</a>&lt; dim, dimworld, ct, <a class="el" href="a03962.html#a48808ef15d505b05d6e8133a81a4aaa0">GridFamily</a> &gt;::<a class="el" href="a02710.html#a12fe2d3b85009e0d5a7d6f5af54f4671">LeafIntersectionIterator</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A type that is a model of <a class="el" href="a02698.html" title="Mesh entities of codimension 0 (&quot;elements&quot;) allow to visit all intersections with &quot;neighboring&quot; eleme...">Dune::IntersectionIterator</a> which is an iterator that allows to examine, but not to modify, the intersections of codimension 1 of an leaf element (entity of codimension 0) with other leaf elements. </p>
+
+</div>
+</div>
+<a id="a43e36b0156d9791dce24c97af9590fae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43e36b0156d9791dce24c97af9590fae">&#9670;&nbsp;</a></span>LevelGridView</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, int dimworld, class ct , class GridFamily &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef GridFamily::Traits::LevelGridView <a class="el" href="a02710.html">Dune::Grid</a>&lt; dim, dimworld, ct, <a class="el" href="a03962.html#a48808ef15d505b05d6e8133a81a4aaa0">GridFamily</a> &gt;::<a class="el" href="a02710.html#a43e36b0156d9791dce24c97af9590fae">LevelGridView</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>type of view for level grid </p>
+
+</div>
+</div>
+<a id="a15ae95ae6345d8796c4d02e7cc6759e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15ae95ae6345d8796c4d02e7cc6759e2">&#9670;&nbsp;</a></span>LevelIndexSet</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, int dimworld, class ct , class GridFamily &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef GridFamily::Traits::LevelIndexSet <a class="el" href="a02710.html">Dune::Grid</a>&lt; dim, dimworld, ct, <a class="el" href="a03962.html#a48808ef15d505b05d6e8133a81a4aaa0">GridFamily</a> &gt;::<a class="el" href="a02710.html#a15ae95ae6345d8796c4d02e7cc6759e2">LevelIndexSet</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A type that is a model of <a class="el" href="a02702.html" title="Index Set Interface base class.">Dune::IndexSet</a> which provides a consecutive, but non persistent, numbering for entities on a grid level. </p>
+
+</div>
+</div>
+<a id="aa7f95858ca7788d75fab631504f85632"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7f95858ca7788d75fab631504f85632">&#9670;&nbsp;</a></span>LevelIntersection</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, int dimworld, class ct , class GridFamily &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef GridFamily::Traits::LevelIntersection <a class="el" href="a02710.html">Dune::Grid</a>&lt; dim, dimworld, ct, <a class="el" href="a03962.html#a48808ef15d505b05d6e8133a81a4aaa0">GridFamily</a> &gt;::<a class="el" href="a02710.html#aa7f95858ca7788d75fab631504f85632">LevelIntersection</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A type that is a model of <a class="el" href="a01842.html" title="Intersection of a mesh entity of codimension 0 (&quot;element&quot;) with a &quot;neighboring&quot; element or with the d...">Dune::Intersection</a>, an intersections of two codimension 1 of two codimension 0 entities in a level view. </p>
+
+</div>
+</div>
+<a id="a54c44d26eaedf4a7d07f8b60ecd9e68c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54c44d26eaedf4a7d07f8b60ecd9e68c">&#9670;&nbsp;</a></span>LevelIntersectionIterator</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, int dimworld, class ct , class GridFamily &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef GridFamily::Traits::LevelIntersectionIterator <a class="el" href="a02710.html">Dune::Grid</a>&lt; dim, dimworld, ct, <a class="el" href="a03962.html#a48808ef15d505b05d6e8133a81a4aaa0">GridFamily</a> &gt;::<a class="el" href="a02710.html#a54c44d26eaedf4a7d07f8b60ecd9e68c">LevelIntersectionIterator</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A type that is a model of <a class="el" href="a02698.html" title="Mesh entities of codimension 0 (&quot;elements&quot;) allow to visit all intersections with &quot;neighboring&quot; eleme...">Dune::IntersectionIterator</a> which is an iterator that allows to examine, but not to modify, the intersections of codimension 1 of an element (entity of codimension 0) with other elements on the same level. </p>
+
+</div>
+</div>
+<a id="a0dc537d9da8ca9f954885f79b54c38f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0dc537d9da8ca9f954885f79b54c38f4">&#9670;&nbsp;</a></span>LocalIdSet</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, int dimworld, class ct , class GridFamily &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef GridFamily::Traits::LocalIdSet <a class="el" href="a02710.html">Dune::Grid</a>&lt; dim, dimworld, ct, <a class="el" href="a03962.html#a48808ef15d505b05d6e8133a81a4aaa0">GridFamily</a> &gt;::<a class="el" href="a02710.html#a0dc537d9da8ca9f954885f79b54c38f4">LocalIdSet</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A type that is a model of <a class="el" href="a02706.html" title="Id Set Interface.">Dune::IdSet</a> which provides a unique and persistent numbering for all entities in the grid. The numbering is only unique in a single process and it is not necessarily consecutive. </p>
+
+</div>
+</div>
+<a id="ad51545e1ddb567381bb64f63074ec918"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad51545e1ddb567381bb64f63074ec918">&#9670;&nbsp;</a></span>Rank</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef unsigned int <a class="el" href="a03962.html">Dune::UGGrid</a>&lt; dim &gt;::<a class="el" href="a03962.html#ad51545e1ddb567381bb64f63074ec918">Rank</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The type used for process ranks. </p>
+
+</div>
+</div>
+<a id="a3bc00513d660384b4fe3ad2dc3afd380"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bc00513d660384b4fe3ad2dc3afd380">&#9670;&nbsp;</a></span>Traits</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="a03958.html">UGGridFamily</a>&lt;dim&gt;::<a class="el" href="a03962.html#a3bc00513d660384b4fe3ad2dc3afd380">Traits</a> <a class="el" href="a03962.html">Dune::UGGrid</a>&lt; dim &gt;::<a class="el" href="a03962.html#a3bc00513d660384b4fe3ad2dc3afd380">Traits</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="ad60b40e40ac87b01ad0b1f05ab4925b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad60b40e40ac87b01ad0b1f05ab4925b1">&#9670;&nbsp;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, int dimworld, class ct , class GridFamily &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A constant that exports the template parameter dim. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ad60b40e40ac87b01ad0b1f05ab4925b1a3d6a22a414566af9b4a356f760fce944"></a>dimension&#160;</td><td class="fielddoc"><p>The dimension of the grid. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ab4f3c3433e4d9b46504c91b3e5c3bfb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4f3c3433e4d9b46504c91b3e5c3bfb1">&#9670;&nbsp;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, int dimworld, class ct , class GridFamily &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A constant that exports the template parameter dimworld. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ab4f3c3433e4d9b46504c91b3e5c3bfb1a7829985ca62f22ec6c57c5feba1e0604"></a>dimensionworld&#160;</td><td class="fielddoc"><p>The dimension of the world the grid lives in. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ae0b21dc1efd8553d4fa4ff9c6ee20c08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0b21dc1efd8553d4fa4ff9c6ee20c08">&#9670;&nbsp;</a></span>ClosureType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a03962.html#ae0b21dc1efd8553d4fa4ff9c6ee20c08">Dune::UGGrid::ClosureType</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Decide whether to add a green closure to locally refined grid sections or not. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ae0b21dc1efd8553d4fa4ff9c6ee20c08a291003834b7f001bf74eb7bb0da6d5ab"></a>GREEN&#160;</td><td class="fielddoc"><p>Standard red/green refinement. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae0b21dc1efd8553d4fa4ff9c6ee20c08ab36a704df45a683f4f7d4cb5e473649c"></a>NONE&#160;</td><td class="fielddoc"><p>No closure, results in nonconforming meshes. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="a77f385a0019e340ffe3ecd7509bbc3fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77f385a0019e340ffe3ecd7509bbc3fb">&#9670;&nbsp;</a></span>RefinementType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a03962.html#a77f385a0019e340ffe3ecd7509bbc3fb">Dune::UGGrid::RefinementType</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The different forms of grid refinement that UG supports. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a77f385a0019e340ffe3ecd7509bbc3fbae06c5d78b1b104ce8c12bc065fc0ede2"></a>LOCAL&#160;</td><td class="fielddoc"><p>New level consists only of the refined elements and the closure. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a77f385a0019e340ffe3ecd7509bbc3fba27d7f8aa313fd4d8bde04746370b9a74"></a>COPY&#160;</td><td class="fielddoc"><p>New level consists of the refined elements and the unrefined ones, too. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a651016ab341e358553c3dfb3229cb807"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a651016ab341e358553c3dfb3229cb807">&#9670;&nbsp;</a></span>UGGrid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a03962.html">Dune::UGGrid</a>&lt; dim &gt;::<a class="el" href="a03962.html">UGGrid</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00940.html#aca0e244f2315c2955492bfa4c7804ae7">UGCollectiveCommunication</a>&#160;</td>
+          <td class="paramname"><em>comm</em> = <code>{}</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Default constructor. </p>
+
+</div>
+</div>
+<a id="a305af6450899bdd43419ef212fb35b5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a305af6450899bdd43419ef212fb35b5f">&#9670;&nbsp;</a></span>~UGGrid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a03962.html">Dune::UGGrid</a>&lt; dim &gt;::~<a class="el" href="a03962.html">UGGrid</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destructor. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="aa3fe65d750889dc3e875dcc8b3981f0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3fe65d750889dc3e875dcc8b3981f0c">&#9670;&nbsp;</a></span>adapt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="a03962.html">Dune::UGGrid</a>&lt; dim &gt;::adapt </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Triggers the grid refinement process. </p>
+
+</div>
+</div>
+<a id="af57ab2babe7fc1b3311888586abcdfc2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af57ab2babe7fc1b3311888586abcdfc2">&#9670;&nbsp;</a></span>asImp() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, int dimworld, class ct , class GridFamily &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GridImp&amp; <a class="el" href="a02710.html">Dune::Grid</a>&lt; dim, dimworld, ct, <a class="el" href="a03962.html#a48808ef15d505b05d6e8133a81a4aaa0">GridFamily</a> &gt;::asImp </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Barton-Nackman trick. </p>
+
+</div>
+</div>
+<a id="a3b73ea50148a770c757339ded8e7c654"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b73ea50148a770c757339ded8e7c654">&#9670;&nbsp;</a></span>asImp() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, int dimworld, class ct , class GridFamily &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const GridImp&amp; <a class="el" href="a02710.html">Dune::Grid</a>&lt; dim, dimworld, ct, <a class="el" href="a03962.html#a48808ef15d505b05d6e8133a81a4aaa0">GridFamily</a> &gt;::asImp </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Barton-Nackman trick. </p>
+
+</div>
+</div>
+<a id="a37825baf26ae140c430d041c16373da2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37825baf26ae140c430d041c16373da2">&#9670;&nbsp;</a></span>comm()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00940.html#aca0e244f2315c2955492bfa4c7804ae7">UGCollectiveCommunication</a>&amp; <a class="el" href="a03962.html">Dune::UGGrid</a>&lt; dim &gt;::comm </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>the collective communication </p>
+
+</div>
+</div>
+<a id="aa793697a7fd34f091718974c719041cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa793697a7fd34f091718974c719041cf">&#9670;&nbsp;</a></span>entity() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, int dimworld, class ct , class GridFamily &gt; </div>
+<div class="memtemplate">
+template&lt;class EntitySeed &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a02714.html">Codim</a>&lt; <a class="el" href="a02670.html">EntitySeed</a> :: codimension &gt;:: <a class="el" href="a02642.html">Entity</a> <a class="el" href="a02710.html">Dune::Grid</a>&lt; dim, dimworld, ct, <a class="el" href="a03962.html#a48808ef15d505b05d6e8133a81a4aaa0">GridFamily</a> &gt;::entity </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a02670.html">EntitySeed</a> &amp;&#160;</td>
+          <td class="paramname"><em>seed</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>obtain <a class="el" href="a02642.html" title="Wrapper class for entities.">Entity</a> from <a class="el" href="a02670.html" title="Store a reference to an entity with a minimal memory footprint.">EntitySeed</a>. </p>
+
+</div>
+</div>
+<a id="acf0b78a530c63b580e9cb7a07de0ec3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf0b78a530c63b580e9cb7a07de0ec3c">&#9670;&nbsp;</a></span>entity() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<div class="memtemplate">
+template&lt;typename Seed &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Traits::template <a class="el" href="a02714.html">Codim</a>&lt;Seed::codimension&gt;::<a class="el" href="a02642.html">Entity</a> <a class="el" href="a03962.html">Dune::UGGrid</a>&lt; dim &gt;::entity </td>
+          <td>(</td>
+          <td class="paramtype">const Seed &amp;&#160;</td>
+          <td class="paramname"><em>seed</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Create an <a class="el" href="a02642.html" title="Wrapper class for entities.">Entity</a> from an <a class="el" href="a02670.html" title="Store a reference to an entity with a minimal memory footprint.">EntitySeed</a>. </p>
+
+</div>
+</div>
+<a id="a44a31bb7c16ced87b8fea42382e2b18d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44a31bb7c16ced87b8fea42382e2b18d">&#9670;&nbsp;</a></span>getChildrenOfSubface()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="a03962.html">Dune::UGGrid</a>&lt; dim &gt;::getChildrenOfSubface </td>
+          <td>(</td>
+          <td class="paramtype">const typename Traits::template <a class="el" href="a02714.html">Codim</a>&lt; 0 &gt;::<a class="el" href="a02642.html">Entity</a> &amp;&#160;</td>
+          <td class="paramname"><em>e</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>elementSide</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>maxl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; typename Traits::template <a class="el" href="a02714.html">Codim</a>&lt; 0 &gt;::<a class="el" href="a02642.html">Entity</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>childElements</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; unsigned char &gt; &amp;&#160;</td>
+          <td class="paramname"><em>childElementSides</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Rudimentary substitute for a hierarchic iterator on faces. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">e,elementSide</td><td><a class="el" href="a02710.html" title="Grid abstract base class.">Grid</a> face specified by an element and one of its sides </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">maxl</td><td>The finest level that should be traversed by the iterator </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">childElements</td><td>For each subface: element index, elementSide, and level </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">childElementSides</td><td>Indices for transformation because <a class="el" href="a00940.html" title="Include standard header files.">Dune</a> numbers the faces of several elements differently than UG </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa37b82d0326ee5a9997d6b4bf301c5c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa37b82d0326ee5a9997d6b4bf301c5c3">&#9670;&nbsp;</a></span>getMark() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, int dimworld, class ct , class GridFamily &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="a02710.html">Dune::Grid</a>&lt; dim, dimworld, ct, <a class="el" href="a03962.html#a48808ef15d505b05d6e8133a81a4aaa0">GridFamily</a> &gt;::getMark </td>
+          <td>(</td>
+          <td class="paramtype">const typename <a class="el" href="a02714.html">Codim</a>&lt; 0 &gt;::<a class="el" href="a02642.html">Entity</a> &amp;&#160;</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>returns adaptation mark for given entity </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">e</td><td><a class="el" href="a02642.html" title="Wrapper class for entities.">Entity</a> for which adaptation mark should be determined</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>int adaptation mark currently set for given <a class="el" href="a02642.html" title="Wrapper class for entities.">Entity</a> e </dd></dl>
+
+</div>
+</div>
+<a id="a14f1b61a413dbf35fff0b337e8f75856"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14f1b61a413dbf35fff0b337e8f75856">&#9670;&nbsp;</a></span>getMark() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="a03962.html">Dune::UGGrid</a>&lt; dim &gt;::getMark </td>
+          <td>(</td>
+          <td class="paramtype">const typename Traits::template <a class="el" href="a02714.html">Codim</a>&lt; 0 &gt;::<a class="el" href="a02642.html">Entity</a> &amp;&#160;</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Query whether element is marked for refinement. </p>
+
+</div>
+</div>
+<a id="a73d512fef588584e05fb695649a10bb7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73d512fef588584e05fb695649a10bb7">&#9670;&nbsp;</a></span>globalIdSet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a02722.html#a76c94cf691e5617a0af9fc60b74d9388">Traits::GlobalIdSet</a>&amp; <a class="el" href="a03962.html">Dune::UGGrid</a>&lt; dim &gt;::globalIdSet </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Access to the GlobalIdSet. </p>
+
+</div>
+</div>
+<a id="ad8a86eb51c3aba71eee7650d90898835"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8a86eb51c3aba71eee7650d90898835">&#9670;&nbsp;</a></span>globalRefine()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="a03962.html">Dune::UGGrid</a>&lt; dim &gt;::globalRefine </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Does uniform refinement. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>Number of uniform refinement steps </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="adc04e686c0482d3f5ac7fdaac8b56c62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc04e686c0482d3f5ac7fdaac8b56c62">&#9670;&nbsp;</a></span>leafGridView()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -97,20 +1205,980 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const bool <a class="el" href="a02514.html">Dune::Capabilities::isLeafwiseConforming</a>&lt; <a class="el" href="a03942.html">OneDGrid</a> &gt;::v = true</td>
+          <td class="memname"><a class="el" href="a02722.html#a561e8f97ab25a9fa54f14dc7ce4137ac">Traits::LeafGridView</a> <a class="el" href="a02678.html">Dune::GridDefaultImplementation</a>&lt; dim, dimworld, double , <a class="el" href="a03958.html">UGGridFamily</a>&lt; dim &gt;  &gt;::leafGridView </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
+<p>View for the leaf grid for All_Partition. </p>
+
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="a00842_source.html">onedgrid.hh</a></li>
+<a id="ad2e5e55414372de3e3026fa6fd4c30d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2e5e55414372de3e3026fa6fd4c30d3">&#9670;&nbsp;</a></span>leafIndexSet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a02722.html#a85635f7b49ec753178ad1bae923df174">Traits::LeafIndexSet</a>&amp; <a class="el" href="a03962.html">Dune::UGGrid</a>&lt; dim &gt;::leafIndexSet </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Access to the LeafIndexSet. </p>
+
+</div>
+</div>
+<a id="ae3ad6ba7e3493b5edbf8904fc69fee6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3ad6ba7e3493b5edbf8904fc69fee6e">&#9670;&nbsp;</a></span>levelGridView()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a02722.html#ab23e2c62533b253a9972635b28f0a98d">Traits::LevelGridView</a> <a class="el" href="a02678.html">Dune::GridDefaultImplementation</a>&lt; dim, dimworld, double , <a class="el" href="a03958.html">UGGridFamily</a>&lt; dim &gt;  &gt;::levelGridView </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>level</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>View for a grid level for All_Partition. </p>
+
+</div>
+</div>
+<a id="aa6dfa171ce16aeb31ae41d53f8b654dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6dfa171ce16aeb31ae41d53f8b654dd">&#9670;&nbsp;</a></span>levelIndexSet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a02722.html#ab15b45c5173652546755e1e3864ac15e">Traits::LevelIndexSet</a>&amp; <a class="el" href="a03962.html">Dune::UGGrid</a>&lt; dim &gt;::levelIndexSet </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>level</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Access to the LevelIndexSets. </p>
+
+</div>
+</div>
+<a id="ae0ed8cbb63b8740a5e7b1a112eebe5af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0ed8cbb63b8740a5e7b1a112eebe5af">&#9670;&nbsp;</a></span>loadBalance() <span class="overload">[1/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="a02678.html">Dune::GridDefaultImplementation</a>&lt; dim, dimworld, double , <a class="el" href="a03958.html">UGGridFamily</a>&lt; dim &gt;  &gt;::loadBalance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>default implementation of load balance does nothing and returns false </p>
+
+</div>
+</div>
+<a id="a4c83dd556fff769d3d26631f1b58d641"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c83dd556fff769d3d26631f1b58d641">&#9670;&nbsp;</a></span>loadBalance() <span class="overload">[2/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="a02678.html">Dune::GridDefaultImplementation</a>&lt; dim, dimworld, double , <a class="el" href="a03958.html">UGGridFamily</a>&lt; dim &gt;  &gt;::loadBalance </td>
+          <td>(</td>
+          <td class="paramtype">[[maybe_unused] ] DataHandle &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>default implementation of load balance does nothing and returns false </p>
+
+</div>
+</div>
+<a id="a56357ecba8bf60a498a1e02ff42057e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56357ecba8bf60a498a1e02ff42057e7">&#9670;&nbsp;</a></span>loadBalance() <span class="overload">[3/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="a03962.html">Dune::UGGrid</a>&lt; dim &gt;::loadBalance </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="a03962.html#ad51545e1ddb567381bb64f63074ec918">Rank</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>targetProcessors</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>fromLevel</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Distribute this grid over a distributed machine. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">targetProcessors</td><td>For each leaf element the rank of the process the element shall be sent to </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">fromLevel</td><td>The lowest level that gets redistributed (set to 0 when in doubt)</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This method allows to (re-)distribute the grid controlled by an external grid repartitioning library. You need to get that library to assign a target rank to each interior element in the leaf grid. With this information in a std::vector, call this method, and UG will do the actual repartitioning. Each leaf element will be sent to the assigned target rank. For all other elements we look at where there children are being sent to. The parent is then sent to where most of its children are (Familienzusammenfuehrung).</p>
+<p>The size of the input array targetProcessors is expected to be equal to the number of elements in the 'all'-partition, i.e., the number Interior elements plus the number of Ghost elements. To get the array entry corresponding to an Interior element, a <a class="el" href="a02798.html" title="Implementation class for a multiple codim and multiple geometry type mapper.">MultipleCodimMultipleGeomTypeMapper</a> with layout class MCMGElementLayout is used. Array entries corresponding to Ghost elements are ignored.</p>
+<p>In some cases you may also want to leave the lowest levels on one process, to have them all together for multigrid coarse grid corrections. In that case, use the fromLevel parameter with a value other than zero, to redistribute only elements above a certain level.</p>
+<p>The fromLevel argument is also needed to allow the compiler to distinguish this method from the loadBalance method with a single template DataHandle argument.</p>
+<dl class="section note"><dt>Note</dt><dd>In theory you can assign a target rank to any element on any level, and UG will magically transfer the element to that rank and make everything come out right. This is not supported by the <a class="el" href="a03962.html" title="Front-end for the grid manager of the finite element toolbox UG3.">UGGrid</a> interface, because I didn't see a use case for it. If you do need it please ask on the <a class="el" href="a00940.html" title="Include standard header files.">Dune</a> mailing list.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>true </dd></dl>
+
+</div>
+</div>
+<a id="a3f5f67f8bc720ef58e54818c49d3347f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f5f67f8bc720ef58e54818c49d3347f">&#9670;&nbsp;</a></span>loadBalance() <span class="overload">[4/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<div class="memtemplate">
+template&lt;class DataHandle &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="a03962.html">Dune::UGGrid</a>&lt; dim &gt;::loadBalance </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="a03962.html#ad51545e1ddb567381bb64f63074ec918">Rank</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>targetProcessors</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>fromLevel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">DataHandle &amp;&#160;</td>
+          <td class="paramname"><em>dataHandle</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Distributes the grid over the processes of a parallel machine, and sends data along with it. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">targetProcessors</td><td>For each leaf element the rank of the process the element shall be sent to </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">fromLevel</td><td>The lowest level that gets redistributed (set to 0 when in doubt) </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">dataHandle</td><td>A data handle object that does the gathering and scattering of data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">DataHandle</td><td>works like the data handle for the communicate methods.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true </dd></dl>
+
+</div>
+</div>
+<a id="ac7d6404bfd07bf3735b971e0f0f57ef6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7d6404bfd07bf3735b971e0f0f57ef6">&#9670;&nbsp;</a></span>loadBalance() <span class="overload">[5/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<div class="memtemplate">
+template&lt;class DataHandle &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="a03962.html">Dune::UGGrid</a>&lt; dim &gt;::loadBalance </td>
+          <td>(</td>
+          <td class="paramtype">DataHandle &amp;&#160;</td>
+          <td class="paramname"><em>dataHandle</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Distributes the grid and some data over the available nodes in a distributed machine. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">DataHandle</td><td>works like the data handle for the communicate methods.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True, if grid has changed, false otherwise </dd></dl>
+
+</div>
+</div>
+<a id="a1e1318c2479ecef40a1bcee8a04222f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e1318c2479ecef40a1bcee8a04222f2">&#9670;&nbsp;</a></span>loadBalance() <span class="overload">[6/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="a03962.html">Dune::UGGrid</a>&lt; dim &gt;::loadBalance </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>minlevel</em> = <code>0</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Distributes this grid over the available nodes in a distributed machine. </p>
+<dl class="bug"><dt><b><a class="el" href="a00904.html#_bug000001">Bug:</a></b></dt><dd>The return value is always 'true'</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">minlevel</td><td>The coarsest grid level that gets distributed </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac0aafcb31c706f319fc6c3e5252a1950"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0aafcb31c706f319fc6c3e5252a1950">&#9670;&nbsp;</a></span>loadState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="a03962.html">Dune::UGGrid</a>&lt; dim &gt;::loadState </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Read entire grid hierarchy from disk. </p>
+<p>Test implementation &ndash; not working! </p>
+
+</div>
+</div>
+<a id="a9425c79c76b691542100de06b0604091"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9425c79c76b691542100de06b0604091">&#9670;&nbsp;</a></span>localIdSet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a02722.html#a37104ec797c35e9e5dc4bb7c6a479f2a">Traits::LocalIdSet</a>&amp; <a class="el" href="a03962.html">Dune::UGGrid</a>&lt; dim &gt;::localIdSet </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Access to the LocalIdSet. </p>
+
+</div>
+</div>
+<a id="a5e8cd0ca4d1f2f21d44d32431443a41f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e8cd0ca4d1f2f21d44d32431443a41f">&#9670;&nbsp;</a></span>mark() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="a03962.html">Dune::UGGrid</a>&lt; dim &gt;::mark </td>
+          <td>(</td>
+          <td class="paramtype">const typename Traits::template <a class="el" href="a02714.html">Codim</a>&lt; 0 &gt;::<a class="el" href="a02642.html">Entity</a> &amp;&#160;</td>
+          <td class="paramname"><em>e</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">typename UG_NS&lt; dim &gt;::RefinementRule&#160;</td>
+          <td class="paramname"><em>rule</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>side</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Mark method accepting a UG refinement rule. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">e</td><td>element to be marked for refinement </td></tr>
+    <tr><td class="paramname">rule</td><td>One of the UG refinement rules </td></tr>
+    <tr><td class="paramname">side</td><td>If rule==UG::D2::BLUE (one quadrilateral is split into two rectangles) you can choose the orientation of the cut by setting side==0 or side==1</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>The available values for RefinementRule are: (see the RefinementRule enum in ug/gm/gm.h) </p><h3>2D</h3>
+<ul>
+<li>NO_REFINEMENT</li>
+<li>COPY</li>
+<li>RED</li>
+<li>BLUE</li>
+<li>COARSE</li>
+<li>BISECTION_1</li>
+<li>BISECTION_2_Q</li>
+<li>BISECTION_2_T1</li>
+<li>BISECTION_2_T2</li>
+<li>BISECTION_3</li>
+</ul>
+<h3>3D</h3>
+<ul>
+<li>NO_REFINEMENT</li>
+<li>COPY</li>
+<li>RED</li>
+<li>COARSE</li>
+<li>TETRA_RED_HEX</li>
+<li>PRISM_BISECT_1_2</li>
+<li>PRISM_QUADSECT</li>
+<li>PRISM_BISECT_HEX0</li>
+<li>PRISM_BISECT_HEX1</li>
+<li>PRISM_BISECT_HEX2</li>
+<li>PRISM_ROTATE_LEFT</li>
+<li>PRISM_ROTATE_RGHT</li>
+<li>PRISM_QUADSECT_HEXPRI0</li>
+<li>PRISM_RED_HEX</li>
+<li>PRISM_BISECT_0_1</li>
+<li>PRISM_BISECT_0_2</li>
+<li>PRISM_BISECT_0_3</li>
+<li>HEX_BISECT_0_1</li>
+<li>HEX_BISECT_0_2</li>
+<li>HEX_BISECT_0_3</li>
+<li>HEX_TRISECT_0</li>
+<li>HEX_TRISECT_5</li>
+<li>HEX_QUADSECT_0</li>
+<li>HEX_QUADSECT_1</li>
+<li>HEX_QUADSECT_2</li>
+<li>HEX_BISECT_HEXPRI0</li>
+<li>HEX_BISECT_HEXPRI1 </li>
+</ul>
+
+</div>
+</div>
+<a id="a724b2f84bf6e59409a8fa663310929a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a724b2f84bf6e59409a8fa663310929a4">&#9670;&nbsp;</a></span>mark() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim, int dimworld, class ct , class GridFamily &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="a02710.html">Dune::Grid</a>&lt; dim, dimworld, ct, <a class="el" href="a03962.html#a48808ef15d505b05d6e8133a81a4aaa0">GridFamily</a> &gt;::mark </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>refCount</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const typename <a class="el" href="a02714.html">Codim</a>&lt; 0 &gt;::<a class="el" href="a02642.html">Entity</a> &amp;&#160;</td>
+          <td class="paramname"><em>e</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Marks an entity to be refined/coarsened in a subsequent adapt. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">refCount</td><td>Number of subdivisions that should be applied. Negative value means coarsening. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">e</td><td><a class="el" href="a02642.html" title="Wrapper class for entities.">Entity</a> that should be marked</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if <a class="el" href="a02642.html" title="Wrapper class for entities.">Entity</a> was marked, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a3976f2a34c52a445f18068a203de4745"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3976f2a34c52a445f18068a203de4745">&#9670;&nbsp;</a></span>mark() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="a02678.html">Dune::GridDefaultImplementation</a>&lt; dim, dimworld, double , <a class="el" href="a03958.html">UGGridFamily</a>&lt; dim &gt;  &gt;::mark </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>refCount</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const typename <a class="el" href="a02678.html#aeb355360f80bd1ee12e0e296cf04aa2e">Traits</a> ::template <a class="el" href="a02714.html">Codim</a>&lt; 0 &gt;::<a class="el" href="a02642.html">Entity</a> &amp;&#160;</td>
+          <td class="paramname"><em>e</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Marks an entity to be refined/coarsened in a subsequent adapt. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">refCount</td><td>Number of subdivisions that should be applied. Negative value means coarsening. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">e</td><td><a class="el" href="a02642.html" title="Wrapper class for entities.">Entity</a> to <a class="el" href="a02642.html" title="Wrapper class for entities.">Entity</a> that should be refined</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if <a class="el" href="a02642.html" title="Wrapper class for entities.">Entity</a> was marked, false otherwise.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd><ul>
+<li><b>default</b> <b>implementation</b> is: return false; for grids with no adaptation.</li>
+<li>for the grid programmer: this method is implemented as a template method, because the <a class="el" href="a02642.html" title="Wrapper class for entities.">Entity</a> type is not defined when the class is instantiated You won't need this trick in the implementation. In your implementation you should use it as <div class="fragment"><div class="line"><span class="keywordtype">bool</span> <a class="code" href="a03962.html#a16d060aa72b5369d9098eac2b206083f">mark</a>( <span class="keywordtype">int</span> refCount,</div>
+<div class="line">           <span class="keyword">typename</span> Traits::template <a class="code" href="a02714.html#a010395efed236aefd4d2fab3b0ad8e96">Codim&lt;0&gt;::Entity</a> &amp; e ).</div>
+<div class="ttc" id="aa02714_html_a010395efed236aefd4d2fab3b0ad8e96"><div class="ttname"><a href="a02714.html#a010395efed236aefd4d2fab3b0ad8e96">Dune::Grid::Codim::Entity</a></div><div class="ttdeci">GridFamily::Traits::template Codim&lt; cd &gt;::Entity Entity</div><div class="ttdoc">A type that is a model of a Dune::Entity&lt;cd,dim,...&gt;.</div><div class="ttdef"><b>Definition:</b> common/grid.hh:422</div></div>
+<div class="ttc" id="aa03962_html_a16d060aa72b5369d9098eac2b206083f"><div class="ttname"><a href="a03962.html#a16d060aa72b5369d9098eac2b206083f">Dune::UGGrid::mark</a></div><div class="ttdeci">bool mark(int refCount, const typename Traits::template Codim&lt; 0 &gt;::Entity &amp;e)</div><div class="ttdoc">Mark element for refinement.</div></div>
+</div><!-- fragment --> This template method will vanish due to the inheritance rules. </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+<a id="a16d060aa72b5369d9098eac2b206083f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16d060aa72b5369d9098eac2b206083f">&#9670;&nbsp;</a></span>mark() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="a03962.html">Dune::UGGrid</a>&lt; dim &gt;::mark </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>refCount</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const typename Traits::template <a class="el" href="a02714.html">Codim</a>&lt; 0 &gt;::<a class="el" href="a02642.html">Entity</a> &amp;&#160;</td>
+          <td class="paramname"><em>e</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Mark element for refinement. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">refCount</td><td><ul>
+<li>
+1: mark for red refinement  </li>
+<li>
+-1: mark for coarsening  </li>
+<li>
+0: delete a possible refinement mark  </li>
+</ul>
+</td></tr>
+    <tr><td class="paramname">e</td><td>Element to be marked </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><ul>
+<li>
+true, if element was marked  </li>
+<li>
+false, if nothing changed  </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+<a id="a6553576487aa7154457458212f706966"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6553576487aa7154457458212f706966">&#9670;&nbsp;</a></span>maxLevel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="a03962.html">Dune::UGGrid</a>&lt; dim &gt;::maxLevel </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Return maximum level defined in this grid. Levels are numbered 0 ... maxlevel with 0 the coarsest level. </p>
+
+</div>
+</div>
+<a id="a0ec74a5640c8db1560df605038c9261f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ec74a5640c8db1560df605038c9261f">&#9670;&nbsp;</a></span>numBoundarySegments()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t <a class="el" href="a03962.html">Dune::UGGrid</a>&lt; dim &gt;::numBoundarySegments </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return the number of boundary segments. </p>
+
+</div>
+</div>
+<a id="a0baec872b4bbe8132eb62fe10d5219e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0baec872b4bbe8132eb62fe10d5219e6">&#9670;&nbsp;</a></span>postAdapt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="a03962.html">Dune::UGGrid</a>&lt; dim &gt;::postAdapt </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Clean up refinement markers. </p>
+
+</div>
+</div>
+<a id="ad8049428931bf4e04a2d18fdcdff3b70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8049428931bf4e04a2d18fdcdff3b70">&#9670;&nbsp;</a></span>preAdapt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="a03962.html">Dune::UGGrid</a>&lt; dim &gt;::preAdapt </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>returns true, if some elements might be coarsend during grid adaption, here always returns true </p>
+
+</div>
+</div>
+<a id="ad69f609c92677774cfe477e68e9da5de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad69f609c92677774cfe477e68e9da5de">&#9670;&nbsp;</a></span>saveState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="a03962.html">Dune::UGGrid</a>&lt; dim &gt;::saveState </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Save entire grid hierarchy to disk. </p>
+<p>Test implementation &ndash; not working! </p>
+
+</div>
+</div>
+<a id="a6c1309f835cd9698ddb42fa8bf0ac25c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c1309f835cd9698ddb42fa8bf0ac25c">&#9670;&nbsp;</a></span>setClosureType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="a03962.html">Dune::UGGrid</a>&lt; dim &gt;::setClosureType </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a03962.html#ae0b21dc1efd8553d4fa4ff9c6ee20c08">ClosureType</a>&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the type of grid refinement closure. </p>
+
+</div>
+</div>
+<a id="a7c76941abe2dd74c3102c1875391a752"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c76941abe2dd74c3102c1875391a752">&#9670;&nbsp;</a></span>setPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="a03962.html">Dune::UGGrid</a>&lt; dim &gt;::setPosition </td>
+          <td>(</td>
+          <td class="paramtype">const typename Traits::template <a class="el" href="a02714.html">Codim</a>&lt; dim &gt;::<a class="el" href="a02642.html">Entity</a> &amp;&#160;</td>
+          <td class="paramname"><em>e</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const FieldVector&lt; double, dim &gt; &amp;&#160;</td>
+          <td class="paramname"><em>pos</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets a vertex to a new position. </p>
+<p>Changing a vertex' position changes its position on all grid levels! </p>
+
+</div>
+</div>
+<a id="a0f6da85df8d4df8d3c8c19f5fe2d74b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f6da85df8d4df8d3c8c19f5fe2d74b1">&#9670;&nbsp;</a></span>setRefinementType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="a03962.html">Dune::UGGrid</a>&lt; dim &gt;::setRefinementType </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a03962.html#a77f385a0019e340ffe3ecd7509bbc3fb">RefinementType</a>&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the type of grid refinement. </p>
+
+</div>
+</div>
+<a id="a7aaba2d05ac23bdea19133c7267dbb6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7aaba2d05ac23bdea19133c7267dbb6d">&#9670;&nbsp;</a></span>size() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="a03962.html">Dune::UGGrid</a>&lt; dim &gt;::size </td>
+          <td>(</td>
+          <td class="paramtype">GeometryType&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>number of leaf entities per geometry type in this process </p>
+
+</div>
+</div>
+<a id="af81affe8030a89c00421c364048092f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af81affe8030a89c00421c364048092f5">&#9670;&nbsp;</a></span>size() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="a03962.html">Dune::UGGrid</a>&lt; dim &gt;::size </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>codim</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>number of leaf entities per codim in this process </p>
+
+</div>
+</div>
+<a id="a76c44817265abda97ea3974189b15b92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76c44817265abda97ea3974189b15b92">&#9670;&nbsp;</a></span>size() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="a03962.html">Dune::UGGrid</a>&lt; dim &gt;::size </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GeometryType&#160;</td>
+          <td class="paramname"><em>type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>number of entities per level and geometry type in this process </p>
+
+</div>
+</div>
+<a id="a89046c4cc09829eaee8d51b49fb14119"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89046c4cc09829eaee8d51b49fb14119">&#9670;&nbsp;</a></span>size() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="a03962.html">Dune::UGGrid</a>&lt; dim &gt;::size </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>codim</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Number of grid entities per level and codim. </p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="a00851_source.html">uggrid.hh</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

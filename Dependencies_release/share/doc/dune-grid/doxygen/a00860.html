@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: gridtype.hh File Reference</title>
+<title>dune-grid: globalindexset.hh File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -66,18 +66,62 @@ $(function() {
 </div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">gridtype.hh File Reference</div>  </div>
+<div class="title">globalindexset.hh File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This file can be included directly following config.h to test if a grid type was correctly selected.  
+<p>Provides a globally unique index for all entities of a distributed <a class="el" href="a00940.html" title="Include standard header files.">Dune</a> grid.  
 <a href="#details">More...</a></p>
-
+<div class="textblock"><code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;fstream&gt;</code><br />
+<code>#include &lt;memory&gt;</code><br />
+<code>#include &lt;map&gt;</code><br />
+<code>#include &lt;utility&gt;</code><br />
+<code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;<a class="el" href="a00260_source.html">dune/grid/common/gridenums.hh</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="a00236_source.html">dune/grid/common/datahandleif.hh</a>&gt;</code><br />
+<code>#include &lt;dune/common/parallel/mpihelper.hh&gt;</code><br />
+</div>
 <p><a href="a00860_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04026.html">Dune::GlobalIndexSet&lt; GridView &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate globally unique index over all processes in a <a class="el" href="a00940.html" title="Include standard header files.">Dune</a> grid.  <a href="a04026.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04030.html">Dune::GlobalIndexSet&lt; GridView &gt;::SubPartitionTypeProvider&lt; Entity, Codim &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper class to provide access to subentity PartitionTypes with a run-time codimension.  <a href="a04030.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04034.html">Dune::GlobalIndexSet&lt; GridView &gt;::SubPartitionTypeProvider&lt; Entity, 0 &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:a00940"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00940.html">Dune</a></td></tr>
+<tr class="memdesc:a00940"><td class="mdescLeft">&#160;</td><td class="mdescRight">Include standard header files. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This file can be included directly following config.h to test if a grid type was correctly selected. </p>
-<dl class="section author"><dt>Author</dt><dd>Andreas Dedner </dd></dl>
+<div class="textblock"><p>Provides a globally unique index for all entities of a distributed <a class="el" href="a00940.html" title="Include standard header files.">Dune</a> grid. </p>
+<p>Such functionality is relevant for a number of applications:</p><ul>
+<li>Map a degree of freedom associated with an entity to its location in a global matrix or global vector</li>
+<li>Such indices for elements are needed as input to external mesh partitioners</li>
+<li>Using matrix and vector routines from the PETSc or trilinos parallel linear algebra packages for distributed memory parallel computers.</li>
+</ul>
+<p>Method: (1) The UniqueEntityPartition class assigns an owner process to each entity </p><pre class="fragment">    (2) Compute the number of entities that are owned by each process
+
+    (3) we communicate the index of entities that are owned by the process to processes
+        that also contain these entities but do not own them, so that on a non-owner process
+        we have information on the index of the entity that it got from the owner-process;
+</pre> <dl class="section author"><dt>Author</dt><dd>Benedikt Oswald, Patrick Leidenberger, Oliver Sander</dd></dl>
+<dl class="section attention"><dt>Attention</dt><dd>globally unique indices are ONLY provided for entities of the InteriorBorder_Partition type, NOT for the Ghost_Partition type !!!</dd></dl>
+<dl class="bug"><dt><b><a class="el" href="a00904.html#_bug000002">Bug:</a></b></dt><dd>This code will most likely not work on grids with more than one element type. Please ask on the mailing list if you need this feature. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>The interface in this file is experimental, and may change without prior notice. </dd></dl>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

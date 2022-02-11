@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: Dune::StructuredGridFactory&lt; YaspGrid&lt; dim, EquidistantCoordinates&lt; ctype, dim &gt; &gt; &gt; Class Template Reference</title>
+<title>dune-grid: Dune::Torus&lt; CollectiveCommunication, d &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,70 +62,219 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00936.html">Dune</a></li><li class="navelem"><a class="el" href="a04270.html">StructuredGridFactory&lt; YaspGrid&lt; dim, EquidistantCoordinates&lt; ctype, dim &gt; &gt; &gt;</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00940.html">Dune</a></li><li class="navelem"><a class="el" href="a04270.html">Torus</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="a04267.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::StructuredGridFactory&lt; YaspGrid&lt; dim, EquidistantCoordinates&lt; ctype, dim &gt; &gt; &gt; Class Template Reference</div>  </div>
+<div class="title">Dune::Torus&lt; CollectiveCommunication, d &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Specialization of the <a class="el" href="a04118.html" title="Construct structured cube and simplex grids in unstructured grid managers.">StructuredGridFactory</a> for <a class="el" href="a04142.html" title="[ provides Dune::Grid ]">YaspGrid</a>.  
- <a href="a04270.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="a00161_source.html">dune/grid/yaspgrid/structuredyaspgridfactory.hh</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00182_source.html">dune/grid/yaspgrid/torus.hh</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for Dune::Torus&lt; CollectiveCommunication, d &gt;:</div>
+<div class="dyncontent">
+<div class="center"><img src="a04269.png" border="0" usemap="#a_dune_1_1_torus_3_01_collective_communication_00_01d_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="a_dune_1_1_torus_3_01_collective_communication_00_01d_01_4_inherit__map" id="a_dune_1_1_torus_3_01_collective_communication_00_01d_01_4_inherit__map">
+<area shape="rect" title=" " alt="" coords="5,5,281,32"/>
+<area shape="rect" href="a04270.html" title=" " alt="" coords="19,109,268,151"/>
+</map>
+</div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a57a5e3998fffd0b35edefa4f1b39c572"><td class="memItemLeft" align="right" valign="top">static std::unique_ptr&lt; <a class="el" href="a04142.html">GridType</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04270.html#a57a5e3998fffd0b35edefa4f1b39c572">createCubeGrid</a> (const FieldVector&lt; ctype, dimworld &gt; &amp;lowerLeft, const FieldVector&lt; ctype, dimworld &gt; &amp;upperRight, const std::array&lt; unsigned int, dim &gt; &amp;elements)</td></tr>
-<tr class="memdesc:a57a5e3998fffd0b35edefa4f1b39c572"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a structured cube grid.  <a href="a04270.html#a57a5e3998fffd0b35edefa4f1b39c572">More...</a><br /></td></tr>
-<tr class="separator:a57a5e3998fffd0b35edefa4f1b39c572"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1dfbe50cb813e2a5b13e59acbe7436e8"><td class="memItemLeft" align="right" valign="top">static std::unique_ptr&lt; <a class="el" href="a04142.html">GridType</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04270.html#a1dfbe50cb813e2a5b13e59acbe7436e8">createSimplexGrid</a> (const FieldVector&lt; ctype, dimworld &gt; &amp;lowerLeft, const FieldVector&lt; ctype, dimworld &gt; &amp;upperRight, const std::array&lt; unsigned int, dim &gt; &amp;elements)</td></tr>
-<tr class="memdesc:a1dfbe50cb813e2a5b13e59acbe7436e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a structured simplex grid.  <a href="a04270.html#a1dfbe50cb813e2a5b13e59acbe7436e8">More...</a><br /></td></tr>
-<tr class="separator:a1dfbe50cb813e2a5b13e59acbe7436e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04282.html">ProcListIterator</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:adfc4fc84a4338ef1b5e82734a15b460e"><td class="memItemLeft" align="right" valign="top">typedef std::array&lt; int, d &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04270.html#adfc4fc84a4338ef1b5e82734a15b460e">iTupel</a></td></tr>
+<tr class="memdesc:adfc4fc84a4338ef1b5e82734a15b460e"><td class="mdescLeft">&#160;</td><td class="mdescRight">type used to pass tupels in and out  <a href="a04270.html#adfc4fc84a4338ef1b5e82734a15b460e">More...</a><br /></td></tr>
+<tr class="separator:adfc4fc84a4338ef1b5e82734a15b460e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a032c95fd40cf68a3aba13793e908b4e8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04270.html#a032c95fd40cf68a3aba13793e908b4e8">Torus</a> ()</td></tr>
+<tr class="memdesc:a032c95fd40cf68a3aba13793e908b4e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor making uninitialized object  <a href="a04270.html#a032c95fd40cf68a3aba13793e908b4e8">More...</a><br /></td></tr>
+<tr class="separator:a032c95fd40cf68a3aba13793e908b4e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e10f967412159b235718340376274f8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04270.html#a7e10f967412159b235718340376274f8">Torus</a> (CollectiveCommunication <a class="el" href="a04270.html#ab4d8e8d09e1cb5857be934f342536900">comm</a>, int <a class="el" href="a04270.html#ad52c0b4683cbf16f8ad869952c27c5c1">tag</a>, <a class="el" href="a04270.html#adfc4fc84a4338ef1b5e82734a15b460e">iTupel</a> size, const <a class="el" href="a04246.html">YLoadBalance</a>&lt; d &gt; *lb)</td></tr>
+<tr class="memdesc:a7e10f967412159b235718340376274f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">make partitioner from communicator and coarse mesh size  <a href="a04270.html#a7e10f967412159b235718340376274f8">More...</a><br /></td></tr>
+<tr class="separator:a7e10f967412159b235718340376274f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cdc556659e3a3c6205b35bebec5eb37"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04270.html#a3cdc556659e3a3c6205b35bebec5eb37">rank</a> () const</td></tr>
+<tr class="memdesc:a3cdc556659e3a3c6205b35bebec5eb37"><td class="mdescLeft">&#160;</td><td class="mdescRight">return own rank  <a href="a04270.html#a3cdc556659e3a3c6205b35bebec5eb37">More...</a><br /></td></tr>
+<tr class="separator:a3cdc556659e3a3c6205b35bebec5eb37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac883cee50b812dbbc5dd58ad69f39d23"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a04270.html#adfc4fc84a4338ef1b5e82734a15b460e">iTupel</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04270.html#ac883cee50b812dbbc5dd58ad69f39d23">coord</a> () const</td></tr>
+<tr class="memdesc:ac883cee50b812dbbc5dd58ad69f39d23"><td class="mdescLeft">&#160;</td><td class="mdescRight">return own coordinates  <a href="a04270.html#ac883cee50b812dbbc5dd58ad69f39d23">More...</a><br /></td></tr>
+<tr class="separator:ac883cee50b812dbbc5dd58ad69f39d23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6dc23152d93bd3546fa3eb19889594d9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04270.html#a6dc23152d93bd3546fa3eb19889594d9">procs</a> () const</td></tr>
+<tr class="memdesc:a6dc23152d93bd3546fa3eb19889594d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">return number of processes  <a href="a04270.html#a6dc23152d93bd3546fa3eb19889594d9">More...</a><br /></td></tr>
+<tr class="separator:a6dc23152d93bd3546fa3eb19889594d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9061a49d11e7716058c685cbead520e3"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a04270.html#adfc4fc84a4338ef1b5e82734a15b460e">iTupel</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04270.html#a9061a49d11e7716058c685cbead520e3">dims</a> () const</td></tr>
+<tr class="memdesc:a9061a49d11e7716058c685cbead520e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">return dimensions of torus  <a href="a04270.html#a9061a49d11e7716058c685cbead520e3">More...</a><br /></td></tr>
+<tr class="separator:a9061a49d11e7716058c685cbead520e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69b4618ca7c410b5486f3f56a2b9dfdb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04270.html#a69b4618ca7c410b5486f3f56a2b9dfdb">dims</a> (int i) const</td></tr>
+<tr class="memdesc:a69b4618ca7c410b5486f3f56a2b9dfdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">return dimensions of torus in direction i  <a href="a04270.html#a69b4618ca7c410b5486f3f56a2b9dfdb">More...</a><br /></td></tr>
+<tr class="separator:a69b4618ca7c410b5486f3f56a2b9dfdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4d8e8d09e1cb5857be934f342536900"><td class="memItemLeft" align="right" valign="top">CollectiveCommunication&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04270.html#ab4d8e8d09e1cb5857be934f342536900">comm</a> () const</td></tr>
+<tr class="memdesc:ab4d8e8d09e1cb5857be934f342536900"><td class="mdescLeft">&#160;</td><td class="mdescRight">return communicator  <a href="a04270.html#ab4d8e8d09e1cb5857be934f342536900">More...</a><br /></td></tr>
+<tr class="separator:ab4d8e8d09e1cb5857be934f342536900"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad52c0b4683cbf16f8ad869952c27c5c1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04270.html#ad52c0b4683cbf16f8ad869952c27c5c1">tag</a> () const</td></tr>
+<tr class="memdesc:ad52c0b4683cbf16f8ad869952c27c5c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">return tag used by torus  <a href="a04270.html#ad52c0b4683cbf16f8ad869952c27c5c1">More...</a><br /></td></tr>
+<tr class="separator:ad52c0b4683cbf16f8ad869952c27c5c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad29192b44573ad1dab9d1e533e213b68"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04270.html#ad29192b44573ad1dab9d1e533e213b68">inside</a> (<a class="el" href="a04270.html#adfc4fc84a4338ef1b5e82734a15b460e">iTupel</a> c) const</td></tr>
+<tr class="memdesc:ad29192b44573ad1dab9d1e533e213b68"><td class="mdescLeft">&#160;</td><td class="mdescRight">return true if coordinate is inside torus  <a href="a04270.html#ad29192b44573ad1dab9d1e533e213b68">More...</a><br /></td></tr>
+<tr class="separator:ad29192b44573ad1dab9d1e533e213b68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31bed0864e74c41164a72c626d5d3527"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a04270.html#adfc4fc84a4338ef1b5e82734a15b460e">iTupel</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04270.html#a31bed0864e74c41164a72c626d5d3527">rank_to_coord</a> (int <a class="el" href="a04270.html#a3cdc556659e3a3c6205b35bebec5eb37">rank</a>) const</td></tr>
+<tr class="memdesc:a31bed0864e74c41164a72c626d5d3527"><td class="mdescLeft">&#160;</td><td class="mdescRight">map rank to coordinate in torus using lexicographic ordering  <a href="a04270.html#a31bed0864e74c41164a72c626d5d3527">More...</a><br /></td></tr>
+<tr class="separator:a31bed0864e74c41164a72c626d5d3527"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65d43ba6f717d8f86e4bed1f1ffcbe89"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04270.html#a65d43ba6f717d8f86e4bed1f1ffcbe89">coord_to_rank</a> (<a class="el" href="a04270.html#adfc4fc84a4338ef1b5e82734a15b460e">iTupel</a> <a class="el" href="a04270.html#ac883cee50b812dbbc5dd58ad69f39d23">coord</a>) const</td></tr>
+<tr class="memdesc:a65d43ba6f717d8f86e4bed1f1ffcbe89"><td class="mdescLeft">&#160;</td><td class="mdescRight">map coordinate in torus to rank using lexicographic ordering  <a href="a04270.html#a65d43ba6f717d8f86e4bed1f1ffcbe89">More...</a><br /></td></tr>
+<tr class="separator:a65d43ba6f717d8f86e4bed1f1ffcbe89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ee0eeed9a76139e410ccce3ba10969b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04270.html#a5ee0eeed9a76139e410ccce3ba10969b">rank_relative</a> (int <a class="el" href="a04270.html#a3cdc556659e3a3c6205b35bebec5eb37">rank</a>, int dir, int cnt) const</td></tr>
+<tr class="memdesc:a5ee0eeed9a76139e410ccce3ba10969b"><td class="mdescLeft">&#160;</td><td class="mdescRight">return rank of process where its coordinate in direction dir has offset cnt (handles periodic case)  <a href="a04270.html#a5ee0eeed9a76139e410ccce3ba10969b">More...</a><br /></td></tr>
+<tr class="separator:a5ee0eeed9a76139e410ccce3ba10969b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39e2c020f948a446616146b1bf8edbaf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04270.html#a39e2c020f948a446616146b1bf8edbaf">color</a> (const <a class="el" href="a04270.html#adfc4fc84a4338ef1b5e82734a15b460e">iTupel</a> &amp;<a class="el" href="a04270.html#ac883cee50b812dbbc5dd58ad69f39d23">coord</a>) const</td></tr>
+<tr class="memdesc:a39e2c020f948a446616146b1bf8edbaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">assign color to given coordinate  <a href="a04270.html#a39e2c020f948a446616146b1bf8edbaf">More...</a><br /></td></tr>
+<tr class="separator:a39e2c020f948a446616146b1bf8edbaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab18f135459694f8d4e361cbc0c27bf7e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04270.html#ab18f135459694f8d4e361cbc0c27bf7e">color</a> (int <a class="el" href="a04270.html#a3cdc556659e3a3c6205b35bebec5eb37">rank</a>) const</td></tr>
+<tr class="memdesc:ab18f135459694f8d4e361cbc0c27bf7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">assign color to given rank  <a href="a04270.html#ab18f135459694f8d4e361cbc0c27bf7e">More...</a><br /></td></tr>
+<tr class="separator:ab18f135459694f8d4e361cbc0c27bf7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2196433e175210e355a022cd564841ca"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04270.html#a2196433e175210e355a022cd564841ca">neighbors</a> () const</td></tr>
+<tr class="memdesc:a2196433e175210e355a022cd564841ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the number of neighbors, which is <img class="formulaInl" alt="$3^d-1$" src="form_84.png"/>  <a href="a04270.html#a2196433e175210e355a022cd564841ca">More...</a><br /></td></tr>
+<tr class="separator:a2196433e175210e355a022cd564841ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa475f0c77da20e622ce79f5c30393eea"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04270.html#aa475f0c77da20e622ce79f5c30393eea">is_neighbor</a> (<a class="el" href="a04270.html#adfc4fc84a4338ef1b5e82734a15b460e">iTupel</a> delta, std::bitset&lt; d &gt; periodic) const</td></tr>
+<tr class="memdesc:aa475f0c77da20e622ce79f5c30393eea"><td class="mdescLeft">&#160;</td><td class="mdescRight">return true if neighbor with given delta is a neighbor under the given periodicity  <a href="a04270.html#aa475f0c77da20e622ce79f5c30393eea">More...</a><br /></td></tr>
+<tr class="separator:aa475f0c77da20e622ce79f5c30393eea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbd01e63bd23743fc40c595d38674246"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04270.html#abbd01e63bd23743fc40c595d38674246">partition</a> (int <a class="el" href="a04270.html#a3cdc556659e3a3c6205b35bebec5eb37">rank</a>, <a class="el" href="a04270.html#adfc4fc84a4338ef1b5e82734a15b460e">iTupel</a> origin_in, <a class="el" href="a04270.html#adfc4fc84a4338ef1b5e82734a15b460e">iTupel</a> size_in, <a class="el" href="a04270.html#adfc4fc84a4338ef1b5e82734a15b460e">iTupel</a> &amp;origin_out, <a class="el" href="a04270.html#adfc4fc84a4338ef1b5e82734a15b460e">iTupel</a> &amp;size_out) const</td></tr>
+<tr class="memdesc:abbd01e63bd23743fc40c595d38674246"><td class="mdescLeft">&#160;</td><td class="mdescRight">partition the given grid onto the torus and return the piece of the process with given rank; returns load imbalance  <a href="a04270.html#abbd01e63bd23743fc40c595d38674246">More...</a><br /></td></tr>
+<tr class="separator:abbd01e63bd23743fc40c595d38674246"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34dd742e2c21370eadd9467e1b4b485b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a04282.html">ProcListIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04270.html#a34dd742e2c21370eadd9467e1b4b485b">sendbegin</a> () const</td></tr>
+<tr class="memdesc:a34dd742e2c21370eadd9467e1b4b485b"><td class="mdescLeft">&#160;</td><td class="mdescRight">first process in send list  <a href="a04270.html#a34dd742e2c21370eadd9467e1b4b485b">More...</a><br /></td></tr>
+<tr class="separator:a34dd742e2c21370eadd9467e1b4b485b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa9f04fd4fdf2d6248786c0c4b520e57"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a04282.html">ProcListIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04270.html#afa9f04fd4fdf2d6248786c0c4b520e57">sendend</a> () const</td></tr>
+<tr class="memdesc:afa9f04fd4fdf2d6248786c0c4b520e57"><td class="mdescLeft">&#160;</td><td class="mdescRight">end of send list  <a href="a04270.html#afa9f04fd4fdf2d6248786c0c4b520e57">More...</a><br /></td></tr>
+<tr class="separator:afa9f04fd4fdf2d6248786c0c4b520e57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e9e90631b462cf8c981234613b9a2f7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a04282.html">ProcListIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04270.html#a4e9e90631b462cf8c981234613b9a2f7">recvbegin</a> () const</td></tr>
+<tr class="memdesc:a4e9e90631b462cf8c981234613b9a2f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">first process in receive list  <a href="a04270.html#a4e9e90631b462cf8c981234613b9a2f7">More...</a><br /></td></tr>
+<tr class="separator:a4e9e90631b462cf8c981234613b9a2f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93f3d8e0d2e49b2acd5be9b9f1282643"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a04282.html">ProcListIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04270.html#a93f3d8e0d2e49b2acd5be9b9f1282643">recvend</a> () const</td></tr>
+<tr class="memdesc:a93f3d8e0d2e49b2acd5be9b9f1282643"><td class="mdescLeft">&#160;</td><td class="mdescRight">last process in receive list  <a href="a04270.html#a93f3d8e0d2e49b2acd5be9b9f1282643">More...</a><br /></td></tr>
+<tr class="separator:a93f3d8e0d2e49b2acd5be9b9f1282643"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5d55613bb3e3fa39aeaac97828ea220"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04270.html#ab5d55613bb3e3fa39aeaac97828ea220">send</a> (int <a class="el" href="a04270.html#a3cdc556659e3a3c6205b35bebec5eb37">rank</a>, void *buffer, int size) const</td></tr>
+<tr class="memdesc:ab5d55613bb3e3fa39aeaac97828ea220"><td class="mdescLeft">&#160;</td><td class="mdescRight">store a send request; buffers are sent in order; handles also local requests with memcpy  <a href="a04270.html#ab5d55613bb3e3fa39aeaac97828ea220">More...</a><br /></td></tr>
+<tr class="separator:ab5d55613bb3e3fa39aeaac97828ea220"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a636981542b903f2ec3e4b9edd45376ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04270.html#a636981542b903f2ec3e4b9edd45376ee">recv</a> (int <a class="el" href="a04270.html#a3cdc556659e3a3c6205b35bebec5eb37">rank</a>, void *buffer, int size) const</td></tr>
+<tr class="memdesc:a636981542b903f2ec3e4b9edd45376ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">store a receive request; buffers are received in order; handles also local requests with memcpy  <a href="a04270.html#a636981542b903f2ec3e4b9edd45376ee">More...</a><br /></td></tr>
+<tr class="separator:a636981542b903f2ec3e4b9edd45376ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf964439c275cabe9daf8dc33c6d0e7c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04270.html#adf964439c275cabe9daf8dc33c6d0e7c">exchange</a> () const</td></tr>
+<tr class="memdesc:adf964439c275cabe9daf8dc33c6d0e7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">exchange messages stored in request buffers; clear request buffers afterwards  <a href="a04270.html#adf964439c275cabe9daf8dc33c6d0e7c">More...</a><br /></td></tr>
+<tr class="separator:adf964439c275cabe9daf8dc33c6d0e7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96710c7d1787f1f919e1f9442a6962ce"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04270.html#a96710c7d1787f1f919e1f9442a6962ce">global_max</a> (double x) const</td></tr>
+<tr class="memdesc:a96710c7d1787f1f919e1f9442a6962ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">global max  <a href="a04270.html#a96710c7d1787f1f919e1f9442a6962ce">More...</a><br /></td></tr>
+<tr class="separator:a96710c7d1787f1f919e1f9442a6962ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba68b5f36e8e58d6628bfb36a24c00de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04270.html#aba68b5f36e8e58d6628bfb36a24c00de">print</a> (std::ostream &amp;s) const</td></tr>
+<tr class="memdesc:aba68b5f36e8e58d6628bfb36a24c00de"><td class="mdescLeft">&#160;</td><td class="mdescRight">print contents of torus object  <a href="a04270.html#aba68b5f36e8e58d6628bfb36a24c00de">More...</a><br /></td></tr>
+<tr class="separator:aba68b5f36e8e58d6628bfb36a24c00de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;class ctype, int dim&gt;<br />
-class Dune::StructuredGridFactory&lt; YaspGrid&lt; dim, EquidistantCoordinates&lt; ctype, dim &gt; &gt; &gt;</h3>
+<div class="textblock"><h3>template&lt;class CollectiveCommunication, int d&gt;<br />
+class Dune::Torus&lt; CollectiveCommunication, d &gt;</h3>
 
-<p>Specialization of the <a class="el" href="a04118.html" title="Construct structured cube and simplex grids in unstructured grid managers.">StructuredGridFactory</a> for <a class="el" href="a04142.html" title="[ provides Dune::Grid ]">YaspGrid</a>. </p>
-<p>This allows a <a class="el" href="a04142.html" title="[ provides Dune::Grid ]">YaspGrid</a> to be constructed using the <a class="el" href="a04118.html" title="Construct structured cube and simplex grids in unstructured grid managers.">StructuredGridFactory</a> just like the unstructured Grids. There are two limitations: </p><ul>
-<li><a class="el" href="a04142.html" title="[ provides Dune::Grid ]">YaspGrid</a> does not support simplices </li>
-<li>If the lower left corner should not be at the origin, the second template parameter of Yaspgrid has to be chosen as Dune::EquidistantOffsetCoordinates&lt;ctype,dim&gt;. </li>
+<p><a class="el" href="a04270.html">Torus</a> provides all the functionality to handle a toroidal communication structure:</p>
+<ul>
+<li>Map a set of processes (given by an MPI communicator) to a torus of dimension d. The "optimal" torus dimensions are determined by a coarse mesh. The maximum side length is minimized.</li>
+<li>Provide lists of neighboring processes and a method for nearest neighbor exchange using asynchronous communication with MPI. The periodic case is handled where one process might have to exchange several messages with the same process. (Logically, a process has always <img class="formulaInl" alt="$3^d-1$" src="form_84.png"/> neighbors, but several of these logical neighbors might be identical)</li>
+<li>Provide means to partition a grid to the torus. </li>
 </ul>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a57a5e3998fffd0b35edefa4f1b39c572"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a57a5e3998fffd0b35edefa4f1b39c572">&#9670;&nbsp;</a></span>createCubeGrid()</h2>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="adfc4fc84a4338ef1b5e82734a15b460e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfc4fc84a4338ef1b5e82734a15b460e">&#9670;&nbsp;</a></span>iTupel</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class ctype , int dim&gt; </div>
+template&lt;class CollectiveCommunication , int d&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::array&lt;int, d&gt; <a class="el" href="a04270.html">Dune::Torus</a>&lt; CollectiveCommunication, d &gt;::<a class="el" href="a04270.html#adfc4fc84a4338ef1b5e82734a15b460e">iTupel</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>type used to pass tupels in and out </p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a032c95fd40cf68a3aba13793e908b4e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a032c95fd40cf68a3aba13793e908b4e8">&#9670;&nbsp;</a></span>Torus() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class CollectiveCommunication , int d&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static std::unique_ptr&lt;<a class="el" href="a04142.html">GridType</a>&gt; <a class="el" href="a04118.html">Dune::StructuredGridFactory</a>&lt; <a class="el" href="a04142.html">YaspGrid</a>&lt; dim, <a class="el" href="a04242.html">EquidistantCoordinates</a>&lt; ctype, dim &gt; &gt; &gt;::createCubeGrid </td>
+          <td class="memname"><a class="el" href="a04270.html">Dune::Torus</a>&lt; CollectiveCommunication, d &gt;::<a class="el" href="a04270.html">Torus</a> </td>
           <td>(</td>
-          <td class="paramtype">const FieldVector&lt; ctype, dimworld &gt; &amp;&#160;</td>
-          <td class="paramname"><em>lowerLeft</em>, </td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>constructor making uninitialized object </p>
+
+</div>
+</div>
+<a id="a7e10f967412159b235718340376274f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e10f967412159b235718340376274f8">&#9670;&nbsp;</a></span>Torus() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class CollectiveCommunication , int d&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a04270.html">Dune::Torus</a>&lt; CollectiveCommunication, d &gt;::<a class="el" href="a04270.html">Torus</a> </td>
+          <td>(</td>
+          <td class="paramtype">CollectiveCommunication&#160;</td>
+          <td class="paramname"><em>comm</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const FieldVector&lt; ctype, dimworld &gt; &amp;&#160;</td>
-          <td class="paramname"><em>upperRight</em>, </td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>tag</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::array&lt; unsigned int, dim &gt; &amp;&#160;</td>
-          <td class="paramname"><em>elements</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="a04270.html#adfc4fc84a4338ef1b5e82734a15b460e">iTupel</a>&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a04246.html">YLoadBalance</a>&lt; d &gt; *&#160;</td>
+          <td class="paramname"><em>lb</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -135,73 +284,852 @@ template&lt;class ctype , int dim&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Create a structured cube grid. </p>
+<p>make partitioner from communicator and coarse mesh size </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a39e2c020f948a446616146b1bf8edbaf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39e2c020f948a446616146b1bf8edbaf">&#9670;&nbsp;</a></span>color() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class CollectiveCommunication , int d&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="a04270.html">Dune::Torus</a>&lt; CollectiveCommunication, d &gt;::color </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a04270.html#adfc4fc84a4338ef1b5e82734a15b460e">iTupel</a> &amp;&#160;</td>
+          <td class="paramname"><em>coord</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>assign color to given coordinate </p>
+
+</div>
+</div>
+<a id="ab18f135459694f8d4e361cbc0c27bf7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab18f135459694f8d4e361cbc0c27bf7e">&#9670;&nbsp;</a></span>color() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class CollectiveCommunication , int d&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="a04270.html">Dune::Torus</a>&lt; CollectiveCommunication, d &gt;::color </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>rank</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>assign color to given rank </p>
+
+</div>
+</div>
+<a id="ab4d8e8d09e1cb5857be934f342536900"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4d8e8d09e1cb5857be934f342536900">&#9670;&nbsp;</a></span>comm()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class CollectiveCommunication , int d&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CollectiveCommunication <a class="el" href="a04270.html">Dune::Torus</a>&lt; CollectiveCommunication, d &gt;::comm </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>return communicator </p>
+
+</div>
+</div>
+<a id="ac883cee50b812dbbc5dd58ad69f39d23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac883cee50b812dbbc5dd58ad69f39d23">&#9670;&nbsp;</a></span>coord()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class CollectiveCommunication , int d&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a04270.html#adfc4fc84a4338ef1b5e82734a15b460e">iTupel</a> <a class="el" href="a04270.html">Dune::Torus</a>&lt; CollectiveCommunication, d &gt;::coord </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>return own coordinates </p>
+
+</div>
+</div>
+<a id="a65d43ba6f717d8f86e4bed1f1ffcbe89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65d43ba6f717d8f86e4bed1f1ffcbe89">&#9670;&nbsp;</a></span>coord_to_rank()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class CollectiveCommunication , int d&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="a04270.html">Dune::Torus</a>&lt; CollectiveCommunication, d &gt;::coord_to_rank </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a04270.html#adfc4fc84a4338ef1b5e82734a15b460e">iTupel</a>&#160;</td>
+          <td class="paramname"><em>coord</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>map coordinate in torus to rank using lexicographic ordering </p>
+
+</div>
+</div>
+<a id="a9061a49d11e7716058c685cbead520e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9061a49d11e7716058c685cbead520e3">&#9670;&nbsp;</a></span>dims() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class CollectiveCommunication , int d&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a04270.html#adfc4fc84a4338ef1b5e82734a15b460e">iTupel</a>&amp; <a class="el" href="a04270.html">Dune::Torus</a>&lt; CollectiveCommunication, d &gt;::dims </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>return dimensions of torus </p>
+
+</div>
+</div>
+<a id="a69b4618ca7c410b5486f3f56a2b9dfdb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69b4618ca7c410b5486f3f56a2b9dfdb">&#9670;&nbsp;</a></span>dims() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class CollectiveCommunication , int d&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="a04270.html">Dune::Torus</a>&lt; CollectiveCommunication, d &gt;::dims </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>return dimensions of torus in direction i </p>
+
+</div>
+</div>
+<a id="adf964439c275cabe9daf8dc33c6d0e7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf964439c275cabe9daf8dc33c6d0e7c">&#9670;&nbsp;</a></span>exchange()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class CollectiveCommunication , int d&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="a04270.html">Dune::Torus</a>&lt; CollectiveCommunication, d &gt;::exchange </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>exchange messages stored in request buffers; clear request buffers afterwards </p>
+
+</div>
+</div>
+<a id="a96710c7d1787f1f919e1f9442a6962ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96710c7d1787f1f919e1f9442a6962ce">&#9670;&nbsp;</a></span>global_max()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class CollectiveCommunication , int d&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="a04270.html">Dune::Torus</a>&lt; CollectiveCommunication, d &gt;::global_max </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>global max </p>
+
+</div>
+</div>
+<a id="ad29192b44573ad1dab9d1e533e213b68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad29192b44573ad1dab9d1e533e213b68">&#9670;&nbsp;</a></span>inside()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class CollectiveCommunication , int d&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="a04270.html">Dune::Torus</a>&lt; CollectiveCommunication, d &gt;::inside </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a04270.html#adfc4fc84a4338ef1b5e82734a15b460e">iTupel</a>&#160;</td>
+          <td class="paramname"><em>c</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>return true if coordinate is inside torus </p>
+
+</div>
+</div>
+<a id="aa475f0c77da20e622ce79f5c30393eea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa475f0c77da20e622ce79f5c30393eea">&#9670;&nbsp;</a></span>is_neighbor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class CollectiveCommunication , int d&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="a04270.html">Dune::Torus</a>&lt; CollectiveCommunication, d &gt;::is_neighbor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a04270.html#adfc4fc84a4338ef1b5e82734a15b460e">iTupel</a>&#160;</td>
+          <td class="paramname"><em>delta</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::bitset&lt; d &gt;&#160;</td>
+          <td class="paramname"><em>periodic</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>return true if neighbor with given delta is a neighbor under the given periodicity </p>
+
+</div>
+</div>
+<a id="a2196433e175210e355a022cd564841ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2196433e175210e355a022cd564841ca">&#9670;&nbsp;</a></span>neighbors()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class CollectiveCommunication , int d&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="a04270.html">Dune::Torus</a>&lt; CollectiveCommunication, d &gt;::neighbors </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>return the number of neighbors, which is <img class="formulaInl" alt="$3^d-1$" src="form_84.png"/> </p>
+
+</div>
+</div>
+<a id="abbd01e63bd23743fc40c595d38674246"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbd01e63bd23743fc40c595d38674246">&#9670;&nbsp;</a></span>partition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class CollectiveCommunication , int d&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="a04270.html">Dune::Torus</a>&lt; CollectiveCommunication, d &gt;::partition </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>rank</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a04270.html#adfc4fc84a4338ef1b5e82734a15b460e">iTupel</a>&#160;</td>
+          <td class="paramname"><em>origin_in</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a04270.html#adfc4fc84a4338ef1b5e82734a15b460e">iTupel</a>&#160;</td>
+          <td class="paramname"><em>size_in</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a04270.html#adfc4fc84a4338ef1b5e82734a15b460e">iTupel</a> &amp;&#160;</td>
+          <td class="paramname"><em>origin_out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a04270.html#adfc4fc84a4338ef1b5e82734a15b460e">iTupel</a> &amp;&#160;</td>
+          <td class="paramname"><em>size_out</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>partition the given grid onto the torus and return the piece of the process with given rank; returns load imbalance </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">lowerLeft</td><td>Lower left corner of the grid </td></tr>
-    <tr><td class="paramname">upperRight</td><td>Upper right corner of the grid </td></tr>
-    <tr><td class="paramname">elements</td><td>Number of elements in each coordinate direction</td></tr>
+    <tr><td class="paramname">rank</td><td>rank of our processor </td></tr>
+    <tr><td class="paramname">origin_in</td><td>global origin </td></tr>
+    <tr><td class="paramname">size_in</td><td>global size </td></tr>
+    <tr><td class="paramname">origin_out</td><td>origin of this processors interior </td></tr>
+    <tr><td class="paramname">size_out</td><td>size of this processors interior </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>The default variant of <a class="el" href="a04142.html" title="[ provides Dune::Grid ]">YaspGrid</a> only supports lowerLeft at the origin. Use <a class="el" href="a04142.html" title="[ provides Dune::Grid ]">YaspGrid</a>&lt;dim, EquidistantOffsetCoordinates&lt;ctype,dim&gt; &gt; instead for non-trivial origin. </dd></dl>
 
 </div>
 </div>
-<a id="a1dfbe50cb813e2a5b13e59acbe7436e8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1dfbe50cb813e2a5b13e59acbe7436e8">&#9670;&nbsp;</a></span>createSimplexGrid()</h2>
+<a id="aba68b5f36e8e58d6628bfb36a24c00de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba68b5f36e8e58d6628bfb36a24c00de">&#9670;&nbsp;</a></span>print()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class ctype , int dim&gt; </div>
+template&lt;class CollectiveCommunication , int d&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static std::unique_ptr&lt;<a class="el" href="a04142.html">GridType</a>&gt; <a class="el" href="a04118.html">Dune::StructuredGridFactory</a>&lt; <a class="el" href="a04142.html">YaspGrid</a>&lt; dim, <a class="el" href="a04242.html">EquidistantCoordinates</a>&lt; ctype, dim &gt; &gt; &gt;::createSimplexGrid </td>
+          <td class="memname">void <a class="el" href="a04270.html">Dune::Torus</a>&lt; CollectiveCommunication, d &gt;::print </td>
           <td>(</td>
-          <td class="paramtype">const FieldVector&lt; ctype, dimworld &gt; &amp;&#160;</td>
-          <td class="paramname"><em>lowerLeft</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const FieldVector&lt; ctype, dimworld &gt; &amp;&#160;</td>
-          <td class="paramname"><em>upperRight</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::array&lt; unsigned int, dim &gt; &amp;&#160;</td>
-          <td class="paramname"><em>elements</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Create a structured simplex grid. </p>
-<dl class="section note"><dt>Note</dt><dd>Simplices are not supported in <a class="el" href="a04142.html" title="[ provides Dune::Grid ]">YaspGrid</a>, so this functions unconditionally throws a <a class="el" href="a02662.html" title="Base class for exceptions in Dune grid modules.">GridError</a>. </dd></dl>
+<p>print contents of torus object </p>
+
+</div>
+</div>
+<a id="a6dc23152d93bd3546fa3eb19889594d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6dc23152d93bd3546fa3eb19889594d9">&#9670;&nbsp;</a></span>procs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class CollectiveCommunication , int d&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="a04270.html">Dune::Torus</a>&lt; CollectiveCommunication, d &gt;::procs </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>return number of processes </p>
+
+</div>
+</div>
+<a id="a3cdc556659e3a3c6205b35bebec5eb37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3cdc556659e3a3c6205b35bebec5eb37">&#9670;&nbsp;</a></span>rank()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class CollectiveCommunication , int d&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="a04270.html">Dune::Torus</a>&lt; CollectiveCommunication, d &gt;::rank </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>return own rank </p>
+
+</div>
+</div>
+<a id="a5ee0eeed9a76139e410ccce3ba10969b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ee0eeed9a76139e410ccce3ba10969b">&#9670;&nbsp;</a></span>rank_relative()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class CollectiveCommunication , int d&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="a04270.html">Dune::Torus</a>&lt; CollectiveCommunication, d &gt;::rank_relative </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>rank</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>dir</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>cnt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>return rank of process where its coordinate in direction dir has offset cnt (handles periodic case) </p>
+
+</div>
+</div>
+<a id="a31bed0864e74c41164a72c626d5d3527"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31bed0864e74c41164a72c626d5d3527">&#9670;&nbsp;</a></span>rank_to_coord()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class CollectiveCommunication , int d&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a04270.html#adfc4fc84a4338ef1b5e82734a15b460e">iTupel</a> <a class="el" href="a04270.html">Dune::Torus</a>&lt; CollectiveCommunication, d &gt;::rank_to_coord </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>rank</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>map rank to coordinate in torus using lexicographic ordering </p>
+
+</div>
+</div>
+<a id="a636981542b903f2ec3e4b9edd45376ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a636981542b903f2ec3e4b9edd45376ee">&#9670;&nbsp;</a></span>recv()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class CollectiveCommunication , int d&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="a04270.html">Dune::Torus</a>&lt; CollectiveCommunication, d &gt;::recv </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>rank</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>store a receive request; buffers are received in order; handles also local requests with memcpy </p>
+
+</div>
+</div>
+<a id="a4e9e90631b462cf8c981234613b9a2f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e9e90631b462cf8c981234613b9a2f7">&#9670;&nbsp;</a></span>recvbegin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class CollectiveCommunication , int d&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a04282.html">ProcListIterator</a> <a class="el" href="a04270.html">Dune::Torus</a>&lt; CollectiveCommunication, d &gt;::recvbegin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>first process in receive list </p>
+
+</div>
+</div>
+<a id="a93f3d8e0d2e49b2acd5be9b9f1282643"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93f3d8e0d2e49b2acd5be9b9f1282643">&#9670;&nbsp;</a></span>recvend()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class CollectiveCommunication , int d&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a04282.html">ProcListIterator</a> <a class="el" href="a04270.html">Dune::Torus</a>&lt; CollectiveCommunication, d &gt;::recvend </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>last process in receive list </p>
+
+</div>
+</div>
+<a id="ab5d55613bb3e3fa39aeaac97828ea220"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5d55613bb3e3fa39aeaac97828ea220">&#9670;&nbsp;</a></span>send()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class CollectiveCommunication , int d&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="a04270.html">Dune::Torus</a>&lt; CollectiveCommunication, d &gt;::send </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>rank</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>store a send request; buffers are sent in order; handles also local requests with memcpy </p>
+
+</div>
+</div>
+<a id="a34dd742e2c21370eadd9467e1b4b485b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34dd742e2c21370eadd9467e1b4b485b">&#9670;&nbsp;</a></span>sendbegin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class CollectiveCommunication , int d&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a04282.html">ProcListIterator</a> <a class="el" href="a04270.html">Dune::Torus</a>&lt; CollectiveCommunication, d &gt;::sendbegin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>first process in send list </p>
+
+</div>
+</div>
+<a id="afa9f04fd4fdf2d6248786c0c4b520e57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa9f04fd4fdf2d6248786c0c4b520e57">&#9670;&nbsp;</a></span>sendend()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class CollectiveCommunication , int d&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a04282.html">ProcListIterator</a> <a class="el" href="a04270.html">Dune::Torus</a>&lt; CollectiveCommunication, d &gt;::sendend </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>end of send list </p>
+
+</div>
+</div>
+<a id="ad52c0b4683cbf16f8ad869952c27c5c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad52c0b4683cbf16f8ad869952c27c5c1">&#9670;&nbsp;</a></span>tag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class CollectiveCommunication , int d&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="a04270.html">Dune::Torus</a>&lt; CollectiveCommunication, d &gt;::tag </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>return tag used by torus </p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="a00161_source.html">structuredyaspgridfactory.hh</a></li>
+<li><a class="el" href="a00182_source.html">torus.hh</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

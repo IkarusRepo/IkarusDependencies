@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-common
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -79,10 +79,10 @@ $(function() {
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;cstddef&gt;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;tuple&gt;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;type_traits&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00128.html">dune/common/hybridutilities.hh</a>&gt;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00341.html">dune/common/std/type_traits.hh</a>&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00344.html">dune/common/std/utility.hh</a>&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;utility&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00128.html">dune/common/hybridutilities.hh</a>&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00383.html">dune/common/typetraits.hh</a>&gt;</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00428.html">Dune</a> {</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
@@ -93,7 +93,7 @@ $(function() {
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  }</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="a02972.html">   46</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a02972.html">TupleAccessTraits</a></div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="a02889.html">   46</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a02889.html">TupleAccessTraits</a></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  {</div>
 <div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="a00406.html#ga041f1e2352cf960c2cdabcc24b63810b">   48</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> std::add_const&lt;T&gt;::type&amp; <a class="code" href="a00406.html#ga041f1e2352cf960c2cdabcc24b63810b">ConstType</a>;</div>
 <div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="a00406.html#ga7ac7c737f08242dabc75d211dffb4573">   49</a></span>&#160;    <span class="keyword">typedef</span> T&amp; <a class="code" href="a00406.html#ga7ac7c737f08242dabc75d211dffb4573">NonConstType</a>;</div>
@@ -101,7 +101,7 @@ $(function() {
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  };</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="a02976.html">   54</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a02972.html">TupleAccessTraits</a>&lt;T*&gt;</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="a02893.html">   54</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a02889.html">TupleAccessTraits</a>&lt;T*&gt;</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  {</div>
 <div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="a00406.html#gaf5d4dd28478959589b3ea38408a58c8e">   56</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> std::add_const&lt;T&gt;::type* <a class="code" href="a00406.html#gaf5d4dd28478959589b3ea38408a58c8e">ConstType</a>;</div>
 <div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="a00406.html#ga340eaa6d59fbad9efa50f39495267dde">   57</a></span>&#160;    <span class="keyword">typedef</span> T* <a class="code" href="a00406.html#ga340eaa6d59fbad9efa50f39495267dde">NonConstType</a>;</div>
@@ -109,7 +109,7 @@ $(function() {
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  };</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="a02980.html">   62</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a02972.html">TupleAccessTraits</a>&lt;T&amp;&gt;</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="a02897.html">   62</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a02889.html">TupleAccessTraits</a>&lt;T&amp;&gt;</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  {</div>
 <div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="a00406.html#ga2613d7a17e0204d5184be226f62c528d">   64</a></span>&#160;    <span class="keyword">typedef</span> T&amp; <a class="code" href="a00406.html#ga2613d7a17e0204d5184be226f62c528d">ConstType</a>;</div>
 <div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="a00406.html#ga7642b9a2b63fc07ad3adcbfa7742bc71">   65</a></span>&#160;    <span class="keyword">typedef</span> T&amp; <a class="code" href="a00406.html#ga7642b9a2b63fc07ad3adcbfa7742bc71">NonConstType</a>;</div>
@@ -117,10 +117,10 @@ $(function() {
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  };</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="a02984.html">   77</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a02984.html">NullPointerInitialiser</a>;</div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="a02901.html">   77</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a02901.html">NullPointerInitialiser</a>;</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class</span>... Args&gt;</div>
-<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="a02988.html">   80</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a02984.html">NullPointerInitialiser</a>&lt;std::tuple&lt;Args...&gt; &gt;</div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="a02905.html">   80</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a02901.html">NullPointerInitialiser</a>&lt;std::tuple&lt;Args...&gt; &gt;</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  {</div>
 <div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="a00406.html#ga54bf4fc69e946380c712ba483d7e8d3e">   82</a></span>&#160;    <span class="keyword">typedef</span> std::tuple&lt;Args...&gt; <a class="code" href="a00406.html#ga54bf4fc69e946380c712ba483d7e8d3e">ResultType</a>;</div>
 <div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="a00406.html#ga4eee92ad122054a54cbb68659499f090">   83</a></span>&#160;    <span class="keyword">static</span> <a class="code" href="a00406.html#ga54bf4fc69e946380c712ba483d7e8d3e">ResultType</a> <a class="code" href="a00406.html#ga4eee92ad122054a54cbb68659499f090">apply</a>()</div>
@@ -130,17 +130,17 @@ $(function() {
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  };</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">template</span> &lt;<span class="keyword">class</span>&gt; <span class="keyword">class </span>TE, <span class="keyword">class </span>T&gt;</div>
-<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="a02992.html">  114</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a02992.html">ForEachType</a>;</div>
+<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="a02909.html">  114</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a02909.html">ForEachType</a>;</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">template</span> &lt;<span class="keyword">class</span>&gt; <span class="keyword">class </span>TE, <span class="keyword">class</span>... Args&gt;</div>
-<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="a02996.html">  117</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a02992.html">ForEachType</a>&lt;TE, std::tuple&lt;Args...&gt; &gt;</div>
+<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="a02913.html">  117</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a02909.html">ForEachType</a>&lt;TE, std::tuple&lt;Args...&gt; &gt;</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  {</div>
 <div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="a00406.html#gae36d1b293a8e0e6a505be040434331e9">  119</a></span>&#160;    <span class="keyword">typedef</span> std::tuple&lt;typename TE&lt;Args&gt;::Type...&gt; <a class="code" href="a00406.html#gae36d1b293a8e0e6a505be040434331e9">Type</a>;</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;  };</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="preprocessor">#ifndef DOXYGEN</span></div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class </span>Tuple, <span class="keyword">class </span>Functor, std::size_t... I&gt;</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  <span class="keyword">inline</span> <span class="keyword">auto</span> genericTransformTupleBackendImpl(Tuple&amp; t, Functor&amp; f, <span class="keyword">const</span> Std::index_sequence&lt;I...&gt;&amp; )</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  <span class="keyword">inline</span> <span class="keyword">auto</span> genericTransformTupleBackendImpl(Tuple&amp; t, Functor&amp; f, <span class="keyword">const</span> std::index_sequence&lt;I...&gt;&amp; )</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    -&gt; std::tuple&lt;decltype(f(std::get&lt;I&gt;(t)))...&gt;</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  {</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keywordflow">return</span> std::tuple&lt;decltype(f(std::get&lt;I&gt;(t)))...&gt;(f(std::get&lt;I&gt;(t))...);</div>
@@ -148,16 +148,16 @@ $(function() {
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class</span>... Args, <span class="keyword">class </span>Functor&gt;</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;  <span class="keyword">auto</span> genericTransformTupleBackend(std::tuple&lt;Args...&gt;&amp; t, Functor&amp; f) -&gt;</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    decltype(genericTransformTupleBackendImpl(t, f,Std::index_sequence_for&lt;Args...&gt;{}))</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    decltype(genericTransformTupleBackendImpl(t, f,std::index_sequence_for&lt;Args...&gt;{}))</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;  {</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keywordflow">return</span> genericTransformTupleBackendImpl(t, f,Std::index_sequence_for&lt;Args...&gt;{});</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keywordflow">return</span> genericTransformTupleBackendImpl(t, f,std::index_sequence_for&lt;Args...&gt;{});</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;  }</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class</span>... Args, <span class="keyword">class </span>Functor&gt;</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;  <span class="keyword">auto</span> genericTransformTupleBackend(<span class="keyword">const</span> std::tuple&lt;Args...&gt;&amp; t, Functor&amp; f) -&gt;</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    decltype(genericTransformTupleBackendImpl(t, f, Std::index_sequence_for&lt;Args...&gt;{}))</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    decltype(genericTransformTupleBackendImpl(t, f, std::index_sequence_for&lt;Args...&gt;{}))</div>
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;  {</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <span class="keywordflow">return</span> genericTransformTupleBackendImpl(t, f, Std::index_sequence_for&lt;Args...&gt;{});</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <span class="keywordflow">return</span> genericTransformTupleBackendImpl(t, f, std::index_sequence_for&lt;Args...&gt;{});</div>
 <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;  }</div>
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
@@ -169,20 +169,20 @@ $(function() {
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;  }</div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160; </div>
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">template</span>&lt;<span class="keyword">class</span>&gt; <span class="keyword">class </span>TE, <span class="keyword">class</span>... Args&gt;</div>
-<div class="line"><a name="l00223"></a><span class="lineno"><a class="line" href="a03000.html">  223</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a03000.html">TransformTupleFunctor</a></div>
+<div class="line"><a name="l00223"></a><span class="lineno"><a class="line" href="a02917.html">  223</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a02917.html">TransformTupleFunctor</a></div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;  {</div>
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <span class="keyword">mutable</span> std::tuple&lt;Args&amp;...&gt; tup;</div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160; </div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class </span>T, std::size_t... I&gt;</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <span class="keyword">inline</span> <span class="keyword">auto</span> apply(T&amp;&amp; t, <span class="keyword">const</span> Std::index_sequence&lt;I...&gt;&amp; ) -&gt;</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;      decltype(<a class="code" href="a00409.html#ga3a2d0075fff7c0af1ab00a7f252c2f9c">TE&lt;T&gt;::apply</a>(t,std::get&lt;I&gt;(tup)...))<span class="keyword"> const</span></div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <span class="keyword">inline</span> <span class="keyword">auto</span> apply(T&amp;&amp; t, <span class="keyword">const</span> std::index_sequence&lt;I...&gt;&amp; ) -&gt;</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;      decltype(TE&lt;T&gt;::apply(t,std::get&lt;I&gt;(tup)...))<span class="keyword"> const</span></div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="a00409.html#ga3a2d0075fff7c0af1ab00a7f252c2f9c">TE&lt;T&gt;::apply</a>(t,std::get&lt;I&gt;(tup)...);</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;      <span class="keywordflow">return</span> TE&lt;T&gt;::apply(t,std::get&lt;I&gt;(tup)...);</div>
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    }</div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160; </div>
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;  <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00236"></a><span class="lineno"><a class="line" href="a03004.html">  236</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="a03004.html">TypeEvaluator</a> : <span class="keyword">public</span> TE&lt;T&gt;</div>
+<div class="line"><a name="l00236"></a><span class="lineno"><a class="line" href="a02921.html">  236</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="a02921.html">TypeEvaluator</a> : <span class="keyword">public</span> TE&lt;T&gt;</div>
 <div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    {};</div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160; </div>
 <div class="line"><a name="l00239"></a><span class="lineno"><a class="line" href="a00406.html#ga5e2f53ce863d3763ea065a2af450a6e5">  239</a></span>&#160;    <a class="code" href="a00406.html#ga5e2f53ce863d3763ea065a2af450a6e5">TransformTupleFunctor</a>(Args&amp;&amp;... args)</div>
@@ -190,17 +190,17 @@ $(function() {
 <div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    { }</div>
 <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160; </div>
 <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00244"></a><span class="lineno"><a class="line" href="a00406.html#gaf7c536f47b0c1e4a0d02343fd51a7348">  244</a></span>&#160;    <span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code" href="a00406.html#gaf7c536f47b0c1e4a0d02343fd51a7348">operator()</a>(T&amp;&amp; t) -&gt;</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;      decltype(this-&gt;apply(t,<a class="code" href="a00453.html#a83dcf10f33a1e4ce521651ca95f1c25f">Std::index_sequence_for&lt;Args...&gt;</a>{}))<span class="keyword"> const</span></div>
+<div class="line"><a name="l00244"></a><span class="lineno"><a class="line" href="a00406.html#ga72cc2a2c399ba265680ee260354def7b">  244</a></span>&#160;    <span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code" href="a00406.html#ga72cc2a2c399ba265680ee260354def7b">operator()</a>(T&amp;&amp; t) -&gt;</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;      decltype(this-&gt;apply(t,std::index_sequence_for&lt;Args...&gt;{}))<span class="keyword"> const</span></div>
 <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;      <span class="keywordflow">return</span> apply(t,<a class="code" href="a00453.html#a83dcf10f33a1e4ce521651ca95f1c25f">Std::index_sequence_for&lt;Args...&gt;</a>{});</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;      <span class="keywordflow">return</span> apply(t,std::index_sequence_for&lt;Args...&gt;{});</div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    }</div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;  };</div>
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160; </div>
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">template</span>&lt;<span class="keyword">class</span>&gt; <span class="keyword">class </span>TE, <span class="keyword">class</span>... Args&gt;</div>
-<div class="line"><a name="l00252"></a><span class="lineno"><a class="line" href="a00406.html#gab09a0e6719518183a81d60695510186a">  252</a></span>&#160;  <a class="code" href="a03000.html">TransformTupleFunctor</a>&lt;TE, Args...&gt; <a class="code" href="a00406.html#gab09a0e6719518183a81d60695510186a">makeTransformTupleFunctor</a>(Args&amp;&amp;... args)</div>
+<div class="line"><a name="l00252"></a><span class="lineno"><a class="line" href="a00406.html#gab09a0e6719518183a81d60695510186a">  252</a></span>&#160;  <a class="code" href="a02917.html">TransformTupleFunctor</a>&lt;TE, Args...&gt; <a class="code" href="a00406.html#gab09a0e6719518183a81d60695510186a">makeTransformTupleFunctor</a>(Args&amp;&amp;... args)</div>
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;  {</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="a03000.html">TransformTupleFunctor</a>&lt;TE, Args...&gt;(args...);</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="a02917.html">TransformTupleFunctor</a>&lt;TE, Args...&gt;(args...);</div>
 <div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;  }</div>
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160; </div>
 <div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">template</span>&lt;<span class="keyword">class</span>&gt; <span class="keyword">class </span>TypeEvaluator, <span class="keyword">class </span>Tuple, <span class="keyword">class</span>... Args&gt;</div>
@@ -212,7 +212,7 @@ $(function() {
 <div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160; </div>
 <div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160; </div>
 <div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00302"></a><span class="lineno"><a class="line" href="a03008.html">  302</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a03008.html">AddRefTypeEvaluator</a></div>
+<div class="line"><a name="l00302"></a><span class="lineno"><a class="line" href="a02925.html">  302</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a02925.html">AddRefTypeEvaluator</a></div>
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;  {</div>
 <div class="line"><a name="l00304"></a><span class="lineno"><a class="line" href="a00406.html#ga9089c4ce2c50287440a7970a8629343e">  304</a></span>&#160;    <span class="keyword">typedef</span> T&amp; <a class="code" href="a00406.html#ga9089c4ce2c50287440a7970a8629343e">Type</a>;</div>
 <div class="line"><a name="l00305"></a><span class="lineno"><a class="line" href="a00406.html#ga420a17ec4f5415c1aa51c01da6a04a38">  305</a></span>&#160;    <span class="keyword">static</span> <a class="code" href="a00406.html#ga9089c4ce2c50287440a7970a8629343e">Type</a> <a class="code" href="a00406.html#ga420a17ec4f5415c1aa51c01da6a04a38">apply</a>(T&amp; t)</div>
@@ -223,7 +223,7 @@ $(function() {
 <div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160; </div>
 <div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160; </div>
 <div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00317"></a><span class="lineno"><a class="line" href="a03012.html">  317</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a03012.html">AddPtrTypeEvaluator</a></div>
+<div class="line"><a name="l00317"></a><span class="lineno"><a class="line" href="a02929.html">  317</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a02929.html">AddPtrTypeEvaluator</a></div>
 <div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;  {</div>
 <div class="line"><a name="l00319"></a><span class="lineno"><a class="line" href="a00406.html#ga3f79c29b08ec96b9cbc7a2dafa05932a">  319</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> std::remove_reference&lt;T&gt;::type* <a class="code" href="a00406.html#ga3f79c29b08ec96b9cbc7a2dafa05932a">Type</a>;</div>
 <div class="line"><a name="l00320"></a><span class="lineno"><a class="line" href="a00406.html#gac945ea1ce184ff4c0c0ed12497774afc">  320</a></span>&#160;    <span class="keyword">static</span> <a class="code" href="a00406.html#ga3f79c29b08ec96b9cbc7a2dafa05932a">Type</a> <a class="code" href="a00406.html#gac945ea1ce184ff4c0c0ed12497774afc">apply</a>(T&amp; t)</div>
@@ -234,7 +234,7 @@ $(function() {
 <div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160; </div>
 <div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;  <span class="comment">// Specialization, in case the type is already a reference</span></div>
 <div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00328"></a><span class="lineno"><a class="line" href="a03016.html">  328</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a03012.html">AddPtrTypeEvaluator</a>&lt;T&amp;&gt;</div>
+<div class="line"><a name="l00328"></a><span class="lineno"><a class="line" href="a02933.html">  328</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a02929.html">AddPtrTypeEvaluator</a>&lt;T&amp;&gt;</div>
 <div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;  {</div>
 <div class="line"><a name="l00330"></a><span class="lineno"><a class="line" href="a00406.html#ga5a1f880a8524d4366bfdf5c3495707d6">  330</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> std::remove_reference&lt;T&gt;::type* <a class="code" href="a00406.html#ga5a1f880a8524d4366bfdf5c3495707d6">Type</a>;</div>
 <div class="line"><a name="l00331"></a><span class="lineno"><a class="line" href="a00406.html#ga631ae1fa474cb50d89fde7b5d89deeab">  331</a></span>&#160;    <span class="keyword">static</span> <a class="code" href="a00406.html#ga5a1f880a8524d4366bfdf5c3495707d6">Type</a> <a class="code" href="a00406.html#ga631ae1fa474cb50d89fde7b5d89deeab">apply</a>(T&amp; t)</div>
@@ -244,23 +244,23 @@ $(function() {
 <div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;  };</div>
 <div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160; </div>
 <div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;  <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> N, <span class="keyword">class</span> Tuple&gt;</div>
-<div class="line"><a name="l00343"></a><span class="lineno"><a class="line" href="a03020.html">  343</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a03020.html">AtType</a></div>
+<div class="line"><a name="l00343"></a><span class="lineno"><a class="line" href="a02937.html">  343</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a02937.html">AtType</a></div>
 <div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;  {</div>
 <div class="line"><a name="l00345"></a><span class="lineno"><a class="line" href="a00406.html#ga79482cfe9e95004e408a5fc22bed5957">  345</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> std::tuple_element&lt;std::tuple_size&lt;Tuple&gt;::value - N - 1, Tuple&gt;::type <a class="code" href="a00406.html#ga79482cfe9e95004e408a5fc22bed5957">Type</a>;</div>
 <div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;  };</div>
 <div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160; </div>
 <div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;  <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> N&gt;</div>
-<div class="line"><a name="l00356"></a><span class="lineno"><a class="line" href="a03024.html">  356</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a03024.html">At</a></div>
+<div class="line"><a name="l00356"></a><span class="lineno"><a class="line" href="a02941.html">  356</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a02941.html">At</a></div>
 <div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;  {</div>
 <div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Tuple&gt;</div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    <span class="keyword">static</span> <span class="keyword">typename</span> <a class="code" href="a02972.html">TupleAccessTraits&lt;typename AtType&lt;N, Tuple&gt;::Type</a>&gt;::NonConstType</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    <span class="keyword">static</span> <span class="keyword">typename</span> <a class="code" href="a02889.html">TupleAccessTraits&lt;typename AtType&lt;N, Tuple&gt;::Type</a>&gt;::NonConstType</div>
 <div class="line"><a name="l00360"></a><span class="lineno"><a class="line" href="a00406.html#ga25bd965ead78cac443c8ed01c8f70672">  360</a></span>&#160;    <a class="code" href="a00406.html#ga25bd965ead78cac443c8ed01c8f70672">get</a>(Tuple&amp; t)</div>
 <div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;    {</div>
 <div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;      <span class="keywordflow">return</span> std::get&lt;std::tuple_size&lt;Tuple&gt;::value - N - 1&gt;(t);</div>
 <div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;    }</div>
 <div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160; </div>
 <div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Tuple&gt;</div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;    <span class="keyword">static</span> <span class="keyword">typename</span> <a class="code" href="a02972.html">TupleAccessTraits&lt;typename AtType&lt;N, Tuple&gt;::Type</a>&gt;::ConstType</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;    <span class="keyword">static</span> <span class="keyword">typename</span> <a class="code" href="a02889.html">TupleAccessTraits&lt;typename AtType&lt;N, Tuple&gt;::Type</a>&gt;::ConstType</div>
 <div class="line"><a name="l00367"></a><span class="lineno"><a class="line" href="a00406.html#ga864db2500c6da8ba583ac288c76bdd19">  367</a></span>&#160;    <a class="code" href="a00406.html#ga864db2500c6da8ba583ac288c76bdd19">get</a>(<span class="keyword">const</span> Tuple&amp; t)</div>
 <div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;    {</div>
 <div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;      <span class="keywordflow">return</span> std::get&lt;std::tuple_size&lt;Tuple&gt;::value - N - 1&gt;(t);</div>
@@ -268,7 +268,7 @@ $(function() {
 <div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;  };</div>
 <div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160; </div>
 <div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class</span> Tuple&gt;</div>
-<div class="line"><a name="l00377"></a><span class="lineno"><a class="line" href="a03028.html">  377</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a03028.html">PointerPairDeletor</a></div>
+<div class="line"><a name="l00377"></a><span class="lineno"><a class="line" href="a02945.html">  377</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a02945.html">PointerPairDeletor</a></div>
 <div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;  {</div>
 <div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span>... Ts&gt;</div>
 <div class="line"><a name="l00380"></a><span class="lineno"><a class="line" href="a00406.html#ga07b35bb47020e1850b89d151ca24d24b">  380</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="a00406.html#ga07b35bb47020e1850b89d151ca24d24b">apply</a>(std::tuple&lt;Ts...&gt;&amp; t)</div>
@@ -279,7 +279,7 @@ $(function() {
 <div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160; </div>
 <div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class</span> Tuple, <span class="keyword">template</span>&lt;<span class="keyword">class</span>&gt; <span class="keyword">class </span>Predicate, std::size_t start = 0,</div>
 <div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;      std::size_t size = std::tuple_size&lt;Tuple&gt;::value&gt;</div>
-<div class="line"><a name="l00411"></a><span class="lineno"><a class="line" href="a03032.html">  411</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a03032.html">FirstPredicateIndex</a> :</div>
+<div class="line"><a name="l00411"></a><span class="lineno"><a class="line" href="a02949.html">  411</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a02949.html">FirstPredicateIndex</a> :</div>
 <div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;    <span class="keyword">public</span> std::conditional&lt;Predicate&lt;typename std::tuple_element&lt;start,</div>
 <div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;                Tuple&gt;::type&gt;::value,</div>
 <div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;        std::integral_constant&lt;std::size_t, start&gt;,</div>
@@ -293,39 +293,39 @@ $(function() {
 <div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160; </div>
 <div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;<span class="preprocessor">#ifndef DOXYGEN</span></div>
 <div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class</span> Tuple, <span class="keyword">template</span>&lt;<span class="keyword">class</span>&gt; <span class="keyword">class </span>Predicate, std::size_t size&gt;</div>
-<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;  <span class="keyword">class </span><a class="code" href="a03032.html">FirstPredicateIndex</a>&lt;Tuple, Predicate, size, size&gt;</div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;  <span class="keyword">class </span><a class="code" href="a02949.html">FirstPredicateIndex</a>&lt;Tuple, Predicate, size, size&gt;</div>
 <div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;  {</div>
-<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;    static_assert(<a class="code" href="a02856.html">Std::to_false_type&lt;Tuple&gt;::value</a>, <span class="stringliteral">&quot;None of the std::tuple element &quot;</span></div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;    static_assert(<a class="code" href="a03069.html">AlwaysFalse&lt;Tuple&gt;::value</a>, <span class="stringliteral">&quot;None of the std::tuple element &quot;</span></div>
 <div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;                       <span class="stringliteral">&quot;types matches the predicate!&quot;</span>);</div>
 <div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;  };</div>
 <div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// !DOXYGEN</span></div>
 <div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160; </div>
 <div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00442"></a><span class="lineno"><a class="line" href="a03036.html">  442</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a03036.html">IsType</a></div>
+<div class="line"><a name="l00442"></a><span class="lineno"><a class="line" href="a02953.html">  442</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a02953.html">IsType</a></div>
 <div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;  {</div>
 <div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> U&gt;</div>
-<div class="line"><a name="l00446"></a><span class="lineno"><a class="line" href="a03040.html">  446</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="a03040.html">Predicate</a> : <span class="keyword">public</span> std::is_same&lt;T, U&gt; {};</div>
+<div class="line"><a name="l00446"></a><span class="lineno"><a class="line" href="a02957.html">  446</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="a02957.html">Predicate</a> : <span class="keyword">public</span> std::is_same&lt;T, U&gt; {};</div>
 <div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;  };</div>
 <div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160; </div>
 <div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class</span> Tuple, <span class="keyword">class</span> T, std::<span class="keywordtype">size_t</span> start = 0&gt;</div>
-<div class="line"><a name="l00463"></a><span class="lineno"><a class="line" href="a03044.html">  463</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a03044.html">FirstTypeIndex</a> :</div>
-<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;    <span class="keyword">public</span> <a class="code" href="a03032.html">FirstPredicateIndex</a>&lt;Tuple, IsType&lt;T&gt;::template Predicate, start&gt;</div>
+<div class="line"><a name="l00463"></a><span class="lineno"><a class="line" href="a02961.html">  463</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a02961.html">FirstTypeIndex</a> :</div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;    <span class="keyword">public</span> <a class="code" href="a02949.html">FirstPredicateIndex</a>&lt;Tuple, IsType&lt;T&gt;::template Predicate, start&gt;</div>
 <div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;  { };</div>
 <div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160; </div>
 <div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class</span> Tuple, <span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00474"></a><span class="lineno"><a class="line" href="a03048.html">  474</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a03048.html">PushBackTuple</a>;</div>
+<div class="line"><a name="l00474"></a><span class="lineno"><a class="line" href="a02965.html">  474</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a02965.html">PushBackTuple</a>;</div>
 <div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160; </div>
 <div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class</span>... Args, <span class="keyword">class </span>T&gt;</div>
-<div class="line"><a name="l00477"></a><span class="lineno"><a class="line" href="a03052.html">  477</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a03048.html">PushBackTuple</a>&lt;typename std::tuple&lt;Args...&gt;, T&gt;</div>
+<div class="line"><a name="l00477"></a><span class="lineno"><a class="line" href="a02969.html">  477</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a02965.html">PushBackTuple</a>&lt;typename std::tuple&lt;Args...&gt;, T&gt;</div>
 <div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;  {</div>
 <div class="line"><a name="l00479"></a><span class="lineno"><a class="line" href="a00406.html#gab4981425c1728ed7690aec0f7895ca14">  479</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> std::tuple&lt;Args..., T&gt; <a class="code" href="a00406.html#gab4981425c1728ed7690aec0f7895ca14">type</a>;</div>
 <div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;  };</div>
 <div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160; </div>
 <div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class</span> Tuple, <span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00489"></a><span class="lineno"><a class="line" href="a03056.html">  489</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a03056.html">PushFrontTuple</a>;</div>
+<div class="line"><a name="l00489"></a><span class="lineno"><a class="line" href="a02973.html">  489</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a02973.html">PushFrontTuple</a>;</div>
 <div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160; </div>
 <div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class</span>... Args, <span class="keyword">class </span>T&gt;</div>
-<div class="line"><a name="l00492"></a><span class="lineno"><a class="line" href="a03060.html">  492</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a03056.html">PushFrontTuple</a>&lt;typename std::tuple&lt;Args...&gt;, T&gt;</div>
+<div class="line"><a name="l00492"></a><span class="lineno"><a class="line" href="a02977.html">  492</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a02973.html">PushFrontTuple</a>&lt;typename std::tuple&lt;Args...&gt;, T&gt;</div>
 <div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;  {</div>
 <div class="line"><a name="l00494"></a><span class="lineno"><a class="line" href="a00406.html#gabd81573d00ffd85f700fba2552c3f45c">  494</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> std::tuple&lt;T, Args...&gt; <a class="code" href="a00406.html#gabd81573d00ffd85f700fba2552c3f45c">type</a>;</div>
 <div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;  };</div>
@@ -335,9 +335,9 @@ $(function() {
 <div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;      <span class="keyword">class </span>Tuple,</div>
 <div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;      <span class="keyword">class </span>Seed=std::tuple&lt;&gt;,</div>
 <div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;      <span class="keywordtype">int</span> N=std::tuple_size&lt;Tuple&gt;::value&gt;</div>
-<div class="line"><a name="l00514"></a><span class="lineno"><a class="line" href="a03064.html">  514</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a03064.html">ReduceTuple</a></div>
+<div class="line"><a name="l00514"></a><span class="lineno"><a class="line" href="a02981.html">  514</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a02981.html">ReduceTuple</a></div>
 <div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;  {</div>
-<div class="line"><a name="l00516"></a><span class="lineno"><a class="line" href="a00406.html#ga65dd729f95b540d3ad4d8b510d19a69d">  516</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="a03064.html">ReduceTuple</a>&lt;F, Tuple, Seed, N-1&gt;<a class="code" href="a00406.html#ga7be50b03070a878f2d6dd778443b2234">::type</a> <a class="code" href="a00406.html#ga65dd729f95b540d3ad4d8b510d19a69d">Accumulated</a>;</div>
+<div class="line"><a name="l00516"></a><span class="lineno"><a class="line" href="a00406.html#ga65dd729f95b540d3ad4d8b510d19a69d">  516</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="a02981.html">ReduceTuple</a>&lt;F, Tuple, Seed, N-1&gt;<a class="code" href="a00406.html#ga7be50b03070a878f2d6dd778443b2234">::type</a> <a class="code" href="a00406.html#ga65dd729f95b540d3ad4d8b510d19a69d">Accumulated</a>;</div>
 <div class="line"><a name="l00517"></a><span class="lineno"><a class="line" href="a00406.html#ga780338238a75b8c437baf30e7bde9002">  517</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> std::tuple_element&lt;N-1, Tuple&gt;<a class="code" href="a00406.html#ga7be50b03070a878f2d6dd778443b2234">::type</a> <a class="code" href="a00406.html#ga780338238a75b8c437baf30e7bde9002">Value</a>;</div>
 <div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160; </div>
 <div class="line"><a name="l00520"></a><span class="lineno"><a class="line" href="a00406.html#ga7be50b03070a878f2d6dd778443b2234">  520</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> F&lt;Accumulated, Value&gt;::type <a class="code" href="a00406.html#ga7be50b03070a878f2d6dd778443b2234">type</a>;</div>
@@ -347,19 +347,19 @@ $(function() {
 <div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;      <span class="keyword">template</span> &lt;<span class="keyword">class</span>, <span class="keyword">class</span>&gt; <span class="keyword">class </span>F,</div>
 <div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;      <span class="keyword">class </span>Tuple,</div>
 <div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;      <span class="keyword">class </span>Seed&gt;</div>
-<div class="line"><a name="l00537"></a><span class="lineno"><a class="line" href="a03068.html">  537</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a03064.html">ReduceTuple</a>&lt;F, Tuple, Seed, 0&gt;</div>
+<div class="line"><a name="l00537"></a><span class="lineno"><a class="line" href="a02985.html">  537</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a02981.html">ReduceTuple</a>&lt;F, Tuple, Seed, 0&gt;</div>
 <div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;  {</div>
 <div class="line"><a name="l00540"></a><span class="lineno"><a class="line" href="a00406.html#ga3c82c919222082b94e5610411a7ea382">  540</a></span>&#160;    <span class="keyword">typedef</span> Seed <a class="code" href="a00406.html#ga3c82c919222082b94e5610411a7ea382">type</a>;</div>
 <div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;  };</div>
 <div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160; </div>
 <div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class</span> Head, <span class="keyword">class</span> Tail&gt;</div>
-<div class="line"><a name="l00553"></a><span class="lineno"><a class="line" href="a03072.html">  553</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a03072.html">JoinTuples</a></div>
+<div class="line"><a name="l00553"></a><span class="lineno"><a class="line" href="a02989.html">  553</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a02989.html">JoinTuples</a></div>
 <div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;  {</div>
 <div class="line"><a name="l00556"></a><span class="lineno"><a class="line" href="a00406.html#ga61efbf30dbd7906f2922063af3068a92">  556</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="a00406.html#ga7be50b03070a878f2d6dd778443b2234">ReduceTuple&lt;PushBackTuple, Tail, Head&gt;::type</a> <a class="code" href="a00406.html#ga61efbf30dbd7906f2922063af3068a92">type</a>;</div>
 <div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;  };</div>
 <div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160; </div>
 <div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class</span> Tuple&gt;</div>
-<div class="line"><a name="l00568"></a><span class="lineno"><a class="line" href="a03076.html">  568</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a03076.html">FlattenTuple</a></div>
+<div class="line"><a name="l00568"></a><span class="lineno"><a class="line" href="a02993.html">  568</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a02993.html">FlattenTuple</a></div>
 <div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;  {</div>
 <div class="line"><a name="l00571"></a><span class="lineno"><a class="line" href="a00406.html#gaa580e2f88998695fd3ba5749283d6183">  571</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="a00406.html#ga7be50b03070a878f2d6dd778443b2234">ReduceTuple&lt;JoinTuples, Tuple&gt;::type</a> <a class="code" href="a00406.html#gaa580e2f88998695fd3ba5749283d6183">type</a>;</div>
 <div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;  };</div>
@@ -368,8 +368,7 @@ $(function() {
 <div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160; </div>
 <div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aa00128_html"><div class="ttname"><a href="a00128.html">hybridutilities.hh</a></div></div>
-<div class="ttc" id="aa00341_html"><div class="ttname"><a href="a00341.html">type_traits.hh</a></div></div>
-<div class="ttc" id="aa00344_html"><div class="ttname"><a href="a00344.html">utility.hh</a></div></div>
+<div class="ttc" id="aa00383_html"><div class="ttname"><a href="a00383.html">typetraits.hh</a></div><div class="ttdoc">Traits for type conversions and type information.</div></div>
 <div class="ttc" id="aa00406_html_ga041f1e2352cf960c2cdabcc24b63810b"><div class="ttname"><a href="a00406.html#ga041f1e2352cf960c2cdabcc24b63810b">Dune::TupleAccessTraits::ConstType</a></div><div class="ttdeci">std::add_const&lt; T &gt;::type &amp; ConstType</div><div class="ttdef"><b>Definition:</b> tupleutility.hh:48</div></div>
 <div class="ttc" id="aa00406_html_ga07b35bb47020e1850b89d151ca24d24b"><div class="ttname"><a href="a00406.html#ga07b35bb47020e1850b89d151ca24d24b">Dune::PointerPairDeletor::apply</a></div><div class="ttdeci">static void apply(std::tuple&lt; Ts... &gt; &amp;t)</div><div class="ttdef"><b>Definition:</b> tupleutility.hh:380</div></div>
 <div class="ttc" id="aa00406_html_ga12185fab48344d079604e6357fe83025"><div class="ttname"><a href="a00406.html#ga12185fab48344d079604e6357fe83025">Dune::TupleAccessTraits&lt; T * &gt;::ParameterType</a></div><div class="ttdeci">T * ParameterType</div><div class="ttdef"><b>Definition:</b> tupleutility.hh:58</div></div>
@@ -387,6 +386,7 @@ $(function() {
 <div class="ttc" id="aa00406_html_ga61efbf30dbd7906f2922063af3068a92"><div class="ttname"><a href="a00406.html#ga61efbf30dbd7906f2922063af3068a92">Dune::JoinTuples::type</a></div><div class="ttdeci">ReduceTuple&lt; PushBackTuple, Tail, Head &gt;::type type</div><div class="ttdoc">Result of the join operation.</div><div class="ttdef"><b>Definition:</b> tupleutility.hh:556</div></div>
 <div class="ttc" id="aa00406_html_ga631ae1fa474cb50d89fde7b5d89deeab"><div class="ttname"><a href="a00406.html#ga631ae1fa474cb50d89fde7b5d89deeab">Dune::AddPtrTypeEvaluator&lt; T &amp; &gt;::apply</a></div><div class="ttdeci">static Type apply(T &amp;t)</div><div class="ttdef"><b>Definition:</b> tupleutility.hh:331</div></div>
 <div class="ttc" id="aa00406_html_ga65dd729f95b540d3ad4d8b510d19a69d"><div class="ttname"><a href="a00406.html#ga65dd729f95b540d3ad4d8b510d19a69d">Dune::ReduceTuple::Accumulated</a></div><div class="ttdeci">ReduceTuple&lt; F, Tuple, Seed, N-1 &gt;::type Accumulated</div><div class="ttdef"><b>Definition:</b> tupleutility.hh:516</div></div>
+<div class="ttc" id="aa00406_html_ga72cc2a2c399ba265680ee260354def7b"><div class="ttname"><a href="a00406.html#ga72cc2a2c399ba265680ee260354def7b">Dune::TransformTupleFunctor::operator()</a></div><div class="ttdeci">auto operator()(T &amp;&amp;t) -&gt; decltype(this-&gt;apply(t, std::index_sequence_for&lt; Args... &gt;{})) const</div><div class="ttdef"><b>Definition:</b> tupleutility.hh:244</div></div>
 <div class="ttc" id="aa00406_html_ga7642b9a2b63fc07ad3adcbfa7742bc71"><div class="ttname"><a href="a00406.html#ga7642b9a2b63fc07ad3adcbfa7742bc71">Dune::TupleAccessTraits&lt; T &amp; &gt;::NonConstType</a></div><div class="ttdeci">T &amp; NonConstType</div><div class="ttdef"><b>Definition:</b> tupleutility.hh:65</div></div>
 <div class="ttc" id="aa00406_html_ga780338238a75b8c437baf30e7bde9002"><div class="ttname"><a href="a00406.html#ga780338238a75b8c437baf30e7bde9002">Dune::ReduceTuple::Value</a></div><div class="ttdeci">std::tuple_element&lt; N-1, Tuple &gt;::type Value</div><div class="ttdef"><b>Definition:</b> tupleutility.hh:517</div></div>
 <div class="ttc" id="aa00406_html_ga79482cfe9e95004e408a5fc22bed5957"><div class="ttname"><a href="a00406.html#ga79482cfe9e95004e408a5fc22bed5957">Dune::AtType::Type</a></div><div class="ttdeci">std::tuple_element&lt; std::tuple_size&lt; Tuple &gt;::value - N - 1, Tuple &gt;::type Type</div><div class="ttdef"><b>Definition:</b> tupleutility.hh:345</div></div>
@@ -405,31 +405,28 @@ $(function() {
 <div class="ttc" id="aa00406_html_gaef361574ba7087d6324f129026b13d3d"><div class="ttname"><a href="a00406.html#gaef361574ba7087d6324f129026b13d3d">Dune::TupleAccessTraits&lt; T &amp; &gt;::ParameterType</a></div><div class="ttdeci">T &amp; ParameterType</div><div class="ttdef"><b>Definition:</b> tupleutility.hh:66</div></div>
 <div class="ttc" id="aa00406_html_gaf3eb742968041769424b84691408fb73"><div class="ttname"><a href="a00406.html#gaf3eb742968041769424b84691408fb73">Dune::TupleAccessTraits::ParameterType</a></div><div class="ttdeci">const std::remove_const&lt; T &gt;::type &amp; ParameterType</div><div class="ttdef"><b>Definition:</b> tupleutility.hh:50</div></div>
 <div class="ttc" id="aa00406_html_gaf5d4dd28478959589b3ea38408a58c8e"><div class="ttname"><a href="a00406.html#gaf5d4dd28478959589b3ea38408a58c8e">Dune::TupleAccessTraits&lt; T * &gt;::ConstType</a></div><div class="ttdeci">std::add_const&lt; T &gt;::type * ConstType</div><div class="ttdef"><b>Definition:</b> tupleutility.hh:56</div></div>
-<div class="ttc" id="aa00406_html_gaf7c536f47b0c1e4a0d02343fd51a7348"><div class="ttname"><a href="a00406.html#gaf7c536f47b0c1e4a0d02343fd51a7348">Dune::TransformTupleFunctor::operator()</a></div><div class="ttdeci">auto operator()(T &amp;&amp;t) -&gt; decltype(this-&gt;apply(t, Std::index_sequence_for&lt; Args... &gt;{})) const</div><div class="ttdef"><b>Definition:</b> tupleutility.hh:244</div></div>
-<div class="ttc" id="aa00408_html_ga2df9e60e21091ed59c4a636b99abbedc"><div class="ttname"><a href="a00408.html#ga2df9e60e21091ed59c4a636b99abbedc">Dune::Hybrid::forEach</a></div><div class="ttdeci">constexpr void forEach(Range &amp;&amp;range, F &amp;&amp;f)</div><div class="ttdoc">Range based for loop.</div><div class="ttdef"><b>Definition:</b> hybridutilities.hh:267</div></div>
-<div class="ttc" id="aa00409_html_ga3a2d0075fff7c0af1ab00a7f252c2f9c"><div class="ttname"><a href="a00409.html#ga3a2d0075fff7c0af1ab00a7f252c2f9c">Dune::Std::apply</a></div><div class="ttdeci">decltype(auto) apply(F &amp;&amp;f, ArgTuple &amp;&amp;args)</div><div class="ttdoc">Apply function with arguments given as tuple.</div><div class="ttdef"><b>Definition:</b> apply.hh:46</div></div>
-<div class="ttc" id="aa00428_html"><div class="ttname"><a href="a00428.html">Dune</a></div><div class="ttdoc">Dune namespace.</div><div class="ttdef"><b>Definition:</b> alignedallocator.hh:14</div></div>
-<div class="ttc" id="aa00453_html_a83dcf10f33a1e4ce521651ca95f1c25f"><div class="ttname"><a href="a00453.html#a83dcf10f33a1e4ce521651ca95f1c25f">Dune::Std::index_sequence_for</a></div><div class="ttdeci">make_index_sequence&lt; typename Dune::SizeOf&lt; T... &gt;{}&gt; index_sequence_for</div><div class="ttdoc">Create index_sequence from 0 to sizeof...(T)-1.</div><div class="ttdef"><b>Definition:</b> utility.hh:38</div></div>
-<div class="ttc" id="aa02856_html"><div class="ttname"><a href="a02856.html">Dune::Std::to_false_type</a></div><div class="ttdoc">template mapping a type to std::false_type</div><div class="ttdef"><b>Definition:</b> type_traits.hh:79</div></div>
-<div class="ttc" id="aa02972_html"><div class="ttname"><a href="a02972.html">Dune::TupleAccessTraits</a></div><div class="ttdef"><b>Definition:</b> tupleutility.hh:47</div></div>
-<div class="ttc" id="aa02984_html"><div class="ttname"><a href="a02984.html">Dune::NullPointerInitialiser</a></div><div class="ttdoc">A helper template that initializes a std::tuple consisting of pointers to nullptr.</div><div class="ttdef"><b>Definition:</b> tupleutility.hh:77</div></div>
-<div class="ttc" id="aa02992_html"><div class="ttname"><a href="a02992.html">Dune::ForEachType</a></div><div class="ttdoc">Helper template to clone the type definition of a std::tuple with the storage types replaced by a use...</div><div class="ttdef"><b>Definition:</b> tupleutility.hh:114</div></div>
-<div class="ttc" id="aa03000_html"><div class="ttname"><a href="a03000.html">Dune::TransformTupleFunctor</a></div><div class="ttdef"><b>Definition:</b> tupleutility.hh:224</div></div>
-<div class="ttc" id="aa03004_html"><div class="ttname"><a href="a03004.html">Dune::TransformTupleFunctor::TypeEvaluator</a></div><div class="ttdef"><b>Definition:</b> tupleutility.hh:237</div></div>
-<div class="ttc" id="aa03008_html"><div class="ttname"><a href="a03008.html">Dune::AddRefTypeEvaluator</a></div><div class="ttdoc">TypeEvaluator to turn a type T into a reference to T</div><div class="ttdef"><b>Definition:</b> tupleutility.hh:303</div></div>
-<div class="ttc" id="aa03012_html"><div class="ttname"><a href="a03012.html">Dune::AddPtrTypeEvaluator</a></div><div class="ttdoc">TypeEvaluator to turn a type T into a pointer to T</div><div class="ttdef"><b>Definition:</b> tupleutility.hh:318</div></div>
-<div class="ttc" id="aa03020_html"><div class="ttname"><a href="a03020.html">Dune::AtType</a></div><div class="ttdoc">Type for reverse element access.</div><div class="ttdef"><b>Definition:</b> tupleutility.hh:344</div></div>
-<div class="ttc" id="aa03024_html"><div class="ttname"><a href="a03024.html">Dune::At</a></div><div class="ttdoc">Reverse element access.</div><div class="ttdef"><b>Definition:</b> tupleutility.hh:357</div></div>
-<div class="ttc" id="aa03028_html"><div class="ttname"><a href="a03028.html">Dune::PointerPairDeletor</a></div><div class="ttdoc">Deletes all objects pointed to in a std::tuple of pointers.</div><div class="ttdef"><b>Definition:</b> tupleutility.hh:378</div></div>
-<div class="ttc" id="aa03032_html"><div class="ttname"><a href="a03032.html">Dune::FirstPredicateIndex</a></div><div class="ttdoc">Finding the index of a certain type in a std::tuple.</div><div class="ttdef"><b>Definition:</b> tupleutility.hh:416</div></div>
-<div class="ttc" id="aa03036_html"><div class="ttname"><a href="a03036.html">Dune::IsType</a></div><div class="ttdoc">Generator for predicates accepting one particular type.</div><div class="ttdef"><b>Definition:</b> tupleutility.hh:443</div></div>
-<div class="ttc" id="aa03040_html"><div class="ttname"><a href="a03040.html">Dune::IsType::Predicate</a></div><div class="ttdoc">The actual predicate.</div><div class="ttdef"><b>Definition:</b> tupleutility.hh:446</div></div>
-<div class="ttc" id="aa03044_html"><div class="ttname"><a href="a03044.html">Dune::FirstTypeIndex</a></div><div class="ttdoc">Find the first occurrence of a type in a std::tuple.</div><div class="ttdef"><b>Definition:</b> tupleutility.hh:465</div></div>
-<div class="ttc" id="aa03048_html"><div class="ttname"><a href="a03048.html">Dune::PushBackTuple</a></div><div class="ttdoc">Helper template to append a type to a std::tuple.</div><div class="ttdef"><b>Definition:</b> tupleutility.hh:474</div></div>
-<div class="ttc" id="aa03056_html"><div class="ttname"><a href="a03056.html">Dune::PushFrontTuple</a></div><div class="ttdoc">Helper template to prepend a type to a std::tuple.</div><div class="ttdef"><b>Definition:</b> tupleutility.hh:489</div></div>
-<div class="ttc" id="aa03064_html"><div class="ttname"><a href="a03064.html">Dune::ReduceTuple</a></div><div class="ttdoc">Apply reduce with meta binary function to template.</div><div class="ttdef"><b>Definition:</b> tupleutility.hh:515</div></div>
-<div class="ttc" id="aa03072_html"><div class="ttname"><a href="a03072.html">Dune::JoinTuples</a></div><div class="ttdoc">Join two std::tuple's.</div><div class="ttdef"><b>Definition:</b> tupleutility.hh:554</div></div>
-<div class="ttc" id="aa03076_html"><div class="ttname"><a href="a03076.html">Dune::FlattenTuple</a></div><div class="ttdoc">Flatten a std::tuple of std::tuple's.</div><div class="ttdef"><b>Definition:</b> tupleutility.hh:569</div></div>
+<div class="ttc" id="aa00408_html_ga2df9e60e21091ed59c4a636b99abbedc"><div class="ttname"><a href="a00408.html#ga2df9e60e21091ed59c4a636b99abbedc">Dune::Hybrid::forEach</a></div><div class="ttdeci">constexpr void forEach(Range &amp;&amp;range, F &amp;&amp;f)</div><div class="ttdoc">Range based for loop.</div><div class="ttdef"><b>Definition:</b> hybridutilities.hh:266</div></div>
+<div class="ttc" id="aa00428_html"><div class="ttname"><a href="a00428.html">Dune</a></div><div class="ttdoc">Dune namespace.</div><div class="ttdef"><b>Definition:</b> alignedallocator.hh:11</div></div>
+<div class="ttc" id="aa02889_html"><div class="ttname"><a href="a02889.html">Dune::TupleAccessTraits</a></div><div class="ttdef"><b>Definition:</b> tupleutility.hh:47</div></div>
+<div class="ttc" id="aa02901_html"><div class="ttname"><a href="a02901.html">Dune::NullPointerInitialiser</a></div><div class="ttdoc">A helper template that initializes a std::tuple consisting of pointers to nullptr.</div><div class="ttdef"><b>Definition:</b> tupleutility.hh:77</div></div>
+<div class="ttc" id="aa02909_html"><div class="ttname"><a href="a02909.html">Dune::ForEachType</a></div><div class="ttdoc">Helper template to clone the type definition of a std::tuple with the storage types replaced by a use...</div><div class="ttdef"><b>Definition:</b> tupleutility.hh:114</div></div>
+<div class="ttc" id="aa02917_html"><div class="ttname"><a href="a02917.html">Dune::TransformTupleFunctor</a></div><div class="ttdef"><b>Definition:</b> tupleutility.hh:224</div></div>
+<div class="ttc" id="aa02921_html"><div class="ttname"><a href="a02921.html">Dune::TransformTupleFunctor::TypeEvaluator</a></div><div class="ttdef"><b>Definition:</b> tupleutility.hh:237</div></div>
+<div class="ttc" id="aa02925_html"><div class="ttname"><a href="a02925.html">Dune::AddRefTypeEvaluator</a></div><div class="ttdoc">TypeEvaluator to turn a type T into a reference to T</div><div class="ttdef"><b>Definition:</b> tupleutility.hh:303</div></div>
+<div class="ttc" id="aa02929_html"><div class="ttname"><a href="a02929.html">Dune::AddPtrTypeEvaluator</a></div><div class="ttdoc">TypeEvaluator to turn a type T into a pointer to T</div><div class="ttdef"><b>Definition:</b> tupleutility.hh:318</div></div>
+<div class="ttc" id="aa02937_html"><div class="ttname"><a href="a02937.html">Dune::AtType</a></div><div class="ttdoc">Type for reverse element access.</div><div class="ttdef"><b>Definition:</b> tupleutility.hh:344</div></div>
+<div class="ttc" id="aa02941_html"><div class="ttname"><a href="a02941.html">Dune::At</a></div><div class="ttdoc">Reverse element access.</div><div class="ttdef"><b>Definition:</b> tupleutility.hh:357</div></div>
+<div class="ttc" id="aa02945_html"><div class="ttname"><a href="a02945.html">Dune::PointerPairDeletor</a></div><div class="ttdoc">Deletes all objects pointed to in a std::tuple of pointers.</div><div class="ttdef"><b>Definition:</b> tupleutility.hh:378</div></div>
+<div class="ttc" id="aa02949_html"><div class="ttname"><a href="a02949.html">Dune::FirstPredicateIndex</a></div><div class="ttdoc">Finding the index of a certain type in a std::tuple.</div><div class="ttdef"><b>Definition:</b> tupleutility.hh:416</div></div>
+<div class="ttc" id="aa02953_html"><div class="ttname"><a href="a02953.html">Dune::IsType</a></div><div class="ttdoc">Generator for predicates accepting one particular type.</div><div class="ttdef"><b>Definition:</b> tupleutility.hh:443</div></div>
+<div class="ttc" id="aa02957_html"><div class="ttname"><a href="a02957.html">Dune::IsType::Predicate</a></div><div class="ttdoc">The actual predicate.</div><div class="ttdef"><b>Definition:</b> tupleutility.hh:446</div></div>
+<div class="ttc" id="aa02961_html"><div class="ttname"><a href="a02961.html">Dune::FirstTypeIndex</a></div><div class="ttdoc">Find the first occurrence of a type in a std::tuple.</div><div class="ttdef"><b>Definition:</b> tupleutility.hh:465</div></div>
+<div class="ttc" id="aa02965_html"><div class="ttname"><a href="a02965.html">Dune::PushBackTuple</a></div><div class="ttdoc">Helper template to append a type to a std::tuple.</div><div class="ttdef"><b>Definition:</b> tupleutility.hh:474</div></div>
+<div class="ttc" id="aa02973_html"><div class="ttname"><a href="a02973.html">Dune::PushFrontTuple</a></div><div class="ttdoc">Helper template to prepend a type to a std::tuple.</div><div class="ttdef"><b>Definition:</b> tupleutility.hh:489</div></div>
+<div class="ttc" id="aa02981_html"><div class="ttname"><a href="a02981.html">Dune::ReduceTuple</a></div><div class="ttdoc">Apply reduce with meta binary function to template.</div><div class="ttdef"><b>Definition:</b> tupleutility.hh:515</div></div>
+<div class="ttc" id="aa02989_html"><div class="ttname"><a href="a02989.html">Dune::JoinTuples</a></div><div class="ttdoc">Join two std::tuple's.</div><div class="ttdef"><b>Definition:</b> tupleutility.hh:554</div></div>
+<div class="ttc" id="aa02993_html"><div class="ttname"><a href="a02993.html">Dune::FlattenTuple</a></div><div class="ttdoc">Flatten a std::tuple of std::tuple's.</div><div class="ttdef"><b>Definition:</b> tupleutility.hh:569</div></div>
+<div class="ttc" id="aa03069_html"><div class="ttname"><a href="a03069.html">Dune::AlwaysFalse</a></div><div class="ttdoc">template which always yields a false value</div><div class="ttdef"><b>Definition:</b> typetraits.hh:124</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

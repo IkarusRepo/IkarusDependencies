@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-common
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -82,7 +82,7 @@ $(function() {
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00386.html">dune/common/typeutilities.hh</a>&gt;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00380.html">dune/common/typelist.hh</a>&gt;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00374.html">dune/common/tupleutility.hh</a>&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00341.html">dune/common/std/type_traits.hh</a>&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00338.html">dune/common/std/type_traits.hh</a>&gt;</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00428.html">Dune</a> {</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
@@ -91,9 +91,9 @@ $(function() {
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span>... BaseConcepts&gt;</div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="a01344.html">   51</a></span>&#160;<span class="keyword">struct </span><a class="code" href="a01344.html">Refines</a></div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="a01345.html">   51</a></span>&#160;<span class="keyword">struct </span><a class="code" href="a01345.html">Refines</a></div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;{</div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="a01344.html#ae7207e9050eb5211a4dcbea2007a382e">   53</a></span>&#160;  <span class="keyword">typedef</span> <a class="code" href="a00407.html#ga7e18d05cb5d1e95f0e7c7409ffe9689f">TypeList</a>&lt;BaseConcepts...&gt; <a class="code" href="a01344.html#ae7207e9050eb5211a4dcbea2007a382e">BaseConceptList</a>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="a01345.html#ae7207e9050eb5211a4dcbea2007a382e">   53</a></span>&#160;  <span class="keyword">typedef</span> <a class="code" href="a00407.html#ga7e18d05cb5d1e95f0e7c7409ffe9689f">TypeList</a>&lt;BaseConcepts...&gt; <a class="code" href="a01345.html#ae7207e9050eb5211a4dcbea2007a382e">BaseConceptList</a>;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;};</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
@@ -126,14 +126,14 @@ $(function() {
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  <span class="comment">// PriorityTag&lt;0&gt; in the default overload.</span></div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class </span>C, <span class="keyword">class</span>... T,</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    decltype(std::declval&lt;C&gt;().require(std::declval&lt;T&gt;()...), 0) =0&gt;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  constexpr std::true_type matchesRequirement(<a class="code" href="a03244.html">PriorityTag&lt;1&gt;</a>)</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  constexpr std::true_type matchesRequirement(<a class="code" href="a03157.html">PriorityTag&lt;1&gt;</a>)</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  { <span class="keywordflow">return</span> {}; }</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  <span class="comment">// If the above overload is ruled out by SFINAE because</span></div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  <span class="comment">// the T... does not match the requirements of C, then</span></div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  <span class="comment">// this default overload drops in.</span></div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class </span>C, <span class="keyword">class</span>... T&gt;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  constexpr std::false_type matchesRequirement(<a class="code" href="a03248.html">PriorityTag&lt;0&gt;</a>)</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  constexpr std::false_type matchesRequirement(<a class="code" href="a03161.html">PriorityTag&lt;0&gt;</a>)</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  { <span class="keywordflow">return</span> {}; }</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
@@ -195,7 +195,7 @@ $(function() {
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class </span>C, <span class="keyword">class</span>... T&gt;</div>
 <div class="line"><a name="l00182"></a><span class="lineno"><a class="line" href="a00410.html#ga91a4108f1ea3f3644e343659a4e25904">  182</a></span>&#160;constexpr <span class="keyword">auto</span> <a class="code" href="a00410.html#ga91a4108f1ea3f3644e343659a4e25904">models</a>()</div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;{</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="a00409.html#ga049b2ca3667aca812f290f41a8a5fc9a">Std::bool_constant</a>&lt;<a class="code" href="a00410.html#ga91a4108f1ea3f3644e343659a4e25904">Concept::Impl::models</a>&lt;C, T...&gt;()&gt;();</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;  <span class="keywordflow">return</span> Std::bool_constant&lt;<a class="code" href="a00410.html#ga91a4108f1ea3f3644e343659a4e25904">Concept::Impl::models</a>&lt;C, T...&gt;()&gt;();</div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;}</div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; </div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160; </div>
@@ -341,15 +341,14 @@ $(function() {
 <div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160; </div>
 <div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160; </div>
 <div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// DUNE_COMMON_CONCEPT_HH</span></div>
-<div class="ttc" id="aa00341_html"><div class="ttname"><a href="a00341.html">type_traits.hh</a></div></div>
+<div class="ttc" id="aa00338_html"><div class="ttname"><a href="a00338.html">type_traits.hh</a></div></div>
 <div class="ttc" id="aa00374_html"><div class="ttname"><a href="a00374.html">tupleutility.hh</a></div><div class="ttdoc">Contains utility classes which can be used with std::tuple.</div></div>
 <div class="ttc" id="aa00380_html"><div class="ttname"><a href="a00380.html">typelist.hh</a></div></div>
 <div class="ttc" id="aa00386_html"><div class="ttname"><a href="a00386.html">typeutilities.hh</a></div><div class="ttdoc">Utilities for type computations, constraining overloads, ...</div></div>
 <div class="ttc" id="aa00406_html_ga7be50b03070a878f2d6dd778443b2234"><div class="ttname"><a href="a00406.html#ga7be50b03070a878f2d6dd778443b2234">Dune::ReduceTuple::type</a></div><div class="ttdeci">F&lt; Accumulated, Value &gt;::type type</div><div class="ttdoc">Result of the reduce operation.</div><div class="ttdef"><b>Definition:</b> tupleutility.hh:520</div></div>
-<div class="ttc" id="aa00407_html_ga7e18d05cb5d1e95f0e7c7409ffe9689f"><div class="ttname"><a href="a00407.html#ga7e18d05cb5d1e95f0e7c7409ffe9689f">Dune::TypeList</a></div><div class="ttdeci">std::tuple&lt; MetaType&lt; T &gt;... &gt; TypeList</div><div class="ttdoc">A simple type list.</div><div class="ttdef"><b>Definition:</b> typelist.hh:87</div></div>
-<div class="ttc" id="aa00409_html_ga049b2ca3667aca812f290f41a8a5fc9a"><div class="ttname"><a href="a00409.html#ga049b2ca3667aca812f290f41a8a5fc9a">Dune::Std::bool_constant</a></div><div class="ttdeci">std::integral_constant&lt; bool, value &gt; bool_constant</div><div class="ttdoc">A template alias for std::integral_constant&lt;bool, value&gt;</div><div class="ttdef"><b>Definition:</b> type_traits.hh:118</div></div>
+<div class="ttc" id="aa00407_html_ga7e18d05cb5d1e95f0e7c7409ffe9689f"><div class="ttname"><a href="a00407.html#ga7e18d05cb5d1e95f0e7c7409ffe9689f">Dune::TypeList</a></div><div class="ttdeci">std::tuple&lt; MetaType&lt; T &gt;... &gt; TypeList</div><div class="ttdoc">A simple type list.</div><div class="ttdef"><b>Definition:</b> typelist.hh:85</div></div>
 <div class="ttc" id="aa00410_html_ga91a4108f1ea3f3644e343659a4e25904"><div class="ttname"><a href="a00410.html#ga91a4108f1ea3f3644e343659a4e25904">Dune::models</a></div><div class="ttdeci">constexpr auto models()</div><div class="ttdoc">Check if concept is modeled by given types.</div><div class="ttdef"><b>Definition:</b> concept.hh:182</div></div>
-<div class="ttc" id="aa00428_html"><div class="ttname"><a href="a00428.html">Dune</a></div><div class="ttdoc">Dune namespace.</div><div class="ttdef"><b>Definition:</b> alignedallocator.hh:14</div></div>
+<div class="ttc" id="aa00428_html"><div class="ttname"><a href="a00428.html">Dune</a></div><div class="ttdoc">Dune namespace.</div><div class="ttdef"><b>Definition:</b> alignedallocator.hh:11</div></div>
 <div class="ttc" id="aa00430_html_a06e79a0db6608ca4c073c4c8f0dd824d"><div class="ttname"><a href="a00430.html#a06e79a0db6608ca4c073c4c8f0dd824d">Dune::Concept::requireConcept</a></div><div class="ttdeci">constexpr bool requireConcept()</div><div class="ttdef"><b>Definition:</b> concept.hh:244</div></div>
 <div class="ttc" id="aa00430_html_a0c5244fc0c1f77eb234e0bab79bb5240"><div class="ttname"><a href="a00430.html#a0c5244fc0c1f77eb234e0bab79bb5240">Dune::Concept::requireTrue</a></div><div class="ttdeci">constexpr bool requireTrue()</div><div class="ttdef"><b>Definition:</b> concept.hh:237</div></div>
 <div class="ttc" id="aa00430_html_a0cdb8b8ed4fc7d006516dc22697edcc3"><div class="ttname"><a href="a00430.html#a0cdb8b8ed4fc7d006516dc22697edcc3">Dune::Concept::requireSameType</a></div><div class="ttdeci">constexpr bool requireSameType()</div><div class="ttdef"><b>Definition:</b> concept.hh:315</div></div>
@@ -358,10 +357,10 @@ $(function() {
 <div class="ttc" id="aa00430_html_a7d39e8ecc39ad89d9b47c1ccf9873a54"><div class="ttname"><a href="a00430.html#a7d39e8ecc39ad89d9b47c1ccf9873a54">Dune::Concept::requireBaseOf</a></div><div class="ttdeci">constexpr bool requireBaseOf()</div><div class="ttdef"><b>Definition:</b> concept.hh:297</div></div>
 <div class="ttc" id="aa00430_html_a8b5ee9cb9837e082ac1da60fe2a1ca81"><div class="ttname"><a href="a00430.html#a8b5ee9cb9837e082ac1da60fe2a1ca81">Dune::Concept::requireConvertible</a></div><div class="ttdeci">constexpr bool requireConvertible()</div><div class="ttdef"><b>Definition:</b> concept.hh:269</div></div>
 <div class="ttc" id="aa00430_html_ad96e1a5fe36cebbed3c85d0e24b49bef"><div class="ttname"><a href="a00430.html#ad96e1a5fe36cebbed3c85d0e24b49bef">Dune::Concept::requireType</a></div><div class="ttdeci">constexpr bool requireType()</div><div class="ttdef"><b>Definition:</b> concept.hh:288</div></div>
-<div class="ttc" id="aa01344_html"><div class="ttname"><a href="a01344.html">Dune::Concept::Refines</a></div><div class="ttdoc">Base class for refined concepts.</div><div class="ttdef"><b>Definition:</b> concept.hh:52</div></div>
-<div class="ttc" id="aa01344_html_ae7207e9050eb5211a4dcbea2007a382e"><div class="ttname"><a href="a01344.html#ae7207e9050eb5211a4dcbea2007a382e">Dune::Concept::Refines::BaseConceptList</a></div><div class="ttdeci">TypeList&lt; BaseConcepts... &gt; BaseConceptList</div><div class="ttdef"><b>Definition:</b> concept.hh:53</div></div>
-<div class="ttc" id="aa03244_html"><div class="ttname"><a href="a03244.html">Dune::PriorityTag</a></div><div class="ttdoc">Helper class for tagging priorities.</div><div class="ttdef"><b>Definition:</b> typeutilities.hh:71</div></div>
-<div class="ttc" id="aa03248_html"><div class="ttname"><a href="a03248.html">Dune::PriorityTag&lt; 0 &gt;</a></div><div class="ttdoc">Helper class for tagging priorities.</div><div class="ttdef"><b>Definition:</b> typeutilities.hh:85</div></div>
+<div class="ttc" id="aa01345_html"><div class="ttname"><a href="a01345.html">Dune::Concept::Refines</a></div><div class="ttdoc">Base class for refined concepts.</div><div class="ttdef"><b>Definition:</b> concept.hh:52</div></div>
+<div class="ttc" id="aa01345_html_ae7207e9050eb5211a4dcbea2007a382e"><div class="ttname"><a href="a01345.html#ae7207e9050eb5211a4dcbea2007a382e">Dune::Concept::Refines::BaseConceptList</a></div><div class="ttdeci">TypeList&lt; BaseConcepts... &gt; BaseConceptList</div><div class="ttdef"><b>Definition:</b> concept.hh:53</div></div>
+<div class="ttc" id="aa03157_html"><div class="ttname"><a href="a03157.html">Dune::PriorityTag</a></div><div class="ttdoc">Helper class for tagging priorities.</div><div class="ttdef"><b>Definition:</b> typeutilities.hh:71</div></div>
+<div class="ttc" id="aa03161_html"><div class="ttname"><a href="a03161.html">Dune::PriorityTag&lt; 0 &gt;</a></div><div class="ttdoc">Helper class for tagging priorities.</div><div class="ttdef"><b>Definition:</b> typeutilities.hh:85</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

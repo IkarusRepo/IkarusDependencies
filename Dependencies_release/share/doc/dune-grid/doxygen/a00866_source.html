@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: hostgridaccess.hh Source File</title>
+<title>dune-grid: gridtype.hh Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -67,181 +67,32 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">hostgridaccess.hh</div>  </div>
+<div class="title">gridtype.hh</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="a00866.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*-</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// vi: set et ts=4 sw=2 sts=2:</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifndef DUNE_GRID_HOSTGRIDACCESS_HH</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define DUNE_GRID_HOSTGRIDACCESS_HH</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifndef DUNE_GRIDTYPE_HH</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define DUNE_GRIDTYPE_HH</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a06842.html">dune/grid/geometrygrid/intersection.hh</a>&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00936.html">Dune</a></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  <span class="comment">// External Forward Declarations</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  <span class="comment">// -----------------------------</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  <span class="keyword">template</span>&lt; <span class="keyword">class</span> HostGr<span class="keywordtype">id</span>, <span class="keyword">class</span> CoordFunction, <span class="keyword">class</span> Allocator &gt;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  <span class="keyword">class </span>GeometryGrid;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  <span class="keyword">template</span>&lt; <span class="keyword">class</span> &gt;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <span class="keyword">class </span>IdentityGrid;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="comment">// HostGridAccess</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="comment">// --------------</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keyword">template</span>&lt; <span class="keyword">class</span> Gr<span class="keywordtype">id</span> &gt;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="keyword">struct </span>HostGridAccess;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#ifndef HEADERCHECK</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">// NOGRID is used to specify that no default was set during configure</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">// If NOGRID and HAVE_GRIDTYPE are both not set then no grid was selected</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">// and an error is produced</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#if defined NOGRID</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">  #if ! HAVE_GRIDTYPE</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">    #error &quot;No grid type selected, use GRIDTYPE=...&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">  #endif</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">  #if ! HAVE_GRIDTYPE</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">    #error &quot;No grid type selected, typo in GRIDTYPE=...?&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">  #endif</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keyword">template</span>&lt; <span class="keyword">class</span> HG, <span class="keyword">class</span> CoordFunction, <span class="keyword">class</span> Allocator &gt;</div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="a04070.html">   39</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a03270.html">HostGridAccess</a>&lt; <a class="code" href="a03074.html">GeometryGrid</a>&lt; HG, CoordFunction, Allocator &gt; &gt;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  {</div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="a04070.html#a44a41a0792353ed6c4188a5ccd99050d">   44</a></span>&#160;    <span class="keyword">typedef</span> <a class="code" href="a03074.html">GeometryGrid&lt; HG, CoordFunction, Allocator &gt;</a> <a class="code" href="a04070.html#a44a41a0792353ed6c4188a5ccd99050d">Grid</a>;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="a04070.html#a17e2f10c468a7f61eec53251fdd5b115">   47</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> Grid::HostGrid <a class="code" href="a04070.html#a17e2f10c468a7f61eec53251fdd5b115">HostGrid</a>;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">template</span>&lt; <span class="keywordtype">int</span> codim &gt;</div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="a04074.html">   56</a></span>&#160;    <span class="keyword">struct </span>Codim</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    {</div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="a04074.html#aa0e23fa9c95c7af1b70ef5c2e3535ff7">   59</a></span>&#160;      <span class="keyword">typedef</span> <span class="keyword">typename</span> Grid::template <a class="code" href="a04074.html#aa0e23fa9c95c7af1b70ef5c2e3535ff7">Codim&lt; codim &gt;::Entity</a> <a class="code" href="a04074.html#aa0e23fa9c95c7af1b70ef5c2e3535ff7">Entity</a>;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="a04074.html#a07eebafcb584f4a99264a45aae832d2e">   62</a></span>&#160;      <span class="keyword">typedef</span> <span class="keyword">typename</span> HostGrid::template <a class="code" href="a04074.html#aa0e23fa9c95c7af1b70ef5c2e3535ff7">Codim&lt; codim &gt;::Entity</a> <a class="code" href="a04074.html#a07eebafcb584f4a99264a45aae832d2e">HostEntity</a>;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    };</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="a04070.html#a6c4baf7debf8a45d8ac2310236ef489d">   66</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> Grid::Traits::LeafIntersection <a class="code" href="a04070.html#a6c4baf7debf8a45d8ac2310236ef489d">LeafIntersection</a>;</div>
-<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="a04070.html#af3bbce8654288cbd31d01b12e91bba6d">   68</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> Grid::Traits::LevelIntersection <a class="code" href="a04070.html#af3bbce8654288cbd31d01b12e91bba6d">LevelIntersection</a>;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="a04070.html#ab909b102e8358f8b2a17b340df786675">   71</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> HostGrid::Traits::LeafIntersection <a class="code" href="a04070.html#ab909b102e8358f8b2a17b340df786675">HostLeafIntersection</a>;</div>
-<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="a04070.html#a183e124e2fb08479651d5186983fe00a">   73</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> HostGrid::Traits::LevelIntersection <a class="code" href="a04070.html#a183e124e2fb08479651d5186983fe00a">HostLevelIntersection</a>;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="a04070.html#a9f737412657c8d4bee851c37c99b1004">   79</a></span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="a04070.html#a17e2f10c468a7f61eec53251fdd5b115">HostGrid</a> &amp;<a class="code" href="a04070.html#a9f737412657c8d4bee851c37c99b1004">hostGrid</a> ( <span class="keyword">const</span> <a class="code" href="a03074.html">Grid</a> &amp;grid )</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    {</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;      <span class="keywordflow">return</span> grid.<a class="code" href="a03074.html#af223a8ef395b2ba4b619b51be7c518f4">hostGrid</a>();</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    }</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">class</span> Entity &gt;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">typename</span> Codim&lt; Entity::codimension &gt;::HostEntity &amp;</div>
-<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="a04070.html#a01fe775c4805bf5b936c5f1f55d6c7a7">   86</a></span>&#160;    <a class="code" href="a04070.html#a01fe775c4805bf5b936c5f1f55d6c7a7">hostEntity</a> ( <span class="keyword">const</span> <a class="code" href="a02630.html">Entity</a> &amp;entity )</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    {</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;      <span class="keywordflow">return</span> hostEntity&lt; Entity::codimension &gt;( entity );</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    }</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keyword">template</span>&lt; <span class="keywordtype">int</span> codim &gt;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">typename</span> Codim&lt; codim &gt;::HostEntity &amp;</div>
-<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="a04070.html#a1117b560c816a11c590a03ee5dc87802">   93</a></span>&#160;    <a class="code" href="a04070.html#a1117b560c816a11c590a03ee5dc87802">hostEntity</a> ( <span class="keyword">const</span> <span class="keyword">typename</span> <a class="code" href="a04074.html#aa0e23fa9c95c7af1b70ef5c2e3535ff7">Codim&lt; codim &gt;::Entity</a> &amp;entity )</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    {</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;      <span class="keywordflow">return</span> entity.impl().hostEntity();</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    }</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">class</span> HostIntersection &gt;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> HostIntersection &amp;</div>
-<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="a04070.html#a16d20e3ab5137fd293ef425d3708c168">  100</a></span>&#160;    <a class="code" href="a04070.html#a16d20e3ab5137fd293ef425d3708c168">hostIntersection</a> ( <span class="keyword">const</span> <a class="code" href="a01838.html">Intersection</a>&lt; <span class="keyword">const</span> <a class="code" href="a03074.html">Grid</a>, <a class="code" href="a03218.html">GeoGrid::Intersection&lt; const Grid, HostIntersection &gt;</a> &gt; &amp;intersection )</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    {</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;      <span class="keywordflow">return</span> intersection.impl().hostIntersection();</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    }</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  };</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;  <span class="keyword">template</span>&lt; <span class="keyword">class</span> HG &gt;</div>
-<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="a04078.html">  115</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a03270.html">HostGridAccess</a>&lt; <a class="code" href="a03266.html">IdentityGrid</a>&lt; HG &gt; &gt;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  {</div>
-<div class="line"><a name="l00120"></a><span class="lineno"><a class="line" href="a04078.html#a151a0ac5ad69418092e9e4fe60a91fad">  120</a></span>&#160;    <span class="keyword">typedef</span> <a class="code" href="a03266.html">IdentityGrid&lt; HG &gt;</a> <a class="code" href="a04078.html#a151a0ac5ad69418092e9e4fe60a91fad">Grid</a>;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
-<div class="line"><a name="l00123"></a><span class="lineno"><a class="line" href="a04078.html#a126b237b540bda8be0113fd78581f5e3">  123</a></span>&#160;    <span class="keyword">typedef</span> HG <a class="code" href="a04078.html#a126b237b540bda8be0113fd78581f5e3">HostGrid</a>;</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keyword">template</span>&lt; <span class="keywordtype">int</span> codim &gt;</div>
-<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="a04082.html">  132</a></span>&#160;    <span class="keyword">struct </span>Codim</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    {</div>
-<div class="line"><a name="l00135"></a><span class="lineno"><a class="line" href="a04082.html#ab9c4193a4e2f0feb1cedcd81d14918c3">  135</a></span>&#160;      <span class="keyword">typedef</span> <span class="keyword">typename</span> Grid::template <a class="code" href="a04082.html#ab9c4193a4e2f0feb1cedcd81d14918c3">Codim&lt; codim &gt;::Entity</a> <a class="code" href="a04082.html#ab9c4193a4e2f0feb1cedcd81d14918c3">Entity</a>;</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
-<div class="line"><a name="l00138"></a><span class="lineno"><a class="line" href="a04082.html#a38e8b1ddf8061fe3fe6a559fc9d10f42">  138</a></span>&#160;      <span class="keyword">typedef</span> <span class="keyword">typename</span> HostGrid::template <a class="code" href="a04082.html#ab9c4193a4e2f0feb1cedcd81d14918c3">Codim&lt; codim &gt;::Entity</a> <a class="code" href="a04082.html#a38e8b1ddf8061fe3fe6a559fc9d10f42">HostEntity</a>;</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    };</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
-<div class="line"><a name="l00142"></a><span class="lineno"><a class="line" href="a04078.html#a0714daaa670fcf31f4879bba0557f91c">  142</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="a02698.html#a45739c02b5a9029551508f4a434b2c9e">Grid::Traits::LeafIntersection</a> <a class="code" href="a04078.html#a0714daaa670fcf31f4879bba0557f91c">LeafIntersection</a>;</div>
-<div class="line"><a name="l00144"></a><span class="lineno"><a class="line" href="a04078.html#a3e2962cca699093b8db2b6bdfa95e2e4">  144</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="a02698.html#aa7f95858ca7788d75fab631504f85632">Grid::Traits::LevelIntersection</a> <a class="code" href="a04078.html#a3e2962cca699093b8db2b6bdfa95e2e4">LevelIntersection</a>;</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
-<div class="line"><a name="l00147"></a><span class="lineno"><a class="line" href="a04078.html#a59912fbff9554a3f431d8ca90557aa81">  147</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> HostGrid::Traits::LeafIntersection <a class="code" href="a04078.html#a59912fbff9554a3f431d8ca90557aa81">HostLeafIntersection</a>;</div>
-<div class="line"><a name="l00149"></a><span class="lineno"><a class="line" href="a04078.html#a38bec74e9dd212a784889ee62bd83845">  149</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> HostGrid::Traits::LevelIntersection <a class="code" href="a04078.html#a38bec74e9dd212a784889ee62bd83845">HostLevelIntersection</a>;</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
-<div class="line"><a name="l00155"></a><span class="lineno"><a class="line" href="a04078.html#aeb8a8d7725a490eb1ed48e309da79669">  155</a></span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="a04078.html#a126b237b540bda8be0113fd78581f5e3">HostGrid</a> &amp;<a class="code" href="a04078.html#aeb8a8d7725a490eb1ed48e309da79669">hostGrid</a> ( <span class="keyword">const</span> <a class="code" href="a03266.html">Grid</a> &amp;grid )</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    {</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;      <span class="keywordflow">return</span> grid.<a class="code" href="a03266.html#a87226fefd2a084ff6970765bcb3c6b6b">getHostGrid</a>();</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    }</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160; </div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">class</span> Entity &gt;</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">typename</span> Codim&lt; Entity::codimension &gt;::HostEntity &amp;</div>
-<div class="line"><a name="l00162"></a><span class="lineno"><a class="line" href="a04078.html#a0864d8a10360d584e7ace1ca04e5bb74">  162</a></span>&#160;    <a class="code" href="a04078.html#a0864d8a10360d584e7ace1ca04e5bb74">hostEntity</a> ( <span class="keyword">const</span> <a class="code" href="a02630.html">Entity</a> &amp;entity )</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    {</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;      <span class="keywordflow">return</span> hostEntity&lt; Entity::codimension &gt;( entity );</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    }</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; </div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="keyword">template</span>&lt; <span class="keywordtype">int</span> codim &gt;</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">typename</span> Codim&lt; codim &gt;::HostEntity &amp;</div>
-<div class="line"><a name="l00169"></a><span class="lineno"><a class="line" href="a04078.html#a71c8edefe114ce3d63ea56f85684a193">  169</a></span>&#160;    <a class="code" href="a04078.html#a71c8edefe114ce3d63ea56f85684a193">hostEntity</a> ( <span class="keyword">const</span> <span class="keyword">typename</span> <a class="code" href="a04082.html#ab9c4193a4e2f0feb1cedcd81d14918c3">Codim&lt; codim &gt;::Entity</a> &amp;entity )</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    {</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;      <span class="keywordflow">return</span> *entity.impl().hostEntity_;</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    }</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> HostLeafIntersection &amp;</div>
-<div class="line"><a name="l00175"></a><span class="lineno"><a class="line" href="a04078.html#a0f8ce247dc3abc4233e455f37a2d7b85">  175</a></span>&#160;    <a class="code" href="a04078.html#a0f8ce247dc3abc4233e455f37a2d7b85">hostIntersection</a> ( <span class="keyword">const</span> <a class="code" href="a04078.html#a0714daaa670fcf31f4879bba0557f91c">LeafIntersection</a> &amp;intersection )</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    {</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;      <span class="keywordflow">return</span> *intersection.impl().hostIterator_;</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    }</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160; </div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> HostLevelIntersection &amp;</div>
-<div class="line"><a name="l00181"></a><span class="lineno"><a class="line" href="a04078.html#a9f82b89a106018334aaa8733315a098a">  181</a></span>&#160;    <a class="code" href="a04078.html#a9f82b89a106018334aaa8733315a098a">hostIntersection</a> ( <span class="keyword">const</span> <a class="code" href="a04078.html#a3e2962cca699093b8db2b6bdfa95e2e4">LevelIntersection</a> &amp;intersection )</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    {</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;      <span class="keywordflow">return</span> *intersection.impl().hostIterator_;</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    }</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;  };</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; </div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;} <span class="comment">// namespace Dune</span></div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160; </div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// #ifndef DUNE_GRID_HOSTGRIDACCESS_HH</span></div>
-<div class="ttc" id="aa00936_html"><div class="ttname"><a href="a00936.html">Dune</a></div><div class="ttdoc">Include standard header files.</div><div class="ttdef"><b>Definition:</b> agrid.hh:59</div></div>
-<div class="ttc" id="aa01838_html"><div class="ttname"><a href="a01838.html">Dune::Intersection</a></div><div class="ttdoc">Intersection of a mesh entity of codimension 0 (&quot;element&quot;) with a &quot;neighboring&quot; element or with the d...</div><div class="ttdef"><b>Definition:</b> common/intersection.hh:162</div></div>
-<div class="ttc" id="aa02630_html"><div class="ttname"><a href="a02630.html">Dune::Entity</a></div><div class="ttdoc">Wrapper class for entities.</div><div class="ttdef"><b>Definition:</b> common/entity.hh:64</div></div>
-<div class="ttc" id="aa02698_html_a45739c02b5a9029551508f4a434b2c9e"><div class="ttname"><a href="a02698.html#a45739c02b5a9029551508f4a434b2c9e">Dune::Grid&lt; dim, dimworld, HostGrid::ctype, IdentityGridFamily&lt; HostGrid::dimension, HostGrid &gt; &gt;::LeafIntersection</a></div><div class="ttdeci">GridFamily::Traits::LeafIntersection LeafIntersection</div><div class="ttdoc">A type that is a model of Dune::Intersection, an intersections of two codimension 1 of two codimensio...</div><div class="ttdef"><b>Definition:</b> common/grid.hh:460</div></div>
-<div class="ttc" id="aa02698_html_aa7f95858ca7788d75fab631504f85632"><div class="ttname"><a href="a02698.html#aa7f95858ca7788d75fab631504f85632">Dune::Grid&lt; dim, dimworld, HostGrid::ctype, IdentityGridFamily&lt; HostGrid::dimension, HostGrid &gt; &gt;::LevelIntersection</a></div><div class="ttdeci">GridFamily::Traits::LevelIntersection LevelIntersection</div><div class="ttdoc">A type that is a model of Dune::Intersection, an intersections of two codimension 1 of two codimensio...</div><div class="ttdef"><b>Definition:</b> common/grid.hh:465</div></div>
-<div class="ttc" id="aa03074_html"><div class="ttname"><a href="a03074.html">Dune::GeometryGrid</a></div><div class="ttdoc">grid wrapper replacing the geometries</div><div class="ttdef"><b>Definition:</b> geometrygrid/grid.hh:85</div></div>
-<div class="ttc" id="aa03074_html_af223a8ef395b2ba4b619b51be7c518f4"><div class="ttname"><a href="a03074.html#af223a8ef395b2ba4b619b51be7c518f4">Dune::GeometryGrid::hostGrid</a></div><div class="ttdeci">const HostGrid &amp; hostGrid() const</div><div class="ttdoc">obtain constant reference to the host grid</div><div class="ttdef"><b>Definition:</b> geometrygrid/grid.hh:576</div></div>
-<div class="ttc" id="aa03218_html"><div class="ttname"><a href="a03218.html">Dune::GeoGrid::Intersection</a></div><div class="ttdef"><b>Definition:</b> geometrygrid/intersection.hh:20</div></div>
-<div class="ttc" id="aa03266_html"><div class="ttname"><a href="a03266.html">Dune::IdentityGrid</a></div><div class="ttdoc">Provides a meta grid that is identical to its host.</div><div class="ttdef"><b>Definition:</b> identitygrid.hh:87</div></div>
-<div class="ttc" id="aa03266_html_a87226fefd2a084ff6970765bcb3c6b6b"><div class="ttname"><a href="a03266.html#a87226fefd2a084ff6970765bcb3c6b6b">Dune::IdentityGrid::getHostGrid</a></div><div class="ttdeci">HostGridType &amp; getHostGrid() const</div><div class="ttdoc">Returns the hostgrid this IdentityGrid lives in.</div><div class="ttdef"><b>Definition:</b> identitygrid.hh:393</div></div>
-<div class="ttc" id="aa03270_html"><div class="ttname"><a href="a03270.html">Dune::HostGridAccess</a></div><div class="ttdoc">provides access to host grid objects from GeometryGrid</div><div class="ttdef"><b>Definition:</b> hostgridaccess.hh:27</div></div>
-<div class="ttc" id="aa04070_html_a01fe775c4805bf5b936c5f1f55d6c7a7"><div class="ttname"><a href="a04070.html#a01fe775c4805bf5b936c5f1f55d6c7a7">Dune::HostGridAccess&lt; GeometryGrid&lt; HG, CoordFunction, Allocator &gt; &gt;::hostEntity</a></div><div class="ttdeci">static const Codim&lt; Entity::codimension &gt;::HostEntity &amp; hostEntity(const Entity &amp;entity)</div><div class="ttdef"><b>Definition:</b> hostgridaccess.hh:86</div></div>
-<div class="ttc" id="aa04070_html_a1117b560c816a11c590a03ee5dc87802"><div class="ttname"><a href="a04070.html#a1117b560c816a11c590a03ee5dc87802">Dune::HostGridAccess&lt; GeometryGrid&lt; HG, CoordFunction, Allocator &gt; &gt;::hostEntity</a></div><div class="ttdeci">static const Codim&lt; codim &gt;::HostEntity &amp; hostEntity(const typename Codim&lt; codim &gt;::Entity &amp;entity)</div><div class="ttdef"><b>Definition:</b> hostgridaccess.hh:93</div></div>
-<div class="ttc" id="aa04070_html_a16d20e3ab5137fd293ef425d3708c168"><div class="ttname"><a href="a04070.html#a16d20e3ab5137fd293ef425d3708c168">Dune::HostGridAccess&lt; GeometryGrid&lt; HG, CoordFunction, Allocator &gt; &gt;::hostIntersection</a></div><div class="ttdeci">static const HostIntersection &amp; hostIntersection(const Intersection&lt; const Grid, GeoGrid::Intersection&lt; const Grid, HostIntersection &gt; &gt; &amp;intersection)</div><div class="ttdef"><b>Definition:</b> hostgridaccess.hh:100</div></div>
-<div class="ttc" id="aa04070_html_a17e2f10c468a7f61eec53251fdd5b115"><div class="ttname"><a href="a04070.html#a17e2f10c468a7f61eec53251fdd5b115">Dune::HostGridAccess&lt; GeometryGrid&lt; HG, CoordFunction, Allocator &gt; &gt;::HostGrid</a></div><div class="ttdeci">Grid::HostGrid HostGrid</div><div class="ttdoc">type of HostGrid</div><div class="ttdef"><b>Definition:</b> hostgridaccess.hh:47</div></div>
-<div class="ttc" id="aa04070_html_a183e124e2fb08479651d5186983fe00a"><div class="ttname"><a href="a04070.html#a183e124e2fb08479651d5186983fe00a">Dune::HostGridAccess&lt; GeometryGrid&lt; HG, CoordFunction, Allocator &gt; &gt;::HostLevelIntersection</a></div><div class="ttdeci">HostGrid::Traits::LevelIntersection HostLevelIntersection</div><div class="ttdoc">type of the host level intersection</div><div class="ttdef"><b>Definition:</b> hostgridaccess.hh:73</div></div>
-<div class="ttc" id="aa04070_html_a44a41a0792353ed6c4188a5ccd99050d"><div class="ttname"><a href="a04070.html#a44a41a0792353ed6c4188a5ccd99050d">Dune::HostGridAccess&lt; GeometryGrid&lt; HG, CoordFunction, Allocator &gt; &gt;::Grid</a></div><div class="ttdeci">GeometryGrid&lt; HG, CoordFunction, Allocator &gt; Grid</div><div class="ttdef"><b>Definition:</b> hostgridaccess.hh:44</div></div>
-<div class="ttc" id="aa04070_html_a6c4baf7debf8a45d8ac2310236ef489d"><div class="ttname"><a href="a04070.html#a6c4baf7debf8a45d8ac2310236ef489d">Dune::HostGridAccess&lt; GeometryGrid&lt; HG, CoordFunction, Allocator &gt; &gt;::LeafIntersection</a></div><div class="ttdeci">Grid::Traits::LeafIntersection LeafIntersection</div><div class="ttdoc">type of the GeometryGrid leaf intersection</div><div class="ttdef"><b>Definition:</b> hostgridaccess.hh:66</div></div>
-<div class="ttc" id="aa04070_html_a9f737412657c8d4bee851c37c99b1004"><div class="ttname"><a href="a04070.html#a9f737412657c8d4bee851c37c99b1004">Dune::HostGridAccess&lt; GeometryGrid&lt; HG, CoordFunction, Allocator &gt; &gt;::hostGrid</a></div><div class="ttdeci">static const HostGrid &amp; hostGrid(const Grid &amp;grid)</div><div class="ttdoc">Get underlying HostGrid.</div><div class="ttdef"><b>Definition:</b> hostgridaccess.hh:79</div></div>
-<div class="ttc" id="aa04070_html_ab909b102e8358f8b2a17b340df786675"><div class="ttname"><a href="a04070.html#ab909b102e8358f8b2a17b340df786675">Dune::HostGridAccess&lt; GeometryGrid&lt; HG, CoordFunction, Allocator &gt; &gt;::HostLeafIntersection</a></div><div class="ttdeci">HostGrid::Traits::LeafIntersection HostLeafIntersection</div><div class="ttdoc">type of the host leaf intersection</div><div class="ttdef"><b>Definition:</b> hostgridaccess.hh:71</div></div>
-<div class="ttc" id="aa04070_html_af3bbce8654288cbd31d01b12e91bba6d"><div class="ttname"><a href="a04070.html#af3bbce8654288cbd31d01b12e91bba6d">Dune::HostGridAccess&lt; GeometryGrid&lt; HG, CoordFunction, Allocator &gt; &gt;::LevelIntersection</a></div><div class="ttdeci">Grid::Traits::LevelIntersection LevelIntersection</div><div class="ttdoc">type of the GeometryGrid level intersection</div><div class="ttdef"><b>Definition:</b> hostgridaccess.hh:68</div></div>
-<div class="ttc" id="aa04074_html_a07eebafcb584f4a99264a45aae832d2e"><div class="ttname"><a href="a04074.html#a07eebafcb584f4a99264a45aae832d2e">Dune::HostGridAccess&lt; GeometryGrid&lt; HG, CoordFunction, Allocator &gt; &gt;::Codim::HostEntity</a></div><div class="ttdeci">HostGrid::template Codim&lt; codim &gt;::Entity HostEntity</div><div class="ttdoc">type of the host entity</div><div class="ttdef"><b>Definition:</b> hostgridaccess.hh:62</div></div>
-<div class="ttc" id="aa04074_html_aa0e23fa9c95c7af1b70ef5c2e3535ff7"><div class="ttname"><a href="a04074.html#aa0e23fa9c95c7af1b70ef5c2e3535ff7">Dune::HostGridAccess&lt; GeometryGrid&lt; HG, CoordFunction, Allocator &gt; &gt;::Codim::Entity</a></div><div class="ttdeci">Grid::template Codim&lt; codim &gt;::Entity Entity</div><div class="ttdoc">type of the GeometryGrid entity</div><div class="ttdef"><b>Definition:</b> hostgridaccess.hh:59</div></div>
-<div class="ttc" id="aa04078_html_a0714daaa670fcf31f4879bba0557f91c"><div class="ttname"><a href="a04078.html#a0714daaa670fcf31f4879bba0557f91c">Dune::HostGridAccess&lt; IdentityGrid&lt; HG &gt; &gt;::LeafIntersection</a></div><div class="ttdeci">Grid::Traits::LeafIntersection LeafIntersection</div><div class="ttdoc">type of the IdGrid leaf intersection</div><div class="ttdef"><b>Definition:</b> hostgridaccess.hh:142</div></div>
-<div class="ttc" id="aa04078_html_a0864d8a10360d584e7ace1ca04e5bb74"><div class="ttname"><a href="a04078.html#a0864d8a10360d584e7ace1ca04e5bb74">Dune::HostGridAccess&lt; IdentityGrid&lt; HG &gt; &gt;::hostEntity</a></div><div class="ttdeci">static const Codim&lt; Entity::codimension &gt;::HostEntity &amp; hostEntity(const Entity &amp;entity)</div><div class="ttdef"><b>Definition:</b> hostgridaccess.hh:162</div></div>
-<div class="ttc" id="aa04078_html_a0f8ce247dc3abc4233e455f37a2d7b85"><div class="ttname"><a href="a04078.html#a0f8ce247dc3abc4233e455f37a2d7b85">Dune::HostGridAccess&lt; IdentityGrid&lt; HG &gt; &gt;::hostIntersection</a></div><div class="ttdeci">static const HostLeafIntersection &amp; hostIntersection(const LeafIntersection &amp;intersection)</div><div class="ttdef"><b>Definition:</b> hostgridaccess.hh:175</div></div>
-<div class="ttc" id="aa04078_html_a126b237b540bda8be0113fd78581f5e3"><div class="ttname"><a href="a04078.html#a126b237b540bda8be0113fd78581f5e3">Dune::HostGridAccess&lt; IdentityGrid&lt; HG &gt; &gt;::HostGrid</a></div><div class="ttdeci">HG HostGrid</div><div class="ttdoc">type of HostGrid</div><div class="ttdef"><b>Definition:</b> hostgridaccess.hh:123</div></div>
-<div class="ttc" id="aa04078_html_a151a0ac5ad69418092e9e4fe60a91fad"><div class="ttname"><a href="a04078.html#a151a0ac5ad69418092e9e4fe60a91fad">Dune::HostGridAccess&lt; IdentityGrid&lt; HG &gt; &gt;::Grid</a></div><div class="ttdeci">IdentityGrid&lt; HG &gt; Grid</div><div class="ttdef"><b>Definition:</b> hostgridaccess.hh:120</div></div>
-<div class="ttc" id="aa04078_html_a38bec74e9dd212a784889ee62bd83845"><div class="ttname"><a href="a04078.html#a38bec74e9dd212a784889ee62bd83845">Dune::HostGridAccess&lt; IdentityGrid&lt; HG &gt; &gt;::HostLevelIntersection</a></div><div class="ttdeci">HostGrid::Traits::LevelIntersection HostLevelIntersection</div><div class="ttdoc">type of the host level intersection</div><div class="ttdef"><b>Definition:</b> hostgridaccess.hh:149</div></div>
-<div class="ttc" id="aa04078_html_a3e2962cca699093b8db2b6bdfa95e2e4"><div class="ttname"><a href="a04078.html#a3e2962cca699093b8db2b6bdfa95e2e4">Dune::HostGridAccess&lt; IdentityGrid&lt; HG &gt; &gt;::LevelIntersection</a></div><div class="ttdeci">Grid::Traits::LevelIntersection LevelIntersection</div><div class="ttdoc">type of the IdGrid level intersection</div><div class="ttdef"><b>Definition:</b> hostgridaccess.hh:144</div></div>
-<div class="ttc" id="aa04078_html_a59912fbff9554a3f431d8ca90557aa81"><div class="ttname"><a href="a04078.html#a59912fbff9554a3f431d8ca90557aa81">Dune::HostGridAccess&lt; IdentityGrid&lt; HG &gt; &gt;::HostLeafIntersection</a></div><div class="ttdeci">HostGrid::Traits::LeafIntersection HostLeafIntersection</div><div class="ttdoc">type of the host leaf intersection</div><div class="ttdef"><b>Definition:</b> hostgridaccess.hh:147</div></div>
-<div class="ttc" id="aa04078_html_a71c8edefe114ce3d63ea56f85684a193"><div class="ttname"><a href="a04078.html#a71c8edefe114ce3d63ea56f85684a193">Dune::HostGridAccess&lt; IdentityGrid&lt; HG &gt; &gt;::hostEntity</a></div><div class="ttdeci">static const Codim&lt; codim &gt;::HostEntity &amp; hostEntity(const typename Codim&lt; codim &gt;::Entity &amp;entity)</div><div class="ttdef"><b>Definition:</b> hostgridaccess.hh:169</div></div>
-<div class="ttc" id="aa04078_html_a9f82b89a106018334aaa8733315a098a"><div class="ttname"><a href="a04078.html#a9f82b89a106018334aaa8733315a098a">Dune::HostGridAccess&lt; IdentityGrid&lt; HG &gt; &gt;::hostIntersection</a></div><div class="ttdeci">static const HostLevelIntersection &amp; hostIntersection(const LevelIntersection &amp;intersection)</div><div class="ttdef"><b>Definition:</b> hostgridaccess.hh:181</div></div>
-<div class="ttc" id="aa04078_html_aeb8a8d7725a490eb1ed48e309da79669"><div class="ttname"><a href="a04078.html#aeb8a8d7725a490eb1ed48e309da79669">Dune::HostGridAccess&lt; IdentityGrid&lt; HG &gt; &gt;::hostGrid</a></div><div class="ttdeci">static const HostGrid &amp; hostGrid(const Grid &amp;grid)</div><div class="ttdoc">Get underlying HostGrid.</div><div class="ttdef"><b>Definition:</b> hostgridaccess.hh:155</div></div>
-<div class="ttc" id="aa04082_html_a38e8b1ddf8061fe3fe6a559fc9d10f42"><div class="ttname"><a href="a04082.html#a38e8b1ddf8061fe3fe6a559fc9d10f42">Dune::HostGridAccess&lt; IdentityGrid&lt; HG &gt; &gt;::Codim::HostEntity</a></div><div class="ttdeci">HostGrid::template Codim&lt; codim &gt;::Entity HostEntity</div><div class="ttdoc">type of the host entity</div><div class="ttdef"><b>Definition:</b> hostgridaccess.hh:138</div></div>
-<div class="ttc" id="aa04082_html_ab9c4193a4e2f0feb1cedcd81d14918c3"><div class="ttname"><a href="a04082.html#ab9c4193a4e2f0feb1cedcd81d14918c3">Dune::HostGridAccess&lt; IdentityGrid&lt; HG &gt; &gt;::Codim::Entity</a></div><div class="ttdeci">Grid::template Codim&lt; codim &gt;::Entity Entity</div><div class="ttdoc">type of the IdGrid entity</div><div class="ttdef"><b>Definition:</b> hostgridaccess.hh:135</div></div>
-<div class="ttc" id="aa06842_html"><div class="ttname"><a href="a06842.html">intersection.hh</a></div></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// HEADERCHECK</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// DUNE_GRIDTYPE_HH</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

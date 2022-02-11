@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: yaspgridintersectioniterator.hh Source File</title>
+<title>dune-grid: yaspgrididset.hh Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -67,81 +67,70 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">yaspgridintersectioniterator.hh</div>  </div>
+<div class="title">yaspgrididset.hh</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="a00197.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*-</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// vi: set et ts=4 sw=2 sts=2:</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifndef DUNE_GRID_YASPGRIDINTERSECTIONITERATOR_HH</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define DUNE_GRID_YASPGRIDINTERSECTIONITERATOR_HH</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifndef DUNE_GRID_YASPGRIDIDSET_HH</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define DUNE_GRID_YASPGRIDIDSET_HH</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00936.html">Dune</a> {</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class</span> Gr<span class="keywordtype">id</span>Imp&gt;</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="a04162.html">   19</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a04162.html">YaspIntersectionIterator</a></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  {</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">enum</span> { dim=GridImp::dimension };</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="comment">// types used from grids</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="a04162.html#a26fca5fec52ab48bda31115f55f4abdf">   24</a></span>&#160;    <span class="keyword">typedef</span> <a class="code" href="a04166.html">Dune::YaspIntersection&lt; GridImp &gt;</a> <a class="code" href="a04162.html#a26fca5fec52ab48bda31115f55f4abdf">IntersectionImp</a>;</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="a04162.html#a27b843ddcb07ed504ad442911703d6e1">   25</a></span>&#160;    <span class="keyword">typedef</span> <a class="code" href="a01838.html">Dune::Intersection&lt; GridImp, IntersectionImp &gt;</a> <a class="code" href="a04162.html#a27b843ddcb07ed504ad442911703d6e1">Intersection</a>;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="a04162.html#a6f6b1eab1a1dbb89f8272ba96a014a8a">   28</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a04162.html#a6f6b1eab1a1dbb89f8272ba96a014a8a">increment</a>()</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;      intersection_.<a class="code" href="a01838.html#ad15a0a4aa48af83cd5852a4720dee20a">impl</a>()._count += (intersection_.<a class="code" href="a01838.html#ad15a0a4aa48af83cd5852a4720dee20a">impl</a>()._count &lt; 2*dim);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    }</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="a04162.html#ace574844259a2fbf26a270f3afb5c8dc">   34</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="a04162.html#ace574844259a2fbf26a270f3afb5c8dc">equals</a> (<span class="keyword">const</span> <a class="code" href="a04162.html">YaspIntersectionIterator</a>&amp; other)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;      <span class="keywordflow">return</span> intersection_ == other.intersection_;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    }</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="a04162.html#a3559d5408b35bee0ccfdf0cc55916405">   40</a></span>&#160;    <span class="keyword">const</span> <a class="code" href="a01838.html">Intersection</a> &amp; <a class="code" href="a04162.html#a3559d5408b35bee0ccfdf0cc55916405">dereference</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      intersection_.<a class="code" href="a01838.html#ad15a0a4aa48af83cd5852a4720dee20a">impl</a>().update();</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      <span class="keywordflow">return</span> intersection_;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    }</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="a04162.html#ae681e35e72004cdcf17d73dc756850f3">   46</a></span>&#160;    <a class="code" href="a04162.html#ae681e35e72004cdcf17d73dc756850f3">YaspIntersectionIterator</a>()</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    {}</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="a04162.html#ab8da3638a238760279f8cfb1f163f423">   50</a></span>&#160;    <a class="code" href="a04162.html#ab8da3638a238760279f8cfb1f163f423">YaspIntersectionIterator</a> (<span class="keyword">const</span> <a class="code" href="a04294.html">YaspEntity&lt;0,dim,GridImp&gt;</a>&amp; myself, <span class="keywordtype">bool</span> toend)</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;      : intersection_(<a class="code" href="a04166.html">IntersectionImp</a>(myself, toend))</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    {}</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="a04162.html#a1301dd24d3e8ddf5043a5639308f585d">   55</a></span>&#160;    <a class="code" href="a04162.html#a1301dd24d3e8ddf5043a5639308f585d">YaspIntersectionIterator</a> (<span class="keyword">const</span> <a class="code" href="a04162.html">YaspIntersectionIterator</a>&amp; other)</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      : intersection_(other.intersection_)</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    {}</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="a04162.html#af3d108ae972b69602611cadfaaff7990">   60</a></span>&#160;    <a class="code" href="a04162.html">YaspIntersectionIterator</a> &amp; <a class="code" href="a04162.html#af3d108ae972b69602611cadfaaff7990">operator = </a>(<span class="keyword">const</span> <a class="code" href="a04162.html">YaspIntersectionIterator</a>&amp; other)</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    {</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;      intersection_ = other.intersection_;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;      <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    }</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="comment">// The intersection this iterator points to</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keyword">mutable</span> <a class="code" href="a01838.html">Intersection</a> intersection_;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  };</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;}        <span class="comment">// namespace Dune</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">#endif   </span><span class="comment">// DUNE_GRID_YASPGRIDINTERSECTIONITERATOR_HH</span></div>
-<div class="ttc" id="aa00936_html"><div class="ttname"><a href="a00936.html">Dune</a></div><div class="ttdoc">Include standard header files.</div><div class="ttdef"><b>Definition:</b> agrid.hh:59</div></div>
-<div class="ttc" id="aa01838_html"><div class="ttname"><a href="a01838.html">Dune::Intersection</a></div><div class="ttdoc">Intersection of a mesh entity of codimension 0 (&quot;element&quot;) with a &quot;neighboring&quot; element or with the d...</div><div class="ttdef"><b>Definition:</b> common/intersection.hh:162</div></div>
-<div class="ttc" id="aa01838_html_ad15a0a4aa48af83cd5852a4720dee20a"><div class="ttname"><a href="a01838.html#ad15a0a4aa48af83cd5852a4720dee20a">Dune::Intersection::impl</a></div><div class="ttdeci">Implementation &amp; impl()</div><div class="ttdoc">access to the underlying implementation</div><div class="ttdef"><b>Definition:</b> common/intersection.hh:176</div></div>
-<div class="ttc" id="aa04162_html"><div class="ttname"><a href="a04162.html">Dune::YaspIntersectionIterator</a></div><div class="ttdoc">YaspIntersectionIterator enables iteration over intersections with neighboring codim 0 entities.</div><div class="ttdef"><b>Definition:</b> yaspgridintersectioniterator.hh:20</div></div>
-<div class="ttc" id="aa04162_html_a1301dd24d3e8ddf5043a5639308f585d"><div class="ttname"><a href="a04162.html#a1301dd24d3e8ddf5043a5639308f585d">Dune::YaspIntersectionIterator::YaspIntersectionIterator</a></div><div class="ttdeci">YaspIntersectionIterator(const YaspIntersectionIterator &amp;other)</div><div class="ttdoc">copy constructor</div><div class="ttdef"><b>Definition:</b> yaspgridintersectioniterator.hh:55</div></div>
-<div class="ttc" id="aa04162_html_a26fca5fec52ab48bda31115f55f4abdf"><div class="ttname"><a href="a04162.html#a26fca5fec52ab48bda31115f55f4abdf">Dune::YaspIntersectionIterator::IntersectionImp</a></div><div class="ttdeci">Dune::YaspIntersection&lt; GridImp &gt; IntersectionImp</div><div class="ttdef"><b>Definition:</b> yaspgridintersectioniterator.hh:24</div></div>
-<div class="ttc" id="aa04162_html_a27b843ddcb07ed504ad442911703d6e1"><div class="ttname"><a href="a04162.html#a27b843ddcb07ed504ad442911703d6e1">Dune::YaspIntersectionIterator::Intersection</a></div><div class="ttdeci">Dune::Intersection&lt; GridImp, IntersectionImp &gt; Intersection</div><div class="ttdef"><b>Definition:</b> yaspgridintersectioniterator.hh:25</div></div>
-<div class="ttc" id="aa04162_html_a3559d5408b35bee0ccfdf0cc55916405"><div class="ttname"><a href="a04162.html#a3559d5408b35bee0ccfdf0cc55916405">Dune::YaspIntersectionIterator::dereference</a></div><div class="ttdeci">const Intersection &amp; dereference() const</div><div class="ttdoc">dereferencing</div><div class="ttdef"><b>Definition:</b> yaspgridintersectioniterator.hh:40</div></div>
-<div class="ttc" id="aa04162_html_a6f6b1eab1a1dbb89f8272ba96a014a8a"><div class="ttname"><a href="a04162.html#a6f6b1eab1a1dbb89f8272ba96a014a8a">Dune::YaspIntersectionIterator::increment</a></div><div class="ttdeci">void increment()</div><div class="ttdoc">increment</div><div class="ttdef"><b>Definition:</b> yaspgridintersectioniterator.hh:28</div></div>
-<div class="ttc" id="aa04162_html_ab8da3638a238760279f8cfb1f163f423"><div class="ttname"><a href="a04162.html#ab8da3638a238760279f8cfb1f163f423">Dune::YaspIntersectionIterator::YaspIntersectionIterator</a></div><div class="ttdeci">YaspIntersectionIterator(const YaspEntity&lt; 0, dim, GridImp &gt; &amp;myself, bool toend)</div><div class="ttdoc">make intersection iterator from entity</div><div class="ttdef"><b>Definition:</b> yaspgridintersectioniterator.hh:50</div></div>
-<div class="ttc" id="aa04162_html_ace574844259a2fbf26a270f3afb5c8dc"><div class="ttname"><a href="a04162.html#ace574844259a2fbf26a270f3afb5c8dc">Dune::YaspIntersectionIterator::equals</a></div><div class="ttdeci">bool equals(const YaspIntersectionIterator &amp;other) const</div><div class="ttdoc">equality</div><div class="ttdef"><b>Definition:</b> yaspgridintersectioniterator.hh:34</div></div>
-<div class="ttc" id="aa04162_html_ae681e35e72004cdcf17d73dc756850f3"><div class="ttname"><a href="a04162.html#ae681e35e72004cdcf17d73dc756850f3">Dune::YaspIntersectionIterator::YaspIntersectionIterator</a></div><div class="ttdeci">YaspIntersectionIterator()</div><div class="ttdef"><b>Definition:</b> yaspgridintersectioniterator.hh:46</div></div>
-<div class="ttc" id="aa04162_html_af3d108ae972b69602611cadfaaff7990"><div class="ttname"><a href="a04162.html#af3d108ae972b69602611cadfaaff7990">Dune::YaspIntersectionIterator::operator=</a></div><div class="ttdeci">YaspIntersectionIterator &amp; operator=(const YaspIntersectionIterator &amp;other)</div><div class="ttdoc">assignment</div><div class="ttdef"><b>Definition:</b> yaspgridintersectioniterator.hh:60</div></div>
-<div class="ttc" id="aa04166_html"><div class="ttname"><a href="a04166.html">Dune::YaspIntersection</a></div><div class="ttdoc">YaspIntersection provides data about intersection with neighboring codim 0 entities.</div><div class="ttdef"><b>Definition:</b> yaspgridintersection.hh:20</div></div>
-<div class="ttc" id="aa04294_html"><div class="ttname"><a href="a04294.html">Dune::YaspEntity&lt; 0, dim, GridImp &gt;</a></div><div class="ttdef"><b>Definition:</b> yaspgridentity.hh:420</div></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00940.html">Dune</a> {</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;  <span class="comment">//========================================================================</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"></span>  <span class="comment">//========================================================================</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class</span> Gr<span class="keywordtype">id</span>Imp&gt;</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="a04170.html">   17</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a04170.html">YaspGlobalIdSet</a> : <span class="keyword">public</span> <a class="code" href="a02706.html">IdSet</a>&lt;GridImp,YaspGlobalIdSet&lt;GridImp&gt;,</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;                              typename std::remove_const&lt;GridImp&gt;::type::PersistentIndexType &gt;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                          <span class="comment">/*</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">                             We used the remove_const to extract the Type from the mutable class,</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">                             because the const class is not instantiated yet.</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">                           */</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">typedef</span> <a class="code" href="a04170.html">YaspGlobalIdSet&lt; GridImp &gt;</a> <a class="code" href="a04170.html">This</a>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="a04170.html#a65ee9a60e36f50cf6c9cfd77496412db">   28</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> std::remove_const&lt;GridImp&gt;::type::PersistentIndexType <a class="code" href="a04170.html#a65ee9a60e36f50cf6c9cfd77496412db">IdType</a>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">using</span> <a class="code" href="a02706.html">IdSet&lt;GridImp, This, IdType&gt;::subId</a>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="a04170.html#ae08bc939b3a98e9328215bc3ef71dd0c">   33</a></span>&#160;    <a class="code" href="a04170.html#ae08bc939b3a98e9328215bc3ef71dd0c">YaspGlobalIdSet</a>()</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    {}</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">       We use the remove_const to extract the Type from the mutable class,</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">       because the const class is not instantiated yet.</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> cd&gt;</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="a04170.html#ae09b59080ce0e920d49e1487ae43c5bd">   42</a></span>&#160;    <a class="code" href="a04170.html#a65ee9a60e36f50cf6c9cfd77496412db">IdType</a> <a class="code" href="a04170.html#ae09b59080ce0e920d49e1487ae43c5bd">id</a> (<span class="keyword">const</span> <span class="keyword">typename</span> std::remove_const&lt;GridImp&gt;::type::Traits::template Codim&lt;cd&gt;::Entity&amp; e)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;      <span class="keywordflow">return</span> e.impl().persistentIndex();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    }</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">       We use the remove_const to extract the Type from the mutable class,</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">       because the const class is not instantiated yet.</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="a04170.html#a216b83fb3c5f77892fcc0e7759951598">   52</a></span>&#160;    <a class="code" href="a04170.html#a65ee9a60e36f50cf6c9cfd77496412db">IdType</a> <a class="code" href="a04170.html#a216b83fb3c5f77892fcc0e7759951598">subId</a> (<span class="keyword">const</span> <span class="keyword">typename</span> std::remove_const&lt;GridImp&gt;::type::Traits::template Codim&lt; 0 &gt;::Entity &amp;e,</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                  <span class="keywordtype">int</span> i, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> codim )<span class="keyword"> const</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;      <span class="keywordflow">return</span> e.impl().subPersistentIndex(i,codim);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  };</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;} <span class="comment">// namespace Dune</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//  DUNE_GRID_YASPGRIDIDSET_HH</span></div>
+<div class="ttc" id="aa00940_html"><div class="ttname"><a href="a00940.html">Dune</a></div><div class="ttdoc">Include standard header files.</div><div class="ttdef"><b>Definition:</b> agrid.hh:58</div></div>
+<div class="ttc" id="aa02706_html"><div class="ttname"><a href="a02706.html">Dune::IdSet</a></div><div class="ttdoc">Id Set Interface.</div><div class="ttdef"><b>Definition:</b> indexidset.hh:450</div></div>
+<div class="ttc" id="aa04170_html"><div class="ttname"><a href="a04170.html">Dune::YaspGlobalIdSet</a></div><div class="ttdoc">persistent, globally unique Ids</div><div class="ttdef"><b>Definition:</b> yaspgrididset.hh:23</div></div>
+<div class="ttc" id="aa04170_html_a216b83fb3c5f77892fcc0e7759951598"><div class="ttname"><a href="a04170.html#a216b83fb3c5f77892fcc0e7759951598">Dune::YaspGlobalIdSet::subId</a></div><div class="ttdeci">IdType subId(const typename std::remove_const&lt; GridImp &gt;::type::Traits::template Codim&lt; 0 &gt;::Entity &amp;e, int i, unsigned int codim) const</div><div class="ttdoc">get id of subentity</div><div class="ttdef"><b>Definition:</b> yaspgrididset.hh:52</div></div>
+<div class="ttc" id="aa04170_html_a65ee9a60e36f50cf6c9cfd77496412db"><div class="ttname"><a href="a04170.html#a65ee9a60e36f50cf6c9cfd77496412db">Dune::YaspGlobalIdSet::IdType</a></div><div class="ttdeci">std::remove_const&lt; GridImp &gt;::type::PersistentIndexType IdType</div><div class="ttdoc">define the type used for persistent indices</div><div class="ttdef"><b>Definition:</b> yaspgrididset.hh:28</div></div>
+<div class="ttc" id="aa04170_html_ae08bc939b3a98e9328215bc3ef71dd0c"><div class="ttname"><a href="a04170.html#ae08bc939b3a98e9328215bc3ef71dd0c">Dune::YaspGlobalIdSet::YaspGlobalIdSet</a></div><div class="ttdeci">YaspGlobalIdSet()</div><div class="ttdoc">Only default-constructible.</div><div class="ttdef"><b>Definition:</b> yaspgrididset.hh:33</div></div>
+<div class="ttc" id="aa04170_html_ae09b59080ce0e920d49e1487ae43c5bd"><div class="ttname"><a href="a04170.html#ae09b59080ce0e920d49e1487ae43c5bd">Dune::YaspGlobalIdSet::id</a></div><div class="ttdeci">IdType id(const typename std::remove_const&lt; GridImp &gt;::type::Traits::template Codim&lt; cd &gt;::Entity &amp;e) const</div><div class="ttdoc">get id of an entity</div><div class="ttdef"><b>Definition:</b> yaspgrididset.hh:42</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

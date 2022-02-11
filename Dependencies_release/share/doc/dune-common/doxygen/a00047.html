@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-common
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -66,85 +66,12 @@ $(function() {
 </div>
 </div><!-- top -->
 <div class="header">
-  <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#enum-members">Enumerations</a> &#124;
-<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">debugallocator.hh File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;<a class="el" href="a00389_source.html">dune/common/unused.hh</a>&gt;</code><br />
-<code>#include &lt;exception&gt;</code><br />
-<code>#include &lt;typeinfo&gt;</code><br />
-<code>#include &lt;vector&gt;</code><br />
-<code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;cstring&gt;</code><br />
-<code>#include &lt;cstdint&gt;</code><br />
-<code>#include &lt;cstdlib&gt;</code><br />
-<code>#include &lt;new&gt;</code><br />
-<code>#include &quot;<a class="el" href="a00161_source.html">mallocallocator.hh</a>&quot;</code><br />
-</div>
+
 <p><a href="a00047_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01372.html">Dune::DebugAllocator&lt; void &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01376.html">Dune::DebugAllocator&lt; void &gt;::rebind</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01368.html">Dune::DebugAllocator&lt; T &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocators implementation which performs different kind of memory checks.  <a href="a01368.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01380.html">Dune::DebugAllocator&lt; T &gt;::rebind&lt; U &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:a00428"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00428.html">Dune</a></td></tr>
-<tr class="memdesc:a00428"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a00428.html" title="Dune namespace.">Dune</a> namespace. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr class="memitem:af83aec930688ee1a55647591c24f44e2"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00047.html#af83aec930688ee1a55647591c24f44e2">DummyProtFlags</a> { <a class="el" href="a00047.html#af83aec930688ee1a55647591c24f44e2ad825a6c12f7455d9b0513c68def72d78">PROT_NONE</a>
-, <a class="el" href="a00047.html#af83aec930688ee1a55647591c24f44e2aa081ce4276acc25474cbcdc98ab12a3e">PROT_WRITE</a>
-, <a class="el" href="a00047.html#af83aec930688ee1a55647591c24f44e2a6c86c758c1e0dba651a2ea1d0bf62659">PROT_READ</a>
- }</td></tr>
-<tr class="separator:af83aec930688ee1a55647591c24f44e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:aeaafc7bf5d199fbb31081d6f9f20b068"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:aeaafc7bf5d199fbb31081d6f9f20b068"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00428.html#aeaafc7bf5d199fbb31081d6f9f20b068">Dune::operator==</a> (const DebugAllocator&lt; T &gt; &amp;, const DebugAllocator&lt; T &gt; &amp;)</td></tr>
-<tr class="memdesc:aeaafc7bf5d199fbb31081d6f9f20b068"><td class="mdescLeft">&#160;</td><td class="mdescRight">check whether allocators are equivalent  <a href="a00428.html#aeaafc7bf5d199fbb31081d6f9f20b068">More...</a><br /></td></tr>
-<tr class="separator:aeaafc7bf5d199fbb31081d6f9f20b068"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f484d440615b6123fe34bf327c1f6df"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:a8f484d440615b6123fe34bf327c1f6df"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00428.html#a8f484d440615b6123fe34bf327c1f6df">Dune::operator!=</a> (const DebugAllocator&lt; T &gt; &amp;, const DebugAllocator&lt; T &gt; &amp;)</td></tr>
-<tr class="memdesc:a8f484d440615b6123fe34bf327c1f6df"><td class="mdescLeft">&#160;</td><td class="mdescRight">check whether allocators are not equivalent  <a href="a00428.html#a8f484d440615b6123fe34bf327c1f6df">More...</a><br /></td></tr>
-<tr class="separator:a8f484d440615b6123fe34bf327c1f6df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-<h2 class="groupheader">Enumeration Type Documentation</h2>
-<a id="af83aec930688ee1a55647591c24f44e2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af83aec930688ee1a55647591c24f44e2">&#9670;&nbsp;</a></span>DummyProtFlags</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="a00047.html#af83aec930688ee1a55647591c24f44e2">DummyProtFlags</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="af83aec930688ee1a55647591c24f44e2ad825a6c12f7455d9b0513c68def72d78"></a>PROT_NONE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af83aec930688ee1a55647591c24f44e2aa081ce4276acc25474cbcdc98ab12a3e"></a>PROT_WRITE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af83aec930688ee1a55647591c24f44e2a6c86c758c1e0dba651a2ea1d0bf62659"></a>PROT_READ&#160;</td><td class="fielddoc"></td></tr>
-</table>
-
-</div>
-</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

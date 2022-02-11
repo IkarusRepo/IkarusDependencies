@@ -11,7 +11,6 @@
 #include <dune/common/fvector.hh>
 #include <dune/common/indices.hh>
 #include <dune/common/assertandreturn.hh>
-#include <dune/common/unused.hh>
 #include <dune/common/rangeutilities.hh>
 
 
@@ -209,7 +208,7 @@ constexpr auto integralRange(const End& end)
 namespace Impl {
 
   template<class T>
-  void evaluateFoldExpression(std::initializer_list<T>&&)
+  constexpr void evaluateFoldExpression(std::initializer_list<T>&&)
   {}
 
   template<class Range, class F, class Index, Index... i>
@@ -287,7 +286,7 @@ constexpr void forEach(Range&& range, F&& f)
  * This supports looping over the same ranges as Hybrid::forEach
  */
 template<class Range, class T, class F>
-T accumulate(Range&& range, T value, F&& f)
+constexpr T accumulate(Range&& range, T value, F&& f)
 {
   forEach(std::forward<Range>(range), [&](auto&& entry) {
     value = f(value, entry);
@@ -367,7 +366,7 @@ decltype(auto) ifElse(const Condition& condition, IfFunc&& ifFunc, ElseFunc&& el
 template<class Condition, class IfFunc>
 void ifElse(const Condition& condition, IfFunc&& ifFunc)
 {
-  ifElse(condition, std::forward<IfFunc>(ifFunc), [](auto&& i) { DUNE_UNUSED_PARAMETER(i); });
+  ifElse(condition, std::forward<IfFunc>(ifFunc), [](auto&&) {});
 }
 
 
@@ -485,7 +484,7 @@ constexpr decltype(auto) switchCases(const Cases& cases, const Value& value, Bra
 template<class Cases, class Value, class Branches>
 constexpr void switchCases(const Cases& cases, const Value& value, Branches&& branches)
 {
-  return Impl::switchCases<void>(cases, value, std::forward<Branches>(branches), []() {});
+  Impl::switchCases<void>(cases, value, std::forward<Branches>(branches), []() {});
 }
 
 

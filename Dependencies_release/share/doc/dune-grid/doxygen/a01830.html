@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: Dune::Alberta::CoordCache&lt; dim &gt;::Interpolation Struct Reference</title>
+<title>dune-grid: Dune::Alberta::CoordCache&lt; dim &gt;::LocalCaching Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,57 +62,59 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00936.html">Dune</a></li><li class="navelem"><a class="el" href="a00937.html">Alberta</a></li><li class="navelem"><a class="el" href="a01822.html">CoordCache</a></li><li class="navelem"><a class="el" href="a01830.html">Interpolation</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00940.html">Dune</a></li><li class="navelem"><a class="el" href="a00941.html">Alberta</a></li><li class="navelem"><a class="el" href="a01826.html">CoordCache</a></li><li class="navelem"><a class="el" href="a01830.html">LocalCaching</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="a01827.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::Alberta::CoordCache&lt; dim &gt;::Interpolation Struct Reference</div>  </div>
+<div class="title">Dune::Alberta::CoordCache&lt; dim &gt;::LocalCaching Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="a00488_source.html">dune/grid/albertagrid/coordcache.hh</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00491_source.html">dune/grid/albertagrid/coordcache.hh</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:a047442f94574e8459f58a960667b00d3"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a02382.html">Alberta::Patch</a>&lt; <a class="el" href="a01830.html#a0a42e86dcb20d942d6b0a8c905835275">dimension</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01830.html#a047442f94574e8459f58a960667b00d3">Patch</a></td></tr>
-<tr class="separator:a047442f94574e8459f58a960667b00d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a7cd13b8d16e5524da2665eb9f3c98556"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01830.html#a7cd13b8d16e5524da2665eb9f3c98556">interpolateVector</a> (const <a class="el" href="a01894.html">CoordVectorPointer</a> &amp;dofVector, const <a class="el" href="a01830.html#a047442f94574e8459f58a960667b00d3">Patch</a> &amp;patch)</td></tr>
-<tr class="separator:a7cd13b8d16e5524da2665eb9f3c98556"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr class="memitem:a0a42e86dcb20d942d6b0a8c905835275"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01830.html#a0a42e86dcb20d942d6b0a8c905835275">dimension</a> = dim</td></tr>
-<tr class="separator:a0a42e86dcb20d942d6b0a8c905835275"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a1eb5f6a4f1f0b751301a281e01ab71ff"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01830.html#a1eb5f6a4f1f0b751301a281e01ab71ff">LocalCaching</a> (const <a class="el" href="a01898.html">CoordVectorPointer</a> &amp;coords)</td></tr>
+<tr class="separator:a1eb5f6a4f1f0b751301a281e01ab71ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fd88037ea6039e6b993b08964ba87bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01830.html#a5fd88037ea6039e6b993b08964ba87bd">operator()</a> (const <a class="el" href="a01826.html#acd07bb0638c9b271132e8dfa6c33f3b3">ElementInfo</a> &amp;elementInfo) const</td></tr>
+<tr class="separator:a5fd88037ea6039e6b993b08964ba87bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a047442f94574e8459f58a960667b00d3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a047442f94574e8459f58a960667b00d3">&#9670;&nbsp;</a></span>Patch</h2>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a1eb5f6a4f1f0b751301a281e01ab71ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1eb5f6a4f1f0b751301a281e01ab71ff">&#9670;&nbsp;</a></span>LocalCaching()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="a02382.html">Alberta::Patch</a>&lt; <a class="el" href="a01830.html#a0a42e86dcb20d942d6b0a8c905835275">dimension</a> &gt; <a class="el" href="a01822.html">Dune::Alberta::CoordCache</a>&lt; dim &gt;::<a class="el" href="a01830.html#a047442f94574e8459f58a960667b00d3">Interpolation::Patch</a></td>
+          <td class="memname"><a class="el" href="a01826.html">Dune::Alberta::CoordCache</a>&lt; dim &gt;::LocalCaching::LocalCaching </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a01898.html">CoordVectorPointer</a> &amp;&#160;</td>
+          <td class="paramname"><em>coords</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a7cd13b8d16e5524da2665eb9f3c98556"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7cd13b8d16e5524da2665eb9f3c98556">&#9670;&nbsp;</a></span>interpolateVector()</h2>
+<a id="a5fd88037ea6039e6b993b08964ba87bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fd88037ea6039e6b993b08964ba87bd">&#9670;&nbsp;</a></span>operator()()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -123,59 +125,24 @@ template&lt;int dim&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void <a class="el" href="a01822.html">Dune::Alberta::CoordCache</a>&lt; dim &gt;::Interpolation::interpolateVector </td>
+          <td class="memname">void <a class="el" href="a01826.html">Dune::Alberta::CoordCache</a>&lt; dim &gt;::LocalCaching::operator() </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a01894.html">CoordVectorPointer</a> &amp;&#160;</td>
-          <td class="paramname"><em>dofVector</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a01830.html#a047442f94574e8459f58a960667b00d3">Patch</a> &amp;&#160;</td>
-          <td class="paramname"><em>patch</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">const <a class="el" href="a01826.html#acd07bb0638c9b271132e8dfa6c33f3b3">ElementInfo</a> &amp;&#160;</td>
+          <td class="paramname"><em>elementInfo</em></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a0a42e86dcb20d942d6b0a8c905835275"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0a42e86dcb20d942d6b0a8c905835275">&#9670;&nbsp;</a></span>dimension</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int dim&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const int <a class="el" href="a01822.html">Dune::Alberta::CoordCache</a>&lt; dim &gt;::Interpolation::dimension = dim</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="a00488_source.html">coordcache.hh</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="a00491_source.html">coordcache.hh</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

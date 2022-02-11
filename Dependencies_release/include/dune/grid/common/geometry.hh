@@ -1,7 +1,7 @@
 // -*- tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*-
 // vi: set et ts=4 sw=2 sts=2:
-#ifndef DUNE_GRID_GEOMETRY_HH
-#define DUNE_GRID_GEOMETRY_HH
+#ifndef DUNE_GRID_COMMON_GEOMETRY_HH
+#define DUNE_GRID_COMMON_GEOMETRY_HH
 
 /** \file
     \brief Wrapper and interface classes for element geometries
@@ -279,9 +279,8 @@ namespace Dune
 
     //@}
 
-  private:
-    /** hide assignment operator */
-    const Geometry &operator= ( const Geometry &rhs );
+    /** delete assignment operator */
+    const Geometry &operator= ( const Geometry &rhs ) = delete;
 
   protected:
 
@@ -438,7 +437,7 @@ namespace Dune
    * \related Geometry
    */
   template< int mydim, int cdim, class GridImp, template< int, int, class > class GeometryImp, typename Impl>
-  auto referenceElement(const Geometry<mydim,cdim,GridImp,GeometryImp>& geo, const Impl& impl)
+  auto referenceElement(const Geometry<mydim,cdim,GridImp,GeometryImp>& geo, const Impl&)
     -> decltype(referenceElement<typename GridImp::ctype,mydim>(geo.type()))
   {
     using Geo = Geometry<mydim,cdim,GridImp,GeometryImp>;
@@ -447,4 +446,4 @@ namespace Dune
 
 } // namespace Dune
 
-#endif // DUNE_GRID_GEOMETRY_HH
+#endif // DUNE_GRID_COMMON_GEOMETRY_HH

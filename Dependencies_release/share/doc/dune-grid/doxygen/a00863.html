@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: hierarchicsearch.hh File Reference</title>
+<title>dune-grid: gridinfo-gmsh-main.hh File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -66,42 +66,48 @@ $(function() {
 </div>
 </div><!-- top -->
 <div class="header">
-  <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">hierarchicsearch.hh File Reference</div>  </div>
+<div class="title">gridinfo-gmsh-main.hh File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Utility class for hierarchically searching for an Entity containing a given point.  
+<p>Generic <a class="el" href="a00146.html#a3c04138a5bfe5d72780bb7e82a18e627">main()</a> function for printing information about a mesh read from a .msh-file.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;cstddef&gt;</code><br />
+<code>#include &lt;cstdlib&gt;</code><br />
+<code>#include &lt;exception&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;memory&gt;</code><br />
+<code>#include &lt;ostream&gt;</code><br />
 <code>#include &lt;sstream&gt;</code><br />
+<code>#include &lt;stdexcept&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
-<code>#include &lt;utility&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
 <code>#include &lt;dune/common/classname.hh&gt;</code><br />
 <code>#include &lt;dune/common/exceptions.hh&gt;</code><br />
-<code>#include &lt;dune/common/fvector.hh&gt;</code><br />
-<code>#include &lt;<a class="el" href="a06797_source.html">dune/grid/common/grid.hh</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00251_source.html">dune/grid/common/gridenums.hh</a>&gt;</code><br />
+<code>#include &lt;dune/common/parallel/mpihelper.hh&gt;</code><br />
+<code>#include &lt;<a class="el" href="a00764_source.html">dune/grid/io/file/gmshreader.hh</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="a06723_source.html">dune/grid/utility/gridinfo.hh</a>&gt;</code><br />
 </div>
 <p><a href="a00863_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04066.html">Dune::HierarchicSearch&lt; Grid, IS &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Search an <a class="el" href="a02690.html" title="Index Set Interface base class.">IndexSet</a> for an <a class="el" href="a02630.html" title="Wrapper class for entities.">Entity</a> containing a given point.  <a href="a04066.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:a00936"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00936.html">Dune</a></td></tr>
-<tr class="memdesc:a00936"><td class="mdescLeft">&#160;</td><td class="mdescRight">Include standard header files. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Utility class for hierarchically searching for an Entity containing a given point. </p>
+<div class="textblock"><p>Generic <a class="el" href="a00146.html#a3c04138a5bfe5d72780bb7e82a18e627">main()</a> function for printing information about a mesh read from a .msh-file. </p>
+<dl class="section author"><dt>Author</dt><dd>Jö Fahlke <a href="#" onclick="location.href='mai'+'lto:'+'jor'+'ri'+'t@j'+'or'+'rit'+'.d'+'e'; return false;">jorri<span style="display: none;">.nosp@m.</span>t@jo<span style="display: none;">.nosp@m.</span>rrit.<span style="display: none;">.nosp@m.</span>de</a> </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2011</dd></dl>
+<p>This header contains a generic <a class="el" href="a00146.html#a3c04138a5bfe5d72780bb7e82a18e627">main()</a> function. To use it for your grid, write a .cc file like this: </p><div class="fragment"><div class="line"><span class="preprocessor">#ifdef HAVE_CONFIG_H</span></div>
+<div class="line"><span class="preprocessor">#include &quot;config.h&quot;</span></div>
+<div class="line"><span class="preprocessor">#endif</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;dune/grid/mygrid.hh&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">const</span> std::string programName = <span class="stringliteral">&quot;dune-gridinfo-gmsh-mygrid-3d&quot;</span>;</div>
+<div class="line"><span class="keyword">typedef</span> Dune::MyGrid&lt;3&gt; Grid;</div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="a00863.html">dune/grid/utility/gridinfo-gmsh-main.hh</a>&gt;</span></div>
+<div class="ttc" id="aa00863_html"><div class="ttname"><a href="a00863.html">gridinfo-gmsh-main.hh</a></div><div class="ttdoc">Generic main() function for printing information about a mesh read from a .msh-file.</div></div>
+</div><!-- fragment --><p> Write an automake target for your program as usual. No special libraries are needed for you program, beyond what is needed for the grid in question. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

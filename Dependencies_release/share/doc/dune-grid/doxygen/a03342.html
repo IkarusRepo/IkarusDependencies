@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: Dune::IdentityGridLeafIntersection&lt; GridImp &gt; Class Template Reference</title>
+<title>dune-grid: Dune::IdentityGridLeafIterator&lt; codim, pitype, GridImp &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,7 +62,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00936.html">Dune</a></li><li class="navelem"><a class="el" href="a03342.html">IdentityGridLeafIntersection</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00940.html">Dune</a></li><li class="navelem"><a class="el" href="a03342.html">IdentityGridLeafIterator</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -71,192 +71,125 @@ $(function() {
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="a03339.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::IdentityGridLeafIntersection&lt; GridImp &gt; Class Template Reference<div class="ingroups"><a class="el" href="a00902.html">dune-grid</a> &raquo; <a class="el" href="a00917.html">Grid Implementations</a> &raquo; <a class="el" href="a00919.html">IdentityGrid</a></div></div>  </div>
+<div class="title">Dune::IdentityGridLeafIterator&lt; codim, pitype, GridImp &gt; Class Template Reference<div class="ingroups"><a class="el" href="a00905.html">dune-grid</a> &raquo; <a class="el" href="a00921.html">Grid Implementations</a> &raquo; <a class="el" href="a00923.html">IdentityGrid</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>An intersection with a leaf neighbor elementMesh entities of codimension 0 ("elements") allow to visit all neighbors, where a neighbor is an entity of codimension 0 which has a common entity of codimension 1 These neighbors are accessed via a <a class="el" href="a02686.html" title="Mesh entities of codimension 0 (&quot;elements&quot;) allow to visit all intersections with &quot;neighboring&quot; eleme...">IntersectionIterator</a>. This allows the implement non-matching meshes. The number of neighbors may be different from the number of an element!  
+<p>Iterator over all entities of a given codimension and level of a grid.  
  <a href="a03342.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00605_source.html">dune/grid/identitygrid/identitygridintersections.hh</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00614_source.html">dune/grid/identitygrid/identitygridleafiterator.hh</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:acee0685325b9f7ab4f7eb7f3961f535b"><td class="memItemLeft" align="right" valign="top">typedef GridImp::template Codim&lt; 1 &gt;::<a class="el" href="a03342.html#acee0685325b9f7ab4f7eb7f3961f535b">Geometry</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03342.html#acee0685325b9f7ab4f7eb7f3961f535b">Geometry</a></td></tr>
-<tr class="separator:acee0685325b9f7ab4f7eb7f3961f535b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a41527a0ebd92ead19c47fa6b98f503"><td class="memItemLeft" align="right" valign="top">typedef GridImp::template Codim&lt; 1 &gt;::<a class="el" href="a03342.html#a0a41527a0ebd92ead19c47fa6b98f503">LocalGeometry</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03342.html#a0a41527a0ebd92ead19c47fa6b98f503">LocalGeometry</a></td></tr>
-<tr class="separator:a0a41527a0ebd92ead19c47fa6b98f503"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adadc7afe166c036b17a890aa86bd531b"><td class="memItemLeft" align="right" valign="top">typedef GridImp::template Codim&lt; 0 &gt;::<a class="el" href="a03342.html#adadc7afe166c036b17a890aa86bd531b">Entity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03342.html#adadc7afe166c036b17a890aa86bd531b">Entity</a></td></tr>
-<tr class="separator:adadc7afe166c036b17a890aa86bd531b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a60efdcc8217039fee207baef53daaa4e"><td class="memItemLeft" align="right" valign="top">typedef FieldVector&lt; ctype, dimworld &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03342.html#a60efdcc8217039fee207baef53daaa4e">NormalVector</a></td></tr>
-<tr class="separator:a60efdcc8217039fee207baef53daaa4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b10d5cd11dd6d4570004d0b3e254fbf"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="a03342.html#a4b10d5cd11dd6d4570004d0b3e254fbfac8f82e8f12c109d5453c07ca1e78be28">codimension</a> = codim
+ }</td></tr>
+<tr class="separator:a4b10d5cd11dd6d4570004d0b3e254fbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab954e16bec34e35cf6511fd087076ad1"><td class="memItemLeft" align="right" valign="top">typedef GridImp::template Codim&lt; codim &gt;::<a class="el" href="a03342.html#ab954e16bec34e35cf6511fd087076ad1">Entity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03342.html#ab954e16bec34e35cf6511fd087076ad1">Entity</a></td></tr>
+<tr class="separator:ab954e16bec34e35cf6511fd087076ad1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2d5fbec8c78646035fc2ecda3c8df13d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03342.html#a2d5fbec8c78646035fc2ecda3c8df13d">IdentityGridLeafIntersection</a> ()</td></tr>
-<tr class="separator:a2d5fbec8c78646035fc2ecda3c8df13d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8fd07c5337d79dff75f08de65cb4b167"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03342.html#a8fd07c5337d79dff75f08de65cb4b167">IdentityGridLeafIntersection</a> (const GridImp *identityGrid, const HostLeafIntersection &amp;hostIntersection)</td></tr>
-<tr class="separator:a8fd07c5337d79dff75f08de65cb4b167"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a056ab6b9dfc506e2f573dcccf1345ab5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03342.html#a056ab6b9dfc506e2f573dcccf1345ab5">IdentityGridLeafIntersection</a> (const GridImp *identityGrid, HostLeafIntersection &amp;&amp;hostIntersection)</td></tr>
-<tr class="separator:a056ab6b9dfc506e2f573dcccf1345ab5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e9753bbbcf147ab52833b6034c17406"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03342.html#a9e9753bbbcf147ab52833b6034c17406">equals</a> (const <a class="el" href="a03342.html">IdentityGridLeafIntersection</a> &amp;other) const</td></tr>
-<tr class="separator:a9e9753bbbcf147ab52833b6034c17406"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04d18087c072bccf379b458640ea709a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a03342.html#adadc7afe166c036b17a890aa86bd531b">Entity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03342.html#a04d18087c072bccf379b458640ea709a">inside</a> () const</td></tr>
-<tr class="separator:a04d18087c072bccf379b458640ea709a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a202377a4f12c14613f2c6c143892f29f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a03342.html#adadc7afe166c036b17a890aa86bd531b">Entity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03342.html#a202377a4f12c14613f2c6c143892f29f">outside</a> () const</td></tr>
-<tr class="separator:a202377a4f12c14613f2c6c143892f29f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49b12570fa851689b3e8bf75a40e3626"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03342.html#a49b12570fa851689b3e8bf75a40e3626">boundary</a> () const</td></tr>
-<tr class="memdesc:a49b12570fa851689b3e8bf75a40e3626"><td class="mdescLeft">&#160;</td><td class="mdescRight">return true if intersection is with boundary.  <a href="a03342.html#a49b12570fa851689b3e8bf75a40e3626">More...</a><br /></td></tr>
-<tr class="separator:a49b12570fa851689b3e8bf75a40e3626"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a084584daf72a5f8df9d3368ead3fe6bc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a03342.html#a60efdcc8217039fee207baef53daaa4e">NormalVector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03342.html#a084584daf72a5f8df9d3368ead3fe6bc">centerUnitOuterNormal</a> () const</td></tr>
-<tr class="memdesc:a084584daf72a5f8df9d3368ead3fe6bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return unit outer normal (length == 1)  <a href="a03342.html#a084584daf72a5f8df9d3368ead3fe6bc">More...</a><br /></td></tr>
-<tr class="separator:a084584daf72a5f8df9d3368ead3fe6bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab867b4f8b60ec30102b0fb461b314bb5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03342.html#ab867b4f8b60ec30102b0fb461b314bb5">neighbor</a> () const</td></tr>
-<tr class="memdesc:ab867b4f8b60ec30102b0fb461b314bb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">return true if across the edge an neighbor on this level exists  <a href="a03342.html#ab867b4f8b60ec30102b0fb461b314bb5">More...</a><br /></td></tr>
-<tr class="separator:ab867b4f8b60ec30102b0fb461b314bb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9077877e0bfae35a54d5b71008920fc5"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03342.html#a9077877e0bfae35a54d5b71008920fc5">boundarySegmentIndex</a> () const</td></tr>
-<tr class="memdesc:a9077877e0bfae35a54d5b71008920fc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the boundary segment index  <a href="a03342.html#a9077877e0bfae35a54d5b71008920fc5">More...</a><br /></td></tr>
-<tr class="separator:a9077877e0bfae35a54d5b71008920fc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8dbd0c11286941069131be3c2fbad4ef"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03342.html#a8dbd0c11286941069131be3c2fbad4ef">conforming</a> () const</td></tr>
-<tr class="memdesc:a8dbd0c11286941069131be3c2fbad4ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return true if this is a conforming intersection.  <a href="a03342.html#a8dbd0c11286941069131be3c2fbad4ef">More...</a><br /></td></tr>
-<tr class="separator:a8dbd0c11286941069131be3c2fbad4ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5bfdbd95738957d6975ac21af85b0fb9"><td class="memItemLeft" align="right" valign="top">GeometryType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03342.html#a5bfdbd95738957d6975ac21af85b0fb9">type</a> () const</td></tr>
-<tr class="memdesc:a5bfdbd95738957d6975ac21af85b0fb9"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a02670.html" title="Wrapper class for geometries.">Geometry</a> type of an intersection.  <a href="a03342.html#a5bfdbd95738957d6975ac21af85b0fb9">More...</a><br /></td></tr>
-<tr class="separator:a5bfdbd95738957d6975ac21af85b0fb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79dbd0bfebd7b1f5e719dd387f8eca22"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a03342.html#a0a41527a0ebd92ead19c47fa6b98f503">LocalGeometry</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03342.html#a79dbd0bfebd7b1f5e719dd387f8eca22">geometryInInside</a> () const</td></tr>
-<tr class="separator:a79dbd0bfebd7b1f5e719dd387f8eca22"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25bac3faa1ee9a5fe10674994e4bc243"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a03342.html#a0a41527a0ebd92ead19c47fa6b98f503">LocalGeometry</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03342.html#a25bac3faa1ee9a5fe10674994e4bc243">geometryInOutside</a> () const</td></tr>
-<tr class="separator:a25bac3faa1ee9a5fe10674994e4bc243"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19ae177986651ca49c946d773df63ab5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a03342.html#acee0685325b9f7ab4f7eb7f3961f535b">Geometry</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03342.html#a19ae177986651ca49c946d773df63ab5">geometry</a> () const</td></tr>
-<tr class="separator:a19ae177986651ca49c946d773df63ab5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acbf2804f05e23262cdea5b7b20e59ca7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03342.html#acbf2804f05e23262cdea5b7b20e59ca7">indexInInside</a> () const</td></tr>
-<tr class="memdesc:acbf2804f05e23262cdea5b7b20e59ca7"><td class="mdescLeft">&#160;</td><td class="mdescRight">local number of codim 1 entity in self where intersection is contained in  <a href="a03342.html#acbf2804f05e23262cdea5b7b20e59ca7">More...</a><br /></td></tr>
-<tr class="separator:acbf2804f05e23262cdea5b7b20e59ca7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5f9413419b0be566ac8daea37fcb5b0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03342.html#aa5f9413419b0be566ac8daea37fcb5b0">indexInOutside</a> () const</td></tr>
-<tr class="memdesc:aa5f9413419b0be566ac8daea37fcb5b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">local number of codim 1 entity in neighbor where intersection is contained  <a href="a03342.html#aa5f9413419b0be566ac8daea37fcb5b0">More...</a><br /></td></tr>
-<tr class="separator:aa5f9413419b0be566ac8daea37fcb5b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13f9e73cfa68abb7570df563b5d6bd73"><td class="memItemLeft" align="right" valign="top">FieldVector&lt; ctype, GridImp::dimensionworld &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03342.html#a13f9e73cfa68abb7570df563b5d6bd73">outerNormal</a> (const FieldVector&lt; ctype, GridImp::dimension-1 &gt; &amp;local) const</td></tr>
-<tr class="memdesc:a13f9e73cfa68abb7570df563b5d6bd73"><td class="mdescLeft">&#160;</td><td class="mdescRight">return outer normal  <a href="a03342.html#a13f9e73cfa68abb7570df563b5d6bd73">More...</a><br /></td></tr>
-<tr class="separator:a13f9e73cfa68abb7570df563b5d6bd73"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2682d7fbece1447e823aa475bc57a8c2"><td class="memItemLeft" align="right" valign="top">FieldVector&lt; ctype, GridImp::dimensionworld &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03342.html#a2682d7fbece1447e823aa475bc57a8c2">integrationOuterNormal</a> (const FieldVector&lt; ctype, GridImp::dimension-1 &gt; &amp;local) const</td></tr>
-<tr class="memdesc:a2682d7fbece1447e823aa475bc57a8c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">return outer normal multiplied by the integration element  <a href="a03342.html#a2682d7fbece1447e823aa475bc57a8c2">More...</a><br /></td></tr>
-<tr class="separator:a2682d7fbece1447e823aa475bc57a8c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc7718d62e30b46c40ac667f950a9c56"><td class="memItemLeft" align="right" valign="top">FieldVector&lt; ctype, GridImp::dimensionworld &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03342.html#adc7718d62e30b46c40ac667f950a9c56">unitOuterNormal</a> (const FieldVector&lt; ctype, GridImp::dimension-1 &gt; &amp;local) const</td></tr>
-<tr class="memdesc:adc7718d62e30b46c40ac667f950a9c56"><td class="mdescLeft">&#160;</td><td class="mdescRight">return unit outer normal  <a href="a03342.html#adc7718d62e30b46c40ac667f950a9c56">More...</a><br /></td></tr>
-<tr class="separator:adc7718d62e30b46c40ac667f950a9c56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abce0d8febe77c3244b4f0c1797e9b8b4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03342.html#abce0d8febe77c3244b4f0c1797e9b8b4">IdentityGridLeafIterator</a> (const GridImp *identityGrid)</td></tr>
+<tr class="separator:abce0d8febe77c3244b4f0c1797e9b8b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4709ec30ce0376c9be2d52cecb81afe2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03342.html#a4709ec30ce0376c9be2d52cecb81afe2">IdentityGridLeafIterator</a> (const GridImp *identityGrid, [[maybe_unused]] bool endDummy)</td></tr>
+<tr class="memdesc:a4709ec30ce0376c9be2d52cecb81afe2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor which create the end iterator.  <a href="a03342.html#a4709ec30ce0376c9be2d52cecb81afe2">More...</a><br /></td></tr>
+<tr class="separator:a4709ec30ce0376c9be2d52cecb81afe2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcb0a96cf975a6dad2f7d87a3fae4fd3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03342.html#adcb0a96cf975a6dad2f7d87a3fae4fd3">increment</a> ()</td></tr>
+<tr class="memdesc:adcb0a96cf975a6dad2f7d87a3fae4fd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">prefix increment  <a href="a03342.html#adcb0a96cf975a6dad2f7d87a3fae4fd3">More...</a><br /></td></tr>
+<tr class="separator:adcb0a96cf975a6dad2f7d87a3fae4fd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a159798bf4ed35bb78a6121355d83c692"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a03342.html#ab954e16bec34e35cf6511fd087076ad1">Entity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03342.html#a159798bf4ed35bb78a6121355d83c692">dereference</a> () const</td></tr>
+<tr class="memdesc:a159798bf4ed35bb78a6121355d83c692"><td class="mdescLeft">&#160;</td><td class="mdescRight">dereferencing  <a href="a03342.html#a159798bf4ed35bb78a6121355d83c692">More...</a><br /></td></tr>
+<tr class="separator:a159798bf4ed35bb78a6121355d83c692"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bd323faf3358a0171f28daebe1c1d6f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03342.html#a1bd323faf3358a0171f28daebe1c1d6f">equals</a> (const <a class="el" href="a03342.html">IdentityGridLeafIterator</a> &amp;i) const</td></tr>
+<tr class="memdesc:a1bd323faf3358a0171f28daebe1c1d6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">equality  <a href="a03342.html#a1bd323faf3358a0171f28daebe1c1d6f">More...</a><br /></td></tr>
+<tr class="separator:a1bd323faf3358a0171f28daebe1c1d6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;class GridImp&gt;<br />
-class Dune::IdentityGridLeafIntersection&lt; GridImp &gt;</h3>
+<div class="textblock"><h3>template&lt;int codim, PartitionIteratorType pitype, class GridImp&gt;<br />
+class Dune::IdentityGridLeafIterator&lt; codim, pitype, GridImp &gt;</h3>
 
-<p>An intersection with a leaf neighbor element</p>
-<p>Mesh entities of codimension 0 ("elements") allow to visit all neighbors, where a neighbor is an entity of codimension 0 which has a common entity of codimension 1 These neighbors are accessed via a <a class="el" href="a02686.html" title="Mesh entities of codimension 0 (&quot;elements&quot;) allow to visit all intersections with &quot;neighboring&quot; eleme...">IntersectionIterator</a>. This allows the implement non-matching meshes. The number of neighbors may be different from the number of an element! </p>
+<p>Iterator over all entities of a given codimension and level of a grid. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="adadc7afe166c036b17a890aa86bd531b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adadc7afe166c036b17a890aa86bd531b">&#9670;&nbsp;</a></span>Entity</h2>
+<a id="ab954e16bec34e35cf6511fd087076ad1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab954e16bec34e35cf6511fd087076ad1">&#9670;&nbsp;</a></span>Entity</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class GridImp &gt; </div>
+template&lt;int codim, PartitionIteratorType pitype, class GridImp &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef GridImp::template Codim&lt;0&gt;::<a class="el" href="a03342.html#adadc7afe166c036b17a890aa86bd531b">Entity</a> <a class="el" href="a03342.html">Dune::IdentityGridLeafIntersection</a>&lt; GridImp &gt;::<a class="el" href="a03342.html#adadc7afe166c036b17a890aa86bd531b">Entity</a></td>
+          <td class="memname">typedef GridImp::template Codim&lt;codim&gt;::<a class="el" href="a03342.html#ab954e16bec34e35cf6511fd087076ad1">Entity</a> <a class="el" href="a03342.html">Dune::IdentityGridLeafIterator</a>&lt; codim, pitype, GridImp &gt;::<a class="el" href="a03342.html#ab954e16bec34e35cf6511fd087076ad1">Entity</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="acee0685325b9f7ab4f7eb7f3961f535b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acee0685325b9f7ab4f7eb7f3961f535b">&#9670;&nbsp;</a></span>Geometry</h2>
+<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="a4b10d5cd11dd6d4570004d0b3e254fbf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b10d5cd11dd6d4570004d0b3e254fbf">&#9670;&nbsp;</a></span>anonymous enum</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class GridImp &gt; </div>
+template&lt;int codim, PartitionIteratorType pitype, class GridImp &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef GridImp::template Codim&lt;1&gt;::<a class="el" href="a03342.html#acee0685325b9f7ab4f7eb7f3961f535b">Geometry</a> <a class="el" href="a03342.html">Dune::IdentityGridLeafIntersection</a>&lt; GridImp &gt;::<a class="el" href="a03342.html#acee0685325b9f7ab4f7eb7f3961f535b">Geometry</a></td>
+          <td class="memname">anonymous enum</td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a id="a0a41527a0ebd92ead19c47fa6b98f503"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0a41527a0ebd92ead19c47fa6b98f503">&#9670;&nbsp;</a></span>LocalGeometry</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class GridImp &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef GridImp::template Codim&lt;1&gt;::<a class="el" href="a03342.html#a0a41527a0ebd92ead19c47fa6b98f503">LocalGeometry</a> <a class="el" href="a03342.html">Dune::IdentityGridLeafIntersection</a>&lt; GridImp &gt;::<a class="el" href="a03342.html#a0a41527a0ebd92ead19c47fa6b98f503">LocalGeometry</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a60efdcc8217039fee207baef53daaa4e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a60efdcc8217039fee207baef53daaa4e">&#9670;&nbsp;</a></span>NormalVector</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class GridImp &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef FieldVector&lt;ctype, dimworld&gt; <a class="el" href="a03342.html">Dune::IdentityGridLeafIntersection</a>&lt; GridImp &gt;::<a class="el" href="a03342.html#a60efdcc8217039fee207baef53daaa4e">NormalVector</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a4b10d5cd11dd6d4570004d0b3e254fbfac8f82e8f12c109d5453c07ca1e78be28"></a>codimension&#160;</td><td class="fielddoc"></td></tr>
+</table>
 
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a2d5fbec8c78646035fc2ecda3c8df13d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2d5fbec8c78646035fc2ecda3c8df13d">&#9670;&nbsp;</a></span>IdentityGridLeafIntersection() <span class="overload">[1/3]</span></h2>
+<a id="abce0d8febe77c3244b4f0c1797e9b8b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abce0d8febe77c3244b4f0c1797e9b8b4">&#9670;&nbsp;</a></span>IdentityGridLeafIterator() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class GridImp &gt; </div>
+template&lt;int codim, PartitionIteratorType pitype, class GridImp &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a03342.html">Dune::IdentityGridLeafIntersection</a>&lt; GridImp &gt;::<a class="el" href="a03342.html">IdentityGridLeafIntersection</a> </td>
+          <td class="memname"><a class="el" href="a03342.html">Dune::IdentityGridLeafIterator</a>&lt; codim, pitype, GridImp &gt;::<a class="el" href="a03342.html">IdentityGridLeafIterator</a> </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const GridImp *&#160;</td>
+          <td class="paramname"><em>identityGrid</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<dl class="todo"><dt><b><a class="el" href="a00903.html#_todo000026">Todo:</a></b></dt><dd>Please doc me ! </dd></dl>
 
 </div>
 </div>
-<a id="a8fd07c5337d79dff75f08de65cb4b167"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8fd07c5337d79dff75f08de65cb4b167">&#9670;&nbsp;</a></span>IdentityGridLeafIntersection() <span class="overload">[2/3]</span></h2>
+<a id="a4709ec30ce0376c9be2d52cecb81afe2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4709ec30ce0376c9be2d52cecb81afe2">&#9670;&nbsp;</a></span>IdentityGridLeafIterator() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class GridImp &gt; </div>
+template&lt;int codim, PartitionIteratorType pitype, class GridImp &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a03342.html">Dune::IdentityGridLeafIntersection</a>&lt; GridImp &gt;::<a class="el" href="a03342.html">IdentityGridLeafIntersection</a> </td>
+          <td class="memname"><a class="el" href="a03342.html">Dune::IdentityGridLeafIterator</a>&lt; codim, pitype, GridImp &gt;::<a class="el" href="a03342.html">IdentityGridLeafIterator</a> </td>
           <td>(</td>
           <td class="paramtype">const GridImp *&#160;</td>
           <td class="paramname"><em>identityGrid</em>, </td>
@@ -264,8 +197,8 @@ template&lt;class GridImp &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const HostLeafIntersection &amp;&#160;</td>
-          <td class="paramname"><em>hostIntersection</em>&#160;</td>
+          <td class="paramtype">[[maybe_unused] ] bool&#160;</td>
+          <td class="paramname"><em>endDummy</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -275,65 +208,36 @@ template&lt;class GridImp &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="a056ab6b9dfc506e2f573dcccf1345ab5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a056ab6b9dfc506e2f573dcccf1345ab5">&#9670;&nbsp;</a></span>IdentityGridLeafIntersection() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class GridImp &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a03342.html">Dune::IdentityGridLeafIntersection</a>&lt; GridImp &gt;::<a class="el" href="a03342.html">IdentityGridLeafIntersection</a> </td>
-          <td>(</td>
-          <td class="paramtype">const GridImp *&#160;</td>
-          <td class="paramname"><em>identityGrid</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">HostLeafIntersection &amp;&amp;&#160;</td>
-          <td class="paramname"><em>hostIntersection</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>Constructor which create the end iterator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">endDummy</td><td>Here only to distinguish it from the other constructor </td></tr>
+    <tr><td class="paramname">identityGrid</td><td>pointer to grid instance </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a49b12570fa851689b3e8bf75a40e3626"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a49b12570fa851689b3e8bf75a40e3626">&#9670;&nbsp;</a></span>boundary()</h2>
+<a id="a159798bf4ed35bb78a6121355d83c692"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a159798bf4ed35bb78a6121355d83c692">&#9670;&nbsp;</a></span>dereference()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class GridImp &gt; </div>
+template&lt;int codim, PartitionIteratorType pitype, class GridImp &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="a03342.html">Dune::IdentityGridLeafIntersection</a>&lt; GridImp &gt;::boundary </td>
+          <td class="memname"><a class="el" href="a03342.html#ab954e16bec34e35cf6511fd087076ad1">Entity</a> <a class="el" href="a03342.html">Dune::IdentityGridLeafIterator</a>&lt; codim, pitype, GridImp &gt;::dereference </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -346,26 +250,56 @@ template&lt;class GridImp &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>return true if intersection is with boundary. </p>
+<p>dereferencing </p>
 
 </div>
 </div>
-<a id="a9077877e0bfae35a54d5b71008920fc5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9077877e0bfae35a54d5b71008920fc5">&#9670;&nbsp;</a></span>boundarySegmentIndex()</h2>
+<a id="a1bd323faf3358a0171f28daebe1c1d6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1bd323faf3358a0171f28daebe1c1d6f">&#9670;&nbsp;</a></span>equals()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class GridImp &gt; </div>
+template&lt;int codim, PartitionIteratorType pitype, class GridImp &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t <a class="el" href="a03342.html">Dune::IdentityGridLeafIntersection</a>&lt; GridImp &gt;::boundarySegmentIndex </td>
+          <td class="memname">bool <a class="el" href="a03342.html">Dune::IdentityGridLeafIterator</a>&lt; codim, pitype, GridImp &gt;::equals </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a03342.html">IdentityGridLeafIterator</a>&lt; codim, pitype, GridImp &gt; &amp;&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>equality </p>
+
+</div>
+</div>
+<a id="adcb0a96cf975a6dad2f7d87a3fae4fd3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adcb0a96cf975a6dad2f7d87a3fae4fd3">&#9670;&nbsp;</a></span>increment()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int codim, PartitionIteratorType pitype, class GridImp &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="a03342.html">Dune::IdentityGridLeafIterator</a>&lt; codim, pitype, GridImp &gt;::increment </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
   </td>
@@ -375,445 +309,12 @@ template&lt;class GridImp &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>return the boundary segment index </p>
-
-</div>
-</div>
-<a id="a084584daf72a5f8df9d3368ead3fe6bc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a084584daf72a5f8df9d3368ead3fe6bc">&#9670;&nbsp;</a></span>centerUnitOuterNormal()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class GridImp &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a03342.html#a60efdcc8217039fee207baef53daaa4e">NormalVector</a> <a class="el" href="a03342.html">Dune::IdentityGridLeafIntersection</a>&lt; GridImp &gt;::centerUnitOuterNormal </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Return unit outer normal (length == 1) </p>
-<p>The returned vector is the normal at the center() of the intersection's geometry. It is scaled to have unit length. </p>
-
-</div>
-</div>
-<a id="a8dbd0c11286941069131be3c2fbad4ef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8dbd0c11286941069131be3c2fbad4ef">&#9670;&nbsp;</a></span>conforming()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class GridImp &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="a03342.html">Dune::IdentityGridLeafIntersection</a>&lt; GridImp &gt;::conforming </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Return true if this is a conforming intersection. </p>
-
-</div>
-</div>
-<a id="a9e9753bbbcf147ab52833b6034c17406"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9e9753bbbcf147ab52833b6034c17406">&#9670;&nbsp;</a></span>equals()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class GridImp &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="a03342.html">Dune::IdentityGridLeafIntersection</a>&lt; GridImp &gt;::equals </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a03342.html">IdentityGridLeafIntersection</a>&lt; GridImp &gt; &amp;&#160;</td>
-          <td class="paramname"><em>other</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a19ae177986651ca49c946d773df63ab5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a19ae177986651ca49c946d773df63ab5">&#9670;&nbsp;</a></span>geometry()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class GridImp &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a03342.html#acee0685325b9f7ab4f7eb7f3961f535b">Geometry</a> <a class="el" href="a03342.html">Dune::IdentityGridLeafIntersection</a>&lt; GridImp &gt;::geometry </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>intersection of codimension 1 of this neighbor with element where iteration started. Here returned element is in GLOBAL coordinates of the element where iteration started. </p>
-
-</div>
-</div>
-<a id="a79dbd0bfebd7b1f5e719dd387f8eca22"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a79dbd0bfebd7b1f5e719dd387f8eca22">&#9670;&nbsp;</a></span>geometryInInside()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class GridImp &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a03342.html#a0a41527a0ebd92ead19c47fa6b98f503">LocalGeometry</a> <a class="el" href="a03342.html">Dune::IdentityGridLeafIntersection</a>&lt; GridImp &gt;::geometryInInside </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>intersection of codimension 1 of this neighbor with element where iteration started. Here returned element is in LOCAL coordinates of the element where iteration started. </p>
-
-</div>
-</div>
-<a id="a25bac3faa1ee9a5fe10674994e4bc243"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a25bac3faa1ee9a5fe10674994e4bc243">&#9670;&nbsp;</a></span>geometryInOutside()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class GridImp &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a03342.html#a0a41527a0ebd92ead19c47fa6b98f503">LocalGeometry</a> <a class="el" href="a03342.html">Dune::IdentityGridLeafIntersection</a>&lt; GridImp &gt;::geometryInOutside </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>intersection of codimension 1 of this neighbor with element where iteration started. Here returned element is in LOCAL coordinates of neighbor </p>
-
-</div>
-</div>
-<a id="acbf2804f05e23262cdea5b7b20e59ca7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acbf2804f05e23262cdea5b7b20e59ca7">&#9670;&nbsp;</a></span>indexInInside()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class GridImp &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="a03342.html">Dune::IdentityGridLeafIntersection</a>&lt; GridImp &gt;::indexInInside </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>local number of codim 1 entity in self where intersection is contained in </p>
-
-</div>
-</div>
-<a id="aa5f9413419b0be566ac8daea37fcb5b0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa5f9413419b0be566ac8daea37fcb5b0">&#9670;&nbsp;</a></span>indexInOutside()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class GridImp &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="a03342.html">Dune::IdentityGridLeafIntersection</a>&lt; GridImp &gt;::indexInOutside </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>local number of codim 1 entity in neighbor where intersection is contained </p>
-
-</div>
-</div>
-<a id="a04d18087c072bccf379b458640ea709a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a04d18087c072bccf379b458640ea709a">&#9670;&nbsp;</a></span>inside()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class GridImp &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a03342.html#adadc7afe166c036b17a890aa86bd531b">Entity</a> <a class="el" href="a03342.html">Dune::IdentityGridLeafIntersection</a>&lt; GridImp &gt;::inside </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>return <a class="el" href="a02630.html" title="Wrapper class for entities.">Entity</a> on the inside of this intersection (that is the <a class="el" href="a02630.html" title="Wrapper class for entities.">Entity</a> where we started this Iterator) </p>
-
-</div>
-</div>
-<a id="a2682d7fbece1447e823aa475bc57a8c2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2682d7fbece1447e823aa475bc57a8c2">&#9670;&nbsp;</a></span>integrationOuterNormal()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class GridImp &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">FieldVector&lt;ctype, GridImp::dimensionworld&gt; <a class="el" href="a03342.html">Dune::IdentityGridLeafIntersection</a>&lt; GridImp &gt;::integrationOuterNormal </td>
-          <td>(</td>
-          <td class="paramtype">const FieldVector&lt; ctype, GridImp::dimension-1 &gt; &amp;&#160;</td>
-          <td class="paramname"><em>local</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>return outer normal multiplied by the integration element </p>
-
-</div>
-</div>
-<a id="ab867b4f8b60ec30102b0fb461b314bb5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab867b4f8b60ec30102b0fb461b314bb5">&#9670;&nbsp;</a></span>neighbor()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class GridImp &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="a03342.html">Dune::IdentityGridLeafIntersection</a>&lt; GridImp &gt;::neighbor </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>return true if across the edge an neighbor on this level exists </p>
-
-</div>
-</div>
-<a id="a13f9e73cfa68abb7570df563b5d6bd73"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a13f9e73cfa68abb7570df563b5d6bd73">&#9670;&nbsp;</a></span>outerNormal()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class GridImp &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">FieldVector&lt;ctype, GridImp::dimensionworld&gt; <a class="el" href="a03342.html">Dune::IdentityGridLeafIntersection</a>&lt; GridImp &gt;::outerNormal </td>
-          <td>(</td>
-          <td class="paramtype">const FieldVector&lt; ctype, GridImp::dimension-1 &gt; &amp;&#160;</td>
-          <td class="paramname"><em>local</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>return outer normal </p>
-
-</div>
-</div>
-<a id="a202377a4f12c14613f2c6c143892f29f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a202377a4f12c14613f2c6c143892f29f">&#9670;&nbsp;</a></span>outside()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class GridImp &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a03342.html#adadc7afe166c036b17a890aa86bd531b">Entity</a> <a class="el" href="a03342.html">Dune::IdentityGridLeafIntersection</a>&lt; GridImp &gt;::outside </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>return <a class="el" href="a02630.html" title="Wrapper class for entities.">Entity</a> on the outside of this intersection (that is the neighboring <a class="el" href="a02630.html" title="Wrapper class for entities.">Entity</a>) </p>
-
-</div>
-</div>
-<a id="a5bfdbd95738957d6975ac21af85b0fb9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5bfdbd95738957d6975ac21af85b0fb9">&#9670;&nbsp;</a></span>type()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class GridImp &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">GeometryType <a class="el" href="a03342.html">Dune::IdentityGridLeafIntersection</a>&lt; GridImp &gt;::type </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p><a class="el" href="a02670.html" title="Wrapper class for geometries.">Geometry</a> type of an intersection. </p>
-
-</div>
-</div>
-<a id="adc7718d62e30b46c40ac667f950a9c56"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adc7718d62e30b46c40ac667f950a9c56">&#9670;&nbsp;</a></span>unitOuterNormal()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class GridImp &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">FieldVector&lt;ctype, GridImp::dimensionworld&gt; <a class="el" href="a03342.html">Dune::IdentityGridLeafIntersection</a>&lt; GridImp &gt;::unitOuterNormal </td>
-          <td>(</td>
-          <td class="paramtype">const FieldVector&lt; ctype, GridImp::dimension-1 &gt; &amp;&#160;</td>
-          <td class="paramname"><em>local</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>return unit outer normal </p>
+<p>prefix increment </p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="a00605_source.html">identitygridintersections.hh</a></li>
+<li><a class="el" href="a00614_source.html">identitygridleafiterator.hh</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

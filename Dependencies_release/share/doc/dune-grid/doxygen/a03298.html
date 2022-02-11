@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: Dune::IdentityGridLevelIterator&lt; codim, pitype, GridImp &gt; Class Template Reference</title>
+<title>dune-grid: Dune::IdentityGridLeafIntersectionIterator&lt; GridImp &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,7 +62,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00936.html">Dune</a></li><li class="navelem"><a class="el" href="a03298.html">IdentityGridLevelIterator</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00940.html">Dune</a></li><li class="navelem"><a class="el" href="a03298.html">IdentityGridLeafIntersectionIterator</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -71,97 +71,100 @@ $(function() {
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="a03295.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::IdentityGridLevelIterator&lt; codim, pitype, GridImp &gt; Class Template Reference<div class="ingroups"><a class="el" href="a00902.html">dune-grid</a> &raquo; <a class="el" href="a00917.html">Grid Implementations</a> &raquo; <a class="el" href="a00919.html">IdentityGrid</a></div></div>  </div>
+<div class="title">Dune::IdentityGridLeafIntersectionIterator&lt; GridImp &gt; Class Template Reference<div class="ingroups"><a class="el" href="a00905.html">dune-grid</a> &raquo; <a class="el" href="a00921.html">Grid Implementations</a> &raquo; <a class="el" href="a00923.html">IdentityGrid</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Iterator over all entities of a given codimension and level of a grid.  
+<p>Iterator over all element neighborsMesh entities of codimension 0 ("elements") allow to visit all neighbors, where a neighbor is an entity of codimension 0 which has a common entity of codimension 1 These neighbors are accessed via a <a class="el" href="a02698.html" title="Mesh entities of codimension 0 (&quot;elements&quot;) allow to visit all intersections with &quot;neighboring&quot; eleme...">IntersectionIterator</a>. This allows the implement non-matching meshes. The number of neighbors may be different from the number of an element!  
  <a href="a03298.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00611_source.html">dune/grid/identitygrid/identitygridleveliterator.hh</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00608_source.html">dune/grid/identitygrid/identitygridintersectioniterator.hh</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:ab66d0eaa72ef06bfaaffcffcb85694e8"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="a03298.html#ab66d0eaa72ef06bfaaffcffcb85694e8ac81223e0f729345b47c961a6438f4f45">codimension</a> = codim
- }</td></tr>
-<tr class="separator:ab66d0eaa72ef06bfaaffcffcb85694e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a131d9a0522fd611aa2fa2d4573885648"><td class="memItemLeft" align="right" valign="top">typedef GridImp::template Codim&lt; codim &gt;::<a class="el" href="a03298.html#a131d9a0522fd611aa2fa2d4573885648">Entity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03298.html#a131d9a0522fd611aa2fa2d4573885648">Entity</a></td></tr>
-<tr class="separator:a131d9a0522fd611aa2fa2d4573885648"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea71fe332ab3218d659a6439ccb9c430"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a01842.html">Dune::Intersection</a>&lt; const GridImp, <a class="el" href="a03334.html">Dune::IdentityGridLeafIntersection</a>&lt; GridImp &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03298.html#aea71fe332ab3218d659a6439ccb9c430">Intersection</a></td></tr>
+<tr class="separator:aea71fe332ab3218d659a6439ccb9c430"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a51ff754efb68c3c3f5e0cfd9117d1f06"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03298.html#a51ff754efb68c3c3f5e0cfd9117d1f06">IdentityGridLevelIterator</a> (const GridImp *identityGrid, int level)</td></tr>
-<tr class="memdesc:a51ff754efb68c3c3f5e0cfd9117d1f06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="a03298.html#a51ff754efb68c3c3f5e0cfd9117d1f06">More...</a><br /></td></tr>
-<tr class="separator:a51ff754efb68c3c3f5e0cfd9117d1f06"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5fda0f8599c1714a5cd3d17942f61ae6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03298.html#a5fda0f8599c1714a5cd3d17942f61ae6">IdentityGridLevelIterator</a> (const GridImp *identityGrid, int level, bool endDummy)</td></tr>
-<tr class="memdesc:a5fda0f8599c1714a5cd3d17942f61ae6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor which create the end iterator.  <a href="a03298.html#a5fda0f8599c1714a5cd3d17942f61ae6">More...</a><br /></td></tr>
-<tr class="separator:a5fda0f8599c1714a5cd3d17942f61ae6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07b768a6505a34c20500f3f5bc97b85f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03298.html#a07b768a6505a34c20500f3f5bc97b85f">increment</a> ()</td></tr>
-<tr class="memdesc:a07b768a6505a34c20500f3f5bc97b85f"><td class="mdescLeft">&#160;</td><td class="mdescRight">prefix increment  <a href="a03298.html#a07b768a6505a34c20500f3f5bc97b85f">More...</a><br /></td></tr>
-<tr class="separator:a07b768a6505a34c20500f3f5bc97b85f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab660adcaa702b28b3d756c73bdf323f9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a03298.html#a131d9a0522fd611aa2fa2d4573885648">Entity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03298.html#ab660adcaa702b28b3d756c73bdf323f9">dereference</a> () const</td></tr>
-<tr class="memdesc:ab660adcaa702b28b3d756c73bdf323f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">dereferencing  <a href="a03298.html#ab660adcaa702b28b3d756c73bdf323f9">More...</a><br /></td></tr>
-<tr class="separator:ab660adcaa702b28b3d756c73bdf323f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96de6947a38292b8bcb40c1c7d586280"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03298.html#a96de6947a38292b8bcb40c1c7d586280">equals</a> (const <a class="el" href="a03298.html">IdentityGridLevelIterator</a> &amp;i) const</td></tr>
-<tr class="memdesc:a96de6947a38292b8bcb40c1c7d586280"><td class="mdescLeft">&#160;</td><td class="mdescRight">equality  <a href="a03298.html#a96de6947a38292b8bcb40c1c7d586280">More...</a><br /></td></tr>
-<tr class="separator:a96de6947a38292b8bcb40c1c7d586280"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed2b0d4e0cf037f2170cc9d0b2089817"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03298.html#aed2b0d4e0cf037f2170cc9d0b2089817">IdentityGridLeafIntersectionIterator</a> ()</td></tr>
+<tr class="separator:aed2b0d4e0cf037f2170cc9d0b2089817"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c49c0dc0e28faaefff547cc6bb08845"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03298.html#a5c49c0dc0e28faaefff547cc6bb08845">IdentityGridLeafIntersectionIterator</a> (const GridImp *identityGrid, const HostLeafIntersectionIterator &amp;hostIterator)</td></tr>
+<tr class="separator:a5c49c0dc0e28faaefff547cc6bb08845"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32633a1200f9cedd5c0bed35ffdada07"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03298.html#a32633a1200f9cedd5c0bed35ffdada07">equals</a> (const <a class="el" href="a03298.html">IdentityGridLeafIntersectionIterator</a> &amp;other) const</td></tr>
+<tr class="memdesc:a32633a1200f9cedd5c0bed35ffdada07"><td class="mdescLeft">&#160;</td><td class="mdescRight">equality  <a href="a03298.html#a32633a1200f9cedd5c0bed35ffdada07">More...</a><br /></td></tr>
+<tr class="separator:a32633a1200f9cedd5c0bed35ffdada07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a340aae4fbc58f0186590132dbe02b22b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03298.html#a340aae4fbc58f0186590132dbe02b22b">increment</a> ()</td></tr>
+<tr class="memdesc:a340aae4fbc58f0186590132dbe02b22b"><td class="mdescLeft">&#160;</td><td class="mdescRight">prefix increment  <a href="a03298.html#a340aae4fbc58f0186590132dbe02b22b">More...</a><br /></td></tr>
+<tr class="separator:a340aae4fbc58f0186590132dbe02b22b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c7703a9b388d57c7c598a8541ce75d4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a03298.html#aea71fe332ab3218d659a6439ccb9c430">Intersection</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03298.html#a9c7703a9b388d57c7c598a8541ce75d4">dereference</a> () const</td></tr>
+<tr class="memdesc:a9c7703a9b388d57c7c598a8541ce75d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">dereferencing  <a href="a03298.html#a9c7703a9b388d57c7c598a8541ce75d4">More...</a><br /></td></tr>
+<tr class="separator:a9c7703a9b388d57c7c598a8541ce75d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;int codim, PartitionIteratorType pitype, class GridImp&gt;<br />
-class Dune::IdentityGridLevelIterator&lt; codim, pitype, GridImp &gt;</h3>
+<div class="textblock"><h3>template&lt;class GridImp&gt;<br />
+class Dune::IdentityGridLeafIntersectionIterator&lt; GridImp &gt;</h3>
 
-<p>Iterator over all entities of a given codimension and level of a grid. </p>
+<p>Iterator over all element neighbors</p>
+<p>Mesh entities of codimension 0 ("elements") allow to visit all neighbors, where a neighbor is an entity of codimension 0 which has a common entity of codimension 1 These neighbors are accessed via a <a class="el" href="a02698.html" title="Mesh entities of codimension 0 (&quot;elements&quot;) allow to visit all intersections with &quot;neighboring&quot; eleme...">IntersectionIterator</a>. This allows the implement non-matching meshes. The number of neighbors may be different from the number of an element! </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a131d9a0522fd611aa2fa2d4573885648"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a131d9a0522fd611aa2fa2d4573885648">&#9670;&nbsp;</a></span>Entity</h2>
+<a id="aea71fe332ab3218d659a6439ccb9c430"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea71fe332ab3218d659a6439ccb9c430">&#9670;&nbsp;</a></span>Intersection</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int codim, PartitionIteratorType pitype, class GridImp &gt; </div>
+template&lt;class GridImp &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef GridImp::template Codim&lt;codim&gt;::<a class="el" href="a03298.html#a131d9a0522fd611aa2fa2d4573885648">Entity</a> <a class="el" href="a03298.html">Dune::IdentityGridLevelIterator</a>&lt; codim, pitype, GridImp &gt;::<a class="el" href="a03298.html#a131d9a0522fd611aa2fa2d4573885648">Entity</a></td>
+          <td class="memname">typedef <a class="el" href="a01842.html">Dune::Intersection</a>&lt;const GridImp, <a class="el" href="a03334.html">Dune::IdentityGridLeafIntersection</a>&lt;GridImp&gt; &gt; <a class="el" href="a03298.html">Dune::IdentityGridLeafIntersectionIterator</a>&lt; GridImp &gt;::<a class="el" href="a03298.html#aea71fe332ab3218d659a6439ccb9c430">Intersection</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Member Enumeration Documentation</h2>
-<a id="ab66d0eaa72ef06bfaaffcffcb85694e8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab66d0eaa72ef06bfaaffcffcb85694e8">&#9670;&nbsp;</a></span>anonymous enum</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int codim, PartitionIteratorType pitype, class GridImp &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">anonymous enum</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ab66d0eaa72ef06bfaaffcffcb85694e8ac81223e0f729345b47c961a6438f4f45"></a>codimension&#160;</td><td class="fielddoc"></td></tr>
-</table>
 
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a51ff754efb68c3c3f5e0cfd9117d1f06"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a51ff754efb68c3c3f5e0cfd9117d1f06">&#9670;&nbsp;</a></span>IdentityGridLevelIterator() <span class="overload">[1/2]</span></h2>
+<a id="aed2b0d4e0cf037f2170cc9d0b2089817"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed2b0d4e0cf037f2170cc9d0b2089817">&#9670;&nbsp;</a></span>IdentityGridLeafIntersectionIterator() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int codim, PartitionIteratorType pitype, class GridImp &gt; </div>
+template&lt;class GridImp &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a03298.html">Dune::IdentityGridLevelIterator</a>&lt; codim, pitype, GridImp &gt;::<a class="el" href="a03298.html">IdentityGridLevelIterator</a> </td>
+          <td class="memname"><a class="el" href="a03298.html">Dune::IdentityGridLeafIntersectionIterator</a>&lt; GridImp &gt;::<a class="el" href="a03298.html">IdentityGridLeafIntersectionIterator</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5c49c0dc0e28faaefff547cc6bb08845"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c49c0dc0e28faaefff547cc6bb08845">&#9670;&nbsp;</a></span>IdentityGridLeafIntersectionIterator() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class GridImp &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a03298.html">Dune::IdentityGridLeafIntersectionIterator</a>&lt; GridImp &gt;::<a class="el" href="a03298.html">IdentityGridLeafIntersectionIterator</a> </td>
           <td>(</td>
           <td class="paramtype">const GridImp *&#160;</td>
           <td class="paramname"><em>identityGrid</em>, </td>
@@ -169,8 +172,8 @@ template&lt;int codim, PartitionIteratorType pitype, class GridImp &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>level</em>&#160;</td>
+          <td class="paramtype">const HostLeafIntersectionIterator &amp;&#160;</td>
+          <td class="paramname"><em>hostIterator</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -180,83 +183,27 @@ template&lt;int codim, PartitionIteratorType pitype, class GridImp &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Constructor. </p>
-
-</div>
-</div>
-<a id="a5fda0f8599c1714a5cd3d17942f61ae6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5fda0f8599c1714a5cd3d17942f61ae6">&#9670;&nbsp;</a></span>IdentityGridLevelIterator() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int codim, PartitionIteratorType pitype, class GridImp &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a03298.html">Dune::IdentityGridLevelIterator</a>&lt; codim, pitype, GridImp &gt;::<a class="el" href="a03298.html">IdentityGridLevelIterator</a> </td>
-          <td>(</td>
-          <td class="paramtype">const GridImp *&#160;</td>
-          <td class="paramname"><em>identityGrid</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>level</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>endDummy</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Constructor which create the end iterator. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">endDummy</td><td>Here only to distinguish it from the other constructor </td></tr>
-    <tr><td class="paramname">identityGrid</td><td>pointer to <a class="el" href="a03266.html" title="Provides a meta grid that is identical to its host.">IdentityGrid</a> instance </td></tr>
-    <tr><td class="paramname">level</td><td>grid level on which the iterator shall be created </td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ab660adcaa702b28b3d756c73bdf323f9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab660adcaa702b28b3d756c73bdf323f9">&#9670;&nbsp;</a></span>dereference()</h2>
+<a id="a9c7703a9b388d57c7c598a8541ce75d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c7703a9b388d57c7c598a8541ce75d4">&#9670;&nbsp;</a></span>dereference()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int codim, PartitionIteratorType pitype, class GridImp &gt; </div>
+template&lt;class GridImp &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a03298.html#a131d9a0522fd611aa2fa2d4573885648">Entity</a> <a class="el" href="a03298.html">Dune::IdentityGridLevelIterator</a>&lt; codim, pitype, GridImp &gt;::dereference </td>
+          <td class="memname"><a class="el" href="a03298.html#aea71fe332ab3218d659a6439ccb9c430">Intersection</a> <a class="el" href="a03298.html">Dune::IdentityGridLeafIntersectionIterator</a>&lt; GridImp &gt;::dereference </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -273,22 +220,22 @@ template&lt;int codim, PartitionIteratorType pitype, class GridImp &gt; </div>
 
 </div>
 </div>
-<a id="a96de6947a38292b8bcb40c1c7d586280"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a96de6947a38292b8bcb40c1c7d586280">&#9670;&nbsp;</a></span>equals()</h2>
+<a id="a32633a1200f9cedd5c0bed35ffdada07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32633a1200f9cedd5c0bed35ffdada07">&#9670;&nbsp;</a></span>equals()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int codim, PartitionIteratorType pitype, class GridImp &gt; </div>
+template&lt;class GridImp &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="a03298.html">Dune::IdentityGridLevelIterator</a>&lt; codim, pitype, GridImp &gt;::equals </td>
+          <td class="memname">bool <a class="el" href="a03298.html">Dune::IdentityGridLeafIntersectionIterator</a>&lt; GridImp &gt;::equals </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a03298.html">IdentityGridLevelIterator</a>&lt; codim, pitype, GridImp &gt; &amp;&#160;</td>
-          <td class="paramname"><em>i</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="a03298.html">IdentityGridLeafIntersectionIterator</a>&lt; GridImp &gt; &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -303,19 +250,19 @@ template&lt;int codim, PartitionIteratorType pitype, class GridImp &gt; </div>
 
 </div>
 </div>
-<a id="a07b768a6505a34c20500f3f5bc97b85f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a07b768a6505a34c20500f3f5bc97b85f">&#9670;&nbsp;</a></span>increment()</h2>
+<a id="a340aae4fbc58f0186590132dbe02b22b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a340aae4fbc58f0186590132dbe02b22b">&#9670;&nbsp;</a></span>increment()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int codim, PartitionIteratorType pitype, class GridImp &gt; </div>
+template&lt;class GridImp &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="a03298.html">Dune::IdentityGridLevelIterator</a>&lt; codim, pitype, GridImp &gt;::increment </td>
+          <td class="memname">void <a class="el" href="a03298.html">Dune::IdentityGridLeafIntersectionIterator</a>&lt; GridImp &gt;::increment </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -333,8 +280,8 @@ template&lt;int codim, PartitionIteratorType pitype, class GridImp &gt; </div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="a00587_source.html">identitygridentity.hh</a></li>
-<li><a class="el" href="a00611_source.html">identitygridleveliterator.hh</a></li>
+<li><a class="el" href="a00593_source.html">identitygridentity.hh</a></li>
+<li><a class="el" href="a00608_source.html">identitygridintersectioniterator.hh</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -15,7 +15,6 @@
 #include <type_traits>
 #include <utility>
 
-#include <dune/common/deprecated.hh>
 #include <dune/common/hybridutilities.hh>
 #include <dune/geometry/type.hh>
 #include <dune/grid/common/capabilities.hh>
@@ -28,7 +27,7 @@ struct GeometryInterface
   {
     static_assert( (Geometry::mydimension == dim-codim), "" );
 
-    typedef typename Geometry::ctype ctype DUNE_UNUSED;
+    using ctype [[maybe_unused]] = typename Geometry::ctype;
 
     geo.type();
     geo.affine();
@@ -60,8 +59,8 @@ template <class Entity>
 void DoEntityInterfaceCheck (Entity &e)
 {
   // exported types
-  typedef typename Entity::Geometry Geometry DUNE_UNUSED;
-  typedef typename Entity::EntitySeed EntitySeed DUNE_UNUSED;
+  using Geometry [[maybe_unused]] = typename Entity::Geometry;
+  using EntitySeed [[maybe_unused]] = typename Entity::EntitySeed;
 
   // methods on each entity
   e.level();
@@ -80,7 +79,7 @@ struct ZeroEntityMethodCheck
   static void check(Entity &e)
   {
     // check types
-    typedef typename Entity::HierarchicIterator HierarchicIterator DUNE_UNUSED;
+    using HierarchicIterator [[maybe_unused]] = typename Entity::HierarchicIterator;
 
     e.subEntities(cd);
     e.template subEntity<cd>(0);
@@ -104,7 +103,7 @@ struct ZeroEntityMethodCheck<Grid, cd, false>
   static void check(Entity &)
   {
     // check types
-    typedef typename Entity::HierarchicIterator HierarchicIterator DUNE_UNUSED;
+    using HierarchicIterator [[maybe_unused]] = typename Entity::HierarchicIterator;
 
     // recursively check on
     ZeroEntityMethodCheck<Grid, cd - 1,
@@ -125,7 +124,7 @@ struct ZeroEntityMethodCheck<Grid, 0, true>
   static void check(Entity &e)
   {
     // check types
-    typedef typename Entity::HierarchicIterator HierarchicIterator DUNE_UNUSED;
+    using HierarchicIterator [[maybe_unused]] = typename Entity::HierarchicIterator;
 
     e.subEntities(0);
     e.template subEntity<0>(0);
@@ -147,7 +146,7 @@ struct ZeroEntityMethodCheck<Grid, 0, false>
   static void check(Entity &e)
   {
     // check types
-    typedef typename Entity::HierarchicIterator HierarchicIterator DUNE_UNUSED;
+    using HierarchicIterator [[maybe_unused]] = typename Entity::HierarchicIterator;
 
     e.subEntities(0);
     e.template subEntity<0>(0);
@@ -171,8 +170,8 @@ struct IntersectionIteratorInterface
     // increment / equality / ...
     IntersectionIterator j = i;
     ++j;
-    { bool DUNE_UNUSED tmp = (i == j); }
-    { bool DUNE_UNUSED tmp = (i != j); }
+    { [[maybe_unused]] bool tmp = (i == j); }
+    { [[maybe_unused]] bool tmp = (i != j); }
     j = i;
 
     // state
@@ -379,10 +378,8 @@ struct EntityInterface<Grid, dim, dim, false>
 template<class Grid>
 struct LeafInterface
 {
-  static void check(Grid &g)
-  {
-    DUNE_UNUSED_PARAMETER(g);
-  }
+  static void check([[maybe_unused]] Grid &g)
+  {}
 
   LeafInterface()
   {
@@ -399,11 +396,11 @@ struct GridViewInterface
   {
     const int dimension = GridView::dimension;
 
-    typedef typename GridView::Grid Grid DUNE_UNUSED;
-    typedef typename GridView::IndexSet IndexSet DUNE_UNUSED;
+    using Grid [[maybe_unused]] = typename GridView::Grid;
+    using IndexSet [[maybe_unused]] = typename GridView::IndexSet;
 
-    typedef typename GridView::Intersection Intersection DUNE_UNUSED;
-    typedef typename GridView::IntersectionIterator IntersectionIterator DUNE_UNUSED;
+    using Intersection [[maybe_unused]] = typename GridView::Intersection;
+    using IntersectionIterator [[maybe_unused]] = typename GridView::IntersectionIterator;
 
     gv.grid();
 
@@ -418,7 +415,7 @@ struct GridViewInterface
     using namespace Dune::Hybrid;
     forEach(std::make_integer_sequence< int, dimension+1 >(), [&](auto codim) {
       typedef typename GridView::template Codim< codim >::Entity Entity;
-      typedef typename GridView::template Codim< codim >::Iterator Iterator DUNE_UNUSED;
+      using Iterator [[maybe_unused]] = typename GridView::template Codim< codim >::Iterator;
 
       if( gv.template begin< 0 >() == gv.template end< 0 >() )
         return;
@@ -453,8 +450,9 @@ struct GridViewInterface
     IntersectionIteratorInterface< Grid, IntersectionIterator >();
 
     // parallel interface
-    typedef typename GridView::template Codim< 0 >::template Partition< Dune::Ghost_Partition >::Iterator GhostIterator DUNE_UNUSED;
-    typedef typename GridView::CollectiveCommunication CollectiveCommunication DUNE_UNUSED;
+    using GhostIterator [[maybe_unused]] = typename GridView::template Codim< 0 >::template
+      Partition< Dune::Ghost_Partition >::Iterator;
+    using CollectiveCommunication [[maybe_unused]] = typename GridView::CollectiveCommunication;
 
     gv.template begin< 0, Dune::Ghost_Partition >();
     gv.template end< 0, Dune::Ghost_Partition >();
@@ -477,15 +475,10 @@ struct GridInterface
   static void check (const Grid &g)
   {
     // check for exported types
-    typedef typename Grid::LevelGridView LevelGridView DUNE_UNUSED;
-    typedef typename Grid::LeafGridView LeafGridView DUNE_UNUSED;
+    using LevelGridView [[maybe_unused]] = typename Grid::LevelGridView;
+    using LeafGridView [[maybe_unused]] = typename Grid::LeafGridView;
 
-    typedef typename Grid::ctype ctype DUNE_UNUSED;
-
-#if !DISABLE_DEPRECATED_METHOD_CHECK
-    typedef typename Grid::template Codim<0>::LevelIterator LevelIterator DUNE_UNUSED;
-    typedef typename Grid::template Codim<0>::LeafIterator LeafIterator DUNE_UNUSED;
-#endif // #if !DISABLE_DEPRECATED_METHOD_CHECK
+    using ctype [[maybe_unused]] = typename Grid::ctype;
 
     // check for grid views
     g.levelGridView( 0 );
@@ -514,10 +507,10 @@ struct GridInterface
     GridViewInterface< LeafGridView >();
 
     // Check for index sets
-    typedef typename Grid::LevelIndexSet LevelIndexSet DUNE_UNUSED;
-    typedef typename Grid::LeafIndexSet LeafIndexSet DUNE_UNUSED;
-    typedef typename Grid::LocalIdSet LocalIdSet DUNE_UNUSED;
-    typedef typename Grid::GlobalIdSet GlobalIdSet DUNE_UNUSED;
+    using LevelIndexSet [[maybe_unused]] = typename Grid::LevelIndexSet;
+    using LeafIndexSet [[maybe_unused]] = typename Grid::LeafIndexSet;
+    using LocalIdSet [[maybe_unused]] = typename Grid::LocalIdSet;
+    using GlobalIdSet [[maybe_unused]] = typename Grid::GlobalIdSet;
 
     g.levelIndexSet(0);
 

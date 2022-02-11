@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-common
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -67,26 +67,38 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><dl class="reflist">
-<dt>Class <a class="el" href="a03168.html">Dune::has_nan&lt; T &gt;</a>  </dt>
-<dd><a class="anchor" id="_deprecated000009"></a><a class="el" href="a03168.html" title="Whether this type has a value of NaN.">has_nan</a> is deprecated, use <code><a class="el" href="a03164.html" title="Whether this type has a value of NaN.">Dune::HasNaN</a></code> instead  </dd>
-<dt>Class <a class="el" href="a03176.html">Dune::is_indexable&lt; T, I &gt;</a>  </dt>
-<dd><a class="anchor" id="_deprecated000010"></a><a class="el" href="a03176.html">is_indexable</a> is deprecated, use <code><a class="el" href="a03172.html" title="Type trait to determine whether an instance of T has an operator[](I), i.e. whether it can be indexed...">Dune::IsIndexable</a></code> instead  </dd>
-<dt>Class <a class="el" href="a03184.html">Dune::is_range&lt; T, typename &gt;</a>  </dt>
-<dd><a class="anchor" id="_deprecated000011"></a><a class="el" href="a03184.html" title="typetrait to check that a class has begin() and end() members">is_range</a> is deprecated, use <code><a class="el" href="a03180.html" title="typetrait to check that a class has begin() and end() members">Dune::IsIterable</a></code> instead  </dd>
-<dt>Class <a class="el" href="a02396.html">Dune::Power&lt; p &gt;</a>  </dt>
-<dd><a class="anchor" id="_deprecated000002"></a>Please use the method <code>power</code> from <code><a class="el" href="a00164.html" title="Some useful basic math stuff.">math.hh</a></code> instead! </dd>
-<dt>Member <a class="el" href="a02676.html#a0c10feffb91bef28875b4afdf972c3a1">Dune::Simd::UnitTest::checkVector</a>  ()</dt>
-<dd><p class="startdd"><a class="anchor" id="_deprecated000005"></a>Rather than calling this function, call <code><a class="el" href="a02676.html#a4f1d473ac4656d85fc4bae772f75e5ae" title="run unit tests for simd vector type V">check()</a></code> with the same template arguments. Rather than explicitly instantiating this function as described below, explicitly instantiate <code><a class="el" href="a02676.html#a2cb6f2cf7764648923c3572c1352b8c1">checkType()</a></code> and friends.</p>
-<p class="enddd"><a class="anchor" id="_deprecated000006"></a>"Call check() instead, and explicitly instantiate " "checkType() and friends instead" <br  />
-  </p>
-</dd>
-<dt>Class <a class="el" href="a02392.html">Dune::StaticPower&lt; m, p &gt;</a>  </dt>
-<dd><a class="anchor" id="_deprecated000001"></a>Please use the method <code>power</code> from <code><a class="el" href="a00164.html" title="Some useful basic math stuff.">math.hh</a></code> instead!  </dd>
-<dt>Member <a class="el" href="a02968.html#ac8693cf9113178e563aa14ebc613a990">Dune::ToUniquePtr&lt; T &gt;::operator pointer</a>  () noexcept</dt>
-<dd><a class="anchor" id="_deprecated000008"></a>"Cast to raw pointer is deprecated. Use std::unique_ptr or std::shared_ptr instead." <br  />
-  </dd>
+<dt>Class <a class="el" href="a01401.html">Dune::FieldMatrix&lt; K, ROWS, COLS &gt;</a>  </dt>
+<dd><a class="anchor" id="_deprecated000001"></a>VectorSize is deprecated; please call the '<a class="el" href="a01393.html#a59d9aadda633d748509b646197b75dec" title="size method (number of rows)">size()</a>' method directly instead. This will be removed after <a class="el" href="a00428.html" title="Dune namespace.">Dune</a> 2.8.  </dd>
+<dt>Member <a class="el" href="a00428.html#ade7db16fea4d4d85c90115bf94e4d7f5">Dune::makeToUnique</a>  (Args &amp;&amp;... args)</dt>
+<dd><a class="anchor" id="_deprecated000017"></a>  </dd>
+<dt>Class <a class="el" href="a02397.html">Dune::Power&lt; p &gt;</a>  </dt>
+<dd><a class="anchor" id="_deprecated000005"></a>Please use the method <code>power</code> from <code><a class="el" href="a00164.html" title="Some useful basic math stuff.">math.hh</a></code> instead! </dd>
+<dt>Class <a class="el" href="a02393.html">Dune::StaticPower&lt; m, p &gt;</a>  </dt>
+<dd><a class="anchor" id="_deprecated000004"></a>Please use the method <code>power</code> from <code><a class="el" href="a00164.html" title="Some useful basic math stuff.">math.hh</a></code> instead!  </dd>
+<dt>Class <a class="el" href="a02849.html">Dune::Std::is_callable&lt; D, R &gt;</a>  </dt>
+<dd><a class="anchor" id="_deprecated000012"></a>Use std::is_invocable from &lt;type_traits&gt; </dd>
+<dt>Class <a class="el" href="a02853.html">Dune::Std::is_callable&lt; F(Args...), R &gt;</a>  </dt>
+<dd><a class="anchor" id="_deprecated000013"></a>Use std::is_invocable from &lt;type_traits&gt; </dd>
+<dt>Class <a class="el" href="a02857.html">Dune::Std::is_invocable&lt; F, Args &gt;</a>  </dt>
+<dd><a class="anchor" id="_deprecated000014"></a>Use std::is_invocable from &lt;type_traits&gt; </dd>
+<dt>Class <a class="el" href="a02861.html">Dune::Std::is_invocable_r&lt; R, F, Args &gt;</a>  </dt>
+<dd><a class="anchor" id="_deprecated000015"></a>Use std::is_invocable_r from &lt;type_traits&gt; </dd>
+<dt>Member <a class="el" href="a00409.html#ga4bc9a120a411bddf93f2c58977befa63">Dune::Std::make_array</a>  (const Args &amp;... args)</dt>
+<dd><a class="anchor" id="_deprecated000008"></a>Use deduction guide of <code>std::array</code> or <code>std::to_array</code>.  </dd>
+<dt>Class <a class="el" href="a02841.html">Dune::Std::to_false_type&lt; T &gt;</a>  </dt>
+<dd><a class="anchor" id="_deprecated000009"></a>Use <a class="el" href="a03069.html" title="template which always yields a false value">Dune::AlwaysFalse</a> (from <a class="el" href="a00383.html" title="Traits for type conversions and type information.">dune/common/typetraits.hh</a>) instead  </dd>
+<dt>Class <a class="el" href="a02845.html">Dune::Std::to_true_type&lt; T &gt;</a>  </dt>
+<dd><a class="anchor" id="_deprecated000010"></a>Use <a class="el" href="a03069.html" title="template which always yields a false value">Dune::AlwaysFalse</a> (from <a class="el" href="a00383.html" title="Traits for type conversions and type information.">dune/common/typetraits.hh</a>) instead  </dd>
+<dt>Member <a class="el" href="a00428.html#a9bbde85cc655ad122680398fef8fa5cd">Dune::ToUniquePtr</a>  </dt>
+<dd><a class="anchor" id="_deprecated000016"></a>  </dd>
+<dt>Member <a class="el" href="a00409.html#gab56b68b6f47fe5b4f2bbd28d2227ca4a">DUNE_DEPRECATED</a>  </dt>
+<dd><a class="anchor" id="_deprecated000002"></a>Use C++14's </dd>
+<dt>Member <a class="el" href="a00409.html#ga98dcbe0cf30aec44df67e481fd82414c">DUNE_DEPRECATED_MSG</a>  (text)</dt>
+<dd><a class="anchor" id="_deprecated000003"></a>Use C++14's </dd>
+<dt>Member <a class="el" href="a00409.html#ga53be527752cf155b994e29d457629050">DUNE_UNUSED</a>  </dt>
+<dd><a class="anchor" id="_deprecated000018"></a>Use C++17's </dd>
 <dt>File <a class="el" href="a00305.html">simd.hh</a>  </dt>
-<dd><a class="anchor" id="_deprecated000007"></a>Use the newer simd architecture from <a class="el" href="a04392.html" title="Include file for users of the SIMD abstraction layer.">dune/common/simd/simd.hh</a> instead. </dd>
+<dd><a class="anchor" id="_deprecated000006"></a>Use the newer simd architecture from <a class="el" href="a04337.html" title="Include file for users of the SIMD abstraction layer.">dune/common/simd/simd.hh</a> instead. </dd>
 </dl>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->

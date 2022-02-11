@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: globalindexset.hh File Reference</title>
+<title>dune-grid: uggridfactory.hh File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,7 +62,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_282a6d93e11c1f5367984719a29518da.html">dune-grid</a></li><li class="navelem"><a class="el" href="dir_9b356568473fb59d2a92d82c3e3163e0.html">dune</a></li><li class="navelem"><a class="el" href="dir_b835d2b10d4bb6ff2c6d149ed2a0408f.html">grid</a></li><li class="navelem"><a class="el" href="dir_68fe599f94540bd03a01bc5e49ae6407.html">utility</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_282a6d93e11c1f5367984719a29518da.html">dune-grid</a></li><li class="navelem"><a class="el" href="dir_9b356568473fb59d2a92d82c3e3163e0.html">dune</a></li><li class="navelem"><a class="el" href="dir_b835d2b10d4bb6ff2c6d149ed2a0408f.html">grid</a></li><li class="navelem"><a class="el" href="dir_1a8a249def9a6a94df73f44edb2c6906.html">uggrid</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -70,58 +70,39 @@ $(function() {
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">globalindexset.hh File Reference</div>  </div>
+<div class="title">uggridfactory.hh File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Provides a globally unique index for all entities of a distributed <a class="el" href="a00936.html" title="Include standard header files.">Dune</a> grid.  
+<p>The specialization of the generic GridFactory for UGGrid.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;vector&gt;</code><br />
-<code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;fstream&gt;</code><br />
+<div class="textblock"><code>#include &lt;array&gt;</code><br />
 <code>#include &lt;memory&gt;</code><br />
-<code>#include &lt;map&gt;</code><br />
-<code>#include &lt;utility&gt;</code><br />
-<code>#include &lt;algorithm&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00251_source.html">dune/grid/common/gridenums.hh</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="a00227_source.html">dune/grid/common/datahandleif.hh</a>&gt;</code><br />
-<code>#include &lt;dune/common/parallel/mpihelper.hh&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;dune/common/fvector.hh&gt;</code><br />
+<code>#include &lt;<a class="el" href="a00224_source.html">dune/grid/common/boundarysegment.hh</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="a06711_source.html">dune/grid/common/gridfactory.hh</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="a00851_source.html">dune/grid/uggrid.hh</a>&gt;</code><br />
 </div>
 <p><a href="a00854_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04030.html">Dune::GlobalIndexSet&lt; GridView &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate globally unique index over all processes in a <a class="el" href="a00936.html" title="Include standard header files.">Dune</a> grid.  <a href="a04030.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03994.html">Dune::GridFactory&lt; UGGrid&lt; dimworld &gt; &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specialization of the generic <a class="el" href="a02754.html" title="Provide a generic factory class for unstructured grids.">GridFactory</a> for <a class="el" href="a03962.html" title="Front-end for the grid manager of the finite element toolbox UG3.">UGGrid</a>.  <a href="a03994.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04034.html">Dune::GlobalIndexSet&lt; GridView &gt;::SubPartitionTypeProvider&lt; Entity, Codim &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper class to provide access to subentity PartitionTypes with a run-time codimension.  <a href="a04034.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04038.html">Dune::GlobalIndexSet&lt; GridView &gt;::SubPartitionTypeProvider&lt; Entity, 0 &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03998.html">Dune::GridFactory&lt; UGGrid&lt; dimworld &gt; &gt;::Codim&lt; codim &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:a00936"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00936.html">Dune</a></td></tr>
-<tr class="memdesc:a00936"><td class="mdescLeft">&#160;</td><td class="mdescRight">Include standard header files. <br /></td></tr>
+<tr class="memitem:a00940"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00940.html">Dune</a></td></tr>
+<tr class="memdesc:a00940"><td class="mdescLeft">&#160;</td><td class="mdescRight">Include standard header files. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Provides a globally unique index for all entities of a distributed <a class="el" href="a00936.html" title="Include standard header files.">Dune</a> grid. </p>
-<p>Such functionality is relevant for a number of applications:</p><ul>
-<li>Map a degree of freedom associated with an entity to its location in a global matrix or global vector</li>
-<li>Such indices for elements are needed as input to external mesh partitioners</li>
-<li>Using matrix and vector routines from the PETSc or trilinos parallel linear algebra packages for distributed memory parallel computers.</li>
-</ul>
-<p>Method: (1) The UniqueEntityPartition class assigns an owner process to each entity </p><pre class="fragment">    (2) Compute the number of entities that are owned by each process
-
-    (3) we communicate the index of entities that are owned by the process to processes
-        that also contain these entities but do not own them, so that on a non-owner process
-        we have information on the index of the entity that it got from the owner-process;
-</pre> <dl class="section author"><dt>Author</dt><dd>Benedikt Oswald, Patrick Leidenberger, Oliver Sander</dd></dl>
-<dl class="section attention"><dt>Attention</dt><dd>globally unique indices are ONLY provided for entities of the InteriorBorder_Partition type, NOT for the Ghost_Partition type !!!</dd></dl>
-<dl class="bug"><dt><b><a class="el" href="a00901.html#_bug000002">Bug:</a></b></dt><dd>This code will most likely not work on grids with more than one element type. Please ask on the mailing list if you need this feature. </dd></dl>
-<dl class="section note"><dt>Note</dt><dd>The interface in this file is experimental, and may change without prior notice. </dd></dl>
+<div class="textblock"><p>The specialization of the generic GridFactory for UGGrid. </p>
+<dl class="section author"><dt>Author</dt><dd>Oliver Sander </dd></dl>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

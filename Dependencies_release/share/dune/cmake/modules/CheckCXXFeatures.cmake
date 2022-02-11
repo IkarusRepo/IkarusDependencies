@@ -1,11 +1,11 @@
 # .. cmake_module::
 #
-#    Module that checks for supported C++20, C++17, C++14 and non-standard features.
+#    Module that checks for supported C++20, C++17 and non-standard features.
 #
 #    The behaviour of this module can be modified by the following variable:
 #
 #    :ref:`DISABLE_CXX_VERSION_CHECK`
-#       Disable checking for std=c++14 (c++17, ...)
+#       Disable checking for std=c++20 (c++23, ...)
 #
 #    This module internally sets the following variables, which are then
 #    exported into the config.h of the current dune module.
@@ -18,15 +18,6 @@
 #
 #    :code:`HAS_ATTRIBUTE_DEPRECATED_MSG`
 #       True if attribute deprecated("msg") is supported
-#
-#    :code:`DUNE_HAVE_CXX_CLASS_TEMPLATE_ARGUMENT_DEDUCTION`
-#       True if C++17's class template argument deduction is supported
-#
-#    :code:`DUNE_HAVE_CXX_OPTIONAL`
-#       True if C++17's optional implementation is supported
-#
-#    :code:`DUNE_HAVE_CXX_VARIANT`
-#       True if C++17's variant implementation is supported
 #
 # .. cmake_variable:: DISABLE_CXX_VERSION_CHECK
 #
@@ -42,12 +33,12 @@ include(CheckCXXSourceCompiles)
 include(CheckCXXSymbolExists)
 
 # C++ standard versions that this test knows about
-set(CXX_VERSIONS 20 17 14)
+set(CXX_VERSIONS 20 17)
 
 
 # Compile tests for the different standard revisions; these test both the compiler
-# and the associated library to avoid problems like using a C++14 user-installed
-# compiler together with a non C++14-compliant stdlib from the system compiler.
+# and the associated library to avoid problems like using a C++20 user-installed
+# compiler together with a non C++20-compliant stdlib from the system compiler.
 
 # we need to escape semicolons in the tests to be able to stick them into a list
 string(REPLACE ";" "\;" cxx_20_test
@@ -80,39 +71,18 @@ string(REPLACE ";" "\;" cxx_17_test
   }
   ")
 
-string(REPLACE ";" "\;" cxx_14_test
-  "
-  #include <memory>
-
-  constexpr auto f(int i)
-  {
-    if (i > 0)
-      return i;
-    else
-      return -i;
-  }
-
-  int main() {
-    // lambdas with auto parameters are C++14 - so this checks the compiler
-    auto l = [](auto x) { return x; };
-    static_assert(f(4) == f(-4),\"\");
-    // std::make_unique() is a C++14 library feature - this checks whether the
-    // compiler uses a C++14 compliant library.
-    auto v = std::make_unique<int>(l(0));
-    return *v;
-  }
-  ")
-
 # build a list out of the pre-escaped tests
-set(CXX_VERSIONS_TEST "${cxx_20_test}" "${cxx_17_test}" "${cxx_14_test}")
+set(CXX_VERSIONS_TEST "${cxx_20_test}" "${cxx_17_test}")
 
 # these are appended to "-std=c++" and tried in this order
 # note the escaped semicolons; that's necessary to create a nested list
-set(CXX_VERSIONS_FLAGS "20\;2a" "17\;1z" "14\;1y")
+set(CXX_VERSIONS_FLAGS "20\;2a" "17\;1z")
 
 # by default, we enable C++17 for now, but not C++20
 # The user can override this choice by explicitly setting this variable
-set(CXX_MAX_STANDARD 17 CACHE STRING "highest version of the C++ standard to enable. This version is also used if the version check is disabled")
+set(CXX_MAX_STANDARD 17
+    CACHE STRING
+    "highest version of the C++ standard to enable. This version is also used if the version check is disabled")
 
 
 function(dune_require_cxx_standard)
@@ -137,8 +107,8 @@ set up to not allow newer language standards than C++${CXX_MAX_STANDARD}. Try se
 CMake variable CXX_MAX_STANDARD to at least ${_VERSION}."
         )
     else()
-      if(${CXX_MAX_SUPPORTED_STANDARD} EQUAL 3)
-        set(CXX_STD_NAME 03)
+      if(${CXX_MAX_SUPPORTED_STANDARD} EQUAL 17)
+        set(CXX_STD_NAME 17)
       else()
         set(CXX_STD_NAME ${CXX_MAX_SUPPORTED_STANDARD})
       endif()
@@ -200,14 +170,14 @@ if(NOT DISABLE_CXX_VERSION_CHECK)
   if(NOT DEFINED CXX_MAX_SUPPORTED_STANDARD)
     # Let's just assume every compiler at least claims C++03 compliance by now
     message(WARNING "\
-Unable to determine C++ standard support for your compiler, falling back to C++03. \
+Unable to determine C++ standard support for your compiler, falling back to C++17. \
 If you know that your compiler supports a newer version of the standard, please set the CMake \
 variable DISABLE_CXX_VERSION_CHECK to true and the CMake variable CXX_MAX_SUPPORTED_STANDARD \
-to the highest version of the standard supported by your compiler (e.g. 14). If your compiler \
+to the highest version of the standard supported by your compiler (e.g. 20). If your compiler \
 needs custom flags to switch to that standard version, you have to manually add them to \
 CMAKE_CXX_FLAGS."
       )
-    set(CXX_MAX_SUPPORTED_STANDARD 3)
+    set(CXX_MAX_SUPPORTED_STANDARD 17)
   endif()
 else()
   # We did not check version but need to set maximum supported
@@ -215,8 +185,8 @@ else()
   set(CXX_MAX_SUPPORTED_STANDARD ${CXX_MAX_STANDARD})
 endif()
 
-# make sure we have at least C++14
-dune_require_cxx_standard(MODULE "DUNE" VERSION 14)
+# make sure we have at least C++17
+dune_require_cxx_standard(MODULE "DUNE" VERSION 17)
 
 # perform tests
 
@@ -294,241 +264,6 @@ check_cxx_source_compiles("
 "  HAS_ATTRIBUTE_DEPRECATED_MSG
 )
 
-# full support for is_indexable (checking whether a type supports operator[])
-check_cxx_source_compiles("
-  #include <utility>
-  #include <type_traits>
-  #include <array>
-
-  template <class T>
-  typename std::add_rvalue_reference<T>::type declval();
-
-  namespace detail {
-
-    template<typename T, typename I, typename = int>
-    struct _is_indexable
-      : public std::false_type
-    {};
-
-    template<typename T, typename I>
-    struct _is_indexable<T,I,typename std::enable_if<(sizeof(declval<T>()[declval<I>()]) > 0),int>::type>
-      : public std::true_type
-    {};
-
-  }
-
-  template<typename T, typename I = std::size_t>
-  struct is_indexable
-    : public detail::_is_indexable<T,I>
-  {};
-
-  struct foo_type {};
-
-  int main()
-  {
-    double x;
-    std::array<double,4> y;
-    double z[5];
-    foo_type f;
-
-    static_assert(not is_indexable<decltype(x)>::value,\"scalar type\");
-    static_assert(is_indexable<decltype(y)>::value,\"indexable class\");
-    static_assert(is_indexable<decltype(z)>::value,\"array\");
-    static_assert(not is_indexable<decltype(f)>::value,\"not indexable class\");
-    static_assert(not is_indexable<decltype(y),foo_type>::value,\"custom index type\");
-
-    return 0;
-  }
-" HAVE_IS_INDEXABLE_SUPPORT
-  )
-
-# support for C++17's class template deduction guides
-check_cxx_source_compiles("
-  #include <type_traits>
-
-  template<typename T1>
-  struct A {
-    A(T1) {}
-
-    template<typename T2>
-    A(T2, T2) {}
-  };
-
-  struct B {
-    using type = bool;
-  };
-
-  template<typename T2>
-  A(T2, T2)
-    -> A<typename T2::type>;
-
-  int main()
-  {
-    A a1(1);
-    static_assert(std::is_same_v< decltype(a1), A<int> >);
-
-    B b;
-    A a2(b, b);
-    static_assert(std::is_same_v< decltype(a2), A<bool> >);
-  }
-" DUNE_HAVE_CXX_CLASS_TEMPLATE_ARGUMENT_DEDUCTION
-  )
-
-
-# support for C++17's optional implementation
-check_cxx_source_compiles("
-  #include <optional>
-  #include <string>
-
-  int main()
-  {
-    std::optional< std::string > a;
-    std::string b = a.value_or( \"empty\" );
-  }
-" DUNE_HAVE_CXX_OPTIONAL
-  )
-
-
-# support for C++17's variant implementation
-check_cxx_source_compiles("
-  #include <variant>
-  #include <string>
-
-  int main()
-  {
-    std::variant< int, std::string > a;
-    a = \"stringvalue\";
-    std::string b = std::get< std::string >(a);
-  }
-" DUNE_HAVE_CXX_VARIANT
-  )
-
-
-# find the threading library
-if(NOT DEFINED THREADS_PREFER_PTHREAD_FLAG)
-  set(THREADS_PREFER_PTHREAD_FLAG 1)
-endif()
-find_package(Threads)
-# text for feature summary
-set_package_properties("Threads" PROPERTIES
-  DESCRIPTION "Multi-threading library")
-
-# see whether threading needs -no-as-needed
-if(EXISTS /etc/dpkg/origins/ubuntu)
-  set(NO_AS_NEEDED "-Wl,-no-as-needed ")
-else(EXISTS /etc/dpkg/origins/ubuntu)
-  set(NO_AS_NEEDED "")
-endif(EXISTS /etc/dpkg/origins/ubuntu)
-
-set(STDTHREAD_LINK_FLAGS "${NO_AS_NEEDED}${CMAKE_THREAD_LIBS_INIT}"
-    CACHE STRING "Linker flags needed to get working C++11 threads support.  On Ubuntu it may be necessary to include -Wl,-no-as-needed (see FS#1650).")
-
-# set linker flags
-#
-# in all implementations I know it is sufficient to set the linker flags when
-# linking the final executable, so this should work.  In cmake, this appears
-# to only work when building the project however, not for later config tests
-# (contrary to CMAKE_CXX_FLAGS).  Luckily, later tests don't seem to use any
-# threading...  (except for our own sanity check)
-if(NOT STDTHREAD_LINK_FLAGS STREQUAL "")
-  #set(vars CMAKE_EXE_LINKER_FLAGS ${CMAKE_CONFIGURATION_TYPES})
-  # CMAKE_CONFIGURATION_TYPES seems to be empty.  Use the configurations from
-  # adding -std=c++11 above instead.
-  set(vars CMAKE_EXE_LINKER_FLAGS DEBUG MINSIZEREL RELEASE RELWITHDEBINFO)
-  string(REPLACE ";" ";CMAKE_EXE_LINKER_FLAGS_" vars "${vars}")
-  string(TOUPPER "${vars}" vars)
-  foreach(var ${vars})
-    if(NOT var STREQUAL "")
-      set(${var} "${${var}} ${STDTHREAD_LINK_FLAGS}")
-    endif()
-  endforeach(var ${vars})
-endif(NOT STDTHREAD_LINK_FLAGS STREQUAL "")
-
-include(CheckCXXSourceRuns)
-# check that the found configuration works
-if(CMAKE_CROSSCOMPILING)
-  message(WARNING "Crosscompiling, cannot run test program to see whether "
-    "std::thread works.  Assuming that the found configuration does indeed "
-    "work.")
-endif(CMAKE_CROSSCOMPILING)
-
-if(NOT DEFINED STDTHREAD_WORKS)
-  if(NOT CMAKE_CROSSCOMPILING)
-    # The value is not in the cache, so run check
-    cmake_push_check_state()
-    # tests seem to ignore CMAKE_EXE_LINKER_FLAGS
-    set(CMAKE_REQUIRED_LIBRARIES "${STDTHREAD_LINK_FLAGS} ${CMAKE_REQUIRED_LIBRARIES}")
-    check_cxx_source_runs("
-      #include <thread>
-
-      void dummy() {}
-
-      int main() {
-        std::thread t(dummy);
-        t.join();
-      }
-    " STDTHREAD_WORKS)
-    cmake_pop_check_state()
-  endif(NOT CMAKE_CROSSCOMPILING)
-  # put the found value into the cache.  Put it there even if we're
-  # cross-compiling, so the user can find it.  Use FORCE:
-  # check_cxx_source_runs() already puts the value in the cache but without
-  # documentation; also the "if(NOT DEFINED STDTHREAD_WORKS)" will prevent us
-  # from overwriting a value set by the user.
-  set(STDTHREAD_WORKS "${STDTHREAD_WORKS}"
-      CACHE BOOL "Whether std::thread works." FORCE)
-endif(NOT DEFINED STDTHREAD_WORKS)
-
-if(NOT STDTHREAD_WORKS)
-  # Working C++11 threading support is required for dune.  In particular to
-  # make things like lazyly initialized caches thread safe
-  # (e.g. QuadratureRules::rule(), which needs std::call_once()).  If we don't
-  # include the correct options during linking, there will be very funny
-  # errors at runtime, ranging from segfaults to
-  #
-  #  terminate called after throwing an instance of 'std::system_error'
-  #    what():  Unknown error 18446744073709551615
-  message(FATAL_ERROR "Your system does not seem to have a working "
-    "implementation of std::thread.  If it does, please set the linker flags "
-    "required to get std::thread working in the cache variable "
-    "STDTHREAD_LINK_FLAGS.  If you think this test is wrong, set the cache "
-    "variable STDTHREAD_WORKS.")
-endif(NOT STDTHREAD_WORKS)
-
-
-# Check whether we can conditionally throw exceptions in constexpr context to
-# signal errors both at compile time and at run time - this does not work in GCC 5
-check_cxx_source_compiles("
-  constexpr int foo(int bar)
-  {
-    if (bar < 0)
-      throw bar;
-    int r = 1;
-    for (int i = 0 ; i < bar ; ++i)
-      r += r;
-    return r;
-  }
-
-  int main()
-  {
-    static_assert(foo(4) == 16, \"test failed\");
-    return 0;
-  }
-" DUNE_SUPPORTS_CXX_THROW_IN_CONSTEXPR
-  )
-
-# Check whether the stadard library supports aligned_alloc()
-check_cxx_source_compiles("
-  #include <cstdlib>
-  int main()
-  {
-    int* p = static_cast<int*>(aligned_alloc(64, 64*sizeof *p));
-  }
-" DUNE_HAVE_C_ALIGNED_ALLOC
-  )
-
-
-
 # ******************************************************************************
 #
 # Checks for standard library features
@@ -542,40 +277,6 @@ check_cxx_source_compiles("
 # does not require a complete type.
 #
 # ******************************************************************************
-
-# Check whether we have <experimental/type_traits> (for is_detected et. al.)
-check_include_file_cxx(
-  experimental/type_traits
-  DUNE_HAVE_HEADER_EXPERIMENTAL_TYPE_TRAITS
-  )
-
-check_cxx_symbol_exists(
-  "std::move<std::bool_constant<true>>"
-  "utility;type_traits"
-  DUNE_HAVE_CXX_BOOL_CONSTANT
-  )
-
-if (NOT DUNE_HAVE_CXX_BOOL_CONSTANT)
-  check_cxx_symbol_exists(
-    "std::move<std::experimental::bool_constant<true>>"
-    "utility;experimental/type_traits"
-    DUNE_HAVE_CXX_EXPERIMENTAL_BOOL_CONSTANT
-    )
-endif()
-
-check_cxx_symbol_exists(
-  "std::apply<std::negate<int>,std::tuple<int>>"
-  "functional;tuple"
-  DUNE_HAVE_CXX_APPLY
-  )
-
-if (NOT DUNE_HAVE_CXX_APPLY)
-  check_cxx_symbol_exists(
-    "std::experimental::apply<std::negate<int>,std::tuple<int>>"
-    "functional;experimental/tuple"
-    DUNE_HAVE_CXX_EXPERIMENTAL_APPLY
-  )
-endif()
 
 check_cxx_symbol_exists(
   "std::experimental::make_array<int,int>"

@@ -4,10 +4,10 @@
 #define DUNE_ALBERTAGRIDINDEXSETS_HH
 
 #include <array>
+#include <utility>
 
 #include <dune/common/hybridutilities.hh>
 #include <dune/common/stdstreams.hh>
-#include <dune/common/std/utility.hh>
 
 #include <dune/grid/common/grid.hh>
 #include <dune/grid/common/indexidset.hh>
@@ -27,8 +27,6 @@ namespace Dune
   namespace Alberta
   {
     typedef Dune::IndexStack< int, 100000 > IndexStack;
-
-    extern IndexStack *currentIndexStack;
   }
 
 
@@ -76,6 +74,8 @@ namespace Dune
 
     explicit AlbertaGridHierarchicIndexSet ( const DofNumbering &dofNumbering );
 
+    static Alberta::IndexStack *currentIndexStack;
+
   public:
     typedef Alberta::IndexStack IndexStack;
 
@@ -117,13 +117,13 @@ namespace Dune
     }
 
     //! return size of set for given GeometryType
-    IndexType size ( const GeometryType &type ) const
+    std::size_t size ( const GeometryType &type ) const
     {
       return (type.isSimplex() ? size( dimension - type.dim() ) : 0);
     }
 
     //! return size of set
-    IndexType size ( int codim ) const
+    std::size_t size ( int codim ) const
     {
       assert( (codim >= 0) && (codim <= dimension) );
       return indexStack_[ codim ].size();
@@ -158,7 +158,7 @@ namespace Dune
     {
       IndexType *array = (IndexType *)entityNumbers_[ codim ];
       const IndexType subIndex = array[ dofNumbering_( element, codim, i ) ];
-      assert( (subIndex >= 0) && (subIndex < size( codim )) );
+      assert( (subIndex >= 0) && (subIndex < IndexType(size( codim ))) );
       return subIndex;
     }
 
@@ -167,8 +167,8 @@ namespace Dune
       // set global pointer to index stack
       if( !IndexVectorPointer::supportsAdaptationData )
       {
-        assert( Alberta::currentIndexStack == 0 );
-        Alberta::currentIndexStack = indexStack_;
+        assert( currentIndexStack == nullptr );
+        currentIndexStack = indexStack_;
       }
     }
 
@@ -176,7 +176,7 @@ namespace Dune
     {
       // remove global pointer to index stack
       if( !IndexVectorPointer::supportsAdaptationData )
-        Alberta::currentIndexStack = 0;
+        currentIndexStack = nullptr;
     }
 
     void create ();
@@ -197,7 +197,7 @@ namespace Dune
       if( IndexVectorPointer::supportsAdaptationData )
         indexStack = dofVector.template getAdaptationData< IndexStack >();
       else
-        indexStack = &Alberta::currentIndexStack[ codim ];
+        indexStack = &currentIndexStack[ codim ];
       assert( indexStack != 0 );
       return *indexStack;
     }
@@ -414,12 +414,12 @@ namespace Dune
       return subIndex( entityImp.elementInfo(), j, codim );
     }
 
-    IndexType size ( const GeometryType &type ) const
+    std::size_t size ( const GeometryType &type ) const
     {
       return (type.isSimplex() ? size( dimension - type.dim() ) : 0);
     }
 
-    IndexType size ( int codim ) const
+    std::size_t size ( int codim ) const
     {
       assert( (codim >= 0) && (codim <= dimension) );
       return size_[ codim ];
@@ -457,7 +457,7 @@ namespace Dune
         const AlbertaGridEntity< 0, dim, const Grid > &entityImp
           = it->impl();
         const Alberta::Element *element = entityImp.elementInfo().el();
-        Hybrid::forEach( Std::make_index_sequence< dimension+1 >{},
+        Hybrid::forEach( std::make_index_sequence< dimension+1 >{},
           [ & ]( auto i ){ Insert< i >::apply( element, *this ); } );
       }
     }
@@ -479,7 +479,7 @@ namespace Dune
     {
       const IndexType *const array = indices_[ codim ];
       const IndexType subIndex = array[ dofNumbering_( element, codim, i ) ];
-      assert( (subIndex >= 0) && (subIndex < size( codim )) );
+      assert( (subIndex >= 0) && (static_cast<unsigned int>(subIndex) < size( codim )) );
       return subIndex;
     }
 

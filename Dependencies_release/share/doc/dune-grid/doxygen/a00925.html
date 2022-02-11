@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: GridFactory</title>
+<title>dune-grid: UGGrid</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -65,39 +65,55 @@ $(function() {
   <div class="summary">
 <a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle">
-<div class="title">GridFactory<div class="ingroups"><a class="el" href="a00902.html">dune-grid</a> &raquo; <a class="el" href="a00924.html">I/O</a></div></div>  </div>
+<div class="title">UGGrid<div class="ingroups"><a class="el" href="a00905.html">dune-grid</a> &raquo; <a class="el" href="a00921.html">Grid Implementations</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>An interface for the creation of macro grids, for use by grid file readers etc.  
-<a href="#details">More...</a></p>
 <div class="dynheader">
-Collaboration diagram for GridFactory:</div>
+Collaboration diagram for UGGrid:</div>
 <div class="dyncontent">
 <div class="center"><img src="a00925.png" border="0" usemap="#aa00925" alt=""/></div>
 <map name="aa00925" id="aa00925">
-<area shape="rect" href="a00924.html" title=" " alt="" coords="5,5,44,31"/>
-<area shape="rect" title="An interface for the creation of macro grids, for use by grid file readers etc." alt="" coords="92,5,183,31"/>
+<area shape="rect" href="a00924.html" title=" " alt="" coords="489,39,568,65"/>
+<area shape="rect" href="a00921.html" title="A list of the different Implementations of the Dune Grid Interface." alt="" coords="5,129,151,154"/>
+<area shape="rect" title=" " alt="" coords="200,129,265,154"/>
+<area shape="rect" href="a00926.html" title=" " alt="" coords="491,129,567,154"/>
+<area shape="rect" href="a00919.html" title=" " alt="" coords="484,218,573,243"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02010.html">Dune::GridFactory&lt; AlbertaGrid&lt; dim, dimworld &gt; &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">specialization of the generic <a class="el" href="a02750.html" title="Provide a generic factory class for unstructured grids.">GridFactory</a> for <a class="el" href="a01770.html" title="[ provides Dune::Grid ]">AlbertaGrid</a>  <a href="a02010.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03966.html">Dune::Capabilities::hasEntity&lt; UGGrid&lt; dim &gt;, codim &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a03962.html" title="Front-end for the grid manager of the finite element toolbox UG3.">UGGrid</a> has entities of all codimensions.  <a href="a03966.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02742.html">Dune::GridFactoryInterface&lt; GridType &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provide a generic factory class for unstructured grids.  <a href="a02742.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03970.html">Dune::Capabilities::hasEntityIterator&lt; UGGrid&lt; dim &gt;, codim &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set default for <a class="el" href="a02510.html" title="specialize with &#39;true&#39; for all codims that a grid provides an iterator for (default=hasEntity&lt;codim&gt;:...">hasEntityIterator</a> to false <a class="el" href="a03962.html" title="Front-end for the grid manager of the finite element toolbox UG3.">UGGrid</a> can currently only iterate over elements and vertices.  <a href="a03970.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02750.html">Dune::GridFactory&lt; GridType &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provide a generic factory class for unstructured grids.  <a href="a02750.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03974.html">Dune::Capabilities::hasEntityIterator&lt; UGGrid&lt; dim &gt;, 0 &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a03962.html" title="Front-end for the grid manager of the finite element toolbox UG3.">UGGrid</a> can iterate over codim=0 entities (elements)  <a href="a03974.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03998.html">Dune::GridFactory&lt; UGGrid&lt; dimworld &gt; &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specialization of the generic <a class="el" href="a02750.html" title="Provide a generic factory class for unstructured grids.">GridFactory</a> for <a class="el" href="a03970.html" title="Front-end for the grid manager of the finite element toolbox UG.">UGGrid</a>.  <a href="a03998.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03978.html">Dune::Capabilities::hasEntityIterator&lt; UGGrid&lt; dim &gt;, dim &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a03962.html" title="Front-end for the grid manager of the finite element toolbox UG3.">UGGrid</a> can iterate over codim=dim entities (vertices)  <a href="a03978.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03982.html">Dune::Capabilities::canCommunicate&lt; UGGrid&lt; dim &gt;, codim &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a03962.html" title="Front-end for the grid manager of the finite element toolbox UG3.">UGGrid</a> can communicate on entities of all (existing) codimensions.  <a href="a03982.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03986.html">Dune::Capabilities::isLevelwiseConforming&lt; UGGrid&lt; dim &gt; &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a03962.html" title="Front-end for the grid manager of the finite element toolbox UG3.">UGGrid</a> is levelwise conforming.  <a href="a03986.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03990.html">Dune::Capabilities::isLeafwiseConforming&lt; UGGrid&lt; dim &gt; &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a03962.html" title="Front-end for the grid manager of the finite element toolbox UG3.">UGGrid</a> may not be leafwise conforming.  <a href="a03990.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02506.html">Dune::Capabilities::hasEntity&lt; Grid, codim &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specialize with 'true' for all codims that a grid implements entities for. (default=false)  <a href="a02506.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02530.html">Dune::Capabilities::hasBackupRestoreFacilities&lt; Grid &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specialize with 'true' if implementation provides backup and restore facilities. (default=false)  <a href="a02530.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04342.html">IsUnstructured</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>An interface for the creation of macro grids, for use by grid file readers etc. </p>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

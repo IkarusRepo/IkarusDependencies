@@ -28,6 +28,13 @@
 #    Set this variable to have all installations of python packages use
 #    :code:`pip --editable`.
 #
+#
+# .. cmake_variable:: DUNE_PYTHON_ADDITIONAL_PIP_PARAMS
+#
+#    Use this variable to set additional flags for pip in this build. This can e.g.
+#    be used to point pip to alternative package indices in restricted environments.
+#
+include_guard(GLOBAL)
 
 function(dune_python_install_package)
   # Parse Arguments
@@ -79,7 +86,7 @@ function(dune_python_install_package)
   endif()
 
   set(INSTALL_CMDLINE -m pip install
-                      "${INSTALL_OPTION}" --upgrade "${WHEEL_OPTION}" "${EDIT_OPTION}" ${PYINST_ADDITIONAL_PIP_PARAMS}
+                      "${INSTALL_OPTION}" --upgrade "${WHEEL_OPTION}" "${EDIT_OPTION}" ${PYINST_ADDITIONAL_PIP_PARAMS} ${DUNE_PYTHON_ADDITIONAL_PIP_PARAMS}
                       "${PYINST_FULLPATH}")
 
 
@@ -121,7 +128,7 @@ function(dune_python_install_package)
 
   # Add a custom target that globally installs this package if requested
   add_custom_target(${targetname}
-                    COMMAND ${PYTHON_EXECUTABLE} ${INSTALL_CMDLINE}
+                    COMMAND ${Python3_EXECUTABLE} ${INSTALL_CMDLINE}
                     COMMENT "Installing the python package at ${PYINST_FULLPATH}"
                     )
 
@@ -135,12 +142,11 @@ function(dune_python_install_package)
   #
 
   # Construct the wheel installation commandline
-  set(WHEEL_COMMAND ${PYTHON_EXECUTABLE} -m pip wheel -w ${DUNE_PYTHON_WHEELHOUSE} ${PYINST_FULLPATH})
+  set(WHEEL_COMMAND ${Python3_EXECUTABLE} -m pip wheel -w ${DUNE_PYTHON_WHEELHOUSE} ${PYINST_ADDITIONAL_PIP_PARAMS} ${DUNE_PYTHON_ADDITIONAL_PIP_PARAMS} ${PYINST_FULLPATH})
 
   # Add the installation rule
   install(CODE "message(\"Installing wheel for python package at ${PYINST_FULLPATH}...\")
                 dune_execute_process(COMMAND ${WHEEL_COMMAND}
-                                     ERROR_MESSAGE \"Error installing wheel for python package at ${PYINST_FULLPATH}\"
                                      )"
           )
 endfunction()

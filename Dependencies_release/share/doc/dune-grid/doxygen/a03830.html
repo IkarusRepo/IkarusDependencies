@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: Dune::VTK::SkeletonFunctionTraits&lt; GV, RF &gt; Struct Template Reference</title>
+<title>dune-grid: Dune::VTK::SkeletonFunctionInterface&lt; GV, RF &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,44 +62,46 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00936.html">Dune</a></li><li class="navelem"><a class="el" href="a00948.html">VTK</a></li><li class="navelem"><a class="el" href="a03830.html">SkeletonFunctionTraits</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00940.html">Dune</a></li><li class="navelem"><a class="el" href="a00951.html">VTK</a></li><li class="navelem"><a class="el" href="a03830.html">SkeletonFunctionInterface</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
-<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="a03827.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::VTK::SkeletonFunctionTraits&lt; GV, RF &gt; Struct Template Reference</div>  </div>
+<div class="title">Dune::VTK::SkeletonFunctionInterface&lt; GV, RF &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="a00812_source.html">dune/grid/io/file/vtk/skeletonfunction.hh</a>&gt;</code></p>
+<p>A prototype for VTKFunctions on the skeleton.  
+ <a href="a03830.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="a00818_source.html">dune/grid/io/file/vtk/skeletonfunction.hh</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a13af3e440924ee095e0d58229bc2c9a9"><td class="memItemLeft" align="right" valign="top">typedef GV&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03830.html#a13af3e440924ee095e0d58229bc2c9a9">GridView</a></td></tr>
-<tr class="separator:a13af3e440924ee095e0d58229bc2c9a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a63959f24979824650eef7805e221a3e0"><td class="memItemLeft" align="right" valign="top">typedef GV::Intersection&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03830.html#a63959f24979824650eef7805e221a3e0">Cell</a></td></tr>
-<tr class="separator:a63959f24979824650eef7805e221a3e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f9ec6ffce67576e058bd10276d5adb0"><td class="memItemLeft" align="right" valign="top">typedef GV::ctype&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03830.html#a7f9ec6ffce67576e058bd10276d5adb0">DomainField</a></td></tr>
-<tr class="separator:a7f9ec6ffce67576e058bd10276d5adb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c6592324eabe4ca38c29aaedad99d64"><td class="memItemLeft" align="right" valign="top">typedef FieldVector&lt; <a class="el" href="a03830.html#a7f9ec6ffce67576e058bd10276d5adb0">DomainField</a>, <a class="el" href="a03830.html#aea6d9f6ef0c5b36aad976471ac4fac1c">dimDomain</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03830.html#a0c6592324eabe4ca38c29aaedad99d64">Domain</a></td></tr>
-<tr class="separator:a0c6592324eabe4ca38c29aaedad99d64"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a09009cbc818d96daed06727e21139856"><td class="memItemLeft" align="right" valign="top">typedef RF&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03830.html#a09009cbc818d96daed06727e21139856">RangeField</a></td></tr>
-<tr class="separator:a09009cbc818d96daed06727e21139856"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33bc61c73346d79da9f68d6a3b88cf5c"><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; <a class="el" href="a03830.html#a09009cbc818d96daed06727e21139856">RangeField</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03830.html#a33bc61c73346d79da9f68d6a3b88cf5c">Range</a></td></tr>
-<tr class="separator:a33bc61c73346d79da9f68d6a3b88cf5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab152b0b186bd68359f7d1e886525ddc7"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a03826.html">SkeletonFunctionTraits</a>&lt; GV, RF &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03830.html#ab152b0b186bd68359f7d1e886525ddc7">Traits</a></td></tr>
+<tr class="separator:ab152b0b186bd68359f7d1e886525ddc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr class="memitem:aea6d9f6ef0c5b36aad976471ac4fac1c"><td class="memItemLeft" align="right" valign="top">static const unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03830.html#aea6d9f6ef0c5b36aad976471ac4fac1c">dimDomain</a> = GV::dimension-1</td></tr>
-<tr class="separator:aea6d9f6ef0c5b36aad976471ac4fac1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a152c7c8590640e5b14e101396dac729f"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03830.html#a152c7c8590640e5b14e101396dac729f">dimRange</a> () const</td></tr>
+<tr class="memdesc:a152c7c8590640e5b14e101396dac729f"><td class="mdescLeft">&#160;</td><td class="mdescRight">get dimension of the Range  <a href="a03830.html#a152c7c8590640e5b14e101396dac729f">More...</a><br /></td></tr>
+<tr class="separator:a152c7c8590640e5b14e101396dac729f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac08e8510473ca8be2433231dfc549491"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a03830.html#ac08e8510473ca8be2433231dfc549491">evaluate</a> (const typename <a class="el" href="a03826.html#a63959f24979824650eef7805e221a3e0">Traits::Cell</a> &amp;c, const typename <a class="el" href="a03826.html#a0c6592324eabe4ca38c29aaedad99d64">Traits::Domain</a> &amp;xl, typename <a class="el" href="a03826.html#a33bc61c73346d79da9f68d6a3b88cf5c">Traits::Range</a> &amp;result) const</td></tr>
+<tr class="memdesc:ac08e8510473ca8be2433231dfc549491"><td class="mdescLeft">&#160;</td><td class="mdescRight">evaluate at local point xl in Cell c, store in result  <a href="a03830.html#ac08e8510473ca8be2433231dfc549491">More...</a><br /></td></tr>
+<tr class="separator:ac08e8510473ca8be2433231dfc549491"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a63959f24979824650eef7805e221a3e0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a63959f24979824650eef7805e221a3e0">&#9670;&nbsp;</a></span>Cell</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename GV, typename RF&gt;<br />
+class Dune::VTK::SkeletonFunctionInterface&lt; GV, RF &gt;</h3>
+
+<p>A prototype for VTKFunctions on the skeleton. </p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="ab152b0b186bd68359f7d1e886525ddc7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab152b0b186bd68359f7d1e886525ddc7">&#9670;&nbsp;</a></span>Traits</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -107,15 +109,16 @@ Static Public Attributes</h2></td></tr>
 template&lt;typename GV , typename RF &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef GV::Intersection <a class="el" href="a03830.html">Dune::VTK::SkeletonFunctionTraits</a>&lt; GV, RF &gt;::<a class="el" href="a03830.html#a63959f24979824650eef7805e221a3e0">Cell</a></td>
+          <td class="memname">typedef <a class="el" href="a03826.html">SkeletonFunctionTraits</a>&lt;GV, RF&gt; <a class="el" href="a03830.html">Dune::VTK::SkeletonFunctionInterface</a>&lt; GV, RF &gt;::<a class="el" href="a03830.html#ab152b0b186bd68359f7d1e886525ddc7">Traits</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a0c6592324eabe4ca38c29aaedad99d64"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0c6592324eabe4ca38c29aaedad99d64">&#9670;&nbsp;</a></span>Domain</h2>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a152c7c8590640e5b14e101396dac729f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a152c7c8590640e5b14e101396dac729f">&#9670;&nbsp;</a></span>dimRange()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -123,15 +126,20 @@ template&lt;typename GV , typename RF &gt; </div>
 template&lt;typename GV , typename RF &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef FieldVector&lt;<a class="el" href="a03830.html#a7f9ec6ffce67576e058bd10276d5adb0">DomainField</a>, <a class="el" href="a03830.html#aea6d9f6ef0c5b36aad976471ac4fac1c">dimDomain</a>&gt; <a class="el" href="a03830.html">Dune::VTK::SkeletonFunctionTraits</a>&lt; GV, RF &gt;::<a class="el" href="a03830.html#a0c6592324eabe4ca38c29aaedad99d64">Domain</a></td>
+          <td class="memname">unsigned <a class="el" href="a03830.html">Dune::VTK::SkeletonFunctionInterface</a>&lt; GV, RF &gt;::dimRange </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>get dimension of the Range </p>
+
 </div>
 </div>
-<a id="a7f9ec6ffce67576e058bd10276d5adb0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f9ec6ffce67576e058bd10276d5adb0">&#9670;&nbsp;</a></span>DomainField</h2>
+<a id="ac08e8510473ca8be2433231dfc549491"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac08e8510473ca8be2433231dfc549491">&#9670;&nbsp;</a></span>evaluate()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -139,88 +147,45 @@ template&lt;typename GV , typename RF &gt; </div>
 template&lt;typename GV , typename RF &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef GV::ctype <a class="el" href="a03830.html">Dune::VTK::SkeletonFunctionTraits</a>&lt; GV, RF &gt;::<a class="el" href="a03830.html#a7f9ec6ffce67576e058bd10276d5adb0">DomainField</a></td>
+          <td class="memname">void <a class="el" href="a03830.html">Dune::VTK::SkeletonFunctionInterface</a>&lt; GV, RF &gt;::evaluate </td>
+          <td>(</td>
+          <td class="paramtype">const typename <a class="el" href="a03826.html#a63959f24979824650eef7805e221a3e0">Traits::Cell</a> &amp;&#160;</td>
+          <td class="paramname"><em>c</em>, </td>
         </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a13af3e440924ee095e0d58229bc2c9a9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a13af3e440924ee095e0d58229bc2c9a9">&#9670;&nbsp;</a></span>GridView</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename GV , typename RF &gt; </div>
-      <table class="memname">
         <tr>
-          <td class="memname">typedef GV <a class="el" href="a03830.html">Dune::VTK::SkeletonFunctionTraits</a>&lt; GV, RF &gt;::<a class="el" href="a03830.html#a13af3e440924ee095e0d58229bc2c9a9">GridView</a></td>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const typename <a class="el" href="a03826.html#a0c6592324eabe4ca38c29aaedad99d64">Traits::Domain</a> &amp;&#160;</td>
+          <td class="paramname"><em>xl</em>, </td>
         </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a33bc61c73346d79da9f68d6a3b88cf5c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a33bc61c73346d79da9f68d6a3b88cf5c">&#9670;&nbsp;</a></span>Range</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename GV , typename RF &gt; </div>
-      <table class="memname">
         <tr>
-          <td class="memname">typedef std::vector&lt;<a class="el" href="a03830.html#a09009cbc818d96daed06727e21139856">RangeField</a>&gt; <a class="el" href="a03830.html">Dune::VTK::SkeletonFunctionTraits</a>&lt; GV, RF &gt;::<a class="el" href="a03830.html#a33bc61c73346d79da9f68d6a3b88cf5c">Range</a></td>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">typename <a class="el" href="a03826.html#a33bc61c73346d79da9f68d6a3b88cf5c">Traits::Range</a> &amp;&#160;</td>
+          <td class="paramname"><em>result</em>&#160;</td>
         </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a09009cbc818d96daed06727e21139856"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a09009cbc818d96daed06727e21139856">&#9670;&nbsp;</a></span>RangeField</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename GV , typename RF &gt; </div>
-      <table class="memname">
         <tr>
-          <td class="memname">typedef RF <a class="el" href="a03830.html">Dune::VTK::SkeletonFunctionTraits</a>&lt; GV, RF &gt;::<a class="el" href="a03830.html#a09009cbc818d96daed06727e21139856">RangeField</a></td>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="aea6d9f6ef0c5b36aad976471ac4fac1c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aea6d9f6ef0c5b36aad976471ac4fac1c">&#9670;&nbsp;</a></span>dimDomain</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename GV , typename RF &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const unsigned <a class="el" href="a03830.html">Dune::VTK::SkeletonFunctionTraits</a>&lt; GV, RF &gt;::dimDomain = GV::dimension-1</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>evaluate at local point xl in Cell c, store in result </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">c</td><td>The cell (intersection) to evaluate in. </td></tr>
+    <tr><td class="paramname">xl</td><td>The local coordinate within the cell. </td></tr>
+    <tr><td class="paramname">result</td><td>Where to store the result. The vector is resized as necessary, and is overwritten. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="a00812_source.html">skeletonfunction.hh</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="a00818_source.html">skeletonfunction.hh</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: Dune::BoundarySegment&lt; dim, dimworld, ctype &gt; Struct Template Reference</title>
+<title>dune-grid: Dune::BoundaryProjectionWrapper&lt; dimworld &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,102 +62,120 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00936.html">Dune</a></li><li class="navelem"><a class="el" href="a02478.html">BoundarySegment</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00940.html">Dune</a></li><li class="navelem"><a class="el" href="a02478.html">BoundaryProjectionWrapper</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pro-types">Protected Types</a> &#124;
 <a href="#pro-static-methods">Static Protected Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="a02475.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::BoundarySegment&lt; dim, dimworld, ctype &gt; Struct Template Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
+<div class="title">Dune::BoundaryProjectionWrapper&lt; dimworld &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Base class for classes implementing geometries of boundary segments.  
- <a href="a02478.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="a00215_source.html">dune/grid/common/boundarysegment.hh</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00221_source.html">dune/grid/common/boundaryprojection.hh</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for Dune::BoundarySegment&lt; dim, dimworld, ctype &gt;:</div>
+Inheritance diagram for Dune::BoundaryProjectionWrapper&lt; dimworld &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="a02477.png" border="0" usemap="#a_dune_1_1_boundary_segment_3_01dim_00_01dimworld_00_01ctype_01_4_inherit__map" alt="Inheritance graph"/></div>
-<map name="a_dune_1_1_boundary_segment_3_01dim_00_01dimworld_00_01ctype_01_4_inherit__map" id="a_dune_1_1_boundary_segment_3_01dim_00_01dimworld_00_01ctype_01_4_inherit__map">
-<area shape="rect" title="Base class for classes implementing geometries of boundary segments." alt="" coords="27,229,194,271"/>
-<area shape="rect" href="a02482.html" title=" " alt="" coords="5,124,216,180"/>
-<area shape="rect" href="a02482.html" title=" " alt="" coords="5,5,216,47"/>
+<div class="center"><img src="a02477.png" border="0" usemap="#a_dune_1_1_boundary_projection_wrapper_3_01dimworld_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="a_dune_1_1_boundary_projection_wrapper_3_01dimworld_01_4_inherit__map" id="a_dune_1_1_boundary_projection_wrapper_3_01dimworld_01_4_inherit__map">
+<area shape="rect" title=" " alt="" coords="30,320,203,361"/>
+<area shape="rect" href="a02474.html" title="Interface class for vertex projection at the boundary." alt="" coords="15,229,218,271"/>
+<area shape="rect" href="a02494.html" title=" " alt="" coords="5,124,228,180"/>
+<area shape="rect" href="a02494.html" title=" " alt="" coords="11,5,222,47"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a62ef2db9fb2ca26388354b3dcc39b5f5"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a02482.html#a4f71601287aa0a714c1b461dac1d47ed">BoundarySegment</a>&lt; dim, dimworld, ctype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02478.html#a62ef2db9fb2ca26388354b3dcc39b5f5">ThisType</a></td></tr>
-<tr class="separator:a62ef2db9fb2ca26388354b3dcc39b5f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c8a84c055d26215e56f043ec7631621"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a02482.html">BoundarySegmentBackupRestore</a>&lt; <a class="el" href="a02482.html#a4f71601287aa0a714c1b461dac1d47ed">BoundarySegment</a>&lt; dim, dimworld, ctype &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02478.html#a8c8a84c055d26215e56f043ec7631621">BaseType</a></td></tr>
-<tr class="separator:a8c8a84c055d26215e56f043ec7631621"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a608da49ddf048861f9f44a4d2700fc28"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a02478.html#a8c8a84c055d26215e56f043ec7631621">BaseType</a> ::<a class="el" href="a02478.html#a608da49ddf048861f9f44a4d2700fc28">ObjectStreamType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02478.html#a608da49ddf048861f9f44a4d2700fc28">ObjectStreamType</a></td></tr>
-<tr class="separator:a608da49ddf048861f9f44a4d2700fc28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acef377f66bf06df20eb1b7aaf2407876"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a02474.html#acaef9ce982a7554333139a3b3d592027">BaseType</a> ::<a class="el" href="a02474.html#aa5dfff6108e6ac695d972a5e9fe56be9">CoordinateType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02478.html#acef377f66bf06df20eb1b7aaf2407876">CoordinateType</a></td></tr>
+<tr class="memdesc:acef377f66bf06df20eb1b7aaf2407876"><td class="mdescLeft">&#160;</td><td class="mdescRight">type of coordinate vector  <a href="a02478.html#acef377f66bf06df20eb1b7aaf2407876">More...</a><br /></td></tr>
+<tr class="separator:acef377f66bf06df20eb1b7aaf2407876"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1240ce037f995c5ed5bbe0458640b044"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a02474.html">DuneBoundaryProjection</a>&lt; dimworld &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02474.html#a1240ce037f995c5ed5bbe0458640b044">ThisType</a></td></tr>
+<tr class="separator:a1240ce037f995c5ed5bbe0458640b044"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad60cc6247113babeee6a08075cd54dd5"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a02474.html#acaef9ce982a7554333139a3b3d592027">BaseType</a> ::<a class="el" href="a02474.html#ad60cc6247113babeee6a08075cd54dd5">ObjectStreamType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02474.html#ad60cc6247113babeee6a08075cd54dd5">ObjectStreamType</a></td></tr>
+<tr class="separator:ad60cc6247113babeee6a08075cd54dd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa6f7744ff9c0a3198ebdeb238cd4d30b"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02478.html#aa6f7744ff9c0a3198ebdeb238cd4d30b">~BoundarySegment</a> ()</td></tr>
-<tr class="memdesc:aa6f7744ff9c0a3198ebdeb238cd4d30b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dummy virtual destructor.  <a href="a02478.html#aa6f7744ff9c0a3198ebdeb238cd4d30b">More...</a><br /></td></tr>
-<tr class="separator:aa6f7744ff9c0a3198ebdeb238cd4d30b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8fa6047e67cbd9b9e6a36b9188f236f5"><td class="memItemLeft" align="right" valign="top">virtual FieldVector&lt; ctype, dimworld &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02478.html#a8fa6047e67cbd9b9e6a36b9188f236f5">operator()</a> (const FieldVector&lt; ctype, dim-1 &gt; &amp;local) const =0</td></tr>
-<tr class="memdesc:a8fa6047e67cbd9b9e6a36b9188f236f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function mapping local coordinates on a boundary segment to world coordinates.  <a href="a02478.html#a8fa6047e67cbd9b9e6a36b9188f236f5">More...</a><br /></td></tr>
-<tr class="separator:a8fa6047e67cbd9b9e6a36b9188f236f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a830cad98197bb4f85bcd7d763fcb4c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02478.html#a8a830cad98197bb4f85bcd7d763fcb4c">backup</a> (<a class="el" href="a02478.html#a608da49ddf048861f9f44a4d2700fc28">ObjectStreamType</a> &amp;buffer) const</td></tr>
-<tr class="memdesc:a8a830cad98197bb4f85bcd7d763fcb4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">write <a class="el" href="a02478.html" title="Base class for classes implementing geometries of boundary segments.">BoundarySegment</a>'s data to stream buffer  <a href="a02478.html#a8a830cad98197bb4f85bcd7d763fcb4c">More...</a><br /></td></tr>
-<tr class="separator:a8a830cad98197bb4f85bcd7d763fcb4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f3c1c8dd1dd80a2fe085d2af5ee072e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02478.html#a1f3c1c8dd1dd80a2fe085d2af5ee072e">BoundaryProjectionWrapper</a> (const <a class="el" href="a02474.html#acaef9ce982a7554333139a3b3d592027">BaseType</a> &amp;proje)</td></tr>
+<tr class="separator:a1f3c1c8dd1dd80a2fe085d2af5ee072e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9f03bc12230ef62c9dfee5471380084"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02478.html#ad9f03bc12230ef62c9dfee5471380084">~BoundaryProjectionWrapper</a> ()</td></tr>
+<tr class="memdesc:ad9f03bc12230ef62c9dfee5471380084"><td class="mdescLeft">&#160;</td><td class="mdescRight">destructor  <a href="a02478.html#ad9f03bc12230ef62c9dfee5471380084">More...</a><br /></td></tr>
+<tr class="separator:ad9f03bc12230ef62c9dfee5471380084"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e42947b0ba2b2501cc988c58fb5e4b8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a02474.html#aa5dfff6108e6ac695d972a5e9fe56be9">CoordinateType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02478.html#a8e42947b0ba2b2501cc988c58fb5e4b8">operator()</a> (const <a class="el" href="a02474.html#aa5dfff6108e6ac695d972a5e9fe56be9">CoordinateType</a> &amp;global) const</td></tr>
+<tr class="memdesc:a8e42947b0ba2b2501cc988c58fb5e4b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">projection operator projection a global coordinate  <a href="a02478.html#a8e42947b0ba2b2501cc988c58fb5e4b8">More...</a><br /></td></tr>
+<tr class="separator:a8e42947b0ba2b2501cc988c58fb5e4b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab228940e4a077aad8523a6ba1e299191"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02474.html#ab228940e4a077aad8523a6ba1e299191">backup</a> ([[maybe_unused]] <a class="el" href="a02474.html#ad60cc6247113babeee6a08075cd54dd5">ObjectStreamType</a> &amp;buffer) const</td></tr>
+<tr class="memdesc:ab228940e4a077aad8523a6ba1e299191"><td class="mdescLeft">&#160;</td><td class="mdescRight">write <a class="el" href="a02474.html" title="Interface class for vertex projection at the boundary.">DuneBoundaryProjection</a>'s data to stream buffer  <a href="a02474.html#ab228940e4a077aad8523a6ba1e299191">More...</a><br /></td></tr>
+<tr class="separator:ab228940e4a077aad8523a6ba1e299191"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d9a483589850a809c3b15b566475066"><td class="memTemplParams" colspan="2">template&lt;class BufferImp &gt; </td></tr>
+<tr class="memitem:a6d9a483589850a809c3b15b566475066"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a02474.html#a6d9a483589850a809c3b15b566475066">toBuffer</a> (BufferImp &amp;buffer) const</td></tr>
+<tr class="separator:a6d9a483589850a809c3b15b566475066"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad2bfc023b531dd03481aa9ae7db922f"><td class="memTemplParams" colspan="2">template&lt;class BufferImp &gt; </td></tr>
+<tr class="memitem:aad2bfc023b531dd03481aa9ae7db922f"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a02474.html#aad2bfc023b531dd03481aa9ae7db922f">toBuffer</a> (<a class="el" href="a02582.html">MessageBufferIF</a>&lt; BufferImp &gt; &amp;buffer) const</td></tr>
+<tr class="separator:aad2bfc023b531dd03481aa9ae7db922f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a9ec397bb9f5aa4ef51fbd2a45fbb9a3f"><td class="memTemplParams" colspan="2">template&lt;class BufferImp &gt; </td></tr>
+<tr class="memitem:a9ec397bb9f5aa4ef51fbd2a45fbb9a3f"><td class="memTemplItemLeft" align="right" valign="top">static std::unique_ptr&lt; <a class="el" href="a02474.html#a1240ce037f995c5ed5bbe0458640b044">ThisType</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a02474.html#a9ec397bb9f5aa4ef51fbd2a45fbb9a3f">restoreFromBuffer</a> (BufferImp &amp;buffer)</td></tr>
+<tr class="separator:a9ec397bb9f5aa4ef51fbd2a45fbb9a3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d65a8d868ccde06ae2d921e1d1d0e04"><td class="memTemplParams" colspan="2">template&lt;class BufferImp &gt; </td></tr>
+<tr class="memitem:a4d65a8d868ccde06ae2d921e1d1d0e04"><td class="memTemplItemLeft" align="right" valign="top">static std::unique_ptr&lt; <a class="el" href="a02474.html#a1240ce037f995c5ed5bbe0458640b044">ThisType</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a02474.html#a4d65a8d868ccde06ae2d921e1d1d0e04">restoreFromBuffer</a> (<a class="el" href="a02582.html">MessageBufferIF</a>&lt; BufferImp &gt; &amp;buffer)</td></tr>
+<tr class="separator:a4d65a8d868ccde06ae2d921e1d1d0e04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-types"></a>
 Protected Types</h2></td></tr>
-<tr class="memitem:a4f71601287aa0a714c1b461dac1d47ed"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a02482.html#a4f71601287aa0a714c1b461dac1d47ed">BoundarySegment</a>&lt; dim, dimworld, ctype &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02482.html#a4f71601287aa0a714c1b461dac1d47ed">BoundarySegment</a></td></tr>
-<tr class="memdesc:a4f71601287aa0a714c1b461dac1d47ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">type of BoundarySegment interface class  <a href="a02482.html#a4f71601287aa0a714c1b461dac1d47ed">More...</a><br /></td></tr>
+<tr class="memitem:a595c7eea4cb5f090bef1a77b39d89cfa"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a02474.html">DuneBoundaryProjection</a>&lt; dimworld &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02478.html#a595c7eea4cb5f090bef1a77b39d89cfa">BaseType</a></td></tr>
+<tr class="separator:a595c7eea4cb5f090bef1a77b39d89cfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f71601287aa0a714c1b461dac1d47ed"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a02474.html">DuneBoundaryProjection</a>&lt; dimworld &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02494.html#a4f71601287aa0a714c1b461dac1d47ed">BoundarySegment</a></td></tr>
+<tr class="memdesc:a4f71601287aa0a714c1b461dac1d47ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">type of BoundarySegment interface class  <a href="a02494.html#a4f71601287aa0a714c1b461dac1d47ed">More...</a><br /></td></tr>
 <tr class="separator:a4f71601287aa0a714c1b461dac1d47ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9dd5029cf1df298606a7e4e17f378a7f"><td class="memItemLeft" align="right" valign="top">typedef Dune::ParameterizedObjectFactory&lt; std::unique_ptr&lt; <a class="el" href="a02482.html#a4f71601287aa0a714c1b461dac1d47ed">BoundarySegment</a> &gt; <a class="el" href="a02478.html#a608da49ddf048861f9f44a4d2700fc28">ObjectStreamType</a> &amp;), int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02482.html#a9dd5029cf1df298606a7e4e17f378a7f">FactoryType</a></td></tr>
-<tr class="memdesc:a9dd5029cf1df298606a7e4e17f378a7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">type of factory creating a unique_ptr from an ObjectStreamType  <a href="a02482.html#a9dd5029cf1df298606a7e4e17f378a7f">More...</a><br /></td></tr>
+<tr class="memitem:a9dd5029cf1df298606a7e4e17f378a7f"><td class="memItemLeft" align="right" valign="top">typedef Dune::ParameterizedObjectFactory&lt; std::unique_ptr&lt; <a class="el" href="a02494.html#a4f71601287aa0a714c1b461dac1d47ed">BoundarySegment</a> &gt; <a class="el" href="a02474.html#ad60cc6247113babeee6a08075cd54dd5">ObjectStreamType</a> &amp;), int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02494.html#a9dd5029cf1df298606a7e4e17f378a7f">FactoryType</a></td></tr>
+<tr class="memdesc:a9dd5029cf1df298606a7e4e17f378a7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">type of factory creating a unique_ptr from an ObjectStreamType  <a href="a02494.html#a9dd5029cf1df298606a7e4e17f378a7f">More...</a><br /></td></tr>
 <tr class="separator:a9dd5029cf1df298606a7e4e17f378a7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-methods"></a>
 Static Protected Member Functions</h2></td></tr>
-<tr class="memitem:a1d347a431cce7dd13a050453b5f04b63"><td class="memItemLeft" align="right" valign="top">static std::unique_ptr&lt; <a class="el" href="a02482.html#a4f71601287aa0a714c1b461dac1d47ed">BoundarySegment</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02482.html#a1d347a431cce7dd13a050453b5f04b63">restore</a> (<a class="el" href="a02478.html#a608da49ddf048861f9f44a4d2700fc28">ObjectStreamType</a> &amp;in)</td></tr>
-<tr class="memdesc:a1d347a431cce7dd13a050453b5f04b63"><td class="mdescLeft">&#160;</td><td class="mdescRight">create an object of BoundarySegment type from a previously registered factory linked to key.  <a href="a02482.html#a1d347a431cce7dd13a050453b5f04b63">More...</a><br /></td></tr>
+<tr class="memitem:a1d347a431cce7dd13a050453b5f04b63"><td class="memItemLeft" align="right" valign="top">static std::unique_ptr&lt; <a class="el" href="a02494.html#a4f71601287aa0a714c1b461dac1d47ed">BoundarySegment</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02494.html#a1d347a431cce7dd13a050453b5f04b63">restore</a> (<a class="el" href="a02474.html#ad60cc6247113babeee6a08075cd54dd5">ObjectStreamType</a> &amp;in)</td></tr>
+<tr class="memdesc:a1d347a431cce7dd13a050453b5f04b63"><td class="mdescLeft">&#160;</td><td class="mdescRight">create an object of BoundarySegment type from a previously registered factory linked to key.  <a href="a02494.html#a1d347a431cce7dd13a050453b5f04b63">More...</a><br /></td></tr>
 <tr class="separator:a1d347a431cce7dd13a050453b5f04b63"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acd33be44661200bd7a32cf39801c8a43"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02482.html#acd33be44661200bd7a32cf39801c8a43">registerFactory</a> ()</td></tr>
+<tr class="memitem:acd33be44661200bd7a32cf39801c8a43"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02494.html#acd33be44661200bd7a32cf39801c8a43">registerFactory</a> ()</td></tr>
 <tr class="separator:acd33be44661200bd7a32cf39801c8a43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a21da0cf3cfff392a0f47feb59e8362d0"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a02474.html#acaef9ce982a7554333139a3b3d592027">BaseType</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02478.html#a21da0cf3cfff392a0f47feb59e8362d0">proj_</a></td></tr>
+<tr class="separator:a21da0cf3cfff392a0f47feb59e8362d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;int dim, int dimworld, class ctype&gt;<br />
-struct Dune::BoundarySegment&lt; dim, dimworld, ctype &gt;</h3>
-
-<p>Base class for classes implementing geometries of boundary segments. </p>
-<p>Some grid implementations, as for example <a class="el" href="a03970.html" title="Front-end for the grid manager of the finite element toolbox UG.">UGGrid</a>, allow to use boundary segments of arbitrary geometry. That means that you can have grid boundaries approach smooth shapes when refining the grid.</p>
-<p>Such curved boundary segments are specified by giving classes that implement them. Each boundary segment is implemented by an object of a class derived from <a class="el" href="a02478.html" title="Base class for classes implementing geometries of boundary segments.">BoundarySegment</a>. The set of these objects is handed over to the grid upon grid construction.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">dim</td><td>Dimension of the grid </td></tr>
-    <tr><td class="paramname">dimworld</td><td>Dimension of the Euclidean space the grid is embedded in </td></tr>
-    <tr><td class="paramname">ctype</td><td>type of coordinate storage (default is double) </td></tr>
-  </table>
-  </dd>
-</dl>
-</div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a8c8a84c055d26215e56f043ec7631621"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8c8a84c055d26215e56f043ec7631621">&#9670;&nbsp;</a></span>BaseType</h2>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a595c7eea4cb5f090bef1a77b39d89cfa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a595c7eea4cb5f090bef1a77b39d89cfa">&#9670;&nbsp;</a></span>BaseType</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int dimworld, class ctype &gt; </div>
+template&lt;int dimworld&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="a02482.html">BoundarySegmentBackupRestore</a>&lt; <a class="el" href="a02482.html#a4f71601287aa0a714c1b461dac1d47ed">BoundarySegment</a>&lt; dim, dimworld, ctype &gt; &gt; <a class="el" href="a02478.html">Dune::BoundarySegment</a>&lt; dim, dimworld, ctype &gt;::<a class="el" href="a02478.html#a8c8a84c055d26215e56f043ec7631621">BaseType</a></td>
+          <td class="memname">typedef <a class="el" href="a02474.html">DuneBoundaryProjection</a>&lt; dimworld &gt; <a class="el" href="a02478.html">Dune::BoundaryProjectionWrapper</a>&lt; dimworld &gt;::<a class="el" href="a02474.html#acaef9ce982a7554333139a3b3d592027">BaseType</a></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -172,7 +190,7 @@ template&lt;int dim, int dimworld, class ctype &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="a02482.html#a4f71601287aa0a714c1b461dac1d47ed">BoundarySegment</a>&lt; dim, dimworld, ctype &gt;  <a class="el" href="a02482.html">Dune::BoundarySegmentBackupRestore</a>&lt; <a class="el" href="a02482.html#a4f71601287aa0a714c1b461dac1d47ed">BoundarySegment</a>&lt; dim, dimworld, ctype &gt;  &gt;::<a class="el" href="a02482.html#a4f71601287aa0a714c1b461dac1d47ed">BoundarySegment</a></td>
+          <td class="memname">typedef <a class="el" href="a02474.html">DuneBoundaryProjection</a>&lt; dimworld &gt;  <a class="el" href="a02494.html">Dune::BoundarySegmentBackupRestore</a>&lt; <a class="el" href="a02474.html">DuneBoundaryProjection</a>&lt; dimworld &gt;  &gt;::<a class="el" href="a02494.html#a4f71601287aa0a714c1b461dac1d47ed">BoundarySegment</a></td>
         </tr>
       </table>
   </td>
@@ -182,7 +200,25 @@ template&lt;int dim, int dimworld, class ctype &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>type of <a class="el" href="a02478.html" title="Base class for classes implementing geometries of boundary segments.">BoundarySegment</a> interface class </p>
+<p>type of <a class="el" href="a02490.html" title="Base class for classes implementing geometries of boundary segments.">BoundarySegment</a> interface class </p>
+
+</div>
+</div>
+<a id="acef377f66bf06df20eb1b7aaf2407876"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acef377f66bf06df20eb1b7aaf2407876">&#9670;&nbsp;</a></span>CoordinateType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dimworld&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="a02474.html#acaef9ce982a7554333139a3b3d592027">BaseType</a> :: <a class="el" href="a02474.html#aa5dfff6108e6ac695d972a5e9fe56be9">CoordinateType</a> <a class="el" href="a02478.html">Dune::BoundaryProjectionWrapper</a>&lt; dimworld &gt;::<a class="el" href="a02474.html#aa5dfff6108e6ac695d972a5e9fe56be9">CoordinateType</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>type of coordinate vector </p>
 
 </div>
 </div>
@@ -196,7 +232,7 @@ template&lt;int dim, int dimworld, class ctype &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">typedef Dune::ParameterizedObjectFactory&lt; std::unique_ptr&lt; <a class="el" href="a02482.html#a4f71601287aa0a714c1b461dac1d47ed">BoundarySegment</a> &gt; <a class="el" href="a02478.html#a608da49ddf048861f9f44a4d2700fc28">ObjectStreamType</a>&amp; ), int &gt; <a class="el" href="a02482.html">Dune::BoundarySegmentBackupRestore</a>&lt; <a class="el" href="a02482.html#a4f71601287aa0a714c1b461dac1d47ed">BoundarySegment</a>&lt; dim, dimworld, ctype &gt;  &gt;::<a class="el" href="a02482.html#a9dd5029cf1df298606a7e4e17f378a7f">FactoryType</a></td>
+          <td class="memname">typedef Dune::ParameterizedObjectFactory&lt; std::unique_ptr&lt; <a class="el" href="a02494.html#a4f71601287aa0a714c1b461dac1d47ed">BoundarySegment</a> &gt; <a class="el" href="a02474.html#ad60cc6247113babeee6a08075cd54dd5">ObjectStreamType</a>&amp; ), int &gt; <a class="el" href="a02494.html">Dune::BoundarySegmentBackupRestore</a>&lt; <a class="el" href="a02474.html">DuneBoundaryProjection</a>&lt; dimworld &gt;  &gt;::<a class="el" href="a02494.html#a9dd5029cf1df298606a7e4e17f378a7f">FactoryType</a></td>
         </tr>
       </table>
   </td>
@@ -210,52 +246,96 @@ template&lt;int dim, int dimworld, class ctype &gt; </div>
 
 </div>
 </div>
-<a id="a608da49ddf048861f9f44a4d2700fc28"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a608da49ddf048861f9f44a4d2700fc28">&#9670;&nbsp;</a></span>ObjectStreamType</h2>
+<a id="ad60cc6247113babeee6a08075cd54dd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad60cc6247113babeee6a08075cd54dd5">&#9670;&nbsp;</a></span>ObjectStreamType</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int dimworld, class ctype &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef <a class="el" href="a02478.html#a8c8a84c055d26215e56f043ec7631621">BaseType</a> :: <a class="el" href="a02478.html#a608da49ddf048861f9f44a4d2700fc28">ObjectStreamType</a> <a class="el" href="a02478.html">Dune::BoundarySegment</a>&lt; dim, dimworld, ctype &gt;::<a class="el" href="a02478.html#a608da49ddf048861f9f44a4d2700fc28">ObjectStreamType</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a62ef2db9fb2ca26388354b3dcc39b5f5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a62ef2db9fb2ca26388354b3dcc39b5f5">&#9670;&nbsp;</a></span>ThisType</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int dim, int dimworld, class ctype &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef <a class="el" href="a02482.html#a4f71601287aa0a714c1b461dac1d47ed">BoundarySegment</a>&lt; dim, dimworld, ctype &gt; <a class="el" href="a02478.html">Dune::BoundarySegment</a>&lt; dim, dimworld, ctype &gt;::<a class="el" href="a02478.html#a62ef2db9fb2ca26388354b3dcc39b5f5">ThisType</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="aa6f7744ff9c0a3198ebdeb238cd4d30b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa6f7744ff9c0a3198ebdeb238cd4d30b">&#9670;&nbsp;</a></span>~BoundarySegment()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int dim, int dimworld, class ctype &gt; </div>
+template&lt;int dimworld&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="a02478.html">Dune::BoundarySegment</a>&lt; dim, dimworld, ctype &gt;::~<a class="el" href="a02482.html#a4f71601287aa0a714c1b461dac1d47ed">BoundarySegment</a> </td>
+          <td class="memname">typedef <a class="el" href="a02474.html#acaef9ce982a7554333139a3b3d592027">BaseType</a> :: <a class="el" href="a02474.html#ad60cc6247113babeee6a08075cd54dd5">ObjectStreamType</a> <a class="el" href="a02474.html">Dune::DuneBoundaryProjection</a>&lt; dimworld &gt;::<a class="el" href="a02474.html#ad60cc6247113babeee6a08075cd54dd5">ObjectStreamType</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1240ce037f995c5ed5bbe0458640b044"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1240ce037f995c5ed5bbe0458640b044">&#9670;&nbsp;</a></span>ThisType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dimworld&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="a02474.html">DuneBoundaryProjection</a>&lt; dimworld &gt; <a class="el" href="a02474.html">Dune::DuneBoundaryProjection</a>&lt; dimworld &gt;::<a class="el" href="a02474.html#a1240ce037f995c5ed5bbe0458640b044">ThisType</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a1f3c1c8dd1dd80a2fe085d2af5ee072e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f3c1c8dd1dd80a2fe085d2af5ee072e">&#9670;&nbsp;</a></span>BoundaryProjectionWrapper()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dimworld&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a02478.html">Dune::BoundaryProjectionWrapper</a>&lt; dimworld &gt;::<a class="el" href="a02478.html">BoundaryProjectionWrapper</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a02474.html#acaef9ce982a7554333139a3b3d592027">BaseType</a> &amp;&#160;</td>
+          <td class="paramname"><em>proje</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad9f03bc12230ef62c9dfee5471380084"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9f03bc12230ef62c9dfee5471380084">&#9670;&nbsp;</a></span>~BoundaryProjectionWrapper()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dimworld&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a02478.html">Dune::BoundaryProjectionWrapper</a>&lt; dimworld &gt;::~<a class="el" href="a02478.html">BoundaryProjectionWrapper</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -263,43 +343,43 @@ template&lt;int dim, int dimworld, class ctype &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Dummy virtual destructor. </p>
+<p>destructor </p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a8a830cad98197bb4f85bcd7d763fcb4c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8a830cad98197bb4f85bcd7d763fcb4c">&#9670;&nbsp;</a></span>backup()</h2>
+<a id="ab228940e4a077aad8523a6ba1e299191"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab228940e4a077aad8523a6ba1e299191">&#9670;&nbsp;</a></span>backup()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int dimworld, class ctype &gt; </div>
+template&lt;int dimworld&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void <a class="el" href="a02478.html">Dune::BoundarySegment</a>&lt; dim, dimworld, ctype &gt;::backup </td>
+          <td class="memname">virtual void <a class="el" href="a02474.html">Dune::DuneBoundaryProjection</a>&lt; dimworld &gt;::backup </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a02478.html#a608da49ddf048861f9f44a4d2700fc28">ObjectStreamType</a> &amp;&#160;</td>
+          <td class="paramtype">[[maybe_unused] ] <a class="el" href="a02474.html#ad60cc6247113babeee6a08075cd54dd5">ObjectStreamType</a> &amp;&#160;</td>
           <td class="paramname"><em>buffer</em></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span><span class="mlabel">inherited</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>write <a class="el" href="a02478.html" title="Base class for classes implementing geometries of boundary segments.">BoundarySegment</a>'s data to stream buffer </p>
+<p>write <a class="el" href="a02474.html" title="Interface class for vertex projection at the boundary.">DuneBoundaryProjection</a>'s data to stream buffer </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">buffer</td><td>buffer to store data </td></tr>
@@ -309,33 +389,35 @@ template&lt;int dim, int dimworld, class ctype &gt; </div>
 
 </div>
 </div>
-<a id="a8fa6047e67cbd9b9e6a36b9188f236f5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8fa6047e67cbd9b9e6a36b9188f236f5">&#9670;&nbsp;</a></span>operator()()</h2>
+<a id="a8e42947b0ba2b2501cc988c58fb5e4b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e42947b0ba2b2501cc988c58fb5e4b8">&#9670;&nbsp;</a></span>operator()()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;int dim, int dimworld, class ctype &gt; </div>
+template&lt;int dimworld&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual FieldVector&lt; ctype, dimworld &gt; <a class="el" href="a02478.html">Dune::BoundarySegment</a>&lt; dim, dimworld, ctype &gt;::operator() </td>
+          <td class="memname"><a class="el" href="a02474.html#aa5dfff6108e6ac695d972a5e9fe56be9">CoordinateType</a> <a class="el" href="a02478.html">Dune::BoundaryProjectionWrapper</a>&lt; dimworld &gt;::operator() </td>
           <td>(</td>
-          <td class="paramtype">const FieldVector&lt; ctype, dim-1 &gt; &amp;&#160;</td>
-          <td class="paramname"><em>local</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="a02474.html#aa5dfff6108e6ac695d972a5e9fe56be9">CoordinateType</a> &amp;&#160;</td>
+          <td class="paramname"><em>global</em></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>A function mapping local coordinates on a boundary segment to world coordinates. </p>
+<p>projection operator projection a global coordinate </p>
+
+<p>Implements <a class="el" href="a02474.html#a5d9ef189a3460ea062ab96daed520fbe">Dune::DuneBoundaryProjection&lt; dimworld &gt;</a>.</p>
 
 </div>
 </div>
@@ -349,7 +431,7 @@ template&lt;int dim, int dimworld, class ctype &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static int <a class="el" href="a02482.html">Dune::BoundarySegmentBackupRestore</a>&lt; <a class="el" href="a02482.html#a4f71601287aa0a714c1b461dac1d47ed">BoundarySegment</a>&lt; dim, dimworld, ctype &gt;  &gt;::registerFactory </td>
+          <td class="memname">static int <a class="el" href="a02494.html">Dune::BoundarySegmentBackupRestore</a>&lt; <a class="el" href="a02474.html">DuneBoundaryProjection</a>&lt; dimworld &gt;  &gt;::registerFactory </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -374,9 +456,9 @@ template&lt;int dim, int dimworld, class ctype &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static std::unique_ptr&lt; <a class="el" href="a02482.html#a4f71601287aa0a714c1b461dac1d47ed">BoundarySegment</a> &gt; <a class="el" href="a02482.html">Dune::BoundarySegmentBackupRestore</a>&lt; <a class="el" href="a02482.html#a4f71601287aa0a714c1b461dac1d47ed">BoundarySegment</a>&lt; dim, dimworld, ctype &gt;  &gt;::restore </td>
+          <td class="memname">static std::unique_ptr&lt; <a class="el" href="a02494.html#a4f71601287aa0a714c1b461dac1d47ed">BoundarySegment</a> &gt; <a class="el" href="a02494.html">Dune::BoundarySegmentBackupRestore</a>&lt; <a class="el" href="a02474.html">DuneBoundaryProjection</a>&lt; dimworld &gt;  &gt;::restore </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a02482.html#a5f1caab3482efa6040f65abf6df4983c">ObjectStreamType</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="a02494.html#a5f1caab3482efa6040f65abf6df4983c">ObjectStreamType</a> &amp;&#160;</td>
           <td class="paramname"><em>in</em></td><td>)</td>
           <td></td>
         </tr>
@@ -388,19 +470,164 @@ template&lt;int dim, int dimworld, class ctype &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>create an object of <a class="el" href="a02478.html" title="Base class for classes implementing geometries of boundary segments.">BoundarySegment</a> type from a previously registered factory linked to key. </p>
+<p>create an object of <a class="el" href="a02490.html" title="Base class for classes implementing geometries of boundary segments.">BoundarySegment</a> type from a previously registered factory linked to key. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">in</td><td>stream buffer previously written with backup containing key and object data</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Object derived from <a class="el" href="a02478.html" title="Base class for classes implementing geometries of boundary segments.">BoundarySegment</a>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Object derived from <a class="el" href="a02490.html" title="Base class for classes implementing geometries of boundary segments.">BoundarySegment</a>. </dd></dl>
 
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="a00215_source.html">boundarysegment.hh</a></li>
+<a id="a9ec397bb9f5aa4ef51fbd2a45fbb9a3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ec397bb9f5aa4ef51fbd2a45fbb9a3f">&#9670;&nbsp;</a></span>restoreFromBuffer() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dimworld&gt; </div>
+<div class="memtemplate">
+template&lt;class BufferImp &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::unique_ptr&lt; <a class="el" href="a02474.html#a1240ce037f995c5ed5bbe0458640b044">ThisType</a> &gt; <a class="el" href="a02474.html">Dune::DuneBoundaryProjection</a>&lt; dimworld &gt;::restoreFromBuffer </td>
+          <td>(</td>
+          <td class="paramtype">BufferImp &amp;&#160;</td>
+          <td class="paramname"><em>buffer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4d65a8d868ccde06ae2d921e1d1d0e04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d65a8d868ccde06ae2d921e1d1d0e04">&#9670;&nbsp;</a></span>restoreFromBuffer() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dimworld&gt; </div>
+<div class="memtemplate">
+template&lt;class BufferImp &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::unique_ptr&lt; <a class="el" href="a02474.html#a1240ce037f995c5ed5bbe0458640b044">ThisType</a> &gt; <a class="el" href="a02474.html">Dune::DuneBoundaryProjection</a>&lt; dimworld &gt;::restoreFromBuffer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a02582.html">MessageBufferIF</a>&lt; BufferImp &gt; &amp;&#160;</td>
+          <td class="paramname"><em>buffer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6d9a483589850a809c3b15b566475066"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d9a483589850a809c3b15b566475066">&#9670;&nbsp;</a></span>toBuffer() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dimworld&gt; </div>
+<div class="memtemplate">
+template&lt;class BufferImp &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="a02474.html">Dune::DuneBoundaryProjection</a>&lt; dimworld &gt;::toBuffer </td>
+          <td>(</td>
+          <td class="paramtype">BufferImp &amp;&#160;</td>
+          <td class="paramname"><em>buffer</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aad2bfc023b531dd03481aa9ae7db922f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad2bfc023b531dd03481aa9ae7db922f">&#9670;&nbsp;</a></span>toBuffer() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dimworld&gt; </div>
+<div class="memtemplate">
+template&lt;class BufferImp &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="a02474.html">Dune::DuneBoundaryProjection</a>&lt; dimworld &gt;::toBuffer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a02582.html">MessageBufferIF</a>&lt; BufferImp &gt; &amp;&#160;</td>
+          <td class="paramname"><em>buffer</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a21da0cf3cfff392a0f47feb59e8362d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21da0cf3cfff392a0f47feb59e8362d0">&#9670;&nbsp;</a></span>proj_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dimworld&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a02474.html#acaef9ce982a7554333139a3b3d592027">BaseType</a>&amp; <a class="el" href="a02478.html">Dune::BoundaryProjectionWrapper</a>&lt; dimworld &gt;::proj_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="a00221_source.html">boundaryprojection.hh</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

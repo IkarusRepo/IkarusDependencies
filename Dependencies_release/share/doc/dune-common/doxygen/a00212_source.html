@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-common
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -156,59 +156,59 @@ $(function() {
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
-<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="a02172.html">   97</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a02172.html">MPIGuardError</a> : <span class="keyword">public</span> <a class="code" href="a01600.html">ParallelError</a> {};</div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="a02169.html">   97</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a02169.html">MPIGuardError</a> : <span class="keyword">public</span> <a class="code" href="a01585.html">ParallelError</a> {};</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
-<div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="a02176.html">  131</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a02176.html">MPIGuard</a></div>
+<div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="a02173.html">  131</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a02173.html">MPIGuard</a></div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;  {</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    GuardCommunicator * comm_;</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keywordtype">bool</span> active_;</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="comment">// we don&#39;t want to copy this class</span></div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <a class="code" href="a02176.html">MPIGuard</a> (<span class="keyword">const</span> <a class="code" href="a02176.html">MPIGuard</a> &amp;);</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <a class="code" href="a02173.html">MPIGuard</a> (<span class="keyword">const</span> <a class="code" href="a02173.html">MPIGuard</a> &amp;);</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00144"></a><span class="lineno"><a class="line" href="a02176.html#ad0dafbe8eb21985ac54f70e48ce44def">  144</a></span>&#160;    <a class="code" href="a02176.html#ad0dafbe8eb21985ac54f70e48ce44def">MPIGuard</a> (<span class="keywordtype">bool</span> active=<span class="keyword">true</span>) :</div>
+<div class="line"><a name="l00144"></a><span class="lineno"><a class="line" href="a02173.html#ad0dafbe8eb21985ac54f70e48ce44def">  144</a></span>&#160;    <a class="code" href="a02173.html#ad0dafbe8eb21985ac54f70e48ce44def">MPIGuard</a> (<span class="keywordtype">bool</span> active=<span class="keyword">true</span>) :</div>
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;      comm_(GuardCommunicator::create(</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;              <a class="code" href="a02184.html">MPIHelper</a>::getCommunication())),</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;              <a class="code" href="a02181.html">MPIHelper</a>::getCommunication())),</div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;      active_(active)</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    {}</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
-<div class="line"><a name="l00155"></a><span class="lineno"><a class="line" href="a02176.html#ade82937388e34e6b822f440abcebc515">  155</a></span>&#160;    <a class="code" href="a02176.html#ade82937388e34e6b822f440abcebc515">MPIGuard</a> (<a class="code" href="a02184.html">MPIHelper</a> &amp; m, <span class="keywordtype">bool</span> active=<span class="keyword">true</span>) :</div>
+<div class="line"><a name="l00155"></a><span class="lineno"><a class="line" href="a02173.html#ade82937388e34e6b822f440abcebc515">  155</a></span>&#160;    <a class="code" href="a02173.html#ade82937388e34e6b822f440abcebc515">MPIGuard</a> (<a class="code" href="a02181.html">MPIHelper</a> &amp; m, <span class="keywordtype">bool</span> active=<span class="keyword">true</span>) :</div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;      comm_(GuardCommunicator::create(</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;              m.getCommunication())),</div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;      active_(active)</div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    {}</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> C&gt;</div>
-<div class="line"><a name="l00172"></a><span class="lineno"><a class="line" href="a02176.html#aa8a8f8af42a0d96879e6a07def3f08fe">  172</a></span>&#160;    <a class="code" href="a02176.html#aa8a8f8af42a0d96879e6a07def3f08fe">MPIGuard</a> (<span class="keyword">const</span> C &amp; comm, <span class="keywordtype">bool</span> active=<span class="keyword">true</span>) :</div>
+<div class="line"><a name="l00172"></a><span class="lineno"><a class="line" href="a02173.html#aa8a8f8af42a0d96879e6a07def3f08fe">  172</a></span>&#160;    <a class="code" href="a02173.html#aa8a8f8af42a0d96879e6a07def3f08fe">MPIGuard</a> (<span class="keyword">const</span> C &amp; comm, <span class="keywordtype">bool</span> active=<span class="keyword">true</span>) :</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;      comm_(GuardCommunicator::create(comm)),</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;      active_(active)</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    {}</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160; </div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="preprocessor">#if HAVE_MPI</span></div>
-<div class="line"><a name="l00178"></a><span class="lineno"><a class="line" href="a02176.html#aafb09885f516dcf7b8006387867a3f4c">  178</a></span>&#160;     <a class="code" href="a02176.html#aafb09885f516dcf7b8006387867a3f4c">MPIGuard</a> (<span class="keyword">const</span> MPI_Comm &amp; comm, <span class="keywordtype">bool</span> active=<span class="keyword">true</span>) :</div>
+<div class="line"><a name="l00178"></a><span class="lineno"><a class="line" href="a02173.html#aafb09885f516dcf7b8006387867a3f4c">  178</a></span>&#160;     <a class="code" href="a02173.html#aafb09885f516dcf7b8006387867a3f4c">MPIGuard</a> (<span class="keyword">const</span> MPI_Comm &amp; comm, <span class="keywordtype">bool</span> active=<span class="keyword">true</span>) :</div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;      comm_(GuardCommunicator::create(comm)),</div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;      active_(active)</div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    {}</div>
 <div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160; </div>
-<div class="line"><a name="l00186"></a><span class="lineno"><a class="line" href="a02176.html#aa6f3f082ef7baf6c289d7100355b47d7">  186</a></span>&#160;    <a class="code" href="a02176.html#aa6f3f082ef7baf6c289d7100355b47d7">~MPIGuard</a>()</div>
+<div class="line"><a name="l00186"></a><span class="lineno"><a class="line" href="a02173.html#aa6f3f082ef7baf6c289d7100355b47d7">  186</a></span>&#160;    <a class="code" href="a02173.html#aa6f3f082ef7baf6c289d7100355b47d7">~MPIGuard</a>()</div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    {</div>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;      <span class="keywordflow">if</span> (active_)</div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;      {</div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        active_ = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        <a class="code" href="a02176.html#aa62d92872dd577561a2014a94e12ce93">finalize</a>(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        <a class="code" href="a02173.html#aa62d92872dd577561a2014a94e12ce93">finalize</a>(<span class="keyword">false</span>);</div>
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;      }</div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;      <span class="keyword">delete</span> comm_;</div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    }</div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160; </div>
-<div class="line"><a name="l00200"></a><span class="lineno"><a class="line" href="a02176.html#a5d2f7d69ac52a68541a5fa4993affa9b">  200</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a02176.html#a5d2f7d69ac52a68541a5fa4993affa9b">reactivate</a>() {</div>
+<div class="line"><a name="l00200"></a><span class="lineno"><a class="line" href="a02173.html#a5d2f7d69ac52a68541a5fa4993affa9b">  200</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a02173.html#a5d2f7d69ac52a68541a5fa4993affa9b">reactivate</a>() {</div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;      <span class="keywordflow">if</span> (active_ == <span class="keyword">true</span>)</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        <a class="code" href="a02176.html#aa62d92872dd577561a2014a94e12ce93">finalize</a>();</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        <a class="code" href="a02173.html#aa62d92872dd577561a2014a94e12ce93">finalize</a>();</div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;      active_ = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    }</div>
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160; </div>
-<div class="line"><a name="l00216"></a><span class="lineno"><a class="line" href="a02176.html#aa62d92872dd577561a2014a94e12ce93">  216</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a02176.html#aa62d92872dd577561a2014a94e12ce93">finalize</a>(<span class="keywordtype">bool</span> success = <span class="keyword">true</span>)</div>
+<div class="line"><a name="l00216"></a><span class="lineno"><a class="line" href="a02173.html#aa62d92872dd577561a2014a94e12ce93">  216</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a02173.html#aa62d92872dd577561a2014a94e12ce93">finalize</a>(<span class="keywordtype">bool</span> success = <span class="keyword">true</span>)</div>
 <div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    {</div>
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;      <span class="keywordtype">int</span> result = success ? 0 : 1;</div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;      <span class="keywordtype">bool</span> was_active = active_;</div>
@@ -216,7 +216,7 @@ $(function() {
 <div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;      result = comm_-&gt;sum(result);</div>
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;      <span class="keywordflow">if</span> (result&gt;0 &amp;&amp; was_active)</div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;      {</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;        <a class="code" href="a00415.html#gad7fce127d6eaabe773adbc409514f21e">DUNE_THROW</a>(<a class="code" href="a02172.html">MPIGuardError</a>, <span class="stringliteral">&quot;Terminating process &quot;</span></div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;        <a class="code" href="a00415.html#gad7fce127d6eaabe773adbc409514f21e">DUNE_THROW</a>(<a class="code" href="a02169.html">MPIGuardError</a>, <span class="stringliteral">&quot;Terminating process &quot;</span></div>
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;                   &lt;&lt; comm_-&gt;rank() &lt;&lt; <span class="stringliteral">&quot; due to &quot;</span></div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;                   &lt;&lt; result &lt;&lt; <span class="stringliteral">&quot; remote error(s)&quot;</span>);</div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;      }</div>
@@ -231,18 +231,18 @@ $(function() {
 <div class="ttc" id="aa00203_html"><div class="ttname"><a href="a00203.html">mpicommunication.hh</a></div><div class="ttdoc">Implements an utility class that provides MPI's collective communication methods.</div></div>
 <div class="ttc" id="aa00215_html"><div class="ttname"><a href="a00215.html">mpihelper.hh</a></div><div class="ttdoc">Helpers for dealing with MPI.</div></div>
 <div class="ttc" id="aa00415_html_gad7fce127d6eaabe773adbc409514f21e"><div class="ttname"><a href="a00415.html#gad7fce127d6eaabe773adbc409514f21e">DUNE_THROW</a></div><div class="ttdeci">#define DUNE_THROW(E, m)</div><div class="ttdef"><b>Definition:</b> exceptions.hh:216</div></div>
-<div class="ttc" id="aa00428_html"><div class="ttname"><a href="a00428.html">Dune</a></div><div class="ttdoc">Dune namespace.</div><div class="ttdef"><b>Definition:</b> alignedallocator.hh:14</div></div>
-<div class="ttc" id="aa01600_html"><div class="ttname"><a href="a01600.html">Dune::ParallelError</a></div><div class="ttdoc">Default exception if an error in the parallel communication of the program occurred.</div><div class="ttdef"><b>Definition:</b> exceptions.hh:285</div></div>
-<div class="ttc" id="aa02172_html"><div class="ttname"><a href="a02172.html">Dune::MPIGuardError</a></div><div class="ttdoc">This exception is thrown if the MPIGuard detects an error on a remote process.</div><div class="ttdef"><b>Definition:</b> mpiguard.hh:97</div></div>
-<div class="ttc" id="aa02176_html"><div class="ttname"><a href="a02176.html">Dune::MPIGuard</a></div><div class="ttdoc">detects a thrown exception and communicates to all other processes</div><div class="ttdef"><b>Definition:</b> mpiguard.hh:132</div></div>
-<div class="ttc" id="aa02176_html_a5d2f7d69ac52a68541a5fa4993affa9b"><div class="ttname"><a href="a02176.html#a5d2f7d69ac52a68541a5fa4993affa9b">Dune::MPIGuard::reactivate</a></div><div class="ttdeci">void reactivate()</div><div class="ttdoc">reactivate the guard.</div><div class="ttdef"><b>Definition:</b> mpiguard.hh:200</div></div>
-<div class="ttc" id="aa02176_html_aa62d92872dd577561a2014a94e12ce93"><div class="ttname"><a href="a02176.html#aa62d92872dd577561a2014a94e12ce93">Dune::MPIGuard::finalize</a></div><div class="ttdeci">void finalize(bool success=true)</div><div class="ttdoc">stop the guard.</div><div class="ttdef"><b>Definition:</b> mpiguard.hh:216</div></div>
-<div class="ttc" id="aa02176_html_aa6f3f082ef7baf6c289d7100355b47d7"><div class="ttname"><a href="a02176.html#aa6f3f082ef7baf6c289d7100355b47d7">Dune::MPIGuard::~MPIGuard</a></div><div class="ttdeci">~MPIGuard()</div><div class="ttdoc">destroy the guard and check for undetected exceptions</div><div class="ttdef"><b>Definition:</b> mpiguard.hh:186</div></div>
-<div class="ttc" id="aa02176_html_aa8a8f8af42a0d96879e6a07def3f08fe"><div class="ttname"><a href="a02176.html#aa8a8f8af42a0d96879e6a07def3f08fe">Dune::MPIGuard::MPIGuard</a></div><div class="ttdeci">MPIGuard(const C &amp;comm, bool active=true)</div><div class="ttdoc">create an MPIGuard operating on an arbitrary communicator.</div><div class="ttdef"><b>Definition:</b> mpiguard.hh:172</div></div>
-<div class="ttc" id="aa02176_html_aafb09885f516dcf7b8006387867a3f4c"><div class="ttname"><a href="a02176.html#aafb09885f516dcf7b8006387867a3f4c">Dune::MPIGuard::MPIGuard</a></div><div class="ttdeci">MPIGuard(const MPI_Comm &amp;comm, bool active=true)</div><div class="ttdef"><b>Definition:</b> mpiguard.hh:178</div></div>
-<div class="ttc" id="aa02176_html_ad0dafbe8eb21985ac54f70e48ce44def"><div class="ttname"><a href="a02176.html#ad0dafbe8eb21985ac54f70e48ce44def">Dune::MPIGuard::MPIGuard</a></div><div class="ttdeci">MPIGuard(bool active=true)</div><div class="ttdoc">create an MPIGuard operating on the Communicator of the global Dune::MPIHelper</div><div class="ttdef"><b>Definition:</b> mpiguard.hh:144</div></div>
-<div class="ttc" id="aa02176_html_ade82937388e34e6b822f440abcebc515"><div class="ttname"><a href="a02176.html#ade82937388e34e6b822f440abcebc515">Dune::MPIGuard::MPIGuard</a></div><div class="ttdeci">MPIGuard(MPIHelper &amp;m, bool active=true)</div><div class="ttdoc">create an MPIGuard operating on the Communicator of a special Dune::MPIHelper m</div><div class="ttdef"><b>Definition:</b> mpiguard.hh:155</div></div>
-<div class="ttc" id="aa02184_html"><div class="ttname"><a href="a02184.html">Dune::MPIHelper</a></div><div class="ttdoc">A real mpi helper.</div><div class="ttdef"><b>Definition:</b> mpihelper.hh:169</div></div>
+<div class="ttc" id="aa00428_html"><div class="ttname"><a href="a00428.html">Dune</a></div><div class="ttdoc">Dune namespace.</div><div class="ttdef"><b>Definition:</b> alignedallocator.hh:11</div></div>
+<div class="ttc" id="aa01585_html"><div class="ttname"><a href="a01585.html">Dune::ParallelError</a></div><div class="ttdoc">Default exception if an error in the parallel communication of the program occurred.</div><div class="ttdef"><b>Definition:</b> exceptions.hh:285</div></div>
+<div class="ttc" id="aa02169_html"><div class="ttname"><a href="a02169.html">Dune::MPIGuardError</a></div><div class="ttdoc">This exception is thrown if the MPIGuard detects an error on a remote process.</div><div class="ttdef"><b>Definition:</b> mpiguard.hh:97</div></div>
+<div class="ttc" id="aa02173_html"><div class="ttname"><a href="a02173.html">Dune::MPIGuard</a></div><div class="ttdoc">detects a thrown exception and communicates to all other processes</div><div class="ttdef"><b>Definition:</b> mpiguard.hh:132</div></div>
+<div class="ttc" id="aa02173_html_a5d2f7d69ac52a68541a5fa4993affa9b"><div class="ttname"><a href="a02173.html#a5d2f7d69ac52a68541a5fa4993affa9b">Dune::MPIGuard::reactivate</a></div><div class="ttdeci">void reactivate()</div><div class="ttdoc">reactivate the guard.</div><div class="ttdef"><b>Definition:</b> mpiguard.hh:200</div></div>
+<div class="ttc" id="aa02173_html_aa62d92872dd577561a2014a94e12ce93"><div class="ttname"><a href="a02173.html#aa62d92872dd577561a2014a94e12ce93">Dune::MPIGuard::finalize</a></div><div class="ttdeci">void finalize(bool success=true)</div><div class="ttdoc">stop the guard.</div><div class="ttdef"><b>Definition:</b> mpiguard.hh:216</div></div>
+<div class="ttc" id="aa02173_html_aa6f3f082ef7baf6c289d7100355b47d7"><div class="ttname"><a href="a02173.html#aa6f3f082ef7baf6c289d7100355b47d7">Dune::MPIGuard::~MPIGuard</a></div><div class="ttdeci">~MPIGuard()</div><div class="ttdoc">destroy the guard and check for undetected exceptions</div><div class="ttdef"><b>Definition:</b> mpiguard.hh:186</div></div>
+<div class="ttc" id="aa02173_html_aa8a8f8af42a0d96879e6a07def3f08fe"><div class="ttname"><a href="a02173.html#aa8a8f8af42a0d96879e6a07def3f08fe">Dune::MPIGuard::MPIGuard</a></div><div class="ttdeci">MPIGuard(const C &amp;comm, bool active=true)</div><div class="ttdoc">create an MPIGuard operating on an arbitrary communicator.</div><div class="ttdef"><b>Definition:</b> mpiguard.hh:172</div></div>
+<div class="ttc" id="aa02173_html_aafb09885f516dcf7b8006387867a3f4c"><div class="ttname"><a href="a02173.html#aafb09885f516dcf7b8006387867a3f4c">Dune::MPIGuard::MPIGuard</a></div><div class="ttdeci">MPIGuard(const MPI_Comm &amp;comm, bool active=true)</div><div class="ttdef"><b>Definition:</b> mpiguard.hh:178</div></div>
+<div class="ttc" id="aa02173_html_ad0dafbe8eb21985ac54f70e48ce44def"><div class="ttname"><a href="a02173.html#ad0dafbe8eb21985ac54f70e48ce44def">Dune::MPIGuard::MPIGuard</a></div><div class="ttdeci">MPIGuard(bool active=true)</div><div class="ttdoc">create an MPIGuard operating on the Communicator of the global Dune::MPIHelper</div><div class="ttdef"><b>Definition:</b> mpiguard.hh:144</div></div>
+<div class="ttc" id="aa02173_html_ade82937388e34e6b822f440abcebc515"><div class="ttname"><a href="a02173.html#ade82937388e34e6b822f440abcebc515">Dune::MPIGuard::MPIGuard</a></div><div class="ttdeci">MPIGuard(MPIHelper &amp;m, bool active=true)</div><div class="ttdoc">create an MPIGuard operating on the Communicator of a special Dune::MPIHelper m</div><div class="ttdef"><b>Definition:</b> mpiguard.hh:155</div></div>
+<div class="ttc" id="aa02181_html"><div class="ttname"><a href="a02181.html">Dune::MPIHelper</a></div><div class="ttdoc">A real mpi helper.</div><div class="ttdef"><b>Definition:</b> mpihelper.hh:175</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

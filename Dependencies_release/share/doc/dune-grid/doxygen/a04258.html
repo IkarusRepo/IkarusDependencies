@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: Dune::YLoadBalanceDefault&lt; d &gt; Class Template Reference</title>
+<title>dune-grid: Dune::YaspFixedSizePartitioner&lt; d &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,7 +62,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00936.html">Dune</a></li><li class="navelem"><a class="el" href="a04258.html">YLoadBalanceDefault</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00940.html">Dune</a></li><li class="navelem"><a class="el" href="a04258.html">YaspFixedSizePartitioner</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -71,62 +71,46 @@ $(function() {
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="a04255.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::YLoadBalanceDefault&lt; d &gt; Class Template Reference</div>  </div>
+<div class="title">Dune::YaspFixedSizePartitioner&lt; d &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Implement the default load balance strategy of yaspgrid.  
+<p>Implement partitioner that gets a fixed partitioning from an array If the given partitioning doesn't match the number of processors, the grid should be distributed to, an exception is thrown.  
  <a href="a04258.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00158_source.html">dune/grid/yaspgrid/partitioning.hh</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00167_source.html">dune/grid/yaspgrid/partitioning.hh</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for Dune::YLoadBalanceDefault&lt; d &gt;:</div>
+Inheritance diagram for Dune::YaspFixedSizePartitioner&lt; d &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="a04257.png" border="0" usemap="#a_dune_1_1_y_load_balance_default_3_01d_01_4_inherit__map" alt="Inheritance graph"/></div>
-<map name="a_dune_1_1_y_load_balance_default_3_01d_01_4_inherit__map" id="a_dune_1_1_y_load_balance_default_3_01d_01_4_inherit__map">
-<area shape="rect" title="Implement the default load balance strategy of yaspgrid." alt="" coords="5,80,220,107"/>
-<area shape="rect" href="a04254.html" title="a base class for the yaspgrid partitioning strategy The name might be irritating. It will probably ch..." alt="" coords="25,5,200,32"/>
+<div class="center"><img src="a04257.png" border="0" usemap="#a_dune_1_1_yasp_fixed_size_partitioner_3_01d_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="a_dune_1_1_yasp_fixed_size_partitioner_3_01d_01_4_inherit__map" id="a_dune_1_1_yasp_fixed_size_partitioner_3_01d_01_4_inherit__map">
+<area shape="rect" title="Implement partitioner that gets a fixed partitioning from an array If the given partitioning doesn&#39;t ..." alt="" coords="5,80,244,107"/>
+<area shape="rect" href="a04246.html" title="a base class for the yaspgrid partitioning strategy The name might be irritating. It will probably ch..." alt="" coords="37,5,212,32"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:add714942041ab1c0d5d358a259c9faf1"><td class="memItemLeft" align="right" valign="top">typedef std::array&lt; int, d &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04258.html#add714942041ab1c0d5d358a259c9faf1">iTupel</a></td></tr>
-<tr class="separator:add714942041ab1c0d5d358a259c9faf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff6c1817d7290b72c628d45f54a9c590"><td class="memItemLeft" align="right" valign="top">typedef std::array&lt; int, d &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04246.html#aff6c1817d7290b72c628d45f54a9c590">iTupel</a></td></tr>
+<tr class="separator:aff6c1817d7290b72c628d45f54a9c590"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2f2fd81418e6ecfc1b7c2aa09b046a1c"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04258.html#a2f2fd81418e6ecfc1b7c2aa09b046a1c">~YLoadBalanceDefault</a> ()</td></tr>
-<tr class="separator:a2f2fd81418e6ecfc1b7c2aa09b046a1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c816fac482ccc2c7e519aa93b56d7b6"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04258.html#a6c816fac482ccc2c7e519aa93b56d7b6">loadbalance</a> (const <a class="el" href="a04254.html#aff6c1817d7290b72c628d45f54a9c590">iTupel</a> &amp;size, int P, <a class="el" href="a04254.html#aff6c1817d7290b72c628d45f54a9c590">iTupel</a> &amp;dims) const</td></tr>
-<tr class="memdesc:a6c816fac482ccc2c7e519aa93b56d7b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Distribute a structured grid across a set of processors.  <a href="a04258.html#a6c816fac482ccc2c7e519aa93b56d7b6">More...</a><br /></td></tr>
-<tr class="separator:a6c816fac482ccc2c7e519aa93b56d7b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39d7dc26492e408116093158af089bba"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04258.html#a39d7dc26492e408116093158af089bba">YaspFixedSizePartitioner</a> (const std::array&lt; int, d &gt; &amp;dims)</td></tr>
+<tr class="separator:a39d7dc26492e408116093158af089bba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92a1bba8601e794a2d39c51a18495b1c"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04258.html#a92a1bba8601e794a2d39c51a18495b1c">~YaspFixedSizePartitioner</a> ()</td></tr>
+<tr class="separator:a92a1bba8601e794a2d39c51a18495b1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd5c1f83a1377b789c0a796626229f46"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a04258.html#acd5c1f83a1377b789c0a796626229f46">loadbalance</a> (const std::array&lt; int, d &gt; &amp;, int P, std::array&lt; int, d &gt; &amp;dims) const</td></tr>
+<tr class="separator:acd5c1f83a1377b789c0a796626229f46"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;int d&gt;<br />
-class Dune::YLoadBalanceDefault&lt; d &gt;</h3>
+class Dune::YaspFixedSizePartitioner&lt; d &gt;</h3>
 
-<p>Implement the default load balance strategy of yaspgrid. </p>
+<p>Implement partitioner that gets a fixed partitioning from an array If the given partitioning doesn't match the number of processors, the grid should be distributed to, an exception is thrown. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="add714942041ab1c0d5d358a259c9faf1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#add714942041ab1c0d5d358a259c9faf1">&#9670;&nbsp;</a></span>iTupel</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int d&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef std::array&lt;int, d&gt; <a class="el" href="a04258.html">Dune::YLoadBalanceDefault</a>&lt; d &gt;::<a class="el" href="a04254.html#aff6c1817d7290b72c628d45f54a9c590">iTupel</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a2f2fd81418e6ecfc1b7c2aa09b046a1c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2f2fd81418e6ecfc1b7c2aa09b046a1c">&#9670;&nbsp;</a></span>~YLoadBalanceDefault()</h2>
+<a id="aff6c1817d7290b72c628d45f54a9c590"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff6c1817d7290b72c628d45f54a9c590">&#9670;&nbsp;</a></span>iTupel</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -137,7 +121,60 @@ template&lt;int d&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="a04258.html">Dune::YLoadBalanceDefault</a>&lt; d &gt;::~<a class="el" href="a04258.html">YLoadBalanceDefault</a> </td>
+          <td class="memname">typedef std::array&lt;int, d&gt; <a class="el" href="a04246.html">Dune::YLoadBalance</a>&lt; d &gt;::<a class="el" href="a04246.html#aff6c1817d7290b72c628d45f54a9c590">iTupel</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a39d7dc26492e408116093158af089bba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39d7dc26492e408116093158af089bba">&#9670;&nbsp;</a></span>YaspFixedSizePartitioner()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int d&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a04258.html">Dune::YaspFixedSizePartitioner</a>&lt; d &gt;::<a class="el" href="a04258.html">YaspFixedSizePartitioner</a> </td>
+          <td>(</td>
+          <td class="paramtype">const std::array&lt; int, d &gt; &amp;&#160;</td>
+          <td class="paramname"><em>dims</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a92a1bba8601e794a2d39c51a18495b1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92a1bba8601e794a2d39c51a18495b1c">&#9670;&nbsp;</a></span>~YaspFixedSizePartitioner()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int d&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="a04258.html">Dune::YaspFixedSizePartitioner</a>&lt; d &gt;::~<a class="el" href="a04258.html">YaspFixedSizePartitioner</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -153,8 +190,8 @@ template&lt;int d&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a6c816fac482ccc2c7e519aa93b56d7b6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6c816fac482ccc2c7e519aa93b56d7b6">&#9670;&nbsp;</a></span>loadbalance()</h2>
+<a id="acd5c1f83a1377b789c0a796626229f46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd5c1f83a1377b789c0a796626229f46">&#9670;&nbsp;</a></span>loadbalance()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -165,10 +202,10 @@ template&lt;int d&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void <a class="el" href="a04258.html">Dune::YLoadBalanceDefault</a>&lt; d &gt;::loadbalance </td>
+          <td class="memname">virtual void <a class="el" href="a04258.html">Dune::YaspFixedSizePartitioner</a>&lt; d &gt;::loadbalance </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a04254.html#aff6c1817d7290b72c628d45f54a9c590">iTupel</a> &amp;&#160;</td>
-          <td class="paramname"><em>size</em>, </td>
+          <td class="paramtype">const std::array&lt; int, d &gt; &amp;&#160;</td>
+          <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -179,7 +216,7 @@ template&lt;int d&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a04254.html#aff6c1817d7290b72c628d45f54a9c590">iTupel</a> &amp;&#160;</td>
+          <td class="paramtype">std::array&lt; int, d &gt; &amp;&#160;</td>
           <td class="paramname"><em>dims</em>&#160;</td>
         </tr>
         <tr>
@@ -195,21 +232,12 @@ template&lt;int d&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Distribute a structured grid across a set of processors. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>Number of elements in each coordinate direction, for the entire grid </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">P</td><td>Number of processors </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Implements <a class="el" href="a04254.html#ae7995b1c6d66c615f64631453ea2fe7c">Dune::YLoadBalance&lt; d &gt;</a>.</p>
+<p>Implements <a class="el" href="a04246.html#ae7995b1c6d66c615f64631453ea2fe7c">Dune::YLoadBalance&lt; d &gt;</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="a00158_source.html">partitioning.hh</a></li>
+<li><a class="el" href="a00167_source.html">partitioning.hh</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

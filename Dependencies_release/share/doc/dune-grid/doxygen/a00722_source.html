@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: dgfoned.hh Source File</title>
+<title>dune-grid: dgfgridfactory.hh Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -67,251 +67,235 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">dgfoned.hh</div>  </div>
+<div class="title">dgfgridfactory.hh</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="a00722.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*-</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// vi: set et ts=4 sw=2 sts=2:</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifndef DUNE_GRID_FILE_IO_DGFPARSER_DGFONED_HH</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define DUNE_GRID_FILE_IO_DGFPARSER_DGFONED_HH</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifndef DUNE_DGF_GRIDFACTORY_HH</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define DUNE_DGF_GRIDFACTORY_HH</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//- C++ includes</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;istream&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">//- dune-common includes</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;dune/common/exceptions.hh&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;assert.h&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;dune/common/parallel/mpihelper.hh&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00716.html">dune/grid/io/file/dgfparser/dgfexception.hh</a>&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00752.html">dune/grid/io/file/dgfparser/macrogrid.hh</a>&gt;</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">//- dune-grid includes</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a06839.html">dune/grid/common/intersection.hh</a>&gt;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00842.html">dune/grid/onedgrid.hh</a>&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00755.html">dune/grid/io/file/dgfparser/parser.hh</a>&gt;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a06744.html">dune/grid/common/intersection.hh</a>&gt;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">//- local includes</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="a06764.html">dgfparser.hh</a>&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00940.html">Dune</a></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">namespace</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="comment">// helper method used below</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="keywordtype">double</span> getfirst ( std::vector&lt; double &gt; v )</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">return</span> v[ 0 ];</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  }</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}  <span class="comment">// end anonymous namespace</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="comment">// External Forward Declarations</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="comment">// -----------------------------</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keyword">template</span> &lt; <span class="keyword">class</span> Gr<span class="keywordtype">id</span>Imp, <span class="keyword">class</span> IntersectionImp &gt;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="keyword">class </span>Intersection;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="comment">// DGFGridFactory</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="comment">// --------------</span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00936.html">Dune</a></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="comment">// DGFGridInfo</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="comment">// -----------</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keyword">template</span> &lt; <span class="keyword">class</span> G &gt;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="a01770.html">   35</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a01770.html">DGFGridFactory</a></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  {</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="a01770.html#aacdf8a1ced5c7f3a475794c56d1b51a2">   37</a></span>&#160;    <span class="keyword">typedef</span> G <a class="code" href="a01770.html#aacdf8a1ced5c7f3a475794c56d1b51a2">Grid</a>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="a01770.html#aaffd9982016fe3b91b0ef27ad435efdb">   38</a></span>&#160;    <span class="keyword">const</span> <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="a01770.html#aaffd9982016fe3b91b0ef27ad435efdb">dimension</a> = <a class="code" href="a02710.html#ad60b40e40ac87b01ad0b1f05ab4925b1a3d6a22a414566af9b4a356f760fce944">Grid::dimension</a>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="a01770.html#a4ec0522ca63de361e7cb089c4d52156b">   39</a></span>&#160;    <span class="keyword">typedef</span> MPIHelper::MPICommunicator <a class="code" href="a01770.html#a4ec0522ca63de361e7cb089c4d52156b">MPICommunicatorType</a>;</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keyword">template</span>&lt; &gt;</div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="a03562.html">   42</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a03574.html">DGFGridInfo</a>&lt; <a class="code" href="a03942.html">OneDGrid</a> &gt;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  {</div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="a03562.html#ad0757ecf6b0a8b4fb0844a0c747414bd">   44</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="a03562.html#ad0757ecf6b0a8b4fb0844a0c747414bd">refineStepsForHalf</a> ()</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;      <span class="keywordflow">return</span> 1;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    }</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="a03562.html#a02bbf767c703ff14f7145700b5c5d276">   49</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">double</span> <a class="code" href="a03562.html#a02bbf767c703ff14f7145700b5c5d276">refineWeight</a> ()</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;      <span class="keywordflow">return</span> 0.5;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    }</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  };</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="comment">// DGFGridFactory&lt; OneDGrid &gt;</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="comment">// --------------------------</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="keyword">template</span>&lt; &gt;</div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="a03566.html">   61</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a01766.html">DGFGridFactory</a>&lt; <a class="code" href="a03942.html">OneDGrid</a> &gt;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  {</div>
-<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="a03566.html#a140dfbb16338438531a7793d42c521a8">   64</a></span>&#160;    <span class="keyword">typedef</span> <a class="code" href="a03942.html">OneDGrid</a> <a class="code" href="a03566.html#a140dfbb16338438531a7793d42c521a8">Grid</a>;</div>
-<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="a03566.html#ad641dd9810a85b5998d8ddf7bce0115e">   66</a></span>&#160;    <span class="keyword">const</span> <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="a01766.html#aaffd9982016fe3b91b0ef27ad435efdb">dimension</a> = <a class="code" href="a02698.html#ad60b40e40ac87b01ad0b1f05ab4925b1a3d6a22a414566af9b4a356f760fce944">Grid::dimension</a>;</div>
-<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="a03566.html#a533bbb5aa92a828636d513a118168c01">   68</a></span>&#160;    <span class="keyword">typedef</span> MPIHelper::MPICommunicator <a class="code" href="a03566.html#a533bbb5aa92a828636d513a118168c01">MPICommunicatorType</a>;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="a03566.html#ae3908705e3fdb6774d9fd619a5d2e906">   71</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="a03566.html#ae3908705e3fdb6774d9fd619a5d2e906">DGFGridFactory</a> ( std::istream &amp;input,</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                              <a class="code" href="a03566.html#a533bbb5aa92a828636d513a118168c01">MPICommunicatorType</a> comm = MPIHelper::getCommunicator() )</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;      : grid_( 0 ),</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        emptyParameters_( 0 )</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    {</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;      generate( input, comm );</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    }</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> Grid::template Codim&lt; 0 &gt;::Entity Element;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> Grid::template Codim&lt; dimension &gt;::Entity Vertex;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="a01770.html#a82521e219bb9060247f79ff3ac4f99dd">   48</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="a01770.html#a82521e219bb9060247f79ff3ac4f99dd">DGFGridFactory</a> ( <span class="keyword">const</span> std::string &amp;filename,</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                              <a class="code" href="a01770.html#a4ec0522ca63de361e7cb089c4d52156b">MPICommunicatorType</a> comm = MPIHelper::getCommunicator() )</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;      : macroGrid_( filename.c_str(), comm )</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      grid_ = macroGrid_.template createGrid&lt; Grid &gt;();</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      <span class="keywordflow">if</span>( macroGrid_.<a class="code" href="a03630.html#aaed1f1025b6cebb864695399a931c3a6">nofelparams</a> &gt; 0 )</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;      {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">size_t</span> nofElements = macroGrid_.<a class="code" href="a03630.html#ad491b526ea24e65d733f52a62b9aa105">elements</a>.size();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordflow">for</span>( <span class="keywordtype">size_t</span> i = 0; i &lt; nofElements; ++i )</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;          std::vector&lt; double &gt; coord;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;          DomainType p(0);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;          <span class="keyword">const</span> <span class="keywordtype">size_t</span> nofCorners = macroGrid_.<a class="code" href="a03630.html#ad491b526ea24e65d733f52a62b9aa105">elements</a>[i].size();</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;          <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> k=0; k&lt;nofCorners; ++k)</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j=0; j&lt;DomainType::dimension; ++j)</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;              p[j]+=macroGrid_.<a class="code" href="a03630.html#acc59bd603305425555fc3bee4ec8fc94">vtx</a>[macroGrid_.<a class="code" href="a03630.html#ad491b526ea24e65d733f52a62b9aa105">elements</a>[i][k]][j];</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;          p/=<span class="keywordtype">double</span>(nofCorners);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;          elInsertOrder_.insert( std::make_pair( p, i ) );</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        }</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;      }</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;      <span class="keywordflow">if</span>( macroGrid_.<a class="code" href="a03630.html#a0f70cf3b4870057b07784267ec2f7a77">nofvtxparams</a> &gt; 0 )</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;      {</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">size_t</span> nofVertices = macroGrid_.<a class="code" href="a03630.html#acc59bd603305425555fc3bee4ec8fc94">vtx</a>.size();</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordflow">for</span>( <span class="keywordtype">size_t</span> i = 0; i &lt; nofVertices; ++i )</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        {</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;          std::vector&lt; double &gt; coord;</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="a03566.html#adc65c01368f86d442e2abdd48cb57804">   80</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="a03566.html#adc65c01368f86d442e2abdd48cb57804">DGFGridFactory</a> ( <span class="keyword">const</span> std::string &amp;filename,</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                              <a class="code" href="a03566.html#a533bbb5aa92a828636d513a118168c01">MPICommunicatorType</a> comm = MPIHelper::getCommunicator() )</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;      : grid_( 0 ),</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        emptyParameters_( 0 )</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    {</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;      std::ifstream input( filename.c_str() );</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;      generate( input, comm );</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    }</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="a03566.html#ad663dd0c982d5511c111e80baa8056cf">   90</a></span>&#160;    <a class="code" href="a03942.html">Grid</a> *<a class="code" href="a03566.html#ad663dd0c982d5511c111e80baa8056cf">grid</a> ()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;      <span class="keywordflow">return</span> grid_;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    }</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">class</span> GG, <span class="keyword">class</span> II &gt;</div>
-<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="a03566.html#af07313a6c396716c56803dcc45d1e8b6">   97</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="a03566.html#af07313a6c396716c56803dcc45d1e8b6">wasInserted</a> ( <span class="keyword">const</span> <a class="code" href="a01838.html">Dune::Intersection&lt; GG, II &gt;</a> &amp;intersection )<span class="keyword"> const</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;      <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    }</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">class</span> GG, <span class="keyword">class</span> II &gt;</div>
-<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="a03566.html#ab3676335a4c127b97ebf8a5576d77bbf">  103</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="a03566.html#ab3676335a4c127b97ebf8a5576d77bbf">boundaryId</a> ( <span class="keyword">const</span> <a class="code" href="a01838.html">Dune::Intersection&lt; GG, II &gt;</a> &amp;intersection )<span class="keyword"> const</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;      <span class="comment">// OneDGrid returns boundary segment index;</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;      <span class="comment">// we return the index as the method boundaryId is deprecated</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;      <span class="keywordflow">return</span> intersection.<a class="code" href="a01838.html#a8124a395dceb916e0dc3c2183e0831d3">boundarySegmentIndex</a>();</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    }</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">class</span> Entity &gt;</div>
-<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="a03566.html#ad859752fc6861566a8b033707782a7d1">  112</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="a03566.html#ad859752fc6861566a8b033707782a7d1">numParameters</a> ( <span class="keyword">const</span> <a class="code" href="a02630.html">Entity</a> &amp; )<span class="keyword"> const</span></div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;      <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    }</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keyword">template</span>&lt; <span class="keywordtype">int</span> codim &gt;</div>
-<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="a03566.html#ae8c5690e600e321f2e91cdaddbee81a7">  119</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="a03566.html#ae8c5690e600e321f2e91cdaddbee81a7">numParameters</a> ()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;      <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    }</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">class</span> Entity &gt;</div>
-<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="a03566.html#a0d8efa1f3a910dee6910d650326a7065">  125</a></span>&#160;    std::vector&lt; double &gt;&amp; <a class="code" href="a03566.html#a0d8efa1f3a910dee6910d650326a7065">parameter</a> ( <span class="keyword">const</span> <a class="code" href="a02630.html">Entity</a> &amp;entity )</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    {</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;      <span class="keywordflow">return</span> parameter&lt; Entity::codimension &gt;( entity );</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    }</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;          DomainType p;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;          <span class="keywordflow">for</span>( <span class="keywordtype">int</span> k = 0; k &lt; DomainType::dimension; ++k )</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            p[ k ] = macroGrid_.<a class="code" href="a03630.html#acc59bd603305425555fc3bee4ec8fc94">vtx</a>[i][k];</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;          vtxInsertOrder_.insert( std::make_pair( p, i ) );</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        }</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;      }</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    }</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="a01770.html#aae7b618e6f091329dece01ede72fac55">   88</a></span>&#160;    <a class="code" href="a01770.html#aacdf8a1ced5c7f3a475794c56d1b51a2">Grid</a> *<a class="code" href="a01770.html#aae7b618e6f091329dece01ede72fac55">grid</a>()</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    {</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;      <span class="keywordflow">return</span> grid_;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    }</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> Intersection&gt;</div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="a01770.html#a63f0041d74d73cc87923875a6d0de6ff">   94</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="a01770.html#a63f0041d74d73cc87923875a6d0de6ff">wasInserted</a>(<span class="keyword">const</span> <a class="code" href="a01842.html">Intersection</a> &amp;intersection)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;      <span class="keywordflow">return</span> intersection.<a class="code" href="a01842.html#a40c5b5c4895d8ed963fd28a9db9d9c3d">boundary</a>();</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    }</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> Intersection&gt;</div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="a01770.html#a2cd96b5f1ddc07be7a163914e023dd7d">  100</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="a01770.html#a2cd96b5f1ddc07be7a163914e023dd7d">boundaryId</a>(<span class="keyword">const</span> <a class="code" href="a01842.html">Intersection</a> &amp;intersection)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;      <span class="keywordflow">return</span> (intersection.<a class="code" href="a01842.html#a40c5b5c4895d8ed963fd28a9db9d9c3d">boundary</a>()) ? int(intersection.<a class="code" href="a01842.html#a444ce2caf541794180bfc09e26450311">indexInInside</a>()+1) : int(0);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    }</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keyword">template</span>&lt; <span class="keywordtype">int</span> codim &gt;</div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="a01770.html#a23f9666928f5789ae17b03a967e8db59">  106</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="a01770.html#a23f9666928f5789ae17b03a967e8db59">numParameters</a> ()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;      <span class="keywordflow">if</span>( codim == 0 )</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordflow">return</span> macroGrid_.<a class="code" href="a03630.html#aaed1f1025b6cebb864695399a931c3a6">nofelparams</a>;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;      <span class="keywordflow">else</span> <span class="keywordflow">if</span>( codim == <a class="code" href="a01770.html#aaffd9982016fe3b91b0ef27ad435efdb">dimension</a> )</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="keywordflow">return</span> macroGrid_.<a class="code" href="a03630.html#a0f70cf3b4870057b07784267ec2f7a77">nofvtxparams</a>;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;      <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    }</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keyword">template</span> &lt; <span class="keyword">class</span> Entity &gt;</div>
+<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="a01770.html#a4efa75581ee896286ca1b9e95a737254">  117</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="a01770.html#a4efa75581ee896286ca1b9e95a737254">numParameters</a> ( <span class="keyword">const</span> <a class="code" href="a02642.html">Entity</a> &amp; )<span class="keyword"> const</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;      <span class="keywordflow">return</span> numParameters&lt; Entity::codimension &gt;();</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    }</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno"><a class="line" href="a01770.html#aaac673b1ec524154b3f639185cc039d8">  122</a></span>&#160;    std::vector&lt;double&gt;&amp; <a class="code" href="a01770.html#aaac673b1ec524154b3f639185cc039d8">parameter</a>(<span class="keyword">const</span> Element &amp;element)</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    {</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;      <span class="keyword">const</span> <span class="keyword">typename</span> Element::Geometry &amp;geo = element.geometry();</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;      DomainType coord( geo.corner( 0 ) );</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;      <span class="keywordflow">for</span>( <span class="keywordtype">int</span> i = 1; i &lt; geo.corners(); ++i )</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        coord += geo.corner( i );</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;      coord /= double( geo.corners() );</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keyword">template</span>&lt; <span class="keywordtype">int</span> codim &gt;</div>
-<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="a03566.html#a745b4cbb885c8903e7f16933841db822">  132</a></span>&#160;    std::vector&lt; double &gt; &amp;<a class="code" href="a03566.html#a745b4cbb885c8903e7f16933841db822">parameter</a> ( <span class="keyword">const</span> <span class="keyword">typename</span> <a class="code" href="a02702.html#a010395efed236aefd4d2fab3b0ad8e96">Grid::Codim&lt; codim &gt;::Entity</a> &amp;element )</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    {</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;      <span class="keywordflow">return</span> emptyParameters_;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;      InsertOrderIterator it = elInsertOrder_.find( coord );</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;      <span class="keywordflow">if</span>( it != elInsertOrder_.end() )</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        <span class="keywordflow">return</span> macroGrid_.<a class="code" href="a03630.html#ab11343cb0d0ff86c901e4b33fdc071b9">elParams</a>[ it-&gt;second ];</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;      assert(0);</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;      <span class="keywordflow">return</span> emptyParam;</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    }</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
-<div class="line"><a name="l00138"></a><span class="lineno"><a class="line" href="a03566.html#ad57422a4ae4c57ba149bf31939c90399">  138</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="a03566.html#ad57422a4ae4c57ba149bf31939c90399">haveBoundaryParameters</a> ()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;      <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    }</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">class</span> GG, <span class="keyword">class</span> II &gt;</div>
-<div class="line"><a name="l00145"></a><span class="lineno"><a class="line" href="a03566.html#a2dfadd1349f660983f48392ff78f739b">  145</a></span>&#160;    <span class="keyword">const</span> <a class="code" href="a03634.html#afa9bc1f519c309d951d1955cbce7ea7f">DGFBoundaryParameter::type</a> &amp;<a class="code" href="a03566.html#a2dfadd1349f660983f48392ff78f739b">boundaryParameter</a> ( <span class="keyword">const</span> <a class="code" href="a01838.html">Dune::Intersection&lt; GG, II &gt;</a> &amp;intersection )<span class="keyword"> const</span></div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="a03634.html#a712fa41606a197aacc2bf128aef0e732">DGFBoundaryParameter::defaultValue</a>();</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    }</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="comment">// generate grid</span></div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="keywordtype">void</span> generate ( std::istream &amp;input, <a class="code" href="a01766.html#a4ec0522ca63de361e7cb089c4d52156b">MPICommunicatorType</a> comm );</div>
+<div class="line"><a name="l00137"></a><span class="lineno"><a class="line" href="a01770.html#a9a1853475dc0fd364864c60826f601e9">  137</a></span>&#160;    std::vector&lt;double&gt;&amp; <a class="code" href="a01770.html#a9a1853475dc0fd364864c60826f601e9">parameter</a>(<span class="keyword">const</span> Vertex &amp;<a class="code" href="a00951.html#aceb67a16cc6beb52f71ba8a06d6ef44faa73937549503da3b2e8acd20e667f041">vertex</a>)</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    {</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;      <span class="keyword">const</span> <span class="keyword">typename</span> Vertex::Geometry &amp;geo = <a class="code" href="a00951.html#aceb67a16cc6beb52f71ba8a06d6ef44faa73937549503da3b2e8acd20e667f041">vertex</a>.geometry();</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;      DomainType coord( geo.corner( 0 ) );</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;      InsertOrderIterator it = vtxInsertOrder_.find( coord );</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;      <span class="keywordflow">if</span>( it != vtxInsertOrder_.end() )</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        <span class="keywordflow">return</span> macroGrid_.<a class="code" href="a03630.html#a3936476b43f95f46e1d3ccd8d22f98ce">vtxParams</a>[ it-&gt;second ];</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;      <span class="keywordflow">return</span> emptyParam;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    }</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="comment">// return true if boundary parameters found</span></div>
+<div class="line"><a name="l00149"></a><span class="lineno"><a class="line" href="a01770.html#ae2eaaf12987d004a98b0c5f07a379dfb">  149</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="a01770.html#ae2eaaf12987d004a98b0c5f07a379dfb">haveBoundaryParameters</a> ()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;      <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    }</div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160; </div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <a class="code" href="a02698.html">Grid</a> *grid_;</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    std::vector&lt; double &gt; emptyParameters_;</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;  };</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; </div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; </div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160; </div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;  <span class="comment">// Implementation of DGFGridFactory&lt; OneDGrid &gt;</span></div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;  <span class="comment">// --------------------------------------------</span></div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;  <span class="keyword">inline</span> <span class="keywordtype">void</span> DGFGridFactory&lt; OneDGrid &gt;::generate ( std::istream &amp;input, MPICommunicatorType comm )</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;  {</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="comment">// try to open interval block</span></div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    dgf::IntervalBlock intervalBlock( input );</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160; </div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="comment">// try to open vertex block</span></div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <span class="keywordtype">int</span> dimensionworld = <a class="code" href="a02698.html#ab4f3c3433e4d9b46504c91b3e5c3bfb1a7829985ca62f22ec6c57c5feba1e0604">Grid::dimensionworld</a>;</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    dgf::VertexBlock vertexBlock( input, dimensionworld );</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160; </div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <span class="comment">// check at least one block is active</span></div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keywordflow">if</span>( !( vertexBlock.isactive() || intervalBlock.isactive() ))</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;      DUNE_THROW( DGFException, <span class="stringliteral">&quot;No readable block found&quot;</span> );</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160; </div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    std::vector&lt; std::vector&lt; double &gt; &gt; vertices;</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160; </div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="comment">// read vertices first</span></div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="keywordflow">if</span>( vertexBlock.isactive() )</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    {</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;      <span class="keywordtype">int</span> nparameter = 0;</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;      std::vector&lt; std::vector&lt; double &gt; &gt; <a class="code" href="a01766.html#aaac673b1ec524154b3f639185cc039d8">parameter</a>;</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;      vertexBlock.get( vertices, <a class="code" href="a01766.html#aaac673b1ec524154b3f639185cc039d8">parameter</a>, nparameter );</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; </div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;      <span class="keywordflow">if</span>( nparameter &gt; 0 )</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        std::cerr &lt;&lt; <span class="stringliteral">&quot;Warning: vertex parameters will be ignored&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    }</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160; </div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <span class="comment">// get vertices from interval block</span></div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    <span class="keywordflow">if</span> ( intervalBlock.isactive() )</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    {</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;      <span class="keywordflow">if</span>( intervalBlock.dimw() != dimensionworld )</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;      {</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        DUNE_THROW( DGFException, <span class="stringliteral">&quot;Error: wrong coordinate dimension in interval block \</span></div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="stringliteral">                                   (got &quot;</span>                                                                                         &lt;&lt; intervalBlock.dimw() &lt;&lt; <span class="stringliteral">&quot;, expected &quot;</span> &lt;&lt; dimensionworld &lt;&lt; <span class="stringliteral">&quot;)&quot;</span> );</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;      }</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160; </div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;      <span class="keywordtype">int</span> nintervals = intervalBlock.numIntervals();</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;      <span class="keywordflow">for</span>( <span class="keywordtype">int</span> i = 0; i &lt; nintervals; ++i )</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        intervalBlock.getVtx( i, vertices );</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    }</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160; </div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    <span class="comment">// copy to vector of doubles</span></div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    std::vector&lt; double &gt; vtx( vertices.size() );</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    transform( vertices.begin(), vertices.end(), vtx.begin(), getfirst );</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; </div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    <span class="comment">// remove duplicates</span></div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    std::sort( vtx.begin(), vtx.end() );</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    std::vector&lt; double &gt;::iterator it = std::unique( vtx.begin(), vtx.end() );</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    vtx.erase( it, vtx.end() );</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    <span class="keywordflow">if</span>( vertices.size() != vtx.size() )</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;      std::cerr &lt;&lt; <span class="stringliteral">&quot;Warning: removed duplicate vertices&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160; </div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    <span class="comment">// create grid</span></div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    grid_ = <span class="keyword">new</span> OneDGrid( vtx );</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;  }</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160; </div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;} <span class="comment">// end namespace Dune</span></div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160; </div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// #ifndef DUNE_GRID_FILE_IO_DGFPARSER_DGFONED_HH</span></div>
-<div class="ttc" id="aa00842_html"><div class="ttname"><a href="a00842.html">onedgrid.hh</a></div><div class="ttdoc">The OneDGrid class.</div></div>
-<div class="ttc" id="aa00936_html"><div class="ttname"><a href="a00936.html">Dune</a></div><div class="ttdoc">Include standard header files.</div><div class="ttdef"><b>Definition:</b> agrid.hh:59</div></div>
-<div class="ttc" id="aa01766_html"><div class="ttname"><a href="a01766.html">Dune::DGFGridFactory</a></div><div class="ttdef"><b>Definition:</b> dgfgridfactory.hh:36</div></div>
-<div class="ttc" id="aa01766_html_a4ec0522ca63de361e7cb089c4d52156b"><div class="ttname"><a href="a01766.html#a4ec0522ca63de361e7cb089c4d52156b">Dune::DGFGridFactory::MPICommunicatorType</a></div><div class="ttdeci">MPIHelper::MPICommunicator MPICommunicatorType</div><div class="ttdef"><b>Definition:</b> dgfgridfactory.hh:39</div></div>
-<div class="ttc" id="aa01766_html_aaac673b1ec524154b3f639185cc039d8"><div class="ttname"><a href="a01766.html#aaac673b1ec524154b3f639185cc039d8">Dune::DGFGridFactory::parameter</a></div><div class="ttdeci">std::vector&lt; double &gt; &amp; parameter(const Element &amp;element)</div><div class="ttdef"><b>Definition:</b> dgfgridfactory.hh:129</div></div>
-<div class="ttc" id="aa01766_html_aaffd9982016fe3b91b0ef27ad435efdb"><div class="ttname"><a href="a01766.html#aaffd9982016fe3b91b0ef27ad435efdb">Dune::DGFGridFactory::dimension</a></div><div class="ttdeci">static const int dimension</div><div class="ttdef"><b>Definition:</b> dgfgridfactory.hh:38</div></div>
-<div class="ttc" id="aa01838_html"><div class="ttname"><a href="a01838.html">Dune::Intersection</a></div><div class="ttdoc">Intersection of a mesh entity of codimension 0 (&quot;element&quot;) with a &quot;neighboring&quot; element or with the d...</div><div class="ttdef"><b>Definition:</b> common/intersection.hh:162</div></div>
-<div class="ttc" id="aa01838_html_a8124a395dceb916e0dc3c2183e0831d3"><div class="ttname"><a href="a01838.html#a8124a395dceb916e0dc3c2183e0831d3">Dune::Intersection::boundarySegmentIndex</a></div><div class="ttdeci">size_t boundarySegmentIndex() const</div><div class="ttdoc">index of the boundary segment within the macro grid</div><div class="ttdef"><b>Definition:</b> common/intersection.hh:246</div></div>
-<div class="ttc" id="aa02630_html"><div class="ttname"><a href="a02630.html">Dune::Entity</a></div><div class="ttdoc">Wrapper class for entities.</div><div class="ttdef"><b>Definition:</b> common/entity.hh:64</div></div>
-<div class="ttc" id="aa02698_html"><div class="ttname"><a href="a02698.html">Dune::Grid</a></div><div class="ttdoc">Grid abstract base class.</div><div class="ttdef"><b>Definition:</b> common/grid.hh:373</div></div>
-<div class="ttc" id="aa02698_html_ab4f3c3433e4d9b46504c91b3e5c3bfb1a7829985ca62f22ec6c57c5feba1e0604"><div class="ttname"><a href="a02698.html#ab4f3c3433e4d9b46504c91b3e5c3bfb1a7829985ca62f22ec6c57c5feba1e0604">Dune::Grid::dimensionworld</a></div><div class="ttdeci">@ dimensionworld</div><div class="ttdoc">The dimension of the world the grid lives in.</div><div class="ttdef"><b>Definition:</b> common/grid.hh:393</div></div>
-<div class="ttc" id="aa02698_html_ad60b40e40ac87b01ad0b1f05ab4925b1a3d6a22a414566af9b4a356f760fce944"><div class="ttname"><a href="a02698.html#ad60b40e40ac87b01ad0b1f05ab4925b1a3d6a22a414566af9b4a356f760fce944">Dune::Grid::dimension</a></div><div class="ttdeci">@ dimension</div><div class="ttdoc">The dimension of the grid.</div><div class="ttdef"><b>Definition:</b> common/grid.hh:387</div></div>
-<div class="ttc" id="aa02702_html_a010395efed236aefd4d2fab3b0ad8e96"><div class="ttname"><a href="a02702.html#a010395efed236aefd4d2fab3b0ad8e96">Dune::Grid::Codim::Entity</a></div><div class="ttdeci">GridFamily::Traits::template Codim&lt; cd &gt;::Entity Entity</div><div class="ttdoc">A type that is a model of a Dune::Entity&lt;cd,dim,...&gt;.</div><div class="ttdef"><b>Definition:</b> common/grid.hh:423</div></div>
-<div class="ttc" id="aa03562_html_a02bbf767c703ff14f7145700b5c5d276"><div class="ttname"><a href="a03562.html#a02bbf767c703ff14f7145700b5c5d276">Dune::DGFGridInfo&lt; OneDGrid &gt;::refineWeight</a></div><div class="ttdeci">static double refineWeight()</div><div class="ttdef"><b>Definition:</b> dgfoned.hh:49</div></div>
-<div class="ttc" id="aa03562_html_ad0757ecf6b0a8b4fb0844a0c747414bd"><div class="ttname"><a href="a03562.html#ad0757ecf6b0a8b4fb0844a0c747414bd">Dune::DGFGridInfo&lt; OneDGrid &gt;::refineStepsForHalf</a></div><div class="ttdeci">static int refineStepsForHalf()</div><div class="ttdef"><b>Definition:</b> dgfoned.hh:44</div></div>
-<div class="ttc" id="aa03566_html_a0d8efa1f3a910dee6910d650326a7065"><div class="ttname"><a href="a03566.html#a0d8efa1f3a910dee6910d650326a7065">Dune::DGFGridFactory&lt; OneDGrid &gt;::parameter</a></div><div class="ttdeci">std::vector&lt; double &gt; &amp; parameter(const Entity &amp;entity)</div><div class="ttdef"><b>Definition:</b> dgfoned.hh:125</div></div>
-<div class="ttc" id="aa03566_html_a140dfbb16338438531a7793d42c521a8"><div class="ttname"><a href="a03566.html#a140dfbb16338438531a7793d42c521a8">Dune::DGFGridFactory&lt; OneDGrid &gt;::Grid</a></div><div class="ttdeci">OneDGrid Grid</div><div class="ttdoc">grid type</div><div class="ttdef"><b>Definition:</b> dgfoned.hh:64</div></div>
-<div class="ttc" id="aa03566_html_a2dfadd1349f660983f48392ff78f739b"><div class="ttname"><a href="a03566.html#a2dfadd1349f660983f48392ff78f739b">Dune::DGFGridFactory&lt; OneDGrid &gt;::boundaryParameter</a></div><div class="ttdeci">const DGFBoundaryParameter::type &amp; boundaryParameter(const Dune::Intersection&lt; GG, II &gt; &amp;intersection) const</div><div class="ttdoc">return invalid default value</div><div class="ttdef"><b>Definition:</b> dgfoned.hh:145</div></div>
-<div class="ttc" id="aa03566_html_a533bbb5aa92a828636d513a118168c01"><div class="ttname"><a href="a03566.html#a533bbb5aa92a828636d513a118168c01">Dune::DGFGridFactory&lt; OneDGrid &gt;::MPICommunicatorType</a></div><div class="ttdeci">MPIHelper::MPICommunicator MPICommunicatorType</div><div class="ttdoc">MPI communicator type.</div><div class="ttdef"><b>Definition:</b> dgfoned.hh:68</div></div>
-<div class="ttc" id="aa03566_html_a745b4cbb885c8903e7f16933841db822"><div class="ttname"><a href="a03566.html#a745b4cbb885c8903e7f16933841db822">Dune::DGFGridFactory&lt; OneDGrid &gt;::parameter</a></div><div class="ttdeci">std::vector&lt; double &gt; &amp; parameter(const typename Grid::Codim&lt; codim &gt;::Entity &amp;element)</div><div class="ttdoc">return empty vector</div><div class="ttdef"><b>Definition:</b> dgfoned.hh:132</div></div>
-<div class="ttc" id="aa03566_html_ab3676335a4c127b97ebf8a5576d77bbf"><div class="ttname"><a href="a03566.html#ab3676335a4c127b97ebf8a5576d77bbf">Dune::DGFGridFactory&lt; OneDGrid &gt;::boundaryId</a></div><div class="ttdeci">int boundaryId(const Dune::Intersection&lt; GG, II &gt; &amp;intersection) const</div><div class="ttdef"><b>Definition:</b> dgfoned.hh:103</div></div>
-<div class="ttc" id="aa03566_html_ad57422a4ae4c57ba149bf31939c90399"><div class="ttname"><a href="a03566.html#ad57422a4ae4c57ba149bf31939c90399">Dune::DGFGridFactory&lt; OneDGrid &gt;::haveBoundaryParameters</a></div><div class="ttdeci">bool haveBoundaryParameters() const</div><div class="ttdoc">OneDGrid does not support boundary parameters.</div><div class="ttdef"><b>Definition:</b> dgfoned.hh:138</div></div>
-<div class="ttc" id="aa03566_html_ad663dd0c982d5511c111e80baa8056cf"><div class="ttname"><a href="a03566.html#ad663dd0c982d5511c111e80baa8056cf">Dune::DGFGridFactory&lt; OneDGrid &gt;::grid</a></div><div class="ttdeci">Grid * grid() const</div><div class="ttdoc">get grid</div><div class="ttdef"><b>Definition:</b> dgfoned.hh:90</div></div>
-<div class="ttc" id="aa03566_html_ad859752fc6861566a8b033707782a7d1"><div class="ttname"><a href="a03566.html#ad859752fc6861566a8b033707782a7d1">Dune::DGFGridFactory&lt; OneDGrid &gt;::numParameters</a></div><div class="ttdeci">int numParameters(const Entity &amp;) const</div><div class="ttdoc">OneDGrid does not support parameters, returns 0.</div><div class="ttdef"><b>Definition:</b> dgfoned.hh:112</div></div>
-<div class="ttc" id="aa03566_html_adc65c01368f86d442e2abdd48cb57804"><div class="ttname"><a href="a03566.html#adc65c01368f86d442e2abdd48cb57804">Dune::DGFGridFactory&lt; OneDGrid &gt;::DGFGridFactory</a></div><div class="ttdeci">DGFGridFactory(const std::string &amp;filename, MPICommunicatorType comm=MPIHelper::getCommunicator())</div><div class="ttdoc">constructor taking filename</div><div class="ttdef"><b>Definition:</b> dgfoned.hh:80</div></div>
-<div class="ttc" id="aa03566_html_ae3908705e3fdb6774d9fd619a5d2e906"><div class="ttname"><a href="a03566.html#ae3908705e3fdb6774d9fd619a5d2e906">Dune::DGFGridFactory&lt; OneDGrid &gt;::DGFGridFactory</a></div><div class="ttdeci">DGFGridFactory(std::istream &amp;input, MPICommunicatorType comm=MPIHelper::getCommunicator())</div><div class="ttdoc">constructor taking istream</div><div class="ttdef"><b>Definition:</b> dgfoned.hh:71</div></div>
-<div class="ttc" id="aa03566_html_ae8c5690e600e321f2e91cdaddbee81a7"><div class="ttname"><a href="a03566.html#ae8c5690e600e321f2e91cdaddbee81a7">Dune::DGFGridFactory&lt; OneDGrid &gt;::numParameters</a></div><div class="ttdeci">int numParameters() const</div><div class="ttdoc">OneDGrid does not support parameters, returns 0.</div><div class="ttdef"><b>Definition:</b> dgfoned.hh:119</div></div>
-<div class="ttc" id="aa03566_html_af07313a6c396716c56803dcc45d1e8b6"><div class="ttname"><a href="a03566.html#af07313a6c396716c56803dcc45d1e8b6">Dune::DGFGridFactory&lt; OneDGrid &gt;::wasInserted</a></div><div class="ttdeci">bool wasInserted(const Dune::Intersection&lt; GG, II &gt; &amp;intersection) const</div><div class="ttdoc">always returns false</div><div class="ttdef"><b>Definition:</b> dgfoned.hh:97</div></div>
-<div class="ttc" id="aa03574_html"><div class="ttname"><a href="a03574.html">Dune::DGFGridInfo</a></div><div class="ttdoc">Some simple static information for a given GridType.</div><div class="ttdef"><b>Definition:</b> io/file/dgfparser/dgfparser.hh:54</div></div>
-<div class="ttc" id="aa03634_html_a712fa41606a197aacc2bf128aef0e732"><div class="ttname"><a href="a03634.html#a712fa41606a197aacc2bf128aef0e732">Dune::DGFBoundaryParameter::defaultValue</a></div><div class="ttdeci">static const type &amp; defaultValue()</div><div class="ttdoc">default constructor</div><div class="ttdef"><b>Definition:</b> parser.hh:26</div></div>
-<div class="ttc" id="aa03634_html_afa9bc1f519c309d951d1955cbce7ea7f"><div class="ttname"><a href="a03634.html#afa9bc1f519c309d951d1955cbce7ea7f">Dune::DGFBoundaryParameter::type</a></div><div class="ttdeci">std::string type</div><div class="ttdoc">type of additional boundary parameters</div><div class="ttdef"><b>Definition:</b> parser.hh:23</div></div>
-<div class="ttc" id="aa03942_html"><div class="ttname"><a href="a03942.html">Dune::OneDGrid</a></div><div class="ttdoc">One-dimensional adaptive grid.</div><div class="ttdef"><b>Definition:</b> onedgrid.hh:92</div></div>
-<div class="ttc" id="aa06764_html"><div class="ttname"><a href="a06764.html">dgfparser.hh</a></div></div>
-<div class="ttc" id="aa06839_html"><div class="ttname"><a href="a06839.html">intersection.hh</a></div></div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="keyword">template</span>&lt; <span class="keyword">class</span> GG, <span class="keyword">class</span> II &gt;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="keyword">const</span> <span class="keyword">typename</span> <a class="code" href="a03626.html#afa9bc1f519c309d951d1955cbce7ea7f">DGFBoundaryParameter::type</a> &amp;</div>
+<div class="line"><a name="l00156"></a><span class="lineno"><a class="line" href="a01770.html#a2900cb153133fdd7bdfbd0cb026b9bdc">  156</a></span>&#160;    <a class="code" href="a01770.html#a2900cb153133fdd7bdfbd0cb026b9bdc">boundaryParameter</a> ( <span class="keyword">const</span> <a class="code" href="a01842.html">Intersection&lt; GG, II &gt;</a> &amp; intersection )<span class="keyword"> const</span></div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="a03626.html#a712fa41606a197aacc2bf128aef0e732">DGFBoundaryParameter::defaultValue</a>();</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    }</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <span class="keyword">typedef</span> FieldVector&lt;typename Grid::ctype,Grid::dimensionworld&gt; DomainType;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="keyword">struct </span>Compare</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    {</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;      <span class="keywordtype">bool</span> operator() ( <span class="keyword">const</span> DomainType &amp;a, <span class="keyword">const</span> DomainType &amp;b )<span class="keyword"> const</span></div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        <span class="comment">// returns true, if a &lt; b; c[i] &lt; -eps;</span></div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        <span class="keyword">const</span> DomainType c = a - b;</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">double</span> eps = 1e-8;</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; </div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        <span class="keywordflow">for</span>( <span class="keywordtype">int</span> i = 0; i &lt; DomainType::dimension; ++i )</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        {</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;          <span class="keywordflow">if</span>( c[ i ] &lt;= -eps )</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;          <span class="keywordflow">if</span>( c[ i ] &gt;= eps )</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        }</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;      }</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    };</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    <span class="keyword">typedef</span> std::map&lt; DomainType, size_t, Compare &gt; InsertOrderMap;</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> InsertOrderMap::const_iterator InsertOrderIterator;</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160; </div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    MacroGrid macroGrid_;</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <a class="code" href="a01770.html#aacdf8a1ced5c7f3a475794c56d1b51a2">Grid</a> *grid_;</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    InsertOrderMap elInsertOrder_;</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    InsertOrderMap vtxInsertOrder_;</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    std::vector&lt;double&gt; emptyParam;</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;  };</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160; </div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;} <span class="comment">// end namespace Dune</span></div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160; </div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aa00716_html"><div class="ttname"><a href="a00716.html">dgfexception.hh</a></div></div>
+<div class="ttc" id="aa00752_html"><div class="ttname"><a href="a00752.html">macrogrid.hh</a></div></div>
+<div class="ttc" id="aa00755_html"><div class="ttname"><a href="a00755.html">parser.hh</a></div></div>
+<div class="ttc" id="aa00940_html"><div class="ttname"><a href="a00940.html">Dune</a></div><div class="ttdoc">Include standard header files.</div><div class="ttdef"><b>Definition:</b> agrid.hh:58</div></div>
+<div class="ttc" id="aa00951_html_aceb67a16cc6beb52f71ba8a06d6ef44faa73937549503da3b2e8acd20e667f041"><div class="ttname"><a href="a00951.html#aceb67a16cc6beb52f71ba8a06d6ef44faa73937549503da3b2e8acd20e667f041">Dune::VTK::vertex</a></div><div class="ttdeci">@ vertex</div><div class="ttdef"><b>Definition:</b> common.hh:131</div></div>
+<div class="ttc" id="aa01770_html"><div class="ttname"><a href="a01770.html">Dune::DGFGridFactory</a></div><div class="ttdef"><b>Definition:</b> dgfgridfactory.hh:36</div></div>
+<div class="ttc" id="aa01770_html_a23f9666928f5789ae17b03a967e8db59"><div class="ttname"><a href="a01770.html#a23f9666928f5789ae17b03a967e8db59">Dune::DGFGridFactory::numParameters</a></div><div class="ttdeci">int numParameters() const</div><div class="ttdef"><b>Definition:</b> dgfgridfactory.hh:106</div></div>
+<div class="ttc" id="aa01770_html_a2900cb153133fdd7bdfbd0cb026b9bdc"><div class="ttname"><a href="a01770.html#a2900cb153133fdd7bdfbd0cb026b9bdc">Dune::DGFGridFactory::boundaryParameter</a></div><div class="ttdeci">const DGFBoundaryParameter::type &amp; boundaryParameter(const Intersection&lt; GG, II &gt; &amp;intersection) const</div><div class="ttdef"><b>Definition:</b> dgfgridfactory.hh:156</div></div>
+<div class="ttc" id="aa01770_html_a2cd96b5f1ddc07be7a163914e023dd7d"><div class="ttname"><a href="a01770.html#a2cd96b5f1ddc07be7a163914e023dd7d">Dune::DGFGridFactory::boundaryId</a></div><div class="ttdeci">int boundaryId(const Intersection &amp;intersection) const</div><div class="ttdef"><b>Definition:</b> dgfgridfactory.hh:100</div></div>
+<div class="ttc" id="aa01770_html_a4ec0522ca63de361e7cb089c4d52156b"><div class="ttname"><a href="a01770.html#a4ec0522ca63de361e7cb089c4d52156b">Dune::DGFGridFactory::MPICommunicatorType</a></div><div class="ttdeci">MPIHelper::MPICommunicator MPICommunicatorType</div><div class="ttdef"><b>Definition:</b> dgfgridfactory.hh:39</div></div>
+<div class="ttc" id="aa01770_html_a4efa75581ee896286ca1b9e95a737254"><div class="ttname"><a href="a01770.html#a4efa75581ee896286ca1b9e95a737254">Dune::DGFGridFactory::numParameters</a></div><div class="ttdeci">int numParameters(const Entity &amp;) const</div><div class="ttdef"><b>Definition:</b> dgfgridfactory.hh:117</div></div>
+<div class="ttc" id="aa01770_html_a63f0041d74d73cc87923875a6d0de6ff"><div class="ttname"><a href="a01770.html#a63f0041d74d73cc87923875a6d0de6ff">Dune::DGFGridFactory::wasInserted</a></div><div class="ttdeci">bool wasInserted(const Intersection &amp;intersection) const</div><div class="ttdef"><b>Definition:</b> dgfgridfactory.hh:94</div></div>
+<div class="ttc" id="aa01770_html_a82521e219bb9060247f79ff3ac4f99dd"><div class="ttname"><a href="a01770.html#a82521e219bb9060247f79ff3ac4f99dd">Dune::DGFGridFactory::DGFGridFactory</a></div><div class="ttdeci">DGFGridFactory(const std::string &amp;filename, MPICommunicatorType comm=MPIHelper::getCommunicator())</div><div class="ttdef"><b>Definition:</b> dgfgridfactory.hh:48</div></div>
+<div class="ttc" id="aa01770_html_a9a1853475dc0fd364864c60826f601e9"><div class="ttname"><a href="a01770.html#a9a1853475dc0fd364864c60826f601e9">Dune::DGFGridFactory::parameter</a></div><div class="ttdeci">std::vector&lt; double &gt; &amp; parameter(const Vertex &amp;vertex)</div><div class="ttdef"><b>Definition:</b> dgfgridfactory.hh:137</div></div>
+<div class="ttc" id="aa01770_html_aaac673b1ec524154b3f639185cc039d8"><div class="ttname"><a href="a01770.html#aaac673b1ec524154b3f639185cc039d8">Dune::DGFGridFactory::parameter</a></div><div class="ttdeci">std::vector&lt; double &gt; &amp; parameter(const Element &amp;element)</div><div class="ttdef"><b>Definition:</b> dgfgridfactory.hh:122</div></div>
+<div class="ttc" id="aa01770_html_aacdf8a1ced5c7f3a475794c56d1b51a2"><div class="ttname"><a href="a01770.html#aacdf8a1ced5c7f3a475794c56d1b51a2">Dune::DGFGridFactory::Grid</a></div><div class="ttdeci">G Grid</div><div class="ttdef"><b>Definition:</b> dgfgridfactory.hh:37</div></div>
+<div class="ttc" id="aa01770_html_aae7b618e6f091329dece01ede72fac55"><div class="ttname"><a href="a01770.html#aae7b618e6f091329dece01ede72fac55">Dune::DGFGridFactory::grid</a></div><div class="ttdeci">Grid * grid()</div><div class="ttdef"><b>Definition:</b> dgfgridfactory.hh:88</div></div>
+<div class="ttc" id="aa01770_html_aaffd9982016fe3b91b0ef27ad435efdb"><div class="ttname"><a href="a01770.html#aaffd9982016fe3b91b0ef27ad435efdb">Dune::DGFGridFactory::dimension</a></div><div class="ttdeci">static const int dimension</div><div class="ttdef"><b>Definition:</b> dgfgridfactory.hh:38</div></div>
+<div class="ttc" id="aa01770_html_ae2eaaf12987d004a98b0c5f07a379dfb"><div class="ttname"><a href="a01770.html#ae2eaaf12987d004a98b0c5f07a379dfb">Dune::DGFGridFactory::haveBoundaryParameters</a></div><div class="ttdeci">bool haveBoundaryParameters() const</div><div class="ttdef"><b>Definition:</b> dgfgridfactory.hh:149</div></div>
+<div class="ttc" id="aa01842_html"><div class="ttname"><a href="a01842.html">Dune::Intersection</a></div><div class="ttdoc">Intersection of a mesh entity of codimension 0 (&quot;element&quot;) with a &quot;neighboring&quot; element or with the d...</div><div class="ttdef"><b>Definition:</b> common/intersection.hh:162</div></div>
+<div class="ttc" id="aa01842_html_a40c5b5c4895d8ed963fd28a9db9d9c3d"><div class="ttname"><a href="a01842.html#a40c5b5c4895d8ed963fd28a9db9d9c3d">Dune::Intersection::boundary</a></div><div class="ttdeci">bool boundary() const</div><div class="ttdoc">Return true if intersection is with interior or exterior boundary (see the cases above)</div><div class="ttdef"><b>Definition:</b> common/intersection.hh:214</div></div>
+<div class="ttc" id="aa01842_html_a444ce2caf541794180bfc09e26450311"><div class="ttname"><a href="a01842.html#a444ce2caf541794180bfc09e26450311">Dune::Intersection::indexInInside</a></div><div class="ttdeci">int indexInInside() const</div><div class="ttdoc">Local index of codim 1 entity in the inside() entity where intersection is contained in.</div><div class="ttdef"><b>Definition:</b> common/intersection.hh:344</div></div>
+<div class="ttc" id="aa02642_html"><div class="ttname"><a href="a02642.html">Dune::Entity</a></div><div class="ttdoc">Wrapper class for entities.</div><div class="ttdef"><b>Definition:</b> common/entity.hh:64</div></div>
+<div class="ttc" id="aa02710_html_ad60b40e40ac87b01ad0b1f05ab4925b1a3d6a22a414566af9b4a356f760fce944"><div class="ttname"><a href="a02710.html#ad60b40e40ac87b01ad0b1f05ab4925b1a3d6a22a414566af9b4a356f760fce944">Dune::Grid::dimension</a></div><div class="ttdeci">@ dimension</div><div class="ttdoc">The dimension of the grid.</div><div class="ttdef"><b>Definition:</b> common/grid.hh:386</div></div>
+<div class="ttc" id="aa03626_html_a712fa41606a197aacc2bf128aef0e732"><div class="ttname"><a href="a03626.html#a712fa41606a197aacc2bf128aef0e732">Dune::DGFBoundaryParameter::defaultValue</a></div><div class="ttdeci">static const type &amp; defaultValue()</div><div class="ttdoc">default constructor</div><div class="ttdef"><b>Definition:</b> parser.hh:26</div></div>
+<div class="ttc" id="aa03626_html_afa9bc1f519c309d951d1955cbce7ea7f"><div class="ttname"><a href="a03626.html#afa9bc1f519c309d951d1955cbce7ea7f">Dune::DGFBoundaryParameter::type</a></div><div class="ttdeci">std::string type</div><div class="ttdoc">type of additional boundary parameters</div><div class="ttdef"><b>Definition:</b> parser.hh:23</div></div>
+<div class="ttc" id="aa03630_html_a0f70cf3b4870057b07784267ec2f7a77"><div class="ttname"><a href="a03630.html#a0f70cf3b4870057b07784267ec2f7a77">Dune::DuneGridFormatParser::nofvtxparams</a></div><div class="ttdeci">int nofvtxparams</div><div class="ttdef"><b>Definition:</b> parser.hh:161</div></div>
+<div class="ttc" id="aa03630_html_a3936476b43f95f46e1d3ccd8d22f98ce"><div class="ttname"><a href="a03630.html#a3936476b43f95f46e1d3ccd8d22f98ce">Dune::DuneGridFormatParser::vtxParams</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; double &gt; &gt; vtxParams</div><div class="ttdef"><b>Definition:</b> parser.hh:163</div></div>
+<div class="ttc" id="aa03630_html_aaed1f1025b6cebb864695399a931c3a6"><div class="ttname"><a href="a03630.html#aaed1f1025b6cebb864695399a931c3a6">Dune::DuneGridFormatParser::nofelparams</a></div><div class="ttdeci">int nofelparams</div><div class="ttdef"><b>Definition:</b> parser.hh:161</div></div>
+<div class="ttc" id="aa03630_html_ab11343cb0d0ff86c901e4b33fdc071b9"><div class="ttname"><a href="a03630.html#ab11343cb0d0ff86c901e4b33fdc071b9">Dune::DuneGridFormatParser::elParams</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; double &gt; &gt; elParams</div><div class="ttdef"><b>Definition:</b> parser.hh:163</div></div>
+<div class="ttc" id="aa03630_html_acc59bd603305425555fc3bee4ec8fc94"><div class="ttname"><a href="a03630.html#acc59bd603305425555fc3bee4ec8fc94">Dune::DuneGridFormatParser::vtx</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; double &gt; &gt; vtx</div><div class="ttdef"><b>Definition:</b> parser.hh:123</div></div>
+<div class="ttc" id="aa03630_html_ad491b526ea24e65d733f52a62b9aa105"><div class="ttname"><a href="a03630.html#ad491b526ea24e65d733f52a62b9aa105">Dune::DuneGridFormatParser::elements</a></div><div class="ttdeci">std ::vector&lt; std ::vector&lt; unsigned int &gt; &gt; elements</div><div class="ttdef"><b>Definition:</b> parser.hh:132</div></div>
+<div class="ttc" id="aa06744_html"><div class="ttname"><a href="a06744.html">intersection.hh</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

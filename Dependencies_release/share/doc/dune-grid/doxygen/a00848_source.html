@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: uggridfactory.hh Source File</title>
+<title>dune-grid: onedgrid.hh Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,153 +62,412 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_282a6d93e11c1f5367984719a29518da.html">dune-grid</a></li><li class="navelem"><a class="el" href="dir_9b356568473fb59d2a92d82c3e3163e0.html">dune</a></li><li class="navelem"><a class="el" href="dir_b835d2b10d4bb6ff2c6d149ed2a0408f.html">grid</a></li><li class="navelem"><a class="el" href="dir_1a8a249def9a6a94df73f44edb2c6906.html">uggrid</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_282a6d93e11c1f5367984719a29518da.html">dune-grid</a></li><li class="navelem"><a class="el" href="dir_9b356568473fb59d2a92d82c3e3163e0.html">dune</a></li><li class="navelem"><a class="el" href="dir_b835d2b10d4bb6ff2c6d149ed2a0408f.html">grid</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">uggridfactory.hh</div>  </div>
+<div class="title">onedgrid.hh</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="a00848.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 2 -*-</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// vi: set et ts=4 sw=2 sts=2:</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#ifndef DUNE_UGGRID_FACTORY_HH</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#define DUNE_UGGRID_FACTORY_HH</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;array&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifndef DUNE_ONE_D_GRID_HH</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define DUNE_ONE_D_GRID_HH</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;tuple&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;list&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;dune/common/parallel/communication.hh&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a06648.html">dune/grid/common/capabilities.hh</a>&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a06702.html">dune/grid/common/grid.hh</a>&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a06711.html">dune/grid/common/gridfactory.hh</a>&gt;</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;dune/common/fvector.hh&gt;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;dune/common/to_unique_ptr.hh&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;dune/geometry/axisalignedcubegeometry.hh&gt;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;dune/geometry/type.hh&gt;</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00215.html">dune/grid/common/boundarysegment.hh</a>&gt;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a06806.html">dune/grid/common/gridfactory.hh</a>&gt;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="a00845.html">dune/grid/uggrid.hh</a>&gt;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00936.html">Dune</a> {</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;  <span class="keyword">template</span> &lt;<span class="keywordtype">int</span> dimworld&gt;</div>
-<div class="line"><a name="l00162"></a><span class="lineno"><a class="line" href="a03998.html">  162</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a02750.html">GridFactory</a>&lt;<a class="code" href="a03970.html">UGGrid</a>&lt;dimworld&gt; &gt; : <span class="keyword">public</span> <a class="code" href="a02742.html">GridFactoryInterface</a>&lt;UGGrid&lt;dimworld&gt; &gt; {</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="a03970.html">UGGrid&lt;dimworld&gt;::ctype</a> ctype;</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; </div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="comment">// UGGrid only in 2d and 3d</span></div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    static_assert(dimworld==2 || dimworld == 3, <span class="stringliteral">&quot;UGGrid only in 2d and 3d&quot;</span>);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;onedgrid/onedgridlist.hh&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;onedgrid/nulliteratorfactory.hh&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;onedgrid/onedgridentity.hh&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;onedgrid/onedgridentityseed.hh&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;onedgrid/onedgridintersections.hh&quot;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;onedgrid/onedgridintersectioniterators.hh&quot;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;onedgrid/onedgridleafiterator.hh&quot;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;onedgrid/onedgridviews.hh&quot;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;onedgrid/onedgridleveliterator.hh&quot;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;onedgrid/onedgridhieriterator.hh&quot;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;onedgrid/onedgridindexsets.hh&quot;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00940.html">Dune</a> {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="keyword">class </span>OneDGrid;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keyword">template</span> &lt;<span class="keywordtype">int</span> mydim, <span class="keywordtype">int</span> coorddim, <span class="keyword">class</span> Gr<span class="keywordtype">id</span>Imp&gt;</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="a00940.html#a95dfaabfd00063ad5bd988583a6629c1">   45</a></span>&#160;  <span class="keyword">using</span> <a class="code" href="a00940.html#a95dfaabfd00063ad5bd988583a6629c1">OneDGridGeometry</a> = AxisAlignedCubeGeometry&lt;double, mydim, coorddim&gt;;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="a03930.html">   47</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="a03930.html">OneDGridFamily</a></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">typedef</span> <a class="code" href="a02722.html">GridTraits</a>&lt;1,   <span class="comment">// Grid dimension</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                       1,   <span class="comment">// Dimension of the physical space</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                       <a class="code" href="a03934.html">Dune::OneDGrid</a>,</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <a class="code" href="a00940.html#a95dfaabfd00063ad5bd988583a6629c1">OneDGridGeometry</a>,</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        OneDGridEntity,</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        OneDGridLevelIterator,</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        OneDGridLeafIntersection,</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        OneDGridLevelIntersection,</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        OneDGridLeafIntersectionIterator,</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        OneDGridLevelIntersectionIterator,</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        OneDGridHierarchicIterator,</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        OneDGridLeafIterator,</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        OneDGridLevelIndexSet&lt;const OneDGrid&gt;,</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        OneDGridLeafIndexSet&lt;const OneDGrid&gt;,</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        OneDGridIdSet&lt;const OneDGrid&gt;,</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordtype">unsigned</span> int,</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        OneDGridIdSet&lt;const OneDGrid&gt;,</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordtype">unsigned</span> int,</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        CollectiveCommunication&lt;No_Comm&gt;,</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        OneDGridLevelGridViewTraits,</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        OneDGridLeafGridViewTraits,</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        OneDGridEntitySeed&gt;</div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="a03930.html#ad6b8b5f17a881718a58d6e6b62978f6a">   71</a></span>&#160;    <a class="code" href="a03930.html#ad6b8b5f17a881718a58d6e6b62978f6a">Traits</a>;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  };</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  <span class="comment">//**********************************************************************</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <span class="comment">//</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  <span class="comment">// --OneDGrid</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  <span class="comment">//</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <span class="comment">//**********************************************************************</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="a03934.html">   91</a></span>&#160;  <span class="keyword">class </span><a class="code" href="a03934.html">OneDGrid</a> : <span class="keyword">public</span> <a class="code" href="a02678.html">GridDefaultImplementation</a> &lt;1, 1,typename OneDGridGeometry&lt;0,1,OneDGrid&gt;::ctype, OneDGridFamily&gt;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  {</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="comment">// Grid and world dimension are hardwired in this grid</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keyword">enum</span> {dim = 1};</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keyword">enum</span> {dimworld = 1};</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keyword">template</span> &lt;<span class="keywordtype">int</span> , PartitionIteratorType, <span class="keyword">class</span> &gt;</div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="a03934.html#a04224d342d83f7d7375de6a0122be130">   98</a></span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="a03934.html#aec100f804c14d17ee8a1cb0ccdf5aeba">OneDGridLevelIterator</a>;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span>OneDGridHierarchicIterator&lt;const <a class="code" href="a03934.html">OneDGrid</a>&gt;;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keyword">template</span> &lt;<span class="keywordtype">int</span> codim_, <span class="keywordtype">int</span> dim_, <span class="keyword">class</span> Gr<span class="keywordtype">id</span>Imp_&gt;</div>
+<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="a03934.html#a9745a59f8309ca3be490a15d636c7d1d">  103</a></span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="a03934.html#a9745a59f8309ca3be490a15d636c7d1d">OneDGridEntity</a>;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span>OneDGridHierarchicIterator&lt;<a class="code" href="a03934.html">OneDGrid</a>&gt;;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span>OneDGridLeafIntersection&lt;const <a class="code" href="a03934.html">OneDGrid</a>&gt;;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span>OneDGridLevelIntersection&lt;const <a class="code" href="a03934.html">OneDGrid</a>&gt;;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span>OneDGridLeafIntersectionIterator&lt;const <a class="code" href="a03934.html">OneDGrid</a>&gt;;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span>OneDGridLevelIntersectionIterator&lt;const <a class="code" href="a03934.html">OneDGrid</a>&gt;;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span>OneDGridLevelIndexSet&lt;const <a class="code" href="a03934.html">OneDGrid</a>&gt;;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span>OneDGridLeafIndexSet&lt;const <a class="code" href="a03934.html">OneDGrid</a>&gt;;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span>OneDGridIdSet&lt;const <a class="code" href="a03934.html">OneDGrid</a>&gt;;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keyword">template</span> &lt;<span class="keywordtype">int</span> codim_, PartitionIteratorType PiType_, <span class="keyword">class</span> Gr<span class="keywordtype">id</span>Imp_&gt;</div>
+<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="a03934.html#a8ebd02c98253bc7437fc9faa3f237352">  115</a></span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="a03934.html#a2bc8d3db2e8091f1fcc576c25d7cba31">OneDGridLeafIterator</a>;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span>OneDGridLeafGridView&lt;const <a class="code" href="a03934.html">OneDGrid</a>&gt;;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span>OneDGridLevelGridView&lt;const <a class="code" href="a03934.html">OneDGrid</a>&gt;;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> Gr<span class="keywordtype">id</span>Type_&gt;</div>
+<div class="line"><a name="l00121"></a><span class="lineno"><a class="line" href="a03934.html#a2b5d6d64d6cf431e026ad53b6b08a080">  121</a></span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="a02754.html">GridFactory</a>;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> codim_, <span class="keywordtype">int</span> dim_, <span class="keyword">class</span> Gr<span class="keywordtype">id</span>Imp_, <span class="keyword">template</span>&lt;<span class="keywordtype">int</span>,<span class="keywordtype">int</span>,<span class="keyword">class</span>&gt; <span class="keyword">class </span>EntityImp_&gt;</div>
+<div class="line"><a name="l00124"></a><span class="lineno"><a class="line" href="a03934.html#a7373c6e825366fcfb48f78bc329165e7">  124</a></span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="a02642.html">Entity</a>;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <a class="code" href="a03934.html">OneDGrid</a>();</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="comment">// **********************************************************</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="comment">// The Interface Methods</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="comment">// **********************************************************</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
+<div class="line"><a name="l00137"></a><span class="lineno"><a class="line" href="a03934.html#a0462c4fa437a6d4985c6aff5bb282ff0">  137</a></span>&#160;    <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="a00940.html#a95dfaabfd00063ad5bd988583a6629c1">OneDGridGeometry&lt;0,1,OneDGrid&gt;::ctype</a> <a class="code" href="a03934.html#a0462c4fa437a6d4985c6aff5bb282ff0">ctype</a>;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
+<div class="line"><a name="l00140"></a><span class="lineno"><a class="line" href="a03934.html#ac9d025d37a45653c22e20896c5b88bc5">  140</a></span>&#160;    <span class="keyword">typedef</span> <a class="code" href="a03930.html">OneDGridFamily</a> <a class="code" href="a03934.html#ac9d025d37a45653c22e20896c5b88bc5">GridFamily</a>;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="comment">//Provides the standard grid types</span></div>
+<div class="line"><a name="l00143"></a><span class="lineno"><a class="line" href="a03934.html#a6fac5617a51d0a68249e6cc63662b73e">  143</a></span>&#160;    <span class="keyword">typedef</span> <a class="code" href="a02722.html">OneDGridFamily::Traits</a> <a class="code" href="a03934.html#a6fac5617a51d0a68249e6cc63662b73e">Traits</a>;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
+<div class="line"><a name="l00146"></a><span class="lineno"><a class="line" href="a03934.html#a5334f3518144c51c8a1c774adf98a652">  146</a></span>&#160;    <a class="code" href="a03934.html#a5334f3518144c51c8a1c774adf98a652">OneDGrid</a>(<span class="keyword">const</span> std::vector&lt;ctype&gt;&amp; coords);</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
+<div class="line"><a name="l00149"></a><span class="lineno"><a class="line" href="a03934.html#a95a34391d937bea5815adde316317e78">  149</a></span>&#160;    <a class="code" href="a03934.html#a95a34391d937bea5815adde316317e78">OneDGrid</a>(<span class="keywordtype">int</span> numElements, <span class="keyword">const</span> <a class="code" href="a02710.html#af10850d580532530ec127817a2a28c38">ctype</a>&amp; leftBoundary, <span class="keyword">const</span> <a class="code" href="a02710.html#af10850d580532530ec127817a2a28c38">ctype</a>&amp; rightBoundary);</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
+<div class="line"><a name="l00152"></a><span class="lineno"><a class="line" href="a03934.html#a716ba22ded322f2347fcc973dbc665c1">  152</a></span>&#160;    <a class="code" href="a03934.html#a716ba22ded322f2347fcc973dbc665c1">~OneDGrid</a>();</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160; </div>
+<div class="line"><a name="l00158"></a><span class="lineno"><a class="line" href="a03934.html#ad824e37968942aa881dbaed6f79f5e6c">  158</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="a03934.html#ad824e37968942aa881dbaed6f79f5e6c">maxLevel</a>()<span class="keyword"> const </span>{<span class="keywordflow">return</span> entityImps_.size()-1;}</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160; </div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Seed&gt;</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <span class="keyword">static</span> <span class="keyword">typename</span> Traits::template <a class="code" href="a02714.html#a010395efed236aefd4d2fab3b0ad8e96">Codim&lt;Seed::codimension&gt;::Entity</a></div>
+<div class="line"><a name="l00163"></a><span class="lineno"><a class="line" href="a03934.html#a815412bba6b08bccb332db267ee08b10">  163</a></span>&#160;    <a class="code" href="a03934.html#a815412bba6b08bccb332db267ee08b10">entity</a>(<span class="keyword">const</span> Seed&amp; seed)</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    {</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">int</span> codim = Seed::codimension;</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;      <span class="keywordflow">return</span> <span class="keyword">typename</span> Traits::template <a class="code" href="a02714.html#a010395efed236aefd4d2fab3b0ad8e96">Codim&lt;codim&gt;::Entity</a>(OneDGridEntity&lt;codim,dim,const OneDGrid&gt;(seed.impl().target()));</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    }</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160; </div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160; </div>
-<div class="line"><a name="l00173"></a><span class="lineno"><a class="line" href="a03998.html#a84c2c597072cb2e7005af9f6f3df2d12">  173</a></span>&#160;    <a class="code" href="a03998.html#a84c2c597072cb2e7005af9f6f3df2d12">GridFactory</a>();</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160; </div>
-<div class="line"><a name="l00185"></a><span class="lineno"><a class="line" href="a03998.html#ac271324b1b56821bb6c3e63ea5ee793b">  185</a></span>&#160;    <a class="code" href="a03998.html#ac271324b1b56821bb6c3e63ea5ee793b">GridFactory</a>(<a class="code" href="a03970.html">UGGrid&lt;dimworld&gt;</a>* grid);</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; </div>
-<div class="line"><a name="l00188"></a><span class="lineno"><a class="line" href="a03998.html#a2ad5546679b5cb01eb70e1d845121982">  188</a></span>&#160;    <a class="code" href="a03998.html#a2ad5546679b5cb01eb70e1d845121982">~GridFactory</a>();</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160; </div>
-<div class="line"><a name="l00191"></a><span class="lineno"><a class="line" href="a03998.html#a28f724c2d891c517c2ab15acced81bfa">  191</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a03998.html#a28f724c2d891c517c2ab15acced81bfa">insertVertex</a>(<span class="keyword">const</span> FieldVector&lt;ctype,dimworld&gt;&amp; pos);</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160; </div>
-<div class="line"><a name="l00197"></a><span class="lineno"><a class="line" href="a03998.html#a7d51ac0851cfa08641bedc1c86719d5d">  197</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a03998.html#a7d51ac0851cfa08641bedc1c86719d5d">insertElement</a>(<span class="keyword">const</span> <a class="code" href="a00948.html#aceb67a16cc6beb52f71ba8a06d6ef44f">GeometryType</a>&amp; type,</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;                               <span class="keyword">const</span> std::vector&lt;unsigned int&gt;&amp; vertices);</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160; </div>
-<div class="line"><a name="l00206"></a><span class="lineno"><a class="line" href="a03998.html#adea963c5b567ba39b7b56a1ac196a22b">  206</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a03998.html#adea963c5b567ba39b7b56a1ac196a22b">insertBoundarySegment</a>(<span class="keyword">const</span> std::vector&lt;unsigned int&gt;&amp; vertices);</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160; </div>
-<div class="line"><a name="l00212"></a><span class="lineno"><a class="line" href="a03998.html#a1c225d7ab37c9a5df06af1d3e2869b3c">  212</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a03998.html#a1c225d7ab37c9a5df06af1d3e2869b3c">insertBoundarySegment</a>(<span class="keyword">const</span> std::vector&lt;unsigned int&gt;&amp; vertices,</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;                               <span class="keyword">const</span> std::shared_ptr&lt;<a class="code" href="a02478.html">BoundarySegment&lt;dimworld&gt;</a> &gt; &amp;boundarySegment);</div>
+<div class="line"><a name="l00172"></a><span class="lineno"><a class="line" href="a03934.html#a84310dd773ee4849b36e1d82ecbfb497">  172</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="a03934.html#a84310dd773ee4849b36e1d82ecbfb497">size</a> (<span class="keywordtype">int</span> level, <span class="keywordtype">int</span> codim)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;      <span class="keywordflow">switch</span> (codim)</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;      {</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        <span class="keywordflow">case</span> 0:</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;          <span class="keywordflow">return</span> elements(level).size();</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        <span class="keywordflow">case</span> 1:</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;          <span class="keywordflow">return</span> vertices(level).size();</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        <span class="keywordflow">default</span>:</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;          <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;      }</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    }</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160; </div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; </div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; </div>
+<div class="line"><a name="l00187"></a><span class="lineno"><a class="line" href="a03934.html#ac21dd02e2aec18d379c0209342ddf833">  187</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="a03934.html#ac21dd02e2aec18d379c0209342ddf833">size</a> (<span class="keywordtype">int</span> codim)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="a03934.html#ac8fadb9b97c00ade7249e66f5afa7d59">leafIndexSet</a>().<a class="code" href="a02702.html#a21277808430ded4b56c62c1717a8729d">size</a>(codim);</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    }</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160; </div>
+<div class="line"><a name="l00193"></a><span class="lineno"><a class="line" href="a03934.html#a80b3da96e29b79110035be79101cb801">  193</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="a03934.html#a80b3da96e29b79110035be79101cb801">size</a> (<span class="keywordtype">int</span> level, <a class="code" href="a00951.html#aceb67a16cc6beb52f71ba8a06d6ef44f">GeometryType</a> type)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;      <span class="comment">// There is only one type for each codim</span></div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="a03934.html#a84310dd773ee4849b36e1d82ecbfb497">size</a>(level,1-type.dim());</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    }</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; </div>
+<div class="line"><a name="l00200"></a><span class="lineno"><a class="line" href="a03934.html#a505304bbc2555e5ff06dbcc044b1fac3">  200</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="a03934.html#a505304bbc2555e5ff06dbcc044b1fac3">size</a> (<a class="code" href="a00951.html#aceb67a16cc6beb52f71ba8a06d6ef44f">GeometryType</a> type)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="a03934.html#ac8fadb9b97c00ade7249e66f5afa7d59">leafIndexSet</a>().<a class="code" href="a02702.html#a21277808430ded4b56c62c1717a8729d">size</a>(type);</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    }</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160; </div>
+<div class="line"><a name="l00210"></a><span class="lineno"><a class="line" href="a03934.html#a67a831363ccb28831133f17a606b8679">  210</a></span>&#160;    <span class="keywordtype">size_t</span> <a class="code" href="a03934.html#a67a831363ccb28831133f17a606b8679">numBoundarySegments</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;      <span class="keywordflow">return</span> 2;</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    }</div>
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160; </div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160; </div>
-<div class="line"><a name="l00220"></a><span class="lineno"><a class="line" href="a03998.html#ac63ae0fe08e1db69408e5148771b1554">  220</a></span>&#160;    <span class="keyword">virtual</span> ToUniquePtr&lt;UGGrid&lt;dimworld&gt;&gt; <a class="code" href="a03998.html#ac63ae0fe08e1db69408e5148771b1554">createGrid</a>();</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160; </div>
-<div class="line"><a name="l00222"></a><span class="lineno"><a class="line" href="a03998.html#a6f6a2e0694b5fb70cbcfdb19a1165f91">  222</a></span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="a02742.html#a6acc0aca4d820b22da541f284d3799ef">dimension</a> = <a class="code" href="a03970.html">UGGrid&lt;dimworld&gt;::dimension</a>;</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160; </div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    <span class="keyword">template</span>&lt; <span class="keywordtype">int</span> codim &gt;</div>
-<div class="line"><a name="l00225"></a><span class="lineno"><a class="line" href="a04002.html">  225</a></span>&#160;    <span class="keyword">struct </span>Codim</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    {</div>
-<div class="line"><a name="l00227"></a><span class="lineno"><a class="line" href="a04002.html#a8339c43f6b75a170abcf1c49c8513fd2">  227</a></span>&#160;      <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="a03970.html">UGGrid&lt;dimworld&gt;::template</a> <a class="code" href="a04002.html#a8339c43f6b75a170abcf1c49c8513fd2">Codim&lt; codim &gt;::Entity</a> <a class="code" href="a04002.html#a8339c43f6b75a170abcf1c49c8513fd2">Entity</a>;</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    };</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160; </div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span></div>
-<div class="line"><a name="l00235"></a><span class="lineno"><a class="line" href="a03998.html#a37994be6d447fbed22cc893c584f6092">  235</a></span>&#160;    <a class="code" href="a03998.html#a37994be6d447fbed22cc893c584f6092">insertionIndex</a> ( <span class="keyword">const</span> <span class="keyword">typename</span> <a class="code" href="a04002.html#a8339c43f6b75a170abcf1c49c8513fd2">Codim&lt; 0 &gt;::Entity</a> &amp;entity )<span class="keyword"> const</span></div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;      <span class="keywordflow">return</span> UG_NS&lt;dimension&gt;::levelIndex(entity.impl().target_);</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    }</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160; </div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span></div>
-<div class="line"><a name="l00245"></a><span class="lineno"><a class="line" href="a03998.html#a7f679988bffacc92428de850c3a9730d">  245</a></span>&#160;    <a class="code" href="a03998.html#a7f679988bffacc92428de850c3a9730d">insertionIndex</a> ( <span class="keyword">const</span> <span class="keyword">typename</span> <a class="code" href="a04002.html#a8339c43f6b75a170abcf1c49c8513fd2">Codim&lt; dimension &gt;::Entity</a> &amp;entity )<span class="keyword"> const</span></div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;      <span class="keywordflow">return</span> UG_NS&lt;dimension&gt;::levelIndex(entity.impl().target_);</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    }</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160; </div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span></div>
-<div class="line"><a name="l00255"></a><span class="lineno"><a class="line" href="a03998.html#acc4adb02d30c2435e3a6b7a7279651e7">  255</a></span>&#160;    <a class="code" href="a03998.html#acc4adb02d30c2435e3a6b7a7279651e7">insertionIndex</a> ( <span class="keyword">const</span> <span class="keyword">typename</span> <a class="code" href="a03970.html">UGGrid&lt;dimworld&gt;::LeafIntersection</a> &amp;intersection )<span class="keyword"> const</span></div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;      <span class="keywordflow">return</span> intersection.boundarySegmentIndex();</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    }</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160; </div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span></div>
-<div class="line"><a name="l00262"></a><span class="lineno"><a class="line" href="a03998.html#aa4e81efbe7fbba64fec6a40562271b76">  262</a></span>&#160;    <a class="code" href="a03998.html#aa4e81efbe7fbba64fec6a40562271b76">wasInserted</a> ( <span class="keyword">const</span> <span class="keyword">typename</span> <a class="code" href="a03970.html">UGGrid&lt;dimworld&gt;::LeafIntersection</a> &amp;intersection )<span class="keyword"> const</span></div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;      <span class="keywordflow">return</span> (<a class="code" href="a02742.html#a045c60cc4f732a2acab79b100e5eccca">insertionIndex</a>( intersection ) &lt; boundarySegmentVertices_.size());</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    }</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160; </div>
-<div class="line"><a name="l00267"></a><span class="lineno"><a class="line" href="a03998.html#a83c1652d7470109a97d751df54ffc220">  267</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="a03998.html#a83c1652d7470109a97d751df54ffc220">Communication</a> = <span class="keyword">typename</span> <a class="code" href="a03970.html">UGGrid&lt;dimworld&gt;::CollectiveCommunication</a>;</div>
+<div class="line"><a name="l00216"></a><span class="lineno"><a class="line" href="a03934.html#adfe82fc3cd88498f68b2a2b7a5ca158d">  216</a></span>&#160;    <span class="keyword">const</span> <a class="code" href="a02706.html">Traits::GlobalIdSet</a>&amp; <a class="code" href="a03934.html#adfe82fc3cd88498f68b2a2b7a5ca158d">globalIdSet</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;      <span class="keywordflow">return</span> idSet_;</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    }</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160; </div>
+<div class="line"><a name="l00222"></a><span class="lineno"><a class="line" href="a03934.html#ae3945902e38329e301346eed94885cfb">  222</a></span>&#160;    <span class="keyword">const</span> <a class="code" href="a02706.html">Traits::LocalIdSet</a>&amp; <a class="code" href="a03934.html#ae3945902e38329e301346eed94885cfb">localIdSet</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;      <span class="keywordflow">return</span> idSet_;</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    }</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160; </div>
+<div class="line"><a name="l00228"></a><span class="lineno"><a class="line" href="a03934.html#a780fe9a8e8c5b73cd07e41a01ba6e901">  228</a></span>&#160;    <span class="keyword">const</span> <a class="code" href="a02702.html">Traits::LevelIndexSet</a>&amp; <a class="code" href="a03934.html#a780fe9a8e8c5b73cd07e41a01ba6e901">levelIndexSet</a>(<span class="keywordtype">int</span> level)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;      <span class="keywordflow">if</span> (! levelIndexSets_[level]) {</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        levelIndexSets_[level] =</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;          <span class="keyword">new</span> <a class="code" href="a03934.html#ad413281712dd49c4e83f730d217f20dd">OneDGridLevelIndexSet&lt;const OneDGrid&gt;</a>(*<span class="keyword">this</span>, level);</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;        levelIndexSets_[level]-&gt;update();</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;      }</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160; </div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;      <span class="keywordflow">return</span> * levelIndexSets_[level];</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    }</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160; </div>
+<div class="line"><a name="l00240"></a><span class="lineno"><a class="line" href="a03934.html#ac8fadb9b97c00ade7249e66f5afa7d59">  240</a></span>&#160;    <span class="keyword">const</span> <a class="code" href="a02702.html">Traits::LeafIndexSet</a>&amp; <a class="code" href="a03934.html#ac8fadb9b97c00ade7249e66f5afa7d59">leafIndexSet</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;      <span class="keywordflow">return</span> leafIndexSet_;</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    }</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160; </div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160; </div>
+<div class="line"><a name="l00253"></a><span class="lineno"><a class="line" href="a03934.html#a7bf5f45023b3694d666e7a418bcebecb">  253</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="a03934.html#a7bf5f45023b3694d666e7a418bcebecb">mark</a>(<span class="keywordtype">int</span> refCount, <span class="keyword">const</span> <a class="code" href="a02726.html">Traits::Codim&lt;0&gt;::Entity</a>&amp; e );</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160; </div>
+<div class="line"><a name="l00261"></a><span class="lineno"><a class="line" href="a03934.html#adc0e8813b4835f944356f6b3aeff0dec">  261</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="a03934.html#adc0e8813b4835f944356f6b3aeff0dec">getMark</a>(<span class="keyword">const</span> <a class="code" href="a02726.html">Traits::Codim&lt;0&gt;::Entity</a>&amp; e ) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160; </div>
+<div class="line"><a name="l00264"></a><span class="lineno"><a class="line" href="a03934.html#a334ef9026b772557d41b4b440a8dfe35">  264</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="a03934.html#a334ef9026b772557d41b4b440a8dfe35">preAdapt</a>();</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160; </div>
+<div class="line"><a name="l00267"></a><span class="lineno"><a class="line" href="a03934.html#a5db7425e8218640dd873359a244cdbc9">  267</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="a03934.html#a5db7425e8218640dd873359a244cdbc9">adapt</a>();</div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160; </div>
-<div class="line"><a name="l00273"></a><span class="lineno"><a class="line" href="a03998.html#ab22f427aa0b4f495cca1437d6b5be557">  273</a></span>&#160;    <a class="code" href="a03998.html#a83c1652d7470109a97d751df54ffc220">Communication</a> <a class="code" href="a03998.html#ab22f427aa0b4f495cca1437d6b5be557">comm</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;        <span class="keywordflow">return</span> grid_-&gt;comm();</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    }</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160; </div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160; </div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    <span class="comment">// Initialize the grid structure in UG</span></div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    <span class="keywordtype">void</span> createBegin();</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160; </div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    <span class="comment">// Pointer to the grid being built</span></div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    <a class="code" href="a03970.html">UGGrid&lt;dimworld&gt;</a>* grid_;</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160; </div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    <span class="comment">// True if the factory allocated the grid itself, false if the</span></div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    <span class="comment">// grid was handed over from the outside</span></div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    <span class="keywordtype">bool</span> factoryOwnsGrid_;</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160; </div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    std::vector&lt;std::array&lt;int, dimworld*2-2&gt; &gt; boundarySegmentVertices_;</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160; </div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    std::vector&lt;unsigned char&gt; elementTypes_;</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160; </div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    std::vector&lt;unsigned int&gt; elementVertices_;</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160; </div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    std::vector&lt;FieldVector&lt;double, dimworld&gt; &gt; vertexPositions_;</div>
+<div class="line"><a name="l00270"></a><span class="lineno"><a class="line" href="a03934.html#a5d47dadd272e48c1d7e85ad7b45635b8">  270</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a03934.html#a5d47dadd272e48c1d7e85ad7b45635b8">postAdapt</a>();</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160; </div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    <span class="comment">// **********************************************************</span></div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    <span class="comment">// End of Interface Methods</span></div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    <span class="comment">// **********************************************************</span></div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160; </div>
+<div class="line"><a name="l00277"></a><span class="lineno"><a class="line" href="a03934.html#a6391ce2add44142b6004e7e435c2bddd">  277</a></span>&#160;    <span class="keyword">enum</span> <a class="code" href="a03934.html#a6391ce2add44142b6004e7e435c2bddd">RefinementType</a> {</div>
+<div class="line"><a name="l00279"></a><span class="lineno"><a class="line" href="a03934.html#a6391ce2add44142b6004e7e435c2bddda8660cbfb6839f6513f40099bda27a461">  279</a></span>&#160;      <a class="code" href="a03934.html#a6391ce2add44142b6004e7e435c2bddda8660cbfb6839f6513f40099bda27a461">LOCAL</a>,</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;      <a class="code" href="a03934.html#a6391ce2add44142b6004e7e435c2bddda717acda80ec6df8358bb8839638797fa">COPY</a></div>
+<div class="line"><a name="l00282"></a><span class="lineno"><a class="line" href="a03934.html#a6391ce2add44142b6004e7e435c2bddda717acda80ec6df8358bb8839638797fa">  282</a></span>&#160;    };</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160; </div>
+<div class="line"><a name="l00285"></a><span class="lineno"><a class="line" href="a03934.html#a7c1c4fdd477bc864a201b8c5ab27e50d">  285</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a03934.html#a7c1c4fdd477bc864a201b8c5ab27e50d">setRefinementType</a>(<a class="code" href="a03934.html#a6391ce2add44142b6004e7e435c2bddd">RefinementType</a> type) {</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;      refinementType_ = type;</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    }</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160; </div>
+<div class="line"><a name="l00294"></a><span class="lineno"><a class="line" href="a03934.html#af88f66610114160861517f8007668e6e">  294</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="a03934.html#af88f66610114160861517f8007668e6e">globalRefine</a>(<span class="keywordtype">int</span> refCount);</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160; </div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    <span class="comment">// dummy parallel functions</span></div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160; </div>
+<div class="line"><a name="l00298"></a><span class="lineno"><a class="line" href="a03934.html#a47e296b20a5d6cb15a7d39771329e8af">  298</a></span>&#160;    <span class="keyword">const</span> <a class="code" href="a02710.html#a207a985384df3916550501a433b5cebe">CollectiveCommunication</a> &amp;<a class="code" href="a03934.html#a47e296b20a5d6cb15a7d39771329e8af">comm</a> ()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;      <span class="keywordflow">return</span> ccobj;</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    }</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160; </div>
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160; </div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;  };</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;  <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160; </div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;}</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160; </div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aa00215_html"><div class="ttname"><a href="a00215.html">boundarysegment.hh</a></div><div class="ttdoc">Base class for grid boundary segments of arbitrary geometry.</div></div>
-<div class="ttc" id="aa00845_html"><div class="ttname"><a href="a00845.html">uggrid.hh</a></div><div class="ttdoc">The UGGrid class.</div></div>
-<div class="ttc" id="aa00936_html"><div class="ttname"><a href="a00936.html">Dune</a></div><div class="ttdoc">Include standard header files.</div><div class="ttdef"><b>Definition:</b> agrid.hh:59</div></div>
-<div class="ttc" id="aa00948_html_aceb67a16cc6beb52f71ba8a06d6ef44f"><div class="ttname"><a href="a00948.html#aceb67a16cc6beb52f71ba8a06d6ef44f">Dune::VTK::GeometryType</a></div><div class="ttdeci">GeometryType</div><div class="ttdoc">Type representing VTK's entity geometry types.</div><div class="ttdef"><b>Definition:</b> common.hh:180</div></div>
-<div class="ttc" id="aa02478_html"><div class="ttname"><a href="a02478.html">Dune::BoundarySegment</a></div><div class="ttdoc">Base class for classes implementing geometries of boundary segments.</div><div class="ttdef"><b>Definition:</b> boundarysegment.hh:92</div></div>
-<div class="ttc" id="aa02742_html"><div class="ttname"><a href="a02742.html">Dune::GridFactoryInterface</a></div><div class="ttdoc">Provide a generic factory class for unstructured grids.</div><div class="ttdef"><b>Definition:</b> common/gridfactory.hh:70</div></div>
-<div class="ttc" id="aa02742_html_a045c60cc4f732a2acab79b100e5eccca"><div class="ttname"><a href="a02742.html#a045c60cc4f732a2acab79b100e5eccca">Dune::GridFactoryInterface::insertionIndex</a></div><div class="ttdeci">virtual unsigned int insertionIndex(const typename Codim&lt; 0 &gt;::Entity &amp;entity) const</div><div class="ttdoc">obtain an element's insertion index</div><div class="ttdef"><b>Definition:</b> common/gridfactory.hh:175</div></div>
-<div class="ttc" id="aa02742_html_a6acc0aca4d820b22da541f284d3799ef"><div class="ttname"><a href="a02742.html#a6acc0aca4d820b22da541f284d3799ef">Dune::GridFactoryInterface::dimension</a></div><div class="ttdeci">static const int dimension</div><div class="ttdoc">dimension of the grid</div><div class="ttdef"><b>Definition:</b> common/gridfactory.hh:74</div></div>
-<div class="ttc" id="aa02750_html"><div class="ttname"><a href="a02750.html">Dune::GridFactory</a></div><div class="ttdoc">Provide a generic factory class for unstructured grids.</div><div class="ttdef"><b>Definition:</b> common/gridfactory.hh:269</div></div>
-<div class="ttc" id="aa03970_html"><div class="ttname"><a href="a03970.html">Dune::UGGrid</a></div><div class="ttdoc">Front-end for the grid manager of the finite element toolbox UG.</div><div class="ttdef"><b>Definition:</b> uggrid.hh:227</div></div>
-<div class="ttc" id="aa03998_html_a1c225d7ab37c9a5df06af1d3e2869b3c"><div class="ttname"><a href="a03998.html#a1c225d7ab37c9a5df06af1d3e2869b3c">Dune::GridFactory&lt; UGGrid&lt; dimworld &gt; &gt;::insertBoundarySegment</a></div><div class="ttdeci">void insertBoundarySegment(const std::vector&lt; unsigned int &gt; &amp;vertices, const std::shared_ptr&lt; BoundarySegment&lt; dimworld &gt; &gt; &amp;boundarySegment)</div><div class="ttdoc">Method to insert an arbitrarily shaped boundary segment into a coarse grid.</div></div>
-<div class="ttc" id="aa03998_html_a28f724c2d891c517c2ab15acced81bfa"><div class="ttname"><a href="a03998.html#a28f724c2d891c517c2ab15acced81bfa">Dune::GridFactory&lt; UGGrid&lt; dimworld &gt; &gt;::insertVertex</a></div><div class="ttdeci">virtual void insertVertex(const FieldVector&lt; ctype, dimworld &gt; &amp;pos)</div><div class="ttdoc">Insert a vertex into the coarse grid.</div></div>
-<div class="ttc" id="aa03998_html_a2ad5546679b5cb01eb70e1d845121982"><div class="ttname"><a href="a03998.html#a2ad5546679b5cb01eb70e1d845121982">Dune::GridFactory&lt; UGGrid&lt; dimworld &gt; &gt;::~GridFactory</a></div><div class="ttdeci">~GridFactory()</div><div class="ttdoc">Destructor.</div></div>
-<div class="ttc" id="aa03998_html_a37994be6d447fbed22cc893c584f6092"><div class="ttname"><a href="a03998.html#a37994be6d447fbed22cc893c584f6092">Dune::GridFactory&lt; UGGrid&lt; dimworld &gt; &gt;::insertionIndex</a></div><div class="ttdeci">virtual unsigned int insertionIndex(const typename Codim&lt; 0 &gt;::Entity &amp;entity) const</div><div class="ttdoc">Return the number of the element in the order of insertion into the factory.</div><div class="ttdef"><b>Definition:</b> uggridfactory.hh:235</div></div>
-<div class="ttc" id="aa03998_html_a7d51ac0851cfa08641bedc1c86719d5d"><div class="ttname"><a href="a03998.html#a7d51ac0851cfa08641bedc1c86719d5d">Dune::GridFactory&lt; UGGrid&lt; dimworld &gt; &gt;::insertElement</a></div><div class="ttdeci">virtual void insertElement(const GeometryType &amp;type, const std::vector&lt; unsigned int &gt; &amp;vertices)</div><div class="ttdoc">Insert an element into the coarse grid.</div></div>
-<div class="ttc" id="aa03998_html_a7f679988bffacc92428de850c3a9730d"><div class="ttname"><a href="a03998.html#a7f679988bffacc92428de850c3a9730d">Dune::GridFactory&lt; UGGrid&lt; dimworld &gt; &gt;::insertionIndex</a></div><div class="ttdeci">virtual unsigned int insertionIndex(const typename Codim&lt; dimension &gt;::Entity &amp;entity) const</div><div class="ttdoc">Return the number of the vertex in the order of insertion into the factory.</div><div class="ttdef"><b>Definition:</b> uggridfactory.hh:245</div></div>
-<div class="ttc" id="aa03998_html_a83c1652d7470109a97d751df54ffc220"><div class="ttname"><a href="a03998.html#a83c1652d7470109a97d751df54ffc220">Dune::GridFactory&lt; UGGrid&lt; dimworld &gt; &gt;::Communication</a></div><div class="ttdeci">typename UGGrid&lt; dimworld &gt;::CollectiveCommunication Communication</div><div class="ttdef"><b>Definition:</b> uggridfactory.hh:267</div></div>
-<div class="ttc" id="aa03998_html_a84c2c597072cb2e7005af9f6f3df2d12"><div class="ttname"><a href="a03998.html#a84c2c597072cb2e7005af9f6f3df2d12">Dune::GridFactory&lt; UGGrid&lt; dimworld &gt; &gt;::GridFactory</a></div><div class="ttdeci">GridFactory()</div><div class="ttdoc">Default constructor.</div></div>
-<div class="ttc" id="aa03998_html_aa4e81efbe7fbba64fec6a40562271b76"><div class="ttname"><a href="a03998.html#aa4e81efbe7fbba64fec6a40562271b76">Dune::GridFactory&lt; UGGrid&lt; dimworld &gt; &gt;::wasInserted</a></div><div class="ttdeci">virtual bool wasInserted(const typename UGGrid&lt; dimworld &gt;::LeafIntersection &amp;intersection) const</div><div class="ttdoc">Return true if the intersection has been explictily insterted into the factory.</div><div class="ttdef"><b>Definition:</b> uggridfactory.hh:262</div></div>
-<div class="ttc" id="aa03998_html_ab22f427aa0b4f495cca1437d6b5be557"><div class="ttname"><a href="a03998.html#ab22f427aa0b4f495cca1437d6b5be557">Dune::GridFactory&lt; UGGrid&lt; dimworld &gt; &gt;::comm</a></div><div class="ttdeci">Communication comm() const</div><div class="ttdoc">Return the Communication used by the grid factory.</div><div class="ttdef"><b>Definition:</b> uggridfactory.hh:273</div></div>
-<div class="ttc" id="aa03998_html_ac271324b1b56821bb6c3e63ea5ee793b"><div class="ttname"><a href="a03998.html#ac271324b1b56821bb6c3e63ea5ee793b">Dune::GridFactory&lt; UGGrid&lt; dimworld &gt; &gt;::GridFactory</a></div><div class="ttdeci">GridFactory(UGGrid&lt; dimworld &gt; *grid)</div><div class="ttdoc">Constructor for a given grid object.</div></div>
-<div class="ttc" id="aa03998_html_ac63ae0fe08e1db69408e5148771b1554"><div class="ttname"><a href="a03998.html#ac63ae0fe08e1db69408e5148771b1554">Dune::GridFactory&lt; UGGrid&lt; dimworld &gt; &gt;::createGrid</a></div><div class="ttdeci">virtual ToUniquePtr&lt; UGGrid&lt; dimworld &gt; &gt; createGrid()</div><div class="ttdoc">Finalize grid creation and hand over the grid.</div></div>
-<div class="ttc" id="aa03998_html_acc4adb02d30c2435e3a6b7a7279651e7"><div class="ttname"><a href="a03998.html#acc4adb02d30c2435e3a6b7a7279651e7">Dune::GridFactory&lt; UGGrid&lt; dimworld &gt; &gt;::insertionIndex</a></div><div class="ttdeci">virtual unsigned int insertionIndex(const typename UGGrid&lt; dimworld &gt;::LeafIntersection &amp;intersection) const</div><div class="ttdoc">Return the number of the intersection in the order of insertion into the factory.</div><div class="ttdef"><b>Definition:</b> uggridfactory.hh:255</div></div>
-<div class="ttc" id="aa03998_html_adea963c5b567ba39b7b56a1ac196a22b"><div class="ttname"><a href="a03998.html#adea963c5b567ba39b7b56a1ac196a22b">Dune::GridFactory&lt; UGGrid&lt; dimworld &gt; &gt;::insertBoundarySegment</a></div><div class="ttdeci">void insertBoundarySegment(const std::vector&lt; unsigned int &gt; &amp;vertices)</div><div class="ttdoc">Method to insert a boundary segment into a coarse grid.</div></div>
-<div class="ttc" id="aa04002_html_a8339c43f6b75a170abcf1c49c8513fd2"><div class="ttname"><a href="a04002.html#a8339c43f6b75a170abcf1c49c8513fd2">Dune::GridFactory&lt; UGGrid&lt; dimworld &gt; &gt;::Codim::Entity</a></div><div class="ttdeci">UGGrid&lt; dimworld &gt;::template Codim&lt; codim &gt;::Entity Entity</div><div class="ttdef"><b>Definition:</b> uggridfactory.hh:227</div></div>
-<div class="ttc" id="aa06806_html"><div class="ttname"><a href="a06806.html">gridfactory.hh</a></div><div class="ttdoc">Provide a generic factory class for unstructured grids.</div></div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    OneDGridList&lt;OneDEntityImp&lt;0&gt; &gt;&amp; vertices(<span class="keywordtype">int</span> level) {</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;      <span class="keywordflow">return</span> std::get&lt;0&gt;(entityImps_[level]);</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    }</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160; </div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    <span class="keyword">const</span> OneDGridList&lt;OneDEntityImp&lt;0&gt; &gt;&amp; vertices(<span class="keywordtype">int</span> level)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;      <span class="keywordflow">return</span> std::get&lt;0&gt;(entityImps_[level]);</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    }</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160; </div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    OneDGridList&lt;OneDEntityImp&lt;1&gt; &gt;&amp; elements(<span class="keywordtype">int</span> level) {</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;      <span class="keywordflow">return</span> std::get&lt;1&gt;(entityImps_[level]);</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    }</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160; </div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    <span class="keyword">const</span> OneDGridList&lt;OneDEntityImp&lt;1&gt; &gt;&amp; elements(<span class="keywordtype">int</span> level)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;      <span class="keywordflow">return</span> std::get&lt;1&gt;(entityImps_[level]);</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    }</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160; </div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    <a class="code" href="a02710.html#a207a985384df3916550501a433b5cebe">CollectiveCommunication</a> ccobj;</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160; </div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    <span class="keywordtype">void</span> setIndices();</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160; </div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> getNextFreeId()</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    {</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;      <span class="keywordflow">return</span> freeIdCounter_++;</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    }</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160; </div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    <a class="code" href="a03934.html#a6391ce2add44142b6004e7e435c2bddd">RefinementType</a> refinementType_;</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160; </div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    OneDGridList&lt;OneDEntityImp&lt;0&gt; &gt;::iterator getLeftUpperVertex(<span class="keyword">const</span> OneDEntityImp&lt;1&gt;* eIt);</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160; </div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    OneDGridList&lt;OneDEntityImp&lt;0&gt; &gt;::iterator getRightUpperVertex(<span class="keyword">const</span> OneDEntityImp&lt;1&gt;* eIt);</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160; </div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;    OneDGridList&lt;OneDEntityImp&lt;1&gt; &gt;::iterator getLeftNeighborWithSon(OneDGridList&lt;OneDEntityImp&lt;1&gt; &gt;::iterator eIt);</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160; </div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    <span class="comment">// The vertices and elements of the grid hierarchy</span></div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;    std::vector&lt;std::tuple&lt;OneDGridList&lt;OneDEntityImp&lt;0&gt; &gt;,</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;            OneDGridList&lt;OneDEntityImp&lt;1&gt; &gt; &gt; &gt; entityImps_;</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160; </div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;    <span class="comment">// Our set of level indices</span></div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;    <span class="keyword">mutable</span> std::vector&lt;OneDGridLevelIndexSet&lt;const OneDGrid&gt;* &gt; levelIndexSets_;</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160; </div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;    <a class="code" href="a03934.html#a8d549bd25ab0a369720242fb71744f4b">OneDGridLeafIndexSet&lt;const OneDGrid&gt;</a> leafIndexSet_;</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160; </div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    <a class="code" href="a03934.html#affc659ad6d2dda1b3e2ed2a21b07fcbe">OneDGridIdSet&lt;const OneDGrid&gt;</a> idSet_;</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160; </div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;    <span class="comment">// Every entity gets a unique id, unless it is a copy of an entity on a coarser level.</span></div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;    <span class="comment">// This is the counter that we use to create the unique id.</span></div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> freeIdCounter_;</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160; </div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;    <span class="keywordtype">bool</span> reversedBoundarySegmentNumbering_;</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160; </div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;  }; <span class="comment">// end Class OneDGrid</span></div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160; </div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;  <span class="keyword">namespace </span>Capabilities</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;  {</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;    <span class="keyword">template</span>&lt; &gt;</div>
+<div class="line"><a name="l00386"></a><span class="lineno"><a class="line" href="a03938.html">  386</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="a02498.html">hasSingleGeometryType</a>&lt; <a class="code" href="a03934.html">OneDGrid</a> &gt;</div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;    {</div>
+<div class="line"><a name="l00388"></a><span class="lineno"><a class="line" href="a03938.html#afa9dc49f941623e4c2dec3d80b58f292">  388</a></span>&#160;      <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="a02498.html#abf782a7868e92b75f99183208936f4c3">v</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00389"></a><span class="lineno"><a class="line" href="a03938.html#aa9d07c2e414b8b1f89cf9d934ec7cc06">  389</a></span>&#160;      <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="a02498.html#ac0c3cafd7214588634f519c7c0fbf0f4">topologyId</a> = GeometryTypes::cube(1).id();</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;    };</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160; </div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160; </div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;    <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> cdim&gt;</div>
+<div class="line"><a name="l00397"></a><span class="lineno"><a class="line" href="a03942.html">  397</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="a02506.html">hasEntity</a>&lt; <a class="code" href="a03934.html">OneDGrid</a>, cdim &gt;</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;    {</div>
+<div class="line"><a name="l00399"></a><span class="lineno"><a class="line" href="a03942.html#accc4a8868ea9fa61060fe17638ac49b4">  399</a></span>&#160;      <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="a02506.html#a75e9ee2b00464750e2b26fd36b8ae7a1">v</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;    };</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160; </div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;    <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> codim&gt;</div>
+<div class="line"><a name="l00407"></a><span class="lineno"><a class="line" href="a03946.html">  407</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="a02510.html">hasEntityIterator</a>&lt;<a class="code" href="a03934.html">OneDGrid</a>, codim&gt;</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;    {</div>
+<div class="line"><a name="l00409"></a><span class="lineno"><a class="line" href="a03946.html#af252fa1310799be133eba3c58f64efe2">  409</a></span>&#160;      <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="a02510.html#a771e61df6ae5663905e373cb03682149">v</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;    };</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160; </div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;    <span class="keyword">template</span>&lt;&gt;</div>
+<div class="line"><a name="l00416"></a><span class="lineno"><a class="line" href="a03950.html">  416</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="a02522.html">isLevelwiseConforming</a>&lt; <a class="code" href="a03934.html">OneDGrid</a> &gt;</div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;    {</div>
+<div class="line"><a name="l00418"></a><span class="lineno"><a class="line" href="a03950.html#a5ab4ba0d61eb1f9f491110e158cf8049">  418</a></span>&#160;      <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="a02522.html#acd9aa7be796cc4eae6c3c57d0800dcf0">v</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;    };</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160; </div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;    <span class="keyword">template</span>&lt;&gt;</div>
+<div class="line"><a name="l00425"></a><span class="lineno"><a class="line" href="a03954.html">  425</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="a02526.html">isLeafwiseConforming</a>&lt; <a class="code" href="a03934.html">OneDGrid</a> &gt;</div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;    {</div>
+<div class="line"><a name="l00427"></a><span class="lineno"><a class="line" href="a03954.html#a95069c571e0d054c945b1f8ac9ca7c27">  427</a></span>&#160;      <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="a02526.html#a643fcb1a54d730bfb0b1fda877dd8c4c">v</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;    };</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160; </div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;  }</div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160; </div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;} <span class="comment">// namespace Dune</span></div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160; </div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;<span class="comment">// Include the GridFactory specialization for OneDGrid, so everybody</span></div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;<span class="comment">// who includes the grid also gets the factory.  Since OneDGrid is</span></div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;<span class="comment">// not a template class, it needs to be a complete type before</span></div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;<span class="comment">// GridFactory&lt;OneDGrid&gt; can be defined.  This is why the #include-</span></div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;<span class="comment">// directive is at _the end_ of this file.</span></div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;<span class="preprocessor">#include &lt;dune/grid/onedgrid/onedgridfactory.hh&gt;</span></div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160; </div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160; </div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aa00940_html"><div class="ttname"><a href="a00940.html">Dune</a></div><div class="ttdoc">Include standard header files.</div><div class="ttdef"><b>Definition:</b> agrid.hh:58</div></div>
+<div class="ttc" id="aa00940_html_a95dfaabfd00063ad5bd988583a6629c1"><div class="ttname"><a href="a00940.html#a95dfaabfd00063ad5bd988583a6629c1">Dune::OneDGridGeometry</a></div><div class="ttdeci">AxisAlignedCubeGeometry&lt; double, mydim, coorddim &gt; OneDGridGeometry</div><div class="ttdoc">The type used to for OneDGrid geometries.</div><div class="ttdef"><b>Definition:</b> onedgrid.hh:45</div></div>
+<div class="ttc" id="aa00951_html_aceb67a16cc6beb52f71ba8a06d6ef44f"><div class="ttname"><a href="a00951.html#aceb67a16cc6beb52f71ba8a06d6ef44f">Dune::VTK::GeometryType</a></div><div class="ttdeci">GeometryType</div><div class="ttdoc">Type representing VTK's entity geometry types.</div><div class="ttdef"><b>Definition:</b> common.hh:130</div></div>
+<div class="ttc" id="aa02498_html"><div class="ttname"><a href="a02498.html">Dune::Capabilities::hasSingleGeometryType</a></div><div class="ttdoc">Specialize with 'true' for if the codimension 0 entity of the grid has only one possible geometry typ...</div><div class="ttdef"><b>Definition:</b> common/capabilities.hh:25</div></div>
+<div class="ttc" id="aa02498_html_abf782a7868e92b75f99183208936f4c3"><div class="ttname"><a href="a02498.html#abf782a7868e92b75f99183208936f4c3">Dune::Capabilities::hasSingleGeometryType::v</a></div><div class="ttdeci">static const bool v</div><div class="ttdef"><b>Definition:</b> common/capabilities.hh:26</div></div>
+<div class="ttc" id="aa02498_html_ac0c3cafd7214588634f519c7c0fbf0f4"><div class="ttname"><a href="a02498.html#ac0c3cafd7214588634f519c7c0fbf0f4">Dune::Capabilities::hasSingleGeometryType::topologyId</a></div><div class="ttdeci">static const unsigned int topologyId</div><div class="ttdef"><b>Definition:</b> common/capabilities.hh:29</div></div>
+<div class="ttc" id="aa02506_html"><div class="ttname"><a href="a02506.html">Dune::Capabilities::hasEntity</a></div><div class="ttdoc">Specialize with 'true' for all codims that a grid implements entities for. (default=false)</div><div class="ttdef"><b>Definition:</b> common/capabilities.hh:56</div></div>
+<div class="ttc" id="aa02506_html_a75e9ee2b00464750e2b26fd36b8ae7a1"><div class="ttname"><a href="a02506.html#a75e9ee2b00464750e2b26fd36b8ae7a1">Dune::Capabilities::hasEntity::v</a></div><div class="ttdeci">static const bool v</div><div class="ttdef"><b>Definition:</b> common/capabilities.hh:57</div></div>
+<div class="ttc" id="aa02510_html"><div class="ttname"><a href="a02510.html">Dune::Capabilities::hasEntityIterator</a></div><div class="ttdoc">specialize with 'true' for all codims that a grid provides an iterator for (default=hasEntity&lt;codim&gt;:...</div><div class="ttdef"><b>Definition:</b> common/capabilities.hh:72</div></div>
+<div class="ttc" id="aa02510_html_a771e61df6ae5663905e373cb03682149"><div class="ttname"><a href="a02510.html#a771e61df6ae5663905e373cb03682149">Dune::Capabilities::hasEntityIterator::v</a></div><div class="ttdeci">static const bool v</div><div class="ttdef"><b>Definition:</b> common/capabilities.hh:73</div></div>
+<div class="ttc" id="aa02522_html"><div class="ttname"><a href="a02522.html">Dune::Capabilities::isLevelwiseConforming</a></div><div class="ttdoc">Specialize with 'true' if implementation guarantees conforming level grids. (default=false)</div><div class="ttdef"><b>Definition:</b> common/capabilities.hh:104</div></div>
+<div class="ttc" id="aa02522_html_acd9aa7be796cc4eae6c3c57d0800dcf0"><div class="ttname"><a href="a02522.html#acd9aa7be796cc4eae6c3c57d0800dcf0">Dune::Capabilities::isLevelwiseConforming::v</a></div><div class="ttdeci">static const bool v</div><div class="ttdef"><b>Definition:</b> common/capabilities.hh:105</div></div>
+<div class="ttc" id="aa02526_html"><div class="ttname"><a href="a02526.html">Dune::Capabilities::isLeafwiseConforming</a></div><div class="ttdoc">Specialize with 'true' if implementation guarantees a conforming leaf grid. (default=false)</div><div class="ttdef"><b>Definition:</b> common/capabilities.hh:113</div></div>
+<div class="ttc" id="aa02526_html_a643fcb1a54d730bfb0b1fda877dd8c4c"><div class="ttname"><a href="a02526.html#a643fcb1a54d730bfb0b1fda877dd8c4c">Dune::Capabilities::isLeafwiseConforming::v</a></div><div class="ttdeci">static const bool v</div><div class="ttdef"><b>Definition:</b> common/capabilities.hh:114</div></div>
+<div class="ttc" id="aa02642_html"><div class="ttname"><a href="a02642.html">Dune::Entity</a></div><div class="ttdoc">Wrapper class for entities.</div><div class="ttdef"><b>Definition:</b> common/entity.hh:64</div></div>
+<div class="ttc" id="aa02678_html"><div class="ttname"><a href="a02678.html">Dune::GridDefaultImplementation</a></div><div class="ttdef"><b>Definition:</b> common/grid.hh:851</div></div>
+<div class="ttc" id="aa02702_html"><div class="ttname"><a href="a02702.html">Dune::IndexSet</a></div><div class="ttdoc">Index Set Interface base class.</div><div class="ttdef"><b>Definition:</b> indexidset.hh:76</div></div>
+<div class="ttc" id="aa02702_html_a21277808430ded4b56c62c1717a8729d"><div class="ttname"><a href="a02702.html#a21277808430ded4b56c62c1717a8729d">Dune::IndexSet::size</a></div><div class="ttdeci">auto size(GeometryType type) const</div><div class="ttdoc">Return total number of entities of given geometry type in entity set .</div><div class="ttdef"><b>Definition:</b> indexidset.hh:221</div></div>
+<div class="ttc" id="aa02706_html"><div class="ttname"><a href="a02706.html">Dune::IdSet</a></div><div class="ttdoc">Id Set Interface.</div><div class="ttdef"><b>Definition:</b> indexidset.hh:450</div></div>
+<div class="ttc" id="aa02710_html_a207a985384df3916550501a433b5cebe"><div class="ttname"><a href="a02710.html#a207a985384df3916550501a433b5cebe">Dune::Grid::CollectiveCommunication</a></div><div class="ttdeci">GridFamily::Traits::CollectiveCommunication CollectiveCommunication</div><div class="ttdoc">A type that is a model of Dune::CollectiveCommunication. It provides a portable way for collective co...</div><div class="ttdef"><b>Definition:</b> common/grid.hh:518</div></div>
+<div class="ttc" id="aa02710_html_af10850d580532530ec127817a2a28c38"><div class="ttname"><a href="a02710.html#af10850d580532530ec127817a2a28c38">Dune::Grid::ctype</a></div><div class="ttdeci">ct ctype</div><div class="ttdoc">Define type used for coordinates in grid module.</div><div class="ttdef"><b>Definition:</b> common/grid.hh:521</div></div>
+<div class="ttc" id="aa02714_html_a010395efed236aefd4d2fab3b0ad8e96"><div class="ttname"><a href="a02714.html#a010395efed236aefd4d2fab3b0ad8e96">Dune::Grid::Codim::Entity</a></div><div class="ttdeci">GridFamily::Traits::template Codim&lt; cd &gt;::Entity Entity</div><div class="ttdoc">A type that is a model of a Dune::Entity&lt;cd,dim,...&gt;.</div><div class="ttdef"><b>Definition:</b> common/grid.hh:422</div></div>
+<div class="ttc" id="aa02722_html"><div class="ttname"><a href="a02722.html">Dune::GridTraits</a></div><div class="ttdoc">A traits struct that collects all associated types of one grid model.</div><div class="ttdef"><b>Definition:</b> common/grid.hh:984</div></div>
+<div class="ttc" id="aa02726_html"><div class="ttname"><a href="a02726.html">Dune::GridTraits::Codim</a></div><div class="ttdoc">Traits associated with a specific codim.</div><div class="ttdef"><b>Definition:</b> common/grid.hh:1006</div></div>
+<div class="ttc" id="aa02754_html"><div class="ttname"><a href="a02754.html">Dune::GridFactory</a></div><div class="ttdoc">Provide a generic factory class for unstructured grids.</div><div class="ttdef"><b>Definition:</b> common/gridfactory.hh:312</div></div>
+<div class="ttc" id="aa03930_html"><div class="ttname"><a href="a03930.html">Dune::OneDGridFamily</a></div><div class="ttdef"><b>Definition:</b> onedgrid.hh:48</div></div>
+<div class="ttc" id="aa03930_html_ad6b8b5f17a881718a58d6e6b62978f6a"><div class="ttname"><a href="a03930.html#ad6b8b5f17a881718a58d6e6b62978f6a">Dune::OneDGridFamily::Traits</a></div><div class="ttdeci">GridTraits&lt; 1, 1, Dune::OneDGrid, OneDGridGeometry, OneDGridEntity, OneDGridLevelIterator, OneDGridLeafIntersection, OneDGridLevelIntersection, OneDGridLeafIntersectionIterator, OneDGridLevelIntersectionIterator, OneDGridHierarchicIterator, OneDGridLeafIterator, OneDGridLevelIndexSet&lt; const OneDGrid &gt;, OneDGridLeafIndexSet&lt; const OneDGrid &gt;, OneDGridIdSet&lt; const OneDGrid &gt;, unsigned int, OneDGridIdSet&lt; const OneDGrid &gt;, unsigned int, CollectiveCommunication&lt; No_Comm &gt;, OneDGridLevelGridViewTraits, OneDGridLeafGridViewTraits, OneDGridEntitySeed &gt; Traits</div><div class="ttdef"><b>Definition:</b> onedgrid.hh:71</div></div>
+<div class="ttc" id="aa03934_html"><div class="ttname"><a href="a03934.html">Dune::OneDGrid</a></div><div class="ttdoc">One-dimensional adaptive grid.</div><div class="ttdef"><b>Definition:</b> onedgrid.hh:92</div></div>
+<div class="ttc" id="aa03934_html_a0462c4fa437a6d4985c6aff5bb282ff0"><div class="ttname"><a href="a03934.html#a0462c4fa437a6d4985c6aff5bb282ff0">Dune::OneDGrid::ctype</a></div><div class="ttdeci">OneDGridGeometry&lt; 0, 1, OneDGrid &gt;::ctype ctype</div><div class="ttdoc">The type used to store coordinates.</div><div class="ttdef"><b>Definition:</b> onedgrid.hh:137</div></div>
+<div class="ttc" id="aa03934_html_a2bc8d3db2e8091f1fcc576c25d7cba31"><div class="ttname"><a href="a03934.html#a2bc8d3db2e8091f1fcc576c25d7cba31">Dune::OneDGrid::OneDGridLeafIterator</a></div><div class="ttdeci">friend class OneDGridLeafIterator</div><div class="ttdef"><b>Definition:</b> onedgrid.hh:115</div></div>
+<div class="ttc" id="aa03934_html_a334ef9026b772557d41b4b440a8dfe35"><div class="ttname"><a href="a03934.html#a334ef9026b772557d41b4b440a8dfe35">Dune::OneDGrid::preAdapt</a></div><div class="ttdeci">bool preAdapt()</div><div class="ttdoc">Does nothing except return true if some element has been marked for refinement.</div></div>
+<div class="ttc" id="aa03934_html_a47e296b20a5d6cb15a7d39771329e8af"><div class="ttname"><a href="a03934.html#a47e296b20a5d6cb15a7d39771329e8af">Dune::OneDGrid::comm</a></div><div class="ttdeci">const CollectiveCommunication &amp; comm() const</div><div class="ttdef"><b>Definition:</b> onedgrid.hh:298</div></div>
+<div class="ttc" id="aa03934_html_a505304bbc2555e5ff06dbcc044b1fac3"><div class="ttname"><a href="a03934.html#a505304bbc2555e5ff06dbcc044b1fac3">Dune::OneDGrid::size</a></div><div class="ttdeci">int size(GeometryType type) const</div><div class="ttdoc">number of leaf entities per geometry type in this process</div><div class="ttdef"><b>Definition:</b> onedgrid.hh:200</div></div>
+<div class="ttc" id="aa03934_html_a5334f3518144c51c8a1c774adf98a652"><div class="ttname"><a href="a03934.html#a5334f3518144c51c8a1c774adf98a652">Dune::OneDGrid::OneDGrid</a></div><div class="ttdeci">OneDGrid(const std::vector&lt; ctype &gt; &amp;coords)</div><div class="ttdoc">Constructor with an explicit set of coordinates.</div></div>
+<div class="ttc" id="aa03934_html_a5d47dadd272e48c1d7e85ad7b45635b8"><div class="ttname"><a href="a03934.html#a5d47dadd272e48c1d7e85ad7b45635b8">Dune::OneDGrid::postAdapt</a></div><div class="ttdeci">void postAdapt()</div><div class="ttdoc">Adaptation post-processing: Reset all adaptation state flags.</div></div>
+<div class="ttc" id="aa03934_html_a5db7425e8218640dd873359a244cdbc9"><div class="ttname"><a href="a03934.html#a5db7425e8218640dd873359a244cdbc9">Dune::OneDGrid::adapt</a></div><div class="ttdeci">bool adapt()</div><div class="ttdoc">Triggers the grid refinement process.</div></div>
+<div class="ttc" id="aa03934_html_a6391ce2add44142b6004e7e435c2bddd"><div class="ttname"><a href="a03934.html#a6391ce2add44142b6004e7e435c2bddd">Dune::OneDGrid::RefinementType</a></div><div class="ttdeci">RefinementType</div><div class="ttdoc">The different forms of grid refinement supported by OneDGrid.</div><div class="ttdef"><b>Definition:</b> onedgrid.hh:277</div></div>
+<div class="ttc" id="aa03934_html_a6391ce2add44142b6004e7e435c2bddda717acda80ec6df8358bb8839638797fa"><div class="ttname"><a href="a03934.html#a6391ce2add44142b6004e7e435c2bddda717acda80ec6df8358bb8839638797fa">Dune::OneDGrid::COPY</a></div><div class="ttdeci">@ COPY</div><div class="ttdoc">New level consists of the refined elements and the unrefined ones, too.</div><div class="ttdef"><b>Definition:</b> onedgrid.hh:281</div></div>
+<div class="ttc" id="aa03934_html_a6391ce2add44142b6004e7e435c2bddda8660cbfb6839f6513f40099bda27a461"><div class="ttname"><a href="a03934.html#a6391ce2add44142b6004e7e435c2bddda8660cbfb6839f6513f40099bda27a461">Dune::OneDGrid::LOCAL</a></div><div class="ttdeci">@ LOCAL</div><div class="ttdoc">New level consists only of the refined elements.</div><div class="ttdef"><b>Definition:</b> onedgrid.hh:279</div></div>
+<div class="ttc" id="aa03934_html_a67a831363ccb28831133f17a606b8679"><div class="ttname"><a href="a03934.html#a67a831363ccb28831133f17a606b8679">Dune::OneDGrid::numBoundarySegments</a></div><div class="ttdeci">size_t numBoundarySegments() const</div><div class="ttdoc">Return the number of coarse grid boundary segments.</div><div class="ttdef"><b>Definition:</b> onedgrid.hh:210</div></div>
+<div class="ttc" id="aa03934_html_a6fac5617a51d0a68249e6cc63662b73e"><div class="ttname"><a href="a03934.html#a6fac5617a51d0a68249e6cc63662b73e">Dune::OneDGrid::Traits</a></div><div class="ttdeci">OneDGridFamily::Traits Traits</div><div class="ttdef"><b>Definition:</b> onedgrid.hh:143</div></div>
+<div class="ttc" id="aa03934_html_a716ba22ded322f2347fcc973dbc665c1"><div class="ttname"><a href="a03934.html#a716ba22ded322f2347fcc973dbc665c1">Dune::OneDGrid::~OneDGrid</a></div><div class="ttdeci">~OneDGrid()</div><div class="ttdoc">Destructor.</div></div>
+<div class="ttc" id="aa03934_html_a780fe9a8e8c5b73cd07e41a01ba6e901"><div class="ttname"><a href="a03934.html#a780fe9a8e8c5b73cd07e41a01ba6e901">Dune::OneDGrid::levelIndexSet</a></div><div class="ttdeci">const Traits::LevelIndexSet &amp; levelIndexSet(int level) const</div><div class="ttdoc">Get an index set for the given level.</div><div class="ttdef"><b>Definition:</b> onedgrid.hh:228</div></div>
+<div class="ttc" id="aa03934_html_a7bf5f45023b3694d666e7a418bcebecb"><div class="ttname"><a href="a03934.html#a7bf5f45023b3694d666e7a418bcebecb">Dune::OneDGrid::mark</a></div><div class="ttdeci">bool mark(int refCount, const Traits::Codim&lt; 0 &gt;::Entity &amp;e)</div><div class="ttdoc">Mark entity for refinement.</div></div>
+<div class="ttc" id="aa03934_html_a7c1c4fdd477bc864a201b8c5ab27e50d"><div class="ttname"><a href="a03934.html#a7c1c4fdd477bc864a201b8c5ab27e50d">Dune::OneDGrid::setRefinementType</a></div><div class="ttdeci">void setRefinementType(RefinementType type)</div><div class="ttdoc">Sets the type of grid refinement.</div><div class="ttdef"><b>Definition:</b> onedgrid.hh:285</div></div>
+<div class="ttc" id="aa03934_html_a80b3da96e29b79110035be79101cb801"><div class="ttname"><a href="a03934.html#a80b3da96e29b79110035be79101cb801">Dune::OneDGrid::size</a></div><div class="ttdeci">int size(int level, GeometryType type) const</div><div class="ttdoc">number of entities per level and geometry type in this process</div><div class="ttdef"><b>Definition:</b> onedgrid.hh:193</div></div>
+<div class="ttc" id="aa03934_html_a815412bba6b08bccb332db267ee08b10"><div class="ttname"><a href="a03934.html#a815412bba6b08bccb332db267ee08b10">Dune::OneDGrid::entity</a></div><div class="ttdeci">static Traits::template Codim&lt; Seed::codimension &gt;::Entity entity(const Seed &amp;seed)</div><div class="ttdoc">Create an Entity from an EntitySeed.</div><div class="ttdef"><b>Definition:</b> onedgrid.hh:163</div></div>
+<div class="ttc" id="aa03934_html_a84310dd773ee4849b36e1d82ecbfb497"><div class="ttname"><a href="a03934.html#a84310dd773ee4849b36e1d82ecbfb497">Dune::OneDGrid::size</a></div><div class="ttdeci">int size(int level, int codim) const</div><div class="ttdoc">Number of grid entities per level and codim.</div><div class="ttdef"><b>Definition:</b> onedgrid.hh:172</div></div>
+<div class="ttc" id="aa03934_html_a8d549bd25ab0a369720242fb71744f4b"><div class="ttname"><a href="a03934.html#a8d549bd25ab0a369720242fb71744f4b">Dune::OneDGrid::OneDGridLeafIndexSet&lt; const OneDGrid &gt;</a></div><div class="ttdeci">friend class OneDGridLeafIndexSet&lt; const OneDGrid &gt;</div><div class="ttdef"><b>Definition:</b> onedgrid.hh:111</div></div>
+<div class="ttc" id="aa03934_html_a95a34391d937bea5815adde316317e78"><div class="ttname"><a href="a03934.html#a95a34391d937bea5815adde316317e78">Dune::OneDGrid::OneDGrid</a></div><div class="ttdeci">OneDGrid(int numElements, const ctype &amp;leftBoundary, const ctype &amp;rightBoundary)</div><div class="ttdoc">Constructor for a uniform grid.</div></div>
+<div class="ttc" id="aa03934_html_a9745a59f8309ca3be490a15d636c7d1d"><div class="ttname"><a href="a03934.html#a9745a59f8309ca3be490a15d636c7d1d">Dune::OneDGrid::OneDGridEntity</a></div><div class="ttdeci">friend class OneDGridEntity</div><div class="ttdef"><b>Definition:</b> onedgrid.hh:103</div></div>
+<div class="ttc" id="aa03934_html_ac21dd02e2aec18d379c0209342ddf833"><div class="ttname"><a href="a03934.html#ac21dd02e2aec18d379c0209342ddf833">Dune::OneDGrid::size</a></div><div class="ttdeci">int size(int codim) const</div><div class="ttdoc">number of leaf entities per codim in this process</div><div class="ttdef"><b>Definition:</b> onedgrid.hh:187</div></div>
+<div class="ttc" id="aa03934_html_ac8fadb9b97c00ade7249e66f5afa7d59"><div class="ttname"><a href="a03934.html#ac8fadb9b97c00ade7249e66f5afa7d59">Dune::OneDGrid::leafIndexSet</a></div><div class="ttdeci">const Traits::LeafIndexSet &amp; leafIndexSet() const</div><div class="ttdoc">Get an index set for the leaf level.</div><div class="ttdef"><b>Definition:</b> onedgrid.hh:240</div></div>
+<div class="ttc" id="aa03934_html_ac9d025d37a45653c22e20896c5b88bc5"><div class="ttname"><a href="a03934.html#ac9d025d37a45653c22e20896c5b88bc5">Dune::OneDGrid::GridFamily</a></div><div class="ttdeci">OneDGridFamily GridFamily</div><div class="ttdoc">GridFamily of OneDGrid.</div><div class="ttdef"><b>Definition:</b> onedgrid.hh:140</div></div>
+<div class="ttc" id="aa03934_html_ad413281712dd49c4e83f730d217f20dd"><div class="ttname"><a href="a03934.html#ad413281712dd49c4e83f730d217f20dd">Dune::OneDGrid::OneDGridLevelIndexSet&lt; const OneDGrid &gt;</a></div><div class="ttdeci">friend class OneDGridLevelIndexSet&lt; const OneDGrid &gt;</div><div class="ttdef"><b>Definition:</b> onedgrid.hh:110</div></div>
+<div class="ttc" id="aa03934_html_ad824e37968942aa881dbaed6f79f5e6c"><div class="ttname"><a href="a03934.html#ad824e37968942aa881dbaed6f79f5e6c">Dune::OneDGrid::maxLevel</a></div><div class="ttdeci">int maxLevel() const</div><div class="ttdoc">Return maximum level defined in this grid.</div><div class="ttdef"><b>Definition:</b> onedgrid.hh:158</div></div>
+<div class="ttc" id="aa03934_html_adc0e8813b4835f944356f6b3aeff0dec"><div class="ttname"><a href="a03934.html#adc0e8813b4835f944356f6b3aeff0dec">Dune::OneDGrid::getMark</a></div><div class="ttdeci">int getMark(const Traits::Codim&lt; 0 &gt;::Entity &amp;e) const</div><div class="ttdoc">return current adaptation marker of given entity</div></div>
+<div class="ttc" id="aa03934_html_adfe82fc3cd88498f68b2a2b7a5ca158d"><div class="ttname"><a href="a03934.html#adfe82fc3cd88498f68b2a2b7a5ca158d">Dune::OneDGrid::globalIdSet</a></div><div class="ttdeci">const Traits::GlobalIdSet &amp; globalIdSet() const</div><div class="ttdoc">Get the set of global ids.</div><div class="ttdef"><b>Definition:</b> onedgrid.hh:216</div></div>
+<div class="ttc" id="aa03934_html_ae3945902e38329e301346eed94885cfb"><div class="ttname"><a href="a03934.html#ae3945902e38329e301346eed94885cfb">Dune::OneDGrid::localIdSet</a></div><div class="ttdeci">const Traits::LocalIdSet &amp; localIdSet() const</div><div class="ttdoc">Get the set of local ids.</div><div class="ttdef"><b>Definition:</b> onedgrid.hh:222</div></div>
+<div class="ttc" id="aa03934_html_aec100f804c14d17ee8a1cb0ccdf5aeba"><div class="ttname"><a href="a03934.html#aec100f804c14d17ee8a1cb0ccdf5aeba">Dune::OneDGrid::OneDGridLevelIterator</a></div><div class="ttdeci">friend class OneDGridLevelIterator</div><div class="ttdef"><b>Definition:</b> onedgrid.hh:98</div></div>
+<div class="ttc" id="aa03934_html_af88f66610114160861517f8007668e6e"><div class="ttname"><a href="a03934.html#af88f66610114160861517f8007668e6e">Dune::OneDGrid::globalRefine</a></div><div class="ttdeci">void globalRefine(int refCount)</div><div class="ttdoc">Does one uniform refinement step.</div></div>
+<div class="ttc" id="aa03934_html_affc659ad6d2dda1b3e2ed2a21b07fcbe"><div class="ttname"><a href="a03934.html#affc659ad6d2dda1b3e2ed2a21b07fcbe">Dune::OneDGrid::OneDGridIdSet&lt; const OneDGrid &gt;</a></div><div class="ttdeci">friend class OneDGridIdSet&lt; const OneDGrid &gt;</div><div class="ttdef"><b>Definition:</b> onedgrid.hh:112</div></div>
+<div class="ttc" id="aa06648_html"><div class="ttname"><a href="a06648.html">capabilities.hh</a></div><div class="ttdoc">A set of traits classes to store static information about grid implementation.</div></div>
+<div class="ttc" id="aa06702_html"><div class="ttname"><a href="a06702.html">grid.hh</a></div><div class="ttdoc">Different resources needed by all grid implementations.</div></div>
+<div class="ttc" id="aa06711_html"><div class="ttname"><a href="a06711.html">gridfactory.hh</a></div><div class="ttdoc">Provide a generic factory class for unstructured grids.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: Mappers</title>
+<title>dune-grid: IndexSet and IdSet</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -63,256 +63,31 @@ $(function() {
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#typedef-members">Typedefs</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle">
-<div class="title">Mappers<div class="ingroups"><a class="el" href="a00902.html">dune-grid</a></div></div>  </div>
+<div class="title">IndexSet and IdSet<div class="ingroups"><a class="el" href="a00905.html">dune-grid</a> &raquo; <a class="el" href="a00907.html">The Grid Interface</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="dynheader">
-Collaboration diagram for Mappers:</div>
+Collaboration diagram for IndexSet and IdSet:</div>
 <div class="dyncontent">
 <div class="center"><img src="a00916.png" border="0" usemap="#aa00916" alt=""/></div>
 <map name="aa00916" id="aa00916">
-<area shape="rect" title=" " alt="" coords="128,5,200,31"/>
-<area shape="rect" href="a00902.html" title=" " alt="" coords="5,5,80,31"/>
+<area shape="rect" title=" " alt="" coords="177,5,309,31"/>
+<area shape="rect" href="a00907.html" title="Interfaces needed when working with a Dune::Grid." alt="" coords="5,5,129,31"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02782.html">Dune::Mapper&lt; G, MapperImp, IndexType &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a02782.html" title="Mapper interface.">Mapper</a> interface.  <a href="a02782.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02702.html">Dune::IndexSet&lt; GridImp, IndexSetImp, IndexTypeImp, TypesImp &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Index Set Interface base class.  <a href="a02702.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02786.html">Dune::MCMGElementLayout&lt; dimgrid &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Layout template for elements.  <a href="a02786.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02706.html">Dune::IdSet&lt; GridImp, IdSetImp, IdTypeImp &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Id Set Interface.  <a href="a02706.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02790.html">Dune::MCMGVertexLayout&lt; dim &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Layout template for vertices.  <a href="a02790.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02798.html">Dune::MultipleCodimMultipleGeomTypeMapper&lt; GV, LayoutClass &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementation class for a multiple codim and multiple geometry type mapper.  <a href="a02798.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02802.html">Dune::LeafMultipleCodimMultipleGeomTypeMapper&lt; G, LayoutClass &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiple codim and multiple geometry type mapper for leaf entities.  <a href="a02802.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02806.html">Dune::LevelMultipleCodimMultipleGeomTypeMapper&lt; G, LayoutClass &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiple codim and multiple geometry type mapper for entities of one level.  <a href="a02806.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02870.html">Dune::SingleCodimSingleGeomTypeMapper&lt; GV, c &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementation class for a single codim and single geometry type mapper.  <a href="a02870.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02874.html">Dune::LeafSingleCodimSingleGeomTypeMapper&lt; G, c &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Single codim and single geometry type mapper for leaf entities.  <a href="a02874.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02878.html">Dune::LevelSingleCodimSingleGeomTypeMapper&lt; G, c &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Single codim and single geometry type mapper for entities of one level.  <a href="a02878.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02910.html">Dune::UniversalMapper&lt; G, IDS, IndexType &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implements a mapper for an arbitrary subset of entities.  <a href="a02910.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02914.html">Dune::GlobalUniversalMapper&lt; G &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Universal mapper based on global ids.  <a href="a02914.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02918.html">Dune::LocalUniversalMapper&lt; G &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Universal mapper based on local ids.  <a href="a02918.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr class="memitem:gad8aa4cc3c8ae1053f70788625f0b5857"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00916.html#gad8aa4cc3c8ae1053f70788625f0b5857">Dune::MCMGLayout</a> = std::function&lt; size_t(GeometryType, int)&gt;</td></tr>
-<tr class="memdesc:gad8aa4cc3c8ae1053f70788625f0b5857"><td class="mdescLeft">&#160;</td><td class="mdescRight">layout function for <code><a class="el" href="a02798.html" title="Implementation class for a multiple codim and multiple geometry type mapper.">MultipleCodimMultipleGeomTypeMapper</a></code>  <a href="a00916.html#gad8aa4cc3c8ae1053f70788625f0b5857">More...</a><br /></td></tr>
-<tr class="separator:gad8aa4cc3c8ae1053f70788625f0b5857"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:ga2e82df0d1c8ad3e2db3a7c765c431b72"><td class="memTemplParams" colspan="2">template&lt;int codim&gt; </td></tr>
-<tr class="memitem:ga2e82df0d1c8ad3e2db3a7c765c431b72"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="a00916.html#gad8aa4cc3c8ae1053f70788625f0b5857">MCMGLayout</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00916.html#ga2e82df0d1c8ad3e2db3a7c765c431b72">Dune::mcmgLayout</a> (Codim&lt; codim &gt;)</td></tr>
-<tr class="memdesc:ga2e82df0d1c8ad3e2db3a7c765c431b72"><td class="mdescLeft">&#160;</td><td class="mdescRight">layout for entities of codimension <code>codim</code>  <a href="a00916.html#ga2e82df0d1c8ad3e2db3a7c765c431b72">More...</a><br /></td></tr>
-<tr class="separator:ga2e82df0d1c8ad3e2db3a7c765c431b72"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga08aae36ce3194378c4aafa398bfdec70"><td class="memTemplParams" colspan="2">template&lt;int dim&gt; </td></tr>
-<tr class="memitem:ga08aae36ce3194378c4aafa398bfdec70"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="a00916.html#gad8aa4cc3c8ae1053f70788625f0b5857">MCMGLayout</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00916.html#ga08aae36ce3194378c4aafa398bfdec70">Dune::mcmgLayout</a> (Dim&lt; dim &gt;)</td></tr>
-<tr class="memdesc:ga08aae36ce3194378c4aafa398bfdec70"><td class="mdescLeft">&#160;</td><td class="mdescRight">layout for entities of dimension <code>dim</code>  <a href="a00916.html#ga08aae36ce3194378c4aafa398bfdec70">More...</a><br /></td></tr>
-<tr class="separator:ga08aae36ce3194378c4aafa398bfdec70"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3f08c3fdd04f64bac3140926732b4b30"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00916.html#gad8aa4cc3c8ae1053f70788625f0b5857">MCMGLayout</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00916.html#ga3f08c3fdd04f64bac3140926732b4b30">Dune::mcmgElementLayout</a> ()</td></tr>
-<tr class="memdesc:ga3f08c3fdd04f64bac3140926732b4b30"><td class="mdescLeft">&#160;</td><td class="mdescRight">layout for elements (codim-0 entities)  <a href="a00916.html#ga3f08c3fdd04f64bac3140926732b4b30">More...</a><br /></td></tr>
-<tr class="separator:ga3f08c3fdd04f64bac3140926732b4b30"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae9caf92c46fedd5287c5e011dcbdd3b5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00916.html#gad8aa4cc3c8ae1053f70788625f0b5857">MCMGLayout</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00916.html#gae9caf92c46fedd5287c5e011dcbdd3b5">Dune::mcmgVertexLayout</a> ()</td></tr>
-<tr class="memdesc:gae9caf92c46fedd5287c5e011dcbdd3b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">layout for vertices (dim-0 entities)  <a href="a00916.html#gae9caf92c46fedd5287c5e011dcbdd3b5">More...</a><br /></td></tr>
-<tr class="separator:gae9caf92c46fedd5287c5e011dcbdd3b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<h1><a class="anchor" id="Mapper1"></a>
-What is a Mapper ?</h1>
-<p>A mapper class is used to attach user-defined data to a subset of the grid entities <img class="formulaInl" alt="$E^\prime\subseteq E$" src="form_45.png"/>.</p>
-<p>It is assumed that the data <img class="formulaInl" alt="$D(E^\prime)$" src="form_46.png"/> associated with <img class="formulaInl" alt="$E^\prime$" src="form_47.png"/> is stored in an array. The array can be viewed as a map </p><p class="formulaDsp">
-<img class="formulaDsp" alt="\[ a : I_{E^\prime} \to D(E^\prime) \]" src="form_48.png"/>
-</p>
-<p> from the consecutive, zero-starting index set <img class="formulaInl" alt="$ I_{E^\prime} = \{0, \ldots, |E^\prime|-1\}$" src="form_49.png"/> of <img class="formulaInl" alt="$E^\prime$" src="form_47.png"/> to the data set.</p>
-<p>The mapper class provides a mapping </p><p class="formulaDsp">
-<img class="formulaDsp" alt="\[ m : E^\prime \to I_{E^\prime} \]" src="form_50.png"/>
-</p>
-<p> from the entity set to the index set.</p>
-<p>Access from a grid entity <img class="formulaInl" alt="$e\in E^\prime$" src="form_51.png"/> to its associated data element <img class="formulaInl" alt="$d_e$" src="form_52.png"/> then is a two step process: </p><p class="formulaDsp">
-<img class="formulaDsp" alt="\[ a(m(e)) = d_e. \]" src="form_53.png"/>
-</p>
-<h1><a class="anchor" id="Mapper2"></a>
-Different Kinds of Mappers</h1>
-<p>There are different kinds of mappers depending on functionality and efficiency of their implementation. The user selects an appropriate mapper depending on her/his needs. All mappers conform to the same interface.</p>
-<h2><a class="anchor" id="para1"></a>
-Index based Mappers</h2>
-<p>An index-based mapper is allocated for a grid and can be used as long as the grid is not changed (i.e. refined, coarsened or load balanced). The implementation of static mappers is based on a <a class="el" href="a02690.html" title="Index Set Interface base class.">Dune::IndexSet</a> and is typically of <img class="formulaInl" alt="$O(1)$" src="form_54.png"/> complexity with a very small constant. Index-based mappers are only available for restricted (but usually sufficient) entity sets.</p>
-<h2><a class="anchor" id="para2"></a>
-Id based Mappers</h2>
-<p>An id-based mapper can also be used while a grid changes. For that it has to be implemented on the basis of a <a class="el" href="a02694.html" title="Id Set Interface.">Dune::IdSet</a>. This may be relatively slow because the data type used for ids is usually not an int and the non-consecutive ids require more complicated search data structures (typically a map). Access is therefore at least <img class="formulaInl" alt="$O(\log |E^\prime|)$" src="form_55.png"/>. On the other hand, id-based mappers can treat arbitrary entity sets <img class="formulaInl" alt="$E^\prime$" src="form_47.png"/>.</p>
-<h1><a class="anchor" id="Mapper3"></a>
-Mapper Interface</h1>
-<p>This interface is implemented by the class template <a class="el" href="a02782.html" title="Mapper interface.">Dune::Mapper</a>. For a full documentation see the description of this class.</p>
-<p>The function <a class="el" href="a02782.html#a4c0290ee379b1fc0e90bfb69f00dc02b" title="Map entity to array index.">Dune::Mapper::index</a> delivers the index for an entity. Note that that for performance reasons it is usually not checked whether the entity is really in the entity set.</p>
-<p>The functions <a class="el" href="a02782.html#a4c0290ee379b1fc0e90bfb69f00dc02b" title="Map entity to array index.">Dune::Mapper::index</a> delivers the index for a (sub-)entity</p>
-<p>The function <a class="el" href="a02782.html#a3081058f1833c266eb0d1768f762a4bf" title="Return total number of entities in the entity set managed by the mapper.">Dune::Mapper::size</a> returns the size of the entity set, i.e. <img class="formulaInl" alt="$|E^\prime|$" src="form_56.png"/></p>
-<p>The different implementations of the mapper interface are listed below.</p>
-<h1><a class="anchor" id="Mapper4"></a>
-Overview of Different Mapper Implementations</h1>
-<h1><a class="anchor" id="Mapper5"></a>
-Mappers and Mesh Changes</h1>
-<h2 class="groupheader">Typedef Documentation</h2>
-<a id="gad8aa4cc3c8ae1053f70788625f0b5857"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gad8aa4cc3c8ae1053f70788625f0b5857">&#9670;&nbsp;</a></span>MCMGLayout</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="a00916.html#gad8aa4cc3c8ae1053f70788625f0b5857">Dune::MCMGLayout</a> = typedef std::function&lt;size_t(GeometryType, int)&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>layout function for <code><a class="el" href="a02798.html" title="Implementation class for a multiple codim and multiple geometry type mapper.">MultipleCodimMultipleGeomTypeMapper</a></code> </p>
-<p>The layout function indicates which entity types are contained in the mapper. It is called for each <code>GeometryType</code> and the grid dimension. A <code>true</code> value indicates the geometry type is part of the map; <code>false</code> that it is not.</p>
-<p>For commonly used layouts containing only entities of a fixed dimension or codimension, convenience functions returning a <code>MCMGLayout</code> are provided.</p>
-<p>The following example is equivalent to <a class="el" href="a00916.html#ga3f08c3fdd04f64bac3140926732b4b30">mcmgElementLayout()</a>: </p><div class="fragment"><div class="line"><a class="code" href="a00916.html#gad8aa4cc3c8ae1053f70788625f0b5857">MCMGLayout</a> layout = [](<a class="code" href="a00948.html#aceb67a16cc6beb52f71ba8a06d6ef44f">GeometryType</a> gt, <span class="keywordtype">int</span> griddim) {</div>
-<div class="line">  <span class="keywordflow">return</span> gt.dim() == griddim;</div>
-<div class="line">};</div>
-<div class="ttc" id="aa00916_html_gad8aa4cc3c8ae1053f70788625f0b5857"><div class="ttname"><a href="a00916.html#gad8aa4cc3c8ae1053f70788625f0b5857">Dune::MCMGLayout</a></div><div class="ttdeci">std::function&lt; size_t(GeometryType, int)&gt; MCMGLayout</div><div class="ttdoc">layout function for MultipleCodimMultipleGeomTypeMapper</div><div class="ttdef"><b>Definition:</b> mcmgmapper.hh:117</div></div>
-<div class="ttc" id="aa00948_html_aceb67a16cc6beb52f71ba8a06d6ef44f"><div class="ttname"><a href="a00948.html#aceb67a16cc6beb52f71ba8a06d6ef44f">Dune::VTK::GeometryType</a></div><div class="ttdeci">GeometryType</div><div class="ttdoc">Type representing VTK's entity geometry types.</div><div class="ttdef"><b>Definition:</b> common.hh:180</div></div>
-</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="a02798.html" title="Implementation class for a multiple codim and multiple geometry type mapper.">MultipleCodimMultipleGeomTypeMapper</a> </dd>
-<dd>
-<a class="el" href="a00916.html#ga2e82df0d1c8ad3e2db3a7c765c431b72" title="layout for entities of codimension codim">mcmgLayout(Codim&lt;codim&gt;)</a> </dd>
-<dd>
-<a class="el" href="a00916.html#ga08aae36ce3194378c4aafa398bfdec70" title="layout for entities of dimension dim">mcmgLayout(Dim&lt;dim&gt;)</a> </dd>
-<dd>
-<a class="el" href="a00916.html#ga3f08c3fdd04f64bac3140926732b4b30" title="layout for elements (codim-0 entities)">mcmgElementLayout()</a> </dd>
-<dd>
-<a class="el" href="a00916.html#gae9caf92c46fedd5287c5e011dcbdd3b5" title="layout for vertices (dim-0 entities)">mcmgVertexLayout()</a> </dd></dl>
-
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="ga3f08c3fdd04f64bac3140926732b4b30"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga3f08c3fdd04f64bac3140926732b4b30">&#9670;&nbsp;</a></span>mcmgElementLayout()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00916.html#gad8aa4cc3c8ae1053f70788625f0b5857">MCMGLayout</a> Dune::mcmgElementLayout </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>layout for elements (codim-0 entities) </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a02798.html" title="Implementation class for a multiple codim and multiple geometry type mapper.">MultipleCodimMultipleGeomTypeMapper</a> </dd></dl>
-
-</div>
-</div>
-<a id="ga2e82df0d1c8ad3e2db3a7c765c431b72"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga2e82df0d1c8ad3e2db3a7c765c431b72">&#9670;&nbsp;</a></span>mcmgLayout() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int codim&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00916.html#gad8aa4cc3c8ae1053f70788625f0b5857">MCMGLayout</a> Dune::mcmgLayout </td>
-          <td>(</td>
-          <td class="paramtype">Codim&lt; codim &gt;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>layout for entities of codimension <code>codim</code> </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a02798.html" title="Implementation class for a multiple codim and multiple geometry type mapper.">MultipleCodimMultipleGeomTypeMapper</a> </dd></dl>
-
-</div>
-</div>
-<a id="ga08aae36ce3194378c4aafa398bfdec70"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga08aae36ce3194378c4aafa398bfdec70">&#9670;&nbsp;</a></span>mcmgLayout() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;int dim&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00916.html#gad8aa4cc3c8ae1053f70788625f0b5857">MCMGLayout</a> Dune::mcmgLayout </td>
-          <td>(</td>
-          <td class="paramtype">Dim&lt; dim &gt;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>layout for entities of dimension <code>dim</code> </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a02798.html" title="Implementation class for a multiple codim and multiple geometry type mapper.">MultipleCodimMultipleGeomTypeMapper</a> </dd></dl>
-
-</div>
-</div>
-<a id="gae9caf92c46fedd5287c5e011dcbdd3b5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gae9caf92c46fedd5287c5e011dcbdd3b5">&#9670;&nbsp;</a></span>mcmgVertexLayout()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00916.html#gad8aa4cc3c8ae1053f70788625f0b5857">MCMGLayout</a> Dune::mcmgVertexLayout </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>layout for vertices (dim-0 entities) </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a02798.html" title="Implementation class for a multiple codim and multiple geometry type mapper.">MultipleCodimMultipleGeomTypeMapper</a> </dd></dl>
-
-</div>
-</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

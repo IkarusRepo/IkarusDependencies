@@ -14,7 +14,6 @@
 #include <vector>
 
 #include <dune/common/fvector.hh>
-#include <dune/common/to_unique_ptr.hh>
 
 #include <dune/grid/common/boundarysegment.hh>
 #include <dune/grid/common/gridfactory.hh>
@@ -175,8 +174,7 @@ namespace Dune {
     /** \brief Constructor for a given grid object
 
        If you already have your grid object constructed you can
-       hand it over using this constructor.  A reason may be that
-       you need a UGGrid object with a non-default heap size.
+       hand it over using this constructor.
 
        If you construct your factory class using this constructor
        the pointer handed over to you by the method createGrid() is
@@ -217,7 +215,7 @@ namespace Dune {
 
        The receiver takes responsibility of the memory allocated for the grid
      */
-    virtual ToUniquePtr<UGGrid<dimworld>> createGrid();
+    virtual std::unique_ptr<UGGrid<dimworld>> createGrid();
 
     static const int dimension = UGGrid<dimworld>::dimension;
 

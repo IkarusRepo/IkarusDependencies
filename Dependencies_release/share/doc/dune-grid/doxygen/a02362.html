@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>dune-grid: Dune::Alberta::ProjectionFactoryInterface&lt; Proj, Impl &gt; Class Template Reference</title>
+<title>dune-grid: Dune::Alberta::DuneBoundaryProjection&lt; dim &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">dune-grid
-   &#160;<span id="projectnumber">2.7.1</span>
+   &#160;<span id="projectnumber">2.8.0</span>
    </div>
   </td>
  </tr>
@@ -62,7 +62,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00936.html">Dune</a></li><li class="navelem"><a class="el" href="a00937.html">Alberta</a></li><li class="navelem"><a class="el" href="a02362.html">ProjectionFactoryInterface</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00940.html">Dune</a></li><li class="navelem"><a class="el" href="a00941.html">Alberta</a></li><li class="navelem"><a class="el" href="a02362.html">DuneBoundaryProjection</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -70,238 +70,194 @@ $(function() {
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
-<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="a02359.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Dune::Alberta::ProjectionFactoryInterface&lt; Proj, Impl &gt; Class Template Reference</div>  </div>
+<div class="title">Dune::Alberta::DuneBoundaryProjection&lt; dim &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="a06869_source.html">dune/grid/albertagrid/projection.hh</a>&gt;</code></p>
-<div class="dynheader">
-Inheritance diagram for Dune::Alberta::ProjectionFactoryInterface&lt; Proj, Impl &gt;:</div>
-<div class="dyncontent">
-<div class="center"><img src="a02361.png" border="0" usemap="#a_dune_1_1_alberta_1_1_projection_factory_interface_3_01_proj_00_01_impl_01_4_inherit__map" alt="Inheritance graph"/></div>
-<map name="a_dune_1_1_alberta_1_1_projection_factory_interface_3_01_proj_00_01_impl_01_4_inherit__map" id="a_dune_1_1_alberta_1_1_projection_factory_interface_3_01_proj_00_01_impl_01_4_inherit__map">
-<area shape="rect" title=" " alt="" coords="5,54,172,110"/>
-<area shape="rect" href="a02354.html" title=" " alt="" coords="669,6,924,77"/>
-<area shape="rect" href="a02354.html" title=" " alt="" coords="673,110,920,166"/>
-<area shape="rect" href="a02354.html" title=" " alt="" coords="221,61,388,102"/>
-<area shape="rect" href="a02366.html" title=" " alt="" coords="973,21,1197,62"/>
-<area shape="rect" href="a02018.html" title=" " alt="" coords="994,110,1177,166"/>
-</map>
-</div>
+<p><code>#include &lt;<a class="el" href="a06780_source.html">dune/grid/albertagrid/projection.hh</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a76fea749f25b269f49eddf429f3270de"><td class="memItemLeft" align="right" valign="top">typedef Proj&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02362.html#a76fea749f25b269f49eddf429f3270de">Projection</a></td></tr>
-<tr class="separator:a76fea749f25b269f49eddf429f3270de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad1550f4077465c7fc0d05491fb509a50"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a01898.html">Alberta::ElementInfo</a>&lt; <a class="el" href="a02362.html#a3f051b09b9c1cd336235b12db36c5216">dimension</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02362.html#ad1550f4077465c7fc0d05491fb509a50">ElementInfo</a></td></tr>
-<tr class="separator:ad1550f4077465c7fc0d05491fb509a50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad91d75760d6f3a027dadd0f2a84fb0c9"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a01902.html">Alberta::ElementInfo</a>&lt; <a class="el" href="a02362.html#a6db76baa668f52e4e4d2f0a735615bd5">dimension</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02362.html#ad91d75760d6f3a027dadd0f2a84fb0c9">ElementInfo</a></td></tr>
+<tr class="separator:ad91d75760d6f3a027dadd0f2a84fb0c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa02ad95d87739e6ead1a11e74335598b"><td class="memItemLeft" align="right" valign="top">typedef FieldVector&lt; <a class="el" href="a00941.html#a86b942cdffce80f98973c987ea6246da">Real</a>, <a class="el" href="a00941.html#acc4a01c16d41d4e3e6e5d058b86376ca">dimWorld</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02362.html#aa02ad95d87739e6ead1a11e74335598b">GlobalCoordinate</a></td></tr>
+<tr class="separator:aa02ad95d87739e6ead1a11e74335598b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a110b0581faf03547bfa17c7857404cea"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a02474.html">Dune::DuneBoundaryProjection</a>&lt; <a class="el" href="a00941.html#acc4a01c16d41d4e3e6e5d058b86376ca">dimWorld</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02362.html#a110b0581faf03547bfa17c7857404cea">Projection</a></td></tr>
+<tr class="separator:a110b0581faf03547bfa17c7857404cea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66716e143ed6da0cca78debeb5298f4b"><td class="memItemLeft" align="right" valign="top">typedef std::shared_ptr&lt; const <a class="el" href="a02362.html#a110b0581faf03547bfa17c7857404cea">Projection</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02362.html#a66716e143ed6da0cca78debeb5298f4b">ProjectionPtr</a></td></tr>
+<tr class="separator:a66716e143ed6da0cca78debeb5298f4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7761890bf7cc6ea218e2cdb070647d2a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02362.html#a7761890bf7cc6ea218e2cdb070647d2a">hasProjection</a> (const <a class="el" href="a02362.html#ad1550f4077465c7fc0d05491fb509a50">ElementInfo</a> &amp;elementInfo, const int face) const</td></tr>
-<tr class="separator:a7761890bf7cc6ea218e2cdb070647d2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a92a7bd950690d26d875ef66c8806ecb6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02362.html#a92a7bd950690d26d875ef66c8806ecb6">hasProjection</a> (const <a class="el" href="a02362.html#ad1550f4077465c7fc0d05491fb509a50">ElementInfo</a> &amp;elementInfo) const</td></tr>
-<tr class="separator:a92a7bd950690d26d875ef66c8806ecb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9cf448acc7acf3f3d631f85ed8c48cd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a02362.html#a76fea749f25b269f49eddf429f3270de">Projection</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02362.html#ad9cf448acc7acf3f3d631f85ed8c48cd">projection</a> (const <a class="el" href="a02362.html#ad1550f4077465c7fc0d05491fb509a50">ElementInfo</a> &amp;elementInfo, const int face) const</td></tr>
-<tr class="separator:ad9cf448acc7acf3f3d631f85ed8c48cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afbd1d4e9a5f13b1947c883c1cc7fc021"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a02362.html#a76fea749f25b269f49eddf429f3270de">Projection</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02362.html#afbd1d4e9a5f13b1947c883c1cc7fc021">projection</a> (const <a class="el" href="a02362.html#ad1550f4077465c7fc0d05491fb509a50">ElementInfo</a> &amp;elementInfo) const</td></tr>
-<tr class="separator:afbd1d4e9a5f13b1947c883c1cc7fc021"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af53b81d8de95e41a69c00455095ee77c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02362.html#af53b81d8de95e41a69c00455095ee77c">DuneBoundaryProjection</a> (const <a class="el" href="a02362.html#a66716e143ed6da0cca78debeb5298f4b">ProjectionPtr</a> &amp;<a class="el" href="a02362.html#aef679e381f284fe33258e9dcf44af968">projection</a>)</td></tr>
+<tr class="separator:af53b81d8de95e41a69c00455095ee77c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d2652c60a2b69120e1f3a76ce9c955a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02362.html#a3d2652c60a2b69120e1f3a76ce9c955a">operator()</a> (const <a class="el" href="a02362.html#ad91d75760d6f3a027dadd0f2a84fb0c9">ElementInfo</a> &amp;, const <a class="el" href="a00941.html#a507da1d491ffc23d26a668371592cea7">LocalVector</a>, <a class="el" href="a00941.html#af1650cccce3ce5a4c8ab8eb240d3c58a">GlobalVector</a> global) const</td></tr>
+<tr class="separator:a3d2652c60a2b69120e1f3a76ce9c955a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef679e381f284fe33258e9dcf44af968"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a02362.html#a110b0581faf03547bfa17c7857404cea">Projection</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02362.html#aef679e381f284fe33258e9dcf44af968">projection</a> () const</td></tr>
+<tr class="separator:aef679e381f284fe33258e9dcf44af968"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a3f051b09b9c1cd336235b12db36c5216"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02362.html#a3f051b09b9c1cd336235b12db36c5216">dimension</a> = Projection::dimension</td></tr>
-<tr class="separator:a3f051b09b9c1cd336235b12db36c5216"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:a0307986c91a1737dca60fa8e1ed14c3b"><td class="memItemLeft" align="right" valign="top">const Impl &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02362.html#a0307986c91a1737dca60fa8e1ed14c3b">asImpl</a> () const</td></tr>
-<tr class="separator:a0307986c91a1737dca60fa8e1ed14c3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6db76baa668f52e4e4d2f0a735615bd5"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a02362.html#a6db76baa668f52e4e4d2f0a735615bd5">dimension</a> = dim</td></tr>
+<tr class="separator:a6db76baa668f52e4e4d2f0a735615bd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="ad1550f4077465c7fc0d05491fb509a50"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad1550f4077465c7fc0d05491fb509a50">&#9670;&nbsp;</a></span>ElementInfo</h2>
+<a id="ad91d75760d6f3a027dadd0f2a84fb0c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad91d75760d6f3a027dadd0f2a84fb0c9">&#9670;&nbsp;</a></span>ElementInfo</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Proj , class Impl &gt; </div>
+template&lt;int dim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="a01898.html">Alberta::ElementInfo</a>&lt; <a class="el" href="a02362.html#a3f051b09b9c1cd336235b12db36c5216">dimension</a> &gt; <a class="el" href="a02362.html">Dune::Alberta::ProjectionFactoryInterface</a>&lt; Proj, Impl &gt;::<a class="el" href="a02362.html#ad1550f4077465c7fc0d05491fb509a50">ElementInfo</a></td>
+          <td class="memname">typedef <a class="el" href="a01902.html">Alberta::ElementInfo</a>&lt; <a class="el" href="a02362.html#a6db76baa668f52e4e4d2f0a735615bd5">dimension</a> &gt; <a class="el" href="a02362.html">Dune::Alberta::DuneBoundaryProjection</a>&lt; dim &gt;::<a class="el" href="a02362.html#ad91d75760d6f3a027dadd0f2a84fb0c9">ElementInfo</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a76fea749f25b269f49eddf429f3270de"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a76fea749f25b269f49eddf429f3270de">&#9670;&nbsp;</a></span>Projection</h2>
+<a id="aa02ad95d87739e6ead1a11e74335598b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa02ad95d87739e6ead1a11e74335598b">&#9670;&nbsp;</a></span>GlobalCoordinate</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Proj , class Impl &gt; </div>
+template&lt;int dim&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">typedef Proj <a class="el" href="a02362.html">Dune::Alberta::ProjectionFactoryInterface</a>&lt; Proj, Impl &gt;::<a class="el" href="a02362.html#a76fea749f25b269f49eddf429f3270de">Projection</a></td>
+          <td class="memname">typedef FieldVector&lt; <a class="el" href="a00941.html#a86b942cdffce80f98973c987ea6246da">Real</a>, <a class="el" href="a00941.html#acc4a01c16d41d4e3e6e5d058b86376ca">dimWorld</a> &gt; <a class="el" href="a02362.html">Dune::Alberta::DuneBoundaryProjection</a>&lt; dim &gt;::<a class="el" href="a02362.html#aa02ad95d87739e6ead1a11e74335598b">GlobalCoordinate</a></td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a110b0581faf03547bfa17c7857404cea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a110b0581faf03547bfa17c7857404cea">&#9670;&nbsp;</a></span>Projection</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="a02474.html">Dune::DuneBoundaryProjection</a>&lt; <a class="el" href="a00941.html#acc4a01c16d41d4e3e6e5d058b86376ca">dimWorld</a> &gt; <a class="el" href="a02362.html">Dune::Alberta::DuneBoundaryProjection</a>&lt; dim &gt;::<a class="el" href="a02362.html#a110b0581faf03547bfa17c7857404cea">Projection</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a66716e143ed6da0cca78debeb5298f4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66716e143ed6da0cca78debeb5298f4b">&#9670;&nbsp;</a></span>ProjectionPtr</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::shared_ptr&lt; const <a class="el" href="a02362.html#a110b0581faf03547bfa17c7857404cea">Projection</a> &gt; <a class="el" href="a02362.html">Dune::Alberta::DuneBoundaryProjection</a>&lt; dim &gt;::<a class="el" href="a02362.html#a66716e143ed6da0cca78debeb5298f4b">ProjectionPtr</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="af53b81d8de95e41a69c00455095ee77c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af53b81d8de95e41a69c00455095ee77c">&#9670;&nbsp;</a></span>DuneBoundaryProjection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a02362.html">Dune::Alberta::DuneBoundaryProjection</a>&lt; dim &gt;::<a class="el" href="a02362.html">DuneBoundaryProjection</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a02362.html#a66716e143ed6da0cca78debeb5298f4b">ProjectionPtr</a> &amp;&#160;</td>
+          <td class="paramname"><em>projection</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a0307986c91a1737dca60fa8e1ed14c3b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0307986c91a1737dca60fa8e1ed14c3b">&#9670;&nbsp;</a></span>asImpl()</h2>
+<a id="a3d2652c60a2b69120e1f3a76ce9c955a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d2652c60a2b69120e1f3a76ce9c955a">&#9670;&nbsp;</a></span>operator()()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Proj , class Impl &gt; </div>
+template&lt;int dim&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const Impl&amp; <a class="el" href="a02362.html">Dune::Alberta::ProjectionFactoryInterface</a>&lt; Proj, Impl &gt;::asImpl </td>
+          <td class="memname">void <a class="el" href="a02362.html">Dune::Alberta::DuneBoundaryProjection</a>&lt; dim &gt;::operator() </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a02362.html#ad91d75760d6f3a027dadd0f2a84fb0c9">ElementInfo</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const&#160;</td>
+          <td class="paramname"><em>LocalVector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00941.html#af1650cccce3ce5a4c8ab8eb240d3c58a">GlobalVector</a>&#160;</td>
+          <td class="paramname"><em>global</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aef679e381f284fe33258e9dcf44af968"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef679e381f284fe33258e9dcf44af968">&#9670;&nbsp;</a></span>projection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int dim&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a02362.html#a110b0581faf03547bfa17c7857404cea">Projection</a>&amp; <a class="el" href="a02362.html">Dune::Alberta::DuneBoundaryProjection</a>&lt; dim &gt;::projection </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a92a7bd950690d26d875ef66c8806ecb6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a92a7bd950690d26d875ef66c8806ecb6">&#9670;&nbsp;</a></span>hasProjection() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class Proj , class Impl &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="a02362.html">Dune::Alberta::ProjectionFactoryInterface</a>&lt; Proj, Impl &gt;::hasProjection </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a02362.html#ad1550f4077465c7fc0d05491fb509a50">ElementInfo</a> &amp;&#160;</td>
-          <td class="paramname"><em>elementInfo</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a7761890bf7cc6ea218e2cdb070647d2a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7761890bf7cc6ea218e2cdb070647d2a">&#9670;&nbsp;</a></span>hasProjection() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class Proj , class Impl &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="a02362.html">Dune::Alberta::ProjectionFactoryInterface</a>&lt; Proj, Impl &gt;::hasProjection </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a02362.html#ad1550f4077465c7fc0d05491fb509a50">ElementInfo</a> &amp;&#160;</td>
-          <td class="paramname"><em>elementInfo</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>face</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="afbd1d4e9a5f13b1947c883c1cc7fc021"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afbd1d4e9a5f13b1947c883c1cc7fc021">&#9670;&nbsp;</a></span>projection() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class Proj , class Impl &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a02362.html#a76fea749f25b269f49eddf429f3270de">Projection</a> <a class="el" href="a02362.html">Dune::Alberta::ProjectionFactoryInterface</a>&lt; Proj, Impl &gt;::projection </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a02362.html#ad1550f4077465c7fc0d05491fb509a50">ElementInfo</a> &amp;&#160;</td>
-          <td class="paramname"><em>elementInfo</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ad9cf448acc7acf3f3d631f85ed8c48cd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad9cf448acc7acf3f3d631f85ed8c48cd">&#9670;&nbsp;</a></span>projection() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class Proj , class Impl &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a02362.html#a76fea749f25b269f49eddf429f3270de">Projection</a> <a class="el" href="a02362.html">Dune::Alberta::ProjectionFactoryInterface</a>&lt; Proj, Impl &gt;::projection </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a02362.html#ad1550f4077465c7fc0d05491fb509a50">ElementInfo</a> &amp;&#160;</td>
-          <td class="paramname"><em>elementInfo</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>face</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
         </tr>
       </table>
   </td>
@@ -314,19 +270,19 @@ template&lt;class Proj , class Impl &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a3f051b09b9c1cd336235b12db36c5216"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3f051b09b9c1cd336235b12db36c5216">&#9670;&nbsp;</a></span>dimension</h2>
+<a id="a6db76baa668f52e4e4d2f0a735615bd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6db76baa668f52e4e4d2f0a735615bd5">&#9670;&nbsp;</a></span>dimension</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Proj , class Impl &gt; </div>
+template&lt;int dim&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const int <a class="el" href="a02362.html">Dune::Alberta::ProjectionFactoryInterface</a>&lt; Proj, Impl &gt;::dimension = Projection::dimension</td>
+          <td class="memname">const int <a class="el" href="a02362.html">Dune::Alberta::DuneBoundaryProjection</a>&lt; dim &gt;::dimension = dim</td>
         </tr>
       </table>
   </td>
@@ -339,7 +295,7 @@ template&lt;class Proj , class Impl &gt; </div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="a06869_source.html">albertagrid/projection.hh</a></li>
+<li><a class="el" href="a06780_source.html">albertagrid/projection.hh</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
