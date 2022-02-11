@@ -54,7 +54,7 @@ endif()
 add_library(dunegmsh4 STATIC IMPORTED)
 
 set_target_properties(dunegmsh4 PROPERTIES
-  INTERFACE_LINK_LIBRARIES "Threads::Threads;dunealugrid;dunegrid;dunegeometry;dunecommon;METIS::METIS;QuadMath::QuadMath;C:/ID/Dependencies_release/lib/libopenblas.a;dunealugrid;dunegrid;dunegeometry;dunecommon"
+  INTERFACE_LINK_LIBRARIES "Threads::Threads;dunealugrid;dunegrid;dunegeometry;dunecommon;METIS::METIS;QuadMath::QuadMath;${_IMPORT_PREFIX}/lib/libopenblas.a;dunealugrid;dunegrid;dunegeometry;dunecommon"
 )
 
 if(CMAKE_VERSION VERSION_LESS 2.8.12)

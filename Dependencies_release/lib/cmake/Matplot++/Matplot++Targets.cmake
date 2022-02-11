@@ -62,7 +62,7 @@ add_library(Matplot++::cimg INTERFACE IMPORTED)
 
 set_target_properties(Matplot++::cimg PROPERTIES
   INTERFACE_COMPILE_DEFINITIONS "cimg_use_lapack;cimg_use_blas;cimg_display=2"
-  INTERFACE_LINK_LIBRARIES "C:/ID/Dependencies_release/lib/libopenblas.a;C:/ID/Dependencies_release/lib/libopenblas.a;gdi32"
+  INTERFACE_LINK_LIBRARIES "${_IMPORT_PREFIX}/lib/libopenblas.a;${_IMPORT_PREFIX}/lib/libopenblas.a;gdi32"
 )
 
 # Create imported target Matplot++::matplot

@@ -39,15 +39,6 @@ ExternalProject_Add(openBlas
         BUILD_COMMAND  ${CMAKE_COMMAND} --build . --config ${CMAKE_BUILD_TYPE}  --target install
         )
 
-# ExternalProject_Add(lapack
-#         GIT_REPOSITORY https://github.com/Reference-LAPACK/lapack.git
-#         GIT_TAG v3.9.1
-#         GIT_SHALLOW TRUE
-#         GIT_PROGRESS TRUE
-#         INSTALL_DIR    ${installDir}
-#         CMAKE_ARGS     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR> ${CL_ARGS}
-#         )
-
 ExternalProject_Add(eigen
         GIT_REPOSITORY https://gitlab.com/libeigen/eigen.git
         GIT_TAG 3.4
@@ -236,7 +227,16 @@ ExternalProject_Add(dune-gmsh4
         BUILD_COMMAND  ${CMAKE_COMMAND} --build . --config ${CMAKE_BUILD_TYPE} --target dunegmsh4
         )
 
-
+ExternalProject_Add(dune-foamgrid
+        GIT_REPOSITORY https://gitlab.dune-project.org/extensions/dune-foamgrid.git
+        GIT_TAG releases/2.8
+        GIT_SHALLOW TRUE
+        GIT_PROGRESS TRUE
+        INSTALL_DIR    ${installDir}
+        DEPENDS dune-common dune-geometry dune-grid openBlas
+        CMAKE_ARGS     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR> ${CL_ARGS}
+        # BUILD_COMMAND  ${CMAKE_COMMAND} --build . --config ${CMAKE_BUILD_TYPE} --target dunefoamgrid
+        )
 
 ExternalProject_Add(muesli
         URL https://materials.imdea.org/wp-content/uploads/muesli-1.8.zip
