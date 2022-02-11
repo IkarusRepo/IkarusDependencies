@@ -54,7 +54,7 @@ endif()
 add_library(dunecommon STATIC IMPORTED)
 
 set_target_properties(dunecommon PROPERTIES
-  INTERFACE_LINK_LIBRARIES "Threads::Threads"
+  INTERFACE_LINK_LIBRARIES "Threads::Threads;C:/ID/Dependencies_release/lib/libopenblas.a"
 )
 
 if(CMAKE_VERSION VERSION_LESS 2.8.12)

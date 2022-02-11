@@ -29,15 +29,38 @@ endif()
 set(CMAKE_SKIP_INSTALL_ALL_DEPENDENCY true)
 include(ExternalProject)
 
-ExternalProject_Add(lapack
-        GIT_REPOSITORY https://github.com/Reference-LAPACK/lapack.git
-        GIT_TAG v3.9.1
+ExternalProject_Add(openBlas
+        GIT_REPOSITORY https://github.com/xianyi/OpenBLAS.git
+        GIT_TAG v0.3.19
         GIT_SHALLOW TRUE
         GIT_PROGRESS TRUE
         INSTALL_DIR    ${installDir}
         CMAKE_ARGS     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR> ${CL_ARGS}
+        BUILD_COMMAND  ${CMAKE_COMMAND} --build . --config ${CMAKE_BUILD_TYPE}  --target install
         )
-include(CPM.cmake)
+
+# ExternalProject_Add(lapack
+#         GIT_REPOSITORY https://github.com/Reference-LAPACK/lapack.git
+#         GIT_TAG v3.9.1
+#         GIT_SHALLOW TRUE
+#         GIT_PROGRESS TRUE
+#         INSTALL_DIR    ${installDir}
+#         CMAKE_ARGS     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR> ${CL_ARGS}
+#         )
+
+ExternalProject_Add(eigen
+        GIT_REPOSITORY https://gitlab.com/libeigen/eigen.git
+        GIT_TAG 3.4
+        GIT_SHALLOW TRUE
+        GIT_PROGRESS TRUE
+        INSTALL_DIR    ${installDir}
+        DEPENDS openBlas
+        CMAKE_ARGS     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR> ${CL_ARGS} -DEIGEN_BUILD_DOC=OFF -DBUILD_TESTING=OFF
+        BUILD_COMMAND  ${CMAKE_COMMAND} --build . --config ${CMAKE_BUILD_TYPE}  --target blas lapack
+        )
+
+
+# include(CPM.cmake)
 
 ExternalProject_Add(matplotplusplus
        GIT_REPOSITORY https://github.com/alandefreitas/matplotplusplus.git
@@ -45,10 +68,9 @@ ExternalProject_Add(matplotplusplus
        GIT_PROGRESS TRUE
        INSTALL_DIR    ${installDir}
       CMAKE_ARGS     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR> -DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF
-      # DEPENDS lapack
+      DEPENDS openBlas
       # BUILD_COMMAND  ${CMAKE_COMMAND} --build . --config ${CMAKE_BUILD_TYPE}  --target matplot
       )
-
 
 
 ExternalProject_Add(spdlog
@@ -87,8 +109,8 @@ ExternalProject_Add(suitesparse
         GIT_PROGRESS TRUE
         INSTALL_DIR    ${installDir}
         CMAKE_ARGS     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR> ${CL_ARGS} -DGKLIB_PATH=<SOURCE_DIR>/SuiteSparse/metis-5.1.0/GKlib
-        DEPENDS lapack
-        # PATCH_COMMAND patch -p1 -N -i ${PROJECT_SOURCE_DIR}/bugfixCompileMetisWithMinGW.patch
+        DEPENDS openBlas
+         PATCH_COMMAND patch -p1 -N -i ${PROJECT_SOURCE_DIR}/bugfixCompileMetisWithMinGW.patch
         )
 
 ExternalProject_Add(dune-common
@@ -97,7 +119,7 @@ ExternalProject_Add(dune-common
         GIT_PROGRESS TRUE
         GIT_TAG releases/2.8
         INSTALL_DIR    ${installDir}
-        DEPENDS suitesparse lapack
+        DEPENDS suitesparse openBlas
         CMAKE_ARGS     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR> ${CL_ARGS}
         BUILD_COMMAND  ${CMAKE_COMMAND} --build . --config ${CMAKE_BUILD_TYPE} --target dunecommon
         )
@@ -108,7 +130,7 @@ ExternalProject_Add(dune-geometry
         GIT_SHALLOW TRUE
         GIT_PROGRESS TRUE
         INSTALL_DIR    ${installDir}
-        DEPENDS suitesparse dune-common lapack
+        DEPENDS suitesparse dune-common openBlas
         CMAKE_ARGS     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR> ${CL_ARGS}
         BUILD_COMMAND  ${CMAKE_COMMAND} --build . --config ${CMAKE_BUILD_TYPE} --target dunegeometry
         )
@@ -118,7 +140,7 @@ ExternalProject_Add(dune-grid
         GIT_SHALLOW TRUE
         GIT_PROGRESS TRUE
         INSTALL_DIR    ${installDir}
-        DEPENDS suitesparse dune-common dune-geometry lapack
+        DEPENDS suitesparse dune-common dune-geometry openBlas
         CMAKE_ARGS     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR> ${CL_ARGS}
         BUILD_COMMAND  ${CMAKE_COMMAND} --build . --config ${CMAKE_BUILD_TYPE} --target dunegrid
         )
@@ -129,7 +151,7 @@ ExternalProject_Add(dune-localfunctions
         GIT_SHALLOW TRUE
         GIT_PROGRESS TRUE
         INSTALL_DIR    ${installDir}
-        DEPENDS dune-geometry dune-common
+        DEPENDS dune-geometry dune-common openBlas
         CMAKE_ARGS     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR> ${CL_ARGS}
         # BUILD_COMMAND  ${CMAKE_COMMAND} --build . --config ${CMAKE_BUILD_TYPE} --target dunelocalfunctions
         )
@@ -140,7 +162,7 @@ ExternalProject_Add(dune-istl
         GIT_SHALLOW TRUE
         GIT_PROGRESS TRUE
         INSTALL_DIR    ${installDir}
-        DEPENDS dune-common
+        DEPENDS dune-common openBlas
         CMAKE_ARGS     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR> ${CL_ARGS}
         # BUILD_COMMAND  ${CMAKE_COMMAND} --build . --config ${CMAKE_BUILD_TYPE} --target duneistl
         )
@@ -151,7 +173,7 @@ ExternalProject_Add(dune-typetree
         GIT_SHALLOW TRUE
         GIT_PROGRESS TRUE
         INSTALL_DIR    ${installDir}
-        DEPENDS dune-common
+        DEPENDS dune-common openBlas
         CMAKE_ARGS     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR> ${CL_ARGS}
         # BUILD_COMMAND  ${CMAKE_COMMAND} --build . --config ${CMAKE_BUILD_TYPE} --target dunetypetree
         )
@@ -163,7 +185,7 @@ ExternalProject_Add(dune-functions
         GIT_SHALLOW TRUE
         GIT_PROGRESS TRUE
         INSTALL_DIR    ${installDir}
-        DEPENDS dune-localfunctions dune-grid dune-istl dune-typetree dune-common
+        DEPENDS dune-localfunctions dune-grid dune-istl dune-typetree dune-common openBlas
         CMAKE_ARGS     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR> ${CL_ARGS}
         # BUILD_COMMAND  ${CMAKE_COMMAND} --build . --config ${CMAKE_BUILD_TYPE} --target dunefunctions
         )
@@ -174,7 +196,7 @@ ExternalProject_Add(dune-iga
         GIT_SHALLOW TRUE
         GIT_PROGRESS TRUE
         INSTALL_DIR    ${installDir}
-        DEPENDS dune-common dune-geometry dune-functions dune-typetree
+        DEPENDS dune-common dune-geometry dune-functions dune-typetree openBlas
         CMAKE_ARGS     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR> ${CL_ARGS}
         # BUILD_COMMAND  ${CMAKE_COMMAND} --build . --config ${CMAKE_BUILD_TYPE} --target duneiga
         )
@@ -185,8 +207,8 @@ ExternalProject_Add(dune-grid-glue
         GIT_SHALLOW TRUE
         GIT_PROGRESS TRUE
         INSTALL_DIR    ${installDir}
-        DEPENDS dune-common dune-geometry  dune-grid
-        #PATCH_COMMAND patch -p1 -N -i ${PROJECT_SOURCE_DIR}/dune-grid-glue_MPI_fix.patch
+        DEPENDS dune-common dune-geometry  dune-grid openBlas
+        PATCH_COMMAND patch -p1 -N -i ${PROJECT_SOURCE_DIR}/dune-grid-glue_MPI_fix.patch
         CMAKE_ARGS     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR> ${CL_ARGS}
         BUILD_COMMAND  ${CMAKE_COMMAND} --build . --config ${CMAKE_BUILD_TYPE} --target dunegridglue
         )
@@ -197,8 +219,8 @@ ExternalProject_Add(dune-alugrid
         GIT_SHALLOW TRUE
         GIT_PROGRESS TRUE
         INSTALL_DIR    ${installDir}
-        DEPENDS dune-common dune-geometry dune-grid
-       # PATCH_COMMAND patch -p1 -N -i ${PROJECT_SOURCE_DIR}/bugfigMinGWAluGrid.patch
+        DEPENDS dune-common dune-geometry dune-grid openBlas
+        PATCH_COMMAND patch -p1 -N -i ${PROJECT_SOURCE_DIR}/bugfigMinGWAluGrid.patch
         CMAKE_ARGS     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR> ${CL_ARGS}
         BUILD_COMMAND  ${CMAKE_COMMAND} --build . --config ${CMAKE_BUILD_TYPE} --target dunealugrid
         )
@@ -209,27 +231,19 @@ ExternalProject_Add(dune-gmsh4
         GIT_SHALLOW TRUE
         GIT_PROGRESS TRUE
         INSTALL_DIR    ${installDir}
-        DEPENDS dune-grid dune-common dune-alugrid
+        DEPENDS dune-grid dune-common dune-alugrid openBlas
         CMAKE_ARGS     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR> ${CL_ARGS}
         BUILD_COMMAND  ${CMAKE_COMMAND} --build . --config ${CMAKE_BUILD_TYPE} --target dunegmsh4
         )
 
-ExternalProject_Add(eigen
-        GIT_REPOSITORY https://gitlab.com/libeigen/eigen.git
-        GIT_TAG 3.4
-        GIT_SHALLOW TRUE
-        GIT_PROGRESS TRUE
-        INSTALL_DIR    ${installDir}
-        CMAKE_ARGS     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR> ${CL_ARGS} -DEIGEN_BUILD_DOC=OFF -DBUILD_TESTING=OFF
-        BUILD_COMMAND ""
-        )
+
 
 ExternalProject_Add(muesli
         URL https://materials.imdea.org/wp-content/uploads/muesli-1.8.zip
         GIT_PROGRESS TRUE
         INSTALL_DIR    ${installDir}
         CMAKE_ARGS     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR> ${CL_ARGS}
-        DEPENDS eigen
+        DEPENDS eigen openBlas
         PATCH_COMMAND patch -p1 -N -i ${PROJECT_SOURCE_DIR}/MuesliFix.patch
         )
         
@@ -240,7 +254,7 @@ ExternalProject_Add(autodiff
         GIT_PROGRESS TRUE
         INSTALL_DIR    ${installDir}
         CMAKE_ARGS     -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR> ${CL_ARGS} -DAUTODIFF_BUILD_PYTHON=0 -DAUTODIFF_BUILD_EXAMPLES=0 -DAUTODIFF_BUILD_DOCS=0 -DAUTODIFF_BUILD_TESTS=0
-        DEPENDS eigen
+        DEPENDS eigen openBlas
         BUILD_COMMAND ""
         )
 
