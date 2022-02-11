@@ -1,0 +1,60 @@
+diff --git a/dune/alugrid/impl/serial/gitter_geo.cc b/dune/alugrid/impl/serial/gitter_geo.cc
+index 8205de8..fba7aad 100644
+--- a/dune/alugrid/impl/serial/gitter_geo.cc
++++ b/dune/alugrid/impl/serial/gitter_geo.cc
+@@ -20,6 +20,14 @@
+ namespace ALUGrid
+ {
+
++#ifdef __GNUC__
++#ifdef __MINGW32__
++#define RANDBETWEENZEROANDONE (rand() / (RAND_MAX + 1.0))
++#endif
++#else
++#define RANDBETWEENZEROANDONE  drand48()
++#endif
++
+   const std::pair< Gitter::Geometric::hasFace3 *, int > Gitter::Geometric::hface3::face3Neighbour::null
+     = std::pair< Gitter::Geometric::hasFace3 *, int > (
+         & (Gitter::Geometric::hasFaceEmpty::instance() ), -1);
+@@ -457,7 +465,11 @@ namespace ALUGrid
+           myvertex(5)->Point(), myvertex(6)->Point(), myvertex(7)->Point());
+       alucoord_t p [3];
+       for (int i = 0; i < resolution; i ++ ) {
+-        map.map2world (2.0 * drand48 () - 1.0, 2.0 * drand48 () - 1.0, 2.0 * drand48 () - 1.0, p);
++
++     
++
++        map.map2world (2.0 * RANDBETWEENZEROANDONE - 1.0, 2.0 * RANDBETWEENZEROANDONE - 1.0, 2.0 * RANDBETWEENZEROANDONE - 1.0, p);
++
+         if (insideBall (p,center,radius)) { hit = true; break; }
+       }
+     }
+diff --git a/dune/alugrid/impl/serial/gitter_sti.cc b/dune/alugrid/impl/serial/gitter_sti.cc
+index 75e1874..383a1a2 100644
+--- a/dune/alugrid/impl/serial/gitter_sti.cc
++++ b/dune/alugrid/impl/serial/gitter_sti.cc
+@@ -14,6 +14,14 @@ namespace ALUGrid
+ {
+   Gitter::Makrogitter::MkGitName Gitter::Makrogitter::_msg( inMkGiter() );
+
++#ifdef __GNUC__
++#ifdef __MINGW32__
++#define RANDBETWEENZEROANDONE (rand() / (RAND_MAX + 1.0))
++#endif
++#else
++#define RANDBETWEENZEROANDONE  drand48()
++#endif
++
+ #ifdef ALUGRIDDEBUG
+ #ifdef DEBUG_ALUGRID
+   Refcount::Globalcount Refcount::_g;
+@@ -828,7 +836,7 @@ namespace ALUGrid
+       {
+         leaf_element__macro_element__iterator w (container ());
+         for (w.first (); ! w.done (); w.next ())
+-          if( drand48 () < p )  w.item ().tagForGlobalRefinement ();
++          if( RANDBETWEENZEROANDONE < p )  w.item ().tagForGlobalRefinement ();
+       }
+       adapt ();
+       if( debugOption( 2 ) )
